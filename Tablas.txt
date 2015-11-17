@@ -1,4 +1,9 @@
-PROFESORES: id_profesor, dni, nombre, apellidos, correo, contraseña, administrador, jefe_estudios, tarjeta_activada
-ALUMNOS: id_alumno, dni, nomre, apellidos, correo, tarjeta_activada
+***MYSQL***
+
+PERSONAS: id_persona, dni, nombre, apellidos, correo, contraseña, administrador, jefe_estudios, tarjeta_activada, num_tarjeta, prencia
+HORARIOS: id_hora, dia_semana, hora_inicio, hora_fin
 AULAS: id_aula, numero, piso, capacidad
 ASIGNATURAS: cod_asignatura, nombre, tipo
+
+***MONGODB***
+PRESENCIA: (info persona), (info hora), (info asignatura), (info aula)

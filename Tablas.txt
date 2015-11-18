@@ -1,6 +1,6 @@
-# BASES DE DATOS
+BASES DE DATOS
 
-## ***MYSQL***
+***MYSQL***
 
 PERSONAS:id_persona, dni, nombre, apellidos, correo, contraseña, administrador, jefe_estudios, tarjeta_activada, num_tarjeta, presencia
 
@@ -8,7 +8,7 @@ HORARIOS: id_hora, dia_semana, hora_inicio, hora_fin
 AULAS: id_aula, numero, piso, capacidad
 ASIGNATURAS: cod_asignatura, nombre, tipo
 
-## ***MONGODB***
+***MONGODB***
 
 PRESENCIA: (info persona), (info hora), (info asignatura), (info aula)
 PERSONAS_OLD: id_persona, dni, nombre, apellidos, correo, contraseña, administrador, jefe_estudios, tarjeta_activada, num_tarjeta, presencia

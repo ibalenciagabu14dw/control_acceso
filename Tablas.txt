@@ -7,4 +7,4 @@ ASIGNATURAS: cod_asignatura, nombre, tipo
 
 ***MONGODB***
 PRESENCIA: (info persona), (info hora), (info asignatura), (info aula)
-PERSONAS_OLD: id_persona, dni, nombre, apellidos, correo, contraseña, administrador, jefe_estudios, tarjeta_activada, num_tarjeta, prencia
+PERSONAS_OLD: id_persona, dni, nombre, apellidos, correo, contraseña, administrador, jefe_estudios, tarjeta_activada, num_tarjeta, presencia

@@ -1,4 +1,6 @@
 var express = require('express');
+//require handlebars
+//exphbs = require('express-handlebars');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -7,10 +9,14 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var config = require('./routes/config');
+var vistaProfesor = require('./routes/vistaProfesor');
 
 var app = express();
 
-// view engine setup
+// view engine setup Cambio Jade por handlebars
+//app.engine('handlebars', exphbs());
+//app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -24,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/config',config);
+app.use('/vistaProfesor',vistaProfesor);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

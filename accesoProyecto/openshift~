@@ -1,0 +1,14 @@
+ URL:        http://controlacceso-zubiri.rhcloud.com/
+  SSH to:     565c216589f5cf6532000138@controlacceso-zubiri.rhcloud.com
+  Git remote: ssh://565c216589f5cf6532000138@controlacceso-zubiri.rhcloud.com/~/git/controlacceso.git/
+
+mysql-5.5 (MySQL 5.5)
+---------------------
+  Gears:          Located with php-5.4
+  Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+  Database Name:  controlacceso
+  Password:       54spbiXxlsS9
+  Username:       adminUn9KCxR
+
+
+

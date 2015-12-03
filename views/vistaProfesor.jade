@@ -2,6 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-
+  p #{title} 
+  button#botonHorarioProfesor(class="btn btn-default") Horario
+  br
   a(href='/') Volver
+  div#horario
+   p Horario profesor

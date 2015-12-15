@@ -11,14 +11,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
-var configApariencia = require('./routes/configApariencia');
-var configBasedeDatos = require('./routes/configBasedeDatos');
-var configClases = require('./routes/configClases');
-var configDispositivos = require('./routes/configDispositivos');
-var configGlobal = require('./routes/configGlobal');
-var configHorario = require('./routes/configHorario');
-var configMaterias = require('./routes/configMaterias');
-var configPersonas = require('./routes/configPersonas');
 var presencia = require('./routes/presencia');
 
 
@@ -42,14 +34,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
-app.use('/configApariencia',configApariencia);
-app.use('/configBasedeDatos', configBasedeDatos);
-app.use('/configClases',configClases);
-app.use('/configDispositivos',configDispositivos);
-app.use('/configGlobal',configGlobal);
-app.use('/configHorario',configHorario);
-app.use('/configMaterias',configMaterias);
-app.use('/configPersonas',configPersonas);
 app.use('/presencia', presencia);
 
 // catch 404 and forward to error handler

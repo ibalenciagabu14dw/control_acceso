@@ -19,6 +19,7 @@ var configGlobal = require('./routes/configGlobal');
 var configHorario = require('./routes/configHorario');
 var configMaterias = require('./routes/configMaterias');
 var configPersonas = require('./routes/configPersonas');
+var presencia = require('./routes/presencia');
 
 
 var app = express();
@@ -49,6 +50,7 @@ app.use('/configGlobal',configGlobal);
 app.use('/configHorario',configHorario);
 app.use('/configMaterias',configMaterias);
 app.use('/configPersonas',configPersonas);
+app.use('/presencia', presencia);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

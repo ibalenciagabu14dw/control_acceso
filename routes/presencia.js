@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 				//si existe el usuario mostramos el formulario
 				if (typeof data !== 'undefined' && data.length > 0)
 				{
-					res.send(data.presencia);
+					res.send(data[0].presencia);
 					//res.status(200).json(data);
 				}
 				//en otro caso mostramos un error

@@ -1,16 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 16, 2015 at 12:31 PM
--- Server version: 5.5.46
--- PHP Version: 5.3.10-1ubuntu3.21
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-12-2015 a las 15:42:38
+-- Versión del servidor: 5.5.44-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4.13
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-create database if not exists controlfid;
-  use controlfid;
+
+CREATE database IF NOT EXISTS controlfid;
+ USE controlfid;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,13 +19,13 @@ create database if not exists controlfid;
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `controlfid`
+-- Base de datos: `controlfid`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alumnos`
+-- Estructura de tabla para la tabla `alumnos`
 --
 
 CREATE TABLE IF NOT EXISTS `alumnos` (
@@ -43,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `alumnos`
+-- Volcado de datos para la tabla `alumnos`
 --
 
 INSERT INTO `alumnos` (`id_alumno`, `dni`, `nombre`, `apellidos`, `correo`, `foto`, `tarjetaActivada`, `num_tarjeta`, `presencia`) VALUES
@@ -60,7 +61,7 @@ INSERT INTO `alumnos` (`id_alumno`, `dni`, `nombre`, `apellidos`, `correo`, `fot
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alumno_grupos`
+-- Estructura de tabla para la tabla `alumno_grupos`
 --
 
 CREATE TABLE IF NOT EXISTS `alumno_grupos` (
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `alumno_grupos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `alumno_grupos`
+-- Volcado de datos para la tabla `alumno_grupos`
 --
 
 INSERT INTO `alumno_grupos` (`id_alumno_grupos`, `id_alumno`, `id_grupo`) VALUES
@@ -86,7 +87,7 @@ INSERT INTO `alumno_grupos` (`id_alumno_grupos`, `id_alumno`, `id_grupo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asignatura`
+-- Estructura de tabla para la tabla `asignatura`
 --
 
 CREATE TABLE IF NOT EXISTS `asignatura` (
@@ -97,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `asignatura`
+-- Volcado de datos para la tabla `asignatura`
 --
 
 INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `clave`) VALUES
@@ -109,7 +110,7 @@ INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `clave`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aula`
+-- Estructura de tabla para la tabla `aula`
 --
 
 CREATE TABLE IF NOT EXISTS `aula` (
@@ -121,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `aula` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=103 ;
 
 --
--- Dumping data for table `aula`
+-- Volcado de datos para la tabla `aula`
 --
 
 INSERT INTO `aula` (`id_aula`, `numero`, `piso`, `capacidad`) VALUES
@@ -131,11 +132,11 @@ INSERT INTO `aula` (`id_aula`, `numero`, `piso`, `capacidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faltas`
+-- Estructura de tabla para la tabla `faltas`
 --
 
 CREATE TABLE IF NOT EXISTS `faltas` (
-  `id_faltas` int(4) NOT NULL,
+  `id_faltas` int(4) NOT NULL AUTO_INCREMENT,
   `fecha` datetime DEFAULT NULL,
   `id_alumno` int(4) NOT NULL,
   `id_horarioGrupo` int(4) NOT NULL,
@@ -143,25 +144,25 @@ CREATE TABLE IF NOT EXISTS `faltas` (
   PRIMARY KEY (`id_faltas`),
   KEY `fk_faltas_alumnos1_idx` (`id_alumno`),
   KEY `fk_faltas_horarioGrupo1_idx` (`id_horarioGrupo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grupo`
+-- Estructura de tabla para la tabla `grupo`
 --
 
 CREATE TABLE IF NOT EXISTS `grupo` (
-  `id_grupo` int(4) NOT NULL,
+  `id_grupo` int(4) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `tipo` enum('Bachiller','FP') DEFAULT NULL,
   `idsubgrupo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_grupo`),
   UNIQUE KEY `idsubgrupo_UNIQUE` (`idsubgrupo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `grupo`
+-- Volcado de datos para la tabla `grupo`
 --
 
 INSERT INTO `grupo` (`id_grupo`, `nombre`, `tipo`, `idsubgrupo`) VALUES
@@ -171,11 +172,11 @@ INSERT INTO `grupo` (`id_grupo`, `nombre`, `tipo`, `idsubgrupo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horario_grupo`
+-- Estructura de tabla para la tabla `horario_grupo`
 --
 
 CREATE TABLE IF NOT EXISTS `horario_grupo` (
-  `id_horario_grupo` int(4) NOT NULL,
+  `id_horario_grupo` int(4) NOT NULL AUTO_INCREMENT,
   `dia_semana` enum('Lunes','Martes','Miercoles','Jueves','Viernes') DEFAULT NULL,
   `hora_inicio` time DEFAULT NULL,
   `hora_final` time DEFAULT NULL,
@@ -186,10 +187,10 @@ CREATE TABLE IF NOT EXISTS `horario_grupo` (
   KEY `fk_horarioGrupo_grupo1_idx` (`id_grupo`),
   KEY `fk_horarioGrupo_asignatura1_idx` (`id_asignatura`),
   KEY `fk_horarioGrupo_aula1_idx` (`id_aula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `horario_grupo`
+-- Volcado de datos para la tabla `horario_grupo`
 --
 
 INSERT INTO `horario_grupo` (`id_horario_grupo`, `dia_semana`, `hora_inicio`, `hora_final`, `id_grupo`, `id_asignatura`, `id_aula`) VALUES
@@ -199,33 +200,34 @@ INSERT INTO `horario_grupo` (`id_horario_grupo`, `dia_semana`, `hora_inicio`, `h
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horario_profesor`
+-- Estructura de tabla para la tabla `horario_profesor`
 --
 
 CREATE TABLE IF NOT EXISTS `horario_profesor` (
-  `id_horario_profesor` int(4) NOT NULL,
+  `id_horario_profesor` int(4) NOT NULL AUTO_INCREMENT,
   `dia_semana` enum('Lunes','Martes','Miercoles','Jueves','Viernes') DEFAULT NULL,
   `hora_inicio` time DEFAULT NULL,
   `hora_final` time DEFAULT NULL,
   `id_profesor` int(4) NOT NULL,
   `id_horario_grupo` int(4) NOT NULL,
   PRIMARY KEY (`id_horario_profesor`),
-  UNIQUE KEY `id_horario_grupo` (`id_horario_grupo`),
-  KEY `fk_horarioProfesor_profesor1_idx` (`id_profesor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_horarioProfesor_profesor1_idx` (`id_profesor`),
+  KEY `fk_horarioGrupo_profesor1_idx` (`id_horario_grupo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `horario_profesor`
+-- Volcado de datos para la tabla `horario_profesor`
 --
 
 INSERT INTO `horario_profesor` (`id_horario_profesor`, `dia_semana`, `hora_inicio`, `hora_final`, `id_profesor`, `id_horario_grupo`) VALUES
 (1, 'Lunes', '08:00:00', '09:00:00', 1, 1),
-(2, 'Lunes', '09:00:00', '10:00:00', 1, 2);
+(2, 'Lunes', '09:00:00', '10:00:00', 1, 2),
+(3, 'Miercoles', '08:00:00', '09:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matricula`
+-- Estructura de tabla para la tabla `matricula`
 --
 
 CREATE TABLE IF NOT EXISTS `matricula` (
@@ -238,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `matricula` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `matricula`
+-- Volcado de datos para la tabla `matricula`
 --
 
 INSERT INTO `matricula` (`id_matricula`, `id_alumno`, `id_asignatura`) VALUES
@@ -250,7 +252,7 @@ INSERT INTO `matricula` (`id_matricula`, `id_alumno`, `id_asignatura`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profesor`
+-- Estructura de tabla para la tabla `profesor`
 --
 
 CREATE TABLE IF NOT EXISTS `profesor` (
@@ -271,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `profesor` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `profesor`
+-- Volcado de datos para la tabla `profesor`
 --
 
 INSERT INTO `profesor` (`id_profesor`, `dni`, `nombre`, `apellidos`, `correo`, `password`, `foto`, `tarjetaActivada`, `num_tarjeta`, `presencia`, `admin`) VALUES
@@ -284,7 +286,7 @@ INSERT INTO `profesor` (`id_profesor`, `dni`, `nombre`, `apellidos`, `correo`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profesor_asignatura`
+-- Estructura de tabla para la tabla `profesor_asignatura`
 --
 
 CREATE TABLE IF NOT EXISTS `profesor_asignatura` (
@@ -297,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `profesor_asignatura` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `profesor_asignatura`
+-- Volcado de datos para la tabla `profesor_asignatura`
 --
 
 INSERT INTO `profesor_asignatura` (`id_profesor_asignatura`, `id_asignatura`, `id_profesor`) VALUES
@@ -308,25 +310,25 @@ INSERT INTO `profesor_asignatura` (`id_profesor_asignatura`, `id_asignatura`, `i
 (4, 3, 3);
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `alumno_grupos`
+-- Filtros para la tabla `alumno_grupos`
 --
 ALTER TABLE `alumno_grupos`
   ADD CONSTRAINT `fk_alumnos_has_grupo_alumnos1` FOREIGN KEY (`id_alumno`) REFERENCES `alumnos` (`id_alumno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_alumnos_has_grupo_grupo1` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `faltas`
+-- Filtros para la tabla `faltas`
 --
 ALTER TABLE `faltas`
   ADD CONSTRAINT `fk_faltas_alumnos1` FOREIGN KEY (`id_alumno`) REFERENCES `alumnos` (`id_alumno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_faltas_horarioGrupo1` FOREIGN KEY (`id_horarioGrupo`) REFERENCES `horario_grupo` (`id_horario_grupo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `horario_grupo`
+-- Filtros para la tabla `horario_grupo`
 --
 ALTER TABLE `horario_grupo`
   ADD CONSTRAINT `fk_horarioGrupo_asignatura1` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -334,21 +336,21 @@ ALTER TABLE `horario_grupo`
   ADD CONSTRAINT `fk_horarioGrupo_grupo1` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `horario_profesor`
+-- Filtros para la tabla `horario_profesor`
 --
 ALTER TABLE `horario_profesor`
-  ADD CONSTRAINT `fk_horarioProfesor_profesor1` FOREIGN KEY (`id_profesor`) REFERENCES `profesor` (`id_profesor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `horario_profesor_ibfk_1` FOREIGN KEY (`id_horario_grupo`) REFERENCES `horario_grupo` (`id_horario_grupo`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_horarioGrupo_profesor1` FOREIGN KEY (`id_horario_grupo`) REFERENCES `horario_grupo` (`id_horario_grupo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_horarioProfesor_profesor1` FOREIGN KEY (`id_profesor`) REFERENCES `profesor` (`id_profesor`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `matricula`
+-- Filtros para la tabla `matricula`
 --
 ALTER TABLE `matricula`
   ADD CONSTRAINT `fk_alumnos_has_asignatura_alumnos` FOREIGN KEY (`id_alumno`) REFERENCES `alumnos` (`id_alumno`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_alumnos_has_asignatura_asignatura1` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `profesor_asignatura`
+-- Filtros para la tabla `profesor_asignatura`
 --
 ALTER TABLE `profesor_asignatura`
   ADD CONSTRAINT `fk_asignatura_has_profesor_asignatura1` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`) ON DELETE CASCADE ON UPDATE CASCADE,

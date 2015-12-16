@@ -3,13 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 16, 2015 at 12:23 PM
+-- Generation Time: Dec 16, 2015 at 12:31 PM
 -- Server version: 5.5.46
 -- PHP Version: 5.3.10-1ubuntu3.21
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 create database if not exists controlfid;
   use controlfid;
 
@@ -210,7 +209,8 @@ CREATE TABLE IF NOT EXISTS `horario_profesor` (
   `hora_final` time DEFAULT NULL,
   `id_profesor` int(4) NOT NULL,
   `id_horario_grupo` int(4) NOT NULL,
-  PRIMARY KEY (`id_horario_grupo`),
+  PRIMARY KEY (`id_horario_profesor`),
+  UNIQUE KEY `id_horario_grupo` (`id_horario_grupo`),
   KEY `fk_horarioProfesor_profesor1_idx` (`id_profesor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -337,8 +337,8 @@ ALTER TABLE `horario_grupo`
 -- Constraints for table `horario_profesor`
 --
 ALTER TABLE `horario_profesor`
-  ADD CONSTRAINT `horario_profesor_ibfk_1` FOREIGN KEY (`id_horario_grupo`) REFERENCES `horario_grupo` (`id_horario_grupo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_horarioProfesor_profesor1` FOREIGN KEY (`id_profesor`) REFERENCES `profesor` (`id_profesor`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_horarioProfesor_profesor1` FOREIGN KEY (`id_profesor`) REFERENCES `profesor` (`id_profesor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `horario_profesor_ibfk_1` FOREIGN KEY (`id_horario_grupo`) REFERENCES `horario_grupo` (`id_horario_grupo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `matricula`

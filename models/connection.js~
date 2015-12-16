@@ -4,7 +4,7 @@ connection = mysql.createConnection(
 	{ 
 		host: 'localhost', 
 		user: 'root',  
-		password: '', 
+		password: 'nati666000', 
 		database: 'controlfid'
 	}
 );

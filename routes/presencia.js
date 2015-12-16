@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 				aula.buscarAulaPorGrupo(grupoAlumno,req.query.time, function (error,data) {
 					if (error == null) {
 						//aula = data[0].id_aula;
-						res.send("Datos:"+data);
+						res.send("Datos:"+grupoAlumno);
 					}else{
 						res.send("Error "+error);
 					}

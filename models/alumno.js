@@ -14,7 +14,6 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 			}
 			else{
 				console.log(row);
-				console.log(row[0].presencia);
 				callback(null,row);
 			}
 		});

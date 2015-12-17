@@ -2,23 +2,14 @@ var mysql = require('mysql'),
 
 connection = mysql.createConnection(
 	{ 
-		host: '127.2.85.2', 
-		user: 'admin1wNN6rU',  
-		password: 'pK3_Nh5PQS2g', 
-		database: 'controlfid'
+		host: process.env.OPENSHIFT_controlfid_DB_HOST,
+		user: process.env.OPENSHIFT_MYSQL_DB_USERNAME,
+		password: process.env.OPENSHIFT_MYSQL_DB_PASSWORD,
+		database: process.env.OPENSHIFT_controlfid
 
 		
 	}
 );
-
-connection.connect( function(err){
-if (err){ 
-    console.log('Error');
-}
-else {
-    console.log('Connected');
-}
- });
 
 
 

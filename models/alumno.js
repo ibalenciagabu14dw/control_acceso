@@ -21,6 +21,9 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 	}
 }//buscarAlumnoPorTarjeta
 
+/*
+*	devuelve el id_aula en el que deberia de estar segun tarjeta, hora y dia de la semana
+*/
 alumno.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
 	var now = new Date();
 	var day = now.getDay();
@@ -36,6 +39,9 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
 	}//if connection
 }//aulaEnLaQueTieneQueEstar
 
+/*
+*	conmuta la presencia del alumno a 0 o a 1
+*/
 alumno.updatePresenciaAlumno = function (idT,callback) {
 	this.presenciaAlumno(idT,function (error,data) {
 		if (data[0].presencia == 0) {
@@ -60,6 +66,9 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 	});
 }
 
+/*
+*	devuelve el estado de la presencia del alumno
+*/
 alumno.presenciaAlumno = function (idT,callback) {
 	var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ='+idT;
 	connection.query(sqlAlumnoPresencia, function (error,row) {

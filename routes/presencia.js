@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 	alumno.buscarAlumnoPorTarjeta(req.query.idT,function (error,data) {
 		if (data.length != 0) {
 			if (data[0].tarjetaActivada == 0) {
-<<<<<<< HEAD
 				console.log("Tarjeta no activada");
 				res.send("ko");
 			}else{
@@ -79,7 +78,6 @@ router.get('/', function(req, res, next) {
 			});//buscarProfesor
 		}//else if data.length 0 alumno	
 	});//buscarAlumno
-=======
 				res.send("ko");
 			}else{
 				alumno.aulaEnLaQueTieneQueEstar(req.query.idT,req.query.time,function (error,data) {
@@ -128,11 +126,7 @@ router.get('/', function(req, res, next) {
 				}//else TarjetaActivada
 			});//buscarProfesor
 		}
-
-		
 	});//buscarAlumno
-
->>>>>>> 170cda0e6c356e5193f5f650cf77f3a55e3cdf08
 });//router
 
 module.exports = router;

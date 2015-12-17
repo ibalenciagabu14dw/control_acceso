@@ -2,7 +2,7 @@ var mysql = require('mysql'),
 
 connection = mysql.createConnection(
 	{ 
-		host: process.env.OPENSHIFT_controlfid_DB_HOST,
+		host: process.env.OPENSHIFT_NODEJS_IP,
 		port :process.env.OPENSHIFT_controlfid_DB_PORT,
 		user: process.env.OPENSHIFT_controlfid_DB_USERNAME,
 		password: process.env.OPENSHIFT_controlfid_DB_PASSWORD,

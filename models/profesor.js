@@ -39,6 +39,7 @@ profesor.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
 	}//if connection
 }//aulaEnLaQueTieneQueEstar
 
+
 /*
 *	conmuta la presencia del profesor a 0 o a 1
 */

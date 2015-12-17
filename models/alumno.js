@@ -21,6 +21,7 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 	}
 }//buscarAlumnoPorTarjeta
 
+
 /*
 *	devuelve el id_aula en el que deberia de estar segun tarjeta, hora y dia de la semana
 */
@@ -38,6 +39,7 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
 		});
 	}//if connection
 }//aulaEnLaQueTieneQueEstar
+
 
 /*
 *	conmuta la presencia del alumno a 0 o a 1
@@ -65,6 +67,7 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 		}
 	});
 }
+
 
 /*
 *	devuelve el estado de la presencia del alumno

@@ -4,11 +4,11 @@ var alumno = {};
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
 
 /*
-*	devuelve el id,tarjetaActivada,presencia de alumno seguun numero de tarjeta
+*	devuelve el id,tarjeta_activada,presencia de alumno seguun numero de tarjeta
 */
 alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 	if (connection){
-		var sql = 'SELECT id_alumno,tarjetaActivada,presencia FROM alumnos WHERE num_tarjeta = ' + connection.escape(num_tarjeta);
+		var sql = 'SELECT id_alumno,tarjeta_activada,presencia FROM alumnos WHERE num_tarjeta = ' + connection.escape(num_tarjeta);
 		connection.query(sql, function (error, row){
 			if(error){
 				throw error;

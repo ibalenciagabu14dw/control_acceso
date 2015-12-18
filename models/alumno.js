@@ -29,7 +29,7 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
 	var now = new Date();
 	var day = now.getDay();
 	if (connection) {
-		var sqlAula = 'SELECT id_aula FROM horario_grupo WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+diasSemana[day]+'" and ("'+time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ='+idT+'))';
+		var sqlAula = 'SELECT id_aula FROM horario_grupo WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+diasSemana[day]+'" and ("'+time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+idT+'"))';
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				throw error;
@@ -47,7 +47,7 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
 alumno.updatePresenciaAlumno = function (idT,callback) {
 	this.presenciaAlumno(idT,function (error,data) {
 		if (data[0].presencia == 0) {
-			var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ='+idT;
+			var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ="'+idT+'"';
 			connection.query(sqlUpdate,function (error) {
 				if (error) {
 					throw error;
@@ -56,7 +56,7 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 				}
 			});
 		}else{
-			var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ='+idT;
+			var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ="'+idT+'"';
 			connection.query(sqlUpdate,function (error) {
 				if (error) {
 					throw error;
@@ -73,7 +73,7 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 *	devuelve el estado de la presencia del alumno
 */
 alumno.presenciaAlumno = function (idT,callback) {
-	var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ='+idT;
+	var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ="'+idT+'"';
 	connection.query(sqlAlumnoPresencia, function (error,row) {
 		if (error) {
 			throw error;

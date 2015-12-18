@@ -8,7 +8,15 @@ connection = mysql.createConnection(
 		password: process.env.OPENSHIFT_MYSQL_DB_PASSWORD || 'zubiri' || '',
 		database: 'controlfid'
 
-		
+		/*/**********************************************************************
+		 * Volver a dejar la conexión como estaba
+		 */
+		 /*
+		 host: process.env.IP,
+		 user: process.env.C9_USER,
+		 password: '',
+		 database: 'controlfid'
+		 */
 	}
 );
 

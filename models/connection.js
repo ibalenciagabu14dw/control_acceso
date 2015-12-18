@@ -13,7 +13,7 @@ connection = mysql.createConnection(
 		 */
 		 /*
 		 host: process.env.IP,
-		 user: process.env.C9_USER,
+		 user: 'root',
 		 password: '',
 		 database: 'controlfid'
 		 */

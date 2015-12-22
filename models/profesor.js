@@ -82,4 +82,33 @@ profesor.presenciaProfesor = function (idT,callback) {
 }
 
 
+/*
+*	devuelve los alumnos del profesor en la hora actual en esa clase
+*/
+profesor.losAlumnosDeSuClaseActual = function (idProfesor,time,callback) {
+	var now = new Date();
+	var day = now.getDay();
+	var current_hour = now.getHours();
+
+	if (connection) {
+
+		/*'SELECT id_aula FROM horario_grupos WHERE dia_semana = "'+diasSemana[day]+'" and 
+		("'+time+'" BETWEEN hora_inicio and hora_final) and id_horario_grupo IN 
+		(SELECT id_horario_grupo FROM horario_profesores WHERE dia_semana = "'+diasSemana[day]+'" and
+			("'+time+'" BETWEEN hora_inicio and hora_final) and id_profesor IN 
+			(SELECT id_profesor FROM profesores WHERE num_tarjeta ="'+idT+'"))';*/
+
+		var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+diasSemana[day]+'") and ("'+time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+diasSemana[day]+'") and ("'+time+'" between hora_inicio and hora_final))))';
+		connection.query(sqlProfesorClaseActual, function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log("hora actual" + current_hour);
+				//console.log(row);
+				callback(null,row);
+			}
+		});
+	}//if connection
+}//losAlumnosDeSuClaseActual
+
 module.exports = profesor;

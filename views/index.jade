@@ -2,7 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  a(href='config') Configuracion
-  br
-  a(href='vistaProfesor') Vista Profesor
+  h3 Login
+  form#loginForm.form-group(action='/login', method='post')
+   input#user.form-control(type='text', name='user')
+   br
+   input#pass.form-control(type='text', name='pass')
+   br
+   button#send.btn.btn-primary(name='send') Enviar

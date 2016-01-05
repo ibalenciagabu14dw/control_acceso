@@ -22,6 +22,23 @@ profesor.buscarProfesorPorTarjeta = function(num_tarjeta,callback){
 }//buscarProfesorPorTarjeta
 
 /*
+*	devuelve profesor segun correo
+*/
+profesor.buscarProfesorPorCorreo = function(correo,callback) {
+	if (connection) {
+		var sql = 'SELECT id_profesor,nombre,apellidos,correo,password,foto,admin from profesores WHERE correo = "'+correo+'"';
+		connection.query(sql, function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}
+		});
+	};
+}//buscarProfesorPorCorreo
+
+/*
 *	devuelve el id_aula en el que tiene que estar segun tarjeta dia de la semana y hora
 */
 profesor.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {

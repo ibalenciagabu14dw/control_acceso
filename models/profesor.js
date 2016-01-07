@@ -120,9 +120,41 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,time,callback) {
 			if (error) {
 				throw error;
 			}else{
-				console.log("hora actual" + current_hour);
+				//console.log("hora actual" + current_hour);
 				//console.log(row);
-				callback(null,row);
+
+				var nombreArray = [];
+				var apellidosArray = [];
+				var fotoArray = [];
+
+				var alumnosArray = [];				
+
+				for (var i= 0;i<row.length;i++){
+
+					//console.log (row[i]);
+
+					var nombre = row[i].nombre;
+					var apellidos = row[i].apellidos;
+					var foto = row[i].foto;
+					var fotofinal = foto.toString('base64')
+					
+					nombreArray.push(nombre); 
+					apellidosArray.push(apellidos);
+					fotoArray.push(fotofinal);
+
+									
+					//console.log(nombre);
+					//console.log(apellidos);
+					//console.log(foto);
+
+
+				}
+					console.log(nombreArray);
+					console.log(apellidosArray);
+					console.log(fotoArray);
+					
+
+				callback(null,nombreArray,apellidosArray,fotoArray);
 			}
 		});
 	}//if connection

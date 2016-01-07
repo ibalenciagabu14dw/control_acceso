@@ -40,7 +40,7 @@ router.post('/login',function(req,res) {
 			}else{
 				if (data[0].admin == 0) {
 					console.log(hour+":"+min+":"+sec);
-					res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor+'&time='+hour+':'+min+':'+sec);
+					res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor+'&time=08:00:00');
 				}else{
 					//rediorect vistaAdmin
 					res.send("VistaAdmin");

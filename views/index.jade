@@ -8,4 +8,7 @@ block content
    br
    input#pass.form-control(type='text', name='pass')
    br
+   if info
+    .alert.alert-danger
+      | #{info}
    button#send.btn.btn-primary(name='send') Enviar

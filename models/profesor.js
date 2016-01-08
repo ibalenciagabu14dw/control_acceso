@@ -10,7 +10,6 @@ time.diaDeLaSemana(function (error,data) {
 	}else{
 		day = data;
 		console.log(day);
-		console.log(curr_time);
 	}
 });
 
@@ -31,6 +30,23 @@ profesor.buscarProfesorPorTarjeta = function(num_tarjeta,callback){
 		});
 	}
 }//buscarProfesorPorTarjeta
+
+/*
+*	devuelve nombre y foto del profesor
+*/
+profesor.buscarProfesorPorId = function(id_profesor,callback){
+	if(connection){
+		var sql = 'SELECT nombre,foto FROM profesores WHERE id_profesor ='+id_profesor;
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				var fotoFinal = row[0].foto;
+				callback(null,row[0].nombre,fotoFinal);
+			}
+		});
+	}
+}//buscar profesor por id
 
 /*
 *	devuelve profesor segun correo

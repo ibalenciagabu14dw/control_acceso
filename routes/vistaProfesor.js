@@ -17,7 +17,12 @@ router.get('/', function(req, res, next) {
 	}else{
 		curr_time = req.query.time;
 	}
-  profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,nombreArray,apellidosArray,fotoArray){
+	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombre,foto) {
+		if (error) {
+			console.log("Fallo buscarProfesorPorId");
+			throw error;
+		}else{
+			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
 										throw error;
@@ -25,15 +30,16 @@ router.get('/', function(req, res, next) {
 										//console.log(data);
 										//res.send(data);
 										res.render("vistaProfesor",{ 
-										title : "vistaProfesor", 
-										//info: JSON.stringify(data)
+										name : nombre, 
+										image: foto,
 										nombre: nombreArray,
 										apellidos: apellidosArray,
 										foto: fotoArray,
-									});
-
+										})
 									}//else error
-								});
+			});//losAlumnosDeSuClaseActual
+		}
+	});//buscarProfesorPorId
+  
 });
-
 module.exports = router;

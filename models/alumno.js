@@ -9,7 +9,6 @@ time.diaDeLaSemana(function (error,data) {
 	}else{
 		day = data;
 		console.log(day);
-		console.log(curr_time);
 	}
 });
 

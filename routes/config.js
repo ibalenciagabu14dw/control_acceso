@@ -14,13 +14,28 @@ router.get('/configPersonas/agregarPersonas', function(req, res, next) {
   res.render('agregarPersonas', { title: 'agregarPersonas' });
 });
 
+/*router.get('/configPersonas/agregarProfesores', function(req, res, next) {
+  res.render('agregarProfesores', { title: 'agregarProfesores' });
+});
+*/
 router.get('/configPersonas/modificarPersonas', function(req, res, next) {
   res.render('modificarPersonas', { title: 'modificarPersonas' });
 });
 
+
+/*router.get('/configPersonas/modificarProfesores', function(req, res, next) {
+  res.render('modificarProfesores', { title: 'modificarProfesores' });
+});
+*/
+
 router.get('/configPersonas/borrarPersonas', function(req, res, next) {
   res.render('borrarPersonas', { title: 'borrarPersonas' });
 });
+
+/*router.get('/configPersonas/borrarProfesores', function(req, res, next) {
+  res.render('borrarProfesores', { title: 'borrarProfesores' });
+});
+*/
 
 router.get('/configDispositivos', function(req, res, next) {
   res.render('configDispositivos', { title: 'configDispositivos' });

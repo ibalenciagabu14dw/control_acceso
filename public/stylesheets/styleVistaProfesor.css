@@ -1,0 +1,23 @@
+h1{
+	float:left;
+	color:green;
+}
+body{
+	padding-top: 0px;
+}
+tr{
+	float:left;
+	margin:20px;
+}
+#fotoProfesor{
+	margin-bottom: 10px;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+#nombreProfesor{
+	margin-left: 20px;
+	margin-top: 30px;
+}
+.page-header{
+	background-color: lightgrey;
+}

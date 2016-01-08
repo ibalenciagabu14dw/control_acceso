@@ -41,7 +41,7 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 			if (error) {
 				throw error;
 			}else{
-				var fotoFinal = row[0].foto;
+				var fotoFinal = row[0].foto.toString('base64');
 				callback(null,row[0].nombre,fotoFinal);
 			}
 		});

@@ -1,7 +1,18 @@
-var connection = require('../models/connection')
+var connection = require('../models/connection');
+var time = require('../models/time');
  
 var profesor = {};
-var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+
+var day;
+time.diaDeLaSemana(function (error,data) {
+	if (error) {
+		throw error;
+	}else{
+		day = data;
+		console.log(day);
+		console.log(curr_time);
+	}
+});
 
 /*
 *	devuelve el id,tarjeta_activada,presencia de profesor seguun numero de tarjeta
@@ -41,11 +52,9 @@ profesor.buscarProfesorPorCorreo = function(correo,callback) {
 /*
 *	devuelve el id_aula en el que tiene que estar segun tarjeta dia de la semana y hora
 */
-profesor.aulaEnLaQueTieneQueEstar = function (idT,time,callback) {
-	var now = new Date();
-	var day = now.getDay();
+profesor.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
 	if (connection) {
-		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE dia_semana = "'+diasSemana[day]+'" and ("'+time+'" BETWEEN hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE dia_semana = "'+diasSemana[day]+'" and ("'+time+'" BETWEEN hora_inicio and hora_final) and id_profesor IN (SELECT id_profesor FROM profesores WHERE num_tarjeta ="'+idT+'"))';
+		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_profesor IN (SELECT id_profesor FROM profesores WHERE num_tarjeta ="'+idT+'"))';
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				throw error;
@@ -102,10 +111,7 @@ profesor.presenciaProfesor = function (idT,callback) {
 /*
 *	devuelve los alumnos del profesor en la hora actual en esa clase
 */
-profesor.losAlumnosDeSuClaseActual = function (idProfesor,time,callback) {
-	var now = new Date();
-	var day = now.getDay();
-	var current_hour = now.getHours();
+profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 
 	if (connection) {
 
@@ -115,7 +121,7 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,time,callback) {
 			("'+time+'" BETWEEN hora_inicio and hora_final) and id_profesor IN 
 			(SELECT id_profesor FROM profesores WHERE num_tarjeta ="'+idT+'"))';*/
 
-		var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+diasSemana[day]+'") and ("'+time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+diasSemana[day]+'") and ("'+time+'" between hora_inicio and hora_final))))';
+		var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
 		connection.query(sqlProfesorClaseActual, function (error,row) {
 			if (error) {
 				throw error;

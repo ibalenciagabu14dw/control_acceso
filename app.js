@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var configFuncionamiento = require('./routes/configFuncionamiento');
 var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/', configFuncionamiento )
 app.use('/users', users);
 app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);

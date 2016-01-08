@@ -2,16 +2,30 @@ var express = require('express');
 var router = express.Router();
 var alumno = require('../models/alumno');
 var profesor = require('../models/profesor');
+var time = require('../models/time');
 
 router.get('/', function(req, res, next) {
+	var curr_time;
+	if (req.query.time == undefined) {
+		time.horaActual(function (error,data) {
+			if (error) {
+				throw error;
+			}else{
+				curr_time = data;
+				console.log(curr_time);
+			}
+		});
+	}else{
+		curr_time = req.query.time;
+	}
 
 	alumno.buscarAlumnoPorTarjeta(req.query.idT,function (error,data) {
 		if (data.length != 0) {
-			if (data[0].tarjetaActivada == 0) {
+			if (data[0].tarjeta_activada == 0) {
 				console.log("Tarjeta no activada");
 				res.send("ko");
 			}else{
-				alumno.aulaEnLaQueTieneQueEstar(req.query.idT,req.query.time,function (error,data) {
+				alumno.aulaEnLaQueTieneQueEstar(req.query.idT,curr_time,function (error,data) {
 					if (data.length != 0) {
 						if (error) {
 							throw error;
@@ -41,10 +55,10 @@ router.get('/', function(req, res, next) {
 		}else{//else no es alumno
 			profesor.buscarProfesorPorTarjeta(req.query.idT,function (error,data) {
 				if (data.length != 0) {
-					if (data[0].tarjetaActivada == 0) {
+					if (data[0].tarjeta_activada == 0) {
 						res.send("ko");
 					}else{
-						profesor.aulaEnLaQueTieneQueEstar(req.query.idT,req.query.time,function (error,data) {
+						profesor.aulaEnLaQueTieneQueEstar(req.query.idT,curr_time,function (error,data) {
 							if (data.length != 0) {
 								if (error) {
 									throw error;

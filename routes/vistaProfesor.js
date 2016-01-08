@@ -4,7 +4,20 @@ var profesor = require('../models/profesor');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,req.query.time,function (error,nombreArray,apellidosArray,fotoArray){
+	var curr_time;
+	if (req.query.time == undefined) {
+		time.horaActual(function (error,data) {
+			if (error) {
+				throw error;
+			}else{
+				curr_time = data;
+				console.log(curr_time);
+			}
+		});
+	}else{
+		curr_time = req.query.time;
+	}
+  profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
 										throw error;

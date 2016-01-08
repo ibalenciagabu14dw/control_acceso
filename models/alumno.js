@@ -84,4 +84,30 @@ alumno.presenciaAlumno = function (idT,callback) {
 }
 
 
+/*
+*	agregar un alumno (dni,nombre,apellidos,correo,foto,num_tarjeta)
+*/
+alumno.insertarAlumno = function (dni,nombre,apellidos,correo,fotoblob,num_tarjeta,callback) {
+								
+	var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+	var sqlinsertarAlumno = 'INSERT INTO alumnos SET ?';
+
+	connection.query(sqlinsertarAlumno,alumno, function(error){
+	  if (error) {
+			throw error;
+		}else{
+			console.log('insertarAlumno correctamente');
+		}
+
+	  
+	});
+
+
+	
+  
+}
+
+
+
+
 module.exports = alumno;

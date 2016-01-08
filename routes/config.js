@@ -10,6 +10,18 @@ router.get('/configPersonas', function(req, res, next) {
   res.render('configPersonas', { title: 'configPersonas' });
 });
 
+router.get('/configPersonas/agregarPersonas', function(req, res, next) {
+  res.render('agregarPersonas', { title: 'agregarPersonas' });
+});
+
+router.get('/configPersonas/modificarPersonas', function(req, res, next) {
+  res.render('modificarPersonas', { title: 'modificarPersonas' });
+});
+
+router.get('/configPersonas/borrarPersonas', function(req, res, next) {
+  res.render('borrarPersonas', { title: 'borrarPersonas' });
+});
+
 router.get('/configDispositivos', function(req, res, next) {
   res.render('configDispositivos', { title: 'configDispositivos' });
 });

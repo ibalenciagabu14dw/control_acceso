@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
   profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,req.query.time,function (error,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
+							
 										throw error;
 									}else{
 										//console.log(data);

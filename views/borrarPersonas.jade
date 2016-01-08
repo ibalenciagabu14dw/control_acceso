@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  h3 Borrar Personas
+  form#loginForm.form-group(action='/login', method='post')
+   input#user.form-control(type='text', name='user')
+   br
+   input#pass.form-control(type='text', name='pass')
+   br
+   if info
+    .alert.alert-danger
+      | #{info}
+   button#send.btn.btn-primary(name='send') Enviar

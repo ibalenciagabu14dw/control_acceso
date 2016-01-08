@@ -177,10 +177,35 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 					
 
 				callback(null,nombreArray,apellidosArray,fotoArray);
-			}
-		});
+			}//else
+		});//connection.query
 	}//if connection
 }//losAlumnosDeSuClaseActual
+
+
+/*
+*	agregar un profesor (dni,nombre,apellidos,correo,password,fotoblob,num_tarjeta)
+*/
+profesor.insertarProfesor = function (dni,nombre,apellidos,correo,password,fotoblob,num_tarjeta,callback) {
+								
+	var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
+	var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
+
+	connection.query(sqlinsertarProfesor,profesor, function(error){
+	  if (error) {
+			throw error;
+		}else{
+			console.log('insertarProfesor correctamente');
+		}
+
+	  
+	});
+
+
+	
+  
+}
+
 
 
 module.exports = profesor;

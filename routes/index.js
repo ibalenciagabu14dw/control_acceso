@@ -6,10 +6,10 @@ var time = require('../models/time');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'ControlFid'});
-});
+});//.router.get('/', function(req, res, next)
 
+/* POST login page. */
 router.post('/login',function(req,res) {
-
 	var user = req.body.user;
 	var pass = req.body.pass;
 	var curr_time;
@@ -37,11 +37,11 @@ router.post('/login',function(req,res) {
 							//rediorect vistaAdmin
 							res.send("VistaAdmin");
 						}				
-					}
-				}
-			});
+					}//.else
+				}//.else
+			});//.profesor.buscarProfesorPorCorreo
 		}//else horaActual
-	});//horaActual
-});
+	});//.time.horaActual
+});//.router.post('/login',function(req,res)
 
 module.exports = router;

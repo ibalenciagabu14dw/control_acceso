@@ -4,6 +4,7 @@ var alumno = require('../models/alumno');
 var profesor = require('../models/profesor');
 var time = require('../models/time');
 
+/* GET presencia page. */
 router.get('/', function(req, res, next) {
 	var curr_time;
 	if (req.query.time == undefined) {
@@ -13,12 +14,11 @@ router.get('/', function(req, res, next) {
 			}else{
 				curr_time = data;
 				console.log(curr_time);
-			}
-		});
+			}//.else
+		});//.time.horaActual
 	}else{
 		curr_time = req.query.time;
-	}
-
+	}//.else
 	alumno.buscarAlumnoPorTarjeta(req.query.idT,function (error,data) {
 		if (data.length != 0) {
 			if (data[0].tarjeta_activada == 0) {
@@ -44,15 +44,15 @@ router.get('/', function(req, res, next) {
 							}else{
 								console.log("No esta en el aula que debe");
 								res.send("ko");
-							}
-						}//else error
+							}//.else
+						}//.else error
 					}else{
 						console.log("No hay aula asociada");
 						res.send("ko");
 					}//else data length 0
-				});//aulaEnLaQueTieneQueEstar
-			}//else tarjetaActivada
-		}else{//else no es alumno
+				});//.alumno.aulaEnLaQueTieneQueEstar
+			}//.else tarjetaActivada
+		}else{//.else no es alumno
 			profesor.buscarProfesorPorTarjeta(req.query.idT,function (error,data) {
 				if (data.length != 0) {
 					if (data[0].tarjeta_activada == 0) {
@@ -73,25 +73,25 @@ router.get('/', function(req, res, next) {
 												console.log("Update presencia profesor ok");
 												res.send("ok");
 											}//else error
-										});//updatePresenciaProfesor
+										});//.profesor.updatePresenciaProfesor
 									}else{
 										console.log("No esta en el aula que debe");
 										res.send("ko");
-									}
+									}//.else
 								}// else error
 							}else{
 								console.log("No hay aula asociada");
 								res.send("ko");
 							}//else data.length 0
-						});//aulaEnLaQueTieneQueEstar
+						});//.profesor.aulaEnLaQueTieneQueEstar
 					}//else TarjetaActivada
 				}else{
 					console.log("No hay datos de persona asociados");
 					res.send("ko");
 				}//else data.length 0		
-			});//buscarProfesor
+			});//.profesor.buscarProfesorPorTarjeta
 		}//else if data.length 0 alumno	
-	});//buscarAlumno
-});//router
+	});//.alumno.buscarAlumnoPorTarjeta
+});//.router.get('/', function(req, res, next)
 
 module.exports = router;

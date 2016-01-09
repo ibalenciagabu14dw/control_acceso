@@ -2,8 +2,8 @@ extends layout
 
 block content
   h1= title
-  h3 Agregar Personas
-    form#agregarPersonasForm.form-group(action='/agregar', method='post')
+  h3 Agregar Alumnos
+    form#agregarAlumnosForm.form-group(action='/agregar', method='post',enctype="multipart/form-data")
       label(for='dni') dni
       input#dni.form-control(type='text', name='dni')
       br
@@ -23,5 +23,4 @@ block content
       input#num_tarjeta.form-control(type='number', name='num_tarjeta' )
       br
       button#send.btn.btn-primary(name='send') Enviar
-
     

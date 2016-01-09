@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var profesor = require('../models/profesor');
 
-/* GET home page. */
+/* GET vista del profesor page. */
 router.get('/', function(req, res, next) {
 	var curr_time;
 	if (req.query.time == undefined) {
@@ -12,11 +12,11 @@ router.get('/', function(req, res, next) {
 			}else{
 				curr_time = data;
 				console.log(curr_time);
-			}
-		});
+			}//.else
+		});//.time.horaActual
 	}else{
 		curr_time = req.query.time;
-	}
+	}//.else
 	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombre,foto) {
 		if (error) {
 			console.log("Fallo buscarProfesorPorId");
@@ -25,7 +25,6 @@ router.get('/', function(req, res, next) {
 			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
-							
 										throw error;
 									}else{
 										//console.log(data);
@@ -36,11 +35,11 @@ router.get('/', function(req, res, next) {
 										nombre: nombreArray,
 										apellidos: apellidosArray,
 										foto: fotoArray,
-										})
+										})//.res.render
 									}//else error
-			});//losAlumnosDeSuClaseActual
-		}
-	});//buscarProfesorPorId
-  
-});
+			});////.profesor.losAlumnosDeSuClaseActual
+		}//.else
+	});//profesor.buscarProfesorPorId
+});//.router.get('/', function(req, res, next) {
+
 module.exports = router;

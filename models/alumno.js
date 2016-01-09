@@ -102,4 +102,37 @@ alumno.insertarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,c
 	});//.connection.query
 }//.alumno.insertarAlumno
 
+/*
+*	modificar un alumno en la tabla alumnos (dni,nombre,apellidos,correo,foto,num_tarjeta) con el id
+	falta cambiar el grupo
+*/
+alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {							
+	var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+	var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+	connection.query(sqlmodificarAlumno,alumno, function(error){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			console.log('modificarAlumno correctamente');
+		}//.else
+	});//.connection.query
+}//.alumno.modificarAlumno
+
+/*
+*	borrar un alumno en la tabla alumnos con el id
+*/
+alumno.borrarAlumno = function (id,callback) {							
+	connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id+'"', function(error){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			console.log('borrarAlumno correctamente');
+		}//.else
+	});//.connection.query
+}//.alumno.borrarAlumno
+
+
+
 module.exports = alumno;

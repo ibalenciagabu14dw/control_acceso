@@ -178,4 +178,34 @@ profesor.insertarProfesor = function (dni,nombre,apellidos,correo,password,fotob
 	});//.connection.query
 }//.profesor.insertarProfesor
 
+/*
+*	modificar un profesor en la tabla profesores (dni,nombre,apellidos,correo,password,foto,num_tarjeta) con el id
+*/
+profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,num_tarjeta,callback) {							
+	var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+	var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
+	connection.query(sqlmodificarProfesor,profesor, function(error){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			console.log('modificarProfesor correctamente');
+		}//.else
+	});//.connection.query
+}//.profesor.modificarProfesor
+
+/*
+*	borrar un profesor en la tabla profesores con el id
+*/
+profesor.borrarProfesor = function (id,callback) {							
+	connection.query('DELETE FROM profesores WHERE id_profesor= "'+id+'"', function(error){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			console.log('borrarProfesor correctamente');
+		}//.else
+	});//.connection.query
+}//.profesor.borrarProfesor 
+
 module.exports = profesor;

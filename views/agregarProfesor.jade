@@ -2,8 +2,8 @@ extends layout
 
 block content
   h1= title
-  h3 Agregar Profesores
-    form#agregarProfesoresForm.form-group(action='/agregarProfesores', method='post',enctype="multipart/form-data")
+  h3 Agregar Profesor
+    form#agregarProfesorForm.form-group(action='/agregarProfesor', method='post',enctype="multipart/form-data")
       label(for='dni') dni
       input#dni.form-control(type='text', name='dni')
       br

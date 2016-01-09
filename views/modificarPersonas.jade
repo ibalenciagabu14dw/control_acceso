@@ -2,13 +2,30 @@ extends layout
 
 block content
   h1= title
-  h3 Modificar Personas
-  form#loginForm.form-group(action='/login', method='post')
-   input#user.form-control(type='text', name='user')
-   br
-   input#pass.form-control(type='text', name='pass')
-   br
-   if info
-    .alert.alert-danger
-      | #{info}
-   button#send.btn.btn-primary(name='send') Enviar
+  h3 Modificar Alumnos
+    form#modificarAlumnosForm.form-group(action='/modificar', method='post',enctype="multipart/form-data")
+      label(for='id') id
+      input#id.form-control(type='number', name='id')
+      br
+      label(for='dni') dni
+      input#dni.form-control(type='text', name='dni')
+      br
+      label(for='nombre') nombre
+      input#nombre.form-control(type='text', name='nombre')
+      br
+      label(for='apellidos') apellidos
+      input#apellidos.form-control(type='text', name='apellidos')
+      br
+      label(for='correo') correo
+      input#correo.form-control(type='text', name='correo')
+      br
+      label(for='foto') foto
+      input#foto.form-control(type='file', name='foto', accept='image/*')
+      br
+      label(for='num_tarjeta') num_tarjeta
+      input#num_tarjeta.form-control(type='number', name='num_tarjeta' )
+      br
+      label(for='grupo') grupo
+      input#grupo.form-control(type='number', name='grupo' )
+      br
+      button#send.btn.btn-primary(name='send') Enviar

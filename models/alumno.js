@@ -1,8 +1,8 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
- 
 var alumno = {};
 var day;
+
 time.diaDeLaSemana(function (error,data) {
 	if (error) {
 		throw error;
@@ -21,15 +21,13 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 		connection.query(sql, function (error, row){
 			if(error){
 				throw error;
-			}
-			else{
+			}else{
 				console.log(row);
 				callback(null,row);
-			}
-		});
-	}
-}//buscarAlumnoPorTarjeta
-
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.buscarAlumnoPorTarjeta
 
 /*
 *	devuelve el id_aula en el que deberia de estar segun tarjeta, hora y dia de la semana
@@ -42,15 +40,15 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
 				throw error;
 			}else{
 				callback(null,row);
-			}
-		});
-	}//if connection
-}//aulaEnLaQueTieneQueEstar
-
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.aulaEnLaQueTieneQueEstar
 
 /*
 *	conmuta la presencia del alumno a 0 o a 1
 */
+
 alumno.updatePresenciaAlumno = function (idT,callback) {
 	this.presenciaAlumno(idT,function (error,data) {
 		if (data[0].presencia == 0) {
@@ -60,8 +58,8 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 					throw error;
 				}else{
 					callback(null);
-				}
-			});
+				}//.else
+			});//.connection.query
 		}else{
 			var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ="'+idT+'"';
 			connection.query(sqlUpdate,function (error) {
@@ -69,12 +67,11 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 					throw error;
 				}else{
 					callback(null);
-				}
-			});
-		}
-	});
-}
-
+				}//.else
+			});//.connection.query
+		}//.else
+	});//.this.presenciaAlumno
+}//.alumno.updatePresenciaAlumno
 
 /*
 *	devuelve el estado de la presencia del alumno
@@ -86,35 +83,23 @@ alumno.presenciaAlumno = function (idT,callback) {
 			throw error;
 		}else{
 			callback(null,row);
-		}
-	});
-}
-
+		}//.else
+	});//.connection.query
+}//.alumno.presenciaAlumno
 
 /*
-*	agregar un alumno (dni,nombre,apellidos,correo,foto,num_tarjeta)
+*	agrega un alumno a la tabla alumnos (dni,nombre,apellidos,correo,foto,num_tarjeta)
 */
-alumno.insertarAlumno = function (dni,nombre,apellidos,correo,fotoblob,num_tarjeta,callback) {
-								
-	var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+alumno.insertarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {							
+	var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
 	var sqlinsertarAlumno = 'INSERT INTO alumnos SET ?';
-
 	connection.query(sqlinsertarAlumno,alumno, function(error){
 	  if (error) {
 			throw error;
 		}else{
 			console.log('insertarAlumno correctamente');
-		}
-
-	  
-	});
-
-
-	
-  
-}
-
-
-
+		}//.else
+	});//.connection.query
+}//.alumno.insertarAlumno
 
 module.exports = alumno;

@@ -14,14 +14,14 @@ router.get('/configPersonas/agregarPersonas', function(req, res, next) {
   res.render('agregarPersonas', { title: 'agregarPersonas' });
 });
 
-/*router.get('/configPersonas/agregarProfesores', function(req, res, next) {
+/*
+router.get('/configPersonas/agregarProfesores', function(req, res, next) {
   res.render('agregarProfesores', { title: 'agregarProfesores' });
 });
 */
 router.get('/configPersonas/modificarPersonas', function(req, res, next) {
   res.render('modificarPersonas', { title: 'modificarPersonas' });
 });
-
 
 /*router.get('/configPersonas/modificarProfesores', function(req, res, next) {
   res.render('modificarProfesores', { title: 'modificarProfesores' });
@@ -64,6 +64,5 @@ router.get('/configGlobal/configApariencia', function(req, res, next) {
 router.get('/configGlobal/configBasedeDatos', function(req, res, next) {
   res.render('configBasedeDatos', { title: 'configBasedeDatos' });
 });
-
 
 module.exports = router;

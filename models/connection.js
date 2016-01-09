@@ -18,8 +18,6 @@ connection = mysql.createConnection(
 		 database: 'controlfid'
 		 */
 	}
-);
-
-
+);//.connection = mysql.createConnection
 
 module.exports = connection;

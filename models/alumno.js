@@ -133,6 +133,32 @@ alumno.borrarAlumno = function (id,callback) {
 	});//.connection.query
 }//.alumno.borrarAlumno
 
-
+/*
+*	muestra todos los id_alumno de la tabla alumnos
+*/
+alumno.mostrarTodosLosIdAlumno = function (callback) {							
+	connection.query('SELECT id_alumno FROM alumnos', function(error,row){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			//console.log(row);
+			var id_alumnoArray = [];
+			for (var i= 0;i<row.length;i++){
+					//console.log ("row : " + row[i].id_alumno);
+					var id = row[i].id_alumno;
+					id_alumnoArray.push(id);
+				}//.for (var i= 0;i<row.length;i++)
+					//console.log(id_alumnoArray);
+					function compareNumbers(a, b) {
+					  return a - b;
+					} 
+					id_alumnoArray.sort(compareNumbers);
+					//console.log("sort: " + id_alumnoArray);
+				callback(null,id_alumnoArray);
+			console.log('mostrarTodosLosIdAlumno correctamente');
+		}//.else
+	});//.connection.query
+}//.alumno.mostrarTodosLosIdAlumno 
 
 module.exports = alumno;

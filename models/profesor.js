@@ -208,4 +208,32 @@ profesor.borrarProfesor = function (id,callback) {
 	});//.connection.query
 }//.profesor.borrarProfesor 
 
+/*
+*	muestra todos los id_profesor de la tabla profesores
+*/
+profesor.mostrarTodosLosIdProfesor = function (callback) {							
+	connection.query('SELECT id_profesor FROM profesores', function(error,row){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			//console.log(row);
+			var id_profesorArray = [];
+			for (var i= 0;i<row.length;i++){
+					//console.log ("row : " + row[i].id_profesor);
+					var id = row[i].id_profesor;
+					id_profesorArray.push(id);
+				}//.for (var i= 0;i<row.length;i++)
+					//console.log(id_profesorArray);
+					function compareNumbers(a, b) {
+					  return a - b;
+					} 
+					id_profesorArray.sort(compareNumbers);
+					//console.log("sort: " + id_profesorArray);
+				callback(null,id_profesorArray);
+			console.log('mostrarTodosLosIdProfesor correctamente');
+		}//.else
+	});//.connection.query
+}//.profesor.mostrarTodosLosIdProfesor 
+
 module.exports = profesor;

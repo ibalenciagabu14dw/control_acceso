@@ -4,8 +4,12 @@ block content
   h1= title
   h3 Borrar Alumnos
     form#borrarAlumnosForm.form-group(action='/borrar', method='post')
-      label(for='id') id
-      input#id.form-control(type='number', name='id')
+      br      
+      label(for='id') id_alumno
+      select#id(name='id')
+        for id in id_alumno
+          option(value=id) #{id}
+      br
       br
       button#send.btn.btn-primary(name='send') Enviar
 

@@ -4,10 +4,14 @@ block content
   h1= title
   h3 Borrar Profesor
     form#borrarProfesorForm.form-group(action='/borrarProfesor', method='post')
-      label(for='id') id
-      input#id.form-control(type='number', name='id')
+      br      
+      label(for='id') id_profesor
+      select#id(name='id')
+        for id in id_profesor
+          option(value=id) #{id}
       br
-      button#send.btn.btn-primary(name='send') Enviar      
+      br
+      button#send.btn.btn-primary(name='send') Enviar
 
     //- PRUEBA, PARA LA FUNCION
       label(for='id') id

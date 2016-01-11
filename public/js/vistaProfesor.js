@@ -1,5 +1,11 @@
 $(document).ready(function() {
+  //recoger el correo del profesor en variable (desde html hidden)
   var correo = $('#correo').html();
+
+/*
+* Horario profesor ********************************************
+*/
+  //llenar la tabla del horario desde horarioProfesor
   $.ajax({
     url: 'vistaProfesor/horarioProfesor',
     type: 'get',
@@ -35,7 +41,7 @@ $(document).ready(function() {
     console.log("error");
   })
   
-
+//dialog de horario
 	$( "#horario").dialog({
       autoOpen: false,
       modal:true,
@@ -51,10 +57,31 @@ $(document).ready(function() {
         duration: 1000
       }
     });
-
+//al clicar en el boton horario abrir el dialog
 	$('#botonHorarioProfesor').click(function() {
 		$( "#horario" ).dialog( "open" );
     });
 
+  /*
+  * fin horario profesor ********************************************
+  */
+
+
+  /*
+  * Socket.io
+  */
+  var socket;
+  var serverName = window.location.hostname;
+  if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
+    socket = io();
+  } else {
+    //socket = io('wss://'+serverName+':8443');
+  }
+
+  $('td').click(function(event) {
+    var id = $(this).attr('id');
+    socket.emit('cambiaCliente',id);
+  });
+  //
   
 });//ready

@@ -4,6 +4,8 @@ var alumno = require('../models/alumno');
 var profesor = require('../models/profesor');
 var time = require('../models/time');
 
+
+
 /* GET presencia page. */
 router.get('/', function(req, res, next) {
 	var curr_time;

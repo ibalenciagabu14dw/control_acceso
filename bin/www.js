@@ -7,6 +7,10 @@
 var app = require('../app');
 var debug = require('debug')('accesoProyecto:server');
 var http = require('http');
+//socket.io
+var alumno = require('../models/alumno');
+
+
 
 /**
  * Get port from environment and store in Express.
@@ -21,6 +25,26 @@ var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || "127.0.0.1";
  */
 
 var server = http.createServer(app);
+/*
+* socket.io
+*/ 
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+  socket.on('cambiaCliente', function(msg){
+    console.log(msg);
+    alumno.updatePresenciaAlumnoPorId(msg, function (error) {
+      if (error) {
+        throw error;
+      }else{
+        console.log("ok update presencia alumno por io");
+      }
+    })
+  });
+});
+/*
+* socket.io
+*/
 
 /**
  * Listen on provided port, on all network interfaces.

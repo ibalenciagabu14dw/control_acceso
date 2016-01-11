@@ -8,7 +8,6 @@ time.diaDeLaSemana(function (error,data) {
 		throw error;
 	}else{
 		day = data;
-		console.log(day);
 	}
 });
 
@@ -22,7 +21,6 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 			if(error){
 				throw error;
 			}else{
-				console.log(row);
 				callback(null,row);
 			}//.else
 		});//.connection.query

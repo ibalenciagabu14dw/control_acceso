@@ -8,7 +8,6 @@ time.diaDeLaSemana(function (error,data) {
 		throw error;
 	}else{
 		day = data;
-		console.log(day);
 	}//.else
 });//.time.diaDeLaSemana
 
@@ -23,7 +22,6 @@ profesor.buscarProfesorPorTarjeta = function(num_tarjeta,callback){
 				throw error;
 			}
 			else{
-				console.log(row);
 				callback(null,row);
 			}//.else
 		});//.connection.query
@@ -74,7 +72,6 @@ profesor.buscarProfesorPorCorreo = function(correo,callback) {
 			if (error) {
 				throw error;
 			}else{
-				console.log(row);
 				callback(null,row);
 			}
 		});
@@ -147,7 +144,7 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 		// sentencia sql original,comentar para hacer pruebas
 		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
 		//para hacer pruebas
-		var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("08:00:00" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("08:00:00" between hora_inicio and hora_final))))';
+		var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
 		connection.query(sqlProfesorClaseActual, function (error,row) {
 			if (error) {
 				throw error;
@@ -264,7 +261,6 @@ profesor.horarioProfesorCompleto = function(correo,callback) {
 				throw error;
 			}else{
 				callback(null,row);
-				console.log(row);
 			}
 		})//connection.query
 	}else{

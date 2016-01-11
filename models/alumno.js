@@ -44,7 +44,7 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
 }//.alumno.aulaEnLaQueTieneQueEstar
 
 /*
-*	conmuta la presencia del alumno a 0 o a 1
+*	conmuta la presencia del alumno a 0 o a 1 por numero de tarjeta
 */
 
 alumno.updatePresenciaAlumno = function (idT,callback) {
@@ -71,11 +71,54 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 	});//.this.presenciaAlumno
 }//.alumno.updatePresenciaAlumno
 
+
 /*
-*	devuelve el estado de la presencia del alumno
+*	devuelve el estado de la presencia del alumno por numero de tarjeta
 */
 alumno.presenciaAlumno = function (idT,callback) {
 	var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ="'+idT+'"';
+	connection.query(sqlAlumnoPresencia, function (error,row) {
+		if (error) {
+			throw error;
+		}else{
+			callback(null,row);
+		}//.else
+	});//.connection.query
+}//.alumno.presenciaAlumno
+
+/*
+*	conmuta la presencia del alumno a 0 o a 1 por id
+*/
+
+alumno.updatePresenciaAlumnoPorId = function (id,callback) {
+	this.presenciaAlumno(id,function (error,data) {
+		if (data[0].presencia == 0) {
+			var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE id_alumno ="'+id+'"';
+			connection.query(sqlUpdate,function (error) {
+				if (error) {
+					throw error;
+				}else{
+					callback(null);
+				}//.else
+			});//.connection.query
+		}else{
+			var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE id_alumno ="'+id+'"';
+			connection.query(sqlUpdate,function (error) {
+				if (error) {
+					throw error;
+				}else{
+					callback(null);
+				}//.else
+			});//.connection.query
+		}//.else
+	});//.this.presenciaAlumno
+}//.alumno.updatePresenciaAlumno
+
+/*
+*	devuelve el estado de la presencia del alumno por id
+*/
+alumno.presenciaAlumno = function (id,callback) {
+	var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE id_alumno ="'+id+'"';
 	connection.query(sqlAlumnoPresencia, function (error,row) {
 		if (error) {
 			throw error;

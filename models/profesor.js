@@ -48,6 +48,23 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 }//.profesor.buscarProfesorPorId
 
 /*
+*	devuelve nombre y foto del profesor NO FUNCIONA
+*/
+profesor.buscarProfesorPorNombre = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT id_profesor,nombre FROM profesores WHERE nombre="profesor1"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.profesor.buscarProfesorPorNombre
+
+/*
 *	devuelve profesor segun correo
 */
 profesor.buscarProfesorPorCorreo = function(correo,callback) {

@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 	}else{
 		curr_time = req.query.time;
 	}//.else
-	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombre,foto) {
+	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombre,foto,correo) {
 		if (error) {
 			console.log("Fallo buscarProfesorPorId");
 			throw error;
@@ -32,6 +32,7 @@ router.get('/', function(req, res, next) {
 										res.render("vistaProfesor",{ 
 										name : nombre, 
 										image: foto,
+										correo:correo,
 										nombre: nombreArray,
 										apellidos: apellidosArray,
 										foto: fotoArray,
@@ -41,5 +42,19 @@ router.get('/', function(req, res, next) {
 		}//.else
 	});//profesor.buscarProfesorPorId
 });//.router.get('/', function(req, res, next) {
+
+/*
+*	devuelve json horario profesor segun correo
+*/
+router.get('/horarioProfesor', function(req,res,next) {
+	var correo = req.query.correo;
+	profesor.horarioProfesorCompleto(correo, function(error,row) {
+		if (error) {
+			throw error;
+		}else{
+			res.send(row);
+		}
+	})//horarioProfesorCompleto
+});//get /horarioProfesor
 
 module.exports = router;

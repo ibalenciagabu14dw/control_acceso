@@ -35,13 +35,13 @@ profesor.buscarProfesorPorTarjeta = function(num_tarjeta,callback){
 */
 profesor.buscarProfesorPorId = function(id_profesor,callback){
 	if(connection){
-		var sql = 'SELECT nombre,foto FROM profesores WHERE id_profesor ='+id_profesor;
+		var sql = 'SELECT nombre,foto,correo FROM profesores WHERE id_profesor ='+id_profesor;
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 			}else{
 				var fotoFinal = row[0].foto.toString('base64');
-				callback(null,row[0].nombre,fotoFinal);
+				callback(null,row[0].nombre,fotoFinal,row[0].correo);
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -235,5 +235,24 @@ profesor.mostrarTodosLosIdProfesor = function (callback) {
 		}//.else
 	});//.connection.query
 }//.profesor.mostrarTodosLosIdProfesor 
+
+/*
+*	devuelve el horario de un profesor segun correo
+*/
+profesor.horarioProfesorCompleto = function(correo,callback) {
+	if (connection) {
+		var sql = 'SELECT p.dia_semana, p.hora_inicio, p.hora_final, a.numero, s.nombre, g.nombre_grupo FROM horario_profesores p LEFT JOIN horario_grupos r ON (p.id_horario_grupo = r.id_horario_grupo) INNER JOIN asignaturas s ON (r.id_asignatura = s.id_asignatura) INNER JOIN grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas a ON (r.id_aula = a.id_aula) WHERE p.id_profesor =(SELECT id_profesor FROM profesores WHERE correo ="'+correo+'")';
+		connection.query(sql, function(error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+				console.log(row);
+			}
+		})//connection.query
+	}else{
+
+	}//if connection
+}//horarioProfesorCompleto
 
 module.exports = profesor;

@@ -24,3 +24,18 @@ tr{
 #botonHorarioProfesor{
 	margin-right: 20px;
 }
+#tablaHorario td,th{
+	width: 20%;
+	text-align: center;
+}
+#tablaHorario th{
+	background-color: black;
+	color:white;
+	text-align: center;
+}
+#tablaHorario tr{
+	margin: 0px;
+}
+.ui-dialog .ui-dialog-titlebar {
+      background:red;
+}

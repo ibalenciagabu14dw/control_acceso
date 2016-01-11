@@ -24,7 +24,6 @@ time.horaActual = function(callback) {
 	console.log(curr_time);
 	if (curr_time) {
 		callback(null,curr_time);
-		console.log(curr_time);
 	}else{
 		console.log("error obteniendo la hora");
 	}//.else

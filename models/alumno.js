@@ -1,5 +1,6 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
+//var io = require('socket.io');
 var alumno = {};
 var day;
 
@@ -55,6 +56,7 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 				if (error) {
 					throw error;
 				}else{
+					//io.emit('cambiaServidor',idT);
 					callback(null);
 				}//.else
 			});//.connection.query
@@ -64,6 +66,7 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 				if (error) {
 					throw error;
 				}else{
+					//io.emit('cambiaServidor',idT);
 					callback(null);
 				}//.else
 			});//.connection.query

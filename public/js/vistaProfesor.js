@@ -66,6 +66,15 @@ $(document).ready(function() {
   * fin horario profesor ********************************************
   */
 
+  /*
+  * Hover fotos alumnos
+  */
+  $('.celdaAlumno').hover(function() {
+    $(this).css('box-shadow', '0px 0px 25px black');
+  }, function() {
+    $(this).css('box-shadow', '5px 5px 10px black');
+  });
+
 
   /*
   * Socket.io
@@ -81,6 +90,10 @@ $(document).ready(function() {
   $('td').click(function(event) {
     var id = $(this).attr('id');
     socket.emit('cambiaCliente',id);
+  });
+
+  socket.on('cambiaServidor', function(msg){
+    alert(msg);
   });
   
   

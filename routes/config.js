@@ -52,6 +52,7 @@ router.post('/configPersonas/buscarProfesorId', function(req,res,next) {
     if (error) {
       throw error;
     }else{
+      console.log(row);
       res.send(row);
     }
   })//buscarProfesorPorNombre

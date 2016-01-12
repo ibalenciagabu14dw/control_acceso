@@ -33,7 +33,7 @@ var io = require('socket.io')(server);
 io.on('connection', function(socket){
   socket.on('cambiaCliente', function(msg){
     console.log(msg);
-    alumno.updatePresenciaAlumnoPorId(msg, function (error) {
+    alumno.updatePresenciaAlumno(msg, function (error) {
       if (error) {
         throw error;
       }else{

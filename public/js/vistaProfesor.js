@@ -75,13 +75,13 @@ $(document).ready(function() {
   if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
     socket = io();
   } else {
-    //socket = io('wss://'+serverName+':8443');
+    socket = io('wss://'+serverName+':8443');
   }
 
   $('td').click(function(event) {
     var id = $(this).attr('id');
     socket.emit('cambiaCliente',id);
   });
-  //
+  
   
 });//ready

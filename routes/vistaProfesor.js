@@ -17,12 +17,12 @@ router.get('/', function(req, res, next) {
 	}else{
 		curr_time = req.query.time;
 	}//.else
-	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombre,foto,correo) {
+	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombreProfesor,foto,correo) {
 		if (error) {
 			console.log("Fallo buscarProfesorPorId");
 			throw error;
 		}else{
-			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,idArray,nombreArray,apellidosArray,fotoArray){
+			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,presenciaArray,idTArray,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
 										throw error;
@@ -30,10 +30,11 @@ router.get('/', function(req, res, next) {
 										//console.log(data);
 										//res.send(data);
 										res.render("vistaProfesor",{ 
-										name : nombre, 
+										name : nombreProfesor, 
 										image: foto,
 										correo:correo,
-										id:idArray,
+										idT:idTArray,
+										presencia:presenciaArray,
 										nombre: nombreArray,
 										apellidos: apellidosArray,
 										foto: fotoArray,

@@ -32,7 +32,7 @@ router.get('/configPersonas/modificarProfesor', function(req, res, next) {
 * devuelve el nombre del profesor(modificarProfesor) NO FUNCIONA
 */
 router.post('/configPersonas/buscarProfesorNombre', function(req,res,next) {
-  var nombre = req.query.nombre;
+  var nombre = req.body.nombre;
   profesor.buscarProfesorPorNombre(nombre, function(error,row) {
     console.log("aqui");
     if (error) {

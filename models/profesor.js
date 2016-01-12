@@ -144,24 +144,27 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 		// sentencia sql original,comentar para hacer pruebas
 		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
 		//para hacer pruebas
-		var sqlProfesorClaseActual = 'SELECT id_alumno,nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+		var sqlProfesorClaseActual = 'SELECT presencia,num_tarjeta,nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
 		connection.query(sqlProfesorClaseActual, function (error,row) {
 			if (error) {
 				throw error;
 			}else{
 				//console.log(row);
-				var idArray = [];
+				var presenciaArray = [];
+				var idTArray = [];
 				var nombreArray = [];
 				var apellidosArray = [];
 				var fotoArray = [];
 				for (var i= 0;i<row.length;i++){
 					//console.log (row[i]);
-					var id = row[i].id_alumno;
+					var presencia = row[i].presencia;
+					var idT = row[i].num_tarjeta;
 					var nombre = row[i].nombre;
 					var apellidos = row[i].apellidos;
 					var foto = row[i].foto;//foto del alumno
 					var fotofinal = foto.toString('base64');
-					idArray.push(id);
+					presenciaArray.push(presencia);
+					idTArray.push(idT);
 					nombreArray.push(nombre); 
 					apellidosArray.push(apellidos);
 					fotoArray.push(fotofinal);
@@ -172,7 +175,7 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 					//console.log(nombreArray); 
 					//console.log(apellidosArray); 
 					//console.log(fotoArray); 
-				callback(null,idArray,nombreArray,apellidosArray,fotoArray);
+				callback(null,presenciaArray,idTArray,nombreArray,apellidosArray,fotoArray);
 			}//.else
 		});//.connection.query
 	}//.if (connection)

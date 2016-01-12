@@ -46,33 +46,16 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 }//.profesor.buscarProfesorPorId
 
 /*
-*	devuelve nombre y foto del profesor
-*/
-profesor.buscarProfesorPorId = function(id_profesor,callback){
-	if(connection){
-		var sql = 'SELECT nombre,foto,correo FROM profesores WHERE id_profesor ='+id_profesor;
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-			}else{
-				var fotoFinal = row[0].foto.toString('base64');
-				callback(null,row[0].nombre,fotoFinal,row[0].correo);
-			}//.else
-		});//.connection.query
-	}//.if(connection)
-}//.profesor.buscarProfesorPorId
-
-/*
-*	devuelve nombre y foto del profesor PRUEBA
+*	devuelve nombre y foto del profesor FUNCIONA
 */
 profesor.buscarProfesorPorId2 = function(id_profesor,callback){
+	//console.log(connection.escape(id_profesor));
 	if(connection){
-		var sql = 'SELECT dni,nombre,apellidos,correo,password,num_tarjeta,foto,tarjeta_activada FROM profesores WHERE id_profesor ='+id_profesor;
+		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,password,num_tarjeta,foto,tarjeta_activada FROM profesores WHERE id_profesor ='+connection.escape(id_profesor);
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
-			}else{
-				console.log(row);
+			}else{	
 				callback(null,row);
 			}//.else
 		});//.connection.query
@@ -84,12 +67,12 @@ profesor.buscarProfesorPorId2 = function(id_profesor,callback){
 */
 profesor.buscarProfesorPorNombre = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,foto FROM profesores WHERE nombre LIKE ' + connection.escape(nombre+'%')
+		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,foto FROM profesores WHERE nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 			}else{
-				console.log(row);
+				//console.log(row);
 				callback(null,row);
 			}//.else
 		});//.connection.query

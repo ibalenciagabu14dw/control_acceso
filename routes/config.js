@@ -29,30 +29,30 @@ router.get('/configPersonas/modificarProfesor', function(req, res, next) {
 });
 
 /*
-* devuelve el nombre del profesor(modificarProfesor) NO FUNCIONA
+* devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/configPersonas/buscarProfesorNombre', function(req,res,next) {
   var nombre = req.body.nombre;
   profesor.buscarProfesorPorNombre(nombre, function(error,row) {
-    console.log("aqui");
     if (error) {
       throw error;
     }else{
-      console.log("buscarProfesorNombre: "+row);
       res.send(row);
     }
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 /*
-* devuelve el id del profesor(modificarProfesor) NO FUNCIONA
+* devuelve el id del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/configPersonas/buscarProfesorId', function(req,res,next) {
-  profesor.buscarProfesorPorId(id_profesor, function(error,row) {
+  var id_profesor = req.body.id_profesor;
+ // console.log("id: "+ id_profesor);
+  profesor.buscarProfesorPorId2(id_profesor, function(error,row) {
     if (error) {
       throw error;
     }else{
-      console.log("buscarProfesorId"+row);
+      console.log(row);
       res.send(row);
     }
   })//buscarProfesorPorNombre

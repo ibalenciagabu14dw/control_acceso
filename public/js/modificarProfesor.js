@@ -16,8 +16,17 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarAlumnoPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' id='formUpdate'>Id: <input type='text' id='id' name='id' class='form-control' value='"+result.id+"' disabled='disabled'>";
+    		var formulario = "<form class='form-group' id='formUpdate'>id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result.id_profesor+"' disabled='disabled'>";
+    		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
+    		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
+    		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
+    		formulario += "Password: <input type='text' id='password' name='password' class='form-control' value='"+result.password+"'>";
+    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value='"+result.nombre+"'>";
+    		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
+    		formulario += "Numero_Tarjeta: <input type='number' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
+    		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";
+    		//formulario += "Asignaturas: <input type='checkbox' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
     		formulario += "<br/><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
@@ -57,13 +66,12 @@ $(document).ready(function() {
 	}//function buscarAlumnos
 
 	//funcion para buscar alumnos por id
-	function buscarAlumnoPorId (id_profesor) {
-		var dato = { 'id_profesor':id_profesor };
+	function buscarAlumnoPorId (id) { 
 		return	$.ajax({
 					url: 'buscarProfesorId',
 					type: 'post',
 					dataType: 'json',
-					data: dato,
+					data:{ id_profesor:id },
 					success:function (data) {
 						console.log(data);
 					}
@@ -75,6 +83,69 @@ $(document).ready(function() {
 					console.log("error");
 				})//fail
 	}//function buscarAlumnos
+
+	/*
+
+			//Al clicar en borrar el alumno
+	$('#resultado').on("click","#btnBorrar",function(event) {
+		event.preventDefault();
+		if(confirm("Estas seguro de borrar al alumno?")) {
+			$.ajax({
+				url: 'php/borrarAlumno.php',
+				type: 'post',
+				dataType: 'html',
+				data: {'id':$('#resultado #id').val()},
+				success:function(data){
+					if (data == "ok") {
+						alert("Alumno borrado correctamente");
+						buscarAlumnos();
+					}else{
+						alert("Algo no ha ido bien");
+					}//if else
+				}//success
+			})//ajax
+			.done(function() {
+				console.log("success borrar");
+			})//done
+			.fail(function() {
+				console.log("error borrar");
+			})//fail
+		}//if confirm
+	});//click borrar formulario alumno
+
+	//Al clicar en modificar el Alumno
+	$('#resultado').on("click","#btnModificar",function(event) {
+		event.preventDefault();
+	    if(confirm("Estas seguro de modificar el alumno??")){
+	    	var datos = {'id':$('#resultado #id').val(), 'nombre':$('#resultado #nombre').val(), 'imagen':$('#resultado #imagen').val()};
+	    	console.log(datos);
+	    	$.ajax({
+	    		url: 'php/updateAlumno.php',
+	    		type: 'post',
+	    		dataType: 'html',
+	    		data: datos,
+	    		success:function(data){
+					if (data == "ok") {
+						alert("Alumno modificado correctamente");
+						buscarAlumnos();
+					}else{
+						alert("Algo no ha ido bien");
+					}//if else
+				}//success
+	    	})//ajax
+	    	.done(function() {
+				console.log("success modificar");
+			})//done
+			.fail(function() {
+				console.log("error modificar");
+			})//fail
+	    }
+	});//click modificar formulario alumno
+
+
+
+
+	*/
 	
 });//ready
 

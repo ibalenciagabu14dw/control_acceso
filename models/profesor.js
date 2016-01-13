@@ -51,7 +51,7 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 profesor.buscarProfesorPorId2 = function(id_profesor,callback){
 	//console.log(connection.escape(id_profesor));
 	if(connection){
-		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,password,num_tarjeta,foto,tarjeta_activada FROM profesores WHERE id_profesor ='+connection.escape(id_profesor);
+		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,password,num_tarjeta,foto,tarjeta_activada,admin FROM profesores WHERE id_profesor ='+connection.escape(id_profesor);
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

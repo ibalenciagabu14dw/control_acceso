@@ -103,6 +103,8 @@ $(document).ready(function() {
 	    	$.ajax({
 	    		url: 'updateProfesor',
 	    		type: 'post',
+	    		enctype:'multipart/form-data',
+	    		dataType: 'json',
 	    		data:  formData,foto,
 	    		success:function(data){
 					if (data == "ok") {
@@ -124,7 +126,6 @@ $(document).ready(function() {
 
 
 	/*
-
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();

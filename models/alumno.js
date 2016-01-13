@@ -1,24 +1,7 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
-var io = require('socket.io')();
-console.log(io);
 var alumno = {};
 var day;
-
-
-io.on('connection', function(socket){
-	console.log("conectado");
-  socket.on('cambiaCliente', function(msg){
-    console.log(msg);
-    this.updatePresenciaAlumno(msg, function (error) {
-      if (error) {
-        throw error;
-      }else{
-        console.log("ok update presencia alumno por io");
-      }
-    })
-  });
-});
 
 time.diaDeLaSemana(function (error,data) {
 	if (error) {
@@ -72,8 +55,6 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 				if (error) {
 					throw error;
 				}else{
-					io.emit('cambiaServidor',idT);
-					console.log(io);
 					callback(null);
 				}//.else
 			});//.connection.query
@@ -83,7 +64,6 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 				if (error) {
 					throw error;
 				}else{
-					io.emit('cambiaServidor',idT);
 					callback(null);
 				}//.else
 			});//.connection.query

@@ -4,7 +4,7 @@ var connection = require('../models/connection');
 var time = require('../models/time');
 var app = require('../app');
 
-var aula = {};
+var horarioGrupo = {};
 var day;
 console.log(app);
 
@@ -17,24 +17,24 @@ time.diaDeLaSemana(function (error,data) {
 });
 
 /*
-*	agrega una aula a la tabla aulas (numero,piso,capacidad) COMPROBAR
+*	agrega un horario_grupo a la tabla horario_grupos (grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula) COMPROBAR
 */
-aula.insertarAula = function (numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlinsertarAula = 'INSERT INTO aulas SET ?';
-	connection.query(sqlinsertarAula,aula, function(error){
+horarioGrupo.insertarHorarioGrupo = function (grupo, dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, callback) {							
+	var horariogrupo = { grupo: grupo, dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
+	var sqlinsertarHorarioGrupo = 'INSERT INTO aulas SET ?';
+	connection.query(sqlinsertarHorarioGrupo, horarioGrupo, function(error){
 	  if (error) {
 			throw error;
 		}else{
 			console.log('insertarAula correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.insertarAula
+}//.horarioGrupo.insertarAula
 
 /*
-*	modificar una aula en la tabla aulas (nombre,clave) con el id COMPROBAR
+*	modificar una horarioGrupo en la tabla aulas (nombre,clave) con el id COMPROBAR
 */
-aula.modificarAula = function (id,numero,piso,capacidad,callback) {							
+horarioGrupo.modificarAula = function (id,numero,piso,capacidad,callback) {							
 	var aula = { numero: numero, piso: piso, capacidad: capacidad };
 	var sqlmodificarAula = 'UPDATE aulas SET ? WHERE id_aula ="'+id+'"';
 	connection.query(sqlmodificarAula,aula, function(error){
@@ -45,12 +45,12 @@ aula.modificarAula = function (id,numero,piso,capacidad,callback) {
 			console.log('modificarAula correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.modificarAula
+}//.horarioGrupo.modificarAula
 
 /*
-*	borrar una aula en la tabla aulas con el id COMPROBAR
+*	borrar una horarioGrupo en la tabla aulas con el id COMPROBAR
 */
-aula.borrarAula = function (id,callback) {							
+horarioGrupo.borrarAula = function (id,callback) {							
 	connection.query('DELETE FROM aulas WHERE id_aula= "'+id+'"', function(error){
 	  if (error) {
 			throw error;
@@ -59,12 +59,12 @@ aula.borrarAula = function (id,callback) {
 			console.log('borrarAula correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.borrarAula
+}//.horarioGrupo.borrarAula
 
 /*
 *	muestra todos los id_aula de la tabla aulas COMPROBAR
 */
-aula.mostrarTodosLosIdAula = function (callback) {							
+horarioGrupo.mostrarTodosLosIdAula = function (callback) {							
 	connection.query('SELECT id_aula FROM aulas', function(error,row){
 	  if (error) {
 			throw error;
@@ -87,9 +87,9 @@ aula.mostrarTodosLosIdAula = function (callback) {
 			console.log('mostrarTodosLosIdAula correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.mostrarTodosLosIdAula 
+}//.horarioGrupo.mostrarTodosLosIdAula 
 
 //METODO TODAS LAS ASIGNATURAS DE UN GRUPO
 
-module.exports = aula;
+module.exports = horarioGrupo;
 

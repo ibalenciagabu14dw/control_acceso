@@ -62,9 +62,9 @@ router.post('/configPersonas/buscarProfesorId', function(req,res,next) {
 /*
 * UPDATE PROFESOR COMPROBAR
 */
-router.post('/configPersonas/updateProfesor', multer({}).single('foto'), function(req,res,next){
-  console.log("file: "+req.foto);
-    console.log("file: "+req.file.buffer);
+router.post('/configPersonas/updateProfesor', multer({}).single('File'), function(req,res,next){
+  console.log("file: "+req.File);
+    //console.log("file: "+req.file.buffer);
   var id_profesor = req.body.id_profesor;
   var dni = req.body.dni;
   var nombre = req.body.nombre;

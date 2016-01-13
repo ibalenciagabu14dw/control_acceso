@@ -3,8 +3,22 @@ var router = express.Router();
 var alumno = require('../models/alumno');
 var profesor = require('../models/profesor');
 var time = require('../models/time');
-
-
+/*var io = require('socket.io')();
+console.log(io);
+io.on('connection', function(socket){
+	console.log("conectado");
+  socket.on('cambiaCliente', function(msg){
+    console.log(msg);
+    this.updatePresenciaAlumno(msg, function (error) {
+      if (error) {
+        throw error;
+      }else{
+        console.log("ok update presencia alumno por io");
+      }
+    })
+  });
+});
+*/
 
 /* GET presencia page. */
 router.get('/', function(req, res, next) {

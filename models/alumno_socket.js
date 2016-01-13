@@ -1,21 +1,11 @@
-var io;
-var Alumno_socket = function () {};
-
-Alumno_socket.prototype.connect = function (server) {
-    io = require('socket.io')(server);
-}
-
-module.exports = Alumno_socket;
-
-
-
 /*
 * socket.io
 */
-/* 
-var io = require('socket.io')(server);
+/*
+var io = require('socket.io')();
 
 io.on('connection', function(socket){
+  console.log(io);
   socket.on('cambiaCliente', function(msg){
     console.log(msg);
     alumno.updatePresenciaAlumno(msg, function (error) {

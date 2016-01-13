@@ -1,12 +1,13 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
-
-
+var io = require('socket.io')();
+console.log(io);
 var alumno = {};
 var day;
 
-/*
-app.io.on('connection', function(socket){
+
+io.on('connection', function(socket){
+	console.log("conectado");
   socket.on('cambiaCliente', function(msg){
     console.log(msg);
     this.updatePresenciaAlumno(msg, function (error) {
@@ -18,7 +19,6 @@ app.io.on('connection', function(socket){
     })
   });
 });
-*/
 
 time.diaDeLaSemana(function (error,data) {
 	if (error) {
@@ -73,6 +73,7 @@ alumno.updatePresenciaAlumno = function (idT,callback) {
 					throw error;
 				}else{
 					io.emit('cambiaServidor',idT);
+					console.log(io);
 					callback(null);
 				}//.else
 			});//.connection.query

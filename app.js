@@ -16,10 +16,22 @@ var presencia = require('./routes/presencia');
 var app = express();
 //*******************socket.io***********************************
 app.io = require('socket.io')();
-
+console.log(app.io);
+/*var alumno = require('./models/alumno');
 app.io.on('connection', function(socket){  
   console.log('a user connected');
-});
+  console.log(app.io);
+  socket.on('cambiaCliente', function(msg){
+    alumno.updatePresenciaAlumno(msg, function (error) {
+      if (error) {
+        console.log("error");
+      }else{
+        console.log("update ok io");
+      }
+    })
+    console.log(msg);
+  });
+});*/
 //*******************socket.io***********************************
 
 app.set('views', path.join(__dirname, 'views'));

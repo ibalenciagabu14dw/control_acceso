@@ -16,11 +16,26 @@ var presencia = require('./routes/presencia');
 var app = express();
 //*******************socket.io***********************************
 app.io = require('socket.io')();
-
+var alumno = require('./models/alumno');
+app.set('io',app.io);
 app.io.on('connection', function(socket){  
   console.log('a user connected');
 });
-//*******************socket.io***********************************
+app.io.on('connection', function(socket){
+  console.log("conectado");
+  socket.on('cambiaCliente', function(msg){
+    console.log(msg);
+    alumno.updatePresenciaAlumno(msg, function (error) {
+      if (error) {
+        throw error;
+      }else{
+        app.io.emit('cambiaServidor',msg);
+        console.log("ok update presencia alumno por io");
+      }
+    })
+  });
+});
+//*******************socket.io*fin*******************************
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

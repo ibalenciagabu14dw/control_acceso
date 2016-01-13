@@ -81,11 +81,12 @@ $(document).ready(function() {
   */
   var socket;
   var serverName = window.location.hostname;
-  if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
+ /* if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
     socket = io();
   } else {
     socket = io('wss://'+serverName+':8443');
-  }
+  }*/
+  socket = io.connect("/");
 
   $('td').click(function(event) {
     var id = $(this).attr('id');
@@ -93,7 +94,13 @@ $(document).ready(function() {
   });
 
   socket.on('cambiaServidor', function(msg){
-    alert(msg);
+    if($('#'+msg).hasClass('presencia1')){
+      $('#'+msg).removeClass('presencia1');
+      $('#'+msg).addClass('presencia0');
+    }else{
+      $('#'+msg).removeClass('presencia0');
+      $('#'+msg).addClass('presencia1');
+    }
   });
   
   

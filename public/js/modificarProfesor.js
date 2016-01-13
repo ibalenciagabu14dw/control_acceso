@@ -16,14 +16,14 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-			console.log(result);
-    		var formulario = "<form class='form-group' id='formUpdate' enctype='multipart/form-data'>id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"' disabled='disabled'>";
+			//console.log(result);
+    		var formulario = "<form class='form-group' id='formUpdate' name='formUpdate' enctype='multipart/form-data'>id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"' disabled='disabled'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result[0].dni+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
     		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result[0].apellidos+"'>";
     		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result[0].correo+"'>";
     		formulario += "Password: <input type='text' id='password' name='password' class='form-control' value='"+result[0].password+"'>";
-    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control'>";
+    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result[0].tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result[0].num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result[0].admin+"'>";
@@ -90,8 +90,10 @@ $(document).ready(function() {
 	$('#resultado').on("click","#btnModificar",function(event) {
 		event.preventDefault();
 	    if(confirm("Estas seguro de modificar el alumno??")){
-	    	var datos = {'id_profesor':$('#resultado #id_profesor').val(), 'dni':$('#resultado #dni').val(), 'nombre':$('#resultado #nombre').val(), 'apellidos':$('#resultado #apellidos').val(), 'correo':$('#resultado #correo').val(), 'password':$('#resultado #password').val(), 'foto':$('#resultado #foto').val(), 'tarjeta_activada':$('#resultado #tarjeta_activada').val(), 'num_tarjeta':$('#resultado #num_tarjeta').val(), 'admin':$('#resultado #admin').val() };
-	    	console.log("foto: " + $('#resultado #foto').val());
+	    	var datos = {'id_profesor':$('#resultado #id_profesor').val(), 'dni':$('#resultado #dni').val(), 'nombre':$('#resultado #nombre').val(), 'apellidos':$('#resultado #apellidos').val(), 'correo':$('#resultado #correo').val(), 'password':$('#resultado #password').val(), 'foto':$('#resultado #foto')[0].files[0], 'tarjeta_activada':$('#resultado #tarjeta_activada').val(), 'num_tarjeta':$('#resultado #num_tarjeta').val(), 'admin':$('#resultado #admin').val() };
+	    	console.log(datos);
+	    	console.log("foto"+$('#resultado #foto')[0].files[0]);
+	    	console.log('foto'+$('#resultado #foto')[0].files[0].path);
 	    	$.ajax({
 	    		url: 'updateProfesor',
 	    		type: 'post',

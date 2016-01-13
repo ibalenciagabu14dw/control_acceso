@@ -62,8 +62,7 @@ asignatura.mostrarTodosLosIdAsigntura = function (callback) {
 			var id_AsignaturasArray = [];
 			for (var i= 0;i<row.length;i++){
 					//console.log ("row : " + row[i].id_asignatura);
-					var id = row[i].id_asignatura;
-					id_AsignaturasArray.push(id);
+					id_AsignaturasArray.push(row[i].id_asignatura);
 				}//.for (var i= 0;i<row.length;i++)
 					//console.log(id_AsignaturasArray);
 					function compareNumbers(a, b) {

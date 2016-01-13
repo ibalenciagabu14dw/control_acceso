@@ -62,8 +62,7 @@ aula.mostrarTodosLosIdAula = function (callback) {
 			var id_AulaArray = [];
 			for (var i= 0;i<row.length;i++){
 					//console.log ("row : " + row[i].id_aula);
-					var id = row[i].id_aula;
-					id_AulaArray.push(id);
+					id_AulaArray.push(row[i].id_aula);
 				}//.for (var i= 0;i<row.length;i++)
 					//console.log(id_AulaArray);
 					function compareNumbers(a, b) {

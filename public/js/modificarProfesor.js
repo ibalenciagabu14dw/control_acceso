@@ -124,8 +124,6 @@ $(document).ready(function() {
 	    }
 	});//click modificar formulario alumno
 
-
-	/*
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();
@@ -134,7 +132,7 @@ $(document).ready(function() {
 				url: 'borrarProfesor',
 				type: 'post',
 				dataType: 'html',
-				data: {'id':$('#resultado #id').val()},
+				data: {'id_profesor':$('#resultado #id_profesor').val()},
 				success:function(data){
 					if (data == "ok") {
 						alert("Alumno borrado correctamente");
@@ -153,7 +151,6 @@ $(document).ready(function() {
 		}//if confirm
 	});//click borrar formulario alumno
 
-	*/
 	
 });//ready
 

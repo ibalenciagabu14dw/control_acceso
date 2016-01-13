@@ -58,6 +58,31 @@ router.post('/configPersonas/buscarProfesorId', function(req,res,next) {
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
+/*
+* devuelve el id del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/configPersonas/updateProfesor', function(req,res,next) {
+  var id_profesor = req.body.id_profesor;
+  var dni = req.body.dni;
+  var nombre = req.body.nombre;
+  var apellidos = req.body.apellidos;
+  var correo = req.body.correo;
+  var password = req.body.password;
+  var foto = req.file.buffer;
+  var tarjeta_activada = req.body.tarjeta_activada;
+  var num_tarjeta = req.body.num_tarjeta;
+  var admin = req.body.admin;
+ // console.log("id: "+ id_profesor);
+  profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      console.log(row);
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
 
 router.get('/configPersonas/borrarPersonas', function(req, res, next) {
         alumno.mostrarTodosLosIdAlumno(function (error,id_alumnoArray){

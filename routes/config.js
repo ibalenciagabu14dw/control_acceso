@@ -3,6 +3,7 @@ var router = express.Router();
 var profesor = require('../models/profesor');
 var alumno = require('../models/alumno');
 var multer = require('multer');
+var bodyParser = require('body-parser')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -61,14 +62,16 @@ router.post('/configPersonas/buscarProfesorId', function(req,res,next) {
 /*
 * UPDATE PROFESOR COMPROBAR
 */
-router.post('/configPersonas/updateProfesor', multer({}).single('foto'), function(req,res){
+router.post('/configPersonas/updateProfesor', multer({}).single('foto'), function(req,res,next){
+  console.log("file: "+req.foto);
+    console.log("file: "+req.file.buffer);
   var id_profesor = req.body.id_profesor;
   var dni = req.body.dni;
   var nombre = req.body.nombre;
   var apellidos = req.body.apellidos;
   var correo = req.body.correo;
   var password = req.body.password;
-  var foto = req.file.buffer;
+  var foto = req.file;
   var tarjeta_activada = req.body.tarjeta_activada;
   var num_tarjeta = req.body.num_tarjeta;
   var admin = req.body.admin;

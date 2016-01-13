@@ -4,7 +4,7 @@ var connection = require('../models/connection');
 var time = require('../models/time');
 var app = require('../app');
 
-var aula = {};
+var falta = {};
 var day;
 console.log(app);
 
@@ -17,77 +17,77 @@ time.diaDeLaSemana(function (error,data) {
 });
 
 /*
-*	agrega una aula a la tabla aulas (numero,piso,capacidad) COMPROBAR
+*	agrega una falta a la tabla faltas (fecha, id_alumno,id_horario_grupo,observaciones) COMPROBAR
 */
-aula.insertarAula = function (numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlinsertarAula = 'INSERT INTO aulas SET ?';
-	connection.query(sqlinsertarAula,aula, function(error){
+falta.insertarFalta = function (fecha,id_alumno,id_horario_grupo,observaciones,callback) {							
+	var falta = { fecha: fecha, id_alumno: id_alumno, id_horario_grupo: id_horario_grupo, observaciones: observaciones };
+	var sqlinsertarFalta = 'INSERT INTO faltas SET ?';
+	connection.query(sqlinsertarFalta,falta, function(error){
 	  if (error) {
 			throw error;
 		}else{
-			console.log('insertarAula correctamente');
+			console.log('insertarFalta correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.insertarAula
+}//.falta.insertarFalta
 
 /*
-*	modificar una aula en la tabla aulas (nombre,clave) con el id COMPROBAR
+*	modificar una falta en la tabla faltas (id_falta,fecha,id_alumno,id_horario_grupo,observaciones) con el id COMPROBAR
 */
-aula.modificarAula = function (id,numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlmodificarAula = 'UPDATE aulas SET ? WHERE id_aula ="'+id+'"';
+falta.modificarFalta = function (id_falta,fecha,id_alumno,id_horario_grupo,observaciones,callback) {							
+	var falta = { fecha: fecha, id_alumno: id_alumno, id_horario_grupo: id_horario_grupo, observaciones: observaciones };
+	var sqlmodificarFalta = 'UPDATE faltas SET ? WHERE id_falta ="'+id_falta+'"';
 	connection.query(sqlmodificarAula,aula, function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
-			console.log('modificarAula correctamente');
+			console.log('modificarFalta correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.modificarAula
+}//.falta.modificarFalta
 
 /*
-*	borrar una aula en la tabla aulas con el id COMPROBAR
+*	borrar una falta en la tabla faltas con el id_falta COMPROBAR
 */
-aula.borrarAula = function (id,callback) {							
-	connection.query('DELETE FROM aulas WHERE id_aula= "'+id+'"', function(error){
+falta.borrarFalta = function (id_falta,callback) {							
+	connection.query('DELETE FROM faltas WHERE id_falta= "'+id_falta+'"', function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
-			console.log('borrarAula correctamente');
+			console.log('borrarFalta correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.borrarAula
+}//.falta.borrarFalta
 
 /*
-*	muestra todos los id_aula de la tabla aulas COMPROBAR
+*	muestra todos los id_falta de la tabla faltas COMPROBAR
 */
-aula.mostrarTodosLosIdAula = function (callback) {							
-	connection.query('SELECT id_aula FROM aulas', function(error,row){
+falta.mostrarTodosLosIdFalta = function (callback) {							
+	connection.query('SELECT id_falta FROM faltas', function(error,row){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
 			//console.log(row);
-			var id_AulaArray = [];
+			var id_FaltaArray = [];
 			for (var i= 0;i<row.length;i++){
-					//console.log ("row : " + row[i].id_aula);
-					var id = row[i].id_aula;
-					id_AulaArray.push(id);
+					//console.log ("row : " + row[i].id_falta);
+					var id = row[i].id_falta;
+					id_FaltaArray.push(id);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(id_AulaArray);
+					//console.log(id_FaltaArray);
 					function compareNumbers(a, b) {
 					  return a - b;
 					} 
-					id_AulaArray.sort(compareNumbers);
-					//console.log("sort: " + id_AulaArray);
-				callback(null,id_AulaArray);
-			console.log('mostrarTodosLosIdAula correctamente');
+					id_FaltaArray.sort(compareNumbers);
+					//console.log("sort: " + id_FaltaArray);
+				callback(null,id_FaltaArray);
+			console.log('mostrarTodosLosIdFalta correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.mostrarTodosLosIdAula 
+}//.falta.mostrarTodosLosIdAula 
 
-module.exports = aula;
+module.exports = falta;
 

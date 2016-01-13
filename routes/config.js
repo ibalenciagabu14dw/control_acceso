@@ -97,6 +97,22 @@ router.post('/configPersonas/updateProfesor', multer({}).single('foto'), functio
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
+
+router.post('/configPersonas/borrarProfesor', function(req,res,next){
+  var id_profesor = req.body.id_profesor;
+ console.log("id: "+ id_profesor);
+
+  profesor.borrarProfesor(id_profesor, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      console.log(row);
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+
 /*
 router.get('/configPersonas/borrarPersonas', function(req, res, next) {
         alumno.mostrarTodosLosIdAlumno(function (error,id_alumnoArray){

@@ -93,7 +93,13 @@ $(document).ready(function() {
   });
 
   socket.on('cambiaServidor', function(msg){
-    alert(msg);
+    if($('#'+msg).hasClass('presencia1')){
+      $('#'+msg).removeClass('presencia1');
+      $('#'+msg).addClass('presencia0');
+    }else{
+      $('#'+msg).removeClass('presencia0');
+      $('#'+msg).addClass('presencia1');
+    }
   });
   
   

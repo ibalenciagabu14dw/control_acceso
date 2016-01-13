@@ -14,13 +14,13 @@ var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
 
 var app = express();
-//***************************************************************
+//*******************socket.io***********************************
 app.io = require('socket.io')();
 
 app.io.on('connection', function(socket){  
   console.log('a user connected');
 });
-//***************************************************************
+//*******************socket.io***********************************
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

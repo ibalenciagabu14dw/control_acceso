@@ -1,10 +1,9 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
-var app = require('../app');
+
 
 var alumno = {};
 var day;
-console.log(app);
 
 /*
 app.io.on('connection', function(socket){

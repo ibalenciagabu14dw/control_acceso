@@ -17,7 +17,7 @@ $(document).ready(function() {
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
 			//console.log(result);
-    		var formulario = "<form class='form-group' id='formUpdate' name='formUpdate' enctype='multipart/form-data'>id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"' disabled='disabled'>";
+    		var formulario = "<form class='form-group' id='formUpdate' name='formUpdate'>id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"' disabled='disabled'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result[0].dni+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
     		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result[0].apellidos+"'>";
@@ -90,16 +90,17 @@ $(document).ready(function() {
 	$('#resultado').on("click","#btnModificar",function(event) {
 		event.preventDefault();
 	    if(confirm("Estas seguro de modificar el alumno??")){
-	    	var datos = {'id_profesor':$('#resultado #id_profesor').val(), 'dni':$('#resultado #dni').val(), 'nombre':$('#resultado #nombre').val(), 'apellidos':$('#resultado #apellidos').val(), 'correo':$('#resultado #correo').val(), 'password':$('#resultado #password').val(), 'foto':$('#resultado #foto')[0].files[0], 'tarjeta_activada':$('#resultado #tarjeta_activada').val(), 'num_tarjeta':$('#resultado #num_tarjeta').val(), 'admin':$('#resultado #admin').val() };
+	    	var datos = {'id_profesor':$('#resultado #id_profesor').val(), 'dni':$('#resultado #dni').val(), 'nombre':$('#resultado #nombre').val(), 'apellidos':$('#resultado #apellidos').val(), 'correo':$('#resultado #correo').val(), 'password':$('#resultado #password').val(), 'foto':$('#resultado #foto').get(0).files[0], 'tarjeta_activada':$('#resultado #tarjeta_activada').val(), 'num_tarjeta':$('#resultado #num_tarjeta').val(), 'admin':$('#resultado #admin').val() };
 	    	console.log(datos);
-	    	console.log("foto"+$('#resultado #foto')[0].files[0]);
-	    	console.log('foto'+$('#resultado #foto')[0].files[0].path);
+	    	console.log(JSON.stringify(datos));
+	    	console.log($('#resultado #foto').get(0).files[0]);
 	    	$.ajax({
 	    		url: 'updateProfesor',
 	    		type: 'post',
 	    		dataType: 'json',
 	    		enctype : 'multipart/form-data',
-	    		data: datos,
+	    		data:  datos,
+	    		processData: false,
 	    		success:function(data){
 					if (data == "ok") {
 						alert("Profesor modificado correctamente");

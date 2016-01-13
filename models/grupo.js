@@ -1,43 +1,33 @@
-//MODELO GRUPO CAMBIAR NO FUNCIONA
+//***************MODELO GRUPO FALTA COMPROBAR
 
 var connection = require('../models/connection');
-var time = require('../models/time');
 var app = require('../app');
 
-var aula = {};
-var day;
+var grupo = {};
 console.log(app);
 
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
-
 /*
-*	agrega una aula a la tabla aulas (numero,piso,capacidad) COMPROBAR
+*	agrega un grupo a la tabla grupos (nombre_grupo,tipo) COMPROBAR
 */
-aula.insertarAula = function (numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlinsertarAula = 'INSERT INTO aulas SET ?';
-	connection.query(sqlinsertarAula,aula, function(error){
+grupo.insertarGrupo = function (nombre_grupo,tipo,callback) {							
+	var grupo = { nombre_grupo: nombre_grupo, tipo: tipo };
+	var sqlinsertarGrupo = 'INSERT INTO grupos SET ?';
+	connection.query(sqlinsertarGrupo, grupo, function(error){
 	  if (error) {
 			throw error;
 		}else{
-			console.log('insertarAula correctamente');
+			console.log('insertarGrupo correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.insertarAula
+}//.grupo.insertarGrupo
 
 /*
-*	modificar una aula en la tabla aulas (nombre,clave) con el id COMPROBAR
+*	modificar una grupo en la tabla grupos (id_grupo,nombre_grupo,tipo) con el id_grupo COMPROBAR
 */
-aula.modificarAula = function (id,numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlmodificarAula = 'UPDATE aulas SET ? WHERE id_aula ="'+id+'"';
-	connection.query(sqlmodificarAula,aula, function(error){
+grupo.modificarGrupo = function (id_grupo,nombre_grupo,tipo,callback) {							
+	var grupo = { nombre_grupo: nombre_grupo, tipo: tipo };
+	var sqlmodificarGrupo = 'UPDATE grupos SET ? WHERE id_grupo ="'+id_grupo+'"';
+	connection.query(sqlmodificarGrupo,grupo, function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
@@ -45,49 +35,48 @@ aula.modificarAula = function (id,numero,piso,capacidad,callback) {
 			console.log('modificarAula correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.modificarAula
+}//.grupo.modificarGrupo
 
 /*
-*	borrar una aula en la tabla aulas con el id COMPROBAR
+*	borrar una grupo en la tabla grupos con el id_grupo COMPROBAR
 */
-aula.borrarAula = function (id,callback) {							
-	connection.query('DELETE FROM aulas WHERE id_aula= "'+id+'"', function(error){
+grupo.borrarGrupo = function (id_grupo,callback) {							
+	connection.query('DELETE FROM grupos WHERE id_grupo= "'+id_grupo+'"', function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
-			console.log('borrarAula correctamente');
+			console.log('borrarGrupo correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.borrarAula
+}//.grupo.borrarGrupo
 
 /*
-*	muestra todos los id_aula de la tabla aulas COMPROBAR
+*	muestra todos los id_grupo de la tabla grupos COMPROBAR
 */
-aula.mostrarTodosLosIdAula = function (callback) {							
-	connection.query('SELECT id_aula FROM aulas', function(error,row){
+grupo.mostrarTodosLosIdGrupo = function (callback) {							
+	connection.query('SELECT id_grupo FROM grupos', function(error,row){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
 			//console.log(row);
-			var id_AulaArray = [];
+			var id_GrupoArray = [];
 			for (var i= 0;i<row.length;i++){
 					//console.log ("row : " + row[i].id_aula);
-					var id = row[i].id_aula;
-					id_AulaArray.push(id);
+					id_GrupoArray.push(row[i].id_grupo);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(id_AulaArray);
+					//console.log(id_GrupoArray);
 					function compareNumbers(a, b) {
 					  return a - b;
 					} 
-					id_AulaArray.sort(compareNumbers);
-					//console.log("sort: " + id_AulaArray);
-				callback(null,id_AulaArray);
-			console.log('mostrarTodosLosIdAula correctamente');
+					id_GrupoArray.sort(compareNumbers);
+					//console.log("sort: " + id_GrupoArray);
+				callback(null,id_GrupoArray);
+			console.log('mostrarTodosLosIdGrupo correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.mostrarTodosLosIdAula 
+}//.grupo.mostrarTodosLosIdGrupo 
 
-module.exports = aula;
+module.exports = grupo;
 

@@ -1,18 +1,8 @@
 var connection = require('../models/connection');
-var time = require('../models/time');
 var app = require('../app');
 
 var aula = {};
-var day;
 console.log(app);
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
 
 /*
 *	agrega una aula a la tabla aulas (numero,piso,capacidad) COMPROBAR
@@ -72,8 +62,7 @@ aula.mostrarTodosLosIdAula = function (callback) {
 			var id_AulaArray = [];
 			for (var i= 0;i<row.length;i++){
 					//console.log ("row : " + row[i].id_aula);
-					var id = row[i].id_aula;
-					id_AulaArray.push(id);
+					id_AulaArray.push(row[i].id_aula);
 				}//.for (var i= 0;i<row.length;i++)
 					//console.log(id_AulaArray);
 					function compareNumbers(a, b) {

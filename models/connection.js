@@ -17,6 +17,7 @@ connection = mysql.createConnection(
 		 password: '',
 		 database: 'controlfid'
 		 */
+		 
 	}
 );//.connection = mysql.createConnection
 

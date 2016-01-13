@@ -1,18 +1,8 @@
 var connection = require('../models/connection');
-var time = require('../models/time');
 var app = require('../app');
 
 var asignatura = {};
-var day;
 console.log(app);
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
 
 /*
 *	agrega una asignatura a la tabla asignaturas (nombre,clave) COMPROBAR
@@ -72,8 +62,7 @@ asignatura.mostrarTodosLosIdAsigntura = function (callback) {
 			var id_AsignaturasArray = [];
 			for (var i= 0;i<row.length;i++){
 					//console.log ("row : " + row[i].id_asignatura);
-					var id = row[i].id_asignatura;
-					id_AsignaturasArray.push(id);
+					id_AsignaturasArray.push(row[i].id_asignatura);
 				}//.for (var i= 0;i<row.length;i++)
 					//console.log(id_AsignaturasArray);
 					function compareNumbers(a, b) {

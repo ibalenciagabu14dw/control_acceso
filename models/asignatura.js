@@ -1,18 +1,8 @@
 var connection = require('../models/connection');
-var time = require('../models/time');
 var app = require('../app');
 
 var asignatura = {};
-var day;
 console.log(app);
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
 
 /*
 *	agrega una asignatura a la tabla asignaturas (nombre,clave) COMPROBAR

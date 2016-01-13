@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var profesor = require('../models/profesor');
 var alumno = require('../models/alumno');
+var multer = require('multer');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -59,9 +60,11 @@ router.post('/configPersonas/buscarProfesorId', function(req,res,next) {
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 /*
-* devuelve el id del profesor(modificarProfesor) FUNCIONA
+* UPDATE PROFESOR COMPROBAR
 */
-router.post('/configPersonas/updateProfesor', function(req,res,next) {
+router.post('/configPersonas/updateProfesor', multer({}).single('foto'), function(req,res){
+  console.log(req.body);
+  console.log(req.file);
   var id_profesor = req.body.id_profesor;
   var dni = req.body.dni;
   var nombre = req.body.nombre;
@@ -72,7 +75,16 @@ router.post('/configPersonas/updateProfesor', function(req,res,next) {
   var tarjeta_activada = req.body.tarjeta_activada;
   var num_tarjeta = req.body.num_tarjeta;
   var admin = req.body.admin;
- // console.log("id: "+ id_profesor);
+ console.log("id: "+ id_profesor);
+ console.log("dni: "+ dni);
+ console.log("nombre: "+ nombre);
+ console.log("apellidos: "+ apellidos);
+ console.log("correocorreo: "+ correo);
+ console.log("password: "+ password);
+ console.log("foto: "+ foto);
+ console.log("tarjeta_activada: "+ tarjeta_activada);
+ console.log("num_tarjeta: "+ num_tarjeta);
+ console.log("admin: "+ admin);
   profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
     if (error) {
       throw error;
@@ -83,7 +95,7 @@ router.post('/configPersonas/updateProfesor', function(req,res,next) {
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
-
+/*
 router.get('/configPersonas/borrarPersonas', function(req, res, next) {
         alumno.mostrarTodosLosIdAlumno(function (error,id_alumnoArray){
                   if (error) {
@@ -114,7 +126,7 @@ router.get('/configPersonas/borrarProfesor', function(req, res, next) {
       });////.profesor.mostrarTodosLosIdProfesor
 });//.router.get('/configPersonas/borrarProfesor', function(req, res, next) {
 
-
+*/
 
 router.get('/configDispositivos', function(req, res, next) {
   res.render('configDispositivos', { title: 'configDispositivos' });

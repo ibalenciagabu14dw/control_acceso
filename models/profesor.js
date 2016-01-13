@@ -55,7 +55,10 @@ profesor.buscarProfesorPorId2 = function(id_profesor,callback){
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
-			}else{	
+			}else{
+					var foto = row[0].foto.toString('base64');//foto del alumno
+					//console.log(foto);//cambiar valor del row
+				 console.log(row);
 				callback(null,row);
 			}//.else
 		});//.connection.query

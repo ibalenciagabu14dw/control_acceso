@@ -16,7 +16,8 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-			//console.log(result);
+			
+			//jquery-base64
     		var formulario = "<form class='form-group' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
     		formulario += "id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result[0].dni+"'>";
@@ -24,7 +25,8 @@ $(document).ready(function() {
     		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result[0].apellidos+"'>";
     		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result[0].correo+"'>";
     		formulario += "Password: <input type='text' id='password' name='password' class='form-control' value='"+result[0].password+"'>";
-    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
+    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,'"+result[0].foto+" width='100' height='100'/>";
+    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value='"+result[0].foto+"'>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result[0].tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result[0].num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result[0].admin+"'>";
@@ -75,7 +77,6 @@ $(document).ready(function() {
 					dataType: 'json',
 					data:{ id_profesor:id },
 					success:function (data) {
-						//console.log(data);
 					}
 				})//ajax
 				.done(function() {

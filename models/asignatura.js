@@ -17,8 +17,8 @@ time.diaDeLaSemana(function (error,data) {
 /*
 *	agrega una asignatura a la tabla asignaturas (nombre,clave) COMPROBAR
 */
-asignatura.insertarAsigntura = function (nombre,clave,callback) {							
-	var asignatura = { nombre: nombre, clave: clave };
+asignatura.insertarAsigntura = function (nombre,clave,obligatoria,callback) {							
+	var asignatura = { nombre: nombre, clave: clave ,obligatoria: obligatoria };
 	var sqlinsertarAsigntura = 'INSERT INTO asignaturas SET ?';
 	connection.query(sqlinsertarAsigntura,asignatura, function(error){
 	  if (error) {
@@ -32,8 +32,8 @@ asignatura.insertarAsigntura = function (nombre,clave,callback) {
 /*
 *	modificar una asignatura en la tabla asignaturas (nombre,clave) con el id COMPROBAR
 */
-asignatura.modificarAsigntura = function (id,nombre,clave,callback) {							
-	var asignatura = { nombre: nombre, clave: clave };
+asignatura.modificarAsigntura = function (id,nombre,clave,obligatoria,callback) {							
+	var asignatura = { nombre: nombre, clave: clave ,obligatoria: obligatoria };
 	var sqlmodificarAsigntura = 'UPDATE asignaturas SET ? WHERE id_asignatura ="'+id+'"';
 	connection.query(sqlmodificarAsigntura,asignatura, function(error){
 	  if (error) {

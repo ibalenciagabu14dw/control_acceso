@@ -1,4 +1,4 @@
-//MODELO HORARIO_GRUPO CAMBIAR NO FUNCIONA
+//MODELO HORARIO_GRUPO COMPROBAR
 
 var connection = require('../models/connection');
 var time = require('../models/time');
@@ -74,8 +74,7 @@ horario_grupo.mostrarTodosLosIdHorarioGrupo = function (callback) {
 			var id_horarioGrupoArray = [];
 			for (var i= 0;i<row.length;i++){
 					//console.log ("row : " + row[i].id_horario_grupo);
-					var id = row[i].id_horario_grupo;
-					id_horarioGrupoArray.push(id);
+					id_horarioGrupoArray.push(row[i].id_horario_grupo);
 				}//.for (var i= 0;i<row.length;i++)
 					//console.log(id_horarioGrupoArray);
 					function compareNumbers(a, b) {

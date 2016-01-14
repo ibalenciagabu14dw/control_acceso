@@ -90,19 +90,16 @@ $(document).ready(function() {
 	$('#resultado').on("click","#btnModificar",function(event) {
 		event.preventDefault();
 	    if(confirm("Estas seguro de modificar el alumno??")){
-  	   var datos = {'id_profesor':$('#resultado #id_profesor').val(), 'dni':$('#resultado #dni').val(), 'nombre':$('#resultado #nombre').val(), 'apellidos':$('#resultado #apellidos').val(), 'correo':$('#resultado #correo').val(), 'password':$('#resultado #password').val(), 'foto':$('#resultado #foto').get(0).files[0], 'tarjeta_activada':$('#resultado #tarjeta_activada').val(), 'num_tarjeta':$('#resultado #num_tarjeta').val(), 'admin':$('#resultado #admin').val() };
-		console.log(datos);	
-/*
     	var formData = $('#formUpdate').serializeArray();
     	console.log(formData);
-    	var foto = $('#resultado #foto').get(0).files[0];
+    	/*var foto = $('#resultado #foto').get(0).files[0];
     	console.log(foto);*/
 	    	$.ajax({
 	    		url: 'updateProfesor',
 	    		type: 'post',
-	    		enctype:'multipart/form-data',
 	    		dataType: 'json',
-	    		data:  datos,
+	    		data:  formData,
+	    		//processData: false,
 	    		success:function(data){
 					if (data == "ok") {
 						alert("Profesor modificado correctamente");

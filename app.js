@@ -15,20 +15,28 @@ var presencia = require('./routes/presencia');
 
 var app = express();
 //*******************socket.io***********************************
+//require (attach server on www.js)
 app.io = require('socket.io')();
+//importar alumno
 var alumno = require('./models/alumno');
+//configurar variable global io
 app.set('io',app.io);
+//escucha servidor io
 app.io.on('connection', function(socket){  
   console.log('a user connected');
 });
+//escucha servidor io 2
 app.io.on('connection', function(socket){
   console.log("conectado");
+  //al escuchar cambiaCliente desde el cliente
   socket.on('cambiaCliente', function(msg){
     console.log(msg);
+    //update presencia alumno
     alumno.updatePresenciaAlumno(msg, function (error) {
       if (error) {
         throw error;
       }else{
+        //emitir cambiaServidor al cliente para cambiar color presencia alumno
         app.io.emit('cambiaServidor',msg);
         console.log("ok update presencia alumno por io");
       }

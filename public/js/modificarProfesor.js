@@ -16,7 +16,7 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' action='/config/configPersonas/updateProfesor' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
+    		var formulario = "<form class='form-group' action='/updateProfesor' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
     		formulario += "id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result.id_profesor+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
@@ -45,7 +45,7 @@ $(document).ready(function() {
 	function buscarProfesores () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: 'buscarProfesorNombre',
+			url: '/buscarProfesorNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarProfesorPorId (id) { 
 		return	$.ajax({
-					url: 'buscarProfesorId',
+					url: '/buscarProfesorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_profesor:id },
@@ -88,9 +88,9 @@ $(document).ready(function() {
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();
-		if(confirm("Estas seguro de borrar al alumno?")) {
+		if(confirm("Estas seguro de borrar al profesor?")) {
 			$.ajax({
-				url: 'borrarProfesor',
+				url: '/borrarProfesor',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_profesor':$('#resultado #id_profesor').val()},

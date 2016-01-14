@@ -3,17 +3,19 @@
     src: url('../fonts/Sketch_Block.ttf');
 }
 body {
-	height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: cover;
 	background-image: url('../images/gradient4.jpg');
+	background-position: center center;
+	background-color: #464646;
+
 }
 #titulo{
 	text-align: center;
 	font-family: tituloIndex;
 	font-size: 52pt;
-	margin-top: 10%;
+	margin-top: 5%;
 	color:white;
 }
 #loginFormContainer{

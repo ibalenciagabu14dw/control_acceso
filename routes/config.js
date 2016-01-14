@@ -3,7 +3,7 @@ var router = express.Router();
 var profesor = require('../models/profesor');
 var alumno = require('../models/alumno');
 var multer = require('multer');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -66,6 +66,8 @@ router.post('/configPersonas/updateProfesor', multer({}).single('foto'), functio
   console.log("file: "+req.file);
    console.log(req.files);
    console.log(req.body);
+   console.log(req.foto);
+   console.log(req.body.foto);
     //console.log("file: "+req.file.buffer);
   var id_profesor = req.body.id_profesor;
   var dni = req.body.dni;

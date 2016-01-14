@@ -4,7 +4,7 @@ var connection = require('../models/connection');
 var time = require('../models/time');
 var app = require('../app');
 
-var horarioGrupo = {};
+var horario_grupo = {};
 var day;
 console.log(app);
 
@@ -17,79 +17,79 @@ time.diaDeLaSemana(function (error,data) {
 });
 
 /*
-*	agrega un horario_grupo a la tabla horario_grupos (grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula) COMPROBAR
+*	agrega un horario_grupo a la tabla horario_grupos (dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula) COMPROBAR
 */
-horarioGrupo.insertarHorarioGrupo = function (grupo, dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, callback) {							
-	var horariogrupo = { grupo: grupo, dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
-	var sqlinsertarHorarioGrupo = 'INSERT INTO aulas SET ?';
-	connection.query(sqlinsertarHorarioGrupo, horarioGrupo, function(error){
+horario_grupo.insertarHorarioGrupo = function (dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, callback) {							
+	var horario_grupo = { dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
+	var sqlinsertarHorarioGrupo = 'INSERT INTO horario_grupos SET ?';
+	connection.query(sqlinsertarHorarioGrupo, horario_grupo, function(error){
 	  if (error) {
 			throw error;
 		}else{
 			console.log('insertarAula correctamente');
 		}//.else
 	});//.connection.query
-}//.horarioGrupo.insertarAula
+}//.horario_grupo.insertarHorarioGrupo
 
 /*
-*	modificar una horarioGrupo en la tabla aulas (nombre,clave) con el id COMPROBAR
+*	modificar un horario_grupo en la tabla horario_grupos (id_horario_grupo, dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula) con el id COMPROBAR
 */
-horarioGrupo.modificarAula = function (id,numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlmodificarAula = 'UPDATE aulas SET ? WHERE id_aula ="'+id+'"';
-	connection.query(sqlmodificarAula,aula, function(error){
+horario_grupo.modificarHorarioGrupo = function (id_horario_grupo, dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, callback) {							
+	var horario_grupo = { id_horario_grupo: id_horario_grupo, dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
+	var modificarHorarioGrupo = 'UPDATE horario_grupos SET ? WHERE id_horario_grupo ="'+id_horario_grupo+'"';
+	connection.query(modificarHorarioGrupo, horario_grupo, function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
-			console.log('modificarAula correctamente');
+			console.log('modificarHorarioGrupo correctamente');
 		}//.else
 	});//.connection.query
-}//.horarioGrupo.modificarAula
+}//.horario_grupo.modificarHorarioGrupo
 
 /*
-*	borrar una horarioGrupo en la tabla aulas con el id COMPROBAR
+*	borrar un horario_grupo en la tabla horario_grupos con el id_horario_grupo COMPROBAR
 */
-horarioGrupo.borrarAula = function (id,callback) {							
-	connection.query('DELETE FROM aulas WHERE id_aula= "'+id+'"', function(error){
+horario_grupo.borrarHorarioGrupo = function (id_horario_grupo,callback) {							
+	connection.query('DELETE FROM horario_grupos WHERE id_horario_grupo= "'+id_horario_grupo+'"', function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
-			console.log('borrarAula correctamente');
+			console.log('borrarHorarioGrupo correctamente');
 		}//.else
 	});//.connection.query
-}//.horarioGrupo.borrarAula
+}//.horario_grupo.borrarHorarioGrupo
 
 /*
-*	muestra todos los id_aula de la tabla aulas COMPROBAR
+*	muestra todos los id_horario_grupo de la tabla horario_grupos COMPROBAR
 */
-horarioGrupo.mostrarTodosLosIdAula = function (callback) {							
-	connection.query('SELECT id_aula FROM aulas', function(error,row){
+horario_grupo.mostrarTodosLosIdHorarioGrupo = function (callback) {							
+	connection.query('SELECT id_horario_grupo FROM horario_grupos', function(error,row){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
 			//console.log(row);
-			var id_AulaArray = [];
+			var id_horarioGrupoArray = [];
 			for (var i= 0;i<row.length;i++){
-					//console.log ("row : " + row[i].id_aula);
-					var id = row[i].id_aula;
-					id_AulaArray.push(id);
+					//console.log ("row : " + row[i].id_horario_grupo);
+					var id = row[i].id_horario_grupo;
+					id_horarioGrupoArray.push(id);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(id_AulaArray);
+					//console.log(id_horarioGrupoArray);
 					function compareNumbers(a, b) {
 					  return a - b;
 					} 
-					id_AulaArray.sort(compareNumbers);
-					//console.log("sort: " + id_AulaArray);
-				callback(null,id_AulaArray);
-			console.log('mostrarTodosLosIdAula correctamente');
+					id_horarioGrupoArray.sort(compareNumbers);
+					//console.log("sort: " + id_horarioGrupoArray);
+				callback(null,id_horarioGrupoArray);
+			console.log('mostrarTodosLosIdHorarioGrupo correctamente');
 		}//.else
 	});//.connection.query
-}//.horarioGrupo.mostrarTodosLosIdAula 
+}//.horario_grupo.mostrarTodosLosIdHorarioGrupo 
 
-//METODO TODAS LAS ASIGNATURAS DE UN GRUPO
+//METODO TODOS LOS HORARIOS DE UN GRUPO
 
-module.exports = horarioGrupo;
+module.exports = horario_grupo;
 

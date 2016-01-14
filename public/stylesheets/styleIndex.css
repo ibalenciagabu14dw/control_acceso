@@ -6,6 +6,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-image: url('../images/gradient4.jpg');
 	background-position: center center;
 	background-color: #464646;
@@ -17,6 +20,12 @@ body {
 	font-size: 52pt;
 	margin-top: 5%;
 	color:white;
+	word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
 }
 #loginFormContainer{
 	width: 50%;
@@ -26,9 +35,27 @@ body {
 	padding: 20px;
 	padding-left: 50px;
 	padding-right: 50px;
+	margin-bottom: 50px;
 }
 @media only screen and (max-width: 680px) {
   body {
     background-image: url('../images/gradient9.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-position: center center;
+	background-color: #464646;
+  }
+  #titulo{
+  	color:black;
+  	font-size: 25pt;
+  }
+  #loginFormContainer{
+  	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
   }
 }

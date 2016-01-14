@@ -57,10 +57,7 @@ profesor.buscarProfesorPorId2 = function(id_profesor,callback){
 				throw error;
 			}else{
 					var foto = row[0].foto.toString('base64');//foto del alumno
-					//console.log(foto);//cambiar valor del row
-				 //console.log(row);
-				 var row2 = {id_profesor : row[0].id_profesor,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,password : row[0].password,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada,admin : row[0].admin};
-				//console.log(row2);
+				    var row2 = {id_profesor : row[0].id_profesor,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,password : row[0].password,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada,admin : row[0].admin};
 				callback(null,row2);
 			}//.else
 		});//.connection.query
@@ -77,7 +74,6 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 			if (error) {
 				throw error;
 			}else{
-				//console.log(row);
 				callback(null,row);
 			}//.else
 		});//.connection.query
@@ -178,7 +174,6 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 				var apellidosArray = [];
 				var fotoArray = [];
 				for (var i= 0;i<row.length;i++){
-					//console.log (row[i]);
 					var presencia = row[i].presencia;
 					var idT = row[i].num_tarjeta;
 					var nombre = row[i].nombre;
@@ -190,13 +185,7 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 					nombreArray.push(nombre); 
 					apellidosArray.push(apellidos);
 					fotoArray.push(fotofinal);
-					//console.log(nombre);
-					//console.log(apellidos);
-					//console.log(foto);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(nombreArray); 
-					//console.log(apellidosArray); 
-					//console.log(fotoArray); 
 				callback(null,presenciaArray,idTArray,nombreArray,apellidosArray,fotoArray);
 			}//.else
 		});//.connection.query
@@ -210,7 +199,6 @@ profesor.insertarProfesor = function (dni,nombre,apellidos,correo,password,fotob
 								
 	var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
 	var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
-
 	connection.query(sqlinsertarProfesor,profesor, function(error){
 	  if (error) {
 			throw error;
@@ -224,7 +212,7 @@ profesor.insertarProfesor = function (dni,nombre,apellidos,correo,password,fotob
 *	modificar un profesor en la tabla profesores (dni,nombre,apellidos,correo,password,foto,num_tarjeta) con el id
 */
 profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {
-	console.log(foto);
+	//console.log(foto);
 	var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
 	var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
 	connection.query(sqlmodificarProfesor,profesor, function(error){
@@ -260,19 +248,15 @@ profesor.mostrarTodosLosIdProfesor = function (callback) {
 			throw error;
 			console.log(error);
 		}else{
-			//console.log(row);
 			var id_profesorArray = [];
 			for (var i= 0;i<row.length;i++){
-					//console.log ("row : " + row[i].id_profesor);
 					var id = row[i].id_profesor;
 					id_profesorArray.push(id);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(id_profesorArray);
 					function compareNumbers(a, b) {
 					  return a - b;
 					} 
 					id_profesorArray.sort(compareNumbers);
-					//console.log("sort: " + id_profesorArray);
 				callback(null,id_profesorArray);
 			console.log('mostrarTodosLosIdProfesor correctamente');
 		}//.else

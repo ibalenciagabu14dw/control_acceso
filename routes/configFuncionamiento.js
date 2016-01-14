@@ -3,6 +3,7 @@ var router = express.Router();
 var profesor = require('../models/profesor');
 var alumno = require('../models/alumno');
 var multer = require('multer');
+var asignatura = require('../models/asignatura');
 
 /* POST agregar alumno page. */
 router.post('/agregar', multer({}).single('foto'), function(req,res){
@@ -121,6 +122,20 @@ router.post('/borrarProfesor', function(req,res,next){
     }
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+/*
+* devuelve el nombre del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarAsignaturas', function(req,res,next) {
+  asignatura.mostrarTodosLosIdNombreAsigntura(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      console.log(row);
+      res.send(row);
+    }
+  })//mostrarTodosLosIdNombreAsigntura
+});//router.post('/buscarAsignaturas', function(req,res,next) {
 
 module.exports = router;
 

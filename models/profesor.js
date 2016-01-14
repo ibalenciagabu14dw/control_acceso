@@ -55,8 +55,13 @@ profesor.buscarProfesorPorId2 = function(id_profesor,callback){
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
-			}else{	
-				callback(null,row);
+			}else{
+					var foto = row[0].foto.toString('base64');//foto del alumno
+					//console.log(foto);//cambiar valor del row
+				 //console.log(row);
+				 var row2 = {id_profesor : row[0].id_profesor,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,password : row[0].password,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada,admin : row[0].admin};
+				//console.log(row2);
+				callback(null,row2);
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -218,8 +223,9 @@ profesor.insertarProfesor = function (dni,nombre,apellidos,correo,password,fotob
 /*
 *	modificar un profesor en la tabla profesores (dni,nombre,apellidos,correo,password,foto,num_tarjeta) con el id
 */
-profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {							
-	var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
+profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {
+	console.log(foto);
+	var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
 	var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
 	connection.query(sqlmodificarProfesor,profesor, function(error){
 	  if (error) {

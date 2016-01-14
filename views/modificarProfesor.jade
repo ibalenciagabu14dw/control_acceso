@@ -1,4 +1,6 @@
-extends layoutModificarProfesor
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleModificarProfesor.css')
 
 block content
   h1= title
@@ -10,3 +12,5 @@ block content
         br
         input.btn.btn-primary(type='submit', value='Buscar')
     #resultado.container
+  script
+    include ../public/js/modificarProfesor.js

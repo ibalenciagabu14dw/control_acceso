@@ -1,4 +1,6 @@
-extends layoutVistaProfesor
+extends layout
+block extraHeader
+  link(rel='stylesheet', href='/stylesheets/styleVistaProfesor.css')
 
 block content
   .page-header
@@ -17,5 +19,10 @@ block content
            p= apellidos[i]
     - }
   button#botonHorarioProfesor.btn.btn-primary Horario
-  a(href='/') Volver
+  a(href='/')
+      button#exit.btn.btn-primary Exit
   div#horario(title='Horario')
+  script
+    include ../public/publicJs/jquery.tablesorter.min.js
+    include ../public/publicJs/socket.io.js
+    include ../public/js/vistaProfesor.js

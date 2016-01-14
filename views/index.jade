@@ -1,14 +1,16 @@
 extends layout
-
+include /stylesheets/styleIndex.css
 block content
   h1= title
-  h3 Login
-  form#loginForm.form-group(action='/login', method='post')
-   input#user.form-control(type='text', name='user')
-   br
-   input#pass.form-control(type='text', name='pass')
-   br
-   if info
-    .alert.alert-danger
-      | #{info}
-   button#send.btn.btn-primary(name='send') Enviar
+  #loginFormContainer.container
+    h3 Login
+    form#loginForm.form-group(action='/login', method='post')
+     input#user.form-control(type='text', name='user')
+     br
+     input#pass.form-control(type='text', name='pass')
+     br
+     if info
+      .alert.alert-danger
+       | #{info}
+     br
+     button#send.btn.btn-primary(name='send') Enviar

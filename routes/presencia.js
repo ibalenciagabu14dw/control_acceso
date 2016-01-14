@@ -6,7 +6,7 @@ var time = require('../models/time');
 
 /* GET presencia page. */
 router.get('/', function(req, res, next) {
-	//socket.io
+	//socket.io variable global
 	var io = req.app.io;
 	var curr_time;
 	if (req.query.time == undefined) {
@@ -39,6 +39,7 @@ router.get('/', function(req, res, next) {
 										console.log("Fallo update presencia alumno");
 										throw error;
 									}else{
+										//emitir al cliente para cambiar color presencia alumno
 										io.emit('cambiaServidor',req.query.idT);
 										console.log("Update alumno ok");
 										res.send("ok");

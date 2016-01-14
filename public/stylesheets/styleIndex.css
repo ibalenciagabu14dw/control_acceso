@@ -27,7 +27,7 @@ body {
 	padding-left: 50px;
 	padding-right: 50px;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 680px) {
   body {
     background-image: url('../images/gradient9.jpg');
   }

@@ -10,7 +10,6 @@ $(document).ready(function() {
 		event.preventDefault();
 		buscarProfesores();
 	});
-
 	//Crear formulario para modificar o borrar alumno al clicar en la celda
 	$('#resultado').on("click",".celda",function () {
 		var datos = $(this).contents();
@@ -28,9 +27,10 @@ $(document).ready(function() {
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";
-    		//formulario += "Asignaturas: <input type='checkbox' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
-    		//asignaturas
-    		formulario += "<br/><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
+    		buscarAsignaturas();
+    		formulario += "Asignaturas: <div id='asignaturas'>";
+    		formulario += "</div>";
+			formulario += "<br/><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
     		formulario += "</form>";
@@ -48,6 +48,13 @@ $(document).ready(function() {
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
+				//console.log(data);
+				var resp = "";
+				for (var i = 0; i < data.length; i++) {
+					resp += "</br><input type='checkbox' id='"+data[i].id_asignatura+"' name='"+data[i].id_asignatura+"' value='"+data[i].id_asignatura+"'>";
+					resp += "<label for='"+data[i].id_asignatura+"'>'"+data[i].nombre+"'</label><br/>";
+				};
+				$('#asignaturas').html(resp);
 			}
 		})//ajax
 		.done(function() {
@@ -58,8 +65,6 @@ $(document).ready(function() {
 		})//fail
 	}//function buscarAsignaturas
 	
-
-
 	
 	//Funcion con ajax para recoger datos alumnos y crear tabla
 	function buscarProfesores () {

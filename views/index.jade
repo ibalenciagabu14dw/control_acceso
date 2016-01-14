@@ -1,7 +1,8 @@
 extends layout
-include /stylesheets/styleIndex.css
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleIndex.css')
 block content
-  h1= title
+  h1#titulo= title
   #loginFormContainer.container
     h3 Login
     form#loginForm.form-group(action='/login', method='post')
@@ -14,3 +15,5 @@ block content
        | #{info}
      br
      button#send.btn.btn-primary(name='send') Enviar
+  script
+    include ../public/js/index.js

@@ -5,12 +5,6 @@ h1{
 body{
 	padding-top: 0px;
 }
-	/*background: #617b99; /* Old browsers */
-/*background: -moz-linear-gradient(-45deg, #617b99 0%, #778799 1%, #1e5799 1%, #95b9d6 50%, #88acc9 51%, #7db9e8 100%); /* FF3.6-15 */
-/*background: -webkit-linear-gradient(-45deg, #617b99 0%,#778799 1%,#1e5799 1%,#95b9d6 50%,#88acc9 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
-/*background: linear-gradient(135deg, #617b99 0%,#778799 1%,#1e5799 1%,#95b9d6 50%,#88acc9 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#617b99', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-/*}*/
 tr{
 	float:left;
 	margin:20px;

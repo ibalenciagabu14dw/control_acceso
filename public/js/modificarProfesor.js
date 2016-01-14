@@ -16,7 +16,7 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
+    		var formulario = "<form class='form-group' action='/config/configPersonas/updateProfesor' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
     		formulario += "id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result.id_profesor+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
@@ -84,40 +84,7 @@ $(document).ready(function() {
 					console.log("error");
 				})//fail
 	}//function buscarProfesores
-
-
-	//Al clicar en modificar el Alumno
-	$('#resultado').on("click","#btnModificar",function(event) {
-		event.preventDefault();
-	    if(confirm("Estas seguro de modificar el alumno??")){
-    	var formData = $('#formUpdate').serializeArray();
-    	console.log(formData);
-    	/*var foto = $('#resultado #foto').get(0).files[0];
-    	console.log(foto);*/
-	    	$.ajax({
-	    		url: 'updateProfesor',
-	    		type: 'post',
-	    		dataType: 'json',
-	    		data:  formData,
-	    		//processData: false,
-	    		success:function(data){
-					if (data == "ok") {
-						alert("Profesor modificado correctamente");
-						buscarProfesores();
-					}else{
-						alert("Algo no ha ido bien");
-					}//if else
-				}//success
-	    	})//ajax
-	    	.done(function() {
-				console.log("success modificar");
-			})//done
-			.fail(function() {
-				console.log("error modificar");
-			})//fail
-	    }
-	});//click modificar formulario alumno
-
+	
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();

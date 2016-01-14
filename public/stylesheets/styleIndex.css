@@ -1,0 +1,27 @@
+@font-face {
+    font-family: tituloIndex;
+    src: url('../fonts/Sketch_Block.ttf');
+}
+body {
+	height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+	background-image: url('../images/gradient4.jpg');
+}
+#titulo{
+	text-align: center;
+	font-family: tituloIndex;
+	font-size: 52pt;
+	margin-top: 10%;
+	color:white;
+}
+#loginFormContainer{
+	width: 50%;
+	margin: auto;
+	background-color: lightgrey;
+	border-radius: 25px;
+	padding: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+}

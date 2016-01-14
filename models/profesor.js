@@ -281,4 +281,17 @@ profesor.horarioProfesorCompleto = function(correo,callback) {
 	}//if connection
 }//horarioProfesorCompleto
 
+
+profesor.insertarAsignaturasProfesor =  function(id_asignatura,id_profesor,callback) {
+	var profesor_asignatura = { id_asignatura: id_asignatura, id_profesor: id_profesor};						
+	var sqlinsertarAsignaturasProfesor = 'INSERT INTO profesores_asignaturas SET ?';
+	connection.query(sqlinsertarAsignaturasProfesor,profesor_asignatura, function(error){
+	  if (error) {
+			throw error;
+		}else{
+			console.log('insertarAsignaturasProfesor correctamente');
+		}//.else
+	});//.connection.query
+}//.profesor.insertarAsignaturasProfesor
+
 module.exports = profesor;

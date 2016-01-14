@@ -51,7 +51,7 @@ $(document).ready(function() {
 				//console.log(data);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "</br><input type='checkbox' id='"+data[i].id_asignatura+"' name='"+data[i].id_asignatura+"' value='"+data[i].id_asignatura+"'>";
+					resp += "</br><input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
 					resp += "<label for='"+data[i].id_asignatura+"'>'"+data[i].nombre+"'</label><br/>";
 				};
 				$('#asignaturas').html(resp);

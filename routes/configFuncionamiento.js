@@ -75,9 +75,25 @@ router.post('/buscarProfesorId', function(req,res,next) {
 * UPDATE PROFESOR COMPROBAR
 */
 router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next){
-  console.log(req.file);
-  console.log(req.body);
-  console.log("file: "+req.file.buffer);
+  //console.log(req.file);
+  //console.log(req.body);
+  //console.log(req.body.checkbox);
+  //console.log(req.body.checkbox.length);
+  var data= req.body.checkbox;
+
+    for (var i = 0; i < data.length; i++) {
+      profesor.insertarAsignaturasProfesor(data[i],req.body.id_profesor, function(error,row) {
+          if (error) {
+          throw error;
+          }else{
+          //console.log(row);
+          res.send(row);
+          }
+      })//buscarProfesorPorNombre
+    }
+
+  //console.log("file: "+req.file.buffer);
+  var id_profesor = req.body.id_profesor;
   var id_profesor = req.body.id_profesor;
   var dni = req.body.dni;
   var nombre = req.body.nombre;
@@ -88,21 +104,21 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
   var tarjeta_activada = req.body.tarjeta_activada;
   var num_tarjeta = req.body.num_tarjeta;
   var admin = req.body.admin;
- console.log("id: "+ id_profesor);
- console.log("dni: "+ dni);
- console.log("nombre: "+ nombre);
- console.log("apellidos: "+ apellidos);
- console.log("correocorreo: "+ correo);
- console.log("password: "+ password);
- console.log("foto: "+ foto);
- console.log("tarjeta_activada: "+ tarjeta_activada);
- console.log("num_tarjeta: "+ num_tarjeta);
- console.log("admin: "+ admin);
+ //console.log("id: "+ id_profesor);
+ //console.log("dni: "+ dni);
+ //console.log("nombre: "+ nombre);
+ //console.log("apellidos: "+ apellidos);
+ //console.log("correocorreo: "+ correo);
+ //console.log("password: "+ password);
+ //console.log("foto: "+ foto);
+ //console.log("tarjeta_activada: "+ tarjeta_activada);
+ //console.log("num_tarjeta: "+ num_tarjeta);
+ //console.log("admin: "+ admin);
   profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
     if (error) {
       throw error;
     }else{
-      console.log(row);
+      //console.log(row);
       res.send(row);
     }
   })//buscarProfesorPorNombre
@@ -117,7 +133,7 @@ router.post('/borrarProfesor', function(req,res,next){
     if (error) {
       throw error;
     }else{
-      console.log(row);
+      //console.log(row);
       res.send(row);
     }
   })//buscarProfesorPorNombre
@@ -131,7 +147,7 @@ router.post('/buscarAsignaturas', function(req,res,next) {
     if (error) {
       throw error;
     }else{
-      console.log(row);
+      //console.log(row);
       res.send(row);
     }
   })//mostrarTodosLosIdNombreAsigntura

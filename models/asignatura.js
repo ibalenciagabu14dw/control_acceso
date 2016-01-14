@@ -58,22 +58,32 @@ asignatura.mostrarTodosLosIdAsigntura = function (callback) {
 			throw error;
 			console.log(error);
 		}else{
-			//console.log(row);
 			var id_AsignaturasArray = [];
 			for (var i= 0;i<row.length;i++){
-					//console.log ("row : " + row[i].id_asignatura);
 					id_AsignaturasArray.push(row[i].id_asignatura);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(id_AsignaturasArray);
 					function compareNumbers(a, b) {
 					  return a - b;
 					} 
 					id_AsignaturasArray.sort(compareNumbers);
-					//console.log("sort: " + id_AsignaturasArray);
 				callback(null,id_AsignaturasArray);
 			console.log('mostrarTodosLosIdAsigntura correctamente');
 		}//.else
 	});//.connection.query
 }//.asignatura.mostrarTodosLosIdAsigntura 
+
+asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {							
+	connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			console.log(row);
+				callback(null,row);
+			console.log('mostrarTodosLosIdNombreAsigntura correctamente');
+		}//.else
+	});//.connection.query
+}//.asignatura.mostrarTodosLosIdNombreAsigntura 
+
 
 module.exports = asignatura;

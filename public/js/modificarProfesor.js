@@ -29,6 +29,7 @@ $(document).ready(function() {
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";
     		//formulario += "Asignaturas: <input type='checkbox' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
+    		//asignaturas
     		formulario += "<br/><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
@@ -39,6 +40,25 @@ $(document).ready(function() {
     		console.log("error crear formulario");
 		});
 	});//Formulario modificar y borrar
+
+		//Funcion con buscar asignaturas
+	function buscarAsignaturas () {
+		$.ajax({
+			url: '/buscarAsignaturas',
+			type: 'post',
+			dataType: 'json',
+			success:function (data) {
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function buscarAsignaturas
+	
+
 
 	
 	//Funcion con ajax para recoger datos alumnos y crear tabla

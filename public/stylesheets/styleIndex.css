@@ -37,9 +37,17 @@ body {
 	padding-right: 50px;
 	margin-bottom: 50px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 680px) {
   body {
     background-image: url('../images/gradient9.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-position: center center;
+	background-color: #464646;
   }
   #titulo{
   	color:black;

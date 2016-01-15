@@ -20,6 +20,7 @@ body {
 	font-size: 52pt;
 	margin-top: 5%;
 	color:white;
+  font-weight: normal;
 	word-wrap: break-word;
      -webkit-hyphens: auto;
      -moz-hyphens: auto;

@@ -9,7 +9,6 @@ body {
     -webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-image: url('../images/gradient1.jpg');
 	background-position: center center;
 	background-color: #464646;
 
@@ -47,7 +46,6 @@ body {
 @media only screen and (max-width: 600px) {
   body {
   	padding-top: 100px;
-    background-image: url('../images/gradient1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

@@ -1,12 +1,12 @@
 var time = {};
-var now = new Date();
-now.setHours(now.getUTCHours()+1);
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
 
 /*
 *	devuelve la hora del sistema hh:mm:ss
 */
 time.horaActual = function(callback) {
+	var now = new Date();
+	now.setHours(now.getUTCHours()+1);
 	var curr_time;
 	var hour = now.getHours();
 	var min = now.getMinutes();
@@ -33,6 +33,7 @@ time.horaActual = function(callback) {
 *	devuelve la hora del sistema hh:mm:ss
 */
 time.diaDeLaSemana = function (callback) {
+	var now = new Date();
 	var day = diasSemana[now.getDay()];
 	if (day) {
 		callback(null,day);
@@ -45,6 +46,7 @@ time.diaDeLaSemana = function (callback) {
 *	devuelve el dia completo año,mes,dia xxxx-xx-xx
 */
 time.diaCompleto = function (callback) {
+	var now = new Date();
 	var ano = now.getFullYear();
 	var mes = now.getMonth()+1;
 	if (mes < 10) {

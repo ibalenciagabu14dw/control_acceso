@@ -28,7 +28,7 @@ body {
      hyphens: auto;
 }
 #loginFormContainer{
-	width: 50%;
+	width: 60%;
 	margin: auto;
 	background-color: lightgrey;
 	border-radius: 25px;
@@ -37,8 +37,9 @@ body {
 	padding-right: 50px;
 	margin-bottom: 50px;
 }
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 600px) {
   body {
+  	padding-top: 100px;
     background-image: url('../images/gradient9.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -54,6 +55,7 @@ body {
   	font-size: 25pt;
   }
   #loginFormContainer{
+  	width: 80%;
   	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;

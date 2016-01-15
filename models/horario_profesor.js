@@ -1,10 +1,10 @@
-//MODELO HORARIO_PROFESOR CAMBIAR NO FUNCIONA
+//MODELO HORARIO_PROFESOR COMPROBAR
 
 var connection = require('../models/connection');
 var time = require('../models/time');
 var app = require('../app');
 
-var aula = {};
+var horario_profesor = {};
 var day;
 console.log(app);
 
@@ -17,77 +17,76 @@ time.diaDeLaSemana(function (error,data) {
 });
 
 /*
-*	agrega una aula a la tabla aulas (numero,piso,capacidad) COMPROBAR
+*	agrega un horario_profesor a la tabla horario_profesores (dia_semana, hora_inicio, hora_final, id_profesor, id_horario_grupo) COMPROBAR
 */
-aula.insertarAula = function (numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlinsertarAula = 'INSERT INTO aulas SET ?';
-	connection.query(sqlinsertarAula,aula, function(error){
+horario_profesor.insertarHorarioProfesor = function (dia_semana, hora_inicio, hora_final, id_profesor, id_horario_grupo,callback) {							
+	var aula = { dia_semana:dia_semana, hora_inicio:hora_inicio, hora_final:hora_final, id_profesor:id_profesor, id_horario_grupo:id_horario_grupo };
+	var sqlinsertarHorarioProfesor = 'INSERT INTO horario_profesores SET ?';
+	connection.query(sqlinsertarHorarioProfesor,horario_profesor, function(error){
 	  if (error) {
 			throw error;
 		}else{
-			console.log('insertarAula correctamente');
+			console.log('insertarHorarioProfesor correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.insertarAula
+}//.horario_profesor.insertarHorarioProfesor
 
 /*
-*	modificar una aula en la tabla aulas (nombre,clave) con el id COMPROBAR
+*	modificar un horario_profesor en la tabla horario_profesores (id_horario_profesor,dia_semana, hora_inicio, hora_final, id_profesor, id_horario_grupo) con el id_horario_profesor COMPROBAR
 */
-aula.modificarAula = function (id,numero,piso,capacidad,callback) {							
-	var aula = { numero: numero, piso: piso, capacidad: capacidad };
-	var sqlmodificarAula = 'UPDATE aulas SET ? WHERE id_aula ="'+id+'"';
-	connection.query(sqlmodificarAula,aula, function(error){
-	  if (error) {
-			throw error;
-			console.log(error);
-		}else{
-			console.log('modificarAula correctamente');
-		}//.else
-	});//.connection.query
-}//.aula.modificarAula
-
-/*
-*	borrar una aula en la tabla aulas con el id COMPROBAR
-*/
-aula.borrarAula = function (id,callback) {							
-	connection.query('DELETE FROM aulas WHERE id_aula= "'+id+'"', function(error){
+horario_profesor.modificarHorarioProfesor = function (id_horario_profesor,dia_semana, hora_inicio, hora_final, id_profesor, id_horario_grupo,callback) {							
+	var horario_profesor = { id_horario_profesor:id_horario_profesor,dia_semana:dia_semana, hora_inicio:hora_inicio, hora_final:hora_final, id_profesor:id_profesor, id_horario_grupo:id_horario_grupo };
+	var sqlmodificarHorarioProfesor = 'UPDATE horario_profesores SET ? WHERE id_horario_profesor ="'+id_horario_profesor+'"';
+	connection.query(sqlmodificarHorarioProfesor,horario_profesor, function(error){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
-			console.log('borrarAula correctamente');
+			console.log('modificarHorarioProfesor correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.borrarAula
+}//.horario_profesor.modificarHorarioProfesor
 
 /*
-*	muestra todos los id_aula de la tabla aulas COMPROBAR
+*	borrar una horario_profesor en la tabla horario_profesores con el id_horario_profesor COMPROBAR
 */
-aula.mostrarTodosLosIdAula = function (callback) {							
-	connection.query('SELECT id_aula FROM aulas', function(error,row){
+horario_profesor.borrarHorarioProfesor = function (id_horario_profesor,callback) {							
+	connection.query('DELETE FROM horario_profesores WHERE id_horario_profesor= "'+id_horario_profesor+'"', function(error){
+	  if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			console.log('borrarHorarioProfesor correctamente');
+		}//.else
+	});//.connection.query
+}//.horario_profesor.borrarHorarioProfesor
+
+/*
+*	muestra todos los id_horario_profesor de la tabla horario_profesores COMPROBAR
+*/
+horario_profesor.mostrarTodosLosIdHorarioProfesor = function (callback) {							
+	connection.query('SELECT id_horario_profesor FROM horario_profesores', function(error,row){
 	  if (error) {
 			throw error;
 			console.log(error);
 		}else{
 			//console.log(row);
-			var id_AulaArray = [];
+			var id_HorarioProfesorArray = [];
 			for (var i= 0;i<row.length;i++){
-					//console.log ("row : " + row[i].id_aula);
-					var id = row[i].id_aula;
-					id_AulaArray.push(id);
+					//console.log ("row : " + row[i].id_horario_profesor);
+					id_HorarioProfesorArray.push(row[i].id_horario_profesor);
 				}//.for (var i= 0;i<row.length;i++)
-					//console.log(id_AulaArray);
+					//console.log(id_HorarioProfesorArray);
 					function compareNumbers(a, b) {
 					  return a - b;
 					} 
-					id_AulaArray.sort(compareNumbers);
-					//console.log("sort: " + id_AulaArray);
-				callback(null,id_AulaArray);
-			console.log('mostrarTodosLosIdAula correctamente');
+					id_HorarioProfesorArray.sort(compareNumbers);
+					//console.log("sort: " + id_HorarioProfesorArray);
+				callback(null,id_HorarioProfesorArray);
+			console.log('mostrarTodosLosIdHorarioProfesor correctamente');
 		}//.else
 	});//.connection.query
-}//.aula.mostrarTodosLosIdAula 
+}//.horario_profesor.mostrarTodosLosIdHorarioProfesor 
 
-module.exports = aula;
+module.exports = horario_profesor;
 

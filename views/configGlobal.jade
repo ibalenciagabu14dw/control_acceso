@@ -2,16 +2,16 @@
 extends layout
 
 block content
-  h1= title
+  h1#titulo= title
   p Welcome to #{title}
-  a(href='configGlobal/configClases') configClases
+  a#enlace(href='configGlobal/configClases') configClases
   br
-  a(href='configGlobal/configMaterias') configMaterias
+  a#enlace(href='configGlobal/configMaterias') configMaterias
   br
-  a(href='configGlobal/configHorario') configHorario
+  a#enlace(href='configGlobal/configHorario') configHorario
   br
-  a(href='configGlobal/configApariencia') configApariencia
+  a#enlace(href='configGlobal/configApariencia') configApariencia
   br
-  a(href='configGlobal/configBasedeDatos') configBasedeDatos
+  a#enlace(href='configGlobal/configBasedeDatos') configBasedeDatos
   br
-  a(href='/config') Volver
+  a#enlace(href='/config') Volver

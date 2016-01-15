@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1#titulo= title
   h3 Agregar Alumnos
     form#agregarAlumnosForm.form-group(action='/agregar', method='post',enctype="multipart/form-data")
       label(for='dni') dni

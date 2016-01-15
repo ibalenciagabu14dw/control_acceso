@@ -27,7 +27,7 @@ $(document).ready(function() {
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";
-    		buscarAsignaturas();
+    		buscarAsignaturas(result.id_profesor);
     		formulario += "Asignaturas: <div id='asignaturas'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -42,11 +42,12 @@ $(document).ready(function() {
 	});//Formulario modificar y borrar
 
 		//Funcion con buscar asignaturas
-	function buscarAsignaturas () {
+	function buscarAsignaturas (id) {
 		$.ajax({
 			url: '/buscarAsignaturas',
 			type: 'post',
 			dataType: 'json',
+			data:{ id_profesor:id },
 			success:function (data) {
 				//console.log(data);
 				var resp = "";

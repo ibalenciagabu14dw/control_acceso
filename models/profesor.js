@@ -294,4 +294,15 @@ profesor.insertarAsignaturasProfesor =  function(id_asignatura,id_profesor,callb
 	});//.connection.query
 }//.profesor.insertarAsignaturasProfesor
 
+profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {						
+	var sqlinsertarAsignaturasProfesor = 'DELETE FROM profesores_asignaturas WHERE id_profesor= "'+id_profesor+'"';
+	connection.query(sqlinsertarAsignaturasProfesor, function(error){
+	  if (error) {
+			throw error;
+		}else{
+			console.log('borrarAsignaturasProfesor correctamente');
+		}//.else
+	});//.connection.query
+}//.profesor.borrarAsignaturasProfesor
+
 module.exports = profesor;

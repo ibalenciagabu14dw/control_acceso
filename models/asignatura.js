@@ -83,7 +83,26 @@ asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
 			console.log('mostrarTodosLosIdNombreAsigntura correctamente');
 		}//.else
 	});//.connection.query
-}//.asignatura.mostrarTodosLosIdNombreAsigntura 
+}//.asignatura.mostrarTodosLosIdNombreAsigntura
+
+
+/*
+*	devuelve nombre , id de la asignatura
+*/
+asignatura.buscarAsignaturasDelProfesor = function(id_profesor,callback){
+	if(connection){
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.asignatura.buscarAsignaturasDelProfesor
+
 
 
 module.exports = asignatura;

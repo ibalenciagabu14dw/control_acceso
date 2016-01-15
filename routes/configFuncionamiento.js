@@ -79,8 +79,14 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
   //console.log(req.body);
   //console.log(req.body.checkbox);
   //console.log(req.body.checkbox.length);
+  profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
+      if (error) {
+        throw error;
+      }else{
+         res.send(row);
+      }
+  })//buscarProfesorPorNombre
   var data= req.body.checkbox;
-
     for (var i = 0; i < data.length; i++) {
       profesor.insertarAsignaturasProfesor(data[i],req.body.id_profesor, function(error,row) {
           if (error) {
@@ -93,7 +99,6 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
     }
 
   //console.log("file: "+req.file.buffer);
-  var id_profesor = req.body.id_profesor;
   var id_profesor = req.body.id_profesor;
   var dni = req.body.dni;
   var nombre = req.body.nombre;
@@ -143,6 +148,8 @@ router.post('/borrarProfesor', function(req,res,next){
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/buscarAsignaturas', function(req,res,next) {
+    //console.log(req.body);
+    //var id_profesor = req.body.id_profesor;
   asignatura.mostrarTodosLosIdNombreAsigntura(function(error,row) {
     if (error) {
       throw error;

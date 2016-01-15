@@ -2,15 +2,18 @@
 extends layout
 
 block content
-  h1= title
+  h1#titulo= title
   p Welcome to #{title}
-  a(href='configPersonas/agregarPersonas') agregarPersonas
-  a(href='configPersonas/agregarProfesor') agregarProfesor 
+  a#enlace(href='configPersonas/agregarPersonas') agregarPersonas
   br
-  a(href='configPersonas/modificarPersonas') modificarPersonas
-  a(href='configPersonas/modificarProfesor') modificarProfesor
+  a#enlace(href='configPersonas/agregarProfesor') agregarProfesor 
   br
-  a(href='configPersonas/borrarPersonas') borrarPersonas
-  a(href='configPersonas/borrarProfesor') borrarProfesor
+  a#enlace(href='configPersonas/modificarPersonas') modificarPersonas
   br
-  a(href='/config') Volver
+  a#enlace(href='configPersonas/modificarProfesor') modificarProfesor
+  br
+  a#enlace(href='configPersonas/borrarPersonas') borrarPersonas
+  br
+  a#enlace(href='configPersonas/borrarProfesor') borrarProfesor
+  br
+  a#enlace(href='/config') Volver

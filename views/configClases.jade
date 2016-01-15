@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1= title
+  h1#titulo= title
   p Welcome to #{title}
-  a(href='#') AgregarClases  
+  a#enlace(href='#') AgregarClases  
   br
-  a(href='#') ModificarClases
+  a#enlace(href='#') ModificarClases
   br  
-  a(href='#') BorrarClases
+  a#enlace(href='#') BorrarClases
   br
-  a(href='/config/configGlobal') Volver
+  a#enlace(href='/config/configGlobal') Volver

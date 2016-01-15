@@ -1,7 +1,25 @@
-html{
-
+body{
+	padding: 20px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-image: url('../images/gradient10.jpg');
+	background-position: center center;
+	background-color: #464646;
 }
 
-a {
-  color: #00B7FF;
+#enlace {
+  color: white;
+  text-decoration: none;
+}
+#enlace:hover{
+	text-decoration: none;
+	font-weight: bold;
+}
+#titulo{
+	color:white;
+	font-weight: bold;
 }

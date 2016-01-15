@@ -1,12 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href='/config/configPersonas') configPersonas
+  h1#titulo= title
+  a#enlace(href='/config/configPersonas') configPersonas
   br
-  a(href='/config/configDispositivos') configDispositivos
+  a#enlace(href='/config/configDispositivos') configDispositivos
   br
-  a(href='/config/configGlobal') configGlobal
+  a#enlace(href='/config/configGlobal') configGlobal
   br
-  a(href='/') Volver
+  a#enlace(href='/') Volver

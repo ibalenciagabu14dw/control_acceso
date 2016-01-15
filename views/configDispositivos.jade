@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1= title
+  h1#titulo= title
   p Welcome to #{title}
-  a(href='#') AgregarDispositivo
+  a#enlace(href='#') AgregarDispositivo
   br
-  a(href='#') ModificarDispositivo
+  a#enlace(href='#') ModificarDispositivo
   br
-  a(href='#') BorrarDispositivo
+  a#enlace(href='#') BorrarDispositivo
   br
-  a(href='/config') Volver
+  a#enlace(href='/config') Volver

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1#titulo= title
   h3 Modificar Alumnos
     form#modificarAlumnosForm.form-group(action='/modificar', method='post',enctype="multipart/form-data")
       label(for='id') id

@@ -35,7 +35,7 @@ router.post('/login',function(req,res) {
 							res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor+'&time='+curr_time);
 						}else{
 							//rediorect vistaAdmin
-							res.send("VistaAdmin");
+							res.redirect('/config');
 						}				
 					}//.else
 				}//.else

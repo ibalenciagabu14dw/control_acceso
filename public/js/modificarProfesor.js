@@ -30,7 +30,7 @@ $(document).ready(function() {
     		buscarAsignaturas();
     		formulario += "Asignaturas: <div id='asignaturas'>";
     		formulario += "</div>";
-			formulario += "<br/><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
+			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
     		formulario += "</form>";
@@ -50,10 +50,16 @@ $(document).ready(function() {
 			success:function (data) {
 				//console.log(data);
 				var resp = "";
+				resp += "<table id='asignaturasTable'>";
 				for (var i = 0; i < data.length; i++) {
-					resp += "</br><input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
-					resp += "<label for='"+data[i].id_asignatura+"'>'"+data[i].nombre+"'</label><br/>";
+					resp += "<tr>";
+					resp += "<td>";
+					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
+					resp += "<label for='"+data[i].id_asignatura+"'>'"+data[i].nombre+"'</label>";
+					resp += "</td>";
+					resp += "</tr>"
 				};
+				resp += "</table>";
 				$('#asignaturas').html(resp);
 			}
 		})//ajax

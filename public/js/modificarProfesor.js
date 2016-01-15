@@ -55,7 +55,7 @@ $(document).ready(function() {
 					resp += "<tr>";
 					resp += "<td>";
 					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
-					resp += "<label for='"+data[i].id_asignatura+"'>'"+data[i].nombre+"'</label>";
+					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 					resp += "</td>";
 					resp += "</tr>"
 				};

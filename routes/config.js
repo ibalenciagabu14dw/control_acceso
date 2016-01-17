@@ -14,16 +14,16 @@ router.get('/configPersonas', function(req, res, next) {
   res.render('configPersonas', { title: 'configPersonas' });
 });
 
-router.get('/configPersonas/agregarPersonas', function(req, res, next) {
-  res.render('agregarPersonas', { title: 'agregarPersonas' });
+router.get('/configPersonas/agregarAlumno', function(req, res, next) {
+  res.render('agregarAlumno', { title: 'agregarAlumno' });
 });
 
 router.get('/configPersonas/agregarProfesor', function(req, res, next) {
   res.render('agregarProfesor', { title: 'agregarProfesor' });
 });
 
-router.get('/configPersonas/modificarPersonas', function(req, res, next) {
-  res.render('modificarPersonas', { title: 'modificarPersonas' });
+router.get('/configPersonas/modificarAlumno', function(req, res, next) {
+  res.render('modificarAlumno', { title: 'modificarAlumno' });
 });
 
 router.get('/configPersonas/modificarProfesor', function(req, res, next) {
@@ -40,6 +40,10 @@ router.get('/configGlobal', function(req, res, next) {
 
 router.get('/configGlobal/configClases', function(req, res, next) {
   res.render('configClases', { title: 'configClases' });
+});
+
+router.get('/configGlobal/configClases/agregarClases', function(req, res, next) {
+  res.render('agregarClases', { title: 'agregarClases' });
 });
 
 router.get('/configGlobal/configMaterias', function(req, res, next) {

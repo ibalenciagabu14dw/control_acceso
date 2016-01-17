@@ -46,7 +46,7 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 }//.profesor.buscarProfesorPorId
 
 /*
-*	devuelve nombre y foto del profesor FUNCIONA
+*	devuelve los datos del profesor on el id FUNCIONA
 */
 profesor.buscarProfesorPorId2 = function(id_profesor,callback){
 	//console.log(connection.escape(id_profesor));

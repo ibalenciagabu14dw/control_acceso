@@ -144,7 +144,7 @@ profesor.updatePresenciaProfesor = function (idT,callback) {
 /*
 *	devuelve el estado de presencia segun la tarjeta
 */
-profesor.presenciaProfesor = function (idT,callback) {+
+profesor.presenciaProfesor = function (idT,callback) {
 	if(connection){	
 		var sqlProfesorPresencia = 'SELECT presencia FROM profesores WHERE num_tarjeta ="'+idT+'"';
 		connection.query(sqlProfesorPresencia, function (error,row) {

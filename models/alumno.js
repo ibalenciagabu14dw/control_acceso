@@ -171,6 +171,42 @@ alumno.mostrarTodosLosIdAlumno = function (callback) {
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.alumno.mostrarTodosLosIdAlumno 
+}//.alumno.mostrarTodosLosIdAlumno
+
+/*
+*	devuelve nombre y foto del alumno COMPROBAR
+*/
+alumno.buscarAlumnoPorNombre = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.alumno.buscarAlumnoPorNombre
+
+/*
+*	devuelve los datos del alumno por id
+*/
+alumno.buscarAlumnoPorId = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,foto,tarjeta_activada FROM alumnos WHERE id_alumno ='+connection.escape(id_alumno);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+					var foto = row[0].foto.toString('base64');//foto del alumno
+				    var row2 = {id_alumno : row[0].id_alumno,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada};
+				callback(null,row2);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.alumno.buscarAlumnoPorId
+
+
 
 module.exports = alumno;

@@ -2,11 +2,8 @@ extends layout
 
 block content
   h1#titulo= title
-  h3 Modificar Alumnos
-    form#modificarAlumnosForm.form-group(action='/modificar', method='post',enctype="multipart/form-data")
-      label(for='id') id
-      input#id.form-control(type='number', name='id')
-      br
+  h3 Agregar Alumnos
+    form#agregarAlumnoForm.form-group(action='/agregarAlumno', method='post',enctype="multipart/form-data")
       label(for='dni') dni
       input#dni.form-control(type='text', name='dni')
       br
@@ -25,7 +22,5 @@ block content
       label(for='num_tarjeta') num_tarjeta
       input#num_tarjeta.form-control(type='number', name='num_tarjeta' )
       br
-      label(for='grupo') grupo
-      input#grupo.form-control(type='number', name='grupo' )
-      br
       button#send.btn.btn-primary(name='send') Enviar
+    

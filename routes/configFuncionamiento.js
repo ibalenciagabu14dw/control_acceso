@@ -4,9 +4,10 @@ var profesor = require('../models/profesor');
 var alumno = require('../models/alumno');
 var multer = require('multer');
 var asignatura = require('../models/asignatura');
+var aula = require('../models/aula');
 
 /* POST agregar alumno page. */
-router.post('/agregar', multer({}).single('foto'), function(req,res){
+router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 	//console.log(req.body); form fields 
 	//console.log(req.file); form files
 	var dni = req.body.dni;
@@ -23,6 +24,68 @@ router.post('/agregar', multer({}).single('foto'), function(req,res){
 		}//.else
 	});//.alumno.insertarAlumno
 });//.router.post('/agregar', multer({}).single('foto')
+
+/*
+* devuelve el nombre del alumno(modificarAlumno) FUNCIONA
+*/
+router.post('/buscarAlumnoNombre', function(req,res,next) {
+  var nombre = req.body.nombre;
+  alumno.buscarAlumnoPorNombre(nombre, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+/*
+* devuelve el id del alumno(modificarAlumno) FUNCIONA
+*/
+router.post('/buscarAlumnoId', function(req,res,next) {
+  var id_alumno = req.body.id_alumno;
+  alumno.buscarAlumnoPorId(id_alumno, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+/*
+* UPDATE PROFESOR COMPROBAR
+*/
+router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
+  var id_alumno = req.body.id_alumno;
+  var dni = req.body.dni;
+  var nombre = req.body.nombre;
+  var apellidos = req.body.apellidos;
+  var correo = req.body.correo;
+  var foto = req.file.buffer;
+  var tarjeta_activada = req.body.tarjeta_activada;
+  var num_tarjeta = req.body.num_tarjeta;
+ alumno.modificarAlumno(id_alumno,dni,nombre,apellidos,correo,foto,tarjeta_activada,num_tarjeta, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      //console.log(row);
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+router.post('/borrarAlumno', function(req,res,next){
+  var id_alumno = req.body.id_alumno;
+  alumno.borrarAlumno(id_alumno, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      //console.log(row);
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
@@ -159,6 +222,21 @@ router.post('/buscarAsignaturas', function(req,res,next) {
     }
   })//mostrarTodosLosIdNombreAsigntura
 });//router.post('/buscarAsignaturas', function(req,res,next) {
+
+/* POST agregar clase page. */
+router.post('/agregarClase', function(req,res){
+  console.log(req.body);
+  var numero = req.body.numero;
+  var piso = req.body.piso;
+  var capacidad = req.body.capacidad;
+  aula.insertarAula(numero,piso,capacidad, function (error) {
+    if (error) {
+      throw error;
+    } else{ 
+      console.log("aula.insertarAula (configFuncionamiento) correctamente");
+    }//.else
+  });//.alumno.insertarAula
+});//.router.post('/agregarClase', function(req,res){
 
 module.exports = router;
 

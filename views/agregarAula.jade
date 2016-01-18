@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1#titulo= title
+  form#agregarClasesForm.form-group(action='/agregarClase', method='post')
+    label(for='numero') numero
+    input#numero.form-control(type='text', name='numero')
+    br
+    label(for='piso') piso
+    input#piso.form-control(type='number', name='piso')
+    br
+    label(for='capacidad') capacidad
+    input#capacidad.form-control(type='number', name='capacidad')
+    br
+    button#send.btn.btn-primary(name='send') Enviar
+    

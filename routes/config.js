@@ -1,9 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var profesor = require('../models/profesor');
-var alumno = require('../models/alumno');
-var multer = require('multer');
-var bodyParser = require('body-parser');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -38,16 +34,40 @@ router.get('/configGlobal', function(req, res, next) {
   res.render('configGlobal', { title: 'configGlobal' });
 });
 
-router.get('/configGlobal/configClases', function(req, res, next) {
-  res.render('configClases', { title: 'configClases' });
+router.get('/configGlobal/configAulas', function(req, res, next) {
+  res.render('configAulas', { title: 'configAulas' });
 });
 
-router.get('/configGlobal/configClases/agregarClases', function(req, res, next) {
-  res.render('agregarClases', { title: 'agregarClases' });
+router.get('/configGlobal/configAulas/agregarAula', function(req, res, next) {
+  res.render('agregarAula', { title: 'agregarAula' });
 });
 
-router.get('/configGlobal/configMaterias', function(req, res, next) {
-  res.render('configMaterias', { title: 'configMaterias' });
+router.get('/configGlobal/configAulas/modificarAula', function(req, res, next) {
+  res.render('modificarAula', { title: 'modificarAula' });
+});
+
+router.get('/configGlobal/configAulas/eliminarAula', function(req, res, next) {
+  res.render('eliminarAula', { title: 'eliminarAula' });
+});
+
+router.get('/configGlobal/configGrupos', function(req, res, next) {
+  res.render('configGrupos', { title: 'configGrupos' });
+});
+
+router.get('/configGlobal/configGrupos/agregarGrupo', function(req, res, next) {
+  res.render('agregarGrupo', { title: 'agregarGrupo' });
+});
+
+router.get('/configGlobal/configGrupos/modificarGrupo', function(req, res, next) {
+  res.render('modificarGrupo', { title: 'modificarGrupo' });
+});
+
+router.get('/configGlobal/configGrupos/eliminarGrupo', function(req, res, next) {
+  res.render('eliminarGrupo', { title: 'eliminarGrupo' });
+});
+
+router.get('/configGlobal/configAsignaturas', function(req, res, next) {
+  res.render('configAsignaturas', { title: 'configAsignaturas' });
 });
 
 router.get('/configGlobal/configHorario', function(req, res, next) {

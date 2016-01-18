@@ -5,6 +5,7 @@ var alumno = require('../models/alumno');
 var multer = require('multer');
 var asignatura = require('../models/asignatura');
 var aula = require('../models/aula');
+var grupo = require('../models/grupo');
 
 /* POST agregar alumno page. */
 router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
@@ -223,7 +224,7 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
 });//router.post('/buscarAsignaturas', function(req,res,next) {
 
 /* POST agregar clase page. */
-router.post('/agregarClase', function(req,res){
+router.post('/agregarAula', function(req,res){
   console.log(req.body);
   var numero = req.body.numero;
   var piso = req.body.piso;
@@ -236,6 +237,20 @@ router.post('/agregarClase', function(req,res){
     }//.else
   });//.alumno.insertarAula
 });//.router.post('/agregarClase', function(req,res){
+
+/* POST agregar grupo page. */
+router.post('/agregarGrupo', function(req,res){
+  console.log(req.body);
+  var nombre = req.body.nombre;
+  var tipo = req.body.tipo;
+  grupo.insertarGrupo(nombre,tipo, function (error) {
+    if (error) {
+      throw error;
+    } else{ 
+      console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+    }//.else
+  });//.alumno.insertarAula
+});//.router.post('/agregarGrupo', function(req,res){
 
 module.exports = router;
 

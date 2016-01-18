@@ -28,7 +28,7 @@ $(document).ready(function() {
 			buscarTodosLosGrupos();
     		formulario += "Grupos: <div id='gruposAlumnos'>";
     		formulario += "</div>";
-    		formulario += "Asignaturas: <div id='AsignaturaGrupo'>";
+    		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
@@ -115,18 +115,21 @@ $(document).ready(function() {
 
 	//funcion para buscar las asignaturas de un grupo
 	$('#resultado').on("change","#gruposAlumnos",function () {
+		$(":checkbox").click(function(){
+	        var id = $(this).attr('id'); 
+			console.log(id);
 			$.ajax({
 					url: '/buscarAsignaturasDelGrupo',
 					type: 'post',
 					dataType: 'json',
-					data:{ id_grupo:$('#checkbox').val()},
+					data:{ id_grupo: id},
 					success:function (data) {
 						var resp = "";
 						resp += "<table id='asignaturas'>";
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'>";
 							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -141,7 +144,8 @@ $(document).ready(function() {
 				.fail(function() {
 					console.log("error");
 				})//fail
-});
+			});
+	});
 
 	//funcion para buscar todos los grupos
 	function buscarTodosLosGrupos () { 
@@ -155,7 +159,7 @@ $(document).ready(function() {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_grupo+"'>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"'>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"

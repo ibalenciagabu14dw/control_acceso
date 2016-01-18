@@ -233,6 +233,25 @@ profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,f
 }//.profesor.modificarProfesor
 
 /*
+*	modificar un profesor en la tabla profesores (dni,nombre,apellidos,correo,password,foto,num_tarjeta) con el id
+*/
+profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin,callback) {
+	//console.log(foto);
+	if(connection){	
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
+		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
+		connection.query(sqlmodificarProfesor,profesor, function(error){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('modificarProfesor correctamente');
+			}//.else
+		});//.connection.query
+	}
+}//.profesor.modificarProfesor
+
+/*
 *	borrar un profesor en la tabla profesores con el id
 */
 profesor.borrarProfesor = function (id,callback) {

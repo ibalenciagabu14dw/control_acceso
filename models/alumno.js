@@ -127,6 +127,21 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 	}//.if (connection)
 }//.alumno.modificarAlumno
 
+alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,callback) {
+	if(connection){							
+		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		connection.query(sqlmodificarAlumno,alumno, function(error){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('modificarAlumno correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.modificarAlumno
+
 /*
 *	borrar un alumno en la tabla alumnos con el id
 */
@@ -207,6 +222,32 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 	}//.if(connection)
 }//.alumno.buscarAlumnoPorId
 
+alumno.insertarAlumnoGrupos =  function(id_alumno,id_grupo,callback) {
+	if(connection){
+		var alumno_grupos = { id_alumno: id_alumno, id_grupo: id_grupo};						
+		var sqlinsertarAlumnoGrupos = 'INSERT INTO alumno_grupos SET ?';
+		connection.query(sqlinsertarAlumnoGrupos,alumno_grupos, function(error){
+		  if (error) {
+				throw error;
+			}else{
+				console.log('insertarAlumnoGrupos correctamente');
+			}//.else
+		});//.connection.query
+	}
+}//.alumno.insertarAsignaturasProfesor
+
+alumno.borrarAlumnoGrupos =  function(id_alumno,callback) {
+	if(connection){					
+		var sqlborrarAlumnoGrupos = 'DELETE FROM alumno_grupos WHERE id_alumno= "'+id_alumno+'"';
+		connection.query(sqlborrarAlumnoGrupos, function(error){
+		  if (error) {
+				throw error;
+			}else{
+				console.log('borrarAlumnoGrupos correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.borrarAlumnoGrupos
 
 
 module.exports = alumno;

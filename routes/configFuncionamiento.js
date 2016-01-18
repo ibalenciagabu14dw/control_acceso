@@ -5,6 +5,7 @@ var alumno = require('../models/alumno');
 var multer = require('multer');
 var asignatura = require('../models/asignatura');
 var aula = require('../models/aula');
+var grupo = require('../models/grupo');
 
 /* POST agregar alumno page. */
 router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
@@ -87,6 +88,19 @@ router.post('/borrarAlumno', function(req,res,next){
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
+/*
+* devuelve el nombre del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarGrupos', function(req,res,next) {
+  grupo.mostrarTodosLosIdNombreGrupo(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//mostrarTodosLosIdNombreGrupo
+});//router.post('/buscarGrupos', function(req,res,next) {
+
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
 	var dni = req.body.dni;
@@ -126,6 +140,20 @@ router.post('/buscarProfesorId', function(req,res,next) {
   var id_profesor = req.body.id_profesor;
  // console.log("id: "+ id_profesor);
   profesor.buscarProfesorPorId2(id_profesor, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+/*
+* devuelve el id del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarAsignaturasDelGrupo', function(req,res,next) {
+  var id_grupo = req.body.id_grupo;
+  grupo.mostrarTodasLasAsignaturasDeUnGrupo(id_grupo, function(error,row) {
     if (error) {
       throw error;
     }else{
@@ -223,7 +251,7 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
 });//router.post('/buscarAsignaturas', function(req,res,next) {
 
 /* POST agregar clase page. */
-router.post('/agregarClase', function(req,res){
+router.post('/agregarAula', function(req,res){
   console.log(req.body);
   var numero = req.body.numero;
   var piso = req.body.piso;
@@ -236,6 +264,20 @@ router.post('/agregarClase', function(req,res){
     }//.else
   });//.alumno.insertarAula
 });//.router.post('/agregarClase', function(req,res){
+
+/* POST agregar grupo page. */
+router.post('/agregarGrupo', function(req,res){
+  console.log(req.body);
+  var nombre = req.body.nombre;
+  var tipo = req.body.tipo;
+  grupo.insertarGrupo(nombre,tipo, function (error) {
+    if (error) {
+      throw error;
+    } else{ 
+      console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+    }//.else
+  });//.alumno.insertarAula
+});//.router.post('/agregarGrupo', function(req,res){
 
 module.exports = router;
 

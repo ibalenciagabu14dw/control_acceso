@@ -138,10 +138,6 @@ router.post('/buscarProfesorId', function(req,res,next) {
 * UPDATE PROFESOR COMPROBAR
 */
 router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next){
-  //console.log(req.file);
-  //console.log(req.body);
-  //console.log(req.body.checkbox);
-  //console.log(req.body.checkbox.length);
   profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
       if (error) {
         throw error;
@@ -172,21 +168,10 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
   var tarjeta_activada = req.body.tarjeta_activada;
   var num_tarjeta = req.body.num_tarjeta;
   var admin = req.body.admin;
- //console.log("id: "+ id_profesor);
- //console.log("dni: "+ dni);
- //console.log("nombre: "+ nombre);
- //console.log("apellidos: "+ apellidos);
- //console.log("correocorreo: "+ correo);
- //console.log("password: "+ password);
- //console.log("foto: "+ foto);
- //console.log("tarjeta_activada: "+ tarjeta_activada);
- //console.log("num_tarjeta: "+ num_tarjeta);
- //console.log("admin: "+ admin);
   profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
     if (error) {
       throw error;
     }else{
-      //console.log(row);
       res.send(row);
     }
   })//buscarProfesorPorNombre
@@ -201,7 +186,6 @@ router.post('/borrarProfesor', function(req,res,next){
     if (error) {
       throw error;
     }else{
-      //console.log(row);
       res.send(row);
     }
   })//buscarProfesorPorNombre
@@ -210,14 +194,29 @@ router.post('/borrarProfesor', function(req,res,next){
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/buscarAsignaturas', function(req,res,next) {
-    //console.log(req.body);
-    //var id_profesor = req.body.id_profesor;
-  asignatura.mostrarTodosLosIdNombreAsigntura(function(error,row) {
+router.post('/buscarAsignaturasdelProfesor', function(req,res,next) {
+  console.log(req.body);
+  var id_profesor = req.body.id_profesor;
+  asignatura.buscarAsignaturasDelProfesor(id_profesor,function(error,row) {
     if (error) {
       throw error;
     }else{
-      //console.log(row);
+      res.send(row);
+    }
+  })//mostrarTodosLosIdNombreAsigntura
+});//router.post('/buscarAsignaturas', function(req,res,next) {
+
+
+/*
+* devuelve el nombre del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
+  console.log(req.body);
+  var id_profesor = req.body.id_profesor;
+  asignatura.lasAsignaturasQueFaltan(id_profesor,function(error,row) {
+    if (error) {
+      throw error;
+    }else{
       res.send(row);
     }
   })//mostrarTodosLosIdNombreAsigntura

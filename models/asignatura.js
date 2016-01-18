@@ -96,6 +96,21 @@ asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
 }//.asignatura.mostrarTodosLosIdNombreAsigntura
 
 
+asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
+	if(connection){						
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor NOT LIKE "'+id_profesor+'")';
+		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
+		  if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+				console.log('lasAsignaturasQueFaltan correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.asignatura.lasAsignaturasQueFaltan
+
 /*
 *	devuelve nombre , id de la asignatura
 */

@@ -27,8 +27,11 @@ $(document).ready(function() {
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";
-    		buscarAsignaturas(result.id_profesor);
-    		formulario += "Asignaturas: <div id='asignaturas'>";
+    		buscarAsignaturasdelProfesor(result.id_profesor);
+    		formulario += "Asignaturas: <div id='asignaturasdelProfesor'>";
+    		formulario += "</div>";
+    		buscarTodasLasAsignaturas(result.id_profesor);
+    		formulario += "Todas <div id='asignaturasTodas'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
@@ -42,9 +45,9 @@ $(document).ready(function() {
 	});//Formulario modificar y borrar
 
 		//Funcion con buscar asignaturas
-	function buscarAsignaturas (id) {
+	function buscarAsignaturasdelProfesor (id) {
 		$.ajax({
-			url: '/buscarAsignaturas',
+			url: '/buscarAsignaturasdelProfesor',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -55,13 +58,45 @@ $(document).ready(function() {
 				for (var i = 0; i < data.length; i++) {
 					resp += "<tr>";
 					resp += "<td>";
+					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"' checked>";
+					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
+					resp += "</td>";
+					resp += "</tr>"
+				};
+				resp += "</table>";
+				$('#asignaturasdelProfesor').html(resp);
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function buscarAsignaturas
+
+
+		//Funcion con buscar asignaturas
+	function buscarTodasLasAsignaturas (id) {
+		$.ajax({
+			url: '/buscarTodasLasAsignaturas',
+			type: 'post',
+			dataType: 'json',
+			data:{ id_profesor:id },
+			success:function (data) {
+				//console.log(data);
+				var resp = "";
+				resp += "<table id='asignaturasTodas'>";
+				for (var i = 0; i < data.length; i++) {
+					resp += "<tr>";
+					resp += "<td>";
 					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
 					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 					resp += "</td>";
 					resp += "</tr>"
 				};
 				resp += "</table>";
-				$('#asignaturas').html(resp);
+				$('#asignaturasTodas').html(resp);
 			}
 		})//ajax
 		.done(function() {

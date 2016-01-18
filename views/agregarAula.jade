@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1#titulo= title
-  form#agregarClasesForm.form-group(action='/agregarClase', method='post')
+  form#agregarAulaForm.form-group(action='/agregarAula', method='post')
     label(for='numero') numero
-    input#numero.form-control(type='text', name='numero')
+    input#numero.form-control(type='number', name='numero')
     br
     label(for='piso') piso
     input#piso.form-control(type='number', name='piso')

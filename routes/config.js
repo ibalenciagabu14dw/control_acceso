@@ -1,9 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var profesor = require('../models/profesor');
-var alumno = require('../models/alumno');
-var multer = require('multer');
-var bodyParser = require('body-parser');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -38,16 +34,24 @@ router.get('/configGlobal', function(req, res, next) {
   res.render('configGlobal', { title: 'configGlobal' });
 });
 
-router.get('/configGlobal/configClases', function(req, res, next) {
-  res.render('configClases', { title: 'configClases' });
+router.get('/configGlobal/configAulas', function(req, res, next) {
+  res.render('configAulas', { title: 'configAulas' });
 });
 
-router.get('/configGlobal/configClases/agregarClases', function(req, res, next) {
-  res.render('agregarClases', { title: 'agregarClases' });
+router.get('/configGlobal/configAulas/agregarAulas', function(req, res, next) {
+  res.render('agregarAulas', { title: 'agregarAulas' });
 });
 
-router.get('/configGlobal/configMaterias', function(req, res, next) {
-  res.render('configMaterias', { title: 'configMaterias' });
+router.get('/configGlobal/configGrupos', function(req, res, next) {
+  res.render('configGrupos', { title: 'configGrupos' });
+});
+
+router.get('/configGlobal/configGrupos/agregarGrupos', function(req, res, next) {
+  res.render('agregarGrupos', { title: 'agregarGrupos' });
+});
+
+router.get('/configGlobal/configAsignaturas', function(req, res, next) {
+  res.render('configAsignaturas', { title: 'configAsignaturas' });
 });
 
 router.get('/configGlobal/configHorario', function(req, res, next) {

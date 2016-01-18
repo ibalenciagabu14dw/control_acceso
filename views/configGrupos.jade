@@ -3,10 +3,10 @@ extends layout
 block content
   h1#titulo= title
   p Welcome to #{title}
-  a#enlace(href='configGupos/agregarGrupo') agregarGrupo
+  a#enlace(href='configGrupos/agregarGrupo') AgregarGrupo
   br
-  a#enlace(href='configGupos/modificarGrupo') modificarGrupo
+  a#enlace(href='configGrupos/modificarGrupo') ModificarGrupo
+  br  
+  a#enlace(href='configGrupos/eliminarGrupo') EliminarGrupo
   br
-  a#enlace(href='configGupos/borrarGrupo')borrarGrupo
-  br
-  a#enlace(href='/config') Volver
+  a#enlace(href='/config/configGlobal') Volver

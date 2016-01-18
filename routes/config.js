@@ -38,32 +38,32 @@ router.get('/configGlobal/configAulas', function(req, res, next) {
   res.render('configAulas', { title: 'configAulas' });
 });
 
-router.get('/configGlobal/configAulas/agregarAulas', function(req, res, next) {
-  res.render('agregarAulas', { title: 'agregarAulas' });
+router.get('/configGlobal/configAulas/agregarAula', function(req, res, next) {
+  res.render('agregarAula', { title: 'agregarAula' });
 });
 
-router.get('/configGlobal/configAulas/modificarAulas', function(req, res, next) {
-  res.render('modificarAulas', { title: 'modificarAulas' });
+router.get('/configGlobal/configAulas/modificarAula', function(req, res, next) {
+  res.render('modificarAula', { title: 'modificarAula' });
 });
 
-router.get('/configGlobal/configAulas/eliminarAulas', function(req, res, next) {
-  res.render('eliminarAulas', { title: 'eliminarAulas' });
+router.get('/configGlobal/configAulas/eliminarAula', function(req, res, next) {
+  res.render('eliminarAula', { title: 'eliminarAula' });
 });
 
 router.get('/configGlobal/configGrupos', function(req, res, next) {
   res.render('configGrupos', { title: 'configGrupos' });
 });
 
-router.get('/configGlobal/configGrupos/agregarGrupos', function(req, res, next) {
-  res.render('agregarGrupos', { title: 'agregarGrupos' });
+router.get('/configGlobal/configGrupos/agregarGrupo', function(req, res, next) {
+  res.render('agregarGrupo', { title: 'agregarGrupo' });
 });
 
-router.get('/configGlobal/configGrupos/modificarGrupos', function(req, res, next) {
-  res.render('modificarGrupos', { title: 'modificarGrupos' });
+router.get('/configGlobal/configGrupos/modificarGrupo', function(req, res, next) {
+  res.render('modificarGrupo', { title: 'modificarGrupo' });
 });
 
-router.get('/configGlobal/configGrupos/eliminarGrupos', function(req, res, next) {
-  res.render('eliminarGrupos', { title: 'eliminarGrupos' });
+router.get('/configGlobal/configGrupos/eliminarGrupo', function(req, res, next) {
+  res.render('eliminarGrupo', { title: 'eliminarGrupo' });
 });
 
 router.get('/configGlobal/configAsignaturas', function(req, res, next) {

@@ -3,10 +3,10 @@ extends layout
 block content
   h1#titulo= title
   p Welcome to #{title}
-  a#enlace(href='configAulas/agregarAulas') AgregarAula  
+  a#enlace(href='configAulas/agregarAula') AgregarAula
   br
-  a#enlace(href='#') ModificarClase
+  a#enlace(href='configAulas/modificarAula') ModificarAula
   br  
-  a#enlace(href='#') BorrarClase
+  a#enlace(href='configAulas/eliminarAula') EliminarAula
   br
   a#enlace(href='/config/configGlobal') Volver

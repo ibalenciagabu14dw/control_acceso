@@ -205,6 +205,22 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 }//.alumno.buscarAlumnoPorNombre
 
 /*
+*	devuelve datos de alumno por nombre y apellido
+*/
+alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
+	if (connection) {
+		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%')+' and apellidos LIKE '+ connection.escape(apellidos+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}
+		})
+	};
+}//buscarAlumnoPorNombreYApellido
+
+/*
 *	devuelve los datos del alumno por id
 */
 alumno.buscarAlumnoPorId = function(id_alumno,callback){

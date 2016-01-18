@@ -88,6 +88,19 @@ router.post('/borrarAlumno', function(req,res,next){
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
+/*
+* devuelve el nombre del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarGrupos', function(req,res,next) {
+  grupo.mostrarTodosLosIdNombreGrupo(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//mostrarTodosLosIdNombreGrupo
+});//router.post('/buscarGrupos', function(req,res,next) {
+
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
 	var dni = req.body.dni;
@@ -127,6 +140,20 @@ router.post('/buscarProfesorId', function(req,res,next) {
   var id_profesor = req.body.id_profesor;
  // console.log("id: "+ id_profesor);
   profesor.buscarProfesorPorId2(id_profesor, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+/*
+* devuelve el id del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarAsignaturasDelGrupo', function(req,res,next) {
+  var id_grupo = req.body.id_grupo;
+  grupo.mostrarTodasLasAsignaturasDeUnGrupo(id_grupo, function(error,row) {
     if (error) {
       throw error;
     }else{

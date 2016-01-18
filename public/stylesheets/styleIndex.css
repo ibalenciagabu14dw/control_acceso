@@ -2,17 +2,31 @@
     font-family: tituloIndex;
     src: url('../fonts/Sketch_Block.ttf');
 }
+html{
+
+}
 body {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-image: url('../images/gradient4.jpg');
 	background-position: center center;
 	background-color: #464646;
 
+}
+#footer{
+  width: 100%;
+  height: 80px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #2E2E2E;
+  color:white;
+  position: absolute;
+  display: block;
 }
 #titulo{
 	text-align: center;
@@ -38,18 +52,18 @@ body {
 	padding-right: 50px;
 	margin-bottom: 50px;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) and (orientation:portrait) {
   body {
-  	padding-top: 100px;
+    padding-top: 50px;
     background-image: url('../images/gradient9.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     -webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-position: center center;
-	background-color: #464646;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-position: center center;
+    background-color: #464646;
   }
   #titulo{
   	color:black;
@@ -58,7 +72,47 @@ body {
   #loginFormContainer{
   	width: 80%;
   	padding: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+
 }
+
+@media only screen and (max-width: 800px) and (orientation:landscape){
+  html{
+    height: 100%;
+  }
+  body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+    background-color: #464646;
+  }
+  #titulo{
+    color:white;
+    font-size: 35pt;
+    margin-top:5%;
+  }
+  #loginFormContainer{
+    width: 80%;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #footer{
+    bottom: 0px;
+  }
+
+}
+
+@media only screen and (max-height: 450px){
+    #footer{
+      bottom: auto;
+    }
+  }
+
+

@@ -49,7 +49,7 @@ tr{
 	margin: 0px;
 }
 .ui-dialog .ui-dialog-titlebar {
-      background:red;
+    background:red;
 }
 .presencia0{
 	background-color: rgba(255, 0, 0, 0.6);
@@ -81,5 +81,28 @@ td:hover{
 	text-decoration: none;
 	background-color: grey;
 	font-weight: bold;
+}
+#botonHorarioProfesor, #exit{
+	margin-bottom: 20px;
+}
+#footer{
+	bottom: auto;
+}
+#footer p{
+	float: left;
+}
+#botonBuscador{
+	float:right;
+	margin-right: 5%;
+	margin-top: 2%;
+}
+#accordion div{
+	height: 150px;
+}
+#buscadorSubmit{
+	margin-top: 10px;
+}
+.error{
+	color: red;
 }
 

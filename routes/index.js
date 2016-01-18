@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var profesor = require('../models/profesor');
 var time = require('../models/time');
+var alumno = require('../models/alumno');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -43,5 +44,31 @@ router.post('/login',function(req,res) {
 		}//else horaActual
 	});//.time.horaActual
 });//.router.post('/login',function(req,res)
+
+/* Buscar personas */
+router.get('/buscarPersona',function(req,res) {
+	//******Controlar session
+	var nombre = req.query.nombre;
+	var apellidos = req.query.apellidos;
+	var dni = req.query.dni;
+	var correo = req.query.correo;
+	if (correo.length == 0 && dni.length == 0) {
+		alumno.buscarAlumnoPorNombreYApellido(nombre, apellidos, function (error,data) {
+			if(error){
+				console.log(error);
+				throw error;
+			}else{
+				console.log(data);
+				res.send(data);
+			}
+		});
+		console.log("aki si");
+	}else if(correo.length == 0){
+		res.send({'dni':dni});
+	}else{
+		res.send({'correo':correo});
+	}
+
+});//router.get('/buscarPerosna')
 
 module.exports = router;

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1#titulo= title
+    form#agregarGruposForm.form-group(action='/agregarGrupo', method='post')
+      label(for='nombre') nombre
+      input#nombre.form-control(type='text', name='nombre')
+      br
+      label(for='tipo') tipo
+      select
+        option(value='Bachiller') Bachiller
+        option(value='FP') FP
+      br
+      button#send.btn.btn-primary(name='send') Enviar
+    

@@ -10,6 +10,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		buscarProfesores();
 	});
+
 	//Crear formulario para modificar o borrar alumno al clicar en la celda
 	$('#resultado').on("click",".celda",function () {
 		var datos = $(this).contents();
@@ -30,6 +31,12 @@ $(document).ready(function() {
     		buscarAsignaturasdelProfesor(result.id_profesor);
     		formulario += "Asignaturas: <div id='asignaturasdelProfesor'>";
     		formulario += "</div>";
+    		formulario += "<select id='tipo'>";
+    		formulario += "<option value='FP'>FP</option>";
+    		formulario += "<option value='Bachiller'>Bachiller</option>";
+    		formulario += "<option value='Ambos'>Ambos</option>";    		
+     		formulario += "</select>";
+     		formulario += "</br>";   		
     		buscarTodasLasAsignaturas(result.id_profesor);
     		formulario += "Todas <div id='asignaturasTodas'>";
     		formulario += "</div>";
@@ -44,6 +51,8 @@ $(document).ready(function() {
 		});
 	});//Formulario modificar y borrar
 
+
+
 		//Funcion con buscar asignaturas
 	function buscarAsignaturasdelProfesor (id) {
 		$.ajax({
@@ -52,7 +61,6 @@ $(document).ready(function() {
 			dataType: 'json',
 			data:{ id_profesor:id },
 			success:function (data) {
-				//console.log(data);
 				var resp = "";
 				resp += "<table id='asignaturasTable'>";
 				for (var i = 0; i < data.length; i++) {
@@ -86,7 +94,7 @@ $(document).ready(function() {
 			success:function (data) {
 				//console.log(data);
 				var resp = "";
-				resp += "<table id='asignaturasTodas'>";
+				resp += "<table id='asignaturasTodas'>";			
 				for (var i = 0; i < data.length; i++) {
 					resp += "<tr>";
 					resp += "<td>";

@@ -47,6 +47,14 @@ router.post('/login',function(req,res) {
 
 /* Buscar personas */
 router.get('/buscarPersona',function(req,res) {
+	var curr_time;
+	time.horaActual(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			curr_time = data;
+		}
+	});
 	//******Controlar session
 	var nombre = req.query.nombre;
 	var apellidos = req.query.apellidos;
@@ -58,11 +66,14 @@ router.get('/buscarPersona',function(req,res) {
 				console.log(error);
 				throw error;
 			}else{
-				console.log(data);
-				res.send(data);
-			}
-		});
-		console.log("aki si");
+				arrayPersonas = data;
+				if (data.length != 0) {
+					res.send(data);
+				}else{
+					//profesor
+				}//else data-length != 0
+			}//else error
+		});//buscarAlumnoPorNombreYApellido
 	}else if(correo.length == 0){
 		res.send({'dni':dni});
 	}else{

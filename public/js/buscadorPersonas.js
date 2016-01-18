@@ -67,7 +67,7 @@ $(document).ready(function() {
       autoOpen: false,
       modal:true,
       maxWidth:700,
-      maxHeight: 700,
+      maxHeight: 500,
       width: 700,
       show: {
         effect: "blind",
@@ -101,7 +101,12 @@ $(document).ready(function() {
     		dataType: 'json',
     		data: data,
     		success: function (data) {
-    			console.log(data);
+    			var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
+                for (var i = 0; i < data.length; i++) {
+                    resp += "<tr><td id='"+data[i].id_alumno+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
+                };
+                resp += "</table>";
+                $('#buscador').html(resp);
     		}
     	})
     	.done(function() {

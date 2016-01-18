@@ -194,7 +194,7 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 */
 alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
 	if (connection) {
-		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%')+' and trim("apellidos") LIKE '+ connection.escape(+'trim("'+apellidos+'")');
+		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%')+' and apellidos LIKE '+ connection.escape(apellidos+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

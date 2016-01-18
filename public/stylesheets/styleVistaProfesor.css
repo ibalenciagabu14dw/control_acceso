@@ -8,6 +8,10 @@ tr{
 	float:left;
 	margin:20px;
 }
+td{
+	width: 250px;
+	height: 220px;
+}
 #fotoProfesor{
 	margin-bottom: 10px;
 	margin-left: 50px;
@@ -105,4 +109,10 @@ td:hover{
 .error{
 	color: red;
 }
+#buscador td,th{
+	width: 30%;
+	height: 50px;
+	text-align: center;
+}
+
 

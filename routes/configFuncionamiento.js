@@ -58,6 +58,27 @@ router.post('/buscarAlumnoId', function(req,res,next) {
 * UPDATE PROFESOR COMPROBAR
 */
 router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
+  alumno.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
+      if (error) {
+        throw error;
+      }else{
+         res.send(row);
+      }
+  })//buscarProfesorPorNombre
+  console.log(req.body);
+  console.log(req.body.grupo);
+  var data= req.body.grupo;
+    for (var i = 0; i < data.length; i++) {
+      alumno.insertarAlumnoGrupos(data[i],req.body.id_alumno, function(error,row) {
+          if (error) {
+          throw error;
+          }else{
+          console.log(row);
+          res.send(row);
+          }
+      })//buscarProfesorPorNombre
+    }
+
   var id_alumno = req.body.id_alumno;
   var dni = req.body.dni;
   var nombre = req.body.nombre;

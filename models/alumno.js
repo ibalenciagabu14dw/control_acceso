@@ -261,9 +261,9 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 	}//.if(connection)
 }//.alumno.buscarAlumnoPorId
 
-alumno.insertarAlumnoGrupos =  function(id_alumno,id_grupo,callback) {
+alumno.insertarAlumnoGrupos =  function(id_grupo,id_alumno,callback) {
 	if(connection){
-		var alumno_grupos = { id_alumno: id_alumno, id_grupo: id_grupo};						
+		var alumno_grupos = { id_grupo: id_grupo, id_alumno: id_alumno};						
 		var sqlinsertarAlumnoGrupos = 'INSERT INTO alumno_grupos SET ?';
 		connection.query(sqlinsertarAlumnoGrupos,alumno_grupos, function(error){
 		  if (error) {

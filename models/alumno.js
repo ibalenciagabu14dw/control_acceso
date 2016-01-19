@@ -265,5 +265,18 @@ alumno.borrarAlumnoGrupos =  function(id_alumno,callback) {
 	}//.if (connection)
 }//.alumno.borrarAlumnoGrupos
 
+alumno.insertarAsignaturaConvalidada =  function(id_asignatura,id_alumno,callback) {
+	if(connection){
+		var convalidadas = { id_asignatura: id_asignatura, id_alumno: id_alumno};						
+		var sqlinsertarAsignaturaConvalidada = 'INSERT INTO convalidadas SET ?';
+		connection.query(sqlinsertarAsignaturaConvalidada,convalidadas, function(error){
+		  if (error) {
+				throw error;
+			}else{
+				console.log('insertarAsignaturaConvalidada correctamente');
+			}//.else
+		});//.connection.query
+	}
+}//.alumno.insertarAsignaturasProfesor
 
 module.exports = alumno;

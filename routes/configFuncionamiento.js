@@ -66,7 +66,6 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
       }
   })//buscarProfesorPorNombre
   console.log(req.body);
-  console.log(req.body.grupo);
   var data= req.body.grupo;
     for (var i = 0; i < data.length; i++) {
       alumno.insertarAlumnoGrupos(data[i],req.body.id_alumno, function(error,row) {
@@ -78,23 +77,61 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
           }
       })//buscarProfesorPorNombre
     }
+    if(req.body.asignatura == undefined){
+      console.log("el alumno no tiene ninguna convalidada");
+    } else {
+          alumno.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
+              if (error) {
+                throw error;
+              }else{
+                 res.send(row);
+              }
+          })//buscarProfesorPorNombre
+        var data2= req.body.asignatura;
+        console.log(data2.length);
+          for (var i = 0; i < data2.length; i++) {
+            alumno.insertarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
+                if (error) {
+                throw error;
+                }else{
+                console.log(row);
+                res.send(row);
+                }
+            })//buscarProfesorPorNombre
+          }
+    }
+
 
   var id_alumno = req.body.id_alumno;
   var dni = req.body.dni;
   var nombre = req.body.nombre;
   var apellidos = req.body.apellidos;
   var correo = req.body.correo;
-  var foto = req.file.buffer;
   var tarjeta_activada = req.body.tarjeta_activada;
   var num_tarjeta = req.body.num_tarjeta;
- alumno.modificarAlumno(id_alumno,dni,nombre,apellidos,correo,foto,tarjeta_activada,num_tarjeta, function(error,row) {
-    if (error) {
-      throw error;
-    }else{
-      //console.log(row);
-      res.send(row);
+
+    if(req.file == undefined){
+
+     alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,tarjeta_activada,num_tarjeta, function(error,row) {
+        if (error) {
+          throw error;
+        }else{
+          //console.log(row);
+          res.send(row);
+        }
+      })//buscarProfesorPorNombre
+    } else {
+        var foto = req.file.buffer;
+       alumno.modificarAlumno(id_alumno,dni,nombre,apellidos,correo,foto,tarjeta_activada,num_tarjeta, function(error,row) {
+          if (error) {
+            throw error;
+          }else{
+            //console.log(row);
+            res.send(row);
+          }
+        })//buscarProfesorPorNombre
+
     }
-  })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 router.post('/borrarAlumno', function(req,res,next){
@@ -205,25 +242,35 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
           }
       })//buscarProfesorPorNombre
     }
+      //console.log("file: "+req.file.buffer);
+    var id_profesor = req.body.id_profesor;
+    var dni = req.body.dni;
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+    var correo = req.body.correo;
+    var password = req.body.password;
+    var tarjeta_activada = req.body.tarjeta_activada;
+    var num_tarjeta = req.body.num_tarjeta;
+    var admin = req.body.admin;
+      if(req.file == undefined){
+          profesor.modificarProfesorSinFoto(id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin, function(error,row) {
+            if (error) {
+              throw error;
+            }else{
+              res.send(row);
+            }
+          })//buscarProfesorPorNombre
+      } else {
+          var foto = req.file.buffer;
+          profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
+            if (error) {
+              throw error;
+            }else{
+              res.send(row);
+            }
+          })//buscarProfesorPorNombre
+      }
 
-  //console.log("file: "+req.file.buffer);
-  var id_profesor = req.body.id_profesor;
-  var dni = req.body.dni;
-  var nombre = req.body.nombre;
-  var apellidos = req.body.apellidos;
-  var correo = req.body.correo;
-  var password = req.body.password;
-  var foto = req.file.buffer;
-  var tarjeta_activada = req.body.tarjeta_activada;
-  var num_tarjeta = req.body.num_tarjeta;
-  var admin = req.body.admin;
-  profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
-    if (error) {
-      throw error;
-    }else{
-      res.send(row);
-    }
-  })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 

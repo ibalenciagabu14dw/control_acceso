@@ -279,4 +279,17 @@ alumno.insertarAsignaturaConvalidada =  function(id_asignatura,id_alumno,callbac
 	}
 }//.alumno.insertarAsignaturasProfesor
 
+alumno.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
+	if(connection){					
+		var sqlborrarAsignaturaConvalidada = 'DELETE FROM convalidadas WHERE id_alumno= "'+id_alumno+'"';
+		connection.query(sqlborrarAsignaturaConvalidada, function(error){
+		  if (error) {
+				throw error;
+			}else{
+				console.log('borrarAsignaturaConvalidada correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.borrarAsignaturaConvalidada
+
 module.exports = alumno;

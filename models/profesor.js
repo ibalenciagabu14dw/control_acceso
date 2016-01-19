@@ -75,7 +75,7 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 */
 profesor.buscarProfesorPorNombreYApellido = function(nombre,apellidos,callback) {
 	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE nombre LIKE ' + connection.escape(nombre+'%')+' and apellidos LIKE '+ connection.escape(apellidos+'%');
+		var sql = 'SELECT num_tarjeta,id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE nombre = ' + connection.escape(nombre)+' and apellidos LIKE '+ connection.escape(apellidos+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -87,11 +87,27 @@ profesor.buscarProfesorPorNombreYApellido = function(nombre,apellidos,callback) 
 }//buscarProfesorPorNombreYApellido
 
 /*
+*	devuelve datos profesor por dni
+*/
+profesor.buscarProfesorPorDni = function(dni,callback) {
+	if (connection) {
+		var sql = 'SELECT num_tarjeta,id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE dni LIKE ' + connection.escape(dni+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}
+		})//connection.query
+	}//if connection
+}//buscarProfesorPorDni
+
+/*
 *	devuelve profesor segun correo
 */
 profesor.buscarProfesorPorCorreo = function(correo,callback) {
 	if (connection) {
-		var sql = 'SELECT id_profesor,nombre,apellidos,correo,password,foto,admin from profesores WHERE correo = "'+correo+'"';
+		var sql = 'SELECT num_tarjeta,id_profesor,nombre,apellidos,correo,password,foto,admin,presencia from profesores WHERE correo = "'+correo+'"';
 		connection.query(sql, function (error,row) {
 			if (error) {
 				throw error;

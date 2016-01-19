@@ -78,7 +78,17 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
           }
       })//buscarProfesorPorNombre
     }
-
+  var data2= req.body.asignatura;
+    for (var i = 0; i < data2.length; i++) {
+      alumno.insertarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
+          if (error) {
+          throw error;
+          }else{
+          console.log(row);
+          res.send(row);
+          }
+      })//buscarProfesorPorNombre
+    }
   var id_alumno = req.body.id_alumno;
   var dni = req.body.dni;
   var nombre = req.body.nombre;

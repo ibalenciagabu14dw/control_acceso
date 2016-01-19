@@ -66,7 +66,6 @@ router.get('/buscarPersona',function(req,res) {
 				console.log(error);
 				throw error;
 			}else{
-				arrayPersonas = data;
 				if (data.length != 0) {
 					res.send(data);
 				}else{
@@ -86,6 +85,40 @@ router.get('/buscarPersona',function(req,res) {
 	}else{
 		res.send({'correo':correo});
 	}
+
+/*Buscar aula de la persona a buscar*/day
+router.get('/buscarAulaPersona',function(re,res) {
+	var curr_time;
+	time.horaActual(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			curr_time = data;
+		}
+	});
+	var id = req.query.id;
+	alumno.aulaEnLaQueTieneQueEstarPorId(id, curr_time, function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			if (data.length != 0) {
+				res.send(data);
+			}else{
+				profesor.aulaEnLaQueTieneQueEstarPorId(id,curr_time,function (error,data2) {
+					if (error) {
+						throw error;
+					}else{
+						if (data2.length != 0) {
+							res.send(data2);
+						}else{
+							console.log("No hay aula asociada");
+						}
+					}
+				})//aulaEnLaQueTieneQueEstarPorId
+			}//else if no es alumno
+		}
+	});//aulaEnLaQueTieneQueEstarPorId
+});//buscarAulaPersona
 
 });//router.get('/buscarPerosna')
 

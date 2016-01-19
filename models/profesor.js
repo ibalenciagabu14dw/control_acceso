@@ -1,16 +1,6 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
 var profesor = {};
-var day;
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}//.else
-});//.time.diaDeLaSemana
-
 /*
 *	devuelve el id,tarjeta_activada,presencia de profesor seguun numero de tarjeta
 */
@@ -116,6 +106,14 @@ profesor.buscarProfesorPorCorreo = function(correo,callback) {
 *	devuelve el id_aula en el que tiene que estar segun tarjeta dia de la semana y hora
 */
 profesor.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			day = data;
+		}//.else
+});//.time.diaDeLaSemana
 	if (connection) {
 		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_profesor IN (SELECT id_profesor FROM profesores WHERE num_tarjeta ="'+idT+'"))';
 		connection.query(sqlAula, function (error,row) {
@@ -127,6 +125,30 @@ profesor.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
 		});
 	}//.if (connection)
 }//.profesor.aulaEnLaQueTieneQueEstar
+
+/*
+*	devuelve el id_aula en el que tiene que estar segun id_profesor dia de la semana y hora
+*/
+profesor.aulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,callback) {
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			day = data;
+		}//.else
+});//.time.diaDeLaSemana
+	if (connection) {
+		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_profesor IN (SELECT id_profesor FROM profesores WHERE id_profesor ="'+id_profesor+'"))';
+		connection.query(sqlAula, function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}
+		});
+	}//.if (connection)
+}//.profesor.aulaEnLaQueTieneQueEstarPorId
 
 /*
 *	conmuta la presencia del profesor a 0 o a 1
@@ -178,6 +200,14 @@ profesor.presenciaProfesor = function (idT,callback) {
 *	devuelve los alumnos del profesor en la hora actual en esa clase
 */
 profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			day = data;
+		}//.else
+	});//.time.diaDeLaSemana
 	if (connection) {
 		// sentencia sql original,comentar para hacer pruebas
 		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';

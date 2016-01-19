@@ -150,10 +150,13 @@ $(document).ready(function() {
             var correo = datos[2].innerHTML;
             var presencia = datos[0].id;
             $.ajax({
-                url: '/path/to/file',
-                type: 'default GET (Other values: POST)',
-                dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-                data: {param1: 'value1'},
+                url: '/buscarAulaPersona',
+                type: 'get',
+                dataType: 'json',
+                data: {'id': id},
+                success: function (data) {
+                    console.log(data);
+                }
             })
             .done(function() {
                 console.log("success");

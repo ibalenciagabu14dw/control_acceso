@@ -1,15 +1,6 @@
 var connection = require('../models/connection');
 var time = require('../models/time');
 var alumno = {};
-var day;
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
 
 /*
 *	devuelve el id,tarjeta_activada,presencia de alumno seguun numero de tarjeta
@@ -31,8 +22,40 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 *	devuelve el id_aula en el que deberia de estar segun tarjeta, hora y dia de la semana
 */
 alumno.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			day = data;
+		}
+	});
 	if (connection) {
 		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+idT+'"))';
+		connection.query(sqlAula, function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.aulaEnLaQueTieneQueEstar
+
+/*
+*	devuelve el id_aula en el que deberia de estar segun id_persona, hora y dia de la semana
+*/
+alumno.aulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callback) {
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			day = data;
+		}
+	});
+	if (connection) {
+		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE id_alumno ="'+id_alumno+'"))';
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				throw error;

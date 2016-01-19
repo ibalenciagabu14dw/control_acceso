@@ -53,7 +53,7 @@ $(document).ready(function() {
 		messages:mensajes,
 		errorPlacement: function(error,element){
 			element.before(error);
-				}
+		}
     });
 
     /*
@@ -101,9 +101,16 @@ $(document).ready(function() {
     		dataType: 'json',
     		data: data,
     		success: function (data) {
+                var cont = 1;
     			var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
                 for (var i = 0; i < data.length; i++) {
-                    resp += "<tr><td id='"+data[i].id_alumno+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
+                    if (cont%2 == 0) {
+                        resp += "<tr>";
+                    }else{
+                        resp += "<tr class='success'>";
+                    }
+                    resp += "<td id='"+data[i].id_alumno+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
+                    cont++;
                 };
                 resp += "</table>";
                 $('#buscador').html(resp);
@@ -120,4 +127,12 @@ $(document).ready(function() {
     /*
     *	Form Submit Fin
     */
+
+    /*
+    *   click alumno encontrado
+    */
+    $('#buscador td').click(function(event) {
+        var id = $(this).attr('id');
+        alert(id);
+    });
 });

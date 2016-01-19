@@ -4,13 +4,12 @@ h1{
 body{
 	padding-top: 0px;
 }
-tr{
+.filaAlumnos{
 	float:left;
 	margin:20px;
 }
 td{
-	width: 250px;
-	height: 220px;
+	
 }
 #fotoProfesor{
 	margin-bottom: 10px;
@@ -26,6 +25,10 @@ td{
 	background-color: lightgrey;
 	box-shadow: 5px 5px 10px black;
 }
+.celdaAlumno{
+	width: 250px;
+	height: 220px;
+}
 #botonHorarioProfesor{
 	margin-right: 20px;
 	background-color: lightgrey;
@@ -37,7 +40,7 @@ td{
 	background-color: grey;
 	font-weight: bold;
 }
-#tablaHorario td,th{
+#tablaHorario td, #tablaHorario th{
 	width: 20%;
 	text-align: center;
 }
@@ -109,10 +112,14 @@ td:hover{
 .error{
 	color: red;
 }
-#buscador td,th{
+#buscador td, #buscador th{
 	width: 30%;
-	height: 50px;
 	text-align: center;
 }
+#buscador th{
+	background-color: black;
+	color:white;
+}
+
 
 

@@ -47,14 +47,6 @@ router.post('/login',function(req,res) {
 
 /* Buscar personas */
 router.get('/buscarPersona',function(req,res) {
-	var curr_time;
-	time.horaActual(function (error,data) {
-		if (error) {
-			throw error;
-		}else{
-			curr_time = data;
-		}
-	});
 	//******Controlar session
 	var nombre = req.query.nombre;
 	var apellidos = req.query.apellidos;
@@ -66,7 +58,6 @@ router.get('/buscarPersona',function(req,res) {
 				console.log(error);
 				throw error;
 			}else{
-				arrayPersonas = data;
 				if (data.length != 0) {
 					res.send(data);
 				}else{
@@ -82,10 +73,79 @@ router.get('/buscarPersona',function(req,res) {
 			}//else error
 		});//buscarAlumnoPorNombreYApellido
 	}else if(correo.length == 0){
-		res.send({'dni':dni});
+		alumno.buscarAlumnoPorDni(dni, function (error,data) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				if (data.length != 0) {
+					res.send(data);
+				}else{
+					profesor.buscarProfesorPorDni(dni, function (error,data) {
+						if (error) {
+							console.log(error);
+							throw error;
+						}else{
+							res.send(data);
+						}
+					})//buscarProfesorPorDni
+				}//else es alumno
+			}//else error
+		});//buscarAlumnoPorDni
 	}else{
-		res.send({'correo':correo});
-	}
+		alumno.buscarAlumnoPorCorreo(correo, function (error,data) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				if (data.length != 0) {
+					res.send(data);
+				}else{
+					profesor.buscarProfesorPorCorreo(correo, function (error,data) {
+						if (error) {
+							console.log(error);
+						}else{
+							res.send(data);
+						}
+					})//buscarProfesorPorCorreo
+				}//else data == 0
+			}//else error
+		})//buscarAlumnoPorCorreo
+	}//else correo == 0
+
+/*Buscar aula de la persona a buscar*/
+router.get('/buscarAulaPersona',function(req,res) {
+	var curr_time;
+	time.horaActual(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			curr_time = data;
+		}
+	});
+	var id = req.query.id;
+	alumno.aulaEnLaQueTieneQueEstarPorId(id, curr_time, function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			if (data.length != 0) {
+				res.send(data);
+			}else{
+				profesor.aulaEnLaQueTieneQueEstarPorId(id,curr_time,function (error,data2) {
+					if (error) {
+						throw error;
+					}else{
+						if (data2.length != 0) {
+							res.send(data2);
+						}else{
+							console.log("No hay aula asociada");
+						}
+					}
+				})//aulaEnLaQueTieneQueEstarPorId
+			}//else if no es alumno
+		}
+	});//aulaEnLaQueTieneQueEstarPorId
+});//buscarAulaPersona
 
 });//router.get('/buscarPerosna')
 

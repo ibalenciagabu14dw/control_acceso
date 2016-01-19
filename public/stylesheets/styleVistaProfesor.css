@@ -120,6 +120,10 @@ td:hover{
 	background-color: black;
 	color:white;
 }
+.ui-state-default .ui-icon {
+    background-image: url("images/ui-icons_222222_256x240.png");
+}
+
 
 
 

@@ -53,8 +53,56 @@ $(document).ready(function() {
 		messages:mensajes,
 		errorPlacement: function(error,element){
 			element.before(error);
-		}
-    });
+		},
+        submitHandler: function (form) {
+            /*
+            *   Form Submit
+            */
+            event.preventDefault();
+            var data = $("#formBuscador").serializeArray();
+            console.log(data);
+            $.ajax({
+                url: '/buscarPersona',
+                type: 'get',
+                dataType: 'json',
+                data: data,
+                success: function (data) {
+                    var cont = 1;
+                    var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].id_alumno != undefined) {
+                            if (cont%2 == 0) {
+                                resp += "<tr id='"+data[i].id_alumno+"'>";
+                            }else{
+                                resp += "<tr class='success' id='"+data[i].id_alumno+"'>";
+                            }
+                        }else{
+                            if (cont%2 == 0) {
+                                resp += "<tr id='"+data[i].id_profesor+"'>";
+                            }else{
+                                resp += "<tr class='success' id='"+data[i].id_profesor+"'>";
+                            }
+                        }//else if alumno
+                    
+                        resp += "<td id='"+data[i].presencia+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
+                        cont++;
+                    };
+                    resp += "</table>";
+                    resp += "<button id='volverABuscar' class='btn btn-primary'>Volver</button>";
+                    $('#buscador').html(resp);
+                }
+            })
+            .done(function() {
+                console.log("success");
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            /*
+            *   Form Submit Fin
+            */
+        }//submitHandler
+    });//Validate
 
     /*
     *	Validate Fin
@@ -64,19 +112,24 @@ $(document).ready(function() {
     *	Dialog
     */
 	$( "#buscador").dialog({
-      autoOpen: false,
-      modal:true,
-      maxWidth:700,
-      maxHeight: 500,
-      width: 700,
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      }
+        autoOpen: false,
+        modal:true,
+        maxWidth:700,
+        maxHeight: 500,
+        width: 700,
+        show: {
+            effect: "blind",
+            duration: 1000
+        },
+        hide: {
+            effect: "explode",
+            duration: 1000
+        },
+        close: function (event,ui) {
+            $('#buscador').html(form);
+            $('#accordion').accordion();
+            encontrado = 0;
+        }
     });//dialog buscador
 
     //al clicar en el boton horario abrir el dialog
@@ -89,78 +142,62 @@ $(document).ready(function() {
     */
 
     /*
-    *	Form Submit
-    */
-    $('#formBuscador').submit(function(event) {
-    	event.preventDefault();
-    	var data = $(this).serializeArray();
-    	console.log(data);
-    	$.ajax({
-    		url: '/buscarPersona',
-    		type: 'get',
-    		dataType: 'json',
-    		data: data,
-    		success: function (data) {
-                var cont = 1;
-    			var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].id_alumno != undefined) {
-                        if (cont%2 == 0) {
-                            resp += "<tr id='"+data[i].id_alumno+"'>";
-                        }else{
-                            resp += "<tr class='success' id='"+data[i].id_alumno+"'>";
-                        }
-                    }else{
-                        if (cont%2 == 0) {
-                            resp += "<tr id='"+data[i].id_profesor+"'>";
-                        }else{
-                            resp += "<tr class='success' id='"+data[i].id_profesor+"'>";
-                        }
-                    }//else if alumno
-                    
-                    resp += "<td id='"+data[i].presencia+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
-                    cont++;
-                };
-                resp += "</table>";
-                $('#buscador').html(resp);
-    		}
-    	})
-    	.done(function() {
-    		console.log("success");
-    	})
-    	.fail(function() {
-    		console.log("error");
-    	})
-    });
-
-    /*
-    *	Form Submit Fin
-    */
-
-    /*
     *   click alumno encontrado
     */
+    var encontrado = 0;
     $('#buscador').on('click', 'tr', function(event) {
-        var datos = $(this).contents();
-        var celda = datos[0].localName;
-        if (celda != 'th') {
-            var id = $(this).attr('id');
-            var nombre = datos[0].innerHTML;
-            var apellidos = datos[1].innerHTML;
-            var correo = datos[2].innerHTML;
-            var presencia = datos[0].id;
-            $.ajax({
-                url: '/path/to/file',
-                type: 'default GET (Other values: POST)',
-                dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-                data: {param1: 'value1'},
-            })
-            .done(function() {
-                console.log("success");
-            })
-            .fail(function() {
-                console.log("error");
-            });//ajax                                    
-        }
+        if (encontrado != 1) {
+            var datos = $(this).contents();
+            var celda = datos[0].localName;
+            if (celda != 'th') {
+                var id = $(this).attr('id');
+                var nombre = datos[0].innerHTML;
+                var apellidos = datos[1].innerHTML;
+                var correo = datos[2].innerHTML;
+                var presencia = datos[0].id;
+                $.ajax({
+                    url: '/buscarAulaPersona',
+                    type: 'get',
+                    dataType: 'json',
+                    data: {'id': id},
+                    success: function (data) {
+                        var persona = "<table id='tablaPersona'><tr>";
+                        if (presencia == 0) {
+                            persona += "<td class='presencia0'>";
+                        }else{
+                            persona += "<td class='presencia1'>";
+                        }
+                        persona += nombre+"<br/>"+apellidos+"<br/>"+correo+"<br/>Aula: "+data[0].id_aula;
+                        persona += "</td></tr></table>";
+                        persona += "<button id='volverABuscar' class='btn btn-primary'>Volver</button>";
+                        $('#buscador').html(persona);
+                        encontrado = 1;
+                    }
+
+                })
+                .done(function() {
+                    console.log("success");
+                })
+                .fail(function() {
+                    console.log("error");
+                });//ajax                                    
+            }//if celda
+        }//if encontrado
+    });//buscador on click tr
+    /*
+    *   alumno encontrado fin
+    */
+
+    /*
+    *   Volver a buscar
+    */
+    $('#buscador').on('click', '#volverABuscar', function(event) {
+        event.preventDefault();
+        $('#buscador').html(form);
+        $('#accordion').accordion();
+        encontrado = 0;
     });
-});
+    /*
+    *   volver a buscar fin
+    */
+});//ready

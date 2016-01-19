@@ -81,6 +81,22 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 }//.profesor.buscarProfesorPorNombre
 
 /*
+*	devuelve datos profesor por nombre y apellido
+*/
+profesor.buscarProfesorPorNombreYApellido = function(nombre,apellidos,callback) {
+	if (connection) {
+		var sql = 'SELECT num_tarjeta,id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE nombre LIKE ' + connection.escape(nombre+'%')+' and apellidos LIKE '+ connection.escape(apellidos+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}
+		})//connection.query
+	}//if connection
+}//buscarProfesorPorNombreYApellido
+
+/*
 *	devuelve profesor segun correo
 */
 profesor.buscarProfesorPorCorreo = function(correo,callback) {

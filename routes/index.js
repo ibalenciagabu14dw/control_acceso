@@ -70,7 +70,14 @@ router.get('/buscarPersona',function(req,res) {
 				if (data.length != 0) {
 					res.send(data);
 				}else{
-					//profesor
+					profesor.buscarProfesorPorNombreYApellido(nombre, apellidos, function (error,data) {
+						if (error) {
+							console.log(error);
+							throw error;
+						}else{
+							res.send(data);
+						}//else error
+					})//buscarProfesorPorNombreYApellido
 				}//else data-length != 0
 			}//else error
 		});//buscarAlumnoPorNombreYApellido

@@ -104,12 +104,21 @@ $(document).ready(function() {
                 var cont = 1;
     			var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
                 for (var i = 0; i < data.length; i++) {
-                    if (cont%2 == 0) {
-                        resp += "<tr>";
+                    if (data[i].id_alumno != undefined) {
+                        if (cont%2 == 0) {
+                            resp += "<tr id='"+data[i].id_alumno+"'>";
+                        }else{
+                            resp += "<tr class='success' id='"+data[i].id_alumno+"'>";
+                        }
                     }else{
-                        resp += "<tr class='success'>";
-                    }
-                    resp += "<td id='"+data[i].id_alumno+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
+                        if (cont%2 == 0) {
+                            resp += "<tr id='"+data[i].id_profesor+"'>";
+                        }else{
+                            resp += "<tr class='success' id='"+data[i].id_profesor+"'>";
+                        }
+                    }//else if alumno
+                    
+                    resp += "<td id='"+data[i].presencia+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
                     cont++;
                 };
                 resp += "</table>";
@@ -131,8 +140,27 @@ $(document).ready(function() {
     /*
     *   click alumno encontrado
     */
-    $('#buscador td').click(function(event) {
-        var id = $(this).attr('id');
-        alert(id);
+    $('#buscador').on('click', 'tr', function(event) {
+        var datos = $(this).contents();
+        var celda = datos[0].localName;
+        if (celda != 'th') {
+            var id = $(this).attr('id');
+            var nombre = datos[0].innerHTML;
+            var apellidos = datos[1].innerHTML;
+            var correo = datos[2].innerHTML;
+            var presencia = datos[0].id;
+            $.ajax({
+                url: '/path/to/file',
+                type: 'default GET (Other values: POST)',
+                dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+                data: {param1: 'value1'},
+            })
+            .done(function() {
+                console.log("success");
+            })
+            .fail(function() {
+                console.log("error");
+            });//ajax                                    
+        }
     });
 });

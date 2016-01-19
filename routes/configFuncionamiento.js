@@ -66,7 +66,6 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
       }
   })//buscarProfesorPorNombre
   console.log(req.body);
-  console.log(req.body.grupo);
   var data= req.body.grupo;
     for (var i = 0; i < data.length; i++) {
       alumno.insertarAlumnoGrupos(data[i],req.body.id_alumno, function(error,row) {
@@ -78,17 +77,30 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
           }
       })//buscarProfesorPorNombre
     }
-  var data2= req.body.asignatura;
-    for (var i = 0; i < data2.length; i++) {
-      alumno.insertarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
-          if (error) {
-          throw error;
-          }else{
-          console.log(row);
-          res.send(row);
+    if(req.body.asignatura == undefined){
+      console.log("el alumno no tiene ninguna convalidada");
+    } else {
+          alumno.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
+              if (error) {
+                throw error;
+              }else{
+                 res.send(row);
+              }
+          })//buscarProfesorPorNombre
+        var data2= req.body.asignatura;
+        console.log(data2.length);
+          for (var i = 0; i < data2.length; i++) {
+            alumno.insertarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
+                if (error) {
+                throw error;
+                }else{
+                console.log(row);
+                res.send(row);
+                }
+            })//buscarProfesorPorNombre
           }
-      })//buscarProfesorPorNombre
     }
+
 
   var id_alumno = req.body.id_alumno;
   var dni = req.body.dni;

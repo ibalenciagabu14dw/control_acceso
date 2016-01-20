@@ -269,7 +269,7 @@ profesor.insertarProfesor = function (dni,nombre,apellidos,correo,password,fotob
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarProfesor correctamente');
+				//console.log('insertarProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -288,7 +288,7 @@ profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,f
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarProfesor correctamente');
+				//console.log('modificarProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}
@@ -307,7 +307,7 @@ profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,pas
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarProfesor correctamente');
+				//console.log('modificarProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}
@@ -323,7 +323,7 @@ profesor.borrarProfesor = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarProfesor correctamente');
+				//console.log('borrarProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -349,7 +349,7 @@ profesor.mostrarTodosLosIdProfesor = function (callback) {
 						} 
 						id_profesorArray.sort(compareNumbers);
 					callback(null,id_profesorArray);
-				console.log('mostrarTodosLosIdProfesor correctamente');
+				//console.log('mostrarTodosLosIdProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -382,7 +382,7 @@ profesor.insertarAsignaturasProfesor =  function(id_asignatura,id_profesor,callb
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAsignaturasProfesor correctamente');
+				//console.log('insertarAsignaturasProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}
@@ -395,7 +395,7 @@ profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('borrarAsignaturasProfesor correctamente');
+				//console.log('borrarAsignaturasProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

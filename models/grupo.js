@@ -17,7 +17,7 @@ grupo.insertarGrupo = function (nombre_grupo,tipo,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarGrupo correctamente');
+				//console.log('insertarGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -35,7 +35,7 @@ grupo.modificarGrupo = function (id_grupo,nombre_grupo,tipo,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAula correctamente');
+				//console.log('modificarAula correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -51,7 +51,7 @@ grupo.borrarGrupo = function (id_grupo,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarGrupo correctamente');
+				//console.log('borrarGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -80,7 +80,7 @@ grupo.mostrarTodosLosIdGrupo = function (callback) {
 						id_GrupoArray.sort(compareNumbers);
 						//console.log("sort: " + id_GrupoArray);
 					callback(null,id_GrupoArray);
-				console.log('mostrarTodosLosIdGrupo correctamente');
+				//console.log('mostrarTodosLosIdGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -107,13 +107,44 @@ grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
+				//console.log(row);
 			    callback(null,row);
-				console.log('mostrarTodosLosIdNombreGrupo correctamente');
+				//console.log('mostrarTodosLosIdNombreGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
 }//.grupo.mostrarTodosLosIdNombreGrupo
+
+grupo.losGruposQueFaltan = function (id_alumno,callback){
+	if(connection){						
+		var sqllosGruposQueFaltan = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE id_grupo not like (SELECT id_grupo FROM alumno_grupos WHERE id_alumno = "'+id_alumno+'")';
+		connection.query(sqllosGruposQueFaltan,grupo, function(error,row){
+		  if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+				//console.log('losGruposQueFaltan correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.grupo.losGruposQueFaltan
+
+/*
+*	devuelve nombre , id de la asignatura
+*/
+grupo.buscarGrupoDelAlumno = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.grupo.buscarGrupoDelAlumno
 
 module.exports = grupo;
 

@@ -132,6 +132,7 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
         })//buscarProfesorPorNombre
 
     }
+    //res.render('configPersonas', { title: 'configPersonas' });  RUTA MAL
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 router.post('/borrarAlumno', function(req,res,next){
@@ -144,20 +145,33 @@ router.post('/borrarAlumno', function(req,res,next){
       res.send(row);
     }
   })//buscarProfesorPorNombre
+  //res.render('configPersonas', { title: 'configPersonas' });  RUTA MAL
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/buscarGrupos', function(req,res,next) {
-  grupo.mostrarTodosLosIdNombreGrupo(function(error,row) {
+router.post('/buscarGruposdelAlumno', function(req,res,next) {
+  var id_alumno = req.body.id_alumno;
+  grupo.buscarGrupoDelAlumno(id_alumno,function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//mostrarTodosLosIdNombreGrupo
-});//router.post('/buscarGrupos', function(req,res,next) {
+  })//buscarGrupoDelAlumno
+});//.
+
+router.post('/buscarTodosLosGrupos', function(req,res,next) {
+  var id_alumno = req.body.id_alumno;
+  grupo.losGruposQueFaltan(id_alumno,function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//losGruposQueFaltan
+});//router.post('/buscarTodosLosGrupos', function(req,res,next) {
 
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
@@ -270,7 +284,7 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
             }
           })//buscarProfesorPorNombre
       }
-
+      //res.render('configPersonas', { title: 'configPersonas' });  RUTA MAL
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 
@@ -285,6 +299,7 @@ router.post('/borrarProfesor', function(req,res,next){
       res.send(row);
     }
   })//buscarProfesorPorNombre
+  //res.render('configPersonas', { title: 'configPersonas' });  RUTA MAL
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 /*

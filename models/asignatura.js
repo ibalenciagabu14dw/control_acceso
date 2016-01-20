@@ -15,7 +15,7 @@ asignatura.insertarAsigntura = function (nombre,clave,obligatoria,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAsigntura correctamente');
+				//console.log('insertarAsigntura correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -33,7 +33,7 @@ asignatura.modificarAsigntura = function (id,nombre,clave,obligatoria,callback) 
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAsigntura correctamente');
+				//console.log('modificarAsigntura correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -49,7 +49,7 @@ asignatura.borrarAsigntura = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAsigntura correctamente');
+				//console.log('borrarAsigntura correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -74,7 +74,7 @@ asignatura.mostrarTodosLosIdAsigntura = function (callback) {
 						} 
 						id_AsignaturasArray.sort(compareNumbers);
 					callback(null,id_AsignaturasArray);
-				console.log('mostrarTodosLosIdAsigntura correctamente');
+				//console.log('mostrarTodosLosIdAsigntura correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -89,7 +89,7 @@ asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
 			}else{
 				//console.log(row);
 			    callback(null,row);
-				console.log('mostrarTodosLosIdNombreAsigntura correctamente');
+				//console.log('mostrarTodosLosIdNombreAsigntura correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -98,14 +98,14 @@ asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
 
 asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
 	if(connection){						
-		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor NOT LIKE "'+id_profesor+'")';
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura not like (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
 		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
 		  if (error) {
 				throw error;
 			}else{
-				console.log(row);
+				//console.log(row);
 				callback(null,row);
-				console.log('lasAsignaturasQueFaltan correctamente');
+				//console.log('lasAsignaturasQueFaltan correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

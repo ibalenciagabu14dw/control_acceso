@@ -27,7 +27,7 @@ falta.insertarFalta = function (fecha,id_alumno,id_horario_grupo,observaciones,c
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarFalta correctamente');
+				//console.log('insertarFalta correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -45,7 +45,7 @@ falta.modificarFalta = function (id_falta,fecha,id_alumno,id_horario_grupo,obser
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarFalta correctamente');
+				//console.log('modificarFalta correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -61,7 +61,7 @@ falta.borrarFalta = function (id_falta,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarFalta correctamente');
+				//console.log('borrarFalta correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -91,7 +91,7 @@ falta.mostrarTodosLosIdFalta = function (callback) {
 						id_FaltaArray.sort(compareNumbers);
 						//console.log("sort: " + id_FaltaArray);
 					callback(null,id_FaltaArray);
-				console.log('mostrarTodosLosIdFalta correctamente');
+				//console.log('mostrarTodosLosIdFalta correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

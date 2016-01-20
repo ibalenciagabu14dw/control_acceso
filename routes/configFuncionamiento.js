@@ -333,6 +333,24 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
   })//mostrarTodosLosIdNombreAsigntura
 });//router.post('/buscarAsignaturas', function(req,res,next) {
 
+  //lasAsignaturasQueFaltanSegunElTipo
+
+/*
+* devuelve el nombre del profesor(modificarProfesor) FUNCIONA
+*/
+router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
+  console.log(req.body);
+  var id_profesor = req.body.id_profesor;
+  var tipo = req.body.tipo;
+  asignatura.lasAsignaturasQueFaltanSegunElTipo(id_profesor,tipo,function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//mostrarTodosLosIdNombreAsigntura
+});//router.post('/buscarAsignaturas', function(req,res,next) { 
+
 /* POST agregar clase page. */
 router.post('/agregarAula', function(req,res){
   console.log(req.body);

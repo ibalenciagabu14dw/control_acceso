@@ -111,6 +111,21 @@ asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
 	}//.if (connection)
 }//.asignatura.lasAsignaturasQueFaltan
 
+asignatura.lasAsignaturasQueFaltanSegunElTipo = function (id_profesor,tipo,callback){
+	if(connection){						
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura not like (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
+		  if (error) {
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+				//console.log('lasAsignaturasQueFaltan correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.asignatura.lasAsignaturasQueFaltan
+
 /*
 *	devuelve nombre , id de la asignatura
 */

@@ -134,6 +134,7 @@ CREATE TABLE IF NOT EXISTS `asignaturas` (
   `nombre` varchar(45) DEFAULT NULL,
   `clave` varchar(45) DEFAULT NULL,
   `obligatoria` tinyint(1) NOT NULL,
+  `tipo` enum('Bachiller','FP') DEFAULT NULL,
   PRIMARY KEY (`id_asignatura`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
@@ -141,27 +142,27 @@ CREATE TABLE IF NOT EXISTS `asignaturas` (
 -- Volcado de datos para la tabla `asignaturas`
 --
 
-INSERT INTO `asignaturas` (`id_asignatura`, `nombre`, `clave`, `obligatoria`) VALUES
-(1, 'cliente', 'cliente', 1),
-(2, 'servidor', 'servidor', 1),
-(3, 'diseño', 'diseño', 1),
-(4, 'empresa', 'empresa', 1),
-(5, 'despliegue', 'despliegue', 1),
-(6, 'gal1', 'gal1', 1),
-(7, 'ing1', 'ing1', 1),
-(8, 'mtk1', 'mtk1', 1),
-(9, 'mat1', 'mat1', 1),
-(10, 'fiki', 'fiki', 1),
-(11, 'eul1', 'eul1', 1),
-(12, 'fihe', 'fihe', 1),
-(13, 'int1', 'int1', 1),
-(14, 'gh', 'gh', 1),
-(15, 'fra1', 'fra1', 0),
-(16, 'ikt-a', 'ikt-a', 0),
-(17, 'ikt-b', 'ikt-b', 0),
-(18, 'ikt-c', 'ikt-c', 0),
-(19, 'kultura zientifikoa', 'kultura zientifikoa', 0),
-(20, 'm artistikoa', 'm artistikoa', 0);
+INSERT INTO `asignaturas` (`id_asignatura`, `nombre`, `clave`, `obligatoria`,`tipo`) VALUES
+(1, 'cliente', 'cliente', 1, 'FP'),
+(2, 'servidor', 'servidor', 1, 'FP'),
+(3, 'diseño', 'diseño', 1, 'FP'),
+(4, 'empresa', 'empresa', 1, 'FP'),
+(5, 'despliegue', 'despliegue', 1, 'FP'),
+(6, 'gal1', 'gal1', 1, 'Bachiller'),
+(7, 'ing1', 'ing1', 1, 'Bachiller'),
+(8, 'mtk1', 'mtk1', 1, 'Bachiller'),
+(9, 'mat1', 'mat1', 1, 'Bachiller'),
+(10, 'fiki', 'fiki', 1, 'Bachiller'),
+(11, 'eul1', 'eul1', 1, 'Bachiller'),
+(12, 'fihe', 'fihe', 1, 'Bachiller'),
+(13, 'int1', 'int1', 1, 'Bachiller'),
+(14, 'gh', 'gh', 1, 'Bachiller'),
+(15, 'fra1', 'fra1', 0, 'Bachiller'),
+(16, 'ikt-a', 'ikt-a', 0, 'Bachiller'),
+(17, 'ikt-b', 'ikt-b', 0, 'Bachiller'),
+(18, 'ikt-c', 'ikt-c', 0, 'Bachiller'),
+(19, 'kultura zientifikoa', 'kultura zientifikoa', 0, 'Bachiller'),
+(20, 'm artistikoa', 'm artistikoa', 0, 'Bachiller');
 
 -- --------------------------------------------------------
 

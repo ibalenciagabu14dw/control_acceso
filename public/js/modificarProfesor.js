@@ -32,9 +32,9 @@ $(document).ready(function() {
     		formulario += "Asignaturas: <div id='asignaturasdelProfesor'>";
     		formulario += "</div>";
     		formulario += "<select id='tipo'>";
+    		formulario += "<option value='Ambos'>Ambos</option>";
     		formulario += "<option value='FP'>FP</option>";
-    		formulario += "<option value='Bachiller'>Bachiller</option>";
-    		formulario += "<option value='Ambos'>Ambos</option>";    		
+    		formulario += "<option value='Bachiller'>Bachiller</option>";    		
      		formulario += "</select>";
      		formulario += "</br>";   		
     		buscarTodasLasAsignaturas(result.id_profesor);
@@ -115,6 +115,36 @@ $(document).ready(function() {
 		})//fail
 	}//function buscarAsignaturas
 	
+			//Funcion con buscar asignaturas
+	function buscarTodasLasAsignaturasDelTipo (id,tipo) {
+		$.ajax({
+			url: '/buscarTodasLasAsignaturasDelTipo',
+			type: 'post',
+			dataType: 'json',
+			data:{ id_profesor:id , tipo:tipo},
+			success:function (data) {
+				//console.log(data);
+				var resp = "";
+				resp += "<table id='asignaturasTodas'>";			
+				for (var i = 0; i < data.length; i++) {
+					resp += "<tr>";
+					resp += "<td>";
+					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
+					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
+					resp += "</td>";
+					resp += "</tr>"
+				};
+				resp += "</table>";
+				$('#asignaturasTodas').html(resp);
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function buscarAsignaturas
 	
 	//Funcion con ajax para recoger datos alumnos y crear tabla
 	function buscarProfesores () {
@@ -159,6 +189,7 @@ $(document).ready(function() {
 					console.log("error");
 				})//fail
 	}//function buscarProfesores
+
 	
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
@@ -186,6 +217,21 @@ $(document).ready(function() {
 			})//fail
 		}//if confirm
 	});//click borrar formulario alumno
+
+	//cambiar select
+	$('#resultado').on("change","#tipo",function(event) {
+		 alert( this.value );
+		 if(this.value == "FP"){
+		 	alert("has elegido asignaturas FP");
+		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
+		 } else if(this.value == "Bachiller"){
+		 	alert("has elegido asignaturas Bachiller");
+		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
+		 } else {
+		 	alert("has elegido todas");
+		 	buscarTodasLasAsignaturas($('#resultado #id_profesor').val());
+		 }
+		});//click borrar formulario alumno
 
 	
 });//ready

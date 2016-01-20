@@ -15,7 +15,7 @@ aula.insertarAula = function (numero,piso,capacidad,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAula correctamente');
+				//console.log('insertarAula correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -33,7 +33,7 @@ aula.modificarAula = function (id,numero,piso,capacidad,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAula correctamente');
+				//console.log('modificarAula correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -49,7 +49,7 @@ aula.borrarAula = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAula correctamente');
+				//console.log('borrarAula correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -78,7 +78,7 @@ aula.mostrarTodosLosIdAula = function (callback) {
 						id_AulaArray.sort(compareNumbers);
 						//console.log("sort: " + id_AulaArray);
 					callback(null,id_AulaArray);
-				console.log('mostrarTodosLosIdAula correctamente');
+				//console.log('mostrarTodosLosIdAula correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

@@ -125,7 +125,7 @@ alumno.insertarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,c
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAlumno correctamente');
+				//console.log('insertarAlumno correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -144,7 +144,7 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno correctamente');
+				//console.log('modificarAlumno correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -159,7 +159,7 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno correctamente');
+				//console.log('modificarAlumno correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -175,7 +175,7 @@ alumno.borrarAlumno = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAlumno correctamente');
+				//console.log('borrarAlumno correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -205,7 +205,7 @@ alumno.mostrarTodosLosIdAlumno = function (callback) {
 						id_alumnoArray.sort(compareNumbers);
 						//console.log("sort: " + id_alumnoArray);
 					callback(null,id_alumnoArray);
-				console.log('mostrarTodosLosIdAlumno correctamente');
+				//console.log('mostrarTodosLosIdAlumno correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -301,7 +301,7 @@ alumno.insertarAlumnoGrupos =  function(id_grupo,id_alumno,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAlumnoGrupos correctamente');
+				//console.log('insertarAlumnoGrupos correctamente');
 			}//.else
 		});//.connection.query
 	}
@@ -314,7 +314,7 @@ alumno.borrarAlumnoGrupos =  function(id_alumno,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('borrarAlumnoGrupos correctamente');
+				//console.log('borrarAlumnoGrupos correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -328,7 +328,7 @@ alumno.insertarAsignaturaConvalidada =  function(id_asignatura,id_alumno,callbac
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAsignaturaConvalidada correctamente');
+				//console.log('insertarAsignaturaConvalidada correctamente');
 			}//.else
 		});//.connection.query
 	}
@@ -341,7 +341,7 @@ alumno.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('borrarAsignaturaConvalidada correctamente');
+				//console.log('borrarAsignaturaConvalidada correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

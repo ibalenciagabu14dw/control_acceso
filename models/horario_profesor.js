@@ -27,7 +27,7 @@ horario_profesor.insertarHorarioProfesor = function (dia_semana, hora_inicio, ho
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarHorarioProfesor correctamente');
+				//console.log('insertarHorarioProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -45,7 +45,7 @@ horario_profesor.modificarHorarioProfesor = function (id_horario_profesor,dia_se
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarHorarioProfesor correctamente');
+				//console.log('modificarHorarioProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -61,7 +61,7 @@ horario_profesor.borrarHorarioProfesor = function (id_horario_profesor,callback)
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarHorarioProfesor correctamente');
+				//console.log('borrarHorarioProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -90,7 +90,7 @@ horario_profesor.mostrarTodosLosIdHorarioProfesor = function (callback) {
 						id_HorarioProfesorArray.sort(compareNumbers);
 						//console.log("sort: " + id_HorarioProfesorArray);
 					callback(null,id_HorarioProfesorArray);
-				console.log('mostrarTodosLosIdHorarioProfesor correctamente');
+				//console.log('mostrarTodosLosIdHorarioProfesor correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

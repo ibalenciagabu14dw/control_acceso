@@ -27,7 +27,7 @@ horario_grupo.insertarHorarioGrupo = function (dia_semana, hora_inicio, hora_fin
 		  if (error) {
 				throw error;
 			}else{
-				console.log('insertarAula correctamente');
+				//console.log('insertarAula correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -45,7 +45,7 @@ horario_grupo.modificarHorarioGrupo = function (id_horario_grupo, dia_semana, ho
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarHorarioGrupo correctamente');
+				//console.log('modificarHorarioGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -61,7 +61,7 @@ horario_grupo.borrarHorarioGrupo = function (id_horario_grupo,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarHorarioGrupo correctamente');
+				//console.log('borrarHorarioGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -90,7 +90,7 @@ horario_grupo.mostrarTodosLosIdHorarioGrupo = function (callback) {
 						id_horarioGrupoArray.sort(compareNumbers);
 						//console.log("sort: " + id_horarioGrupoArray);
 					callback(null,id_horarioGrupoArray);
-				console.log('mostrarTodosLosIdHorarioGrupo correctamente');
+				//console.log('mostrarTodosLosIdHorarioGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)

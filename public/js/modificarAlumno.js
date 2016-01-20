@@ -25,8 +25,11 @@ $(document).ready(function() {
     		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
-			buscarTodosLosGrupos();
-    		formulario += "Grupos: <div id='gruposAlumnos'>";
+			buscarGruposDelAlumno(result.id_alumno);
+    		formulario += "Grupos: <div id='gruposdelAlumno'>";
+    		formulario += "</div>";
+    		buscarTodosLosGrupos(result.id_alumno);
+    		formulario += "Grupos: <div id='gruposTodos'>";
     		formulario += "</div>";
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
@@ -114,7 +117,7 @@ $(document).ready(function() {
 	});//click borrar formulario alumno
 
 	//funcion para buscar las asignaturas de un grupo
-	$('#resultado').on("change","#gruposAlumnos",function () {
+	$('#resultado').on("change","#gruposdelAlumno" || "#gruposTodos",function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
 			console.log(id);
@@ -148,24 +151,25 @@ $(document).ready(function() {
 	});
 
 	//funcion para buscar todos los grupos
-	function buscarTodosLosGrupos () { 
+	function buscarGruposDelAlumno (id) {
 		return	$.ajax({
-					url: '/buscarGrupos',
+					url: '/buscarGruposdelAlumno',
 					type: 'post',
 					dataType: 'json',
+					data:{ id_alumno:id },
 					success:function (data) {
 						var resp = "";
-						resp += "<table id='gruposAlumnos'>";
+						resp += "<table id='gruposdelAlumno'>";
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"'>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
 						};
 						resp += "</table>";
-						$('#gruposAlumnos').html(resp);
+						$('#gruposdelAlumno').html(resp);
 					}
 				})//ajax
 				.done(function() {
@@ -176,13 +180,35 @@ $(document).ready(function() {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-	/*$('#resultado').on("change","#gruposAlumnos",function () {
-				alert("cambio");
-				alert($('#checkbox').val());
-		        //alert($('#checkbox').val($(this).is(':checked')));
-		        //alert("cambio");
-	});*/
-
+		//funcion para buscar todos los grupos
+	function buscarTodosLosGrupos (id) {
+		return	$.ajax({
+					url: '/buscarTodosLosGrupos',
+					type: 'post',
+					dataType: 'json',
+					data:{ id_alumno:id },
+					success:function (data) {
+						var resp = "";
+						resp += "<table id='gruposTodos'>";
+						for (var i = 0; i < data.length; i++) {
+							resp += "<tr>";
+							resp += "<td>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"'>";
+							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
+							resp += "</td>";
+							resp += "</tr>"
+						};
+						resp += "</table>";
+						$('#gruposTodos').html(resp);
+					}
+				})//ajax
+				.done(function() {
+					console.log("success");
+				})//done
+				.fail(function() {
+					console.log("error");
+				})//fail
+	}//function buscarTodosLosGrupos
 
 });//ready
 

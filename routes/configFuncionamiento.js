@@ -379,6 +379,22 @@ router.post('/agregarGrupo', function(req,res){
   });//.alumno.insertarAula
 });//.router.post('/agregarGrupo', function(req,res){
 
+  /* POST agregar grupo page. */
+router.post('/agregarAsignatura', function(req,res){
+  console.log(req.body);
+  var nombre = req.body.nombre;
+  var clave = req.body.clave;
+  var tipo = req.body.tipo;
+  var obligatoria = req.body.obligatoria;
+  asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error) {
+    if (error) {
+      throw error;
+    } else{ 
+      //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+    }//.else
+  });//.alumno.insertarAula
+});//.router.post('/agregarGrupo', function(req,res){
+
 module.exports = router;
 
 

@@ -97,8 +97,9 @@ asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
 
 
 asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
+	console.log(id_profesor);
 	if(connection){						
-		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura not like (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
 		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
 		  if (error) {
 				throw error;
@@ -113,7 +114,7 @@ asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
 
 asignatura.lasAsignaturasQueFaltanSegunElTipo = function (id_profesor,tipo,callback){
 	if(connection){						
-		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura not like (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
 		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
 		  if (error) {
 				throw error;

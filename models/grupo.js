@@ -117,7 +117,7 @@ grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
 
 grupo.losGruposQueFaltan = function (id_alumno,callback){
 	if(connection){						
-		var sqllosGruposQueFaltan = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE id_grupo not like (SELECT id_grupo FROM alumno_grupos WHERE id_alumno = "'+id_alumno+'")';
+		var sqllosGruposQueFaltan = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE id_grupo NOT IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno = "'+id_alumno+'")';
 		connection.query(sqllosGruposQueFaltan,grupo, function(error,row){
 		  if (error) {
 				throw error;

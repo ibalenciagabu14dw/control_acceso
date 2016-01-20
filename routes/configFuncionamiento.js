@@ -21,7 +21,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 		if (error) {
 			throw error;
 		} else{ 
-			console.log("alumno.insertarAlumno (configFuncionamiento) correctamente");
+			//console.log("alumno.insertarAlumno (configFuncionamiento) correctamente");
 		}//.else
 	});//.alumno.insertarAlumno
 });//.router.post('/agregar', multer({}).single('foto')
@@ -65,20 +65,20 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
          res.send(row);
       }
   })//buscarProfesorPorNombre
-  console.log(req.body);
+  //console.log(req.body);
   var data= req.body.grupo;
     for (var i = 0; i < data.length; i++) {
       alumno.insertarAlumnoGrupos(data[i],req.body.id_alumno, function(error,row) {
           if (error) {
           throw error;
           }else{
-          console.log(row);
+          //console.log(row);
           res.send(row);
           }
       })//buscarProfesorPorNombre
     }
     if(req.body.asignatura == undefined){
-      console.log("el alumno no tiene ninguna convalidada");
+      //console.log("el alumno no tiene ninguna convalidada");
     } else {
           alumno.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
               if (error) {
@@ -88,13 +88,13 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
               }
           })//buscarProfesorPorNombre
         var data2= req.body.asignatura;
-        console.log(data2.length);
+       // console.log(data2.length);
           for (var i = 0; i < data2.length; i++) {
             alumno.insertarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
                 if (error) {
                 throw error;
                 }else{
-                console.log(row);
+               // console.log(row);
                 res.send(row);
                 }
             })//buscarProfesorPorNombre
@@ -186,7 +186,7 @@ router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
 		if (error) {
 			throw error;
 		} else{ 
-			console.log("profesor.insertarProfesor (configFuncionamiento) correctamente");
+			//console.log("profesor.insertarProfesor (configFuncionamiento) correctamente");
 		}//.else
 	});//.profesor.insertarProfesor
 });//.router.post('/agregarProfesor', multer({}).single('foto')
@@ -290,8 +290,6 @@ router.post('/updateProfesor',multer({}).single('foto'),  function(req,res,next)
 
 router.post('/borrarProfesor', function(req,res,next){
   var id_profesor = req.body.id_profesor;
- console.log("id: "+ id_profesor);
-
   profesor.borrarProfesor(id_profesor, function(error,row) {
     if (error) {
       throw error;
@@ -306,7 +304,7 @@ router.post('/borrarProfesor', function(req,res,next){
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/buscarAsignaturasdelProfesor', function(req,res,next) {
-  console.log(req.body);
+  //console.log(req.body);
   var id_profesor = req.body.id_profesor;
   asignatura.buscarAsignaturasDelProfesor(id_profesor,function(error,row) {
     if (error) {
@@ -322,7 +320,8 @@ router.post('/buscarAsignaturasdelProfesor', function(req,res,next) {
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
-  console.log(req.body);
+  //console.log(req.body.id_profesor[0]);
+  //console.log("estamos aquidos");
   var id_profesor = req.body.id_profesor;
   asignatura.lasAsignaturasQueFaltan(id_profesor,function(error,row) {
     if (error) {
@@ -339,7 +338,7 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
-  console.log(req.body);
+ // console.log(req.body);
   var id_profesor = req.body.id_profesor;
   var tipo = req.body.tipo;
   asignatura.lasAsignaturasQueFaltanSegunElTipo(id_profesor,tipo,function(error,row) {
@@ -353,7 +352,7 @@ router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
 
 /* POST agregar clase page. */
 router.post('/agregarAula', function(req,res){
-  console.log(req.body);
+  //console.log(req.body);
   var numero = req.body.numero;
   var piso = req.body.piso;
   var capacidad = req.body.capacidad;
@@ -361,21 +360,21 @@ router.post('/agregarAula', function(req,res){
     if (error) {
       throw error;
     } else{ 
-      console.log("aula.insertarAula (configFuncionamiento) correctamente");
+      //console.log("aula.insertarAula (configFuncionamiento) correctamente");
     }//.else
   });//.alumno.insertarAula
 });//.router.post('/agregarClase', function(req,res){
 
 /* POST agregar grupo page. */
 router.post('/agregarGrupo', function(req,res){
-  console.log(req.body);
+  //console.log(req.body);
   var nombre = req.body.nombre;
   var tipo = req.body.tipo;
   grupo.insertarGrupo(nombre,tipo, function (error) {
     if (error) {
       throw error;
     } else{ 
-      console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+      //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
     }//.else
   });//.alumno.insertarAula
 });//.router.post('/agregarGrupo', function(req,res){

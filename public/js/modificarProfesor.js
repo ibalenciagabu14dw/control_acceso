@@ -220,15 +220,15 @@ $(document).ready(function() {
 
 	//cambiar select
 	$('#resultado').on("change","#tipo",function(event) {
-		 alert( this.value );
+		 //alert( this.value );
 		 if(this.value == "FP"){
-		 	alert("has elegido asignaturas FP");
+		 	//alert("has elegido asignaturas FP");
 		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
 		 } else if(this.value == "Bachiller"){
-		 	alert("has elegido asignaturas Bachiller");
+		 	//alert("has elegido asignaturas Bachiller");
 		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
 		 } else {
-		 	alert("has elegido todas");
+		 	//alert("has elegido todas");
 		 	buscarTodasLasAsignaturas($('#resultado #id_profesor').val());
 		 }
 		});//click borrar formulario alumno

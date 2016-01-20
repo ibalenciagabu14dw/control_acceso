@@ -46,10 +46,6 @@ router.get('/configGlobal/configAulas/modificarAula', function(req, res, next) {
   res.render('modificarAula', { title: 'modificarAula' });
 });
 
-router.get('/configGlobal/configAulas/eliminarAula', function(req, res, next) {
-  res.render('eliminarAula', { title: 'eliminarAula' });
-});
-
 router.get('/configGlobal/configGrupos', function(req, res, next) {
   res.render('configGrupos', { title: 'configGrupos' });
 });
@@ -62,12 +58,16 @@ router.get('/configGlobal/configGrupos/modificarGrupo', function(req, res, next)
   res.render('modificarGrupo', { title: 'modificarGrupo' });
 });
 
-router.get('/configGlobal/configGrupos/eliminarGrupo', function(req, res, next) {
-  res.render('eliminarGrupo', { title: 'eliminarGrupo' });
-});
-
 router.get('/configGlobal/configAsignaturas', function(req, res, next) {
   res.render('configAsignaturas', { title: 'configAsignaturas' });
+});
+
+router.get('/configGlobal/configAsignaturas/agregarAsignatura', function(req, res, next) {
+  res.render('agregarAsignatura', { title: 'agregarAsignatura' });
+});
+
+router.get('/configGlobal/configAsignaturas/modificarAsignatura', function(req, res, next) {
+  res.render('modificarAsignatura', { title: 'modificarAsignatura' });
 });
 
 router.get('/configGlobal/configHorario', function(req, res, next) {

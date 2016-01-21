@@ -9,6 +9,9 @@ block content
     label(for='clave') clave
     input#clave.form-control(type='text', name='clave')
     br
+    if info
+     .alert.alert-danger
+      | #{info}      
     label(for='obligatoria') obligatoria
     br
     input(type='radio', name='obligatoria', value='1')

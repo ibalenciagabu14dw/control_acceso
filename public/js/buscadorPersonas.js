@@ -54,58 +54,68 @@ $(document).ready(function() {
 			element.before(error);
 		},
         submitHandler: function (form) {
-            /*
-            *   Form Submit
-            */
-            event.preventDefault();
-            var data = $("#formBuscador").serializeArray();
-            console.log(data);
-            $.ajax({
-                url: '/buscarPersona',
-                type: 'get',
-                dataType: 'json',
-                data: data,
-                success: function (data) {
-                    var cont = 1;
-                    var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].id_alumno != undefined) {
-                            if (cont%2 == 0) {
-                                resp += "<tr id='"+data[i].id_alumno+"'>";
-                            }else{
-                                resp += "<tr class='success' id='"+data[i].id_alumno+"'>";
-                            }
-                        }else{
-                            if (cont%2 == 0) {
-                                resp += "<tr id='"+data[i].id_profesor+"'>";
-                            }else{
-                                resp += "<tr class='success' id='"+data[i].id_profesor+"'>";
-                            }
-                        }//else if alumno
-                    
-                        resp += "<td id='"+data[i].presencia+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
-                        cont++;
-                    };
-                    resp += "</table>";
-                    resp += "<button id='volverABuscar' class='btn btn-primary'>Volver</button>";
-                    $('#buscador').html(resp);
-                }
-            })
-            .done(function() {
-                console.log("success");
-            })
-            .fail(function() {
-                console.log("error");
-            })
-            /*
-            *   Form Submit Fin
-            */
+            enviar();
         }//submitHandler
     });//Validate
+    /*
+    *   Validate Fin
+    */
 
     /*
-    *	Validate Fin
+    *   funcion enviar
     */
+    function enviar () {
+        /*
+        *   Form Submit
+        */
+        event.preventDefault();
+        var data = $("#formBuscador").serializeArray();
+        console.log(data);
+        $.ajax({
+            url: '/buscarPersona',
+            type: 'get',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                var cont = 1;
+                var resp = "<table class='table table-hover'><tr><th>Nombre</th><th>Apellidos</th><th>Correo</th></tr>";
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].id_alumno != undefined) {
+                        if (cont%2 == 0) {
+                            resp += "<tr id='"+data[i].id_alumno+"'>";
+                        }else{
+                            resp += "<tr class='success' id='"+data[i].id_alumno+"'>";
+                        }
+                    }else{
+                        if (cont%2 == 0) {
+                            resp += "<tr id='"+data[i].id_profesor+"'>";
+                        }else{
+                            resp += "<tr class='success' id='"+data[i].id_profesor+"'>";
+                        }
+                    }//else if alumno
+                    
+                    resp += "<td id='"+data[i].presencia+"'>"+data[i].nombre+"</td><td>"+data[i].apellidos+"</td><td>"+data[i].correo+"</td></tr>";
+                        cont++;
+                };//for
+                resp += "</table>";
+                resp += "<button id='volverABuscar' class='btn btn-primary'>Volver</button>";
+                $('#buscador').html(resp);
+            }
+        })
+        .done(function() {
+            console.log("success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        /*
+        *   Form Submit Fin
+        */
+    }
+    /*
+    *   fin funcion enviar
+    */
+    
 
     /*
     *	Dialog
@@ -119,16 +129,32 @@ $(document).ready(function() {
         show: {
             effect: "blind",
             duration: 1000
-        },
+        },//show
         hide: {
             effect: "explode",
             duration: 1000
-        },
+        },//hide
         close: function (event,ui) {
             $('#buscador').html(form);
             $('#accordion').accordion();
+            /*
+            *   volver a validar
+            */
+            $("#buscador #formBuscador").validate({
+                rules:reglas,
+                messages:mensajes,
+                errorPlacement: function(error,element){
+                    element.before(error);
+                },
+                submitHandler: function (form) {
+                    enviar();
+                }//submitHandler
+            });//Validate
+            /*
+            *   fin volver a validar
+            */
             encontrado = 0;
-        }
+        }//close
     });//dialog buscador
 
     //al clicar en el boton horario abrir el dialog
@@ -192,10 +218,24 @@ $(document).ready(function() {
     */
     $('#buscador').on('click', '#volverABuscar', function(event){
         event.preventDefault();
-        /*$('#buscador').html(form);
+        $('#buscador').html(form);
         $('#accordion').accordion();
-        $("#buscador #formBuscador").validar();*/
-        location.reload();
+        /*
+        *   volver a validar
+        */
+        $("#buscador #formBuscador").validate({
+            rules:reglas,
+            messages:mensajes,
+            errorPlacement: function(error,element){
+                element.before(error);
+            },
+            submitHandler: function (form) {
+                enviar();
+            }//submitHandler
+        });//Validate
+        /*
+        *   fin volver a validar
+        */
         encontrado = 0;
     });
     /*

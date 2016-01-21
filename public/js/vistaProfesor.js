@@ -84,7 +84,7 @@ $(document).ready(function() {
   if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
     socket = io();
   } else {
-    socket = io('http://controlfid.zubirimanteoweb.com');
+    socket = io('http://controlfid.zubirimanteoweb.com:8000');
   }
   socket = io.connect();
 

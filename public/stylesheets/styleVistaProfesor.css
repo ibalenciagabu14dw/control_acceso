@@ -45,7 +45,7 @@ td{
 	text-align: center;
 }
 #tablaHorario th{
-	background-color: black;
+	background-color: #565665;
 	color:white;
 	text-align: center;
 }
@@ -56,7 +56,10 @@ td{
 	margin: 0px;
 }
 .ui-dialog .ui-dialog-titlebar {
-    background:red;
+   /* background:red; */
+   background-image: url('../images/gradient10.jpg');
+   border: 1px solid black;
+   color:black;
 }
 .presencia0{
 	background-color: rgba(255, 0, 0, 0.6);
@@ -108,6 +111,7 @@ td:hover{
 }
 #buscadorSubmit{
 	margin-top: 10px;
+	width: 100%;
 }
 .error{
 	color: red;
@@ -123,7 +127,36 @@ td:hover{
 .ui-state-default .ui-icon {
     background-image: url("images/ui-icons_222222_256x240.png");
 }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #ccc;
+    background: #565665;
+    font-weight: bold;
+    color: #eb8f00;
+}
 
+
+.ui-state-active, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
+    border: 1px solid #ccc;
+    background: #565665;
+    font-weight: bold;
+    color: white;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: black;
+    text-decoration: none;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
+	color:white;
+}
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited, .ui-state-focus a, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited{
+	color:white;
+}
+#tablaPersona{
+	margin-bottom: 20px;
+}
+#volverABuscar{
+	width: 100%;
+}
 
 
 

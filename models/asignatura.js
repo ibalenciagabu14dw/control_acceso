@@ -154,6 +154,7 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 			if(error){
 				throw error;
 			}else{
+				console.log(row);
 				callback(null,row);
 			}//.else
 		});//.connection.query

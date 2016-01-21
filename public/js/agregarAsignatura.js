@@ -7,14 +7,14 @@ $(document).ready(function() {
 	//reglas
 	var reglas = {
 		nombre:{required:true},
-		clave:{required:true},
+        clave:{required:true},
 		obligatoria:{required:true},
 		tipo:{required:true,valueNotEquals: "default" }
 	};
 	//mensajes
 	var mensajes = {
 		nombre:{required:" Requerido"},
-		clave:{required:" Requerido"},
+        clave:{required:" Requerido"},
 		obligatoria:{required:" Requerido"},
 		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
 	};

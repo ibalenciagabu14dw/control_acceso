@@ -386,21 +386,24 @@ router.post('/agregarAsignatura', function(req,res){
   var clave = req.body.clave;
   var tipo = req.body.tipo;
   var obligatoria = req.body.obligatoria;
-    asignatura.buscarAsignaturaPorClave(clave, function (error) {
+    asignatura.buscarAsignaturaPorClave(clave, function (error,row) {
     if (error) {
       throw error;
     } else{
-      res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
-      //console.log("asignatura.buscarAsignaturaPorClave (configFuncionamiento) correctamente");
+        console.log(row.length);
+        if (row.length>0){
+          res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
+        } else if (row.length == 0){
+          asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error) {
+              if (error) {
+                throw error;
+              } else{ 
+                //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+              }//.else
+          });//.asignatura.insertarAsigntura
+        }//. else if (row.length == 0)
     }//.else
   });//.asignatura.buscarAsignaturaPorClave
-  asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error) {
-    if (error) {
-      throw error;
-    } else{ 
-      //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
-    }//.else
-  });//.alumno.insertarAula
 });//.router.post('/agregarGrupo', function(req,res){
 
 module.exports = router;

@@ -386,6 +386,14 @@ router.post('/agregarAsignatura', function(req,res){
   var clave = req.body.clave;
   var tipo = req.body.tipo;
   var obligatoria = req.body.obligatoria;
+    asignatura.buscarAsignaturaPorClave(clave, function (error) {
+    if (error) {
+      throw error;
+    } else{
+      res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
+      //console.log("asignatura.buscarAsignaturaPorClave (configFuncionamiento) correctamente");
+    }//.else
+  });//.asignatura.buscarAsignaturaPorClave
   asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error) {
     if (error) {
       throw error;

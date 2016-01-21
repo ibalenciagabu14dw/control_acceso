@@ -144,6 +144,21 @@ asignatura.buscarAsignaturasDelProfesor = function(id_profesor,callback){
 	}//.if(connection)
 }//.asignatura.buscarAsignaturasDelProfesor
 
+/*
+*	devuelve el id,tarjeta_activada,presencia de alumno seguun numero de tarjeta
+*/
+asignatura.buscarAsignaturaPorClave = function(clave,callback){
+	if (connection){
+		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE clave = ' + connection.escape(clave);
+		connection.query(sql, function (error, row){
+			if(error){
+				throw error;
+			}else{
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.alumno.buscarAsignaturaPorClave
 
 
 module.exports = asignatura;

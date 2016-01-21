@@ -43,6 +43,7 @@ $(document).ready(function() {
             })
             .fail(function() {
                 console.log("error");
+                alert("La clave ya existe");
             })
             /*
             *   Form Submit Fin

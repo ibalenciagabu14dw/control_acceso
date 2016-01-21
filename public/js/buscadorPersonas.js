@@ -14,7 +14,6 @@ $(document).ready(function() {
 	form += "<p><button id='buscadorSubmit' class='btn btn-primary'>Buscar</button></p>";
 	$('#buscador').html(form);
 	$("#accordion").accordion();
-
 	/*
 	*	Formulario fin
 	*/
@@ -191,10 +190,12 @@ $(document).ready(function() {
     /*
     *   Volver a buscar
     */
-    $('#buscador').on('click', '#volverABuscar', function(event) {
+    $('#buscador').on('click', '#volverABuscar', function(event){
         event.preventDefault();
-        $('#buscador').html(form);
+        /*$('#buscador').html(form);
         $('#accordion').accordion();
+        $("#buscador #formBuscador").validar();*/
+        location.reload();
         encontrado = 0;
     });
     /*

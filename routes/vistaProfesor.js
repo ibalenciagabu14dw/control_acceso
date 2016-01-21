@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var profesor = require('../models/profesor');
+var time = require("../models/time");
 
 /* GET vista del profesor page. */
 router.get('/', function(req, res, next) {

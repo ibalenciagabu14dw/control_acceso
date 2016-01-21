@@ -380,7 +380,7 @@ router.post('/agregarGrupo', function(req,res){
 });//.router.post('/agregarGrupo', function(req,res){
 
   /* POST agregar grupo page. */
-router.post('/agregarAsignatura', function(req,res){
+router.post('/agregarAsignatura', function(req,res,next){
   console.log(req.body);
   var nombre = req.body.nombre;
   var clave = req.body.clave;
@@ -390,7 +390,6 @@ router.post('/agregarAsignatura', function(req,res){
     if (error) {
       throw error;
     } else{
-        console.log(row.length);
         if (row.length>0){
           res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
         } else if (row.length == 0){

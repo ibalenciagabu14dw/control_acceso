@@ -86,7 +86,7 @@ $(document).ready(function() {
   } else {
     socket = io('ws://'+serverName+':8000');
   }
-  socket = io.connect("/");
+  socket = io.connect("http://controlfid.zubirimanteoweb.com:8000");
 
   $('td').click(function(event) {
     var id = $(this).attr('id');

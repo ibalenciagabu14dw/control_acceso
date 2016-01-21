@@ -81,11 +81,11 @@ $(document).ready(function() {
   */
   var socket;
   var serverName = window.location.hostname;
- /* if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
+  if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
     socket = io();
   } else {
-    socket = io('wss://'+serverName+':8443');
-  }*/
+    socket = io('ws://'+serverName+':8000');
+  }
   socket = io.connect("/");
 
   $('td').click(function(event) {

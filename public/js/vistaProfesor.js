@@ -84,9 +84,9 @@ $(document).ready(function() {
   if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
     socket = io();
   } else {
-    socket = io('ws://'+serverName+':8000');
+    socket = io('http://controlfid.zubirimanteoweb.com');
   }
-  socket = io.connect("http://controlfid.zubirimanteoweb.com:8000");
+  socket = io.connect();
 
   $('td').click(function(event) {
     var id = $(this).attr('id');

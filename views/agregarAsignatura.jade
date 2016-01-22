@@ -8,9 +8,10 @@ block content
     br
     label(for='clave') clave
     input#clave.form-control(type='text', name='clave')
-    if info
-     .alert.alert-danger
-      | #{info}      
+    #mensaje.alert.alert-error.fade.in(style='display: none')
+      a.close(href='#', data-dismiss='alert') ×
+      strong Comprueba!
+      span  Clave ya existente
     label(for='obligatoria') obligatoria
     br
     input(type='radio', name='obligatoria', value='1')

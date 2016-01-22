@@ -36,14 +36,24 @@ $(document).ready(function() {
                 dataType: 'json',
                 data: data,
                 success: function (data) {
+
                 }
             })
-            .done(function() {
+            .done(function(data) {
+                console.log(data);
+                if (data.err=="existe"){
+                    //$('#mensaje').show();
+                    //$('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+                    //$(".alert-dismissable").alert('close');
+                    //});
+                showAlert("#clave","error","Clave ya existente");
+                }else if (data.dato=="ok"){
+                showAlert("#send","ok","Asignatura añadida correctamente");
+                }
                 console.log("success");
             })
             .fail(function() {
                 console.log("error");
-                alert("La clave ya existe");
             })
             /*
             *   Form Submit Fin
@@ -51,3 +61,20 @@ $(document).ready(function() {
         }//submitHandler
     });//Validate
 });//ready
+
+
+function showAlert(lugar,tipo,texto) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+                    //$(".alert-dismissable").alert('close');
+                });
+
+//            $('#mensaje').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
+    }

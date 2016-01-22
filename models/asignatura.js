@@ -11,10 +11,12 @@ asignatura.insertarAsigntura = function (nombre,clave,obligatoria,tipo,callback)
 	if(connection){						
 		var asignatura = { nombre: nombre, clave: clave ,obligatoria: obligatoria, tipo:tipo };
 		var sqlinsertarAsigntura = 'INSERT INTO asignaturas SET ?';
-		connection.query(sqlinsertarAsigntura,asignatura, function(error){
+		connection.query(sqlinsertarAsigntura,asignatura, function(error,row){
 		  if (error) {
 				throw error;
 			}else{
+				//console.log(row);
+				callback(null,{dato:"ok"});
 				//console.log('insertarAsigntura correctamente');
 			}//.else
 		});//.connection.query

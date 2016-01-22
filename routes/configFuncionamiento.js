@@ -388,15 +388,21 @@ router.post('/agregarAsignatura', function(req,res,next){
   var obligatoria = req.body.obligatoria;
     asignatura.buscarAsignaturaPorClave(clave, function (error,row) {
     if (error) {
+      res.send({err:'bd'});
       throw error;
     } else{
+      //console.log(row);
+      
         if (row.length>0){
-          res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
-        } else if (row.length == 0){
-          asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error) {
+         // res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
+         res.send({err:'existe'});
+        } else {
+          asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error,row) {
               if (error) {
+                res.send({err:'bd'});
                 throw error;
               } else{ 
+                res.send(row);
                 //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
               }//.else
           });//.asignatura.insertarAsigntura

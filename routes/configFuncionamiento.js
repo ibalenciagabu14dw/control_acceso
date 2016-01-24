@@ -411,6 +411,57 @@ router.post('/agregarAsignatura', function(req,res,next){
   });//.asignatura.buscarAsignaturaPorClave
 });//.router.post('/agregarGrupo', function(req,res){
 
+router.post('/buscarAsignaturaNombre', function(req,res,next) {
+  //console.log(req.body);
+  var nombre = req.body.nombre;
+  asignatura.buscarAsignaturaPorNombre(nombre, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarAsignaturaPorNombre
+});//router.post('/buscarAsignaturaNombre', function(req,res,next) {
+
+router.post('/buscarAsignaturaPorId', function(req,res,next) {
+  var id_asignatura = req.body.id_asignatura;
+  asignatura.buscarAsignaturaPorId(id_asignatura, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarAsignaturaPorId
+});//router.post('/buscarAsignaturaId', function(req,res,next) {
+
+router.post('/borrarAsignatura', function(req,res,next){
+  console.log(req.body);
+  var id_asignatura = req.body.id_asignatura;
+  asignatura.borrarAsigntura(id_asignatura, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      //console.log(row);
+      res.send(row);
+    }
+  })//borrarAsignatura
+});//router.post('/borrarAsignatura', function(req,res,next){
+
+router.post('/updateAsignatura',  function(req,res,next){
+    var id_asignatura = req.body.id_asignatura;
+    var nombre = req.body.nombre;
+    var clave = req.body.clave;
+    var obligatoria = req.body.obligatoria;
+    var tipo = req.body.tipo;
+          asignatura.modificarAsigntura(id_asignatura,nombre,clave,obligatoria,tipo, function(error,row) {
+            if (error) {
+              throw error;
+            }else{
+              res.send(row);
+            }
+          })//modificarAsigntura
+});//router.post('/updateAsignatura',  function(req,res,next){
+
 module.exports = router;
 
 

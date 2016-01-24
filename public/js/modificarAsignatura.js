@@ -20,11 +20,31 @@ $(document).ready(function() {
     		formulario += "id_asignatura: <input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
     		formulario += "Clave: <input type='text' id='clave' name='clave' class='form-control' value='"+result[0].clave+"'>";
-    		formulario += "Obligatoria: <input type='text' id='obligatoria' name='obligatoria' class='form-control' value='"+result[0].obligatoria+"'>";
-    		formulario += "tipo: <input type='text' id='tipo' name='tipo' class='form-control' value='"+result[0].tipo+"'></br>";
-			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
+    			if(result[0].obligatoria == 1){
+					formulario += "Obligatoria<input type='radio' name='obligatoria' value='1' checked/>Si";
+					formulario += "<input type='radio' name='obligatoria' value='0'/>No";
+					formulario += "</br>";
+				} else {
+					formulario += "Obligatoria<input type='radio' name='obligatoria' value='1'/>Si";
+					formulario += "<input type='radio' name='obligatoria' value='0'checked/>No";
+					formulario += "</br>";					
+				}
+				if(result[0].tipo == 'FP'){
+					formulario += "Tipo:<select name='tipo'>";
+					formulario += "<option value='default'>Elige el tipo</option>";
+					formulario += "<option value='Bachiller'>Bachiller</option>";
+					formulario += "<option value='FP' selected>FP</option>";
+					formulario += "</select>";
+				} else {
+					formulario += "Tipo:<select name='tipo'>";
+					formulario += "<option value='default'>Elige el tipo</option>";
+					formulario += "<option value='Bachiller'selected>Bachiller</option>";
+					formulario += "<option value='FP'>FP</option>";
+					formulario += "</select>";				
+				}
+			formulario += "</br><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
+    		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configAsignaturas' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})

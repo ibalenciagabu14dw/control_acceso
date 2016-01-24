@@ -51,7 +51,7 @@ asignatura.borrarAsigntura = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('borrarAsigntura correctamente');
+				
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -161,7 +161,34 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.alumno.buscarAsignaturaPorClave
+}//.asignatura.buscarAsignaturaPorClave
 
+asignatura.buscarAsignaturaPorNombre = function(nombre,callback){
+	if (connection){
+		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE nombre LIKE ' + connection.escape(nombre+'%');
+		connection.query(sql, function (error, row){
+			if(error){
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.asignatura.buscarAsignaturaPorClave
+
+asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
+	//console.log(connection.escape(id_asignatura));
+	if(connection){
+		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE id_asignatura ='+connection.escape(id_asignatura);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.asignatura.buscarAsignaturaPorId
 
 module.exports = asignatura;

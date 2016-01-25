@@ -673,6 +673,21 @@ router.post('/borrarGrupo', function(req,res,next){
   })//borrarGrupo
 });//router.post('/borrarGrupo', function(req,res,next){  
 
+router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
+      grupo.mostrarTodosLosIdNombreGrupo(function (error,data){
+                  if (error) {
+                    console.log("Fallo");
+                    throw error;
+                  }else{
+                    //console.log(data);                
+                    //res.send(data);
+                    res.render('agregarHorarioGrupo',{ 
+                    grupo:data,
+                    })//.res.render
+                  }//else error
+      });////. grupo.mostrarTodosLosIdGrupo
+});//.router.get('/agregarHorarioGr', function(req, res, next) {
+
 module.exports = router;
 
 

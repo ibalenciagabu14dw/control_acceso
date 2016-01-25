@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1#titulo= title
+  form#agregarHorarioGrupoForm.form-group()
+    label(for='dia') Dia
+    select(name='dia')
+      option(value='default') Elige el dia
+      option(value='Lunes') Lunes
+      option(value='Martes') Martes
+      option(value='Miercoles') Miercoles
+      option(value='Jueves') Jueves
+      option(value='Viernes') Viernes
+    br
+    #mensaje.alert.alert-error.fade.in(style='display: none')
+      a.close(href='#', data-dismiss='alert') ×
+      strong Comprueba!
+      span  Dia ya existente
+    br
+    label(for='hora_inicio') hora_inicio
+    input#hora_inicio.form-control(type='time', name='hora_inicio')
+    br
+    label(for='hora_final') hora_final
+    input#hora_final.form-control(type='time', name='hora_final')  
+    br
+    label(for='id_grupo') id_grupo
+    select(name='tipo')
+      for gr in grupo
+        option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
+    br
+    button#send.btn.btn-primary(name='send') Enviar
+    a#enlace.btn.btn-primary(href='/config/configGlobal/config') Volver
+  script
+    //include ../public/js/agregarHorarioGrupo.js
+    

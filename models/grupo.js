@@ -189,5 +189,20 @@ grupo.buscarGrupoPorId = function(id_grupo,callback){
 	}//.if(connection)
 }//.grupo.buscarGrupoPorId
 
+//METODO PARA AGREGAR HORARIO GRUPO
+grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
+	if(connection){							
+		connection.query('SELECT id_grupo,nombre_grupo FROM grupos', function(error,row){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				//console.log('mostrarTodosLosIdGrupo correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.grupo.mostrarTodosLosIdGrupo 
+
 module.exports = grupo;
 

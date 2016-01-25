@@ -1,5 +1,24 @@
 $(document).ready(function() {
 	
+	$.validator.addMethod("valueNotEquals", function(value, element, arg){
+      return arg != value;
+    }, "Value must not equal arg.");
+
+	//reglas
+	var reglas = {
+		nombre:{required:true},
+        clave:{required:true},
+		obligatoria:{required:true},
+		tipo:{required:true,valueNotEquals: "default" }
+	};
+	//mensajes
+	var mensajes = {
+		nombre:{required:" Requerido"},
+        clave:{required:" Requerido"},
+		obligatoria:{required:" Requerido"},
+		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
+	};
+
 	//Buscar alumnos al escribir
 	$('#nombre').keyup(function(event) {
 		buscarAsignaturas();
@@ -53,6 +72,44 @@ $(document).ready(function() {
 		});
 	});//Formulario modificar y borrar
 	
+	$('#resultado').on("click","#btnModificar",function () {
+		$("#formUpdate").validate({
+	        rules:reglas,
+			messages:mensajes,
+			errorPlacement: function(error,element){
+				element.before(error);
+			},
+	        submitHandler: function (form) {
+	            event.preventDefault();
+	            var data = $("#formUpdate").serializeArray();
+	            console.log(data);
+	            $.ajax({
+	                url: '/updateAsignatura',
+	                type: 'post',
+	                dataType: 'json',
+	                data: data,
+	                success: function (data) {
+	                }
+	            })
+	            .done(function(data) {
+	                console.log(data);
+	                console.log("success");
+	            })
+	            .fail(function() {
+	                console.log("error");
+	            })
+	            /*
+	            *   Form Submit Fin
+	            */
+	        }//submitHandler
+	    });//Validate
+	  //$( "#target" ).submit();
+	});
+
+	
+
+
+
 	//Funcion con ajax para recoger datos alumnos y crear tabla
 	function buscarAsignaturas () {
 		var formData = $('#form').serializeArray();

@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1#titulo= title
-  form#agregarHorarioGrupoForm.form-group(action='/agregarHorarioGrupo' method='POST')
+  form#agregarHorarioGrupoForm.form-group()
     label(for='dia') Dia
     select(name='dia')
       option(value='default') Elige el dia
@@ -23,23 +23,26 @@ block content
     label(for='hora_final') hora_final
     input#hora_final.form-control(type='time', name='hora_final')  
     br
-    label(for='id_grupo') id_grupo
+    label(for='id_grupo') Grupo
     select(name='id_grupo')
+      option(value='default') Elige el grupo
       for gr in grupo
         option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
     br
-    label(for='id_asignatura') id_asignatura
+    label(for='id_asignatura') Asignatura
     select(name='id_asignatura')
+      option(value='default') Elige la asignatura
       for as in asignatura
         option(value='#{as.id_asignatura}') #{as.nombre}
     br
-    label(for='id_aula') id_aula
+    label(for='id_aula') Aula
     select(name='id_aula')
+      option(value='default') Elige el aula
       for au in aula
         option(value='#{au.id_aula}') #{au.numero}
     br
     button#send.btn.btn-primary(name='send') Enviar
-    a#enlace.btn.btn-primary(href='/config/configGlobal/config') Volver
+    a#enlace.btn.btn-primary(href='/config/configGlobal/configHorario') Volver
   script
-    //include ../public/js/agregarHorarioGrupo.js
+    include ../public/js/agregarHorarioGrupo.js
     

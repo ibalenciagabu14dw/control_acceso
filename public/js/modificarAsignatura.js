@@ -39,6 +39,7 @@ $(document).ready(function() {
     		formulario += "id_asignatura: <input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
     		formulario += "Clave: <input type='text' id='clave' name='clave' class='form-control' value='"+result[0].clave+"'>";
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Clave ya existente</span></div>";	
     			if(result[0].obligatoria == 1){
 					formulario += "Obligatoria<input type='radio' name='obligatoria' value='1' checked/>Si";
 					formulario += "<input type='radio' name='obligatoria' value='0'/>No";
@@ -61,7 +62,7 @@ $(document).ready(function() {
 					formulario += "<option value='FP'>FP</option>";
 					formulario += "</select>";				
 				}
-			formulario += "</br><input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
+			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configAsignaturas' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
@@ -92,10 +93,16 @@ $(document).ready(function() {
 	                }
 	            })
 	            .done(function(data) {
-	                console.log(data);
-	                console.log("success");
-	            })
-	            .fail(function() {
+	                console.log(data)
+		                if (data.err=="existe"){
+		                //showAlert($('#resultado #clave').attr('id'),"error","Clave ya existente");
+		                showAlert($('#resultado #clave'),"error","Clave ya existente");
+		                }else if (data.dato=="ok"){
+		                showAlert($('#resultado #enlace'),"ok","Asignatura modificada correctamente");
+		                }
+		                console.log("success");
+			            })
+			            .fail(function() {
 	                console.log("error");
 	            })
 	            /*
@@ -179,3 +186,15 @@ $(document).ready(function() {
 });//ready
 
 
+function showAlert(lugar,tipo,texto) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+                });
+    }

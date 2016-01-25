@@ -35,7 +35,7 @@ asignatura.modificarAsigntura = function (id,nombre,clave,obligatoria,tipo,callb
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarAsigntura correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)

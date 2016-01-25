@@ -46,10 +46,7 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#dia","error","Dia ya existente");
-                showAlert("#hora_inicio","error","Hora Inicio ya existente");
-                showAlert("#hora_final","error","Hora Final ya existente");
-                showAlert("#id_grupo","error","grupo ya existente");
+                showAlert("#enlace","error","HorarioGrupo ya existente");
                 }else if (data.dato=="ok"){
                 showAlert("#enlace","ok","HorarioGrupo añadida correctamente");
                 }

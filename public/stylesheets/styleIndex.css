@@ -42,6 +42,7 @@ body {
 
 @media only screen and (max-width: 800px) and (orientation:portrait) {
   body {
+    height: 100%;
     padding-top: 50px;
     background-image: url('../images/gradient9.jpg');
     background-repeat: no-repeat;
@@ -62,6 +63,9 @@ body {
   	padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
+  }
+  html{
+    height: 100%;
   }
 
 }
@@ -100,12 +104,6 @@ body {
 @media only screen and (max-height: 450px){
   #footer{
     bottom: auto;
-  }
-    body{
-    height: 100%;
-  }
-  html{
-    height: 100%;
   }
 }
 

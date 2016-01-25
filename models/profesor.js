@@ -401,4 +401,18 @@ profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {
 	}//.if (connection)
 }//.profesor.borrarAsignaturasProfesor
 
+profesor.mostrarTodosLosIdNombreApellidosProfesor = function (callback) {
+	if(connection){						
+		connection.query('SELECT id_profesor,nombre,apellidos FROM profesores', function(error,row){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+					callback(null,row);
+				//console.log('mostrarTodosLosIdNombreApellidosProfesor correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.profesor.mostrarTodosLosIdNombreApellidosProfesor 
+
 module.exports = profesor;

@@ -109,5 +109,32 @@ horario_grupo.buscarHorarioGrupoIgual = function(dia_semana,hora_inicio,hora_fin
 	}//.if(connection)
 }//.horario_grupo.buscarHorarioGrupoIgual
 
+horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo = function (callback) {							
+	if(connection){	
+		connection.query('SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final FROM horario_grupos', function(error,row){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+					callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo 
+
+horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {							
+	if(connection){	
+		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final FROM horario_grupos WHERE id_horario_grupo = ' + connection.escape(id_horario_grupo);
+		connection.query(sql, function (error, row){
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+					callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo 
+
 module.exports = horario_grupo;
 

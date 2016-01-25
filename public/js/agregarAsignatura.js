@@ -42,10 +42,6 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                    //$('#mensaje').show();
-                    //$('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
-                    //$(".alert-dismissable").alert('close');
-                    //});
                 showAlert("#clave","error","Clave ya existente");
                 }else if (data.dato=="ok"){
                 showAlert("#send","ok","Asignatura añadida correctamente");
@@ -73,8 +69,5 @@ function showAlert(lugar,tipo,texto) {
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
     $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
-                    //$(".alert-dismissable").alert('close');
                 });
-
-//            $('#mensaje').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
     }

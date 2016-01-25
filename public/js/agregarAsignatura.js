@@ -44,7 +44,7 @@ $(document).ready(function() {
                 if (data.err=="existe"){
                 showAlert("#clave","error","Clave ya existente");
                 }else if (data.dato=="ok"){
-                showAlert("#send","ok","Asignatura añadida correctamente");
+                showAlert("#enlace","ok","Asignatura añadida correctamente");
                 }
                 console.log("success");
             })

@@ -151,6 +151,9 @@ td:hover{
 .ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited, .ui-state-focus a, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited{
 	color:white;
 }
+.ui-dialog .ui-widget .ui-widget-content .ui-corner-all .ui-front .ui-draggable .ui-resizable{
+	left:auto;
+}
 #tablaPersona{
 	margin-bottom: 20px;
 }
@@ -161,6 +164,11 @@ td:hover{
 		.presencia1, .presencia0{
 		width: 300px;
 	}
+}
+
+.ui-dialog {
+    left: auto !important;
+
 }
 
 

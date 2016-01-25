@@ -49,6 +49,7 @@ $(document).ready(function() {
       maxHeight: 700,
       width: 'auto',
       fluid: true,
+      position: {my: "center", at:"center", of: window },
       show: {
         effect: "blind",
         duration: 1000
@@ -141,6 +142,26 @@ $(document).ready(function() {
       $('#'+msg).addClass('presencia1');
     }
   });
+  /*
+  * Fin socket.io
+  */
+
+  /*
+  * control footer
+  */
+  var dato = $('.celdaAlumno').html();
+  if (dato == undefined) {
+    $('#footer').css('bottom', '0px');
+    $('#botonHorarioProfesor').css({
+      position: 'absolute',
+      bottom: '100px'
+    });
+    $('#exit').css({
+      position: 'absolute',
+      bottom: '100px',
+      right: '20px'
+    });
+  };
   
   
 });//ready

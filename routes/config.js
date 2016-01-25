@@ -74,6 +74,22 @@ router.get('/configGlobal/configHorario', function(req, res, next) {
   res.render('configHorario', { title: 'configHorario' });
 });
 
+router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
+  res.render('agregarHorarioGrupo', { title: 'agregarHorarioGrupo' });
+});
+
+router.get('/configGlobal/configHorario/modificarHorarioGrupo', function(req, res, next) {
+  res.render('modificarHorarioGrupo', { title: 'modificarHorarioGrupo' });
+});
+
+router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
+  res.render('agregarHorarioProfesor', { title: 'agregarHorarioProfesor' });
+});
+
+router.get('/configGlobal/configHorario/modificarHorarioProfesor', function(req, res, next) {
+  res.render('modificarHorarioProfesor', { title: 'modificarHorarioProfesor' });
+});
+
 router.get('/configGlobal/configApariencia', function(req, res, next) {
   res.render('configApariencia', { title: 'configApariencia' });
 });

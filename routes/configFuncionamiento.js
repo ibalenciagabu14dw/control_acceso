@@ -352,18 +352,29 @@ router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
 
 /* POST agregar clase page. */
 router.post('/agregarAula', function(req,res){
-  //console.log(req.body);
   var numero = req.body.numero;
   var piso = req.body.piso;
   var capacidad = req.body.capacidad;
-  aula.insertarAula(numero,piso,capacidad, function (error) {
+    aula.buscarAulaPorNumero(numero, function (error,row) {
     if (error) {
+      res.send({err:'bd'});
       throw error;
-    } else{ 
-      //console.log("aula.insertarAula (configFuncionamiento) correctamente");
+    } else{
+        if (row.length>0){
+         res.send({err:'existe'});
+        } else {
+          aula.insertarAula(numero,piso,capacidad, function (error,row) {
+              if (error) {
+                res.send({err:'bd'});
+                throw error;
+              } else{ 
+                res.send(row);
+              }//.else
+          });//.asignatura.insertarAsigntura
+        }//. else if (row.length == 0)
     }//.else
-  });//.alumno.insertarAula
-});//.router.post('/agregarClase', function(req,res){
+  });//.asignatura.buscarAsignaturaPorClave
+});//.router.post('/agregarGrupo', function(req,res){
 
 /* POST agregar grupo page. */
 router.post('/agregarGrupo', function(req,res){

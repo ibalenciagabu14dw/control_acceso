@@ -15,7 +15,7 @@ aula.insertarAula = function (numero,piso,capacidad,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				//console.log('insertarAula correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -83,5 +83,19 @@ aula.mostrarTodosLosIdAula = function (callback) {
 		});//.connection.query
 	}//.if (connection)
 }//.aula.mostrarTodosLosIdAula 
+
+aula.buscarAulaPorNumero = function(numero,callback){
+	if (connection){
+		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE numero = ' + connection.escape(numero);
+		connection.query(sql, function (error, row){
+			if(error){
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.aula.buscarAulaPorNumero
 
 module.exports = aula;

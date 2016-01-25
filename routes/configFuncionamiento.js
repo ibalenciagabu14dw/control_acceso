@@ -674,7 +674,17 @@ router.post('/borrarGrupo', function(req,res,next){
 });//router.post('/borrarGrupo', function(req,res,next){  
 
 router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
-      grupo.mostrarTodosLosIdNombreGrupo(function (error,data){
+aula.mostrarTodosLosIdNumeroAula(function (error,aul) {
+  if (error) {
+    console.log("Fallo mostrarTodosLosIdAula");
+    throw error;
+  }else{  
+  asignatura.mostrarTodosLosIdNombreAsigntura(function (error,asign) {
+    if (error) {
+      console.log("Fallo mostrarTodosLosIdNombreAsigntura");
+      throw error;
+    }else{
+      grupo.mostrarTodosLosIdNombreGrupo(function (error,gru){
                   if (error) {
                     console.log("Fallo");
                     throw error;
@@ -682,10 +692,16 @@ router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(re
                     //console.log(data);                
                     //res.send(data);
                     res.render('agregarHorarioGrupo',{ 
-                    grupo:data,
+                    grupo:gru,
+                    asignatura:asign,
+                    aula:aul,
                     })//.res.render
                   }//else error
       });////. grupo.mostrarTodosLosIdGrupo
+    }//.else
+  });//profesor.buscarProfesorPorId
+}//.else
+});//.mostrarTodosLosIdAula
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 module.exports = router;

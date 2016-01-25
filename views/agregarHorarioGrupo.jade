@@ -24,9 +24,19 @@ block content
     input#hora_final.form-control(type='time', name='hora_final')  
     br
     label(for='id_grupo') id_grupo
-    select(name='tipo')
+    select(name='id_grupo')
       for gr in grupo
         option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
+    br
+    label(for='id_asignatura') id_asignatura
+    select(name='id_asignatura')
+      for as in asignatura
+        option(value='#{as.id_asignatura}') #{as.nombre}
+    br
+    label(for='id_aula') id_aula
+    select(name='id_aula')
+      for au in aula
+        option(value='#{au.id_aula}') #{au.numero}
     br
     button#send.btn.btn-primary(name='send') Enviar
     a#enlace.btn.btn-primary(href='/config/configGlobal/config') Volver

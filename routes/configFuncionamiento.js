@@ -6,6 +6,9 @@ var multer = require('multer');
 var asignatura = require('../models/asignatura');
 var aula = require('../models/aula');
 var grupo = require('../models/grupo');
+var horario_grupo = require('../models/horario_grupo');
+var horario_profesor = require('../models/horario_profesor');
+
 
 /* POST agregar alumno page. */
 router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
@@ -703,6 +706,24 @@ aula.mostrarTodosLosIdNumeroAula(function (error,aul) {
 }//.else
 });//.mostrarTodosLosIdAula
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
+
+  router.post('/agregarHorarioGrupo', function(req,res,next){
+  var dia_semana = req.body.dia;
+  var hora_inicio = req.body.hora_inicio;
+  var hora_final = req.body.hora_final;
+  var id_grupo = req.body.id_grupo;
+  var id_asignatura = req.body.id_asignatura;
+  var id_aula = req.body.id_aula;          
+          horario_grupo.insertarHorarioGrupo(dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, function (error,row) {
+              if (error) {
+                res.send({err:'bd'});
+                throw error;
+              } else{ 
+                res.send(row);
+                //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+              }//.else
+          });//.asignatura.insertarAsigntura
+});//.router.post('/agregarGrupo', function(req,res){
 
 module.exports = router;
 

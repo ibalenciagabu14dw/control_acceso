@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1#titulo= title
-  form#agregarHorarioGrupoForm.form-group()
+  form#agregarHorarioGrupoForm.form-group(action='/agregarHorarioGrupo' method='POST')
     label(for='dia') Dia
     select(name='dia')
       option(value='default') Elige el dia

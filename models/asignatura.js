@@ -191,4 +191,20 @@ asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
 	}//.if(connection)
 }//.asignatura.buscarAsignaturaPorId
 
+asignatura.buscarAsignaturaPorIdClave = function(id_asignatura,clave,callback){
+	console.log(connection.escape(id_asignatura));
+	console.log(connection.escape(clave));
+	if(connection){
+		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE id_asignatura ="'+id_asignatura+'" AND clave ="'+clave+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.asignatura.buscarAsignaturaPorId
+
 module.exports = asignatura;

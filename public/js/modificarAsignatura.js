@@ -95,7 +95,6 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                //showAlert($('#resultado #clave').attr('id'),"error","Clave ya existente");
 		                showAlert($('#resultado #clave'),"error","Clave ya existente");
 		                }else if (data.dato=="ok"){
 		                showAlert($('#resultado #enlace'),"ok","Asignatura modificada correctamente");

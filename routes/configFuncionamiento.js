@@ -453,25 +453,43 @@ router.post('/updateAsignatura',  function(req,res,next){
     var clave = req.body.clave;
     var obligatoria = req.body.obligatoria;
     var tipo = req.body.tipo;
-          asignatura.buscarAsignaturaPorClave(clave, function (error,row) {
+          asignatura.buscarAsignaturaPorIdClave(id_asignatura,clave, function (error,row) {
             if (error) {
               res.send({err:'bd'});
               throw error;
             } else{
-              //console.log(row);
                 if (row.length>0){
-                 // res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
-                 res.send({err:'existe'});
+                     asignatura.modificarAsigntura(id_asignatura,nombre,clave,obligatoria,tipo, function(error,row) {
+                          if (error) {
+                            res.send({err:'bd'});
+                            throw error;
+                          } else{ 
+                            res.send(row);
+                          }//.else
+                      });//.asignatura.insertarAsigntura
                 } else {
-          asignatura.modificarAsigntura(id_asignatura,nombre,clave,obligatoria,tipo, function(error,row) {
-              if (error) {
-                res.send({err:'bd'});
-                throw error;
-              } else{ 
-                res.send(row);
-              }//.else
-          });//.asignatura.insertarAsigntura
-        }//. else if (row.length == 0)
+               asignatura.buscarAsignaturaPorClave(clave, function (error,row) {
+                  if (error) {
+                    res.send({err:'bd'});
+                    throw error;
+                  } else{
+                    //console.log(row);
+                      if (row.length>0){
+                       // res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
+                       res.send({err:'existe'});
+                      } else {
+                asignatura.modificarAsigntura(id_asignatura,nombre,clave,obligatoria,tipo, function(error,row) {
+                    if (error) {
+                      res.send({err:'bd'});
+                      throw error;
+                    } else{ 
+                      res.send(row);
+                    }//.else
+                  });//.asignatura.insertarAsigntura
+                    }//.else
+                  }//.else
+                });//.asignatura.buscarAsignaturaPorClave
+        }//. else
     }//.else
   });//.asignatura.buscarAsignaturaPorClave
 });//router.post('/updateAsignatura',  function(req,res,next){

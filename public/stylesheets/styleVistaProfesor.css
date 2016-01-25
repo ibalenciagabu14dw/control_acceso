@@ -157,6 +157,11 @@ td:hover{
 #volverABuscar{
 	width: 100%;
 }
+@media only screen and (max-width: 450px) and (orientation:portrait){
+		.presencia1, .presencia0{
+		width: 300px;
+	}
+}
 
 
 

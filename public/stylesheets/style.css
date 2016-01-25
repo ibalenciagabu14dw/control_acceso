@@ -44,6 +44,6 @@ body{
 }
 @media only screen and (max-height: 450px){
   #footer{
-    bottom: auto;
+    bottom: 0px;
   }
 }

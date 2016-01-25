@@ -33,7 +33,7 @@ aula.modificarAula = function (id,numero,piso,capacidad,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarAula correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -86,7 +86,7 @@ aula.mostrarTodosLosIdAula = function (callback) {
 
 aula.buscarAulaPorNumero = function(numero,callback){
 	if (connection){
-		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE numero = ' + connection.escape(numero);
+		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE numero LIKE ' + connection.escape(numero+'%');
 		connection.query(sql, function (error, row){
 			if(error){
 				throw error;
@@ -97,5 +97,33 @@ aula.buscarAulaPorNumero = function(numero,callback){
 		});//.connection.query
 	}//.if (connection)
 }//.aula.buscarAulaPorNumero
+
+aula.buscarAulaPorIdNumero = function(id_aula,numero,callback){
+	if(connection){
+		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE id_aula ="'+id_aula+'" AND numero ="'+numero+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.aula.buscarAulaPorIdNumero
+
+aula.buscarAulaPorId = function(id_aula,callback){
+	if(connection){
+		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE id_aula ="'+id_aula+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.aula.buscarAulaPorIdNumero
 
 module.exports = aula;

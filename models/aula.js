@@ -126,4 +126,18 @@ aula.buscarAulaPorId = function(id_aula,callback){
 	}//.if(connection)
 }//.aula.buscarAulaPorIdNumero
 
+aula.mostrarTodosLosIdNumeroAula = function (callback) {
+	if(connection){							
+		connection.query('SELECT id_aula,numero FROM aulas', function(error,row){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+					callback(null,row);
+				//console.log('mostrarTodosLosIdNumeroAula correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.aula.mostrarTodosLosIdNumeroAula 
+
 module.exports = aula;

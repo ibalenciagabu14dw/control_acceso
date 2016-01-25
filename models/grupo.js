@@ -148,7 +148,7 @@ grupo.buscarGrupoDelAlumno = function(id_alumno,callback){
 
 grupo.buscarGrupoPorNombre = function(nombre_grupo,callback){
 	if(connection){
-		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE nombre_grupo = ' + connection.escape(nombre_grupo);
+		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE nombre_grupo LIKE ' + connection.escape(nombre_grupo+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -159,6 +159,35 @@ grupo.buscarGrupoPorNombre = function(nombre_grupo,callback){
 		});//.connection.query
 	}//.if(connection)
 }//.grupo.buscarGrupoPorNombre
+
+
+grupo.buscarGrupoPorIdNombre = function(id_grupo,nombre_grupo,callback){
+	if(connection){
+		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE id_grupo ="'+id_grupo+'" AND nombre_grupo ="'+nombre_grupo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.grupo.buscarGrupoPorIdNombre
+
+grupo.buscarGrupoPorId = function(id_grupo,callback){
+	if(connection){
+		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE id_grupo ="'+id_grupo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.grupo.buscarGrupoPorId
 
 module.exports = grupo;
 

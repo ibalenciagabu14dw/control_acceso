@@ -1,20 +1,22 @@
 $(document).ready(function() {
 
+     $.validator.addMethod("valueNotEquals", function(value, element, arg){
+      return arg != value;
+     }, "Value must not equal arg.");
+
 	//reglas
 	var reglas = {
-		numero:{required:true},
-        piso:{required:true},
-		capacidad:{required:true},
+		nombre:{required:true},
+		tipo:{required:true,valueNotEquals: "default" }
 	};
 	//mensajes
 	var mensajes = {
-		numero:{required:" Requerido"},
-        piso:{required:" Requerido"},
-		capacidad:{required:" Requerido"},
+		nombre:{required:" Requerido"},
+		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
 	};
 
 	//Validate
-	$("#agregarAulaForm").validate({
+	$("#agregarGrupoForm").validate({
         rules:reglas,
 		messages:mensajes,
 		errorPlacement: function(error,element){
@@ -22,10 +24,10 @@ $(document).ready(function() {
 		},
         submitHandler: function (form) {
             event.preventDefault();
-            var data = $("#agregarAulaForm").serializeArray();
+            var data = $("#agregarGrupoForm").serializeArray();
             console.log(data);
             $.ajax({
-                url: '/agregarAula',
+                url: '/agregarGrupo',
                 type: 'post',
                 dataType: 'json',
                 data: data,
@@ -35,9 +37,9 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#numero","error","Numero ya existente");
+                showAlert("#nombre","error","Nombre ya existente");
                 }else if (data.dato=="ok"){
-                showAlert("#enlace","ok","Aula añadida correctamente");
+                showAlert("#enlace","ok","Grupo añadida correctamente");
                 }
                 console.log("success");
             })

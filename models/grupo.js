@@ -17,7 +17,7 @@ grupo.insertarGrupo = function (nombre_grupo,tipo,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				//console.log('insertarGrupo correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -35,7 +35,7 @@ grupo.modificarGrupo = function (id_grupo,nombre_grupo,tipo,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarAula correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -145,6 +145,20 @@ grupo.buscarGrupoDelAlumno = function(id_alumno,callback){
 		});//.connection.query
 	}//.if(connection)
 }//.grupo.buscarGrupoDelAlumno
+
+grupo.buscarGrupoPorNombre = function(nombre_grupo,callback){
+	if(connection){
+		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos WHERE nombre_grupo = ' + connection.escape(nombre_grupo);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.grupo.buscarGrupoPorNombre
 
 module.exports = grupo;
 

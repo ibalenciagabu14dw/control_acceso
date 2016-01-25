@@ -377,18 +377,29 @@ router.post('/agregarAula', function(req,res){
 });//.router.post('/agregarGrupo', function(req,res){
 
 /* POST agregar grupo page. */
-router.post('/agregarGrupo', function(req,res){
-  //console.log(req.body);
+router.post('/agregarGrupo', function(req,res,next){
   var nombre = req.body.nombre;
   var tipo = req.body.tipo;
-  grupo.insertarGrupo(nombre,tipo, function (error) {
+    grupo.buscarGrupoPorNombre(nombre, function (error,row) {
     if (error) {
+      res.send({err:'bd'});
       throw error;
-    } else{ 
-      //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
+    } else{
+        if (row.length>0){
+         res.send({err:'existe'});
+        } else {
+          grupo.insertarGrupo(nombre,tipo, function (error,row) {
+              if (error) {
+                res.send({err:'bd'});
+                throw error;
+              } else{ 
+                res.send(row);
+              }//.else
+          });//.grupo.insertarGrupo
+        }//. else if (row.length == 0)
     }//.else
-  });//.alumno.insertarAula
-});//.router.post('/agregarGrupo', function(req,res){
+  });//.grupo.buscarGrupoPorNombre
+});//.router.post('/agregarGrupo', function(req,res,next){
 
   /* POST agregar grupo page. */
 router.post('/agregarAsignatura', function(req,res,next){

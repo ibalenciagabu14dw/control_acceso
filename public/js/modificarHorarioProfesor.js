@@ -6,21 +6,21 @@ $(document).ready(function() {
 
 	//reglas
 	var reglas = {
-		dia:{required:true,valueNotEquals: "default" },
-        hora_inicio:{required:true},
-		hora_final:{required:true},
-		id_grupo:{required:true,valueNotEquals: "default" },
-        id_asignatura:{required:true,valueNotEquals: "default" },
-        id_aula:{required:true,valueNotEquals: "default" },
+		id_horario_profesor:{required:true},
+        id_horario_grupo:{required:true},
+		dia:{required:true},
+		hora_inicio:{required:true},
+        hora_final:{required:true},
+        profesor:{required:true,valueNotEquals: "default" },
 	};
 	//mensajes
 	var mensajes = {
-		dia:{required:" Requerido",valueNotEquals: "elige el dia" },
-        hora_inicio:{required:" Requerido"},
-		hora_final:{required:" Requerido"},
-		id_grupo:{required:" Requerido",valueNotEquals: "elige el grupo" },
-        id_asignatura:{required:" Requerido",valueNotEquals: "elige la asignatura" },
-        id_aula:{required:" Requerido",valueNotEquals: "elige el aula" },
+		id_horario_profesor:{required:" Requerido"},
+        id_horario_grupo:{required:" Requerido"},
+		dia:{required:" Requerido"},
+		hora_inicio:{required:" Requerido"},
+        hora_final:{required:" Requerido"},
+        profesor:{required:" Requerido",valueNotEquals: "elige el profesor" },
 	};
 
 	//Buscar alumnos al escribir

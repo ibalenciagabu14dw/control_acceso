@@ -146,15 +146,14 @@ router.post('/borrarGrupo', function(req,res,next){
   })//borrarGrupo
 });//router.post('/borrarGrupo', function(req,res,next){  
 
-router.post('/mostrarTodosLosGruposIdNombre', function(req,res,next){//FALTA EDITAR
+router.post('/mostrarTodosLosGruposIdNombre', function(req,res,next){
   grupo.mostrarTodosLosIdNombreGrupo(function(error,row) {
     if (error) {
       throw error;
     }else{
-      console.log(row);
       res.send(row);
     }
-  })//borrarGrupo
-});//router.post('/borrarGrupo', function(req,res,next){  
+  })//.grupo.mostrarTodosLosIdNombreGrupo
+});//.router.post('/mostrarTodosLosGruposIdNombre', function(req,res,next){
 
 module.exports = router;

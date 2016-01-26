@@ -34,7 +34,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(re
                       aula:aul,
                       })//.res.render
                     }//else error
-        });////. grupo.mostrarTodosLosIdGrupo
+        });////. grupo.mostrarTodosLosIdNombreGrupo
       }//.else
     });//profesor.buscarProfesorPorId
   }//.else
@@ -59,7 +59,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function
                       profesor:pro,
                       })//.res.render
                     }//else error
-        });////. grupo.mostrarTodosLosIdGrupo
+        });////. grupo.mostrarTodosLosIdNombreApellidosProfesor
   }//.else
   });//.mostrarTodosLosIdHoraDiaHorarioGrupo
 });//.router.get('/agregarHorarioGr', function(req, res, next) {

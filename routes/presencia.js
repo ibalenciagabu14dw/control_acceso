@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
 							throw error;
 						}else{
 							if (req.query.room == data[0].id_aula) {
-								alumno.updatePresenciaAlumno(req.query.idT,function (error) {
+								alumno.modificarPresenciaDelAlumno(req.query.idT,function (error) {
 									if (error) {
 										res.send("ko");
 										console.log("Fallo update presencia alumno");
@@ -44,7 +44,7 @@ router.get('/', function(req, res, next) {
 										console.log("Update alumno ok");
 										res.send("ok");
 									}//else error
-								});//UpdatePresenciaAlumno
+								});//modificarPresenciaDelAlumno
 							}else{
 								console.log("No esta en el aula que debe");
 								res.send("ko");

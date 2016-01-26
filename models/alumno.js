@@ -14,8 +14,9 @@ alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,ca
 		connection.query(sqlagregarAlumno,alumno, function(error){
 		  	if (error) {
 				throw error;
+				console.log(error);
 			}else{
-				//console.log('agregarAlumno correctamente');
+				console.log('agregarAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -37,45 +38,15 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarAlumno correctamente');
+				console.log('modificarAlumno OK');
 			}//else
 		});//connection.query
 	}//if
 }//alumno.modificarAlumno
 
 /*
-*	UPDATE la presencia del alumno a 0 o a 1 por numero de tarjeta
-*/
-alumno.updatePresenciaAlumno = function (num_tarjeta,callback) {
-	if(connection){
-		this.presenciaAlumno(num_tarjeta,function (error,data) {
-			if (data[0].presencia == 0) {
-				var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-					}else{
-						callback(null);
-					}//.else
-				});//.connection.query
-			}else{
-				var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-					}else{
-						callback(null);
-					}//.else
-				});//.connection.query
-			}//.else
-		});//.this.presenciaAlumno
-	}//.if (connection)
-}//.alumno.updatePresenciaAlumno
-
-/*
 *	UPDATE alumno sin foto
 */
-
 alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,callback) {
 	if(connection){							
 		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
@@ -85,11 +56,44 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarAlumno correctamente');
+				console.log('modificarAlumno OK');
 			}//else
 		});//connection.query
 	}//if
 }//alumno.modificarAlumnoSinFoto
+
+/*
+*	UPDATE la presencia del alumno a 0 o a 1 por num_tarjeta
+*/
+alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
+	if(connection){
+		this.presenciaAlumno(num_tarjeta,function (error,data) {
+			if (data[0].presencia == 0) {
+				var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						console.log('modificarPresenciaDelAlumno a 1 OK');
+						callback(null);
+					}//else
+				});//connection.query
+			}else{
+				var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						console.log('modificarPresenciaDelAlumno a 0 OK');
+						callback(null);
+					}//else
+				});//connection.query
+			}//else
+		});//this.presenciaAlumno
+	}//if
+}//alumno.modificarPresenciaDelAlumno
 
 /****************************************************************************************************************************/
 
@@ -105,7 +109,7 @@ alumno.borrarAlumno = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('borrarAlumno correctamente');
+				console.log('borrarAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -124,7 +128,9 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 		connection.query(sql, function (error, row){
 			if(error){
 				throw error;
+				console.log(error);
 			}else{
+				console.log('buscarAlumnoPorTarjeta OK');
 				callback(null,row);
 			}//.else
 		});//.connection.query

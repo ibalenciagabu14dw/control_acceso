@@ -15,7 +15,7 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarAlumnoPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' action='/updateAlumno' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
+    		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
     		formulario += "id_alumno: <input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
@@ -49,7 +49,7 @@ $(document).ready(function() {
 	function buscarAlumnos () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarAlumnoNombre',
+			url: '/buscarAlumnoPorNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -74,7 +74,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarAlumnoPorId (id) { 
 		return	$.ajax({
-					url: '/buscarAlumnoId',
+					url: '/buscarAlumnoPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -87,7 +87,7 @@ $(document).ready(function() {
 				.fail(function() {
 					console.log("error");
 				})//fail
-	}//function buscarAlumnoId
+	}//function buscarAlumnoPorId
 
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {

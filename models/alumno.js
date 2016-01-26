@@ -117,19 +117,19 @@ alumno.presenciaAlumno = function (idT,callback) {
 /*
 *	agrega un alumno a la tabla alumnos (dni,nombre,apellidos,correo,foto,num_tarjeta)
 */
-alumno.insertarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
+alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
 	if(connection){							
 		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sqlinsertarAlumno = 'INSERT INTO alumnos SET ?';
-		connection.query(sqlinsertarAlumno,alumno, function(error){
+		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
+		connection.query(sqlagregarAlumno,alumno, function(error){
 		  if (error) {
 				throw error;
 			}else{
-				//console.log('insertarAlumno correctamente');
+				//console.log('agregarAlumno correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.alumno.insertarAlumno
+}//.alumno.agregarAlumno
 
 /*
 *	modificar un alumno en la tabla alumnos (dni,nombre,apellidos,correo,foto,num_tarjeta) con el id

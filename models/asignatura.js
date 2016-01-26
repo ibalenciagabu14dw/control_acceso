@@ -2,7 +2,7 @@ var connection = require('../models/connection');
 var app = require('../app');
 
 var asignatura = {};
-console.log(app);
+
 
 /*
 *	agrega una asignatura a la tabla asignaturas (nombre,clave) COMPROBAR

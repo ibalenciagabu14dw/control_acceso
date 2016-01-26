@@ -4,9 +4,10 @@ var time = require('../models/time');
 var alumno = require('../models/alumno');
 var asignatura = require('../models/asignatura');
 
+
 /*
 ******************************MOSTAR********************************
-*/
+
 
 router.get('/mostrar/mostrarAlumnoportarjeta', function(req, res, next) {
 	alumno.buscarAlumnoPorTarjeta(req.query.idT, function (error,data) {
@@ -34,9 +35,9 @@ router.get('/mostrar/buscarTodoslosAlumnos', function(req, res, next) {
 	});//UpdatePresenciaAlumno
 });//
 
-/*
+
 ******************************AGREGAR********************************
-*/
+
 
 router.post('/agregar/insertarAsigntura', function(req, res, next) {
 	asignatura.insertarAsigntura(req.query.nombre,req.query.clave,req.query.obligatoria,req.query.tipo,function (error,data) {
@@ -63,5 +64,6 @@ router.post('/agregar/insertarSinFoto', function(req, res, next) {
 			res.json(data);
 		}//else error
 	});//insertarSinFoto
-});//
+});//*/
+
 module.exports = router;

@@ -26,16 +26,16 @@ router.post('/agregarAula', function(req,res){
                         throw error;
                     }else{ 
                         res.send(row);
-                    }//.else
-                });//.aula.insertarAula
-            }//. else if (row.length == 0)
-        }//.else
+                    }//else
+                });//aula.insertarAula
+            }//else if (row.length == 0)
+        }//else
     });//aula.buscarAulaPorNumero
-});//.router.post('/agregarAula
+});//router.post('/agregarAula
 
 /****************************************************************************************************************************/
 
-/***********************************************************UPDATE*********************************************************/
+/***********************************************************UPDATE***********************************************************/
 
 /*
 * UPDATE AULA
@@ -57,8 +57,8 @@ router.post('/updateAula',  function(req,res,next){
                         throw error;
                     }else{ 
                         res.send(row);
-                    }//.else
-                });//.aula.modificarAula
+                    }//else
+                });//aula.modificarAula
             }else {
                 aula.buscarAulaPorNumero(numero, function (error,row) {
                     if (error) {
@@ -74,34 +74,33 @@ router.post('/updateAula',  function(req,res,next){
                                     throw error;
                                 }else{ 
                                     res.send(row);
-                                }//.else
-                            });//.aula.modificarAula
-                        }//.else
-                    }//.else
-                });//.aula.buscarAulaPorNumero
-            }//. else
-        }//.else
-    });//.aula.buscarAulaPorIdNumero
+                                }//else
+                            });//aula.modificarAula
+                        }//else
+                    }//else
+                });//aula.buscarAulaPorNumero
+            }//else
+        }//else
+    });//aula.buscarAulaPorIdNumero
 });//router.post('/updateAula
 
 /****************************************************************************************************************************/
 
-/***********************************************************DELETE*********************************************************/
+/***********************************************************DELETE***********************************************************/
 
 /*
 * DELETE aula por id_aula
 */
 router.post('/borrarAula', function(req,res,next){
-  var id_aula = req.body.id_aula;
-  aula.borrarAula(id_aula, function(error,row) {
-    if (error) {
-      throw error;
-    }else{
-      //console.log(row);
-      res.send(row);
-    }
-  })//borrarAsignatura
-});//router.post('/borrarAsignatura', function(req,res,next){
+    var id_aula = req.body.id_aula;
+    aula.borrarAula(id_aula, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }
+    })//aula.borrarAula
+});//router.post('/borrarAula
 
 /****************************************************************************************************************************/
 

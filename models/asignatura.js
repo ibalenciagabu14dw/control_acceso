@@ -2,7 +2,7 @@ var connection = require('../models/connection');
 var app = require('../app');
 
 var asignatura = {};
-console.log(app);
+
 
 /*
 *	agrega una asignatura a la tabla asignaturas (nombre,clave) COMPROBAR
@@ -82,7 +82,7 @@ asignatura.mostrarTodosLosIdAsigntura = function (callback) {
 	}//.if (connection)
 }//.asignatura.mostrarTodosLosIdAsigntura 
 
-asignatura.mostrarTodasLasAsignaturas = function (callback) {
+asignatura.buscarTodasLasAsignaturas = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
 		  if (error) {
@@ -91,11 +91,11 @@ asignatura.mostrarTodasLasAsignaturas = function (callback) {
 			}else{
 				//console.log(row);
 			    callback(null,row);
-				//console.log('mostrarTodasLasAsignaturas correctamente');
+				//console.log('buscarTodasLasAsignaturas correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.asignatura.mostrarTodasLasAsignaturas
+}//.asignatura.buscarTodasLasAsignaturas
 
 
 asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
@@ -191,7 +191,7 @@ asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
 	}//.if(connection)
 }//.asignatura.buscarAsignaturaPorId
 
-asignatura.buscarAsignaturaPorIdClave = function(id_asignatura,clave,callback){
+asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 	console.log(connection.escape(id_asignatura));
 	console.log(connection.escape(clave));
 	if(connection){
@@ -205,6 +205,6 @@ asignatura.buscarAsignaturaPorIdClave = function(id_asignatura,clave,callback){
 			}//.else
 		});//.connection.query
 	}//.if(connection)
-}//.asignatura.buscarAsignaturaPorId
+}//.asignatura.buscarAsignaturaPorIdYClave
 
 module.exports = asignatura;

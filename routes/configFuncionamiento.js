@@ -16,9 +16,9 @@ router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(re
       console.log("Fallo mostrarTodosLosIdAula");
       throw error;
     }else{  
-    asignatura.mostrarTodasLasAsignaturas(function (error,asign) {
+    asignatura.buscarTodasLasAsignaturas(function (error,asign) {
       if (error) {
-        console.log("Fallo mostrarTodasLasAsignaturas");
+        console.log("Fallo buscarTodasLasAsignaturas");
         throw error;
       }else{
         grupo.mostrarTodosLosIdNombreGrupo(function (error,gru){

@@ -33,7 +33,7 @@ router.post('/buscarTodosLosGrupos', function(req,res,next) {
 */
 router.post('/buscarAsignaturasDelGrupo', function(req,res,next) {
   var id_grupo = req.body.id_grupo;
-  grupo.mostrarTodasLasAsignaturasDeUnGrupo(id_grupo, function(error,row) {
+  grupo.buscarTodasLasAsignaturas(id_grupo, function(error,row) {
     if (error) {
       throw error;
     }else{

@@ -49,7 +49,7 @@ router.post('/modificarAsignatura',  function(req,res,next){
     var obligatoria = req.body.obligatoria;
     var tipo = req.body.tipo;
     
-    asignatura.buscarAsignaturaPorIdClave(id_asignatura,clave, function (error,row) {
+    asignatura.buscarAsignaturaPorIdYClave(id_asignatura,clave, function (error,row) {
         if (error) {
             res.send({err:'bd'});
             throw error;
@@ -85,7 +85,7 @@ router.post('/modificarAsignatura',  function(req,res,next){
                 });//asignatura.buscarAsignaturaPorClave
             }//else
         }//else
-    });//asignatura.buscarAsignaturaPorIdClave
+    });//asignatura.buscarAsignaturaPorIdYClave
 });//router.post('/modificarAsignatura
 
 /****************************************************************************************************************************/
@@ -184,15 +184,15 @@ router.post('/buscarAsignaturaPorId', function(req,res,next) {
 /*
 * BUSCAR todas las asignaturas
 */
-router.post('/mostrarTodasLasAsignaturas', function(req,res,next){
-    asignatura.mostrarTodasLasAsignaturas(function(error,row) {
+router.post('/buscarTodasLasAsignaturas', function(req,res,next){
+    asignatura.buscarTodasLasAsignaturas(function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//asignatura.mostrarTodasLasAsignaturas
-});//router.post('/mostrarTodasLasAsignaturas
+    })//asignatura.buscarTodasLasAsignaturas
+});//router.post('/buscarTodasLasAsignaturas
 
 /****************************************************************************************************************************/
 

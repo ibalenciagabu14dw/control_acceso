@@ -86,7 +86,7 @@ grupo.mostrarTodosLosIdGrupo = function (callback) {
 	}//.if (connection)
 }//.grupo.mostrarTodosLosIdGrupo 
 
-grupo.mostrarTodasLasAsignaturasDeUnGrupo = function (id_grupo,callback) {
+grupo.buscarTodasLasAsignaturas = function (id_grupo,callback) {
 	if(connection){
 			var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo ="'+id_grupo+'"))';
 			connection.query(sql,function (error,row) {

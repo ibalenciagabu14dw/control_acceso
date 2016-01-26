@@ -96,9 +96,9 @@ horario_grupo.mostrarTodosLosIdHorarioGrupo = function (callback) {
 	}//.if (connection)
 }//.horario_grupo.mostrarTodosLosIdHorarioGrupo 
 
-horario_grupo.buscarHorarioGrupoIgual = function(dia_semana,hora_inicio,hora_final,id_grupo,callback){
+horario_grupo.buscarHorarioGrupoIgual = function(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula,callback){
 	if(connection){
-		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula FROM horario_grupos WHERE dia_semana ="'+dia_semana+'" AND hora_inicio ="'+hora_inicio+'" AND hora_final ="'+hora_final+'" AND id_grupo ="'+id_grupo+'"';
+		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula FROM horario_grupos WHERE dia_semana ="'+dia_semana+'" AND hora_inicio ="'+hora_inicio+'" AND hora_final ="'+hora_final+'" AND id_grupo ="'+id_grupo+'" AND id_asignatura ="'+id_asignatura+'" AND id_aula ="'+id_aula+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    //cambiar select
     $('#id_horario_grupo').on("change",function(event) {
          $.ajax({
             url: '/buscarHorarioGrupoHorarioProfesor',

@@ -8,12 +8,49 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
 var configFuncionamiento = require('./routes/configFuncionamiento');
+var configAlumno = require('./routes/configAlumno');
+var configAsignatura = require('./routes/configAsignatura');
+var configAula = require('./routes/configAula');
+var configGrupo = require('./routes/configGrupo');
+var configProfesor = require('./routes/configProfesor');
+
 var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
 
+var api = require('./routes/api');
+
 var app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', routes);
+
+app.use('/', configFuncionamiento )
+app.use('/', configAlumno);
+app.use('/', configAsignatura);
+app.use('/', configAula);
+app.use('/', configGrupo);
+app.use('/', configProfesor);
+
+app.use('/users', users);
+app.use('/config',config);
+app.use('/vistaProfesor',vistaProfesor);
+app.use('/presencia', presencia);
+
+app.use('/API', api);
+
 //*******************socket.io***********************************
 //require (attach server on www.js)
 app.io = require('socket.io')();
@@ -44,24 +81,6 @@ app.io.on('connection', function(socket){
   });
 });
 //*******************socket.io*fin*******************************
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/', configFuncionamiento )
-app.use('/users', users);
-app.use('/config',config);
-app.use('/vistaProfesor',vistaProfesor);
-app.use('/presencia', presencia);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

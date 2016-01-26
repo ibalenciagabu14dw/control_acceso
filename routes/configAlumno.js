@@ -42,13 +42,13 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
   
     var data= req.body.grupo;
     for (var i = 0; i < data.length; i++) {
-        alumno.insertarAlumnoGrupos(data[i],req.body.id_alumno, function(error,row) {
+        alumno.agregarAlumnoGrupo(data[i],req.body.id_alumno, function(error,row) {
             if (error) {
                 throw error;
             }else{
                 res.send(row);
             }//else
-        })//alumno.insertarAlumnoGrupos
+        })//alumno.agregarAlumnoGrupo
     }//for
 
     if(req.body.asignatura == undefined){
@@ -64,13 +64,13 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
         
         var data2= req.body.asignatura;
         for (var i = 0; i < data2.length; i++) {
-            alumno.insertarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
+            alumno.agregarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
                 if (error) {
                     throw error;
                 }else{
                     res.send(row);
                 }//else
-            })//alumno.insertarAsignaturaConvalidada
+            })//alumno.agregarAsignaturaConvalidada
         }//for
     }//else
 

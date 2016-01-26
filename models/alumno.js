@@ -293,15 +293,15 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 	}//.if(connection)
 }//.alumno.buscarAlumnoPorId
 
-alumno.insertarAlumnoGrupos =  function(id_grupo,id_alumno,callback) {
+alumno.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
 	if(connection){
 		var alumno_grupos = { id_grupo: id_grupo, id_alumno: id_alumno};						
-		var sqlinsertarAlumnoGrupos = 'INSERT INTO alumno_grupos SET ?';
-		connection.query(sqlinsertarAlumnoGrupos,alumno_grupos, function(error){
+		var sqlagregarAlumnoGrupo = 'INSERT INTO alumno_grupos SET ?';
+		connection.query(sqlagregarAlumnoGrupo,alumno_grupos, function(error){
 		  if (error) {
 				throw error;
 			}else{
-				//console.log('insertarAlumnoGrupos correctamente');
+				//console.log('agregarAlumnoGrupo correctamente');
 			}//.else
 		});//.connection.query
 	}
@@ -320,15 +320,15 @@ alumno.borrarAlumnoGrupos =  function(id_alumno,callback) {
 	}//.if (connection)
 }//.alumno.borrarAlumnoGrupos
 
-alumno.insertarAsignaturaConvalidada =  function(id_asignatura,id_alumno,callback) {
+alumno.agregarAsignaturaConvalidada =  function(id_asignatura,id_alumno,callback) {
 	if(connection){
 		var convalidadas = { id_asignatura: id_asignatura, id_alumno: id_alumno};						
-		var sqlinsertarAsignaturaConvalidada = 'INSERT INTO convalidadas SET ?';
-		connection.query(sqlinsertarAsignaturaConvalidada,convalidadas, function(error){
+		var sqlagregarAsignaturaConvalidada = 'INSERT INTO convalidadas SET ?';
+		connection.query(sqlagregarAsignaturaConvalidada,convalidadas, function(error){
 		  if (error) {
 				throw error;
 			}else{
-				//console.log('insertarAsignaturaConvalidada correctamente');
+				//console.log('agregarAsignaturaConvalidada correctamente');
 			}//.else
 		});//.connection.query
 	}

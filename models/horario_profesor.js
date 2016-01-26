@@ -45,7 +45,7 @@ horario_profesor.modificarHorarioProfesor = function (id_horario_profesor,dia_se
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarHorarioProfesor correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)

@@ -45,7 +45,7 @@ horario_grupo.modificarHorarioGrupo = function (id_horario_grupo, dia_semana, ho
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('modificarHorarioGrupo correctamente');
+				callback(null,{dato:"ok"});
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -124,7 +124,7 @@ horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo = function (callback) {
 
 horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {							
 	if(connection){	
-		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final FROM horario_grupos WHERE id_horario_grupo = ' + connection.escape(id_horario_grupo);
+		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula FROM horario_grupos WHERE id_horario_grupo = ' + connection.escape(id_horario_grupo);
 		connection.query(sql, function (error, row){
 			if (error) {
 				throw error;
@@ -134,7 +134,25 @@ horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo 
+}//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo
+
+horario_grupo.buscarHorarioGrupoPorNombredelGrupo
+
+horario_grupo.buscarHorarioGrupoPorNombredelGrupo = function(nombre,callback){
+	console.log(nombre);
+	if(connection){
+		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE nombre_grupo LIKE "'+nombre+'")';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				//console.log(row);
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.grupo.buscarGrupoPorNombre
+
 
 module.exports = horario_grupo;
 

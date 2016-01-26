@@ -15,13 +15,13 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 	var correo = req.body.correo;
 	var foto = req.file.buffer;
 	var num_tarjeta = req.body.num_tarjeta;
-	alumno.insertarAlumno(dni,nombre,apellidos,correo,foto,num_tarjeta, function (error) {
+	alumno.agregarAlumno(dni,nombre,apellidos,correo,foto,num_tarjeta, function (error) {
 		if (error) {
 			throw error;
 		}else{ 
-			//console.log("alumno.insertarAlumno (configFuncionamiento) correctamente");
+			//console.log("alumno.agregarAlumno (configFuncionamiento) correctamente");
 		}//else
-	});//alumno.insertarAlumno
+	});//alumno.agregarAlumno
 });//router.post('/agregarAlumno
 
 /****************************************************************************************************************************/
@@ -31,7 +31,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 /*
 * UPDATE alumno
 */
-router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
+router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
     alumno.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
         if (error) {
             throw error;
@@ -100,7 +100,7 @@ router.post('/updateAlumno',multer({}).single('foto'),  function(req,res,next){
             }//else
         })//alumno.modificarAlumno
     }//else
-});//router.post('/updateAlumno
+});//router.post('/modificarAlumno
 
 /****************************************************************************************************************************/
 
@@ -127,7 +127,7 @@ router.post('/borrarAlumno', function(req,res,next){
 /*
 * BUSCAR alumno por nombre
 */
-router.post('/buscarAlumnoNombre', function(req,res,next) {
+router.post('/buscarAlumnoPorNombre', function(req,res,next) {
     var nombre = req.body.nombre;
     alumno.buscarAlumnoPorNombre(nombre, function(error,row) {
         if (error) {
@@ -136,12 +136,12 @@ router.post('/buscarAlumnoNombre', function(req,res,next) {
             res.send(row);
         }//else
     })//alumno.buscarAlumnoPorNombre
-});//router.post('/buscarAlumnoNombre
+});//router.post('/buscarAlumnoPorNombre
 
 /*
 * BUSCAR alumno por id_alumno
 */
-router.post('/buscarAlumnoId', function(req,res,next) {
+router.post('/buscarAlumnoPorId', function(req,res,next) {
     var id_alumno = req.body.id_alumno;
     alumno.buscarAlumnoPorId(id_alumno, function(error,row) {
         if (error) {
@@ -150,7 +150,7 @@ router.post('/buscarAlumnoId', function(req,res,next) {
             res.send(row);
         }//else
     })//alumno.buscarAlumnoPorId
-});//router.post('/buscarAlumnoId
+});//router.post('/buscarAlumnoPorId
 
 /****************************************************************************************************************************/
 

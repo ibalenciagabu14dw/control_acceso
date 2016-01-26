@@ -7,7 +7,19 @@ var alumno = {};
 /*
 * INSERTAR alumno
 */
-
+alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
+	if(connection){							
+		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
+		connection.query(sqlagregarAlumno,alumno, function(error){
+		  	if (error) {
+				throw error;
+			}else{
+				//console.log('agregarAlumno correctamente');
+			}//else
+		});//connection.query
+	}//if
+}//alumno.agregarAlumno
 
 /****************************************************************************************************************************/
 
@@ -16,7 +28,68 @@ var alumno = {};
 /*
 * UPDATE alumno
 */
+alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
+	if(connection){							
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sql = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		connection.query(sql,campos, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				//console.log('modificarAlumno correctamente');
+			}//else
+		});//connection.query
+	}//if
+}//alumno.modificarAlumno
 
+/*
+*	UPDATE la presencia del alumno a 0 o a 1 por numero de tarjeta
+*/
+alumno.updatePresenciaAlumno = function (num_tarjeta,callback) {
+	if(connection){
+		this.presenciaAlumno(num_tarjeta,function (error,data) {
+			if (data[0].presencia == 0) {
+				var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+					}else{
+						callback(null);
+					}//.else
+				});//.connection.query
+			}else{
+				var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+					}else{
+						callback(null);
+					}//.else
+				});//.connection.query
+			}//.else
+		});//.this.presenciaAlumno
+	}//.if (connection)
+}//.alumno.updatePresenciaAlumno
+
+/*
+*	UPDATE alumno sin foto
+*/
+
+alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,callback) {
+	if(connection){							
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sql = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		connection.query(sql,campos, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				//console.log('modificarAlumno correctamente');
+			}//else
+		});//connection.query
+	}//if
+}//alumno.modificarAlumnoSinFoto
 
 /****************************************************************************************************************************/
 
@@ -25,7 +98,18 @@ var alumno = {};
 /*
 * DELETE alumno por id_alumno
 */
-
+alumno.borrarAlumno = function (id,callback) {
+	if(connection){							
+		connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id+'"', function(error){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				//console.log('borrarAlumno correctamente');
+			}//else
+		});//connection.query
+	}//if
+}//alumno.borrarAlumno
 
 /****************************************************************************************************************************/
 
@@ -48,9 +132,9 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 }//.alumno.buscarAlumnoPorTarjeta
 
 /*
-*	devuelve el id_aula en el que deberia de estar segun tarjeta, hora y dia de la semana
+*	BUSCA el aula en la que tiene que estar por num_tarjeta
 */
-alumno.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
+alumno.aulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
 	var day;
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
@@ -59,20 +143,21 @@ alumno.aulaEnLaQueTieneQueEstar = function (idT,curr_time,callback) {
 			day = data;
 		}
 	});
+
 	if (connection) {
-		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+idT+'"))';
+		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+num_tarjeta+'"))';
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				throw error;
 			}else{
 				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.aulaEnLaQueTieneQueEstar
+			}//else
+		});//connection.query
+	}//if
+}//alumno.aulaEnLaQueTieneQueEstar
 
 /*
-*	devuelve el id_aula en el que deberia de estar segun id_persona, hora y dia de la semana
+*	BUSCA el aula en la que tiene que estar por id_persona, hora y dia de la semana
 */
 alumno.aulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callback) {
 	var day;
@@ -90,155 +175,60 @@ alumno.aulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callback) {
 				throw error;
 			}else{
 				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.aulaEnLaQueTieneQueEstar
+			}//else
+		});//connection.query
+	}//if
+}//alumno.aulaEnLaQueTieneQueEstarPorId
 
 /*
-*	conmuta la presencia del alumno a 0 o a 1 por numero de tarjeta
+*	BUSCA la presencia del alumno por num_tarjeta
 */
-
-alumno.updatePresenciaAlumno = function (idT,callback) {
+alumno.presenciaAlumno = function (num_tarjeta,callback) {
 	if(connection){
-		this.presenciaAlumno(idT,function (error,data) {
-			if (data[0].presencia == 0) {
-				var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ="'+idT+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-					}else{
-						callback(null);
-					}//.else
-				});//.connection.query
-			}else{
-				var sqlUpdate = 'UPDATE alumnos SET presencia = 0 WHERE num_tarjeta ="'+idT+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-					}else{
-						callback(null);
-					}//.else
-				});//.connection.query
-			}//.else
-		});//.this.presenciaAlumno
-	}//.if (connection)
-}//.alumno.updatePresenciaAlumno
-
-
-/*
-*	devuelve el estado de la presencia del alumno por numero de tarjeta
-*/
-alumno.presenciaAlumno = function (idT,callback) {
-	if(connection){
-		var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ="'+idT+'"';
+		var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ="'+num_tarjeta+'"';
 		connection.query(sqlAlumnoPresencia, function (error,row) {
 			if (error) {
 				throw error;
 			}else{
 				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.presenciaAlumno
-
-
-/*
-*	agrega un alumno a la tabla alumnos (dni,nombre,apellidos,correo,foto,num_tarjeta)
-*/
-alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
-	if(connection){							
-		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
-		connection.query(sqlagregarAlumno,alumno, function(error){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log('agregarAlumno correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.agregarAlumno
+			}//else
+		});//connection.query
+	}//if
+}//alumno.presenciaAlumno
 
 /*
-*	modificar un alumno en la tabla alumnos (dni,nombre,apellidos,correo,foto,num_tarjeta) con el id
-	falta cambiar el grupo
-*/
-alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
-	if(connection){							
-		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
-		connection.query(sqlmodificarAlumno,alumno, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				//console.log('modificarAlumno correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.modificarAlumno
-
-alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,callback) {
-	if(connection){							
-		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
-		connection.query(sqlmodificarAlumno,alumno, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				//console.log('modificarAlumno correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.modificarAlumno
-
-/*
-*	borrar un alumno en la tabla alumnos con el id
-*/
-alumno.borrarAlumno = function (id,callback) {
-	if(connection){							
-		connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id+'"', function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				//console.log('borrarAlumno correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.borrarAlumno
-
-/*
-*	muestra todos los id_alumno de la tabla alumnos
+*	BUSCA todos los id_alumno de la tabla alumnos
 */
 alumno.mostrarTodosLosIdAlumno = function (callback) {
 	if(connection){						
 		connection.query('SELECT id_alumno FROM alumnos', function(error,row){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log(row);
 				var id_alumnoArray = [];
 				for (var i= 0;i<row.length;i++){
-						//console.log ("row : " + row[i].id_alumno);
-						var id = row[i].id_alumno;
-						id_alumnoArray.push(id);
-					}//.for (var i= 0;i<row.length;i++)
-						//console.log(id_alumnoArray);
-						function compareNumbers(a, b) {
-						  return a - b;
-						} 
-						id_alumnoArray.sort(compareNumbers);
-						//console.log("sort: " + id_alumnoArray);
-					callback(null,id_alumnoArray);
-				//console.log('mostrarTodosLosIdAlumno correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.mostrarTodosLosIdAlumno
+					var id = row[i].id_alumno;
+					id_alumnoArray.push(id);
+				}//.for (var i= 0;i<row.length;i++)
+				function compareNumbers(a, b) {
+				  return a - b;
+				}//compareNumbers
+				id_alumnoArray.sort(compareNumbers);
+				callback(null,id_alumnoArray);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.mostrarTodosLosIdAlumno
+
+/****************************************************************************************************************************/
+
+
+
+
+
+
+
 
 /*
 *	devuelve nombre y foto del alumno COMPROBAR
@@ -375,9 +365,5 @@ alumno.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
 		});//.connection.query
 	}//.if (connection)
 }//.alumno.borrarAsignaturaConvalidada
-
-
-
-/****************************************************************************************************************************/
 
 module.exports = alumno;

@@ -136,8 +136,6 @@ horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {
 	}//.if (connection)
 }//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo
 
-horario_grupo.buscarHorarioGrupoPorNombredelGrupo
-
 horario_grupo.buscarHorarioGrupoPorNombredelGrupo = function(nombre,callback){
 	console.log(nombre);
 	if(connection){

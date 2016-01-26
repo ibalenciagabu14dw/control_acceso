@@ -39,8 +39,8 @@ router.get('/mostrar/buscarTodoslosAlumnos', function(req, res, next) {
 ******************************AGREGAR********************************
 
 
-router.post('/agregar/insertarAsigntura', function(req, res, next) {
-	asignatura.insertarAsigntura(req.query.nombre,req.query.clave,req.query.obligatoria,req.query.tipo,function (error,data) {
+router.post('/agregar/agregarAsignatura', function(req, res, next) {
+	asignatura.agregarAsignatura(req.query.nombre,req.query.clave,req.query.obligatoria,req.query.tipo,function (error,data) {
 		if (error) {
 			res.send("ko");
 			console.log("Fallo agregarAlumno");

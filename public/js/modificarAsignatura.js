@@ -35,7 +35,7 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarAsignaturaId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' action='/updateAsignatura' id='formUpdate' name='formUpdate' method='post'>";
+    		var formulario = "<form class='form-group' action='/modificarAsignatura' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "id_asignatura: <input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
     		formulario += "Clave: <input type='text' id='clave' name='clave' class='form-control' value='"+result[0].clave+"'>";
@@ -85,7 +85,7 @@ $(document).ready(function() {
 	            var data = $("#formUpdate").serializeArray();
 	            console.log(data);
 	            $.ajax({
-	                url: '/updateAsignatura',
+	                url: '/modificarAsignatura',
 	                type: 'post',
 	                dataType: 'json',
 	                data: data,

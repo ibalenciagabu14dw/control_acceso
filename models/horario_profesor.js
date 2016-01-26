@@ -109,5 +109,32 @@ horario_profesor.buscarHorarioProfesorIgual = function(dia_semana,hora_inicio,ho
 	}//.if(connection)
 }//.horario_profesor.buscarHorarioProfesorIgual
 
+horario_profesor.buscarHorarioProfesorPorNombredelProfesor = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE id_profesor IN (SELECT id_profesor FROM profesores WHERE nombre LIKE "'+nombre+'")';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if(connection)
+}//.horario_profesor.buscarHorarioProfesorPorNombredelProfesor
+
+horario_profesor.buscarHorarioProfesorPorId = function (id_horario_profesor,callback) {							
+	if(connection){	
+		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE id_horario_profesor = ' + connection.escape(id_horario_profesor);
+		connection.query(sql, function (error, row){
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+					callback(null,row);
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo
+
 module.exports = horario_profesor;
 

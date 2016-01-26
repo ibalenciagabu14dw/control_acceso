@@ -15,6 +15,8 @@ var configAsignatura = require('./routes/configAsignatura');
 var configAula = require('./routes/configAula');
 var configGrupo = require('./routes/configGrupo');
 var configProfesor = require('./routes/configProfesor');
+var configHorarioGrupo = require('./routes/configHorarioGrupo');
+var configHorarioProfesor = require('./routes/configHorarioProfesor');
 
 var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
@@ -43,6 +45,8 @@ app.use('/', configAsignatura);
 app.use('/', configAula);
 app.use('/', configGrupo);
 app.use('/', configProfesor);
+app.use('/', configHorarioGrupo);
+app.use('/', configHorarioProfesor);
 
 app.use('/users', users);
 app.use('/config',config);

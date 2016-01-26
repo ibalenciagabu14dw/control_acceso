@@ -96,9 +96,9 @@ horario_profesor.mostrarTodosLosIdHorarioProfesor = function (callback) {
 	}//.if (connection)
 }//.horario_profesor.mostrarTodosLosIdHorarioProfesor
 
-horario_profesor.buscarHorarioProfesorIgual = function(dia_semana,hora_inicio,hora_final,id_horario_grupo,callback){
+horario_profesor.buscarHorarioProfesorIgual = function(dia_semana,hora_inicio,hora_final,id_profesor,callback){
 	if(connection){
-		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE dia_semana ="'+dia_semana+'" AND hora_inicio ="'+hora_inicio+'" AND hora_final ="'+hora_final+'" AND id_horario_grupo ="'+id_horario_grupo+'"';
+		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE dia_semana ="'+dia_semana+'" AND hora_inicio ="'+hora_inicio+'" AND hora_final ="'+hora_final+'" AND id_profesor ="'+id_profesor+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

@@ -714,7 +714,7 @@ router.post('/agregarHorarioGrupo', function(req,res,next){
   var id_grupo = req.body.id_grupo;
   var id_asignatura = req.body.id_asignatura;
   var id_aula = req.body.id_aula;     
-    horario_grupo.buscarHorarioGrupoIgual(dia_semana,hora_inicio,hora_final,id_grupo, function (error,row) {
+    horario_grupo.buscarHorarioGrupoIgual(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
     if (error) {
       res.send({err:'bd'});
       throw error;
@@ -776,7 +776,7 @@ router.post('/agregarHorarioProfesor', function(req,res,next){
   var hora_final = req.body.hora_final;
   var id_profesor = req.body.id_profesor;
   var id_horario_grupo = req.body.id_horario_grupo;     
-    horario_profesor.buscarHorarioProfesorIgual(dia_semana,hora_inicio,hora_final,id_horario_grupo, function (error,row) {
+    horario_profesor.buscarHorarioProfesorIgual(dia_semana,hora_inicio,hora_final,id_profesor, function (error,row) {
     if (error) {
       res.send({err:'bd'});
       throw error;

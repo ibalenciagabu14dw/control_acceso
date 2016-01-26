@@ -404,38 +404,6 @@ router.post('/agregarGrupo', function(req,res,next){
   });//.grupo.buscarGrupoPorNombre
 });//.router.post('/agregarGrupo', function(req,res,next){
 
-  /* POST agregar grupo page. */
-router.post('/agregarAsignatura', function(req,res,next){
-  console.log(req.body);
-  var nombre = req.body.nombre;
-  var clave = req.body.clave;
-  var tipo = req.body.tipo;
-  var obligatoria = req.body.obligatoria;
-    asignatura.buscarAsignaturaPorClave(clave, function (error,row) {
-    if (error) {
-      res.send({err:'bd'});
-      throw error;
-    } else{
-      //console.log(row);
-      
-        if (row.length>0){
-         // res.render('agregarAsignatura', { title: 'agregarAsignatura', info: 'Clave existente'}); 
-         res.send({err:'existe'});
-        } else {
-          asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error,row) {
-              if (error) {
-                res.send({err:'bd'});
-                throw error;
-              } else{ 
-                res.send(row);
-                //console.log("grupo.insertarGrupo (configFuncionamiento) correctamente");
-              }//.else
-          });//.asignatura.insertarAsigntura
-        }//. else if (row.length == 0)
-    }//.else
-  });//.asignatura.buscarAsignaturaPorClave
-});//.router.post('/agregarGrupo', function(req,res){
-
 router.post('/buscarAsignaturaNombre', function(req,res,next) {
   //console.log(req.body);
   var nombre = req.body.nombre;

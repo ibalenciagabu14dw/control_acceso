@@ -20,14 +20,14 @@ router.post('/agregarAula', function(req,res){
             if (row.length>0){
                 res.send({err:'existe'});
             }else {
-                aula.insertarAula(numero,piso,capacidad, function (error,row) {
+                aula.agregarAula(numero,piso,capacidad, function (error,row) {
                     if (error) {
                         res.send({err:'bd'});
                         throw error;
                     }else{ 
                         res.send(row);
                     }//else
-                });//aula.insertarAula
+                });//aula.agregarAula
             }//else if (row.length == 0)
         }//else
     });//aula.buscarAulaPorNumero
@@ -45,7 +45,7 @@ router.post('/updateAula',  function(req,res,next){
     var numero = req.body.numero;
     var piso = req.body.piso;
     var capacidad = req.body.capacidad;
-    aula.buscarAulaPorIdNumero(id_aula,numero, function (error,row) {
+    aula.buscarAulaPorIdYNumero(id_aula,numero, function (error,row) {
         if (error) {
             res.send({err:'bd'});
             throw error;
@@ -81,7 +81,7 @@ router.post('/updateAula',  function(req,res,next){
                 });//aula.buscarAulaPorNumero
             }//else
         }//else
-    });//aula.buscarAulaPorIdNumero
+    });//aula.buscarAulaPorIdYNumero
 });//router.post('/updateAula
 
 /****************************************************************************************************************************/
@@ -140,13 +140,13 @@ router.post('/buscarAulaPorId', function(req,res,next) {
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
 router.post('/mostrarTodosLasAulasIdNumero', function(req,res,next){
-  aula.mostrarTodosLosIdNumeroAula(function(error,row) {
+  aula.buscarTodosLosIdYNumero(function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//.aula.mostrarTodosLosIdNumeroAula
+  })//.aula.buscarTodosLosIdYNumero
 });//.router.post('/mostrarTodosLasAulasIdNumero', function(req,res,next){  
 
 /****************************************************************************************************************************/

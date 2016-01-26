@@ -95,7 +95,7 @@ falta.mostrarTodosLosIdFalta = function (callback) {
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.falta.mostrarTodosLosIdAula 
+}//.falta.mostrarTodosLosIdFalta 
 
 module.exports = falta;
 

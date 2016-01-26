@@ -11,9 +11,9 @@ var horario_profesor = require('../models/horario_profesor');
 
 
 router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
-  aula.mostrarTodosLosIdNumeroAula(function (error,aul) {
+  aula.buscarTodosLosIdYNumero(function (error,aul) {
     if (error) {
-      console.log("Fallo mostrarTodosLosIdAula");
+      console.log("Fallo buscarTodosLosIdYNumero");
       throw error;
     }else{  
     asignatura.buscarTodasLasAsignaturas(function (error,asign) {
@@ -38,7 +38,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(re
       }//.else
     });//profesor.buscarProfesorPorId
   }//.else
-  });//.mostrarTodosLosIdAula
+  });//.buscarTodosLosIdYNumero
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
@@ -61,7 +61,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function
                     }//else error
         });////. grupo.mostrarTodosLosIdGrupo
   }//.else
-  });//.mostrarTodosLosIdAula
+  });//.mostrarTodosLosIdHoraDiaHorarioGrupo
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.post('/updateHorarioProfesor',  function(req,res,next){

@@ -41,3 +41,25 @@ body{
   text-align: center;
   font-weight: bold;
 }
+
+/*****Menu*****/
+.navbar .brand {
+max-height: 50px;
+overflow: visible;
+padding-top: 0;
+padding-bottom: 0;
+}
+.navbar a.navbar-brand {padding: 0px 15px 0px;}
+.navbar{
+  height: 80px;
+}
+.container{
+  margin-top: 15px;
+}
+#linkConfig{
+  font-size: 18pt;
+}
+#bs-example-navbar-collapse-1{
+  background-color: #333;
+  border-radius: 10px;
+}

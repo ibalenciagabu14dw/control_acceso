@@ -41,6 +41,7 @@ $(document).ready(function() {
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<select name='dia'>";
+    		formulario += "<option value='default'>Elige el dia</option>";
 				if (result[0].dia_semana == 'Lunes'){
                               formulario += "<option value='Lunes' selected>Lunes</option>";   
                             } else {
@@ -66,14 +67,21 @@ $(document).ready(function() {
                             } else {
                               formulario += "<option value='Viernes'>Viernes</option>";   
                             }
-            formulario += "<input id='hora_inicio' type='time' name='hora_inicio' value='"+result[0].hora_inicio+"'/>";
-            formulario += "<input id='hora_final' type='time' name='hora_final' value='"+result[0].hora_final+"'/>";
-			formulario += "<input id='id_grupo' type='text' name='id_grupo' value='"+result[0].id_grupo+"'/>";
-            formulario += "<input id='id_asignatura' type='text' name='id_asignatura' value='"+result[0].id_asignatura+"'/>";
-            formulario += "<input id='id_aula' type='text' name='id_aula' value='"+result[0].id_aula+"'/>";
+            formulario += "</br>";              
+            formulario += "Hora Inicio<input id='hora_inicio' type='time' name='hora_inicio' value='"+result[0].hora_inicio+"'/></br>";
+            formulario += "Hora Final<input id='hora_final' type='time' name='hora_final' value='"+result[0].hora_final+"'/></br>";
+			//mostrarTodosLosGrupos grupo.mostrarTodosLosIdNombreGrupo
+			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
+			formulario += "Grupos: <div id='grupos'>";
+    		formulario += "</div></br>";
+			formulario += "<input id='id_grupo' type='text' name='id_grupo' value='"+result[0].id_grupo+"'/></br>";
+			//mostrarTodosLasAsignaturas asignatura.mostrarTodosLosIdNombreAsigntura            
+            formulario += "<input id='id_asignatura' type='text' name='id_asignatura' value='"+result[0].id_asignatura+"'/></br>";
+			//mostrarTodosLasAulas aula.mostrarTodosLosIdNumeroAula            
+            formulario += "<input id='id_aula' type='text' name='id_aula' value='"+result[0].id_aula+"'/></br>";
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configGrupos' class='btn btn-primary'>Volver</a>";
+    		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configHorario' class='btn btn-primary'>Volver</a>";
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Nombre ya existente</span></div>";	
     		formulario += "</form>";
     		$('#resultado').html(formulario);
@@ -82,6 +90,39 @@ $(document).ready(function() {
     		console.log("error crear formulario");
 		});
 	});//Formulario modificar y borrar
+
+	
+		function mostrarTodosLosGruposIdNombre (id_grupo) {
+			var result = id_grupo;
+		$.ajax({
+			url: '/mostrarTodosLosGruposIdNombre',
+			type: 'post',
+			dataType: 'json',
+			success:function (data) {
+				console.log(data);
+				var resp = "";
+				resp+= "<select name='dia'>";
+    			resp += "<option value='default'>Elige el grupo</option>";
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].id_grupo == result){
+						resp += "<option value="+data[i].id_grupo+"' selected>"+data[i].nombre_grupo+"'</option>";
+					} else {
+						resp += "<option value="+data[i].id_grupo+"'>"+data[i].nombre_grupo+"'</option>";
+					}
+				};
+				resp += "</select>";
+				$('#grupos').html(resp);
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function buscarAsignaturas
+
+	
 	
 	$('#resultado').on("click","#btnModificar",function () {
 		$("#formUpdate").validate({

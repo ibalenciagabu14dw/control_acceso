@@ -44,6 +44,8 @@ convalidadas.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
 	}//if (connection)
 }//convalidadas.borrarAsignaturaConvalidada
 
+/****************************************************************************************************************************/
+
 module.exports = convalidadas;
 
 

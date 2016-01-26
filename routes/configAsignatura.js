@@ -113,29 +113,29 @@ router.post('/borrarAsignatura', function(req,res,next){
 /*
 * BUSCAR asignaturas que imparte un profesor por id_profesor
 */
-router.post('/buscarAsignaturasdelProfesor', function(req,res,next) {
+router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
-    asignatura.buscarAsignaturasDelProfesor(id_profesor,function(error,row) {
+    profesor.buscarAsignaturasQueImparte(id_profesor,function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//asignatura.buscarAsignaturasDelProfesor
-});//router.post('/buscarAsignaturasdelProfesor
+    })//profesor.buscarAsignaturasQueImparte
+});//router.post('/buscarAsignaturasQueImparte
 
 /*
 * BUSCAR asignaturas que NO imparte un profesor por id_profesor
 */
 router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
-    asignatura.lasAsignaturasQueFaltan(id_profesor,function(error,row) {
+    profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//asignatura.lasAsignaturasQueFaltan
+    })//profesor.buscarAsignaturasQueNoImparte
 });//router.post('/buscarTodasLasAsignaturas
 
 /*
@@ -144,13 +144,13 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
 router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     var tipo = req.body.tipo;
-    asignatura.lasAsignaturasQueFaltanSegunElTipo(id_profesor,tipo,function(error,row) {
+    profesor.buscarAsignaturasQueNoImparteSegunElTipo(id_profesor,tipo,function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//asignatura.lasAsignaturasQueFaltanSegunElTipo
+    })//profesor.buscarAsignaturasQueNoImparteSegunElTipo
 });//router.post('/buscarTodasLasAsignaturasDelTipo
 
 /*

@@ -28,7 +28,7 @@ $(document).ready(function() {
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";
-    		buscarAsignaturasdelProfesor(result.id_profesor);
+    		buscarAsignaturasQueImparte(result.id_profesor);
     		formulario += "Asignaturas: <div id='asignaturasdelProfesor'>";
     		formulario += "</div>";
     		formulario += "<select id='tipo'>";
@@ -54,9 +54,9 @@ $(document).ready(function() {
 
 
 		//Funcion con buscar asignaturas
-	function buscarAsignaturasdelProfesor (id) {
+	function buscarAsignaturasQueImparte (id) {
 		$.ajax({
-			url: '/buscarAsignaturasdelProfesor',
+			url: '/buscarAsignaturasQueImparte',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },

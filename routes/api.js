@@ -19,7 +19,7 @@ router.get('/mostrar/mostrarAlumnoportarjeta', function(req, res, next) {
 			//emitir al cliente para cambiar color presencia alumno
 			res.json(data);
 		}//else error
-	});//UpdatePresenciaAlumno
+	});//modificarPresenciaDelAlumno
 });//
 
 router.get('/mostrar/buscarTodoslosAlumnos', function(req, res, next) {
@@ -32,7 +32,7 @@ router.get('/mostrar/buscarTodoslosAlumnos', function(req, res, next) {
 			//emitir al cliente para cambiar color presencia alumno
 			res.json(data);
 		}//else error
-	});//UpdatePresenciaAlumno
+	});//modificarPresenciaDelAlumno
 });//
 
 
@@ -49,7 +49,7 @@ router.post('/agregar/agregarAsignatura', function(req, res, next) {
 			//emitir al cliente para cambiar color presencia alumno
 			res.json(data);
 		}//else error
-	});//UpdatePresenciaAlumno
+	});//modificarPresenciaDelAlumno
 });//
 
 

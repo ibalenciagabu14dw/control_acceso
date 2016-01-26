@@ -73,7 +73,7 @@ app.io.on('connection', function(socket){
   socket.on('cambiaCliente', function(msg){
     console.log(msg);
     //update presencia alumno
-    alumno.updatePresenciaAlumno(msg, function (error) {
+    alumno.modificarPresenciaDelAlumno(msg, function (error) {
       if (error) {
         throw error;
       }else{

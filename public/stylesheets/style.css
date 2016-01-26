@@ -37,4 +37,7 @@ body{
   margin-left: 10%;
   margin-top: 2%;
 }
-
+#tituloLogin{
+  text-align: center;
+  font-weight: bold;
+}

@@ -40,45 +40,46 @@ $(document).ready(function() {
 		buscarHorarioGrupoId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
+    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'>";
     		formulario += "<select name='dia'>";
     		formulario += "<option value='default'>Elige el dia</option>";
 				if (result[0].dia_semana == 'Lunes'){
-                              formulario += "<option value='Lunes' selected>Lunes</option>";   
-                            } else {
-                              formulario += "<option value='Lunes'>Lunes</option>";   
+                    formulario += "<option value='Lunes' selected>Lunes</option>";   
+                } else {
+                    formulario += "<option value='Lunes'>Lunes</option>";   
                             }
-                            if (result[0].dia_semana == 'Martes'){
-                              formulario += "<option value='Martes' selected>Martes</option>";   
-                            } else {
-                              formulario += "<option value='Martes'>Martes</option>";   
-                            }
-                            if (result[0].dia_semana == 'Miercoles'){
-                              formulario += "<option value='Miercoles' selected>Miercoles</option>";   
-                            } else {
-                              formulario += "<option value='Miercoles'>Miercoles</option>";   
-                            }
-                            if (result[0].dia_semana == 'Jueves'){
-                              formulario += "<option value='Jueves' selected>Jueves</option>";   
-                            } else {
-                              formulario += "<option value='Jueves'>Jueves</option>";   
-                            }
-                            if (result[0].dia_semana == 'Viernes'){
-                              formulario += "<option value='Viernes' selected>Viernes</option>";   
-                            } else {
-                              formulario += "<option value='Viernes'>Viernes</option>";   
-                            }
-            formulario += "</br>";              
+                if (result[0].dia_semana == 'Martes'){
+                	formulario += "<option value='Martes' selected>Martes</option>";   
+                } else {
+                    formulario += "<option value='Martes'>Martes</option>";   
+                }
+                if (result[0].dia_semana == 'Miercoles'){
+                    formulario += "<option value='Miercoles' selected>Miercoles</option>";   
+                } else {
+                    formulario += "<option value='Miercoles'>Miercoles</option>";   
+                }
+                if (result[0].dia_semana == 'Jueves'){
+                    formulario += "<option value='Jueves' selected>Jueves</option>";   
+                } else {
+                    formulario += "<option value='Jueves'>Jueves</option>";   
+                }
+                if (result[0].dia_semana == 'Viernes'){
+                    formulario += "<option value='Viernes' selected>Viernes</option>";   
+                } else {
+                    formulario += "<option value='Viernes'>Viernes</option>";   
+                }
+            formulario += "</select></br>";
             formulario += "Hora Inicio<input id='hora_inicio' type='time' name='hora_inicio' value='"+result[0].hora_inicio+"'/></br>";
             formulario += "Hora Final<input id='hora_final' type='time' name='hora_final' value='"+result[0].hora_final+"'/></br>";
-			//mostrarTodosLosGrupos grupo.mostrarTodosLosIdNombreGrupo
 			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
 			formulario += "Grupos: <div id='grupos'>";
     		formulario += "</div></br>";
-			formulario += "<input id='id_grupo' type='text' name='id_grupo' value='"+result[0].id_grupo+"'/></br>";
-			//mostrarTodosLasAsignaturas asignatura.mostrarTodosLosIdNombreAsigntura            
-            formulario += "<input id='id_asignatura' type='text' name='id_asignatura' value='"+result[0].id_asignatura+"'/></br>";
-			//mostrarTodosLasAulas aula.mostrarTodosLosIdNumeroAula            
-            formulario += "<input id='id_aula' type='text' name='id_aula' value='"+result[0].id_aula+"'/></br>";
+			mostrarTodosLasAsignaturasIdNombre(result[0].id_asignatura);
+			formulario += "Asignatura: <div id='asignaturas'>";
+    		formulario += "</div></br>";            
+			mostrarTodasLasAulasIdNumero(result[0].id_aula);
+			formulario += "Aula: <div id='aulas'>";
+    		formulario += "</div></br>"; 
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configHorario' class='btn btn-primary'>Volver</a>";
@@ -91,6 +92,63 @@ $(document).ready(function() {
 		});
 	});//Formulario modificar y borrar
 
+		function mostrarTodasLasAulasIdNumero (id_aula) {
+			var result = id_aula;
+		$.ajax({
+			url: '/mostrarTodosLasAulasIdNumero',
+			type: 'post',
+			dataType: 'json',
+			success:function (data) {
+				var resp = "";
+				resp+= "<select name='aula'>";
+    			resp += "<option value='default'>Elige el aula</option>";
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].id_aula == result){
+						resp += "<option value="+data[i].id_aula+" selected>"+data[i].numero+"</option>";
+					} else {
+						resp += "<option value="+data[i].id_aula+">"+data[i].numero+"</option>";
+					}
+				};
+				resp += "</select>";
+				$('#aulas').html(resp);
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function buscarAsignaturas
+
+		function mostrarTodosLasAsignaturasIdNombre (id_asignatura) {
+			var result = id_asignatura;
+		$.ajax({
+			url: '/mostrarTodosLasAsignaturasIdNombre',
+			type: 'post',
+			dataType: 'json',
+			success:function (data) {
+				var resp = "";
+				resp+= "<select name='asignatura'>";
+    			resp += "<option value='default'>Elige la asignatura</option>";
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].id_asignatura == result){
+						resp += "<option value="+data[i].id_asignatura+" selected>"+data[i].nombre+"</option>";
+					} else {
+						resp += "<option value="+data[i].id_asignatura+">"+data[i].nombre+"</option>";
+					}
+				};
+				resp += "</select>";
+				$('#asignaturas').html(resp);
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function buscarAsignaturas
 	
 		function mostrarTodosLosGruposIdNombre (id_grupo) {
 			var result = id_grupo;
@@ -99,15 +157,14 @@ $(document).ready(function() {
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
-				console.log(data);
 				var resp = "";
-				resp+= "<select name='dia'>";
+				resp+= "<select name='grupo'>";
     			resp += "<option value='default'>Elige el grupo</option>";
 				for (var i = 0; i < data.length; i++) {
 					if (data[i].id_grupo == result){
-						resp += "<option value="+data[i].id_grupo+"' selected>"+data[i].nombre_grupo+"'</option>";
+						resp += "<option value="+data[i].id_grupo+" selected>"+data[i].nombre_grupo+"</option>";
 					} else {
-						resp += "<option value="+data[i].id_grupo+"'>"+data[i].nombre_grupo+"'</option>";
+						resp += "<option value="+data[i].id_grupo+">"+data[i].nombre_grupo+"</option>";
 					}
 				};
 				resp += "</select>";

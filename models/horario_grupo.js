@@ -36,9 +36,9 @@ horario_grupo.insertarHorarioGrupo = function (dia_semana, hora_inicio, hora_fin
 /*
 *	modificar un horario_grupo en la tabla horario_grupos (id_horario_grupo, dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula) con el id COMPROBAR
 */
-horario_grupo.modificarHorarioGrupo = function (id_horario_grupo, dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, callback) {							
+horario_grupo.modificarHorarioGrupo = function (id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula,callback) {								
 	if(connection){	
-		var horario_grupo = { id_horario_grupo: id_horario_grupo, dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
+		var horario_grupo = { dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
 		var modificarHorarioGrupo = 'UPDATE horario_grupos SET ? WHERE id_horario_grupo ="'+id_horario_grupo+'"';
 		connection.query(modificarHorarioGrupo, horario_grupo, function(error){
 		  if (error) {

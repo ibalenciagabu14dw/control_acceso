@@ -67,7 +67,7 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 */
 alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 	if(connection){
-		this.presenciaAlumno(num_tarjeta,function (error,data) {
+		this.buscarPresenciaAlumno(num_tarjeta,function (error,data) {
 			if (data[0].presencia == 0) {
 				var sqlUpdate = 'UPDATE alumnos SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
 				connection.query(sqlUpdate,function (error) {
@@ -91,7 +91,7 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 					}//else
 				});//connection.query
 			}//else
-		});//this.presenciaAlumno
+		});//this.buscarPresenciaAlumno
 	}//if
 }//alumno.modificarPresenciaDelAlumno
 
@@ -138,9 +138,45 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 }//.alumno.buscarAlumnoPorTarjeta
 
 /*
+*	BUSCAR alumno por nombre
+*/
+alumno.buscarAlumnoPorNombre = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarTodosLosIdAlumno OK');
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorNombre
+
+/*
+*	BUSCA todos los alumnos por nombre y apellidos
+*/
+alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
+	if (connection) {
+		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE nombre = ' + connection.escape(nombre)+' and apellidos LIKE '+ connection.escape(apellidos+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarAlumnoPorNombreYApellido OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//alumno.buscarAlumnoPorNombreYApellido
+
+/*
 *	BUSCA el aula en la que tiene que estar por num_tarjeta
 */
-alumno.aulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
+alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
 	var day;
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
@@ -149,23 +185,24 @@ alumno.aulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
 			day = data;
 		}
 	});
-
 	if (connection) {
 		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+num_tarjeta+'"))';
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				throw error;
+				console.log(error);
 			}else{
+				console.log('buscarAulaEnLaQueTieneQueEstar OK');
 				callback(null,row);
 			}//else
 		});//connection.query
 	}//if
-}//alumno.aulaEnLaQueTieneQueEstar
+}//alumno.buscarAulaEnLaQueTieneQueEstar
 
 /*
 *	BUSCA el aula en la que tiene que estar por id_persona, hora y dia de la semana
 */
-alumno.aulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callback) {
+alumno.buscarAulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callback) {
 	var day;
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
@@ -179,33 +216,36 @@ alumno.aulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callback) {
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				throw error;
+				console.log(error);
 			}else{
+				console.log('buscarAulaEnLaQueTieneQueEstarPorId OK');
 				callback(null,row);
 			}//else
 		});//connection.query
 	}//if
-}//alumno.aulaEnLaQueTieneQueEstarPorId
+}//alumno.buscarAulaEnLaQueTieneQueEstarPorId
 
 /*
 *	BUSCA la presencia del alumno por num_tarjeta
 */
-alumno.presenciaAlumno = function (num_tarjeta,callback) {
+alumno.buscarPresenciaAlumno = function (num_tarjeta,callback) {
 	if(connection){
 		var sqlAlumnoPresencia = 'SELECT presencia FROM alumnos WHERE num_tarjeta ="'+num_tarjeta+'"';
 		connection.query(sqlAlumnoPresencia, function (error,row) {
 			if (error) {
 				throw error;
 			}else{
+				console.log('buscarPresenciaAlumno OK');
 				callback(null,row);
 			}//else
 		});//connection.query
 	}//if
-}//alumno.presenciaAlumno
+}//alumno.buscarPresenciaAlumno
 
 /*
-*	BUSCA todos los id_alumno de la tabla alumnos
+*	BUSCA todos los id_alumno
 */
-alumno.mostrarTodosLosIdAlumno = function (callback) {
+alumno.buscarTodosLosIdAlumno = function (callback) {
 	if(connection){						
 		connection.query('SELECT id_alumno FROM alumnos', function(error,row){
 		  	if (error) {
@@ -216,60 +256,25 @@ alumno.mostrarTodosLosIdAlumno = function (callback) {
 				for (var i= 0;i<row.length;i++){
 					var id = row[i].id_alumno;
 					id_alumnoArray.push(id);
-				}//.for (var i= 0;i<row.length;i++)
+				}//for
 				function compareNumbers(a, b) {
-				  return a - b;
+				  	return a - b;
 				}//compareNumbers
 				id_alumnoArray.sort(compareNumbers);
+				console.log('buscarTodosLosIdAlumno OK');
 				callback(null,id_alumnoArray);
 			}//else
 		});//connection.query
 	}//if
-}//alumno.mostrarTodosLosIdAlumno
+}//alumno.buscarTodosLosIdAlumno
 
 /****************************************************************************************************************************/
 
 
 
 
-
-
-
-
 /*
-*	devuelve nombre y foto del alumno COMPROBAR
-*/
-alumno.buscarAlumnoPorNombre = function(nombre,callback){
-	if(connection){
-		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%');
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-			}else{
-				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if(connection)
-}//.alumno.buscarAlumnoPorNombre
-
-/*
-*	devuelve datos de alumno por nombre y apellido
-*/
-alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
-	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE nombre = ' + connection.escape(nombre)+' and apellidos LIKE '+ connection.escape(apellidos+'%');
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-			}else{
-				callback(null,row);
-			}
-		})
-	};
-}//buscarAlumnoPorNombreYApellido
-
-/*
-*	devuelve datos de alumno por correo
+*	BUSCAR alumno por correo
 */
 alumno.buscarAlumnoPorCorreo = function(correo,callback) {
 	if (connection) {
@@ -277,12 +282,13 @@ alumno.buscarAlumnoPorCorreo = function(correo,callback) {
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
+				console.log(error);
 			}else{
 				callback(null,row);
-			}
-		})
-	};
-}//buscarAlumnoPorCorreo
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorCorreo
 
 /*
 *	devuelve datos de alumno por dni
@@ -294,6 +300,7 @@ alumno.buscarAlumnoPorDni = function(dni,callback) {
 			if (error) {
 				throw error;
 			}else{
+				console.log('buscarTodosLosIdAlumno OK');
 				callback(null,row);
 			}
 		})

@@ -98,7 +98,7 @@ grupo.buscarTodasLasAsignaturas = function (id_grupo,callback) {
 				}//.else
 			});//.connection.query
 		}//.if(connection)
-	}//.asignatura.buscarAsignaturasDelProfesor
+	}//.grupo.buscarTodasLasAsignaturas
 
 grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
 	if(connection){							

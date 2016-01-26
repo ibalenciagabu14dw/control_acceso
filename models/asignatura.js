@@ -4,179 +4,117 @@ var app = require('../app');
 var asignatura = {};
 
 
+/***********************************************************INSERT*********************************************************/
+
 /*
-*	agrega una asignatura a la tabla asignaturas (nombre,clave) COMPROBAR
+* INSERTAR asignatura
 */
 asignatura.agregarAsignatura = function (nombre,clave,obligatoria,tipo,callback) {
 	if(connection){						
 		var asignatura = { nombre: nombre, clave: clave ,obligatoria: obligatoria, tipo:tipo };
 		var sqlagregarAsignatura = 'INSERT INTO asignaturas SET ?';
 		connection.query(sqlagregarAsignatura,asignatura, function(error,row){
-		  if (error) {
+		  	if (error) {
 				throw error;
+				console.log(error);
 			}else{
-				//console.log(row);
-				callback(null,{dato:"ok"});
-				//console.log('agregarAsignatura correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.agregarAsignatura
+				console.log('agregarAsignatura OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.agregarAsignatura
+
+/****************************************************************************************************************************/
+
+/***********************************************************UPDATE***********************************************************/
 
 /*
-*	modificar una asignatura en la tabla asignaturas (nombre,clave) con el id COMPROBAR
+* UPDATE asignatura
 */
 asignatura.modificarAsigntura = function (id,nombre,clave,obligatoria,tipo,callback) {
 	if(connection){							
 		var asignatura = { nombre: nombre, clave: clave ,obligatoria: obligatoria, tipo:tipo };
 		var sqlmodificarAsigntura = 'UPDATE asignaturas SET ? WHERE id_asignatura ="'+id+'"';
 		connection.query(sqlmodificarAsigntura,asignatura, function(error){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				callback(null,{dato:"ok"});
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.modificarAsigntura
+				console.log('modificarAsigntura OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.modificarAsigntura
+
+/****************************************************************************************************************************/
+
+/***********************************************************DELETE***********************************************************/
 
 /*
-*	borrar una asignatura en la tabla asignaturas con el id COMPROBAR
+* DELETE asignatura
 */
 asignatura.borrarAsigntura = function (id,callback) {
 	if(connection){							
 		connection.query('DELETE FROM asignaturas WHERE id_asignatura= "'+id+'"', function(error){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.borrarAsigntura
+				console.log('borrarAsigntura OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.borrarAsigntura
+
+/****************************************************************************************************************************/
+
+/***********************************************************SELECT***********************************************************/
 
 /*
-*	muestra todos los id_asignatura de la tabla asignaturas COMPROBAR
+*	BUSCAR todas las asignaturas
 */
-asignatura.mostrarTodosLosIdAsigntura = function (callback) {
+asignatura.buscarTodasLasAsignaturas = function (callback) {
+	if(connection){							
+		connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{//console.log(row);
+			    callback(null,row);
+				console.log('buscarTodasLasAsignaturas OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.buscarTodasLasAsignaturas
+
+/*
+*	BUSCAR todos los id_asignatura
+*/
+asignatura.buscarTodosLosIdAsignatura = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_asignatura FROM asignaturas', function(error,row){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
 				var id_AsignaturasArray = [];
 				for (var i= 0;i<row.length;i++){
-						id_AsignaturasArray.push(row[i].id_asignatura);
-					}//.for (var i= 0;i<row.length;i++)
-						function compareNumbers(a, b) {
-						  return a - b;
-						} 
-						id_AsignaturasArray.sort(compareNumbers);
-					callback(null,id_AsignaturasArray);
-				//console.log('mostrarTodosLosIdAsigntura correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.mostrarTodosLosIdAsigntura 
-
-asignatura.buscarTodasLasAsignaturas = function (callback) {
-	if(connection){							
-		connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				//console.log(row);
-			    callback(null,row);
-				//console.log('buscarTodasLasAsignaturas correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.buscarTodasLasAsignaturas
-
-
-asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){
-	console.log(id_profesor);
-	if(connection){						
-		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log(row);
-				callback(null,row);
-				//console.log('lasAsignaturasQueFaltan correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.lasAsignaturasQueFaltan
-
-asignatura.lasAsignaturasQueFaltanSegunElTipo = function (id_profesor,tipo,callback){
-	if(connection){						
-		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log(row);
-				callback(null,row);
-				//console.log('lasAsignaturasQueFaltan correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.lasAsignaturasQueFaltan
+					id_AsignaturasArray.push(row[i].id_asignatura);
+				}//for
+				function compareNumbers(a, b) {
+					return a - b;
+				}//compareNumbers
+				id_AsignaturasArray.sort(compareNumbers);
+				callback(null,id_AsignaturasArray);
+				console.log('buscarTodosLosIdAsignatura OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.buscarTodosLosIdAsignatura
 
 /*
-*	devuelve nombre , id de la asignatura
+*	BUSCAR asignaturas por id_asignatura
 */
-asignatura.buscarAsignaturasDelProfesor = function(id_profesor,callback){
-	if(connection){
-		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-			}else{
-				//console.log(row);
-				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if(connection)
-}//.asignatura.buscarAsignaturasDelProfesor
-
-/*
-*	devuelve el id,tarjeta_activada,presencia de alumno seguun numero de tarjeta
-*/
-asignatura.buscarAsignaturaPorClave = function(clave,callback){
-	if (connection){
-		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE clave = ' + connection.escape(clave);
-		connection.query(sql, function (error, row){
-			if(error){
-				throw error;
-			}else{
-				//console.log(row);
-				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.buscarAsignaturaPorClave
-
-asignatura.buscarAsignaturaPorNombre = function(nombre,callback){
-	if (connection){
-		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE nombre LIKE ' + connection.escape(nombre+'%');
-		connection.query(sql, function (error, row){
-			if(error){
-				throw error;
-			}else{
-				//console.log(row);
-				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.asignatura.buscarAsignaturaPorClave
-
 asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
 	//console.log(connection.escape(id_asignatura));
 	if(connection){
@@ -184,13 +122,54 @@ asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
+				console.log(error);
 			}else{
 				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if(connection)
-}//.asignatura.buscarAsignaturaPorId
+				console.log('buscarAsignaturaPorId OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.buscarAsignaturaPorId
 
+/*
+*	BUSCAR asignaturas por nombre
+*/
+asignatura.buscarAsignaturaPorNombre = function(nombre,callback){
+	if (connection){
+		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE nombre LIKE ' + connection.escape(nombre+'%');
+		connection.query(sql, function (error, row){
+			if(error){
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturaPorNombre OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.buscarAsignaturaPorNombre
+
+/*
+*	BUSCAR asignaturas por clave
+*/
+asignatura.buscarAsignaturaPorClave = function(clave,callback){
+	if (connection){
+		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE clave = ' + connection.escape(clave);
+		connection.query(sql, function (error, row){
+			if(error){
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturaPorClave OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.buscarAsignaturaPorClave
+
+/*
+*	BUSCAR asignaturas por id_asignatura y clave
+*/
 asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 	console.log(connection.escape(id_asignatura));
 	console.log(connection.escape(clave));
@@ -199,12 +178,15 @@ asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
+				console.log(error);
 			}else{
-				console.log(row);
 				callback(null,row);
-			}//.else
-		});//.connection.query
-	}//.if(connection)
-}//.asignatura.buscarAsignaturaPorIdYClave
+				console.log('buscarAsignaturaPorIdYClave OK');
+			}//else
+		});//connection.query
+	}//if
+}//asignatura.buscarAsignaturaPorIdYClave
+
+/****************************************************************************************************************************/
 
 module.exports = asignatura;

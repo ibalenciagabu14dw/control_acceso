@@ -415,4 +415,61 @@ profesor.mostrarTodosLosIdNombreApellidosProfesor = function (callback) {
 	}//.if (connection)
 }//.profesor.mostrarTodosLosIdNombreApellidosProfesor 
 
+/*
+*	BUSCAR las asignaturas que no imparte un profesor
+*/
+profesor.buscarAsignaturasQueNoImparte = function (id_profesor,callback){
+	console.log(id_profesor);
+	if(connection){						
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturasQueNoImparte correctamente');
+			}//.else
+		});//.connection.query
+	}//.if (connection)
+}//.profesor.buscarAsignaturasQueNoImparte
+
+/*
+*	BUSCAR las asignaturas que no imparte un profesor por tipo
+*/
+profesor.buscarAsignaturasQueNoImparteSegunElTipo = function (id_profesor,tipo,callback){
+	if(connection){						
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sql,asignatura, function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturasQueNoImparteSegunElTipo OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarAsignaturasQueNoImparteSegunElTipo
+
+/*
+*	BUSCAR las asignaturas que imparte un profesor
+*/
+profesor.buscarAsignaturasQueImparte = function(id_profesor,callback){
+	if(connection){
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturasQueImparte OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarAsignaturasQueImparte
+
+
+
 module.exports = profesor;

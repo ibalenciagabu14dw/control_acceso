@@ -82,7 +82,7 @@ asignatura.mostrarTodosLosIdAsigntura = function (callback) {
 	}//.if (connection)
 }//.asignatura.mostrarTodosLosIdAsigntura 
 
-asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
+asignatura.mostrarTodasLasAsignaturas = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
 		  if (error) {
@@ -91,11 +91,11 @@ asignatura.mostrarTodosLosIdNombreAsigntura = function (callback) {
 			}else{
 				//console.log(row);
 			    callback(null,row);
-				//console.log('mostrarTodosLosIdNombreAsigntura correctamente');
+				//console.log('mostrarTodasLasAsignaturas correctamente');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.asignatura.mostrarTodosLosIdNombreAsigntura
+}//.asignatura.mostrarTodasLasAsignaturas
 
 
 asignatura.lasAsignaturasQueFaltan = function (id_profesor,callback){

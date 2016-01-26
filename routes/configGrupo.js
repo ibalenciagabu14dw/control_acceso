@@ -84,7 +84,7 @@ router.post('/updateGrupo',  function(req,res,next){
                           } else{ 
                             res.send(row);
                           }//.else
-                      });//.asignatura.insertarAsigntura
+                      });//.asignatura.agregarAsignatura
                 } else {
                grupo.buscarGrupoPorNombre(nombre, function (error,row) {
                   if (error) {
@@ -110,7 +110,7 @@ router.post('/updateGrupo',  function(req,res,next){
         }//. else
     }//.else
   });//.grupo.buscarGrupoPorIdNombre
-});//router.post('/updateAsignatura',  function(req,res,next){
+});//router.post('/modificarAsignatura',  function(req,res,next){
 
 router.post('/buscarGrupoNombre', function(req,res,next) {
   var nombre = req.body.nombre;

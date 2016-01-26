@@ -22,14 +22,14 @@ router.post('/agregarAsignatura', function(req,res,next){
 	    	if(row.length>0){
 	    		res.send({err:'existe'});
 	    	}else{
-	    		asignatura.insertarAsigntura(nombre,clave,obligatoria,tipo, function (error,row) {
+	    		asignatura.agregarAsignatura(nombre,clave,obligatoria,tipo, function (error,row) {
 	        		if (error) {
 	        			res.send({err:'bd'});
 	          			throw error;
 	        		}else{
 	        			res.send(row);
 	        		}//else
-	      		});//asignatura.insertarAsigntura
+	      		});//asignatura.agregarAsignatura
 	    	}//else
 	    }//else
 	});//asignatura.buscarAsignaturaPorClave
@@ -42,7 +42,7 @@ router.post('/agregarAsignatura', function(req,res,next){
 /*
 * UPDATE asignatura
 */
-router.post('/updateAsignatura',  function(req,res,next){
+router.post('/modificarAsignatura',  function(req,res,next){
     var id_asignatura = req.body.id_asignatura;
     var nombre = req.body.nombre;
     var clave = req.body.clave;
@@ -86,7 +86,7 @@ router.post('/updateAsignatura',  function(req,res,next){
             }//else
         }//else
     });//asignatura.buscarAsignaturaPorIdClave
-});//router.post('/updateAsignatura
+});//router.post('/modificarAsignatura
 
 /****************************************************************************************************************************/
 

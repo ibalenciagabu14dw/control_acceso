@@ -105,6 +105,16 @@ router.post('/buscarAsignaturaPorId', function(req,res,next) {
   })//buscarAsignaturaPorId
 });//router.post('/buscarAsignaturaId', function(req,res,next) {
 
+router.post('/mostrarTodosLasAsignaturasIdNombre', function(req,res,next){
+  asignatura.mostrarTodosLosIdNombreAsigntura(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//.asignatura.mostrarTodosLosIdNombreAsigntura
+});//.router.post('/mostrarTodosLasAsignaturasIdNombre', function(req,res,next){  
+
 router.post('/borrarAsignatura', function(req,res,next){
   console.log(req.body);
   var id_asignatura = req.body.id_asignatura;

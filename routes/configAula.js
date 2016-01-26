@@ -95,6 +95,17 @@ router.post('/buscarAulaPorId', function(req,res,next) {
   })//buscarAsignaturaPorId
 });//router.post('/buscarAsignaturaId', function(req,res,next) {
 
+router.post('/mostrarTodosLasAulasIdNumero', function(req,res,next){
+  aula.mostrarTodosLosIdNumeroAula(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//.aula.mostrarTodosLosIdNumeroAula
+});//.router.post('/mostrarTodosLasAulasIdNumero', function(req,res,next){  
+
+
 router.post('/borrarAula', function(req,res,next){
   var id_aula = req.body.id_aula;
   aula.borrarAula(id_aula, function(error,row) {

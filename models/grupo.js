@@ -1,104 +1,121 @@
-//***************MODELO GRUPO FALTA COMPROBAR
-
 var connection = require('../models/connection');
 var app = require('../app');
 
 var grupo = {};
-console.log(app);
+
+/***********************************************************INSERT*********************************************************/
 
 /*
-*	agrega un grupo a la tabla grupos (nombre_grupo,tipo) COMPROBAR
+* INSERTAR grupo
 */
-grupo.insertarGrupo = function (nombre_grupo,tipo,callback) {
+grupo.agregarGrupo = function (nombre_grupo,tipo,callback) {
 	if(connection){							
 		var grupo = { nombre_grupo: nombre_grupo, tipo: tipo };
-		var sqlinsertarGrupo = 'INSERT INTO grupos SET ?';
-		connection.query(sqlinsertarGrupo, grupo, function(error){
-		  if (error) {
+		var sqlagregarGrupo = 'INSERT INTO grupos SET ?';
+		connection.query(sqlagregarGrupo, grupo, function(error){
+		  	if (error) {
 				throw error;
+				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.grupo.insertarGrupo
+				console.log('agregarGrupo OK');
+			}//else
+		});//connection.query
+	}//if
+}//grupo.agregarGrupo
+
+/****************************************************************************************************************************/
+
+/***********************************************************UPDATE***********************************************************/
 
 /*
-*	modificar una grupo en la tabla grupos (id_grupo,nombre_grupo,tipo) con el id_grupo COMPROBAR
+* UPDATE grupo
 */
 grupo.modificarGrupo = function (id_grupo,nombre_grupo,tipo,callback) {
 	if(connection){							
 		var grupo = { nombre_grupo: nombre_grupo, tipo: tipo };
 		var sqlmodificarGrupo = 'UPDATE grupos SET ? WHERE id_grupo ="'+id_grupo+'"';
 		connection.query(sqlmodificarGrupo,grupo, function(error){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.grupo.modificarGrupo
+				console.log('modificarGrupo OK');
+			}//else
+		});//connection.query
+	}//if
+}//grupo.modificarGrupo
+
+/****************************************************************************************************************************/
+
+/***********************************************************DELETE***********************************************************/
 
 /*
-*	borrar una grupo en la tabla grupos con el id_grupo COMPROBAR
+* DELETE grupo
 */
 grupo.borrarGrupo = function (id_grupo,callback) {
 	if(connection){							
 		connection.query('DELETE FROM grupos WHERE id_grupo= "'+id_grupo+'"', function(error){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log('borrarGrupo correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.grupo.borrarGrupo
+				console.log('agregarGrupo OK');
+			}//else
+		});//connection.query
+	}//if
+}//grupo.borrarGrupo
+
+/****************************************************************************************************************************/
+
+/***********************************************************SELECT***********************************************************/
 
 /*
-*	muestra todos los id_grupo de la tabla grupos COMPROBAR
+*	BUSCAR todos los id_grupo
 */
-grupo.mostrarTodosLosIdGrupo = function (callback) {
+grupo.buscarTodosLosIdGrupo = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_grupo FROM grupos', function(error,row){
-		  if (error) {
+		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log(row);
 				var id_GrupoArray = [];
 				for (var i= 0;i<row.length;i++){
-						//console.log ("row : " + row[i].id_aula);
-						id_GrupoArray.push(row[i].id_grupo);
-					}//.for (var i= 0;i<row.length;i++)
-						//console.log(id_GrupoArray);
-						function compareNumbers(a, b) {
-						  return a - b;
-						} 
-						id_GrupoArray.sort(compareNumbers);
-						//console.log("sort: " + id_GrupoArray);
-					callback(null,id_GrupoArray);
-				//console.log('mostrarTodosLosIdGrupo correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.grupo.mostrarTodosLosIdGrupo 
+					id_GrupoArray.push(row[i].id_grupo);
+				}//for
+				function compareNumbers(a, b) {
+					return a - b;
+				}//compareNumbers
+				id_GrupoArray.sort(compareNumbers);
+				callback(null,id_GrupoArray);
+				console.log('agregarGrupo OK');
+			}//else
+		});//connection.query
+	}//if
+}//grupo.buscarTodosLosIdGrupo
 
-grupo.buscarTodasLasAsignaturas = function (id_grupo,callback) {
+/****************************************************************************************************************************/
+
+
+/*
+*	BUSCAR asignaturas de un grupo
+*/
+grupo.buscarAsignaturasDeUnGrupo = function (id_grupo,callback) {
 	if(connection){
 			var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo ="'+id_grupo+'"))';
 			connection.query(sql,function (error,row) {
 				if (error) {
 					throw error;
+					console.log(error);
 				}else{
-					console.log(row);
 					callback(null,row);
-				}//.else
-			});//.connection.query
-		}//.if(connection)
-	}//.grupo.buscarTodasLasAsignaturas
+					console.log('buscarAsignaturasDeUnGrupo OK');
+				}//else
+			});//connection.query
+		}//if
+	}//grupo.buscarAsignaturasDeUnGrupo
 
 grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
 	if(connection){							
@@ -107,9 +124,8 @@ grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log(row);
 			    callback(null,row);
-				//console.log('mostrarTodosLosIdNombreGrupo correctamente');
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -123,7 +139,7 @@ grupo.losGruposQueFaltan = function (id_alumno,callback){
 				throw error;
 			}else{
 				callback(null,row);
-				//console.log('losGruposQueFaltan correctamente');
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
@@ -139,8 +155,8 @@ grupo.buscarGrupoDelAlumno = function(id_alumno,callback){
 			if (error) {
 				throw error;
 			}else{
-				//console.log(row);
 				callback(null,row);
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -153,8 +169,8 @@ grupo.buscarGrupoPorNombre = function(nombre_grupo,callback){
 			if (error) {
 				throw error;
 			}else{
-				//console.log(row);
 				callback(null,row);
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -168,8 +184,8 @@ grupo.buscarGrupoPorIdNombre = function(id_grupo,nombre_grupo,callback){
 			if (error) {
 				throw error;
 			}else{
-				console.log(row);
 				callback(null,row);
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -182,8 +198,8 @@ grupo.buscarGrupoPorId = function(id_grupo,callback){
 			if (error) {
 				throw error;
 			}else{
-				console.log(row);
 				callback(null,row);
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -198,11 +214,11 @@ grupo.mostrarTodosLosIdNombreGrupo = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				//console.log('mostrarTodosLosIdGrupo correctamente');
+				console.log('agregarGrupo OK');
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.grupo.mostrarTodosLosIdGrupo 
+}//.grupo.mostrarTodosLosIdNombreGrupo 
 
 module.exports = grupo;
 

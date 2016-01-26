@@ -33,7 +33,7 @@ router.post('/buscarTodosLosGrupos', function(req,res,next) {
 */
 router.post('/buscarAsignaturasDelGrupo', function(req,res,next) {
   var id_grupo = req.body.id_grupo;
-  grupo.buscarTodasLasAsignaturas(id_grupo, function(error,row) {
+  grupo.buscarAsignaturasDeUnGrupo(id_grupo, function(error,row) {
     if (error) {
       throw error;
     }else{
@@ -54,14 +54,14 @@ router.post('/agregarGrupo', function(req,res,next){
         if (row.length>0){
          res.send({err:'existe'});
         } else {
-          grupo.insertarGrupo(nombre,tipo, function (error,row) {
+          grupo.agregarGrupo(nombre,tipo, function (error,row) {
               if (error) {
                 res.send({err:'bd'});
                 throw error;
               } else{ 
                 res.send(row);
               }//.else
-          });//.grupo.insertarGrupo
+          });//.grupo.agregarGrupo
         }//. else if (row.length == 0)
     }//.else
   });//.grupo.buscarGrupoPorNombre

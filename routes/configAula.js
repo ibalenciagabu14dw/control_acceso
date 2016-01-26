@@ -27,11 +27,11 @@ router.post('/agregarAula', function(req,res){
                     }else{ 
                         res.send(row);
                     }//.else
-                });//.asignatura.insertarAsigntura
+                });//.aula.insertarAula
             }//. else if (row.length == 0)
         }//.else
-    });//.asignatura.buscarAsignaturaPorClave
-});//.router.post('/agregarGrupo', function(req,res){
+    });//aula.buscarAulaPorNumero
+});//.router.post('/agregarAula
 
 /****************************************************************************************************************************/
 
@@ -45,44 +45,44 @@ router.post('/updateAula',  function(req,res,next){
     var numero = req.body.numero;
     var piso = req.body.piso;
     var capacidad = req.body.capacidad;
-          aula.buscarAulaPorIdNumero(id_aula,numero, function (error,row) {
-            if (error) {
-              res.send({err:'bd'});
-              throw error;
-            } else{
-                if (row.length>0){
-                     aula.modificarAula(id_aula,numero,piso,capacidad, function(error,row) {
-                          if (error) {
-                            res.send({err:'bd'});
-                            throw error;
-                          } else{ 
-                            res.send(row);
-                          }//.else
-                      });//.aula.modificarAula
-                } else {
-               aula.buscarAulaPorNumero(numero, function (error,row) {
-                  if (error) {
-                    res.send({err:'bd'});
-                    throw error;
-                  } else{
-                      if (row.length>0){
-                       res.send({err:'existe'});
-                      } else {
+    aula.buscarAulaPorIdNumero(id_aula,numero, function (error,row) {
+        if (error) {
+            res.send({err:'bd'});
+            throw error;
+        }else{
+            if (row.length>0){
                 aula.modificarAula(id_aula,numero,piso,capacidad, function(error,row) {
                     if (error) {
-                      res.send({err:'bd'});
-                      throw error;
-                    } else{ 
-                      res.send(row);
+                        res.send({err:'bd'});
+                        throw error;
+                    }else{ 
+                        res.send(row);
                     }//.else
-                  });//.asignatura.insertarAsigntura
+                });//.aula.modificarAula
+            }else {
+                aula.buscarAulaPorNumero(numero, function (error,row) {
+                    if (error) {
+                        res.send({err:'bd'});
+                        throw error;
+                    }else{
+                        if (row.length>0){
+                        res.send({err:'existe'});
+                        }else{
+                            aula.modificarAula(id_aula,numero,piso,capacidad, function(error,row) {
+                                if (error) {
+                                    res.send({err:'bd'});
+                                    throw error;
+                                }else{ 
+                                    res.send(row);
+                                }//.else
+                            });//.aula.modificarAula
+                        }//.else
                     }//.else
-                  }//.else
-                });//.asignatura.buscarAsignaturaPorClave
-        }//. else
-    }//.else
-  });//.asignatura.buscarAsignaturaPorClave
-});//router.post('/updateAsignatura',  function(req,res,next){
+                });//.aula.buscarAulaPorNumero
+            }//. else
+        }//.else
+    });//.aula.buscarAulaPorIdNumero
+});//router.post('/updateAula
 
 /****************************************************************************************************************************/
 
@@ -111,15 +111,16 @@ router.post('/borrarAula', function(req,res,next){
 * busca el aula por numero
 */
 router.post('/buscarAulaNumero', function(req,res,next) {
-  var numero = req.body.numero;
-  aula.buscarAulaPorNumero(numero, function(error,row) {
-    if (error) {
-      throw error;
-    }else{
-      res.send(row);
-    }
-  })//buscarAsignaturaPorNombre
-});//router.post('/buscarAsignaturaNombre', function(req,res,next) {
+    var numero = req.body.numero;
+    aula.buscarAulaPorNumero(numero, function(error,row) {
+        if (error) {
+            throw error;
+        }
+        else{
+            res.send(row);
+        }//.else
+    })//.aula.buscarAulaPorNumero
+});//.router.post('/buscarAulaNumero
 
 
 /*

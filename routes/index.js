@@ -124,8 +124,9 @@ router.get('/buscarAulaPersona',function(req,res) {
 		}
 	});
 	var id = req.query.id;
-	alumno.BuscarAulaEnLaQueTieneQueEstarPorId(id, curr_time, function (error,data) {
+	alumno.buscarAulaEnLaQueTieneQueEstarPorId(id, curr_time, function (error,data) {
 		if (error) {
+			console.log(error);
 			throw error;
 		}else{
 			if (data.length != 0) {
@@ -133,6 +134,7 @@ router.get('/buscarAulaPersona',function(req,res) {
 			}else{
 				profesor.aulaEnLaQueTieneQueEstarPorId(id,curr_time,function (error,data2) {
 					if (error) {
+						console.log(error);
 						throw error;
 					}else{
 						if (data2.length != 0) {

@@ -64,8 +64,6 @@ router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function
   });//.mostrarTodosLosIdAula
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
-<<<<<<< HEAD
-
 router.post('/buscarHorarioGrupoHorarioProfesor', function(req,res,next) {
   var id_horario_grupo = req.body.id_horario_grupo;
   horario_grupo.buscarHorarioGrupoPorId(id_horario_grupo, function(error,row) {
@@ -156,7 +154,7 @@ router.post('/buscarHorarioGrupoPorId', function(req,res,next) {
   })//grupo.buscarGrupoPorId
 });//router.post('/buscarGrupoPorId', function(req,res,next) {
 
-router.post('/borrarGrupo', function(req,res,next){//FALTA EDITAR
+router.post('/borrarHorarioGrupo', function(req,res,next){
   var id_horario_grupo = req.body.id_horario_grupo;
   horario_grupo.borrarHorarioGrupo(id_horario_grupo, function(error,row) {
     if (error) {

@@ -41,7 +41,7 @@ $(document).ready(function() {
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'>";
-    		formulario += "<select name='dia'>";
+    		formulario += "Dia<select name='dia'>";
     		formulario += "<option value='default'>Elige el dia</option>";
 				if (result[0].dia_semana == 'Lunes'){
                     formulario += "<option value='Lunes' selected>Lunes</option>";   
@@ -73,13 +73,13 @@ $(document).ready(function() {
             formulario += "Hora Final<input id='hora_final' type='time' name='hora_final' value='"+result[0].hora_final+"'/></br>";
 			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
 			formulario += "Grupos: <div id='grupos'>";
-    		formulario += "</div></br>";
+    		formulario += "</div>";
 			mostrarTodosLasAsignaturasIdNombre(result[0].id_asignatura);
 			formulario += "Asignatura: <div id='asignaturas'>";
-    		formulario += "</div></br>";            
+    		formulario += "</div>";            
 			mostrarTodasLasAulasIdNumero(result[0].id_aula);
 			formulario += "Aula: <div id='aulas'>";
-    		formulario += "</div></br>"; 
+    		formulario += "</div>"; 
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configHorario' class='btn btn-primary'>Volver</a>";

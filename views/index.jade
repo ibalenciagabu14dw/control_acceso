@@ -4,11 +4,13 @@ block extraHeader
 block content
   h1#titulo= title
   #loginFormContainer.container
-    h3 Login
+    h3#tituloLogin Login
     form#loginForm.form-group(action='/login', method='post')
+     label(for='user') Usuario:
      input#user.form-control(type='text', name='user')
      br
-     input#pass.form-control(type='text', name='pass')
+     label(for='pass') Password:
+     input#pass.form-control(type='password', name='pass')
      br
      if info
       .alert.alert-danger

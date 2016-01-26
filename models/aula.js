@@ -2,7 +2,6 @@ var connection = require('../models/connection');
 var app = require('../app');
 
 var aula = {};
-console.log(app);
 
 /*
 *	agrega una aula a la tabla aulas (numero,piso,capacidad) COMPROBAR

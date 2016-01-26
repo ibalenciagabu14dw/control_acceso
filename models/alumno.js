@@ -120,7 +120,45 @@ alumno.borrarAlumno = function (id,callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
-* BUSCAR alumno por nombre
+*	BUSCAR alumno por id_alumno
+*/
+alumno.buscarAlumnoPorId = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,foto,tarjeta_activada FROM alumnos WHERE id_alumno ='+connection.escape(id_alumno);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				var foto = row[0].foto.toString('base64');//foto del alumno
+				var row2 = {id_alumno : row[0].id_alumno,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada};
+				console.log('buscarAlumnoPorId OK');
+				callback(null,row2);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorId
+
+/*
+*	BUSCAR alumno por dni
+*/
+alumno.buscarAlumnoPorDni = function(dni,callback) {
+	if (connection) {
+		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE dni LIKE ' + connection.escape(dni+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarAlumnoPorDni OK');
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//buscarAlumnoPorDni
+
+/*
+* BUSCAR alumno por num_tarjeta
 */
 alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 	if (connection){
@@ -156,7 +194,7 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 }//alumno.buscarAlumnoPorNombre
 
 /*
-*	BUSCA todos los alumnos por nombre y apellidos
+*	BUSCA alumnos por nombre y apellidos
 */
 alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
 	if (connection) {
@@ -174,6 +212,24 @@ alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
 }//alumno.buscarAlumnoPorNombreYApellido
 
 /*
+*	BUSCAR alumno por correo
+*/
+alumno.buscarAlumnoPorCorreo = function(correo,callback) {
+	if (connection) {
+		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE correo LIKE ' + connection.escape(correo+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarAlumnoPorCorreo OK');
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorCorreo
+
+/*
 *	BUSCA el aula en la que tiene que estar por num_tarjeta
 */
 alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
@@ -181,6 +237,7 @@ alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
 			throw error;
+			console.log(error);
 		}else{
 			day = data;
 		}
@@ -207,6 +264,7 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callb
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
 			throw error;
+			console.log(error);
 		}else{
 			day = data;
 		}
@@ -234,6 +292,7 @@ alumno.buscarPresenciaAlumno = function (num_tarjeta,callback) {
 		connection.query(sqlAlumnoPresencia, function (error,row) {
 			if (error) {
 				throw error;
+				console.log(error);
 			}else{
 				console.log('buscarPresenciaAlumno OK');
 				callback(null,row);
@@ -269,114 +328,5 @@ alumno.buscarTodosLosIdAlumno = function (callback) {
 }//alumno.buscarTodosLosIdAlumno
 
 /****************************************************************************************************************************/
-
-
-
-
-/*
-*	BUSCAR alumno por correo
-*/
-alumno.buscarAlumnoPorCorreo = function(correo,callback) {
-	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE correo LIKE ' + connection.escape(correo+'%');
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,row);
-			}//else
-		});//connection.query
-	}//if
-}//alumno.buscarAlumnoPorCorreo
-
-/*
-*	devuelve datos de alumno por dni
-*/
-alumno.buscarAlumnoPorDni = function(dni,callback) {
-	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE dni LIKE ' + connection.escape(dni+'%');
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-			}else{
-				console.log('buscarTodosLosIdAlumno OK');
-				callback(null,row);
-			}
-		})
-	};
-}//buscarAlumnoPorDni
-
-/*
-*	devuelve los datos del alumno por id
-*/
-alumno.buscarAlumnoPorId = function(id_alumno,callback){
-	if(connection){
-		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,foto,tarjeta_activada FROM alumnos WHERE id_alumno ='+connection.escape(id_alumno);
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-			}else{
-					var foto = row[0].foto.toString('base64');//foto del alumno
-				    var row2 = {id_alumno : row[0].id_alumno,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada};
-				callback(null,row2);
-			}//.else
-		});//.connection.query
-	}//.if(connection)
-}//.alumno.buscarAlumnoPorId
-
-alumno.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
-	if(connection){
-		var alumno_grupos = { id_grupo: id_grupo, id_alumno: id_alumno};						
-		var sqlagregarAlumnoGrupo = 'INSERT INTO alumno_grupos SET ?';
-		connection.query(sqlagregarAlumnoGrupo,alumno_grupos, function(error){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log('agregarAlumnoGrupo correctamente');
-			}//.else
-		});//.connection.query
-	}
-}//.alumno.insertarAsignaturasProfesor
-
-alumno.borrarAlumnoGrupos =  function(id_alumno,callback) {
-	if(connection){					
-		var sqlborrarAlumnoGrupos = 'DELETE FROM alumno_grupos WHERE id_alumno= "'+id_alumno+'"';
-		connection.query(sqlborrarAlumnoGrupos, function(error){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log('borrarAlumnoGrupos correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.borrarAlumnoGrupos
-
-alumno.agregarAsignaturaConvalidada =  function(id_asignatura,id_alumno,callback) {
-	if(connection){
-		var convalidadas = { id_asignatura: id_asignatura, id_alumno: id_alumno};						
-		var sqlagregarAsignaturaConvalidada = 'INSERT INTO convalidadas SET ?';
-		connection.query(sqlagregarAsignaturaConvalidada,convalidadas, function(error){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log('agregarAsignaturaConvalidada correctamente');
-			}//.else
-		});//.connection.query
-	}
-}//.alumno.insertarAsignaturasProfesor
-
-alumno.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
-	if(connection){					
-		var sqlborrarAsignaturaConvalidada = 'DELETE FROM convalidadas WHERE id_alumno= "'+id_alumno+'"';
-		connection.query(sqlborrarAsignaturaConvalidada, function(error){
-		  if (error) {
-				throw error;
-			}else{
-				//console.log('borrarAsignaturaConvalidada correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.alumno.borrarAsignaturaConvalidada
 
 module.exports = alumno;

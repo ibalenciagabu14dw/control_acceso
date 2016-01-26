@@ -32,45 +32,45 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 * UPDATE alumno
 */
 router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
-    alumno.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
+    alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }
-    })//alumno.borrarAlumnoGrupos
+    })//alumno_grupos.borrarAlumnoGrupos
   
     var data= req.body.grupo;
     for (var i = 0; i < data.length; i++) {
-        alumno.agregarAlumnoGrupo(data[i],req.body.id_alumno, function(error,row) {
+        alumno_grupos.agregarAlumnoGrupo(data[i],req.body.id_alumno, function(error,row) {
             if (error) {
                 throw error;
             }else{
                 res.send(row);
             }//else
-        })//alumno.agregarAlumnoGrupo
+        })//alumno_grupos.agregarAlumnoGrupo
     }//for
 
     if(req.body.asignatura == undefined){
         //console.log("el alumno no tiene ninguna convalidada");
     }else {
-        alumno.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
+        convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
             if (error) {
                 throw error;
             }else{
                 res.send(row);
             }//else
-        })//alumno.borrarAsignaturaConvalidada
+        })//convalidadas.borrarAsignaturaConvalidada
         
         var data2= req.body.asignatura;
         for (var i = 0; i < data2.length; i++) {
-            alumno.agregarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
+            convalidadas.agregarAsignaturaConvalidada(data2[i],req.body.id_alumno, function(error,row) {
                 if (error) {
                     throw error;
                 }else{
                     res.send(row);
                 }//else
-            })//alumno.agregarAsignaturaConvalidada
+            })//convalidadas.agregarAsignaturaConvalidada
         }//for
     }//else
 

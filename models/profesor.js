@@ -58,7 +58,7 @@ profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,f
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarProfesor OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -76,7 +76,7 @@ profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,pas
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarProfesorSinFoto OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

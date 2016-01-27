@@ -180,12 +180,6 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                 }//.else if(row.length<0)
             }//.else if (error)
         })//.alumno.buscarAlumnoPorIdDniCorreoNum_tarj
-
-
-
-
-
-
     } else{
 
     }//.else if(req.file == undefined)

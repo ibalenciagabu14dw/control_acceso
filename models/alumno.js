@@ -16,11 +16,27 @@ alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,ca
 				throw error;
 				console.log(error);
 			}else{
-				console.log('agregarAlumno OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
 }//alumno.agregarAlumno
+
+
+alumno.agregarAlumnoSinFoto = function (dni,nombre,apellidos,correo,num_tarjeta,callback) {
+	if(connection){							
+		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
+		connection.query(sqlagregarAlumno,alumno, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//alumno.agregarAlumnoSinFoto
 
 /****************************************************************************************************************************/
 
@@ -38,7 +54,7 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -56,7 +72,7 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

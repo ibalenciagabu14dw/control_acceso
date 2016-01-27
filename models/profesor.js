@@ -10,7 +10,38 @@ var profesor = {};
 
 /***********************************************************UPDATE***********************************************************/
 
-
+/*
+* UPDATE presencia profesor
+*/
+profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
+	if(connection){
+		this.buscarPresenciaProfesor(num_tarjeta,function (error,data) {
+			if (data[0].presencia == 0) {
+				var sqlUpdate = 'UPDATE profesores SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						callback(null);
+						console.log('modificarPresenciaProfesor OK');
+					}//else
+				});//connection.query
+			}else{
+				var sqlUpdate = 'UPDATE profesores SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						callback(null);
+						console.log('modificarPresenciaProfesor OK');
+					}//else
+				});//connection.query
+			}//else
+		});//this.buscarPresenciaProfesor
+	}//if
+}//profesor.modificarPresenciaProfesor
 
 /****************************************************************************************************************************/
 
@@ -134,6 +165,24 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 }//profesor.buscarProfesorPorNombre
 
 /*
+* BUSCAR el estado de la presencia del profesor por num_tarjeta
+*/
+profesor.buscarPresenciaProfesor = function (num_tarjeta,callback) {
+	if(connection){	
+		var sqlProfesorPresencia = 'SELECT presencia FROM profesores WHERE num_tarjeta ="'+num_tarjeta+'"';
+		connection.query(sqlProfesorPresencia, function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarPresenciaProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarPresenciaProfesor
+
+/*
 * BUSCAR aula en la que tiene que estar el profesor en ese momento por tarjeta
 */
 profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_time,callback) {
@@ -187,6 +236,54 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,c
 	}//.if (connection)
 }//.profesor.buscarAulaEnLaQueTieneQueEstarPorId
 
+/*
+* BUSCAR los alumnos que deben estar en su clase en ese momento
+*/
+profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			day = data;
+		}//else
+	});//time.diaDeLaSemana
+	if (connection) {
+		// sentencia sql original,comentar para hacer pruebas
+		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+		//para hacer pruebas
+		var sqlProfesorClaseActual = 'SELECT presencia,num_tarjeta,nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+		connection.query(sqlProfesorClaseActual, function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				var presenciaArray = [];
+				var num_tarjetaArray = [];
+				var nombreArray = [];
+				var apellidosArray = [];
+				var fotoArray = [];
+				for (var i= 0;i<row.length;i++){
+					var presencia = row[i].presencia;
+					var num_tarjeta = row[i].num_tarjeta;
+					var nombre = row[i].nombre;
+					var apellidos = row[i].apellidos;
+					var foto = row[i].foto;//foto del alumno
+					var fotofinal = foto.toString('base64');
+					presenciaArray.push(presencia);
+					num_tarjetaArray.push(num_tarjeta);
+					nombreArray.push(nombre); 
+					apellidosArray.push(apellidos);
+					fotoArray.push(fotofinal);
+				}//for
+				callback(null,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray);
+				console.log('buscarLosAlumnosDeSuClaseActual OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarLosAlumnosDeSuClaseActual
+
 /****************************************************************************************************************************/
 
 
@@ -206,106 +303,12 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,c
 
 
 
-/*
-* UPDATE presencia profesor
-*/
-profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
-	if(connection){
-		this.presenciaProfesor(num_tarjeta,function (error,data) {
-			if (data[0].presencia == 0) {
-				var sqlUpdate = 'UPDATE profesores SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-						console.log(error);
-					}else{
-						callback(null);
-						console.log('modificarPresenciaProfesor OK');
-					}//.else
-				});//.connection.query
-			}else{
-				var sqlUpdate = 'UPDATE profesores SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-						console.log(error);
-					}else{
-						callback(null);
-						console.log('modificarPresenciaProfesor OK');
-					}//.else
-				});//.connection.query
-			}//.else
-		});//.this.presenciaProfesor
-	}//.if (connection)
-}//.profesor.modificarPresenciaProfesor
-
-/*
-* BUSCAR el estado de la presencia del profesor por num_tarjeta
-*/
-profesor.presenciaProfesor = function (num_tarjeta,callback) {
-	if(connection){	
-		var sqlProfesorPresencia = 'SELECT presencia FROM profesores WHERE num_tarjeta ="'+num_tarjeta+'"';
-		connection.query(sqlProfesorPresencia, function (error,row) {
-			if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,row);
-				console.log('presenciaProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.presenciaProfesor
 
 
-/*
-* BUSCAR los alumnos que deben estar en su clase en ese momento
-*/
-profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
-	var day;
-	time.diaDeLaSemana(function (error,data) {
-		if (error) {
-			throw error;
-			console.log(error);
-		}else{
-			day = data;
-		}//.else
-	});//.time.diaDeLaSemana
-	if (connection) {
-		// sentencia sql original,comentar para hacer pruebas
-		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
-		//para hacer pruebas
-		var sqlProfesorClaseActual = 'SELECT presencia,num_tarjeta,nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
-		connection.query(sqlProfesorClaseActual, function (error,row) {
-			if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				//console.log(row);
-				var presenciaArray = [];
-				var num_tarjetaArray = [];
-				var nombreArray = [];
-				var apellidosArray = [];
-				var fotoArray = [];
-				for (var i= 0;i<row.length;i++){
-					var presencia = row[i].presencia;
-					var num_tarjeta = row[i].num_tarjeta;
-					var nombre = row[i].nombre;
-					var apellidos = row[i].apellidos;
-					var foto = row[i].foto;//foto del alumno
-					var fotofinal = foto.toString('base64');
-					presenciaArray.push(presencia);
-					num_tarjetaArray.push(num_tarjeta);
-					nombreArray.push(nombre); 
-					apellidosArray.push(apellidos);
-					fotoArray.push(fotofinal);
-				}//.for (var i= 0;i<row.length;i++)
-				callback(null,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray);
-				console.log('losAlumnosDeSuClaseActual OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.losAlumnosDeSuClaseActual
+
+
+
+
 
 /*
 * INSERTAR profesor

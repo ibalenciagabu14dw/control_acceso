@@ -99,6 +99,10 @@ $('#resultado').on("click","#btnModificar",function () {
 	                console.log(data)
 		                if (data.err=="existeDNI"){
 		                showAlert($('#resultado #dni'),"error","dni ya existente");
+		                } else if (data.err=="existeCorreo"){
+		                showAlert($('#resultado #correo'),"error","Correo ya existente");
+		                } else if (data.err=="existeTarjeta"){
+		                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
 		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
 		                }

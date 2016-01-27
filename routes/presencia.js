@@ -68,7 +68,7 @@ router.get('/', function(req, res, next) {
 									throw error;
 								}else{
 									if (req.query.room == data[0].id_aula) {
-										profesor.updatePresenciaProfesor(req.query.num_tarjeta,function (error) {
+										profesor.modificarPresenciaProfesor(req.query.num_tarjeta,function (error) {
 											if (error) {
 												res.send("ko");
 												console.log("Fallo update presencia profesor");
@@ -77,7 +77,7 @@ router.get('/', function(req, res, next) {
 												console.log("Update presencia profesor ok");
 												res.send("ok");
 											}//else error
-										});//.profesor.updatePresenciaProfesor
+										});//.profesor.modificarPresenciaProfesor
 									}else{
 										console.log("No esta en el aula que debe");
 										res.send("ko");

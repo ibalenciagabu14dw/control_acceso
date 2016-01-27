@@ -91,13 +91,16 @@ $(document).ready(function() {
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
-	            var data = $("#formUpdate").serializeArray();
-	            console.log(data);
+	            var formData = new FormData($("#formUpdate")[0]);
+	            console.log(formData);
 	            $.ajax({
 	                url: '/modificarProfesor',
 	                type: 'post',
-	                dataType: 'json',
-	                data: data,
+	                data: formData,
+	                async: false,
+	                cache: false,
+	                contentType: false,
+	                processData: false,
 	                success: function (data) {
 	                }
 	            })

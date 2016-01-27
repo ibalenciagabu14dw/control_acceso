@@ -81,7 +81,7 @@ router.post('/buscarProfesorNombre', function(req,res,next) {
 router.post('/buscarProfesorId', function(req,res,next) {
   var id_profesor = req.body.id_profesor;
  // console.log("id: "+ id_profesor);
-  profesor.buscarProfesorPorId2(id_profesor, function(error,row) {
+  profesor.buscarProfesorPorId(id_profesor, function(error,row) {
     if (error) {
       throw error;
     }else{

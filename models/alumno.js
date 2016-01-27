@@ -250,7 +250,7 @@ alumno.buscarAlumnoPorCorreo = function(correo,callback) {
 /*
 *	BUSCAR el aula en la que tiene que estar por num_tarjeta
 */
-alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
+alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_time,callback) {
 	var day;
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
@@ -267,12 +267,12 @@ alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAulaEnLaQueTieneQueEstar OK');
+				console.log('buscarAulaEnLaQueTieneQueEstarPorTarjeta OK');
 				callback(null,row);
 			}//else
 		});//connection.query
 	}//if
-}//alumno.buscarAulaEnLaQueTieneQueEstar
+}//alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta
 
 /*
 *	BUSCA el aula en la que tiene que estar por id_persona, hora y dia de la semana

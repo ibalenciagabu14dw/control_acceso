@@ -3,9 +3,13 @@ extends layout
 block content
   h1#titulo= title
   h3 Agregar Alumnos
-    form#agregarAlumnoForm.form-group(action='/agregarAlumno', method='post',enctype="multipart/form-data")
+    form#agregarAlumnoForm.form-group()
       label(for='dni') dni
       input#dni.form-control(type='text', name='dni')
+      #mensaje.alert.alert-error.fade.in(style='display: none')
+        a.close(href='#', data-dismiss='alert') ×
+        strong Comprueba!
+        span  Dni ya existente
       br
       label(for='nombre') nombre
       input#nombre.form-control(type='text', name='nombre')
@@ -24,4 +28,6 @@ block content
       br
       button#send.btn.btn-primary(name='send') Enviar
       a#enlace.btn.btn-primary(href='/config/configPersonas') Volver
+  script
+    include ../public/js/agregarAlumno.js
     

@@ -46,7 +46,7 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' action='/updateProfesor' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
+    		var formulario = "<form class='form-group' action='/modificarProfesor' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
     		formulario += "id_profesor: <input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result.id_profesor+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Dni ya existente</span></div>";	    		    		
@@ -105,6 +105,10 @@ $(document).ready(function() {
 	                console.log(data)
 		                if (data.err=="existeDNI"){
 		                showAlert($('#resultado #dni'),"error","dni ya existente");
+		                } else if (data.err=="existeCorreo"){
+		                showAlert($('#resultado #correo'),"error","Correo ya existente");
+		                } else if (data.err=="existeTarjeta"){
+		                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
 		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
 		                }

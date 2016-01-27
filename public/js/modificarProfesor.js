@@ -159,12 +159,12 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarTodasLasAsignaturas (id) {
 		$.ajax({
-			url: '/buscarTodasLasAsignaturas',
+			url: '/buscarTodasLasAsignaturasQueNoImparte',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
 			success:function (data) {
-				//console.log(data);
+				console.log(data);
 				var resp = "";
 				resp += "<table id='asignaturasTodas'>";			
 				for (var i = 0; i < data.length; i++) {

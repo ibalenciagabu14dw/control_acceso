@@ -4,7 +4,43 @@ var profesor = {};
 
 /***********************************************************INSERT*********************************************************/
 
+/*
+* INSERTAR profesor
+*/
+profesor.agregarProfesor = function (dni,nombre,apellidos,correo,password,fotoblob,num_tarjeta,callback) {
+	if(connection){							
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
+		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
+		connection.query(sqlinsertarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+				console.log('agregarProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.agregarProfesor
 
+/*
+* INSERTAR profesor sin foto
+*/
+profesor.agregarProfesorSinFoto = function (dni,nombre,apellidos,correo,password,num_tarjeta,callback) {
+	if(connection){							
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
+		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
+		connection.query(sqlinsertarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+				console.log('agregarProfesorSinFoto OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.agregarProfesorSinFoto
 
 /****************************************************************************************************************************/
 
@@ -310,43 +346,9 @@ profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callba
 
 
 
-/*
-* INSERTAR profesor
-*/
-profesor.agregarProfesor = function (dni,nombre,apellidos,correo,password,fotoblob,num_tarjeta,callback) {
-	if(connection){							
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
-		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
-		connection.query(sqlinsertarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,{dato:"ok"});
-				console.log('agregarProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.agregarProfesor
 
-/*
-* INSERTAR profesor sin foto
-*/
-profesor.agregarProfesorSinFoto = function (dni,nombre,apellidos,correo,password,num_tarjeta,callback) {
-	if(connection){							
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
-		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
-		connection.query(sqlinsertarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,{dato:"ok"});
-				console.log('agregarProfesorSinFoto OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.agregarProfesorSinFoto
+
+
 
 /*
 * UPDATE profesor

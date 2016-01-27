@@ -6,9 +6,9 @@ var multer = require('multer');
 var profesor = require('../models/profesor');
 
 router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
-  horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo(function (error,gru) {
+  horario_grupo.buscarTodosLosHorarioGrupo(function (error,gru) {
     if (error) {
-      console.log("Fallo mostrarTodosLosIdHoraDiaHorarioGrupo");
+      console.log("Fallo buscarTodosLosHorarioGrupo");
       throw error;
     }else{  
         profesor.mostrarTodosLosIdNombreApellidosProfesor(function (error,pro){
@@ -25,7 +25,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function
                     }//else error
         });////. grupo.mostrarTodosLosIdNombreApellidosProfesor
   }//.else
-  });//.mostrarTodosLosIdHoraDiaHorarioGrupo
+  });//.buscarTodosLosHorarioGrupo
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.post('/agregarHorarioProfesor', function(req,res,next){

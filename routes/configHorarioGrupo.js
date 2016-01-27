@@ -44,7 +44,7 @@ router.post('/agregarHorarioGrupo', function(req,res,next){
   var id_grupo = req.body.id_grupo;
   var id_asignatura = req.body.id_asignatura;
   var id_aula = req.body.id_aula;     
-    horario_grupo.buscarHorarioGrupoIgual(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
+    horario_grupo.buscarHorarioGrupoExistente(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
     if (error) {
       res.send({err:'bd'});
       throw error;
@@ -52,17 +52,17 @@ router.post('/agregarHorarioGrupo', function(req,res,next){
         if (row.length>0){
          res.send({err:'existe'});
         } else {
-          horario_grupo.insertarHorarioGrupo(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
+          horario_grupo.agregarHorarioGrupo(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
               if (error) {
                 res.send({err:'bd'});
                 throw error;
               } else{ 
                 res.send(row);
               }//.else
-          });//.horario_grupo.insertarHorarioGrupo
+          });//.horario_grupo.agregarHorarioGrupo
         }//. else if (row.length == 0)
     }//.else
-  });//.horario_grupo.buscarHorarioGrupoIgual
+  });//.horario_grupo.buscarHorarioGrupoExistente
 });//.router.post('/agregarHorarioGrupo', function(req,res,next){
 
 router.post('/buscarHorarioGrupoHorarioProfesor', function(req,res,next) {
@@ -84,7 +84,7 @@ router.post('/updateHorarioGrupo',  function(req,res,next){
   var id_grupo = req.body.grupo;
   var id_asignatura = req.body.asignatura;
   var id_aula = req.body.aula;     
-    horario_grupo.buscarHorarioGrupoIgual(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
+    horario_grupo.buscarHorarioGrupoExistente(dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula, function (error,row) {
     if (error) {
       res.send({err:'bd'});
       throw error;
@@ -102,19 +102,19 @@ router.post('/updateHorarioGrupo',  function(req,res,next){
           });//.horario_grupo.modificarHorarioGrupo
         }//. else if (row.length == 0)
     }//.else
-  });//.horario_grupo.buscarHorarioGrupoIgual
+  });//.horario_grupo.buscarHorarioGrupoExistente
 });//.router.post('/updateHorarioGrupo',  function(req,res,next){
 
 router.post('/buscarHorarioGrupoNombre', function(req,res,next) {
   var nombre = req.body.nombre;
   console.log(req.body);
-  horario_grupo.buscarHorarioGrupoPorNombredelGrupo(nombre, function(error,row) {
+  horario_grupo.buscarHorarioGrupoPorNombre(nombre, function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//horario_grupo.buscarHorarioGrupoPorNombredelGrupo
+  })//horario_grupo.buscarHorarioGrupoPorNombre
 });//router.post('/buscarHorarioGrupoNombre', function(req,res,next) {
 
 router.post('/buscarHorarioGrupoPorId', function(req,res,next) {

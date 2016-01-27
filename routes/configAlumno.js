@@ -18,11 +18,6 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
     var apellidos = req.body.apellidos;
     var correo = req.body.correo;
     var num_tarjeta = req.body.num_tarjeta;
-
-        //buscarAlumnoPorDni
-        //buscarAlumnoPorTarjeta
-        //buscarAlumnoPorCorreo
-
     if (req.file == undefined){
         //agregarAlumnoSinFoto
         alumno.buscarAlumnoPorDni(dni, function (error,row) {
@@ -67,7 +62,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
             }//.else if (error)
         });//.alumno.buscarAlumnoPorDni
     } else {
-        //tratar cuando mandemos la foto
+         //agregarAlumnoConFoto
     }
 });//router.post('/agregarAsignatura
 

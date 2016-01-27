@@ -57,7 +57,48 @@ router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
             }//.else if (error)
         });//.buscarProfesorPorDni
     } else {
-        //tratar cuando mandemos la foto
+        profesor.buscarProfesorPorDni(dni, function (error,row) {
+            if (error) {
+                res.send({err:'bd'});
+                throw error;
+            }else{
+                if(row.length>0){
+                    res.send({err:'existeDNI'});
+                }else{
+                    profesor.buscarProfesorPorCorreo(correo, function (error,row) {
+                        if (error) {
+                            res.send({err:'bd'});
+                            throw error;
+                        }else{
+                            if(row.length>0){
+                                res.send({err:'existeCorreo'});
+                            }else{
+                                profesor.buscarProfesorPorTarjeta(num_tarjeta, function (error,row) {
+                                    if (error) {
+                                        res.send({err:'bd'});
+                                        throw error;
+                                    }else{
+                                        if(row.length>0){
+                                            res.send({err:'existeTarjeta'});
+                                        }else{
+                                            var foto = req.file.buffer;
+                                            profesor.agregarProfesor(dni,nombre,apellidos,correo,password,foto,num_tarjeta, function (error,row) {
+                                                if (error) {
+                                                    res.send({err:'bd'});
+                                                    throw error;
+                                                }else{
+                                                    res.send(row);
+                                                }//else  alumno.agregarAlumnoSinFoto
+                                            });//.alumno.agregarAlumnoSinFoto
+                                        }//.else if(row.length>0) alumno.buscarAlumnoPorTarjeta
+                                    }//.else if (error)
+                                });//.alumno.buscarAlumnoPorTarjeta
+                            }//.else if(row.length>0)alumno.buscarAlumnoPorCorreo
+                        }//.else if (error)
+                    });//.alumno.buscarAlumnoPorCorreo
+                }//.else if(row.length>0) alumno.buscarAlumnoPorDni
+            }//.else if (error)
+        });//.alumno.buscarAlumnoPorDni
     }
 });//router.post('/agregarProfesor')
 

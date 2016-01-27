@@ -8,24 +8,24 @@ var multer = require('multer');
 */
 router.post('/buscarGruposdelAlumno', function(req,res,next) {
   var id_alumno = req.body.id_alumno;
-  grupo.buscarGrupoDelAlumno(id_alumno,function(error,row) {
+  grupo.buscarGruposQuePerteneceUnAlumno(id_alumno,function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//buscarGrupoDelAlumno
+  })//buscarGruposQuePerteneceUnAlumno
 });//.
 
 router.post('/buscarTodosLosGrupos', function(req,res,next) {
   var id_alumno = req.body.id_alumno;
-  grupo.losGruposQueFaltan(id_alumno,function(error,row) {
+  grupo.buscarGruposQueNoPerteneceUnAlumno(id_alumno,function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//losGruposQueFaltan
+  })//buscarGruposQueNoPerteneceUnAlumno
 });//router.post('/buscarTodosLosGrupos', function(req,res,next) {
 
 /*
@@ -71,7 +71,7 @@ router.post('/updateGrupo',  function(req,res,next){
     var id_grupo = req.body.id_grupo;
     var nombre = req.body.nombre;
     var tipo = req.body.tipo;
-          grupo.buscarGrupoPorIdNombre(id_grupo,nombre, function (error,row) {
+          grupo.buscarGrupoPorIdYNombre(id_grupo,nombre, function (error,row) {
             if (error) {
               res.send({err:'bd'});
               throw error;
@@ -109,7 +109,7 @@ router.post('/updateGrupo',  function(req,res,next){
                 });//.grupo.buscarGrupoPorNombre
         }//. else
     }//.else
-  });//.grupo.buscarGrupoPorIdNombre
+  });//.grupo.buscarGrupoPorIdYNombre
 });//router.post('/modificarAsignatura',  function(req,res,next){
 
 router.post('/buscarGrupoNombre', function(req,res,next) {
@@ -147,13 +147,13 @@ router.post('/borrarGrupo', function(req,res,next){
 });//router.post('/borrarGrupo', function(req,res,next){  
 
 router.post('/mostrarTodosLosGruposIdNombre', function(req,res,next){
-  grupo.mostrarTodosLosIdNombreGrupo(function(error,row) {
+  grupo.buscarTodosLosIdYNombreGrupo(function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//.grupo.mostrarTodosLosIdNombreGrupo
+  })//.grupo.buscarTodosLosIdYNombreGrupo
 });//.router.post('/mostrarTodosLosGruposIdNombre', function(req,res,next){
 
 module.exports = router;

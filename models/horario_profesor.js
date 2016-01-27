@@ -134,7 +134,7 @@ horario_profesor.buscarHorarioProfesorPorId = function (id_horario_profesor,call
 			}//.else
 		});//.connection.query
 	}//.if (connection)
-}//.horario_grupo.mostrarTodosLosIdHoraDiaHorarioGrupo
+}//.v.buscarHorarioProfesorPorId
 
 module.exports = horario_profesor;
 

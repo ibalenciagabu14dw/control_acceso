@@ -47,6 +47,42 @@ profesor.agregarProfesorSinFoto = function (dni,nombre,apellidos,correo,password
 /***********************************************************UPDATE***********************************************************/
 
 /*
+* UPDATE profesor
+*/
+profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {
+	if(connection){	
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
+		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
+		connection.query(sqlmodificarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('modificarProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.modificarProfesor
+
+/*
+* UPDATE profesor sin foto
+*/
+profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin,callback) {
+	if(connection){	
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
+		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
+		connection.query(sqlmodificarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('modificarProfesorSinFoto OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.modificarProfesorSinFoto
+
+/*
 * UPDATE presencia profesor
 */
 profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
@@ -83,7 +119,21 @@ profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
 
 /***********************************************************DELETE***********************************************************/
 
-
+/*
+* DELETE profesor
+*/
+profesor.borrarProfesor = function (id,callback) {
+	if(connection){						
+		connection.query('DELETE FROM profesores WHERE id_profesor= "'+id+'"', function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('borrarProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.borrarProfesor
 
 /****************************************************************************************************************************/
 
@@ -350,59 +400,11 @@ profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callba
 
 
 
-/*
-* UPDATE profesor
-*/
-profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {
-	//console.log(foto);
-	if(connection){	
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
-		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
-		connection.query(sqlmodificarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('modificarProfesor OK');
-			}//.else
-		});//.connection.query
-	}
-}//.profesor.modificarProfesor
 
-/*
-* UPDATE profesor sin foto
-*/
-profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin,callback) {
-	//console.log(foto);
-	if(connection){	
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
-		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
-		connection.query(sqlmodificarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('modificarProfesorSinFoto OK');
-			}//.else
-		});//.connection.query
-	}
-}//.profesor.modificarProfesorSinFoto
 
-/*
-* DELETE profesor
-*/
-profesor.borrarProfesor = function (id,callback) {
-	if(connection){						
-		connection.query('DELETE FROM profesores WHERE id_profesor= "'+id+'"', function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('borrarProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.borrarProfesor 
+
+
+
 
 /*
 * BUSCAR todos los id_profesor

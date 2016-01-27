@@ -491,7 +491,7 @@ profesor.buscarAsignaturasQueNoImparte = function (id_profesor,callback){
 	console.log(id_profesor);
 	if(connection){						
 		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
+		connection.query(sqllasAsignaturasQueFaltan, function(error,row){
 		  	if (error) {
 				throw error;
 				console.log(error);
@@ -509,7 +509,7 @@ profesor.buscarAsignaturasQueNoImparte = function (id_profesor,callback){
 profesor.buscarAsignaturasQueNoImparteSegunElTipo = function (id_profesor,tipo,callback){
 	if(connection){						
 		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sql,asignatura, function(error,row){
+		connection.query(sql, function(error,row){
 		  	if (error) {
 				throw error;
 				console.log(error);

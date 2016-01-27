@@ -209,7 +209,7 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,c
 /*
 * UPDATE presencia profesor
 */
-profesor.updatePresenciaProfesor = function (num_tarjeta,callback) {
+profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
 	if(connection){
 		this.presenciaProfesor(num_tarjeta,function (error,data) {
 			if (data[0].presencia == 0) {
@@ -220,7 +220,7 @@ profesor.updatePresenciaProfesor = function (num_tarjeta,callback) {
 						console.log(error);
 					}else{
 						callback(null);
-						console.log('updatePresenciaProfesor OK');
+						console.log('modificarPresenciaProfesor OK');
 					}//.else
 				});//.connection.query
 			}else{
@@ -231,13 +231,13 @@ profesor.updatePresenciaProfesor = function (num_tarjeta,callback) {
 						console.log(error);
 					}else{
 						callback(null);
-						console.log('updatePresenciaProfesor OK');
+						console.log('modificarPresenciaProfesor OK');
 					}//.else
 				});//.connection.query
 			}//.else
 		});//.this.presenciaProfesor
 	}//.if (connection)
-}//.profesor.updatePresenciaProfesor
+}//.profesor.modificarPresenciaProfesor
 
 /*
 * BUSCAR el estado de la presencia del profesor por num_tarjeta

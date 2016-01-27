@@ -46,7 +46,7 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarAlumnoPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
+    		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate'>";
     		formulario += "id_alumno: <input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Dni ya existente</span></div>";	    		
@@ -54,7 +54,7 @@ $(document).ready(function() {
     		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
     		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
     		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"' width='100' height='100'/>";
-    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
+    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control'>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
 			buscarGruposDelAlumno(result.id_alumno);
@@ -85,13 +85,16 @@ $('#resultado').on("click","#btnModificar",function () {
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
-	            var data = $("#formUpdate").serializeArray();
-	            console.log(data);
+	            var formData = new FormData($('#resultado #formUpdate')[0]);
+	            console.log(formData);
 	            $.ajax({
 	                url: '/modificarAlumno',
 	                type: 'post',
-	                dataType: 'json',
-	                data: data,
+	                data: formData,
+	                async: false,
+	                cache: false,
+	                contentType: false,
+	                processData: false,
 	                success: function (data) {
 	                }
 	            })

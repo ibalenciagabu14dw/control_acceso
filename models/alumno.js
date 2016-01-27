@@ -47,9 +47,9 @@ alumno.agregarAlumnoSinFoto = function (dni,nombre,apellidos,correo,num_tarjeta,
 /*
 * UPDATE alumno
 */
-alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
+alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,tarjeta_activada,callback) {
 	if(connection){							
-		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta, presencia: '0' };
 		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
 		connection.query(sqlmodificarAlumno,campos, function(error){
 		  	if (error) {

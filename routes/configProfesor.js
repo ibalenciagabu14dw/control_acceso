@@ -161,6 +161,7 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
     var tarjeta_activada = req.body.tarjeta_activada;
     var num_tarjeta = req.body.num_tarjeta;
     var admin = req.body.admin;
+    var foto = req.file.buffer;
     if(req.file == undefined){
         profesor.buscarProfesorPorIdDniCorreoNum_tarj(id_profesor,dni,correo,num_tarjeta, function(error,row) {
             if (error) {
@@ -250,8 +251,7 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
                                                 if(row.length>0){
                                                     res.send({err:'existeTarjeta'});
                                                 } else {
-                                                    var foto = req.file.buffer;
-                                                    profesor.modificarAlumno(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row){
+                                                    profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row){
                                                         if (error) {
                                                             throw error;
                                                         } else {

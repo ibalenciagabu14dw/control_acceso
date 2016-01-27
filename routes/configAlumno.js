@@ -11,8 +11,6 @@ var alumno_grupos = require('../models/alumno_grupos');
 * INSERTAR alumno
 */
 router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
-    console.log(req.body);
-    console.log(req.file);
     var dni = req.body.dni;
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
@@ -63,6 +61,48 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
         });//.alumno.buscarAlumnoPorDni
     } else {
          //agregarAlumnoConFoto
+        alumno.buscarAlumnoPorDni(dni, function (error,row) {
+            if (error) {
+                res.send({err:'bd'});
+                throw error;
+            }else{
+                if(row.length>0){
+                    res.send({err:'existeDNI'});
+                }else{
+                    alumno.buscarAlumnoPorCorreo(correo, function (error,row) {
+                        if (error) {
+                            res.send({err:'bd'});
+                            throw error;
+                        }else{
+                            if(row.length>0){
+                                res.send({err:'existeCorreo'});
+                            }else{
+                                alumno.buscarAlumnoPorTarjeta(num_tarjeta, function (error,row) {
+                                    if (error) {
+                                        res.send({err:'bd'});
+                                        throw error;
+                                    }else{
+                                        if(row.length>0){
+                                            res.send({err:'existeTarjeta'});
+                                        }else{
+                                            var foto = req.file.buffer;
+                                            alumno.agregarAlumno(dni,nombre,apellidos,correo,foto,num_tarjeta, function (error,row) {
+                                                if (error) {
+                                                    res.send({err:'bd'});
+                                                    throw error;
+                                                }else{
+                                                    res.send(row);
+                                                }//else  alumno.agregarAlumnoSinFoto
+                                            });//.alumno.agregarAlumnoSinFoto
+                                        }//.else if(row.length>0) alumno.buscarAlumnoPorTarjeta
+                                    }//.else if (error)
+                                });//.alumno.buscarAlumnoPorTarjeta
+                            }//.else if(row.length>0)alumno.buscarAlumnoPorCorreo
+                        }//.else if (error)
+                    });//.alumno.buscarAlumnoPorCorreo
+                }//.else if(row.length>0) alumno.buscarAlumnoPorDni
+            }//.else if (error)
+        });//.alumno.buscarAlumnoPorDni
     }
 });//router.post('/agregarAsignatura
 

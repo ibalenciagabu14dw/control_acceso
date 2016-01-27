@@ -345,6 +345,21 @@ alumno.buscarTodosLosIdAlumno = function (callback) {
 	}//if
 }//alumno.buscarTodosLosIdAlumno
 
+alumno.buscarAlumnoPorIdDniCorreoNum_tarj = function(id_alumno,dni,correo,num_tarjeta,callback) {
+	if (connection) {
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE id_alumno = ' + connection.escape(id_alumno)+' and dni = '+ connection.escape(dni)+' and correo = '+ connection.escape(correo)+' and num_tarjeta = '+ connection.escape(num_tarjeta);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarAlumnoPorIdDniCorreoNum_tarj OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
+
 /****************************************************************************************************************************/
 
 module.exports = alumno;

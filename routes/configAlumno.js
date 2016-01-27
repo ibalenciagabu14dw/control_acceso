@@ -127,23 +127,69 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
     var num_tarjeta = req.body.num_tarjeta;
 
     if(req.file == undefined){
-        alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
+        alumno.buscarAlumnoPorIdDniCorreoNum_tarj(id_alumno,dni,correo,num_tarjeta, function(error,row) {
             if (error) {
                 throw error;
             }else{
-                res.send(row);
-            }//else
-        })//alumno.modificarAlumnoSinFoto
-    }else {
-        var foto = req.file.buffer;
-        alumno.modificarAlumno(id_alumno,dni,nombre,apellidos,correo,foto,tarjeta_activada,num_tarjeta, function(error,row) {
-            if (error) {
-                throw error;
-            }else{
-                res.send(row);
-            }//else
-        })//alumno.modificarAlumno
-    }//else
+                if(row.length>0){
+                    alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
+                        if (error) {
+                            throw error;          
+                        }else {
+                            res.send(row);    
+                        }        
+                    })//.alumno.modificarAlumno
+                } else {
+                    alumno.buscarAlumnoPorDni(dni, function(error,row) {
+                        if (error) {
+                            throw error;
+                        } else {
+                            if(row.length>0){
+                                res.send({err:'existeDNI'});
+                            } else {
+                                alumno.buscarAlumnoPorCorreo(correo, function(error,row){
+                                    if (error) {
+                                        throw error;
+                                    } else {
+                                        if(row.length>0){
+                                            res.send({err:'existeCorreo'});
+                                        } else {
+                                            alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
+                                                if (error) {
+                                                   throw error; 
+                                               } else {
+                                                if(row.length>0){
+                                                    res.send({err:'existeTarjeta'});
+                                                } else {
+                                                    alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row){
+                                                        if (error) {
+                                                            throw error;
+                                                        } else {
+                                                            res.send(row); 
+                                                        }//.else if (error) 
+                                                    })//.alumno.modificarAlumnoSinFoto
+                                                }//else if(row.length>0){
+                                               }//.else if (error)
+                                            })//.alumno.buscarAlumnoPorTarjeta
+                                        }//.else if(row.length>0)
+                                    }//.else if (error)
+                                })//.alumno.buscarAlumnoPorCorreo       
+                            }//.else if(row.length>0)
+                        }//.else if (error)
+                    })//.alumno.buscarAlumnoPorDni
+                }//.else if(row.length<0)
+            }//.else if (error)
+        })//.alumno.buscarAlumnoPorIdDniCorreoNum_tarj
+
+
+
+
+
+
+    } else{
+
+    }//.else if(req.file == undefined)
+
 });//router.post('/modificarAlumno
 
 /****************************************************************************************************************************/

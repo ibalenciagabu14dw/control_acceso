@@ -5,21 +5,61 @@ var multer = require('multer');
 
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
-	var dni = req.body.dni;
-	var nombre = req.body.nombre;
-	var apellidos = req.body.apellidos;
-	var correo = req.body.correo;
-	var password = req.body.password;
-	var foto = req.file.buffer;
-	var num_tarjeta = req.body.num_tarjeta;
-	profesor.insertarProfesor(dni,nombre,apellidos,correo,password,foto,num_tarjeta, function (error) {
-		if (error) {
-			throw error;
-		} else{ 
-			//console.log("profesor.insertarProfesor (configFuncionamiento) correctamente");
-		}//.else
-	});//.profesor.insertarProfesor
-});//.router.post('/agregarProfesor', multer({}).single('foto')
+    console.log(req.body);
+    console.log(req.file);
+    var dni = req.body.dni;
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+    var correo = req.body.correo;
+    var password = req.body.password;
+    var num_tarjeta = req.body.num_tarjeta;
+    if (req.file == undefined){
+        //agregarProfesorSinFoto
+        profesor.buscarProfesorPorDni(dni, function (error,row) {
+            if (error) {
+                res.send({err:'bd'});
+                throw error;
+            }else{
+                if(row.length>0){
+                    res.send({err:'existeDNI'});
+                }else{
+                    profesor.buscarProfesorPorCorreo(correo, function (error,row) {
+                        if (error) {
+                            res.send({err:'bd'});
+                            throw error;
+                        }else{
+                            if(row.length>0){
+                                res.send({err:'existeCorreo'});
+                            }else{
+                                profesor.buscarProfesorPorTarjeta(num_tarjeta, function (error,row) {
+                                    if (error) {
+                                        res.send({err:'bd'});
+                                        throw error;
+                                    }else{
+                                        if(row.length>0){
+                                            res.send({err:'existeTarjeta'});
+                                        }else{
+                                            profesor.agregarProfesorSinFoto(dni,nombre,apellidos,correo,password,num_tarjeta, function (error,row) {
+                                                if (error) {
+                                                    res.send({err:'bd'});
+                                                    throw error;
+                                                }else{
+                                                    res.send(row);
+                                                }//else  profesor.agregarProfesorSinFoto
+                                            });//.profesor.agregarProfesorSinFoto
+                                        }//.else if(row.length>0) profesor.buscarProfesorPorTarjeta
+                                    }//.else if (error)
+                                });//.profesor.buscarProfesorPorTarjeta
+                            }//.else if(row.length>0)profesor.buscarProfesorPorCorreo
+                        }//.else if (error)
+                    });//.profesor.buscarProfesorPorCorreo
+                }//.else if(row.length>0) buscarProfesorPorDni
+            }//.else if (error)
+        });//.buscarProfesorPorDni
+    } else {
+        //tratar cuando mandemos la foto
+    }
+});//router.post('/agregarProfesor')
 
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA

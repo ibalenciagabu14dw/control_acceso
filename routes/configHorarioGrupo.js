@@ -2,6 +2,40 @@ var express = require('express');
 var router = express.Router();
 var horario_grupo = require('../models/horario_grupo');
 var multer = require('multer');
+var aula = require('../models/aula');
+var asignatura = require('../models/asignatura');
+var grupo = require('../models/grupo');
+
+router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
+  aula.buscarTodosLosIdYNumero(function (error,aul) {
+    if (error) {
+      console.log("Fallo buscarTodosLosIdYNumero");
+      throw error;
+    }else{  
+    asignatura.buscarTodasLasAsignaturas(function (error,asign) {
+      if (error) {
+        console.log("Fallo buscarTodasLasAsignaturas");
+        throw error;
+      }else{
+        grupo.mostrarTodosLosIdNombreGrupo(function (error,gru){
+                    if (error) {
+                      console.log("Fallo");
+                      throw error;
+                    }else{
+                      //console.log(data);                
+                      //res.send(data);
+                      res.render('agregarHorarioGrupo',{ 
+                      grupo:gru,
+                      asignatura:asign,
+                      aula:aul,
+                      })//.res.render
+                    }//else error
+        });////. grupo.mostrarTodosLosIdNombreGrupo
+      }//.else
+    });//profesor.buscarProfesorPorId
+  }//.else
+  });//.buscarTodosLosIdYNumero
+});//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.post('/agregarHorarioGrupo', function(req,res,next){
   var dia_semana = req.body.dia;

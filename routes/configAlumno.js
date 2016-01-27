@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var alumno = require('../models/alumno');
 var multer = require('multer');
+var convalidadas = require('../models/convalidadas');
+var alumno_grupos = require('../models/alumno_grupos');
 
 /***********************************************************INSERT*********************************************************/
 

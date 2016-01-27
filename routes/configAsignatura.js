@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var asignatura = require('../models/asignatura');
+var profesor = require('../models/profesor');
 
 /***********************************************************INSERT***********************************************************/
 
@@ -189,6 +190,7 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next){
         if (error) {
             throw error;
         }else{
+            console.log(row);
             res.send(row);
         }//else
     })//asignatura.buscarTodasLasAsignaturas

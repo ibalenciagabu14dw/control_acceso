@@ -75,6 +75,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 * UPDATE alumno
 */
 router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
+    console.log(req.body);
     alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
         if (error) {
             throw error;
@@ -126,7 +127,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
     var num_tarjeta = req.body.num_tarjeta;
 
     if(req.file == undefined){
-        alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,tarjeta_activada,num_tarjeta, function(error,row) {
+        alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
             if (error) {
                 throw error;
             }else{

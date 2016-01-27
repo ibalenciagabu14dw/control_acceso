@@ -62,7 +62,7 @@ router.get('/', function(req, res, next) {
 					if (data[0].tarjeta_activada == 0) {
 						res.send("ko");
 					}else{
-						profesor.aulaEnLaQueTieneQueEstar(req.query.idT,curr_time,function (error,data) {
+						profesor.buscarAulaEnLaQueTieneQueEstar(req.query.idT,curr_time,function (error,data) {
 							if (data.length != 0) {
 								if (error) {
 									throw error;
@@ -87,7 +87,7 @@ router.get('/', function(req, res, next) {
 								console.log("No hay aula asociada");
 								res.send("ko");
 							}//else data.length 0
-						});//.profesor.aulaEnLaQueTieneQueEstar
+						});//.profesor.buscarAulaEnLaQueTieneQueEstar
 					}//else TarjetaActivada
 				}else{
 					console.log("No hay datos de persona asociados");

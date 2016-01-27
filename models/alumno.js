@@ -74,7 +74,7 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 				throw error;
 				console.log(error);
 			}else{
-				//callback(null,{dato:"ok"});
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

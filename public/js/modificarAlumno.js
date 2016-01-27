@@ -1,4 +1,35 @@
 $(document).ready(function() {
+
+    //FALTA VALIDAR EL DNI,CORREO,FOTO
+    //METODO DNI
+    //METODO CORREO
+    //TAMAÑO FOTO
+    jQuery.validator.addMethod("dni", function(value, element) {
+        return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
+    });
+
+    //regla correo
+    jQuery.validator.addMethod("correo", function(value, element) {
+        return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value);
+    });
+
+	//reglas
+	var reglas = {
+		dni:{required:true,dni:true},
+        nombre:{required:true},
+		apellidos:{required:true},
+		correo:{required:true,correo:true},
+        num_tarjeta:{required:true},
+	};
+	//mensajes
+	var mensajes = {
+		dni:{required:" Requerido",dni:"introduce un DNI correcto"},
+        nombre:{required:" Requerido"},
+		apellidos:{required:" Requerido"},
+		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
+        num_tarjeta:{required:" Requerido"},
+	};
+
 	
 	//Buscar alumnos al escribir
 	$('#nombre').keyup(function(event) {
@@ -44,6 +75,45 @@ $(document).ready(function() {
     		console.log("error crear formulario");
 		});
 	});//Formulario modificar y borrar
+
+$('#resultado').on("click","#btnModificar",function () {
+		$("#formUpdate").validate({
+	        rules:reglas,
+			messages:mensajes,
+			errorPlacement: function(error,element){
+				element.before(error);
+			},
+	        submitHandler: function (form) {
+	            event.preventDefault();
+	            var data = $("#formUpdate").serializeArray();
+	            console.log(data);
+	            $.ajax({
+	                url: '/modificarAlumno',
+	                type: 'post',
+	                dataType: 'json',
+	                data: data,
+	                success: function (data) {
+	                }
+	            })
+	            .done(function(data) {
+	                console.log(data)
+		                if (data.err=="existeDNI"){
+		                showAlert($('#resultado #dni'),"error","dni ya existente");
+		                }else if (data.dato=="ok"){
+		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
+		                }
+		                console.log("success");
+			            })
+			            .fail(function() {
+	                console.log("error");
+	            })
+	            /*
+	            *   Form Submit Fin
+	            */
+	        }//submitHandler
+	    });//Validate
+	  //$( "#target" ).submit();
+	});
 
 	
 	//Funcion con ajax para recoger datos alumnos y crear tabla
@@ -213,4 +283,16 @@ $(document).ready(function() {
 
 });//ready
 
+function showAlert(lugar,tipo,texto) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+                });
+    }
 

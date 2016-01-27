@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 	}else{
 		curr_time = req.query.time;
 	}//.else
-	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,nombreProfesor,foto,correo) {
+	profesor.buscarProfesorPorId(req.query.idProfesor, function (error,row) {
 		if (error) {
 			console.log("Fallo buscarProfesorPorId");
 			throw error;
@@ -28,12 +28,10 @@ router.get('/', function(req, res, next) {
 										console.log("Fallo");
 										throw error;
 									}else{
-										//console.log(data);
-										//res.send(data);
 										res.render("vistaProfesor",{ 
-										name : nombreProfesor, 
-										image: foto,
-										correo:correo,
+										name : row.nombre, 
+										image: row.foto,
+										correo: row.correo,
 										num_tarjeta:num_tarjetaArray,
 										presencia:presenciaArray,
 										nombre: nombreArray,

@@ -83,6 +83,9 @@ horario_grupo.borrarHorarioGrupo = function (id_horario_grupo,callback) {
 
 /***********************************************************SELECT***********************************************************/
 
+/*
+* BUSCAR horario_grupo por id_horario_grupo
+*/
 horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {							
 	if(connection){	
 		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula FROM horario_grupos WHERE id_horario_grupo = ' + connection.escape(id_horario_grupo);

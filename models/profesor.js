@@ -370,42 +370,22 @@ profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callba
 	}//if
 }//profesor.buscarLosAlumnosDeSuClaseActual
 
+profesor.buscarProfesorPorIdDniCorreoNum_tarj = function(id_profesor,dni,correo,num_tarjeta,callback) {
+	if (connection) {
+		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE id_profesor = ' + connection.escape(id_profesor)+' and dni = '+ connection.escape(dni)+' and correo = '+ connection.escape(correo)+' and num_tarjeta = '+ connection.escape(num_tarjeta);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarProfesorPorIdDniCorreoNum_tarj OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//profesor.buscarProfesorPorIdDniCorreoNum_tarj
+
 /****************************************************************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 * BUSCAR todos los id_profesor
 */
@@ -558,7 +538,5 @@ profesor.buscarAsignaturasQueImparte = function(id_profesor,callback){
 		});//connection.query
 	}//if
 }//profesor.buscarAsignaturasQueImparte
-
-
 
 module.exports = profesor;

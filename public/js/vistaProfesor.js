@@ -46,10 +46,10 @@ $(document).ready(function() {
       autoOpen: false,
       modal:true,
       maxWidth:700,
-      maxHeight: 700,
+      maxHeight: 500,
       width: 'auto',
       fluid: true,
-      position: {my: "center", at:"center", of: window },
+      autoReposition: true,
       show: {
         effect: "blind",
         duration: 1000
@@ -58,13 +58,13 @@ $(document).ready(function() {
         effect: "explode",
         duration: 1000
       }
-    });
-//al clicar en el boton horario abrir el dialog
-	$('#botonHorarioProfesor').click(function() {
-		$( "#horario" ).dialog( "open" );
-    });
+  });
+    //al clicar en el boton horario abrir el dialog
+  $('#botonHorarioProfesor').click(function() {
+		  $( "#horario" ).dialog( "open" );
+   });
 
-  /*
+    /*
     *   Dialog responsive
     */
     $(window).resize(function () {

@@ -231,7 +231,11 @@ $(document).ready(function() {
                         }else{
                             persona += "<td class='presencia1'>";
                         }
-                        persona += nombre+"<br/>"+apellidos+"<br/>"+correo+"<br/>Aula: "+data[0].id_aula;
+                        if (data.error) {
+                            persona += nombre+"<br/>"+apellidos+"<br/>"+correo+"<br/>Aula: "+data.error;
+                        }else{
+                            persona += nombre+"<br/>"+apellidos+"<br/>"+correo+"<br/>Aula: "+data[0].id_aula;
+                        }
                         persona += "</td></tr></table>";
                         persona += "<button id='volverABuscar' class='btn btn-primary'>Volver</button>";
                         $('#buscador').html(persona);

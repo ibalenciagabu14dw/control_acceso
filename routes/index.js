@@ -140,6 +140,7 @@ router.get('/buscarAulaPersona',function(req,res) {
 						if (data2.length != 0) {
 							res.send(data2);
 						}else{
+							res.send({'error':'No tiene clase'});
 							console.log("No hay aula asociada");
 						}
 					}

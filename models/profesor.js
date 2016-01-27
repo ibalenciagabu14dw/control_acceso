@@ -160,23 +160,6 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_t
 	}//if
 }//profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta
 
-/****************************************************************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 * BUSCAR aula en la que tiene que estar el profesor en ese momento por id_profesor
 */
@@ -203,6 +186,25 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,c
 		});
 	}//.if (connection)
 }//.profesor.buscarAulaEnLaQueTieneQueEstarPorId
+
+/****************************************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 * UPDATE presencia profesor

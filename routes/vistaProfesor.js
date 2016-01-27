@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 			console.log("Fallo buscarProfesorPorId");
 			throw error;
 		}else{
-			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,presenciaArray,idTArray,nombreArray,apellidosArray,fotoArray){
+			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
 										throw error;
@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
 										name : nombreProfesor, 
 										image: foto,
 										correo:correo,
-										idT:idTArray,
+										num_tarjeta:num_tarjetaArray,
 										presencia:presenciaArray,
 										nombre: nombreArray,
 										apellidos: apellidosArray,

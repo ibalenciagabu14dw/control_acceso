@@ -21,26 +21,26 @@ router.get('/', function(req, res, next) {
 	}else{
 		curr_time = req.query.time;
 	}//.else
-	alumno.buscarAlumnoPorTarjeta(req.query.idT,function (error,data) {
+	alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta,function (error,data) {
 		if (data.length != 0) {
 			if (data[0].tarjeta_activada == 0) {
 				console.log("Tarjeta no activada");
 				res.send("ko");
 			}else{
-				alumno.buscarAulaEnLaQueTieneQueEstar(req.query.idT,curr_time,function (error,data) {
+				alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta(req.query.num_tarjeta,curr_time,function (error,data) {
 					if (data.length != 0) {
 						if (error) {
 							throw error;
 						}else{
 							if (req.query.room == data[0].id_aula) {
-								alumno.modificarPresenciaDelAlumno(req.query.idT,function (error) {
+								alumno.modificarPresenciaDelAlumno(req.query.num_tarjeta,function (error) {
 									if (error) {
 										res.send("ko");
 										console.log("Fallo update presencia alumno");
 										throw error;
 									}else{
 										//emitir al cliente para cambiar color presencia alumno
-										io.emit('cambiaServidor',req.query.idT);
+										io.emit('cambiaServidor',req.query.num_tarjeta);
 										console.log("Update alumno ok");
 										res.send("ok");
 									}//else error
@@ -54,21 +54,21 @@ router.get('/', function(req, res, next) {
 						console.log("No hay aula asociada");
 						res.send("ko");
 					}//else data length 0
-				});//.alumno.buscarAulaEnLaQueTieneQueEstar
+				});//.alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta
 			}//.else tarjetaActivada
 		}else{//.else no es alumno
-			profesor.buscarProfesorPorTarjeta(req.query.idT,function (error,data) {
+			profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta,function (error,data) {
 				if (data.length != 0) {
 					if (data[0].tarjeta_activada == 0) {
 						res.send("ko");
 					}else{
-						profesor.aulaEnLaQueTieneQueEstar(req.query.idT,curr_time,function (error,data) {
+						profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta(req.query.num_tarjeta,curr_time,function (error,data) {
 							if (data.length != 0) {
 								if (error) {
 									throw error;
 								}else{
 									if (req.query.room == data[0].id_aula) {
-										profesor.updatePresenciaProfesor(req.query.idT,function (error) {
+										profesor.updatePresenciaProfesor(req.query.num_tarjeta,function (error) {
 											if (error) {
 												res.send("ko");
 												console.log("Fallo update presencia profesor");
@@ -87,7 +87,7 @@ router.get('/', function(req, res, next) {
 								console.log("No hay aula asociada");
 								res.send("ko");
 							}//else data.length 0
-						});//.profesor.aulaEnLaQueTieneQueEstar
+						});//.profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta
 					}//else TarjetaActivada
 				}else{
 					console.log("No hay datos de persona asociados");

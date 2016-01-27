@@ -11,20 +11,61 @@ var alumno_grupos = require('../models/alumno_grupos');
 * INSERTAR alumno
 */
 router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
+    console.log(req.body);
+    console.log(req.file);
     var dni = req.body.dni;
-	var nombre = req.body.nombre;
-	var apellidos = req.body.apellidos;
-	var correo = req.body.correo;
-	var foto = req.file.buffer;
-	var num_tarjeta = req.body.num_tarjeta;
-	alumno.agregarAlumno(dni,nombre,apellidos,correo,foto,num_tarjeta, function (error) {
-		if (error) {
-			throw error;
-		}else{ 
-			//console.log("alumno.agregarAlumno (configFuncionamiento) correctamente");
-		}//else
-	});//alumno.agregarAlumno
-});//router.post('/agregarAlumno
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+    var correo = req.body.correo;
+    var num_tarjeta = req.body.num_tarjeta;
+    if (req.file == undefined){
+        //agregarAlumnoSinFoto
+        alumno.buscarAlumnoPorDni(dni, function (error,row) {
+            if (error) {
+                res.send({err:'bd'});
+                throw error;
+            }else{
+                if(row.length>0){
+                    res.send({err:'existeDNI'});
+                }else{
+                    alumno.buscarAlumnoPorCorreo(correo, function (error,row) {
+                        if (error) {
+                            res.send({err:'bd'});
+                            throw error;
+                        }else{
+                            if(row.length>0){
+                                res.send({err:'existeCorreo'});
+                            }else{
+                                alumno.buscarAlumnoPorTarjeta(num_tarjeta, function (error,row) {
+                                    if (error) {
+                                        res.send({err:'bd'});
+                                        throw error;
+                                    }else{
+                                        if(row.length>0){
+                                            res.send({err:'existeTarjeta'});
+                                        }else{
+                                            alumno.agregarAlumnoSinFoto(dni,nombre,apellidos,correo,num_tarjeta, function (error,row) {
+                                                if (error) {
+                                                    res.send({err:'bd'});
+                                                    throw error;
+                                                }else{
+                                                    res.send(row);
+                                                }//else  alumno.agregarAlumnoSinFoto
+                                            });//.alumno.agregarAlumnoSinFoto
+                                        }//.else if(row.length>0) alumno.buscarAlumnoPorTarjeta
+                                    }//.else if (error)
+                                });//.alumno.buscarAlumnoPorTarjeta
+                            }//.else if(row.length>0)alumno.buscarAlumnoPorCorreo
+                        }//.else if (error)
+                    });//.alumno.buscarAlumnoPorCorreo
+                }//.else if(row.length>0) alumno.buscarAlumnoPorDni
+            }//.else if (error)
+        });//.alumno.buscarAlumnoPorDni
+    } else {
+         //agregarAlumnoConFoto
+    }
+});//router.post('/agregarAsignatura
+
 
 /****************************************************************************************************************************/
 

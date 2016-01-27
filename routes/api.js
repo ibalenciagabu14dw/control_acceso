@@ -10,7 +10,7 @@ var asignatura = require('../models/asignatura');
 
 
 router.get('/mostrar/mostrarAlumnoportarjeta', function(req, res, next) {
-	alumno.buscarAlumnoPorTarjeta(req.query.idT, function (error,data) {
+	alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function (error,data) {
 		if (error) {
 			res.send("ko");
 			console.log("Fallo update presencia alumno");

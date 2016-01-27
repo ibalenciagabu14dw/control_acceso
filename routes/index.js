@@ -132,7 +132,7 @@ router.get('/buscarAulaPersona',function(req,res) {
 			if (data.length != 0) {
 				res.send(data);
 			}else{
-				profesor.aulaEnLaQueTieneQueEstarPorId(id,curr_time,function (error,data2) {
+				profesor.buscarAulaEnLaQueTieneQueEstarPorId(id,curr_time,function (error,data2) {
 					if (error) {
 						console.log(error);
 						throw error;
@@ -144,10 +144,10 @@ router.get('/buscarAulaPersona',function(req,res) {
 							console.log("No hay aula asociada");
 						}
 					}
-				})//aulaEnLaQueTieneQueEstarPorId
+				})//buscarAulaEnLaQueTieneQueEstarPorId
 			}//else if no es alumno
 		}
-	});//aulaEnLaQueTieneQueEstarPorId
+	});//buscarAulaEnLaQueTieneQueEstarPorId
 });//buscarAulaPersona
 
 });//router.get('/buscarPerosna')

@@ -16,11 +16,29 @@ alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,ca
 				throw error;
 				console.log(error);
 			}else{
-				console.log('agregarAlumno OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
 }//alumno.agregarAlumno
+
+/*
+* INSERTAR alumno sin foto
+*/
+alumno.agregarAlumnoSinFoto = function (dni,nombre,apellidos,correo,num_tarjeta,callback) {
+	if(connection){							
+		var alumno = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
+		connection.query(sqlagregarAlumno,alumno, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//alumno.agregarAlumnoSinFoto
 
 /****************************************************************************************************************************/
 
@@ -38,7 +56,7 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -56,7 +74,7 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -230,9 +248,9 @@ alumno.buscarAlumnoPorCorreo = function(correo,callback) {
 }//alumno.buscarAlumnoPorCorreo
 
 /*
-*	BUSCA el aula en la que tiene que estar por num_tarjeta
+*	BUSCAR el aula en la que tiene que estar por num_tarjeta
 */
-alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback) {
+alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_time,callback) {
 	var day;
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
@@ -249,12 +267,12 @@ alumno.buscarAulaEnLaQueTieneQueEstar = function (num_tarjeta,curr_time,callback
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAulaEnLaQueTieneQueEstar OK');
+				console.log('buscarAulaEnLaQueTieneQueEstarPorTarjeta OK');
 				callback(null,row);
 			}//else
 		});//connection.query
 	}//if
-}//alumno.buscarAulaEnLaQueTieneQueEstar
+}//alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta
 
 /*
 *	BUSCA el aula en la que tiene que estar por id_persona, hora y dia de la semana
@@ -284,7 +302,7 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callb
 }//alumno.buscarAulaEnLaQueTieneQueEstarPorId
 
 /*
-*	BUSCA la presencia del alumno por num_tarjeta
+*	BUSCAR la presencia del alumno por num_tarjeta
 */
 alumno.buscarPresenciaAlumno = function (num_tarjeta,callback) {
 	if(connection){

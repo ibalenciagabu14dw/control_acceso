@@ -56,6 +56,7 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
+				console.log('modificarAlumno');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -74,6 +75,7 @@ alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tar
 				throw error;
 				console.log(error);
 			}else{
+				console.log('modificarAlumnoSinFoto');				
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -148,9 +150,12 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 				throw error;
 				console.log(error);
 			}else{
-				var foto = row[0].foto.toString('base64');//foto del alumno
+				if(row[0].foto == null){
+					var foto = row[0].foto;
+				} else {
+					var foto = row[0].foto.toString('base64');//foto del alumno	
+				}
 				var row2 = {id_alumno : row[0].id_alumno,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada};
-				console.log('buscarAlumnoPorId OK');
 				callback(null,row2);
 			}//else
 		});//connection.query
@@ -168,7 +173,6 @@ alumno.buscarAlumnoPorDni = function(dni,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorDni OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -186,7 +190,6 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorTarjeta OK');
 				callback(null,row);
 			}//.else
 		});//.connection.query
@@ -204,7 +207,6 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarTodosLosIdAlumno OK');
 				callback(null,row);
 			}//else
 		});//connection.query

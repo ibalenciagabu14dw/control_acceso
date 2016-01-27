@@ -150,7 +150,11 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 				throw error;
 				console.log(error);
 			}else{
-				var foto = row[0].foto.toString('base64');//foto del profesor
+				if(row[0].foto == null){
+					var foto = row[0].foto;
+				} else {
+					var foto = row[0].foto.toString('base64');//foto del alumno	
+				}
 				var row2 = {id_profesor : row[0].id_profesor,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,password : row[0].password,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada,admin : row[0].admin};
 				callback(null,row2);
 				console.log('buscarProfesorPorId OK');

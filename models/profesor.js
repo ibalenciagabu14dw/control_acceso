@@ -4,19 +4,136 @@ var profesor = {};
 
 /***********************************************************INSERT*********************************************************/
 
+/*
+* INSERTAR profesor
+*/
+profesor.agregarProfesor = function (dni,nombre,apellidos,correo,password,fotoblob,num_tarjeta,callback) {
+	if(connection){							
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
+		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
+		connection.query(sqlinsertarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+				console.log('agregarProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.agregarProfesor
 
+/*
+* INSERTAR profesor sin foto
+*/
+profesor.agregarProfesorSinFoto = function (dni,nombre,apellidos,correo,password,num_tarjeta,callback) {
+	if(connection){							
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
+		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
+		connection.query(sqlinsertarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+				console.log('agregarProfesorSinFoto OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.agregarProfesorSinFoto
 
 /****************************************************************************************************************************/
 
 /***********************************************************UPDATE***********************************************************/
 
+/*
+* UPDATE profesor
+*/
+profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {
+	if(connection){	
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
+		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
+		connection.query(sqlmodificarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//profesor.modificarProfesor
 
+/*
+* UPDATE profesor sin foto
+*/
+profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin,callback) {
+	if(connection){	
+		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
+		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
+		connection.query(sqlmodificarProfesor,profesor, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//profesor.modificarProfesorSinFoto
+
+/*
+* UPDATE presencia profesor
+*/
+profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
+	if(connection){
+		this.buscarPresenciaProfesor(num_tarjeta,function (error,data) {
+			if (data[0].presencia == 0) {
+				var sqlUpdate = 'UPDATE profesores SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						callback(null);
+						console.log('modificarPresenciaProfesor OK');
+					}//else
+				});//connection.query
+			}else{
+				var sqlUpdate = 'UPDATE profesores SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
+				connection.query(sqlUpdate,function (error) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						callback(null);
+						console.log('modificarPresenciaProfesor OK');
+					}//else
+				});//connection.query
+			}//else
+		});//this.buscarPresenciaProfesor
+	}//if
+}//profesor.modificarPresenciaProfesor
 
 /****************************************************************************************************************************/
 
 /***********************************************************DELETE***********************************************************/
 
-
+/*
+* DELETE profesor
+*/
+profesor.borrarProfesor = function (id,callback) {
+	if(connection){						
+		connection.query('DELETE FROM profesores WHERE id_profesor= "'+id+'"', function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('borrarProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.borrarProfesor
 
 /****************************************************************************************************************************/
 
@@ -33,7 +150,11 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 				throw error;
 				console.log(error);
 			}else{
-				var foto = row[0].foto.toString('base64');//foto del profesor
+				if(row[0].foto == null){
+					var foto = row[0].foto;
+				} else {
+					var foto = row[0].foto.toString('base64');//foto del alumno	
+				}
 				var row2 = {id_profesor : row[0].id_profesor,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,password : row[0].password,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada,admin : row[0].admin};
 				callback(null,row2);
 				console.log('buscarProfesorPorId OK');
@@ -134,6 +255,24 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 }//profesor.buscarProfesorPorNombre
 
 /*
+* BUSCAR el estado de la presencia del profesor por num_tarjeta
+*/
+profesor.buscarPresenciaProfesor = function (num_tarjeta,callback) {
+	if(connection){	
+		var sqlProfesorPresencia = 'SELECT presencia FROM profesores WHERE num_tarjeta ="'+num_tarjeta+'"';
+		connection.query(sqlProfesorPresencia, function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarPresenciaProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarPresenciaProfesor
+
+/*
 * BUSCAR aula en la que tiene que estar el profesor en ese momento por tarjeta
 */
 profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_time,callback) {
@@ -187,81 +326,10 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,c
 	}//.if (connection)
 }//.profesor.buscarAulaEnLaQueTieneQueEstarPorId
 
-/****************************************************************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-* UPDATE presencia profesor
-*/
-profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
-	if(connection){
-		this.presenciaProfesor(num_tarjeta,function (error,data) {
-			if (data[0].presencia == 0) {
-				var sqlUpdate = 'UPDATE profesores SET presencia = 1 WHERE num_tarjeta ="'+num_tarjeta+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-						console.log(error);
-					}else{
-						callback(null);
-						console.log('modificarPresenciaProfesor OK');
-					}//.else
-				});//.connection.query
-			}else{
-				var sqlUpdate = 'UPDATE profesores SET presencia = 0 WHERE num_tarjeta ="'+num_tarjeta+'"';
-				connection.query(sqlUpdate,function (error) {
-					if (error) {
-						throw error;
-						console.log(error);
-					}else{
-						callback(null);
-						console.log('modificarPresenciaProfesor OK');
-					}//.else
-				});//.connection.query
-			}//.else
-		});//.this.presenciaProfesor
-	}//.if (connection)
-}//.profesor.modificarPresenciaProfesor
-
-/*
-* BUSCAR el estado de la presencia del profesor por num_tarjeta
-*/
-profesor.presenciaProfesor = function (num_tarjeta,callback) {
-	if(connection){	
-		var sqlProfesorPresencia = 'SELECT presencia FROM profesores WHERE num_tarjeta ="'+num_tarjeta+'"';
-		connection.query(sqlProfesorPresencia, function (error,row) {
-			if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,row);
-				console.log('presenciaProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.presenciaProfesor
-
-
 /*
 * BUSCAR los alumnos que deben estar en su clase en ese momento
 */
-profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
+profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 	var day;
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
@@ -269,8 +337,8 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 			console.log(error);
 		}else{
 			day = data;
-		}//.else
-	});//.time.diaDeLaSemana
+		}//else
+	});//time.diaDeLaSemana
 	if (connection) {
 		// sentencia sql original,comentar para hacer pruebas
 		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
@@ -281,7 +349,6 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				//console.log(row);
 				var presenciaArray = [];
 				var num_tarjetaArray = [];
 				var nombreArray = [];
@@ -299,106 +366,30 @@ profesor.losAlumnosDeSuClaseActual = function (idProfesor,curr_time,callback) {
 					nombreArray.push(nombre); 
 					apellidosArray.push(apellidos);
 					fotoArray.push(fotofinal);
-				}//.for (var i= 0;i<row.length;i++)
+				}//for
 				callback(null,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray);
-				console.log('losAlumnosDeSuClaseActual OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.losAlumnosDeSuClaseActual
+				console.log('buscarLosAlumnosDeSuClaseActual OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarLosAlumnosDeSuClaseActual
 
-/*
-* INSERTAR profesor
-*/
-profesor.agregarProfesor = function (dni,nombre,apellidos,correo,password,fotoblob,num_tarjeta,callback) {
-	if(connection){							
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , foto: fotoblob, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
-		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
-		connection.query(sqlinsertarProfesor,profesor, function(error){
-		  if (error) {
+profesor.buscarProfesorPorIdDniCorreoNum_tarj = function(id_profesor,dni,correo,num_tarjeta,callback) {
+	if (connection) {
+		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE id_profesor = ' + connection.escape(id_profesor)+' and dni = '+ connection.escape(dni)+' and correo = '+ connection.escape(correo)+' and num_tarjeta = '+ connection.escape(num_tarjeta);
+		connection.query(sql,function (error,row) {
+			if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				callback(null,{dato:"ok"});
-				console.log('agregarProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.agregarProfesor
+				console.log('buscarProfesorPorIdDniCorreoNum_tarj OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//profesor.buscarProfesorPorIdDniCorreoNum_tarj
 
-/*
-* INSERTAR profesor sin foto
-*/
-profesor.agregarProfesorSinFoto = function (dni,nombre,apellidos,correo,password,num_tarjeta,callback) {
-	if(connection){							
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password: password , tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' , admin: '0' };
-		var sqlinsertarProfesor = 'INSERT INTO profesores SET ?';
-		connection.query(sqlinsertarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,{dato:"ok"});
-				console.log('agregarProfesorSinFoto OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.agregarProfesorSinFoto
-
-/*
-* UPDATE profesor
-*/
-profesor.modificarProfesor = function (id,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin,callback) {
-	//console.log(foto);
-	if(connection){	
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
-		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
-		connection.query(sqlmodificarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('modificarProfesor OK');
-			}//.else
-		});//.connection.query
-	}
-}//.profesor.modificarProfesor
-
-/*
-* UPDATE profesor sin foto
-*/
-profesor.modificarProfesorSinFoto = function (id,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin,callback) {
-	//console.log(foto);
-	if(connection){	
-		var profesor = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , password:password, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta,presencia: '0' , admin: admin};
-		var sqlmodificarProfesor = 'UPDATE profesores SET ? WHERE id_profesor ="'+id+'"';
-		connection.query(sqlmodificarProfesor,profesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('modificarProfesorSinFoto OK');
-			}//.else
-		});//.connection.query
-	}
-}//.profesor.modificarProfesorSinFoto
-
-/*
-* DELETE profesor
-*/
-profesor.borrarProfesor = function (id,callback) {
-	if(connection){						
-		connection.query('DELETE FROM profesores WHERE id_profesor= "'+id+'"', function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('borrarProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.borrarProfesor 
-
+/****************************************************************************************************************************/
 /*
 * BUSCAR todos los id_profesor
 */
@@ -504,7 +495,7 @@ profesor.buscarAsignaturasQueNoImparte = function (id_profesor,callback){
 	console.log(id_profesor);
 	if(connection){						
 		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sqllasAsignaturasQueFaltan,asignatura, function(error,row){
+		connection.query(sqllasAsignaturasQueFaltan, function(error,row){
 		  	if (error) {
 				throw error;
 				console.log(error);
@@ -522,7 +513,7 @@ profesor.buscarAsignaturasQueNoImparte = function (id_profesor,callback){
 profesor.buscarAsignaturasQueNoImparteSegunElTipo = function (id_profesor,tipo,callback){
 	if(connection){						
 		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sql,asignatura, function(error,row){
+		connection.query(sql, function(error,row){
 		  	if (error) {
 				throw error;
 				console.log(error);
@@ -551,7 +542,5 @@ profesor.buscarAsignaturasQueImparte = function(id_profesor,callback){
 		});//connection.query
 	}//if
 }//profesor.buscarAsignaturasQueImparte
-
-
 
 module.exports = profesor;

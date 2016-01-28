@@ -1,4 +1,35 @@
 $(document).ready(function() {
+
+    //FALTA VALIDAR EL DNI,CORREO,FOTO
+    //METODO DNI
+    //METODO CORREO
+    //TAMAÑO FOTO
+    jQuery.validator.addMethod("dni", function(value, element) {
+        return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
+    });
+
+    //regla correo
+    jQuery.validator.addMethod("correo", function(value, element) {
+        return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value);
+    });
+
+	//reglas
+	var reglas = {
+		dni:{required:true,dni:true},
+        nombre:{required:true},
+		apellidos:{required:true},
+		correo:{required:true,correo:true},
+        num_tarjeta:{required:true},
+	};
+	//mensajes
+	var mensajes = {
+		dni:{required:" Requerido",dni:"introduce un DNI correcto"},
+        nombre:{required:" Requerido"},
+		apellidos:{required:" Requerido"},
+		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
+        num_tarjeta:{required:" Requerido"},
+	};
+
 	
 	//Buscar alumnos al escribir
 	$('#nombre').keyup(function(event) {
@@ -15,14 +46,15 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarAlumnoPorId(datos[0].id)
 		.done(function(result) {
-    		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate' method='post' enctype='multipart/form-data'>";
+    		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate'>";
     		formulario += "id_alumno: <input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Dni ya existente</span></div>";	    		
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
     		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
     		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
     		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"' width='100' height='100'/>";
-    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
+    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control'>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
 			buscarGruposDelAlumno(result.id_alumno);
@@ -35,7 +67,7 @@ $(document).ready(function() {
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<button id='btnVolver' class='btn btn-primary'>Volver</button>";
+    		formulario += "&nbsp;<a id='enlace' href='/config/configPersonas' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -43,6 +75,52 @@ $(document).ready(function() {
     		console.log("error crear formulario");
 		});
 	});//Formulario modificar y borrar
+
+$('#resultado').on("click","#btnModificar",function () {
+		$("#formUpdate").validate({
+	        rules:reglas,
+			messages:mensajes,
+			errorPlacement: function(error,element){
+				element.before(error);
+			},
+	        submitHandler: function (form) {
+	            event.preventDefault();
+	            var formData = new FormData($('#resultado #formUpdate')[0]);
+	            console.log(formData);
+	            $.ajax({
+	                url: '/modificarAlumno',
+	                type: 'post',
+	                data: formData,
+	                async: false,
+	                cache: false,
+	                contentType: false,
+	                processData: false,
+	                success: function (data) {
+	                }
+	            })
+	            .done(function(data) {
+	                console.log(data)
+		                if (data.err=="existeDNI"){
+		                showAlert($('#resultado #dni'),"error","dni ya existente");
+		                } else if (data.err=="existeCorreo"){
+		                showAlert($('#resultado #correo'),"error","Correo ya existente");
+		                } else if (data.err=="existeTarjeta"){
+		                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
+		                }else if (data.dato=="ok"){
+		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
+		                }
+		                console.log("success");
+			            })
+			            .fail(function() {
+	                console.log("error");
+	            })
+	            /*
+	            *   Form Submit Fin
+	            */
+	        }//submitHandler
+	    });//Validate
+	  //$( "#target" ).submit();
+	});
 
 	
 	//Funcion con ajax para recoger datos alumnos y crear tabla
@@ -212,4 +290,16 @@ $(document).ready(function() {
 
 });//ready
 
+function showAlert(lugar,tipo,texto) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+                });
+    }
 

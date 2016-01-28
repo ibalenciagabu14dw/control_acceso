@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
 			console.log("Fallo buscarProfesorPorId");
 			throw error;
 		}else{
-			profesor.losAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray){
+			profesor.buscarLosAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray){
 									if (error) {
 										console.log("Fallo");
 										throw error;
@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
 										foto: fotoArray,
 										})//.res.render
 									}//else error
-			});////.profesor.losAlumnosDeSuClaseActual
+			});////.profesor.buscarLosAlumnosDeSuClaseActual
 		}//.else
 	});//profesor.buscarProfesorPorId
 });//.router.get('/', function(req, res, next) {

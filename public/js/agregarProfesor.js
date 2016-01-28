@@ -41,15 +41,17 @@ $(document).ready(function() {
 		},
         submitHandler: function (form) {
             event.preventDefault();
-            var data = $("#agregarProfesorForm").serializeArray();
-            console.log(data);
+            var formData = new FormData($("#agregarProfesorForm")[0]);
+            console.log(formData);
             $.ajax({
                 url: '/agregarProfesor',
                 type: 'post',
-                dataType: 'json',
-                data: data,
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
                 success: function (data) {
-
                 }
             })
             .done(function(data) {

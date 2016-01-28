@@ -10,7 +10,6 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var configFuncionamiento = require('./routes/configFuncionamiento');
 var configAlumno = require('./routes/configAlumno');
 var configAsignatura = require('./routes/configAsignatura');
 var configAula = require('./routes/configAula');
@@ -41,7 +40,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-app.use('/', configFuncionamiento )
 app.use('/', configAlumno);
 app.use('/', configAsignatura);
 app.use('/', configAula);

@@ -47,15 +47,16 @@ alumno.agregarAlumnoSinFoto = function (dni,nombre,apellidos,correo,num_tarjeta,
 /*
 * UPDATE alumno
 */
-alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,callback) {
+alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarjeta,tarjeta_activada,callback) {
 	if(connection){							
-		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sql = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
-		connection.query(sql,campos, function(error){
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo , foto: foto, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		connection.query(sqlmodificarAlumno,campos, function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('modificarAlumno');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -65,15 +66,16 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 /*
 *	UPDATE alumno sin foto
 */
-alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,callback) {
+alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada,callback) {
 	if(connection){							
-		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: '0' , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sql = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
-		connection.query(sql,campos, function(error){
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta, presencia: '0' };
+		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		connection.query(sqlmodificarAlumno,campos, function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('modificarAlumnoSinFoto');				
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -148,9 +150,12 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 				throw error;
 				console.log(error);
 			}else{
-				var foto = row[0].foto.toString('base64');//foto del alumno
+				if(row[0].foto == null){
+					var foto = row[0].foto;
+				} else {
+					var foto = row[0].foto.toString('base64');//foto del alumno	
+				}
 				var row2 = {id_alumno : row[0].id_alumno,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada};
-				console.log('buscarAlumnoPorId OK');
 				callback(null,row2);
 			}//else
 		});//connection.query
@@ -168,7 +173,6 @@ alumno.buscarAlumnoPorDni = function(dni,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorDni OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -186,7 +190,6 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorTarjeta OK');
 				callback(null,row);
 			}//.else
 		});//.connection.query
@@ -204,7 +207,6 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarTodosLosIdAlumno OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -344,6 +346,21 @@ alumno.buscarTodosLosIdAlumno = function (callback) {
 		});//connection.query
 	}//if
 }//alumno.buscarTodosLosIdAlumno
+
+alumno.buscarAlumnoPorIdDniCorreoNum_tarj = function(id_alumno,dni,correo,num_tarjeta,callback) {
+	if (connection) {
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE id_alumno = ' + connection.escape(id_alumno)+' and dni = '+ connection.escape(dni)+' and correo = '+ connection.escape(correo)+' and num_tarjeta = '+ connection.escape(num_tarjeta);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('buscarAlumnoPorIdDniCorreoNum_tarj OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
 
 /****************************************************************************************************************************/
 

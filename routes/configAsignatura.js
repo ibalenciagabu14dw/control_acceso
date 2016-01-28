@@ -128,7 +128,7 @@ router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
 /*
 * BUSCAR asignaturas que NO imparte un profesor por id_profesor
 */
-router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
+router.post('/buscarAsignaturasQueNoImparte', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
         if (error) {
@@ -195,6 +195,18 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next){
         }//else
     })//asignatura.buscarTodasLasAsignaturas
 });//router.post('/buscarTodasLasAsignaturas
+
+router.post('/buscarTodasLasAsignaturasQueNoImparte', function(req,res,next) {
+    var id_profesor = req.body.id_profesor;
+    profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//profesor.buscarAsignaturasQueNoImparteSegunElTipo
+});//router.post('/buscarTodasLasAsignaturasDelTipo
+
 
 /****************************************************************************************************************************/
 

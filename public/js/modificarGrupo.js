@@ -71,7 +71,7 @@ $(document).ready(function() {
 	            var data = $("#formUpdate").serializeArray();
 	            console.log(data);
 	            $.ajax({
-	                url: '/updateGrupo',
+	                url: '/configGrupo/updateGrupo',
 	                type: 'post',
 	                dataType: 'json',
 	                data: data,
@@ -106,7 +106,7 @@ $(document).ready(function() {
 	function buscarGrupos () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarGrupoNombre',
+			url: '/configGrupo/buscarGrupoNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -131,7 +131,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarGrupoId (id) { 
 		return	$.ajax({
-					url: '/buscarGrupoPorId',
+					url: '/configGrupo/buscarGrupoPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_grupo:id },
@@ -152,7 +152,7 @@ $(document).ready(function() {
 		console.log($('#resultado #id_grupo').val());
 		if(confirm("Estas seguro de borrar el grupo?")) {
 			$.ajax({
-				url: '/borrarGrupo',
+				url: '/configGrupo/borrarGrupo',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_grupo':$('#resultado #id_grupo').val()},

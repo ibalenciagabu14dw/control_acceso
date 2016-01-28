@@ -95,7 +95,7 @@ $(document).ready(function() {
 		function mostrarTodasLasAulasIdNumero (id_aula) {
 			var result = id_aula;
 		$.ajax({
-			url: '/mostrarTodosLasAulasIdNumero',
+			url: '/configAula/mostrarTodosLasAulasIdNumero',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
@@ -153,7 +153,7 @@ $(document).ready(function() {
 		function mostrarTodosLosGruposIdNombre (id_grupo) {
 			var result = id_grupo;
 		$.ajax({
-			url: '/mostrarTodosLosGruposIdNombre',
+			url: '/configGrupo/mostrarTodosLosGruposIdNombre',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
@@ -193,7 +193,7 @@ $(document).ready(function() {
 	            var data = $("#formUpdate").serializeArray();
 	            console.log(data);
 	            $.ajax({
-	                url: '/updateHorarioGrupo',
+	                url: '/configHorarioGrupo/updateHorarioGrupo',
 	                type: 'post',
 	                dataType: 'json',
 	                data: data,
@@ -224,7 +224,7 @@ $(document).ready(function() {
 	function buscarHorarioGrupos () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarHorarioGrupoNombre',
+			url: '/configHorarioGrupo/buscarHorarioGrupoNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -249,7 +249,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarHorarioGrupoId (id) { 
 		return	$.ajax({
-					url: '/buscarHorarioGrupoPorId',
+					url: '/configHorarioGrupo/buscarHorarioGrupoPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_horario_grupo:id },
@@ -270,7 +270,7 @@ $(document).ready(function() {
 		console.log($('#resultado #id_horario_grupo').val());
 		if(confirm("Estas seguro de borrar el horario del grupo?")) {
 			$.ajax({
-				url: '/borrarHorarioGrupo',
+				url: '/configHorarioGrupo/borrarHorarioGrupo',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_horario_grupo':$('#resultado #id_horario_grupo').val()},

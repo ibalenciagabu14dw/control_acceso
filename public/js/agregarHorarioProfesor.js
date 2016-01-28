@@ -93,7 +93,7 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
             var data = $("#agregarHorarioProfesorForm").serializeArray();
             //console.log(data);
             $.ajax({
-                url: '/agregarHorarioProfesor',
+                url: '/configHorarioProfesor/agregarHorarioProfesor',
                 type: 'post',
                 dataType: 'json',
                 data: data,

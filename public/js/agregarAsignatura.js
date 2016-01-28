@@ -31,7 +31,7 @@ $(document).ready(function() {
             var data = $("#agregarAsignaturasForm").serializeArray();
             console.log(data);
             $.ajax({
-                url: '/agregarAsignatura',
+                url: '/configAsignatura/agregarAsignatura',
                 type: 'post',
                 dataType: 'json',
                 data: data,

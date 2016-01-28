@@ -57,7 +57,7 @@ $(document).ready(function() {
 	            var data = $("#formUpdate").serializeArray();
 	            console.log(data);
 	            $.ajax({
-	                url: '/updateAula',
+	                url: '/configAula/updateAula',
 	                type: 'post',
 	                dataType: 'json',
 	                data: data,
@@ -92,7 +92,7 @@ $(document).ready(function() {
 	function buscarAulas () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarAulaNumero',
+			url: '/configAula/buscarAulaNumero',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -117,7 +117,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarAulaId (id) { 
 		return	$.ajax({
-					url: '/buscarAulaPorId',
+					url: '/configAula/buscarAulaPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_aula:id },
@@ -137,7 +137,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		if(confirm("Estas seguro de borrar el aula?")) {
 			$.ajax({
-				url: '/borrarAula',
+				url: '/configAula/borrarAula',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_aula':$('#resultado #id_aula').val()},

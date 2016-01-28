@@ -27,7 +27,7 @@ $(document).ready(function() {
             var data = $("#agregarGrupoForm").serializeArray();
             console.log(data);
             $.ajax({
-                url: '/agregarGrupo',
+                url: '/configGrupo/agregarGrupo',
                 type: 'post',
                 dataType: 'json',
                 data: data,

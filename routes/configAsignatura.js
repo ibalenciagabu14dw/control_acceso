@@ -128,15 +128,15 @@ router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
 /*
 * BUSCAR asignaturas que NO imparte un profesor por id_profesor
 */
-router.post('/buscarAsignaturasQueNoImparte', function(req,res,next) {
+router.post('/buscarAsignaturasQueNoImpartePorId', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
-    profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
+    profesor.buscarAsignaturasQueNoImpartePorId(id_profesor,function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//profesor.buscarAsignaturasQueNoImparte
+    })//profesor.buscarAsignaturasQueNoImpartePorId
 });//router.post('/buscarTodasLasAsignaturas
 
 /*
@@ -145,13 +145,13 @@ router.post('/buscarAsignaturasQueNoImparte', function(req,res,next) {
 router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     var tipo = req.body.tipo;
-    profesor.buscarAsignaturasQueNoImparteSegunElTipo(id_profesor,tipo,function(error,row) {
+    profesor.buscarAsignaturasQueNoImpartePorTipo(id_profesor,tipo,function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//profesor.buscarAsignaturasQueNoImparteSegunElTipo
+    })//profesor.buscarAsignaturasQueNoImpartePorTipo
 });//router.post('/buscarTodasLasAsignaturasDelTipo
 
 /*
@@ -196,15 +196,15 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next){
     })//asignatura.buscarTodasLasAsignaturas
 });//router.post('/buscarTodasLasAsignaturas
 
-router.post('/buscarTodasLasAsignaturasQueNoImparte', function(req,res,next) {
+router.post('/buscarAsignaturasQueNoImpartePorId', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
-    profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
+    profesor.buscarAsignaturasQueNoImpartePorId(id_profesor,function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//profesor.buscarAsignaturasQueNoImparteSegunElTipo
+    })//profesor.buscarAsignaturasQueNoImpartePorId
 });//router.post('/buscarTodasLasAsignaturasDelTipo
 
 

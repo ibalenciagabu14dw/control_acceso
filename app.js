@@ -37,6 +37,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+app.use('/configAlumno', configAlumno);
+app.use('/configAsignatura', configAsignatura);
+app.use('/configAula', configAula);
+app.use('/configGrupo', configGrupo);
+app.use('/configProfesor', configProfesor);
+app.use('/configHorarioGrupo', configHorarioGrupo);
+app.use('/configHorarioProfesor', configHorarioProfesor);
+
 app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
 app.use('/presencia', presencia);

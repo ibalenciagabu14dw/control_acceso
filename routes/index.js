@@ -14,39 +14,30 @@ router.post('/login',function(req,res) {
 	var user = req.body.user;
 	var pass = req.body.pass;
 	var admin = req.body.administrador;
-	var curr_time;
-	time.horaActual(function (error,data) {
+	profesor.buscarProfesorPorCorreo(user, function (error,data) {
 		if (error) {
 			throw error;
+		}else if (data.length == 0) {
+			console.log("no existe");
+			res.render('index', { title: 'ControlFid', info: 'Usuario no existe'}); 
 		}else{
-			curr_time = data;
-			console.log(curr_time);
-			profesor.buscarProfesorPorCorreo(user, function (error,data) {
-				if (error) {
-					throw error;
-				}else if (data.length == 0) {
-					console.log("no existe");
-					res.render('index', { title: 'ControlFid', info: 'Usuario no existe'}); 
-				}else{
-					if (pass != data[0].password) {
-						console.log("password incorrecto");
-						res.render('index', { title: 'ControlFid', info: 'Password incorrecto'});
-						//render index with layout password mal
-					}else{
-						req.session.name = data[0].nombre;
-						req.session.id_profesor = data[0].id_profesor;
-						if (admin == undefined) {
-							res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor+'&time='+curr_time);
-						}else if(admin == 1 && data[0].admin == 1){
-							res.redirect('/config');
-						}else if(data[0].admin == 0 && admin == 1){
-							res.render('index', { title: 'ControlFid', info: 'No tienes permiso de administrador'});
-						}			
-					}//.else
-				}//.else
-			});//.profesor.buscarProfesorPorCorreo
-		}//else horaActual
-	});//.time.horaActual
+			if (pass != data[0].password) {
+				console.log("password incorrecto");
+				res.render('index', { title: 'ControlFid', info: 'Password incorrecto'});
+				//render index with layout password mal
+			}else{
+				req.session.name = data[0].nombre;
+				req.session.id_profesor = data[0].id_profesor;
+				if (admin == undefined) {
+					res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor);
+				}else if(admin == 1 && data[0].admin == 1){
+					res.redirect('/config');
+				}else if(data[0].admin == 0 && admin == 1){
+					res.render('index', { title: 'ControlFid', info: 'No tienes permiso de administrador'});
+				}			
+			}//.else
+		}//.else
+	});//.profesor.buscarProfesorPorCorreo
 });//.router.post('/login',function(req,res)
 
 /* Buscar personas */

@@ -5,9 +5,9 @@ var time = require("../models/time");
 
 /* GET vista del profesor page. */
 router.get('/', function(req, res, next) {
-	if (req.query.idProfesor != req.session.id_profesor) {
+	/*if (req.query.idProfesor != req.session.id_profesor) {
 		res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
-	};
+	};*/
 	var curr_time;
 	if (req.query.time == undefined) {
 		time.horaActual(function (error,data) {

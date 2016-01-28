@@ -467,13 +467,14 @@ profesor.buscarProfesorPorIdAulaEnUnaHora = function (id_aula,curr_time,callback
 		}//else
 	});//time.diaDeLaSemana
 	if (connection) {
-		var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=' + connection.escape(id_aula)+' AND dia_semana="'+day+'"  AND ('+ connection.escape(curr_time)+' between hora_inicio AND hora_final))';		
+		//var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=' + connection.escape(id_aula)+' AND dia_semana="'+day+'"  AND ('+ connection.escape(curr_time)+' between hora_inicio AND hora_final))';		
+		var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=9 AND dia_semana="Lunes"  AND ("08:00:05" between hora_inicio AND hora_final))';				
+		//para pruebas
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
 				//console.log('buscarProfesorPorIdAulaEnUnaHora OK');
 				callback(null,row);
 			}//else

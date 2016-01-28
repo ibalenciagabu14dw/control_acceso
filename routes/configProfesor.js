@@ -307,10 +307,13 @@ router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
             if (error) {
               throw error;
             }else{
-              //console.log(row);
-              //console.log(row[0].id_profesor);
-              //res.send(row);
-              res.redirect('/vistaProfesor?idProfesor='+row[0].id_profesor+'&time='+curr_time);
+              console.log(row);
+                if(row.length>0){
+                    res.send(row);
+                } else{
+                   console.log("no hay profesor en esta aula a esta hora " + curr_time); 
+                }
+              
             }
           })//buscarProfesorPorIdAulaEnUnaHora
 });//router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){

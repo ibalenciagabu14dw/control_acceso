@@ -11,8 +11,9 @@ $(document).ready(function() {
 				}//success
 			})//ajax
 			.done(function(data) {
-				console.log(data);
+				var JSONObject = JSON.parse(data);
 				console.log("success");
+				window.location.replace('/vistaProfesor?idProfesor='+JSONObject[0].id_profesor);
 			})//done
 			.fail(function() {
 				console.log("error");

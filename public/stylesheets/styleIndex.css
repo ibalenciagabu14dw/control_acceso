@@ -39,6 +39,15 @@ body {
 	padding-right: 50px;
 	margin-bottom: 50px;
 }
+#administrador{
+  width: 20px;
+  float:left;
+}
+#labelAdministrador{
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 
 @media only screen and (max-width: 800px) and (orientation:portrait) {
   body {
@@ -67,6 +76,11 @@ body {
   }
   html{
     height: 100%;
+  }
+  #labelAdministrador{
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
   }
 
 }

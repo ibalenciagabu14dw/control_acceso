@@ -168,12 +168,17 @@ $(document).ready(function() {
   */
   $('#exit').click(function(event) {
     $.ajax({
-      url: '/destruirSesion',
+      url: '/logout',
       type: 'post',
       dataType: 'json',
+      success:function (data) {
+        if (data.result == 'ok') {
+          window.location.href("/");
+        };
+      }
     })
     .done(function() {
-      console.log("success");
+      console.log("Session destroyed");
     })
     .fail(function() {
       console.log("error");

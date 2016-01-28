@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 router.post('/login',function(req,res) {
 	var user = req.body.user;
 	var pass = req.body.pass;
+	var admin = req.body.administrador;
 	var curr_time;
 	time.horaActual(function (error,data) {
 		if (error) {
@@ -33,14 +34,14 @@ router.post('/login',function(req,res) {
 						//render index with layout password mal
 					}else{
 						req.session.name = data[0].nombre;
-						req.session.id = data[0].id_profesor;
-						if (data[0].admin == 0) {
+						req.session.id_profesor = data[0].id_profesor;
+						if (admin == undefined) {
 							res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor+'&time='+curr_time);
-						}else{
-							req.session.name = data[0].nombre;
-							req.session.id = data[0].id_profesor;
+						}else if(admin == 1 && data[0].admin == 1){
 							res.redirect('/config');
-						}				
+						}else if(data[0].admin == 0 && admin == 1){
+							res.render('index', { title: 'ControlFid', info: 'No tienes permiso de administrador'});
+						}			
 					}//.else
 				}//.else
 			});//.profesor.buscarProfesorPorCorreo
@@ -115,6 +116,7 @@ router.get('/buscarPersona',function(req,res) {
 			}//else error
 		})//buscarAlumnoPorCorreo
 	}//else correo == 0
+});//router.get('/buscarPerosna')
 
 /*Buscar aula de la persona a buscar*/
 router.get('/buscarAulaPersona',function(req,res) {
@@ -153,6 +155,17 @@ router.get('/buscarAulaPersona',function(req,res) {
 	});//buscarAulaEnLaQueTieneQueEstarPorId
 });//buscarAulaPersona
 
-});//router.get('/buscarPerosna')
+/*logout*/
+router.post('/logout',function(req,res) {
+	if (req.session) {
+        req.session.destroy(function(err){
+        	if(err){
+            	console.log(err);
+        	}else{
+        		res.send({'result':'ok'});
+        	}
+		});
+	}
+});//Logout
 
 module.exports = router;

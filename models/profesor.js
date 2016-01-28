@@ -140,6 +140,23 @@ profesor.borrarProfesor = function (id,callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
+* BUSCAR todos los nombre y apellido de todos los profesores
+*/
+profesor.mostrarTodosLosIdNombreApellidosProfesor = function (callback) {
+	if(connection){						
+		connection.query('SELECT id_profesor,nombre,apellidos FROM profesores', function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('mostrarTodosLosIdNombreApellidosProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.mostrarTodosLosIdNombreApellidosProfesor
+
+/*
 * BUSCAR profesor por id_profesor
 */
 profesor.buscarProfesorPorId = function(id_profesor,callback){
@@ -253,6 +270,32 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 		});//connection.query
 	}//if
 }//profesor.buscarProfesorPorNombre
+
+/*
+* BUSCAR todos los id_profesor
+*/
+profesor.buscarTodosLosIdProfesor = function (callback) {
+	if(connection){						
+		connection.query('SELECT id_profesor FROM profesores', function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				var id_profesorArray = [];
+				for (var i= 0;i<row.length;i++){
+					var id = row[i].id_profesor;
+					id_profesorArray.push(id);
+				}//for
+				function compareNumbers(a, b) {
+					return a - b;
+				} 
+				id_profesorArray.sort(compareNumbers);
+				callback(null,id_profesorArray);
+				console.log('buscarTodosLosIdProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarTodosLosIdProfesor
 
 /*
 * BUSCAR el estado de la presencia del profesor por num_tarjeta
@@ -374,6 +417,9 @@ profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callba
 	}//if
 }//profesor.buscarLosAlumnosDeSuClaseActual
 
+/*
+* BUSCAR profesor por id_profesor, dni, correo y num_tarjeta
+*/
 profesor.buscarProfesorPorIdDniCorreoNum_tarj = function(id_profesor,dni,correo,num_tarjeta,callback) {
 	if (connection) {
 		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,foto,presencia FROM profesores WHERE id_profesor = ' + connection.escape(id_profesor)+' and dni = '+ connection.escape(dni)+' and correo = '+ connection.escape(correo)+' and num_tarjeta = '+ connection.escape(num_tarjeta);
@@ -389,7 +435,27 @@ profesor.buscarProfesorPorIdDniCorreoNum_tarj = function(id_profesor,dni,correo,
 	};//if
 }//profesor.buscarProfesorPorIdDniCorreoNum_tarj
 
+/*
+* BUSCAR el horario del profesor por correo
+*/
+profesor.buscarHorarioProfesorPorCorreo = function(correo,callback) {
+	if (connection) {
+		var sql = 'SELECT p.dia_semana, p.hora_inicio, p.hora_final, a.numero, s.nombre, g.nombre_grupo FROM horario_profesores p LEFT JOIN horario_grupos r ON (p.id_horario_grupo = r.id_horario_grupo) INNER JOIN asignaturas s ON (r.id_asignatura = s.id_asignatura) INNER JOIN grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas a ON (r.id_aula = a.id_aula) WHERE p.id_profesor =(SELECT id_profesor FROM profesores WHERE correo ="'+correo+'")';
+		connection.query(sql, function(error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarHorarioProfesorPorCorreo OK');
+			}//else
+		})//connection.query
+	}//if
+}//profesor.buscarHorarioProfesorPorCorreo
 
+/*
+* BUSCAR el id_profesor del profesor que deberia estar en una aula a una hora concreta
+*/
 profesor.buscarProfesorPorIdAulaEnUnaHora = function (id_aula,curr_time,callback){
 	var day;
 	time.diaDeLaSemana(function (error,data) {
@@ -416,51 +482,9 @@ profesor.buscarProfesorPorIdAulaEnUnaHora = function (id_aula,curr_time,callback
 }//profesor.buscarProfesorPorIdAulaEnUnaHora
 
 /****************************************************************************************************************************/
-/*
-* BUSCAR todos los id_profesor
-*/
-profesor.mostrarTodosLosIdProfesor = function (callback) {
-	if(connection){						
-		connection.query('SELECT id_profesor FROM profesores', function(error,row){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				var id_profesorArray = [];
-				for (var i= 0;i<row.length;i++){
-						var id = row[i].id_profesor;
-						id_profesorArray.push(id);
-					}//.for (var i= 0;i<row.length;i++)
-						function compareNumbers(a, b) {
-						  return a - b;
-						} 
-						id_profesorArray.sort(compareNumbers);
-					callback(null,id_profesorArray);
-					console.log('mostrarTodosLosIdProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.mostrarTodosLosIdProfesor 
 
-/*
-* BUSCAR el horario del profesor por correo
-*/
-profesor.horarioProfesorCompleto = function(correo,callback) {
-	if (connection) {
-		var sql = 'SELECT p.dia_semana, p.hora_inicio, p.hora_final, a.numero, s.nombre, g.nombre_grupo FROM horario_profesores p LEFT JOIN horario_grupos r ON (p.id_horario_grupo = r.id_horario_grupo) INNER JOIN asignaturas s ON (r.id_asignatura = s.id_asignatura) INNER JOIN grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas a ON (r.id_aula = a.id_aula) WHERE p.id_profesor =(SELECT id_profesor FROM profesores WHERE correo ="'+correo+'")';
-		connection.query(sql, function(error,row) {
-			if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,row);
-				console.log('horarioProfesorCompleto OK');
-			}
-		})//connection.query
-	}else{
 
-	}//if connection
-}//horarioProfesorCompleto
+
 
 /*
 * BUSCAR profesor por num_tarjeta
@@ -497,22 +521,7 @@ profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {
 	}//.if (connection)
 }//.profesor.borrarAsignaturasProfesor
 
-/*
-* BUSCAR todos los nombre y apellido
-*/
-profesor.mostrarTodosLosIdNombreApellidosProfesor = function (callback) {
-	if(connection){						
-		connection.query('SELECT id_profesor,nombre,apellidos FROM profesores', function(error,row){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-					callback(null,row);
-					console.log('mostrarTodosLosIdNombreApellidosProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.mostrarTodosLosIdNombreApellidosProfesor 
+
 
 /*
 *	BUSCAR las asignaturas que no imparte un profesor

@@ -52,13 +52,13 @@ router.get('/', function(req, res, next) {
 */
 router.get('/horarioProfesor', function(req,res,next) {
 	var correo = req.query.correo;
-	profesor.horarioProfesorCompleto(correo, function(error,row) {
+	profesor.buscarHorarioProfesorPorCorreo(correo, function(error,row) {
 		if (error) {
 			throw error;
 		}else{
 			res.send(row);
 		}
-	})//horarioProfesorCompleto
+	})//buscarHorarioProfesorPorCorreo
 });//get /horarioProfesor
 
 module.exports = router;

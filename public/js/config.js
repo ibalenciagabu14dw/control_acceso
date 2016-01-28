@@ -3,7 +3,7 @@ $(document).ready(function() {
       //alert($(this).attr("id"));
       event.preventDefault();
 			$.ajax({
-				url: '/buscarProfesorPorIdAulaEnUnaHora',
+				url: '/configProfesor/buscarProfesorPorIdAulaEnUnaHora',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_aula':$(this).attr("id")},

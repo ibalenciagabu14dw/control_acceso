@@ -95,7 +95,7 @@ $(document).ready(function() {
 		function mostrarTodosLosProfesoresIdNombreApellidos (id_profesor) {
 			var result = id_profesor;
 		$.ajax({
-			url: '/configHorarioProfesor/mostrarTodosLosProfesoresIdNombreApellidos',
+			url: '/configProfesor/mostrarTodosLosProfesoresIdNombreApellidos',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {

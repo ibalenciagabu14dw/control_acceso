@@ -8,7 +8,7 @@ var profesor = require('../models/profesor');
 /*
 * INSERT asignatura
 */
-router.post('/configAsignatura/agregarAsignatura', function(req,res,next){
+router.post('/agregarAsignatura', function(req,res,next){
 	console.log(req.body);
 	var nombre = req.body.nombre;
   	var clave = req.body.clave;
@@ -43,7 +43,7 @@ router.post('/configAsignatura/agregarAsignatura', function(req,res,next){
 /*
 * UPDATE asignatura
 */
-router.post('/configAsignatura/modificarAsignatura',  function(req,res,next){
+router.post('/modificarAsignatura',  function(req,res,next){
     var id_asignatura = req.body.id_asignatura;
     var nombre = req.body.nombre;
     var clave = req.body.clave;
@@ -96,7 +96,7 @@ router.post('/configAsignatura/modificarAsignatura',  function(req,res,next){
 /*
 * DELETE asignatura
 */
-router.post('/configAsignatura/borrarAsignatura', function(req,res,next){
+router.post('/borrarAsignatura', function(req,res,next){
     var id_asignatura = req.body.id_asignatura;
     asignatura.borrarAsigntura(id_asignatura, function(error,row) {
         if (error) {
@@ -114,7 +114,7 @@ router.post('/configAsignatura/borrarAsignatura', function(req,res,next){
 /*
 * BUSCAR asignaturas que imparte un profesor por id_profesor
 */
-router.post('/configAsignatura/buscarAsignaturasQueImparte', function(req,res,next) {
+router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     profesor.buscarAsignaturasQueImparte(id_profesor,function(error,row) {
         if (error) {
@@ -128,7 +128,7 @@ router.post('/configAsignatura/buscarAsignaturasQueImparte', function(req,res,ne
 /*
 * BUSCAR asignaturas que NO imparte un profesor por id_profesor
 */
-router.post('/configAsignatura/buscarAsignaturasQueNoImparte', function(req,res,next) {
+router.post('/buscarAsignaturasQueNoImparte', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
         if (error) {
@@ -142,7 +142,7 @@ router.post('/configAsignatura/buscarAsignaturasQueNoImparte', function(req,res,
 /*
 * BUSCAR asignaturas que NO imparte un profesor por tipo
 */
-router.post('/configAsignatura/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
+router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     var tipo = req.body.tipo;
     profesor.buscarAsignaturasQueNoImparteSegunElTipo(id_profesor,tipo,function(error,row) {
@@ -157,7 +157,7 @@ router.post('/configAsignatura/buscarTodasLasAsignaturasDelTipo', function(req,r
 /*
 * BUSCAR asignaturas por nombre
 */
-router.post('/configAsignatura/buscarAsignaturaNombre', function(req,res,next) {
+router.post('/buscarAsignaturaNombre', function(req,res,next) {
     var nombre = req.body.nombre;
     asignatura.buscarAsignaturaPorNombre(nombre, function(error,row) {
         if (error) {
@@ -171,7 +171,7 @@ router.post('/configAsignatura/buscarAsignaturaNombre', function(req,res,next) {
 /*
 * BUSCAR asignaturas por id_asignatura
 */
-router.post('/configAsignatura/buscarAsignaturaPorId', function(req,res,next) {
+router.post('/buscarAsignaturaPorId', function(req,res,next) {
     var id_asignatura = req.body.id_asignatura;
     asignatura.buscarAsignaturaPorId(id_asignatura, function(error,row) {
         if (error) {
@@ -185,7 +185,7 @@ router.post('/configAsignatura/buscarAsignaturaPorId', function(req,res,next) {
 /*
 * BUSCAR todas las asignaturas
 */
-router.post('/configAsignatura/buscarTodasLasAsignaturas', function(req,res,next){
+router.post('/buscarTodasLasAsignaturas', function(req,res,next){
     asignatura.buscarTodasLasAsignaturas(function(error,row) {
         if (error) {
             throw error;
@@ -196,7 +196,7 @@ router.post('/configAsignatura/buscarTodasLasAsignaturas', function(req,res,next
     })//asignatura.buscarTodasLasAsignaturas
 });//router.post('/buscarTodasLasAsignaturas
 
-router.post('/configAsignatura/buscarTodasLasAsignaturasQueNoImparte', function(req,res,next) {
+router.post('/buscarTodasLasAsignaturasQueNoImparte', function(req,res,next) {
     var id_profesor = req.body.id_profesor;
     profesor.buscarAsignaturasQueNoImparte(id_profesor,function(error,row) {
         if (error) {

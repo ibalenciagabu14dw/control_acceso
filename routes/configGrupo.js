@@ -6,7 +6,7 @@ var multer = require('multer');
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/configGrupo/buscarGruposdelAlumno', function(req,res,next) {
+router.post('/buscarGruposdelAlumno', function(req,res,next) {
   var id_alumno = req.body.id_alumno;
   grupo.buscarGruposQuePerteneceUnAlumno(id_alumno,function(error,row) {
     if (error) {
@@ -17,7 +17,7 @@ router.post('/configGrupo/buscarGruposdelAlumno', function(req,res,next) {
   })//buscarGruposQuePerteneceUnAlumno
 });//.
 
-router.post('/configGrupo/buscarTodosLosGrupos', function(req,res,next) {
+router.post('/buscarTodosLosGrupos', function(req,res,next) {
   var id_alumno = req.body.id_alumno;
   grupo.buscarGruposQueNoPerteneceUnAlumno(id_alumno,function(error,row) {
     if (error) {
@@ -31,7 +31,7 @@ router.post('/configGrupo/buscarTodosLosGrupos', function(req,res,next) {
 /*
 * devuelve el id del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/configGrupo/buscarAsignaturasDelGrupo', function(req,res,next) {
+router.post('/buscarAsignaturasDelGrupo', function(req,res,next) {
   var id_grupo = req.body.id_grupo;
   grupo.buscarAsignaturasDeUnGrupo(id_grupo, function(error,row) {
     if (error) {
@@ -43,7 +43,7 @@ router.post('/configGrupo/buscarAsignaturasDelGrupo', function(req,res,next) {
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
 /* POST agregar grupo page. */
-router.post('/configGrupo/agregarGrupo', function(req,res,next){
+router.post('/agregarGrupo', function(req,res,next){
   var nombre = req.body.nombre;
   var tipo = req.body.tipo;
     grupo.buscarGrupoPorNombre(nombre, function (error,row) {
@@ -67,7 +67,7 @@ router.post('/configGrupo/agregarGrupo', function(req,res,next){
   });//.grupo.buscarGrupoPorNombre
 });//.router.post('/agregarGrupo', function(req,res,next){
 
-router.post('/configGrupo/updateGrupo',  function(req,res,next){
+router.post('/updateGrupo',  function(req,res,next){
     var id_grupo = req.body.id_grupo;
     var nombre = req.body.nombre;
     var tipo = req.body.tipo;
@@ -112,7 +112,7 @@ router.post('/configGrupo/updateGrupo',  function(req,res,next){
   });//.grupo.buscarGrupoPorIdYNombre
 });//router.post('/modificarAsignatura',  function(req,res,next){
 
-router.post('/configGrupo/buscarGrupoNombre', function(req,res,next) {
+router.post('/buscarGrupoNombre', function(req,res,next) {
   var nombre = req.body.nombre;
   grupo.buscarGrupoPorNombre(nombre, function(error,row) {
     if (error) {
@@ -123,7 +123,7 @@ router.post('/configGrupo/buscarGrupoNombre', function(req,res,next) {
   })//grupo.buscarGrupoPorNombre
 });//router.post('/buscarGrupoNombre', function(req,res,next) {
 
-router.post('/configGrupo/buscarGrupoPorId', function(req,res,next) {
+router.post('/buscarGrupoPorId', function(req,res,next) {
   var id_grupo = req.body.id_grupo;
   grupo.buscarGrupoPorId(id_grupo, function(error,row) {
     if (error) {
@@ -134,7 +134,7 @@ router.post('/configGrupo/buscarGrupoPorId', function(req,res,next) {
   })//grupo.buscarGrupoPorId
 });//router.post('/buscarGrupoPorId', function(req,res,next) {
 
-router.post('/configGrupo/borrarGrupo', function(req,res,next){
+router.post('/borrarGrupo', function(req,res,next){
   var id_grupo = req.body.id_grupo;
   grupo.borrarGrupo(id_grupo, function(error,row) {
     if (error) {
@@ -146,7 +146,7 @@ router.post('/configGrupo/borrarGrupo', function(req,res,next){
   })//borrarGrupo
 });//router.post('/borrarGrupo', function(req,res,next){  
 
-router.post('/configGrupo/mostrarTodosLosGruposIdNombre', function(req,res,next){
+router.post('/mostrarTodosLosGruposIdNombre', function(req,res,next){
   grupo.buscarTodosLosIdYNombreGrupo(function(error,row) {
     if (error) {
       throw error;

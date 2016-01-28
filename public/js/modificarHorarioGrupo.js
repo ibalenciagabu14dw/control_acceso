@@ -121,7 +121,7 @@ $(document).ready(function() {
 		})//fail
 	}//function buscarAsignaturas
 
-		function mostrarTodosLasAsignaturasIdNombre (id_asignatura) {
+		function mostrarTodosLasAsignaturasIdNombre (id_asignatura) {//FALTA EL POST
 			var result = id_asignatura;
 		$.ajax({
 			url: '/mostrarTodosLasAsignaturasIdNombre',

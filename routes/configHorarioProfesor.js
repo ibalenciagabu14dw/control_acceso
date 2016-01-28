@@ -28,7 +28,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function
   });//.buscarTodosLosHorarioGrupo
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
-router.post('/configHorarioProfesor/agregarHorarioProfesor', function(req,res,next){
+router.post('/agregarHorarioProfesor', function(req,res,next){
   var dia_semana = req.body.dia;
   var hora_inicio = req.body.hora_inicio;
   var hora_final = req.body.hora_final;
@@ -56,7 +56,7 @@ router.post('/configHorarioProfesor/agregarHorarioProfesor', function(req,res,ne
 });//.router.post('/agregarHorarioProfesor', function(req,res,next){
 
 
-router.post('/configHorarioProfesor/updateHorarioProfesor',  function(req,res,next){
+router.post('/updateHorarioProfesor',  function(req,res,next){
   var dia_semana = req.body.dia;
   var hora_inicio = req.body.hora_inicio;
   var hora_final = req.body.hora_final;
@@ -84,7 +84,7 @@ router.post('/configHorarioProfesor/updateHorarioProfesor',  function(req,res,ne
   });//.horario_profesor.buscarHorarioProfesorExistente
 });//.router.post('/updateHorarioProfesor',  function(req,res,next){
 
-router.post('/configHorarioProfesor/buscarHorarioProfesorNombre', function(req,res,next) {
+router.post('/buscarHorarioProfesorNombre', function(req,res,next) {
   var nombre = req.body.nombre;
   horario_profesor.buscarHorarioProfesorPorNombre(nombre, function(error,row) {
     if (error) {
@@ -95,7 +95,7 @@ router.post('/configHorarioProfesor/buscarHorarioProfesorNombre', function(req,r
   })//horario_profesor.buscarHorarioProfesorPorNombre
 });//router.post('/buscarHorarioGrupoNombre', function(req,res,next) {
 
-router.post('/configHorarioProfesor/buscarHorarioProfesorPorId', function(req,res,next) {
+router.post('/buscarHorarioProfesorPorId', function(req,res,next) {
   var id_horario_profesor = req.body.id_horario_profesor;
   horario_profesor.buscarHorarioProfesorPorId(id_horario_profesor, function(error,row) {
     if (error) {
@@ -106,7 +106,7 @@ router.post('/configHorarioProfesor/buscarHorarioProfesorPorId', function(req,re
   })//grupo.buscarGrupoPorId
 });//router.post('/buscarGrupoPorId', function(req,res,next) {
 
-router.post('/configHorarioProfesor/borrarHorarioProfesor', function(req,res,next){
+router.post('/borrarHorarioProfesor', function(req,res,next){
   var id_horario_profesor = req.body.id_horario_profesor;
   horario_profesor.borrarHorarioProfesor(id_horario_profesor, function(error,row) {
     if (error) {
@@ -118,7 +118,7 @@ router.post('/configHorarioProfesor/borrarHorarioProfesor', function(req,res,nex
   })//borrarGrupo
 });//router.post('/borrarGrupo', function(req,res,next){
 
-router.post('/configHorarioProfesor/mostrarTodosLosProfesoresIdNombreApellidos', function(req,res,next){
+router.post('/mostrarTodosLosProfesoresIdNombreApellidos', function(req,res,next){
   profesor.mostrarTodosLosIdNombreApellidosProfesor(function(error,row) {
     if (error) {
       throw error;

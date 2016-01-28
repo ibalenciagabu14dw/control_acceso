@@ -5,7 +5,7 @@ var multer = require('multer');
 var time = require("../models/time");
 
 /* POST agregar profesor page. */
-router.post('/configProfesor/agregarProfesor', multer({}).single('foto'), function(req,res){
+router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
     var dni = req.body.dni;
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
@@ -104,7 +104,7 @@ router.post('/configProfesor/agregarProfesor', multer({}).single('foto'), functi
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/configProfesor/buscarProfesorNombre', function(req,res,next) {
+router.post('/buscarProfesorNombre', function(req,res,next) {
   var nombre = req.body.nombre;
   profesor.buscarProfesorPorNombre(nombre, function(error,row) {
     if (error) {
@@ -118,7 +118,7 @@ router.post('/configProfesor/buscarProfesorNombre', function(req,res,next) {
 /*
 * devuelve el id del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/configProfesor/buscarProfesorId', function(req,res,next) {
+router.post('/buscarProfesorId', function(req,res,next) {
   var id_profesor = req.body.id_profesor;
  // console.log("id: "+ id_profesor);
   profesor.buscarProfesorPorId(id_profesor, function(error,row) {
@@ -133,7 +133,7 @@ router.post('/configProfesor/buscarProfesorId', function(req,res,next) {
 /*
 * UPDATE PROFESOR COMPROBAR
 */
-router.post('/configProfesor/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
+router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
   profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
       if (error) {
         throw error;
@@ -275,7 +275,7 @@ router.post('/configProfesor/modificarProfesor',multer({}).single('foto'),  func
 });//router.post('/modificarProfesor
 
 
-router.post('/configProfesor/borrarProfesor', function(req,res,next){
+router.post('/borrarProfesor', function(req,res,next){
   var id_profesor = req.body.id_profesor;
   profesor.borrarProfesor(id_profesor, function(error,row) {
     if (error) {
@@ -286,7 +286,7 @@ router.post('/configProfesor/borrarProfesor', function(req,res,next){
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
-router.post('/configProfesor/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
+router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
     console.log(req.body);
     var curr_time;
     if (req.query.time == undefined) {

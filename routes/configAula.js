@@ -8,7 +8,7 @@ var multer = require('multer');
 /*
 * INSERTAR AULA
 */
-router.post('/agregarAula', function(req,res){
+router.post('/configAula/agregarAula', function(req,res){
     var numero = req.body.numero;
     var piso = req.body.piso;
     var capacidad = req.body.capacidad;
@@ -40,7 +40,7 @@ router.post('/agregarAula', function(req,res){
 /*
 * UPDATE AULA
 */
-router.post('/updateAula',  function(req,res,next){
+router.post('/configAula/updateAula',  function(req,res,next){
     var id_aula = req.body.id_aula;
     var numero = req.body.numero;
     var piso = req.body.piso;
@@ -91,7 +91,7 @@ router.post('/updateAula',  function(req,res,next){
 /*
 * DELETE aula por id_aula
 */
-router.post('/borrarAula', function(req,res,next){
+router.post('/configAula/borrarAula', function(req,res,next){
     var id_aula = req.body.id_aula;
     aula.borrarAula(id_aula, function(error,row) {
         if (error) {
@@ -109,7 +109,7 @@ router.post('/borrarAula', function(req,res,next){
 /*
 * busca el aula por numero
 */
-router.post('/buscarAulaNumero', function(req,res,next) {
+router.post('/configAula/buscarAulaNumero', function(req,res,next) {
     var numero = req.body.numero;
     aula.buscarAulaPorNumero(numero, function(error,row) {
         if (error) {
@@ -125,7 +125,7 @@ router.post('/buscarAulaNumero', function(req,res,next) {
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/buscarAulaPorId', function(req,res,next) {
+router.post('/configAula/buscarAulaPorId', function(req,res,next) {
   var id_aula = req.body.id_aula;
   aula.buscarAulaPorId(id_aula, function(error,row) {
     if (error) {
@@ -139,7 +139,7 @@ router.post('/buscarAulaPorId', function(req,res,next) {
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/mostrarTodosLasAulasIdNumero', function(req,res,next){
+router.post('/configAula/mostrarTodosLasAulasIdNumero', function(req,res,next){
   aula.buscarTodosLosIdYNumero(function(error,row) {
     if (error) {
       throw error;

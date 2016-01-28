@@ -63,7 +63,7 @@ $(document).ready(function() {
 		function mostrarHorarioGrupo (id_horario_grupo) {
 			var id = id_horario_grupo;
 		$.ajax({
-			url: '/buscarHorarioGrupoPorId',
+			url: '/configHorarioGrupo/buscarHorarioGrupoPorId',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_horario_grupo:id },
@@ -95,7 +95,7 @@ $(document).ready(function() {
 		function mostrarTodosLosProfesoresIdNombreApellidos (id_profesor) {
 			var result = id_profesor;
 		$.ajax({
-			url: '/mostrarTodosLosProfesoresIdNombreApellidos',
+			url: '/configHorarioProfesor/mostrarTodosLosProfesoresIdNombreApellidos',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
@@ -133,7 +133,7 @@ $(document).ready(function() {
 	            event.preventDefault();
 	            var data = $("#formUpdate").serializeArray();
 	            $.ajax({
-	                url: '/updateHorarioProfesor',
+	                url: '/configHorarioProfesor/updateHorarioProfesor',
 	                type: 'post',
 	                dataType: 'json',
 	                data: data,
@@ -163,7 +163,7 @@ $(document).ready(function() {
 	function buscarHorarioProfesores () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarHorarioProfesorNombre',
+			url: '/configHorarioProfesor/buscarHorarioProfesorNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -188,7 +188,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarHorarioProfesorId (id) { 
 		return	$.ajax({
-					url: '/buscarHorarioProfesorPorId',
+					url: '/configHorarioProfesor/buscarHorarioProfesorPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_horario_profesor:id },
@@ -208,7 +208,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		if(confirm("Estas seguro de borrar el horario del grupo?")) {
 			$.ajax({
-				url: '/borrarHorarioProfesor',
+				url: '/configHorarioProfesor/borrarHorarioProfesor',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_horario_profesor':$('#resultado #id_horario_profesor').val()},

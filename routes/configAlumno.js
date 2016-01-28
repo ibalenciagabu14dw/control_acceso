@@ -10,7 +10,7 @@ var alumno_grupos = require('../models/alumno_grupos');
 /*
 * INSERTAR alumno
 */
-router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
+router.post('/configAlumno/agregarAlumno', multer({}).single('foto'), function(req,res){
     var dni = req.body.dni;
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
@@ -114,7 +114,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 /*
 * UPDATE alumno
 */
-router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
+router.post('/configAlumno/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
     console.log(req.file);
     alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
         if (error) {
@@ -286,7 +286,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
 /*
 * DELETE alumno por id_alumno
 */
-router.post('/borrarAlumno', function(req,res,next){
+router.post('/configAlumno/borrarAlumno', function(req,res,next){
     var id_alumno = req.body.id_alumno;
     alumno.borrarAlumno(id_alumno, function(error,row) {
         if (error) {
@@ -304,7 +304,7 @@ router.post('/borrarAlumno', function(req,res,next){
 /*
 * BUSCAR alumno por nombre
 */
-router.post('/buscarAlumnoPorNombre', function(req,res,next) {
+router.post('/configAlumno/buscarAlumnoPorNombre', function(req,res,next) {
     var nombre = req.body.nombre;
     alumno.buscarAlumnoPorNombre(nombre, function(error,row) {
         if (error) {
@@ -318,7 +318,7 @@ router.post('/buscarAlumnoPorNombre', function(req,res,next) {
 /*
 * BUSCAR alumno por id_alumno
 */
-router.post('/buscarAlumnoPorId', function(req,res,next) {
+router.post('/configAlumno/buscarAlumnoPorId', function(req,res,next) {
     var id_alumno = req.body.id_alumno;
     alumno.buscarAlumnoPorId(id_alumno, function(error,row) {
         if (error) {

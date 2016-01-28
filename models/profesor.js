@@ -150,7 +150,7 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 				throw error;
 				console.log(error);
 			}else{
-				if(row[0].foto == null){
+				if(row[0].foto == undefined){
 					var foto = row[0].foto;
 				} else {
 					var foto = row[0].foto.toString('base64');//foto del alumno	
@@ -388,6 +388,32 @@ profesor.buscarProfesorPorIdDniCorreoNum_tarj = function(id_profesor,dni,correo,
 		})//connection.query
 	};//if
 }//profesor.buscarProfesorPorIdDniCorreoNum_tarj
+
+
+profesor.buscarProfesorPorIdAulaEnUnaHora = function (id_aula,curr_time,callback){
+	var day;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+			console.log(error);
+		}else{
+			day = data;
+		}//else
+	});//time.diaDeLaSemana
+	if (connection) {
+		var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=' + connection.escape(id_aula)+' AND dia_semana="'+day+'"  AND ('+ connection.escape(curr_time)+' between hora_inicio AND hora_final))';		
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log(row);
+				//console.log('buscarProfesorPorIdAulaEnUnaHora OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//profesor.buscarProfesorPorIdAulaEnUnaHora
 
 /****************************************************************************************************************************/
 /*

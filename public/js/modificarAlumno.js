@@ -88,7 +88,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	            var formData = new FormData($('#resultado #formUpdate')[0]);
 	            console.log(formData);
 	            $.ajax({
-	                url: '/modificarAlumno',
+	                url: '/configAlumno/modificarAlumno',
 	                type: 'post',
 	                data: formData,
 	                async: false,
@@ -127,7 +127,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	function buscarAlumnos () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarAlumnoPorNombre',
+			url: '/configAlumno/buscarAlumnoPorNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -152,7 +152,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	//funcion para buscar alumnos por id
 	function buscarAlumnoPorId (id) { 
 		return	$.ajax({
-					url: '/buscarAlumnoPorId',
+					url: '/configAlumno/buscarAlumnoPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -172,7 +172,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		event.preventDefault();
 		if(confirm("Estas seguro de borrar al alumno?")) {
 			$.ajax({
-				url: '/borrarAlumno',
+				url: '/configAlumno/borrarAlumno',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_alumno':$('#resultado #id_alumno').val()},
@@ -200,7 +200,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	        var id = $(this).attr('id'); 
 			console.log(id);
 			$.ajax({
-					url: '/buscarAsignaturasDelGrupo',
+					url: '/configGrupo/buscarAsignaturasDelGrupo',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_grupo: id},
@@ -231,7 +231,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	//funcion para buscar todos los grupos
 	function buscarGruposDelAlumno (id) {
 		return	$.ajax({
-					url: '/buscarGruposdelAlumno',
+					url: '/configGrupo/buscarGruposdelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -261,7 +261,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		//funcion para buscar todos los grupos
 	function buscarTodosLosGrupos (id) {
 		return	$.ajax({
-					url: '/buscarTodosLosGrupos',
+					url: '/configGrupo/buscarTodosLosGrupos',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },

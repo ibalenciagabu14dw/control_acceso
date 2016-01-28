@@ -94,7 +94,7 @@ $(document).ready(function() {
 	            var formData = new FormData($('#resultado #formUpdate')[0]);
 	            console.log(formData);
 	            $.ajax({
-	                url: '/modificarProfesor',
+	                url: '/configProfesor/modificarProfesor',
 	                type: 'post',
 	                data: formData,
 	                async: false,
@@ -131,7 +131,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarAsignaturasQueImparte (id) {
 		$.ajax({
-			url: '/buscarAsignaturasQueImparte',
+			url: '/configAsignatura/buscarAsignaturasQueImparte',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -162,7 +162,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarTodasLasAsignaturas (id) {
 		$.ajax({
-			url: '/buscarTodasLasAsignaturasQueNoImparte',
+			url: '/configAsignatura/buscarTodasLasAsignaturasQueNoImparte',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -193,7 +193,7 @@ $(document).ready(function() {
 			//Funcion con buscar asignaturas
 	function buscarTodasLasAsignaturasDelTipo (id,tipo) {
 		$.ajax({
-			url: '/buscarTodasLasAsignaturasDelTipo',
+			url: '/configAsignatura/buscarTodasLasAsignaturasDelTipo',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id , tipo:tipo},
@@ -225,7 +225,7 @@ $(document).ready(function() {
 	function buscarProfesores () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarProfesorNombre',
+			url: '/configProfesor/buscarProfesorNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -250,7 +250,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarProfesorPorId (id) { 
 		return	$.ajax({
-					url: '/buscarProfesorId',
+					url: '/configProfesor/buscarProfesorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_profesor:id },
@@ -271,7 +271,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		if(confirm("Estas seguro de borrar al profesor?")) {
 			$.ajax({
-				url: '/borrarProfesor',
+				url: '/configProfesor/borrarProfesor',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_profesor':$('#resultado #id_profesor').val()},

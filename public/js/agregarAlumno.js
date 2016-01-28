@@ -44,7 +44,7 @@ $(document).ready(function() {
             var formData = new FormData($("#agregarAlumnoForm")[0]);
             console.log(formData);
             $.ajax({
-                url: '/agregarAlumno',
+                url: '/configAlumno/agregarAlumno',
                 type: 'post',
                 data: formData,
                 async: false,

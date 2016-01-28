@@ -85,7 +85,7 @@ $(document).ready(function() {
 	            var data = $("#formUpdate").serializeArray();
 	            console.log(data);
 	            $.ajax({
-	                url: '/modificarAsignatura',
+	                url: '/configAsignatura/modificarAsignatura',
 	                type: 'post',
 	                dataType: 'json',
 	                data: data,
@@ -120,7 +120,7 @@ $(document).ready(function() {
 	function buscarAsignaturas () {
 		var formData = $('#form').serializeArray();
 		$.ajax({
-			url: '/buscarAsignaturaNombre',
+			url: '/configAsignatura/buscarAsignaturaNombre',
 			type: 'post',
 			dataType: 'json',
 			data: formData,
@@ -145,7 +145,7 @@ $(document).ready(function() {
 	//funcion para buscar alumnos por id
 	function buscarAsignaturaId (id) { 
 		return	$.ajax({
-					url: '/buscarAsignaturaPorId',
+					url: '/configAsignatura/buscarAsignaturaPorId',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_asignatura:id },
@@ -166,7 +166,7 @@ $(document).ready(function() {
 		console.log($('#resultado #id_asignatura').val());
 		if(confirm("Estas seguro de borrar la asignatura?")) {
 			$.ajax({
-				url: '/borrarAsignatura',
+				url: '/configAsignatura/borrarAsignatura',
 				type: 'post',
 				dataType: 'html',
 				data: {'id_asignatura':$('#resultado #id_asignatura').val()},

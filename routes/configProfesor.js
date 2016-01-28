@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var profesor = require('../models/profesor');
 var multer = require('multer');
+var time = require("../models/time");
 
 /* POST agregar profesor page. */
-router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
+router.post('/configProfesor/agregarProfesor', multer({}).single('foto'), function(req,res){
     var dni = req.body.dni;
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
@@ -103,7 +104,7 @@ router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
 /*
 * devuelve el nombre del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/buscarProfesorNombre', function(req,res,next) {
+router.post('/configProfesor/buscarProfesorNombre', function(req,res,next) {
   var nombre = req.body.nombre;
   profesor.buscarProfesorPorNombre(nombre, function(error,row) {
     if (error) {
@@ -117,7 +118,7 @@ router.post('/buscarProfesorNombre', function(req,res,next) {
 /*
 * devuelve el id del profesor(modificarProfesor) FUNCIONA
 */
-router.post('/buscarProfesorId', function(req,res,next) {
+router.post('/configProfesor/buscarProfesorId', function(req,res,next) {
   var id_profesor = req.body.id_profesor;
  // console.log("id: "+ id_profesor);
   profesor.buscarProfesorPorId(id_profesor, function(error,row) {
@@ -132,7 +133,7 @@ router.post('/buscarProfesorId', function(req,res,next) {
 /*
 * UPDATE PROFESOR COMPROBAR
 */
-router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
+router.post('/configProfesor/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
   profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
       if (error) {
         throw error;
@@ -274,7 +275,7 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
 });//router.post('/modificarProfesor
 
 
-router.post('/borrarProfesor', function(req,res,next){
+router.post('/configProfesor/borrarProfesor', function(req,res,next){
   var id_profesor = req.body.id_profesor;
   profesor.borrarProfesor(id_profesor, function(error,row) {
     if (error) {
@@ -283,7 +284,35 @@ router.post('/borrarProfesor', function(req,res,next){
       res.send(row);
     }
   })//buscarProfesorPorNombre
-  //res.render('configPersonas', { title: 'configPersonas' });  RUTA MAL
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
+router.post('/configProfesor/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
+    console.log(req.body);
+    var curr_time;
+    if (req.query.time == undefined) {
+        time.horaActual(function (error,data) {
+            if (error) {
+                throw error;
+            }else{
+                curr_time = data;
+                console.log(curr_time);
+            }//.else
+        });//.time.horaActual
+    }else{
+        curr_time = req.query.time;
+    }//.else
+          console.log(req.body);
+          var id_aula = req.body.id_aula;
+          profesor.buscarProfesorPorIdAulaEnUnaHora(id_aula,curr_time, function(error,row) {
+            if (error) {
+              throw error;
+            }else{
+              //console.log(row);
+              //console.log(row[0].id_profesor);
+              //res.send(row);
+              res.redirect('/vistaProfesor?idProfesor='+row[0].id_profesor+'&time='+curr_time);
+            }
+          })//buscarProfesorPorIdAulaEnUnaHora
+});//router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
 
 module.exports = router;

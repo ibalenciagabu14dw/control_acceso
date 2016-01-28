@@ -25,7 +25,7 @@ $(document).ready(function() {
             var data = $("#agregarAulaForm").serializeArray();
             console.log(data);
             $.ajax({
-                url: '/agregarAula',
+                url: '/configAula/agregarAula',
                 type: 'post',
                 dataType: 'json',
                 data: data,

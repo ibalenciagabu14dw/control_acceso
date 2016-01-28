@@ -35,7 +35,7 @@ $(document).ready(function() {
             var data = $("#agregarHorarioGrupoForm").serializeArray();
             //console.log(data);
             $.ajax({
-                url: '/agregarHorarioGrupo',
+                url: '/configHorarioGrupo/agregarHorarioGrupo',
                 type: 'post',
                 dataType: 'json',
                 data: data,

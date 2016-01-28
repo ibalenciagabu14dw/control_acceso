@@ -1,10 +1,27 @@
 var express = require('express');
 var router = express.Router();
+var aula = require('../models/aula');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   res.render('config', { title: 'Configuracion' });
-});
+});*/
+
+router.get('/', function(req, res, next) { 
+        aula.buscarTodosLosIdYNumero(function (error,data){
+                    if (error) {
+                      console.log("Fallo");
+                      throw error;
+                    }else{
+                      console.log(data);
+                      console.log(data.length);                
+                      //res.send(data);
+                      res.render('config',{ 
+                      aula:data,
+                      })//.res.render
+                    }//else error
+        });////. grupo.mostrarTodosLosIdNombreGrupo
+});//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.get('/configPersonas', function(req, res, next) {
   res.render('configPersonas', { title: 'configPersonas' });

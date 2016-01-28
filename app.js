@@ -8,8 +8,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var configAlumno = require('./routes/configAlumno');
 var configAsignatura = require('./routes/configAsignatura');
 var configAula = require('./routes/configAula');
@@ -39,16 +37,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-
-app.use('/', configAlumno);
-app.use('/', configAsignatura);
-app.use('/', configAula);
-app.use('/', configGrupo);
-app.use('/', configProfesor);
-app.use('/', configHorarioGrupo);
-app.use('/', configHorarioProfesor);
-
-app.use('/users', users);
 app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
 app.use('/presencia', presencia);

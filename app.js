@@ -5,10 +5,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var configAlumno = require('./routes/configAlumno');
 var configAsignatura = require('./routes/configAsignatura');
 var configAula = require('./routes/configAula');
@@ -25,6 +24,7 @@ var api = require('./routes/api');
 
 var app = express();
 
+app.use(session({ secret: '1234567890qwerty',resave: true, saveUninitialized: true}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -37,16 +37,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-
-app.use('/', configAlumno);
-app.use('/', configAsignatura);
-app.use('/', configAula);
-app.use('/', configGrupo);
-app.use('/', configProfesor);
-app.use('/', configHorarioGrupo);
-app.use('/', configHorarioProfesor);
-
-app.use('/users', users);
 app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
 app.use('/presencia', presencia);

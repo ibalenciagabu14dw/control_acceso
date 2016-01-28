@@ -132,8 +132,6 @@ td:hover{
     font-weight: bold;
     color: #eb8f00;
 }
-
-
 .ui-state-active, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
     border: 1px solid #ccc;
     background: #565665;

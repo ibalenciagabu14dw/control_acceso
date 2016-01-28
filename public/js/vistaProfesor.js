@@ -162,6 +162,28 @@ $(document).ready(function() {
       right: '20px'
     });
   };
+
+  /*
+  * destruir sesion
+  */
+  $('#exit').click(function(event) {
+    $.ajax({
+      url: '/logout',
+      type: 'post',
+      dataType: 'json',
+      success:function (data) {
+        if (data.result == 'ok') {
+          window.location.href("/");
+        };
+      }
+    })
+    .done(function() {
+      console.log("Session destroyed");
+    })
+    .fail(function() {
+      console.log("error");
+    })    
+  });
   
   
 });//ready

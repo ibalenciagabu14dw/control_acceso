@@ -162,6 +162,23 @@ $(document).ready(function() {
       right: '20px'
     });
   };
+
+  /*
+  * destruir sesion
+  */
+  $('#exit').click(function(event) {
+    $.ajax({
+      url: '/destruirSesion',
+      type: 'post',
+      dataType: 'json',
+    })
+    .done(function() {
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })    
+  });
   
   
 });//ready

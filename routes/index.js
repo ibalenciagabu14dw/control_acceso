@@ -32,10 +32,13 @@ router.post('/login',function(req,res) {
 						res.render('index', { title: 'ControlFid', info: 'Password incorrecto'});
 						//render index with layout password mal
 					}else{
+						req.session.name = data[0].nombre;
+						req.session.id = data[0].id_profesor;
 						if (data[0].admin == 0) {
 							res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor+'&time='+curr_time);
 						}else{
-							//rediorect vistaAdmin
+							req.session.name = data[0].nombre;
+							req.session.id = data[0].id_profesor;
 							res.redirect('/config');
 						}				
 					}//.else

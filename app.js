@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -26,6 +27,7 @@ var api = require('./routes/api');
 
 var app = express();
 
+app.use(session({ secret: '1234567890qwerty',resave: true, saveUninitialized: true}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

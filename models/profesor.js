@@ -481,87 +481,8 @@ profesor.buscarProfesorPorIdAulaEnUnaHora = function (id_aula,curr_time,callback
 	};//if
 }//profesor.buscarProfesorPorIdAulaEnUnaHora
 
-/****************************************************************************************************************************/
-
-
-
-
 /*
-* BUSCAR profesor por num_tarjeta
-*/
-profesor.insertarAsignaturasProfesor =  function(id_asignatura,id_profesor,callback) {
-	if(connection){
-		var profesor_asignatura = { id_asignatura: id_asignatura, id_profesor: id_profesor};						
-		var sqlinsertarAsignaturasProfesor = 'INSERT INTO profesores_asignaturas SET ?';
-		connection.query(sqlinsertarAsignaturasProfesor,profesor_asignatura, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('insertarAsignaturasProfesor OK');
-			}//.else
-		});//.connection.query
-	}
-}//.profesor.insertarAsignaturasProfesor
-
-/*
-* BUSCAR profesor por num_tarjeta
-*/
-profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {
-	if(connection){					
-		var sqlinsertarAsignaturasProfesor = 'DELETE FROM profesores_asignaturas WHERE id_profesor= "'+id_profesor+'"';
-		connection.query(sqlinsertarAsignaturasProfesor, function(error){
-		  if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('borrarAsignaturasProfesor OK');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.borrarAsignaturasProfesor
-
-
-
-/*
-*	BUSCAR las asignaturas que no imparte un profesor
-*/
-profesor.buscarAsignaturasQueNoImparte = function (id_profesor,callback){
-	console.log(id_profesor);
-	if(connection){						
-		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sqllasAsignaturasQueFaltan, function(error,row){
-		  	if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,row);
-				console.log('buscarAsignaturasQueNoImparte correctamente');
-			}//.else
-		});//.connection.query
-	}//.if (connection)
-}//.profesor.buscarAsignaturasQueNoImparte
-
-/*
-*	BUSCAR las asignaturas que no imparte un profesor por tipo
-*/
-profesor.buscarAsignaturasQueNoImparteSegunElTipo = function (id_profesor,tipo,callback){
-	if(connection){						
-		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
-		connection.query(sql, function(error,row){
-		  	if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				callback(null,row);
-				console.log('buscarAsignaturasQueNoImparteSegunElTipo OK');
-			}//else
-		});//connection.query
-	}//if
-}//profesor.buscarAsignaturasQueNoImparteSegunElTipo
-
-/*
-*	BUSCAR las asignaturas que imparte un profesor
+*	BUSCAR las asignaturas que imparte un profesor por id_profesor
 */
 profesor.buscarAsignaturasQueImparte = function(id_profesor,callback){
 	if(connection){
@@ -577,5 +498,84 @@ profesor.buscarAsignaturasQueImparte = function(id_profesor,callback){
 		});//connection.query
 	}//if
 }//profesor.buscarAsignaturasQueImparte
+
+/*
+*	BUSCAR las asignaturas que no imparte un profesor por id_profesor
+*/
+profesor.buscarAsignaturasQueNoImpartePorId = function (id_profesor,callback){
+	console.log(id_profesor);
+	if(connection){						
+		var sqllasAsignaturasQueFaltan = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sqllasAsignaturasQueFaltan, function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturasQueNoImpartePorId correctamente');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarAsignaturasQueNoImpartePorId
+
+/*
+*	BUSCAR las asignaturas que no imparte un profesor por tipo
+*/
+profesor.buscarAsignaturasQueNoImpartePorTipo = function (id_profesor,tipo,callback){
+	if(connection){						
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE tipo="'+tipo+'" and id_asignatura NOT IN (SELECT id_asignatura FROM profesores_asignaturas WHERE id_profesor ="'+id_profesor+'")';
+		connection.query(sql, function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarAsignaturasQueNoImpartePorTipo OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarAsignaturasQueNoImpartePorTipo
+
+/****************************************************************************************************************************/
+
+
+
+
+/*
+* INSERT profesor_asignatura
+*/
+profesor.insertarAsignaturasProfesor =  function(id_asignatura,id_profesor,callback) {
+	if(connection){
+		var profesor_asignatura = { id_asignatura: id_asignatura, id_profesor: id_profesor};						
+		var sqlinsertarAsignaturasProfesor = 'INSERT INTO profesores_asignaturas SET ?';
+		connection.query(sqlinsertarAsignaturasProfesor,profesor_asignatura, function(error){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('insertarAsignaturasProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.insertarAsignaturasProfesor
+
+/*
+* DELETE profesor_asignatura
+*/
+profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {
+	if(connection){					
+		var sqlinsertarAsignaturasProfesor = 'DELETE FROM profesores_asignaturas WHERE id_profesor= "'+id_profesor+'"';
+		connection.query(sqlinsertarAsignaturasProfesor, function(error){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				console.log('borrarAsignaturasProfesor OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.borrarAsignaturasProfesor
+
+
 
 module.exports = profesor;

@@ -32,7 +32,7 @@ $(document).ready(function() {
 		buscarGrupoId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateGrupo' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_grupo: <input type='text' id='id_grupo' name='id_grupo' class='form-control' value='"+result[0].id_grupo+"'>";
+    		formulario += "id_grupo: <input type='text' id='id_grupo' name='id_grupo' class='form-control' value='"+result[0].id_grupo+"'readonly>";
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre_grupo+"'>";
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Nombre ya existente</span></div>";	
 				if(result[0].tipo == 'FP'){

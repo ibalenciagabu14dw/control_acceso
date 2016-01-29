@@ -345,4 +345,14 @@ router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
           })//buscarProfesorPorIdAulaEnUnaHora
 });//router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
 
+router.post('/mostrarTodosLosProfesoresIdNombreApellidos', function(req,res,next){
+  profesor.mostrarTodosLosIdNombreApellidosProfesor(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
 module.exports = router;

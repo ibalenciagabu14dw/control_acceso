@@ -40,8 +40,8 @@ $(document).ready(function() {
 		buscarHorarioProfesorId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_horario_profesor: <input type='text' id='id_horario_profesor' name='id_horario_profesor' class='form-control' value='"+result[0].id_horario_profesor+"'>";    		
-    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'>";
+    		formulario += "id_horario_profesor: <input type='text' id='id_horario_profesor' name='id_horario_profesor' class='form-control' value='"+result[0].id_horario_profesor+"'readonly>";    		
+    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
 			mostrarHorarioGrupo(result[0].id_horario_grupo);
 			formulario += "<div id='horarioGrupo'>";
     		formulario += "</div>";
@@ -73,9 +73,9 @@ $(document).ready(function() {
 				for (var i = 0; i < data.length; i++) {
 					resp += "<tr>";
 					resp += "<td>";
-					resp += "Dia<input type='text' id='dia' name='dia' value='"+data[i].dia_semana+"'></br>";
-					resp += "Hora Inicio<input type='time' id='hora_inicio' name='hora_inicio' value='"+data[i].hora_inicio+"'></br>";
-					resp += "Hora Final<input type='time' id='hora_final' name='hora_final' value='"+data[i].hora_final+"'></br>";					
+					resp += "Dia<input type='text' id='dia' name='dia' class='form-control' value='"+data[i].dia_semana+"'readonly></br>";
+					resp += "Hora Inicio<input type='time' id='hora_inicio' name='hora_inicio' class='form-control' value='"+data[i].hora_inicio+"'readonly></br>";
+					resp += "Hora Final<input type='time' id='hora_final' name='hora_final' class='form-control' value='"+data[i].hora_final+"'readonly></br>";					
 					resp += "</td>";
 					resp += "</tr>"
 					};

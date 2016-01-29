@@ -6,21 +6,21 @@ $(document).ready(function() {
 
 	//reglas
 	var reglas = {
-		dia:{required:true,valueNotEquals: "default" },
+		dia:{required:true,valueNotEquals: 'default' },
         hora_inicio:{required:true},
 		hora_final:{required:true},
-		id_grupo:{required:true,valueNotEquals: "default" },
-        id_asignatura:{required:true,valueNotEquals: "default" },
-        id_aula:{required:true,valueNotEquals: "default" },
+		grupo:{required:true,valueNotEquals: 'default' },
+        asignatura:{required:true,valueNotEquals: 'default' },
+        aula:{required:true,valueNotEquals: 'default' },
 	};
 	//mensajes
 	var mensajes = {
 		dia:{required:" Requerido",valueNotEquals: "elige el dia" },
         hora_inicio:{required:" Requerido"},
 		hora_final:{required:" Requerido"},
-		id_grupo:{required:" Requerido",valueNotEquals: "elige el grupo" },
-        id_asignatura:{required:" Requerido",valueNotEquals: "elige la asignatura" },
-        id_aula:{required:" Requerido",valueNotEquals: "elige el aula" },
+		grupo:{required:" Requerido",valueNotEquals: "elige el grupo" },
+        asignatura:{required:" Requerido",valueNotEquals: "elige la asignatura" },
+        aula:{required:" Requerido",valueNotEquals: "elige el aula" },
 	};
 
 	//Buscar alumnos al escribir
@@ -40,7 +40,7 @@ $(document).ready(function() {
 		buscarHorarioGrupoId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'>";
+    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
     		formulario += "Dia<select name='dia'>";
     		formulario += "<option value='default'>Elige el dia</option>";
 				if (result[0].dia_semana == 'Lunes'){

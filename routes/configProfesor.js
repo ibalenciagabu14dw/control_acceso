@@ -134,6 +134,8 @@ router.post('/buscarProfesorId', function(req,res,next) {
 * UPDATE PROFESOR COMPROBAR
 */
 router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
+  console.log(req.body);
+  console.log(req.file);
   profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
       if (error) {
         throw error;
@@ -158,7 +160,7 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
     var correo = req.body.correo;
-    var password = req.body.password;
+    var password = req.body.pass;
     var tarjeta_activada = req.body.tarjeta_activada;
     var num_tarjeta = req.body.num_tarjeta;
     var admin = req.body.admin;

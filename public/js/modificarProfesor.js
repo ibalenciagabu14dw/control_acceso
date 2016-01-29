@@ -13,12 +13,19 @@ $(document).ready(function() {
         return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value);
     });
 
+    jQuery.validator.addMethod("convertHash", function(value) {
+        var hash = md5(value, '2063c1608d6e0baf80249c42e2be5804');
+        $('#pass').val(hash);
+        return hash;
+    }, 'Hash');
+
 	//reglas
 	var reglas = {
 		dni:{required:true,dni:true},
         nombre:{required:true},
 		apellidos:{required:true},
 		correo:{required:true,correo:true},
+		password:{required:true,convertHash:true},
         num_tarjeta:{required:true},
 	};
 	//mensajes
@@ -27,6 +34,7 @@ $(document).ready(function() {
         nombre:{required:" Requerido"},
 		apellidos:{required:" Requerido"},
 		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
+		password:{required:"Requerido",convertHash:"Hash"},
         num_tarjeta:{required:" Requerido"},
 	};
 
@@ -53,7 +61,9 @@ $(document).ready(function() {
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
     		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
     		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
+    		console.log(result.password);
     		formulario += "Password: <input type='text' id='password' name='password' class='form-control' value='"+result.password+"'>";
+    		formulario += "<input type='hidden' id='pass' name='pass' class='form-control'>";
     		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"' width='100' height='100'/>";
     		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
@@ -91,6 +101,7 @@ $(document).ready(function() {
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
+	            $('#password').attr('disabled',true);  
 	            var formData = new FormData($('#resultado #formUpdate')[0]);
 	            console.log(formData);
 	            $.ajax({
@@ -106,6 +117,7 @@ $(document).ready(function() {
 	            })
 	            .done(function(data) {
 	                console.log(data)
+	                $('#password').attr('disabled',false);
 		                if (data.err=="existeDNI"){
 		                showAlert($('#resultado #dni'),"error","dni ya existente");
 		                } else if (data.err=="existeCorreo"){
@@ -119,6 +131,7 @@ $(document).ready(function() {
 			            })
 			            .fail(function() {
 	                console.log("error");
+	                $('#password').attr('disabled',false);
 	            })
 	            /*
 	            *   Form Submit Fin
@@ -162,7 +175,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarTodasLasAsignaturas (id) {
 		$.ajax({
-			url: '/configAsignatura/buscarTodasLasAsignaturasQueNoImparte',
+			url: '/configAsignatura/buscarAsignaturasQueNoImpartePorId',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },

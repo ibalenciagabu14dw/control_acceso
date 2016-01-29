@@ -1,13 +1,13 @@
 /*
- * jQuery MD5 Plugin 1.2.1
- * https://github.com/blueimp/jQuery-MD5
+ * JavaScript MD5
+ * https://github.com/blueimp/JavaScript-MD5
  *
- * Copyright 2010, Sebastian Tschan
+ * Copyright 2011, Sebastian Tschan
  * https://blueimp.net
  *
  * Licensed under the MIT license:
- * http://creativecommons.org/licenses/MIT/
- * 
+ * http://www.opensource.org/licenses/MIT
+ *
  * Based on
  * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
  * Digest Algorithm, as defined in RFC 1321.
@@ -18,7 +18,7 @@
  */
 
 /*jslint bitwise: true */
-/*global unescape, jQuery */
+/*global unescape, define, module */
 
 (function ($) {
     'use strict';
@@ -64,7 +64,7 @@
     */
     function binl_md5(x, len) {
         /* append padding */
-        x[len >> 5] |= 0x80 << ((len) % 32);
+        x[len >> 5] |= 0x80 << (len % 32);
         x[(((len + 64) >>> 9) << 4) + 14] = len;
 
         var i, olda, oldb, oldc, oldd,
@@ -200,7 +200,7 @@
             ipad = [],
             opad = [],
             hash;
-        ipad[15] = opad[15] = undefined;                        
+        ipad[15] = opad[15] = undefined;
         if (bkey.length > 16) {
             bkey = binl_md5(bkey, key.length * 8);
         }
@@ -250,20 +250,27 @@
     function hex_hmac_md5(k, d) {
         return rstr2hex(raw_hmac_md5(k, d));
     }
-    
-    $.md5 = function (string, key, raw) {
+
+    function md5(string, key, raw) {
         if (!key) {
             if (!raw) {
                 return hex_md5(string);
-            } else {
-                return raw_md5(string);
             }
+            return raw_md5(string);
         }
         if (!raw) {
             return hex_hmac_md5(key, string);
-        } else {
-            return raw_hmac_md5(key, string);
         }
-    };
-    
-}(typeof jQuery === 'function' ? jQuery : this));
+        return raw_hmac_md5(key, string);
+    }
+
+    if (typeof define === 'function' && define.amd) {
+        define(function () {
+            return md5;
+        });
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = md5;
+    } else {
+        $.md5 = md5;
+    }
+}(this));

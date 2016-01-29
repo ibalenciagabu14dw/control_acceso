@@ -48,7 +48,7 @@ $(document).ready(function() {
 		buscarAlumnoPorId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate'>";
-    		formulario += "id_alumno: <input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'>";
+    		formulario += "id_alumno: <input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'readonly>";
     		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Dni ya existente</span></div>";	    		
     		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";

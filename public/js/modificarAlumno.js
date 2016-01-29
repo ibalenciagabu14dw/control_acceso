@@ -84,9 +84,36 @@ $('#resultado').on("click","#btnModificar",function () {
 				element.before(error);
 			},
 	        submitHandler: function (form) {
-	            event.preventDefault();
-	            var formData = new FormData($('#resultado #formUpdate')[0]);
-	            console.log(formData);
+	        	if ($('#resultado #foto').val() == ''){
+	        		event.preventDefault();
+	            	var data = $("#formUpdate").serializeArray();
+			            $.ajax({
+			                url: '/configAlumno/modificarAlumnoSinFoto',
+			                type: 'post',
+			                dataType: 'json',
+			                data: data,
+			                success: function (data) {
+			                }
+			            })
+			            .done(function(data) {
+			                console.log(data)
+				                if (data.err=="existeDNI"){
+				                showAlert($('#resultado #dni'),"error","dni ya existente");
+				                } else if (data.err=="existeCorreo"){
+				                showAlert($('#resultado #correo'),"error","Correo ya existente");
+				                } else if (data.err=="existeTarjeta"){
+				                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
+				                }else if (data.dato=="ok"){
+				                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
+				                }
+				                console.log("success");
+					            })
+					            .fail(function() {
+			                console.log("error");
+			            })
+	        	} else {
+	            	event.preventDefault();
+	            	var formData = new FormData($('#resultado #formUpdate')[0]);
 	            $.ajax({
 	                url: '/configAlumno/modificarAlumno',
 	                type: 'post',
@@ -117,6 +144,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	            /*
 	            *   Form Submit Fin
 	            */
+	        	}//.else	        
 	        }//submitHandler
 	    });//Validate
 	  //$( "#target" ).submit();

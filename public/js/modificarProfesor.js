@@ -65,7 +65,7 @@ $(document).ready(function() {
     		formulario += "Password: <input type='text' id='password' name='password' class='form-control' value='"+result.password+"'>";
     		formulario += "<input type='hidden' id='pass' name='pass' class='form-control'>";
     		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"' width='100' height='100'/>";
-    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value=''>";
+    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control' value='null'>";
     		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
     		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
     		formulario += "Admin: <input type='text' id='admin' name='admin' class='form-control' value='"+result.admin+"'>";

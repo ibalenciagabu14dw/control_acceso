@@ -3,6 +3,7 @@ var router = express.Router();
 var profesor = require('../models/profesor');
 var time = require('../models/time');
 var alumno = require('../models/alumno');
+var md5 = require('blueimp-md5');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,7 +14,10 @@ router.get('/', function(req, res, next) {
 router.post('/login',function(req,res) {
 	console.log(req.body);
 	var user = req.body.user;
-	var pass = md5(pass, '2063c1608d6e0baf80249c42e2be5804', true);
+	var pass = req.body.pass;
+	console.log(pass);
+	var hash = md5(pass,'2063c1608d6e0baf80249c42e2be5804');
+	console.log(hash);
 	var admin = req.body.administrador;
 	profesor.buscarProfesorPorCorreo(user, function (error,data) {
 		if (error) {
@@ -22,7 +26,7 @@ router.post('/login',function(req,res) {
 			console.log("no existe");
 			res.render('index', { title: 'ControlFid', info: 'Usuario no existe'}); 
 		}else{
-			if (pass != data[0].password) {
+			if (hash != data[0].password) {
 				console.log("password incorrecto");
 				res.render('index', { title: 'ControlFid', info: 'Password incorrecto'});
 				//render index with layout password mal

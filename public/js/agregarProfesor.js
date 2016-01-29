@@ -14,10 +14,9 @@ $(document).ready(function() {
     });
 
     jQuery.validator.addMethod("convertHash", function(value) {
-        var md5 = $.md5(value, '2063c1608d6e0baf80249c42e2be5804');
-        console.log(md5);
-        $('#pass').val(md5);
-        return md5;
+        var hash = md5(value, '2063c1608d6e0baf80249c42e2be5804');
+        $('#pass').val(hash);
+        return hash;
     }, 'Hash');
 
 	//reglas

@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var md5 = require('blueimp-md5');
 
 var routes = require('./routes/index');
 var configAlumno = require('./routes/configAlumno');

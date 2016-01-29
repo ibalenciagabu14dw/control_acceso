@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
                       console.log("Fallo");
                       throw error;
                     }else{
-                      console.log(data);
-                      console.log(data.length);                
+                      //console.log(data);
+                      //console.log(data.length);                
                       //res.send(data);
                       res.render('config',{ 
                       aula:data,

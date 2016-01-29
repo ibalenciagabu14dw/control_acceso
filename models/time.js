@@ -1,5 +1,57 @@
 var time = {};
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+var cron = require('node-schedule');
+var cron2 = require('node-schedule');
+var horario_grupo = require('../models/horario_grupo');
+/*cron*/
+var rule = new cron.RecurrenceRule();
+var dates;
+var fecha;
+
+rule.dayOfWeek = new cron.Range(1,5);
+rule.hour = 9;
+rule.minute = 12;
+/*var date = new Date(2016, 0, 29, 8, 53, 0);
+var date2 = new Date(2016, 0, 29, 8, 54, 0);
+var date3 = new Date(2016, 0, 29, 8, 55, 0);*/
+cron.scheduleJob(rule, function(){
+	var dia;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			throw error;
+		}else{
+			dia = data;
+		}
+	})
+    console.log(new Date());
+    horario_grupo.buscarHoraFinalPorDia(dia,function (error,data) {
+    	if (error) {
+    		throw error;
+    	}else{
+    		dates = [];
+    		time.diaCompleto(function (error,data) {
+    			fecha = data.split("-");
+    			console.log(fecha);
+    		})//diaCompleto
+    		for (var i = 0; i < data.length; i++) {
+    			var hora = data[i].hora_final.split(":");
+    			var date = new Date(fecha[0],fecha[1]-1,fecha[2],hora[0],hora[1],hora[2]);
+    			dates.push(date);
+    		};
+    		console.log(dates);
+    		
+    	}//elseError
+    })//buscarHoraFinalPorDia
+
+
+
+    cron2.scheduleJob(dates,function() {
+    	console.log("son las 9:50 Ieeeeeeeepaaaaaaaa");
+    });
+});
+
+
+/*fin cron*/
 
 /*
 *	devuelve la hora del sistema hh:mm:ss
@@ -30,7 +82,7 @@ time.horaActual = function(callback) {
 }//.time.horaActual
 
 /*
-*	devuelve la hora del sistema hh:mm:ss
+*	devuelve el dia de la semana
 */
 time.diaDeLaSemana = function (callback) {
 	var now = new Date();

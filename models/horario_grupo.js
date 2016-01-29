@@ -5,15 +5,6 @@ var time = require('../models/time');
 var app = require('../app');
 
 var horario_grupo = {};
-var day;
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
 
 /***********************************************************INSERT*********************************************************/
 
@@ -179,6 +170,23 @@ horario_grupo.buscarHorarioGrupoExistente = function(dia_semana,hora_inicio,hora
 		});//connection.query
 	}//if
 }//horario_grupo.buscarHorarioGrupoExistente
+
+/*
+*	Buscar horas finales según día de la semana
+*/
+horario_grupo.buscarHoraFinalPorDia = function(dia,callback) {
+	if (connection) {
+		var sql = 'SELECT DISTINCT(hora_final) FROM horario_grupos WHERE dia_semana = "'+dia+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+			}
+		});//connection query
+	};//if connection
+}//buscarHoraFinalPorDia
 
 /****************************************************************************************************************************/
 

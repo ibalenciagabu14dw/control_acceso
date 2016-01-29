@@ -50,10 +50,10 @@ $(document).ready(function() {
       width: 'auto',
       fluid: true,
       autoReposition: true,
-      show: {
+     /* show: {
         effect: "blind",
         duration: 1000
-      },
+      },*/
       hide: {
         effect: "explode",
         duration: 1000

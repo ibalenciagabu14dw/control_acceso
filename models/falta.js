@@ -1,17 +1,7 @@
 var connection = require('../models/connection');
-var time = require('../models/time');
 var app = require('../app');
 
 var falta = {};
-var day;
-
-time.diaDeLaSemana(function (error,data) {
-	if (error) {
-		throw error;
-	}else{
-		day = data;
-	}
-});
 
 /***********************************************************INSERT*********************************************************/
 

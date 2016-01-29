@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
-    //FALTA VALIDAR EL DNI,CORREO,FOTO
-    //METODO DNI
-    //METODO CORREO
     //TAMAÑO FOTO
+    jQuery.validator.addMethod("lettersonly", function(value, element) { 
+    return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
+	},"Please enter only letters");
+	
     jQuery.validator.addMethod("dni", function(value, element) {
         return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
     });
@@ -16,16 +17,16 @@ $(document).ready(function() {
 	//reglas
 	var reglas = {
 		dni:{required:true,dni:true},
-        nombre:{required:true},
-		apellidos:{required:true},
+        nombre:{required:true,lettersonly:true},
+		apellidos:{required:true,lettersonly:true},
 		correo:{required:true,correo:true},
         num_tarjeta:{required:true},
 	};
 	//mensajes
 	var mensajes = {
 		dni:{required:" Requerido",dni:"introduce un DNI correcto"},
-        nombre:{required:" Requerido"},
-		apellidos:{required:" Requerido"},
+        nombre:{required:" Requerido",lettersonly:"Please enter only letters"},
+		apellidos:{required:" Requerido",lettersonly:"Please enter only letters"},
 		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
         num_tarjeta:{required:" Requerido"},
 	};

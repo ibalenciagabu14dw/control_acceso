@@ -11,8 +11,9 @@ router.get('/', function(req, res, next) {
 
 /* POST login page. */
 router.post('/login',function(req,res) {
+	console.log(req.body);
 	var user = req.body.user;
-	var pass = req.body.pass;
+	var pass = md5(pass, '2063c1608d6e0baf80249c42e2be5804', true);
 	var admin = req.body.administrador;
 	profesor.buscarProfesorPorCorreo(user, function (error,data) {
 		if (error) {

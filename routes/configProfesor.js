@@ -134,8 +134,6 @@ router.post('/buscarProfesorId', function(req,res,next) {
 * UPDATE PROFESOR COMPROBAR
 */
 router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
-  console.log(req.body);
-  console.log(req.file);
   profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
       if (error) {
         throw error;
@@ -154,7 +152,6 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
           }
       })//buscarProfesorPorNombre
     }
-      //console.log("file: "+req.file.buffer);
     var id_profesor = req.body.id_profesor;
     var dni = req.body.dni;
     var nombre = req.body.nombre;
@@ -165,61 +162,6 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
     var num_tarjeta = req.body.num_tarjeta;
     var admin = req.body.admin;
     var foto = req.file.buffer;
-    if(req.file == undefined){
-        profesor.buscarProfesorPorIdDniCorreoNum_tarj(id_profesor,dni,correo,num_tarjeta, function(error,row) {
-            if (error) {
-                throw error;
-            }else{
-                if(row.length>0){
-                    profesor.modificarProfesorSinFoto(id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin, function(error,row) {
-                        if (error) {
-                            throw error;          
-                        }else {
-                            res.send(row);    
-                        }        
-                    })//.profesor.modificarAlumno
-                } else {
-                    profesor.buscarProfesorPorDni(dni, function(error,row) {
-                        if (error) {
-                            throw error;
-                        } else {
-                            if(row.length>0){
-                                res.send({err:'existeDNI'});
-                            } else {
-                                profesor.buscarProfesorPorCorreo(correo, function(error,row){
-                                    if (error) {
-                                        throw error;
-                                    } else {
-                                        if(row.length>0){
-                                            res.send({err:'existeCorreo'});
-                                        } else {
-                                            profesor.buscarProfesorPorTarjeta(num_tarjeta, function(error,row){
-                                                if (error) {
-                                                   throw error; 
-                                               } else {
-                                                if(row.length>0){
-                                                    res.send({err:'existeTarjeta'});
-                                                } else {
-                                                    profesor.modificarProfesorSinFoto(id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin, function(error,row){
-                                                        if (error) {
-                                                            throw error;
-                                                        } else {
-                                                            res.send(row); 
-                                                        }//.else if (error) 
-                                                    })//.profesor.modificarAlumnoSinFoto
-                                                }//else if(row.length>0){
-                                               }//.else if (error)
-                                            })//.profesor.buscarProfesorPorTarjeta
-                                        }//.else if(row.length>0)
-                                    }//.else if (error)
-                                })//.profesor.buscarProfesorPorCorreo       
-                            }//.else if(row.length>0)
-                        }//.else if (error)
-                    })//.profesor.buscarProfesorPorDni
-                }//.else if(row.length<0)
-            }//.else if (error)
-        })//.profesor.buscarProfesorPorIdDniCorreoNum_tarj
-    } else{
         profesor.buscarProfesorPorIdDniCorreoNum_tarj(id_profesor,dni,correo,num_tarjeta, function(error,row) {
             if (error) {
                 throw error;
@@ -273,7 +215,6 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
                 }//.else if(row.length<0)
             }//.else if (error)
         })//.profesor.buscarProfesorPorIdDniCorreoNum_tarj
-    }//.else if(req.file == undefined)
 });//router.post('/modificarProfesor
 
 

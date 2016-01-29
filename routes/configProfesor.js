@@ -6,11 +6,12 @@ var time = require("../models/time");
 
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
+    console.log(req.body);
     var dni = req.body.dni;
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
     var correo = req.body.correo;
-    var password = req.body.password;
+    var password = req.body.pass;
     var num_tarjeta = req.body.num_tarjeta;
     if (req.file == undefined){
         //agregarProfesorSinFoto

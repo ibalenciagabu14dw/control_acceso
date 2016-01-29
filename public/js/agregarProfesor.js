@@ -13,12 +13,20 @@ $(document).ready(function() {
         return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value);
     });
 
+    jQuery.validator.addMethod("convertHash", function(value) {
+        var md5 = $.md5(value, '2063c1608d6e0baf80249c42e2be5804');
+        console.log(md5);
+        $('#pass').val(md5);
+        return md5;
+    }, 'Hash');
+
 	//reglas
 	var reglas = {
 		dni:{required:true,dni:true},
         nombre:{required:true},
 		apellidos:{required:true},
 		correo:{required:true,correo:true},
+        password:{required:true,convertHash:true},
         foto:{required:true},
         num_tarjeta:{required:true},
 	};
@@ -28,6 +36,7 @@ $(document).ready(function() {
         nombre:{required:" Requerido"},
 		apellidos:{required:" Requerido"},
 		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
+        password:{required:"Requerido",convertHash:"Hash"},
         foto:{required:" Requerido"},
         num_tarjeta:{required:" Requerido"},
 	};
@@ -41,6 +50,8 @@ $(document).ready(function() {
 		},
         submitHandler: function (form) {
             event.preventDefault();
+            console.log(password);
+            $('#password').attr('disabled',true);            
             var formData = new FormData($("#agregarProfesorForm")[0]);
             console.log(formData);
             $.ajax({
@@ -56,6 +67,7 @@ $(document).ready(function() {
             })
             .done(function(data) {
                 console.log(data);
+                $('#password').attr('disabled',false);
                 if (data.err=="existeDNI"){
                     showAlert("#dni","error","DNI ya existente");
                 } else if (data.err=="existeCorreo"){
@@ -69,6 +81,7 @@ $(document).ready(function() {
             })
             .fail(function() {
                 console.log("error");
+                $('#password').attr("disabled",false);
             })
             /*
             *   Form Submit Fin

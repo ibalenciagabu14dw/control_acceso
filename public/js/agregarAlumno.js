@@ -12,7 +12,7 @@ $(document).ready(function() {
     jQuery.validator.addMethod("correo", function(value, element) {
         return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value);
     });
-
+    
 	//reglas
 	var reglas = {
 		dni:{required:true,dni:true},

@@ -162,12 +162,13 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
     var num_tarjeta = req.body.num_tarjeta;
     var admin = req.body.admin;
     var foto = req.file.buffer;
+
         profesor.buscarProfesorPorIdDniCorreoNum_tarj(id_profesor,dni,correo,num_tarjeta, function(error,row) {
             if (error) {
                 throw error;
             }else{
                 if(row.length>0){
-                    profesor.modificarProfesorSinFoto(id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin, function(error,row) {
+                    profesor.modificarProfesor(id_profesor,dni,nombre,apellidos,correo,password,foto,tarjeta_activada,num_tarjeta,admin, function(error,row) {
                         if (error) {
                             throw error;          
                         }else {
@@ -217,6 +218,89 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
         })//.profesor.buscarProfesorPorIdDniCorreoNum_tarj
 });//router.post('/modificarProfesor
 
+router.post('/modificarProfesorSinFoto',multer({}).single('foto'),  function(req,res,next){
+  profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
+      if (error) {
+        throw error;
+      }else{
+         res.send(row);
+      }
+  })//buscarProfesorPorNombre
+  var data= req.body.checkbox;
+    for (var i = 0; i < data.length; i++) {
+      profesor.insertarAsignaturasProfesor(data[i],req.body.id_profesor, function(error,row) {
+          if (error) {
+          throw error;
+          }else{
+          //console.log(row);
+          res.send(row);
+          }
+      })//buscarProfesorPorNombre
+    }
+    var id_profesor = req.body.id_profesor;
+    var dni = req.body.dni;
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+    var correo = req.body.correo;
+    var password = req.body.pass;
+    var tarjeta_activada = req.body.tarjeta_activada;
+    var num_tarjeta = req.body.num_tarjeta;
+    var admin = req.body.admin;
+
+        profesor.buscarProfesorPorIdDniCorreoNum_tarj(id_profesor,dni,correo,num_tarjeta, function(error,row) {
+            if (error) {
+                throw error;
+            }else{
+                if(row.length>0){
+                    profesor.modificarProfesorSinFoto(id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin, function(error,row) {
+                        if (error) {
+                            throw error;          
+                        }else {
+                            res.send(row);    
+                        }        
+                    })//.profesor.modificarAlumno
+                } else {
+                    profesor.buscarProfesorPorDni(dni, function(error,row) {
+                        if (error) {
+                            throw error;
+                        } else {
+                            if(row.length>0){
+                                res.send({err:'existeDNI'});
+                            } else {
+                                profesor.buscarProfesorPorCorreo(correo, function(error,row){
+                                    if (error) {
+                                        throw error;
+                                    } else {
+                                        if(row.length>0){
+                                            res.send({err:'existeCorreo'});
+                                        } else {
+                                            profesor.buscarProfesorPorTarjeta(num_tarjeta, function(error,row){
+                                                if (error) {
+                                                   throw error; 
+                                               } else {
+                                                if(row.length>0){
+                                                    res.send({err:'existeTarjeta'});
+                                                } else {
+                                                    profesor.modificarProfesorSinFoto(id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin, function(error,row){
+                                                        if (error) {
+                                                            throw error;
+                                                        } else {
+                                                            res.send(row); 
+                                                        }//.else if (error) 
+                                                    })//.profesor.modificarAlumno
+                                                }//else if(row.length>0){
+                                               }//.else if (error)
+                                            })//.profesor.buscarProfesorPorTarjeta
+                                        }//.else if(row.length>0)
+                                    }//.else if (error)
+                                })//.profesor.buscarProfesorPorCorreo       
+                            }//.else if(row.length>0)
+                        }//.else if (error)
+                    })//.profesor.buscarProfesorPorDni
+                }//.else if(row.length<0)
+            }//.else if (error)
+        })//.profesor.buscarProfesorPorIdDniCorreoNum_tarj
+});//router.post('/modificarProfesor
 
 router.post('/borrarProfesor', function(req,res,next){
   var id_profesor = req.body.id_profesor;

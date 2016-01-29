@@ -386,7 +386,9 @@ profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callba
 		// sentencia sql original,comentar para hacer pruebas
 		//var sqlProfesorClaseActual = 'SELECT nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
 		//para hacer pruebas
-		var sqlProfesorClaseActual = 'SELECT presencia,num_tarjeta,nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+		//var sqlProfesorClaseActual = 'SELECT presencia,num_tarjeta,nombre,apellidos,foto FROM alumnos WHERE id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+		var sqlProfesorClaseActual = 'SELECT presencia,num_tarjeta,nombre,apellidos,foto FROM alumnos WHERE id_alumno NOT IN (SELECT id_alumno FROM convalidadas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final)))) and  id_alumno IN (SELECT id_alumno FROM alumno_grupos  WHERE id_grupo IN (SELECT id_grupo FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final) and id_horario_grupo IN (SELECT id_horario_grupo FROM horario_profesores WHERE id_profesor="'+idProfesor+'"  and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+
 		connection.query(sqlProfesorClaseActual, function (error,row) {
 			if (error) {
 				throw error;
@@ -467,8 +469,8 @@ profesor.buscarProfesorPorIdAulaEnUnaHora = function (id_aula,curr_time,callback
 		}//else
 	});//time.diaDeLaSemana
 	if (connection) {
-		//var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=' + connection.escape(id_aula)+' AND dia_semana="'+day+'"  AND ('+ connection.escape(curr_time)+' between hora_inicio AND hora_final))';		
-		var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=9 AND dia_semana="Lunes"  AND ("08:00:05" between hora_inicio AND hora_final))';				
+		var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=' + connection.escape(id_aula)+' AND dia_semana="'+day+'"  AND ('+ connection.escape(curr_time)+' between hora_inicio AND hora_final))';		
+		//var sql = 'SELECT id_profesor FROM horario_profesores WHERE id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE id_aula=9 AND dia_semana="Lunes"  AND ("08:00:05" between hora_inicio AND hora_final))';				
 		//para pruebas
 		connection.query(sql,function (error,row) {
 			if (error) {

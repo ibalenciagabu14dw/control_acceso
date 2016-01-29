@@ -6,7 +6,6 @@ var time = require("../models/time");
 
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
-    console.log(req.body);
     var dni = req.body.dni;
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;

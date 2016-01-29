@@ -74,7 +74,7 @@ $(document).ready(function() {
 			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
 			formulario += "Grupos: <div id='grupos'>";
     		formulario += "</div>";
-			mostrarTodosLasAsignaturasIdNombre(result[0].id_asignatura);
+			buscarTodasLasAsignaturas(result[0].id_asignatura);
 			formulario += "Asignatura: <div id='asignaturas'>";
     		formulario += "</div>";            
 			mostrarTodasLasAulasIdNumero(result[0].id_aula);
@@ -121,10 +121,10 @@ $(document).ready(function() {
 		})//fail
 	}//function buscarAsignaturas
 
-		function mostrarTodosLasAsignaturasIdNombre (id_asignatura) {//FALTA EL POST
+		function buscarTodasLasAsignaturas (id_asignatura) {//FALTA EL POST
 			var result = id_asignatura;
 		$.ajax({
-			url: '/mostrarTodosLasAsignaturasIdNombre',
+			url: '/configAsignatura/buscarTodasLasAsignaturas',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {

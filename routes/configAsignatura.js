@@ -208,6 +208,7 @@ router.post('/buscarAsignaturasQueNoImpartePorId', function(req,res,next) {
 });//router.post('/buscarTodasLasAsignaturasDelTipo
 
 
+
 /****************************************************************************************************************************/
 
 module.exports = router;

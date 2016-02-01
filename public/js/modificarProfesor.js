@@ -1,6 +1,16 @@
 $(document).ready(function() {
 	
-    //TAMAÑO FOTO
+    jQuery.validator.addMethod("fileSize", function (val, element) {
+        var size = element.files[0].size;
+        console.log(size);
+           if (size > 102400)// checks the file more than 100 Kb
+           {
+                return false;
+           } else {
+               return true;
+           }
+
+      }, "File type error");
     
     jQuery.validator.addMethod("lettersonly", function(value, element) { 
     return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
@@ -28,6 +38,7 @@ $(document).ready(function() {
 		apellidos:{required:true,lettersonly:true},
 		correo:{required:true,correo:true},
 		password:{required:true,convertHash:true},
+		foto:{fileSize:true},
         num_tarjeta:{required:true},
 	};
 	//mensajes
@@ -37,6 +48,7 @@ $(document).ready(function() {
 		apellidos:{required:" Requerido",lettersonly:"Please enter only letters"},
 		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
 		password:{required:"Requerido",convertHash:"Hash"},
+		foto:{fileSize:"maximo 100kb"},
         num_tarjeta:{required:" Requerido"},
 	};
 

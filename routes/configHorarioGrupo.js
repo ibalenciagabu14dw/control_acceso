@@ -17,7 +17,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(re
         console.log("Fallo buscarTodasLasAsignaturas");
         throw error;
       }else{
-        grupo.mostrarTodosLosIdNombreGrupo(function (error,gru){
+        grupo.buscarTodosLosIdYNombreGrupo(function (error,gru){
                     if (error) {
                       console.log("Fallo");
                       throw error;
@@ -38,6 +38,7 @@ router.get('/config/configGlobal/configHorario/agregarHorarioGrupo', function(re
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.post('/agregarHorarioGrupo', function(req,res,next){
+  console.log(req.body);
   var dia_semana = req.body.dia;
   var hora_inicio = req.body.hora_inicio;
   var hora_final = req.body.hora_final;

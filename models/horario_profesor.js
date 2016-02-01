@@ -104,7 +104,7 @@ horario_profesor.buscarHorarioProfesorPorId = function (id_horario_profesor,call
 */
 horario_profesor.buscarHorarioProfesorPorNombre = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE id_profesor IN (SELECT id_profesor FROM profesores WHERE nombre LIKE "'+nombre+'")';
+		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE id_profesor IN (SELECT id_profesor FROM profesores WHERE nombre LIKE "'+nombre+'%'+'")';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

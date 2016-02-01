@@ -33,7 +33,6 @@ $(document).ready(function() {
         submitHandler: function (form) {
             event.preventDefault();
             var data = $("#agregarHorarioGrupoForm").serializeArray();
-            //console.log(data);
             $.ajax({
                 url: '/configHorarioGrupo/agregarHorarioGrupo',
                 type: 'post',

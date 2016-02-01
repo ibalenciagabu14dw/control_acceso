@@ -11,11 +11,11 @@ var horario_grupo = {};
 /*
 * INSERTAR horario_grupo
 */
-horario_grupo.agregarHorarioGrupo = function (dia_semana, hora_inicio, hora_final, id_grupo, id_asignatura, id_aula, callback) {							
+horario_grupo.agregarHorarioGrupo = function (dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula,callback) {							
 	if(connection){	
 		var horario_grupo = { dia_semana: dia_semana, hora_inicio: hora_inicio, hora_final: hora_final, id_grupo: id_grupo, id_asignatura: id_asignatura, id_aula: id_aula };
 		var sqlagregarHorarioGrupo = 'INSERT INTO horario_grupos SET ?';
-		connection.query(sqlagregarHorarioGrupo, horario_grupo, function(error){
+		connection.query(sqlagregarHorarioGrupo,horario_grupo, function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);

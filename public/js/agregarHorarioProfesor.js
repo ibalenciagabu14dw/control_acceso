@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#id_horario_grupo').on("change",function(event) {
          $.ajax({
-            url: '/buscarHorarioGrupoHorarioProfesor',
+            url: '/configHorarioGrupo/buscarHorarioGrupoPorId',
             type: 'post',
             dataType: 'json',
             data:{ id_horario_grupo:this.value},

@@ -241,7 +241,9 @@ $('#resultado').on("click","#btnModificar",function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
 			console.log(id);
-			$.ajax({
+			console.log($(this).prop("checked"));
+		if ($(this).prop("checked")) {
+					$.ajax({
 					url: '/configGrupo/buscarAsignaturasDelGrupo',
 					type: 'post',
 					dataType: 'json',
@@ -267,7 +269,13 @@ $('#resultado').on("click","#btnModificar",function () {
 				.fail(function() {
 					console.log("error");
 				})//fail
-			});
+		} else {
+			console.log("no estaba checked");
+			$('#AsignaturaGrupo').html("");
+		}
+				/**/
+
+			});//$(":checkbox").click(function()
 	});
 
 	//funcion para buscar todos los grupos

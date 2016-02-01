@@ -23,18 +23,6 @@ block content
     label(for='hora_final') hora_final
     input#hora_final.form-control(type='time', name='hora_final')  
     br
-    label(for='id_grupo') Grupo
-    select(name='id_grupo')
-      option(value='default') Elige el grupo
-      for gr in grupo
-        option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
-    br
-    label(for='id_asignatura') Asignatura
-    select(name='id_asignatura')
-      option(value='default') Elige la asignatura
-      for as in asignatura
-        option(value='#{as.id_asignatura}') #{as.nombre}
-    br
     label(for='id_aula') Aula
     select(name='id_aula')
       option(value='default') Elige el aula

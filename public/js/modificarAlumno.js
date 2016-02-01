@@ -25,8 +25,8 @@ $(document).ready(function() {
 	//mensajes
 	var mensajes = {
 		dni:{required:" Requerido",dni:"introduce un DNI correcto"},
-        nombre:{required:" Requerido",lettersonly:"Please enter only letters"},
-		apellidos:{required:" Requerido",lettersonly:"Please enter only letters"},
+        nombre:{required:" Requerido",lettersonly:"Solo letras"},
+		apellidos:{required:" Requerido",lettersonly:"Solo letras"},
 		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
         num_tarjeta:{required:" Requerido"},
 	};

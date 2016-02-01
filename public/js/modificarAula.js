@@ -1,15 +1,15 @@
 $(document).ready(function() {
 	//reglas
 	var reglas = {
-		numero:{required:true},
-        piso:{required:true},
-		capacidad:{required:true},
+		numero:{required:true,max: 250},
+        piso:{required:true,max: 3},
+		capacidad:{required:true,max: 30},
 	};
 	//mensajes
 	var mensajes = {
-		numero:{required:" Requerido"},
-        piso:{required:" Requerido"},
-		capacidad:{required:" Requerido"},
+		numero:{required:" Requerido",max:"numero maximo 250"},
+        piso:{required:" Requerido",max:"numero maximo 3"},
+		capacidad:{required:" Requerido",max:"numero maximo 30"},
 	};
 
 	//Buscar alumnos al escribir

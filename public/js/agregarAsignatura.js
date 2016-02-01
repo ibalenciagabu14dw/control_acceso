@@ -4,16 +4,20 @@ $(document).ready(function() {
       return arg != value;
      }, "Value must not equal arg.");
 
+    jQuery.validator.addMethod("lettersonly", function(value, element) { 
+    return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
+    },"Please enter only letters");
+
 	//reglas
 	var reglas = {
-		nombre:{required:true},
+		nombre:{required:true,lettersonly:true},
         clave:{required:true},
 		obligatoria:{required:true},
 		tipo:{required:true,valueNotEquals: "default" }
 	};
 	//mensajes
 	var mensajes = {
-		nombre:{required:" Requerido"},
+		nombre:{required:" Requerido",lettersonly:"solo letras"},
         clave:{required:" Requerido"},
 		obligatoria:{required:" Requerido"},
 		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }

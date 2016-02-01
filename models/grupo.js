@@ -157,6 +157,7 @@ grupo.buscarTodosLosIdYNombreGrupo = function (callback) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log(row);
 			    callback(null,row);
 				console.log('buscarTodosLosIdYNombreGrupo OK');
 			}//else

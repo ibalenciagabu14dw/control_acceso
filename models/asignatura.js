@@ -39,7 +39,7 @@ asignatura.modificarAsigntura = function (id,nombre,clave,obligatoria,tipo,callb
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAsigntura OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -78,7 +78,8 @@ asignatura.buscarTodasLasAsignaturas = function (callback) {
 		  	if (error) {
 				throw error;
 				console.log(error);
-			}else{//console.log(row);
+			}else{
+				console.log(row);
 			    callback(null,row);
 				console.log('buscarTodasLasAsignaturas OK');
 			}//else

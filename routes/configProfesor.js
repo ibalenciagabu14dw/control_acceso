@@ -338,7 +338,10 @@ router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
                 if(row.length>0){
                     res.send(row);
                 } else{
-                   console.log("no hay profesor en esta aula a esta hora " + curr_time); 
+                   console.log("no hay profesor en esta aula a esta hora " + curr_time);
+                   console.log(row);
+                   res.send(row);
+
                 }
               
             }

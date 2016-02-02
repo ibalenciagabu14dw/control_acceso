@@ -48,16 +48,16 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
                                                     throw error;
                                                 }else{
                                                     res.send(row);
-                                                }//else  alumno.agregarAlumnoSinFoto
-                                            });//.alumno.agregarAlumnoSinFoto
-                                        }//.else if(row.length>0) alumno.buscarAlumnoPorTarjeta
-                                    }//.else if (error)
-                                });//.alumno.buscarAlumnoPorTarjeta
-                            }//.else if(row.length>0)alumno.buscarAlumnoPorCorreo
-                        }//.else if (error)
-                    });//.alumno.buscarAlumnoPorCorreo
-                }//.else if(row.length>0) alumno.buscarAlumnoPorDni
-            }//.else if (error)
+                                                }//else
+                                            });//alumno.agregarAlumnoSinFoto
+                                        }//else
+                                    }//else
+                                });//alumno.buscarAlumnoPorTarjeta
+                            }//else
+                        }//else
+                    });//alumno.buscarAlumnoPorCorreo
+                }//else
+            }//else
         });//.alumno.buscarAlumnoPorDni
     } else {
          //agregarAlumnoConFoto
@@ -104,7 +104,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
             }//.else if (error)
         });//.alumno.buscarAlumnoPorDni
     }
-});//router.post('/agregarAsignatura
+});//router.post('/agregarAlumno
 
 
 /****************************************************************************************************************************/

@@ -66,14 +66,15 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 /*
 *	UPDATE alumno sin foto
 */
-alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada,callback) {
+alumno.modificarAlumnoSinFoto = function (id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada,callback) {
 	if(connection){							
-		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, num_tarjeta: num_tarjeta, tarjeta_activada: tarjeta_activada, presencia: '0' };
+		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id_alumno+'"';
 		connection.query(sqlmodificarAlumno,campos, function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
+				callback(null,{dato:"ko"});
 			}else{
 				console.log('modificarAlumnoSinFoto');				
 				callback(null,{dato:"ok"});

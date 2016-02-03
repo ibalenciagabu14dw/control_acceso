@@ -238,9 +238,9 @@ router.post('/borrarAlumno', function(req,res,next){
     alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
         if (error) {
             throw error;
-
+            res.send('error conectando con la base de datos');
         }else{
-            res.send("borrado del alumno OK");
+            res.send('Alumno borrado correctamente');
         }//else
     })//alumno.borrarAlumno
 });//router.post('/borrarAlumno

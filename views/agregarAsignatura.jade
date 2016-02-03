@@ -1,30 +1,41 @@
 extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregarAlumno.css')
 
 block content
-  h1#titulo= title
+  h1 Agregar Asignatura
   form#agregarAsignaturasForm.form-group()
-    label(for='nombre') nombre
-    input#nombre.form-control(type='text', name='nombre')
+    .form-inline
+      .input-group
+        label.input-group-addon(for='nombre') NOMBRE
+        input#nombre.form-control(type='text', name='nombre', placeholder='Escribe el nombre de la asignatura')
     br
-    label(for='clave') clave
-    input#clave.form-control(type='text', name='clave')
-    #mensaje.alert.alert-error.fade.in(style='display: none')
-      a.close(href='#', data-dismiss='alert') ×
-      strong Comprueba!
-      span  Clave ya existente
-    label(for='obligatoria') obligatoria
+    .form-inline
+      .input-group
+        label.input-group-addon(for='clave') CLAVE
+        input#clave.form-control(type='text', name='clave', placeholder='Escribe la clave de la asignatura')
+        #mensaje.alert.alert-error.fade.in(style='display: none')
+          a.close(href='#', data-dismiss='alert') ×
+          strong Comprueba!
+          span  Clave ya existente
     br
-    input(type='radio', name='obligatoria', value='1')
-    |  SI
-    input(type='radio', name='obligatoria', value='0')
-    |  NO
+    .form-inline
+      .input-group
+        label#labelObligatoria.input-group-addon(for='obligatoria') OBLIGATORIA
+        br
+        input.radio(type='radio', name='obligatoria', value='1')
+        |  SI
+        input.radio(type='radio', name='obligatoria', value='0')
+        |  NO
     br
     br
-    label(for='tipo') tipo
-    select(name='tipo')
-      option(value='default') Elige el tipo
-      option(value='Bachiller') Bachiller
-      option(value='FP') FP
+    .form-inline
+      .input-group
+        label#labelTipo.input-group-addon(for='tipo') TIPO
+        select#selectTipo.form-control(name='tipo')
+          option(value='default') Elige el tipo de asignatura
+          option(value='Bachiller') BACHILLER
+          option(value='FP') FP
     br
     br
     button#send.btn.btn-primary(name='send') Enviar

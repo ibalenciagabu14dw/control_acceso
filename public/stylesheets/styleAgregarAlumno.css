@@ -2,6 +2,7 @@
     font-family: tituloIndex;
     src: url('../fonts/Sketch_Block.ttf');
 }
+
 body {
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,7 +14,7 @@ body {
 	background-color: #464646;
 
 }
-#titulo{
+h1{
 	text-align: center;
 	font-family: tituloIndex;
 	font-size: 52pt;
@@ -26,7 +27,7 @@ body {
      -o-hyphens: auto;
      hyphens: auto;
 }
-#agregarAlumnoForm{
+form{
 	width: 50%;
 	margin: auto;
 	background-color: lightgrey;
@@ -38,31 +39,37 @@ body {
 }
 
 .form-control {
+	padding-left: 50px;
     min-width: 0;
-    width: 75% !important;
+    width: 120% !important;
     color:black;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-  	padding-top: 100px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-position: center center;
-	background-color: #464646;
-  }
-  #titulo{
-  	color:black;
-  	font-size: 25pt;
-  }
-  #loginFormContainer{
-  	width: 80%;
-  	padding: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
-  }
+label {
+    width: 50% !important ;
+}
+
+#labelFoto {
+    width: 235px !important ;
+}
+
+
+#labelObligatoria {
+    width: 235px !important ;
+}
+
+#labelTipo {
+    width: 235px !important ;
+}
+
+#foto {
+    width: 200px !important ;
+}
+
+#selectTipo {
+    width: 290px !important ;
+}
+
+.radio{
+	 width: 100px !important ;
 }

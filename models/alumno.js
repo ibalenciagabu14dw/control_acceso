@@ -66,14 +66,15 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 /*
 *	UPDATE alumno sin foto
 */
-alumno.modificarAlumnoSinFoto = function (id,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada,callback) {
+alumno.modificarAlumnoSinFoto = function (id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada,callback) {
 	if(connection){							
-		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, tarjeta_activada: tarjeta_activada , num_tarjeta: num_tarjeta, presencia: '0' };
-		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
+		var campos = { dni: dni, nombre: nombre , apellidos: apellidos, correo: correo, num_tarjeta: num_tarjeta, tarjeta_activada: tarjeta_activada, presencia: '0' };
+		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id_alumno+'"';
 		connection.query(sqlmodificarAlumno,campos, function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
+				callback(null,{dato:"ko"});
 			}else{
 				console.log('modificarAlumnoSinFoto');				
 				callback(null,{dato:"ok"});
@@ -122,9 +123,9 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 /*
 * DELETE alumno por id_alumno
 */
-alumno.borrarAlumno = function (id,callback) {
+alumno.borrarAlumno = function (id_alumno,callback) {
 	if(connection){							
-		connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id+'"', function(error){
+		connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id_alumno+'"', function(error){
 		  if (error) {
 				throw error;
 				console.log(error);
@@ -161,6 +162,23 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 		});//connection.query
 	}//if
 }//alumno.buscarAlumnoPorId
+
+/*
+*	BUSCAR alumno por id_alumno sin devolver foto
+*/
+alumno.buscarAlumnoPorIdSinFoto = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada FROM alumnos WHERE id_alumno ='+connection.escape(id_alumno);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{				
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorIdSinFoto
 
 /*
 *	BUSCAR alumno por dni

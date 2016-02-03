@@ -1,35 +1,51 @@
 extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregarAlumno.css')
 
-block content
-  h1#titulo= title
-  h3 Agregar Profesor
-    form#agregarProfesorForm.form-group()
-      label(for='dni') dni
-      input#dni.form-control(type='text', name='dni')
-      #mensaje.alert.alert-error.fade.in(style='display: none')
-        a.close(href='#', data-dismiss='alert') ×
-        strong Comprueba!
-        span  Dni ya existente
-      br
-      label(for='nombre') nombre
-      input#nombre.form-control(type='text', name='nombre')
-      br
-      label(for='apellidos') apellidos
-      input#apellidos.form-control(type='text', name='apellidos')
-      br
-      label(for='correo') correo
-      input#correo.form-control(type='text', name='correo')
-      br
-      label(for='password') password
-      input#password.form-control(type='password', name='password')
-      input#pass.form-control(type='hidden', name='pass')
-      label(for='foto') foto
-      input#foto.form-control(type='file', name='foto', accept='image/*')
-      br
-      label(for='num_tarjeta') num_tarjeta
-      input#num_tarjeta.form-control(type='text', name='num_tarjeta' )
-      br
-      button#send.btn.btn-primary(name='send') Enviar
-      a#enlace.btn.btn-primary(href='/config/configPersonas') Volver
+block content 
+  h1 Agregar Profesor
+  form#agregarProfesorForm.form-group()
+    .form-inline
+      .input-group
+        label.input-group-addon(for='dni') DNI
+        input#dni.form-control(type='text', name='dni', placeholder='Escribe el dni del profesor')
+        #mensaje.alert.alert-error.fade.in(style='display: none')
+          a.close(href='#', data-dismiss='alert') ×
+          strong Comprueba!
+          span  Dni ya existente
+    br
+    .form-inline
+      .input-group
+        label.input-group-addon(for='nombre') NOMBRE
+        input#nombre.form-control(type='text', name='nombre', placeholder='Escribe el nombre del profesor')
+    br
+    .form-inline
+      .input-group
+        label.input-group-addon(for='apellidos') APELLIDOS
+        input#apellidos.form-control(type='text', name='apellidos', placeholder='Escribe los apellidos del profesor')
+    br
+    .form-inline
+      .input-group
+        label.input-group-addon(for='correo') CORREO
+        input#correo.form-control(type='text', name='correo', placeholder='Escribe el correo del profesor')
+    br
+    .form-inline
+      .input-group
+        label.input-group-addon(for='password') PASSWORD
+        input#password.form-control(type='password', name='password', placeholder='Escribe el password del profesor')
+        input#pass.form-control(type='hidden', name='pass')
+    br
+    .form-inline
+      .input-group
+        label#labelFoto.input-group-addon(for='foto') FOTO
+        input#foto.form-control(type='file', name='foto', accept='image/*')
+    br
+    .form-inline
+      .input-group
+        label.input-group-addon(for='num_tarjeta') NUM_TARJETA
+        input#num_tarjeta.form-control(type='text', name='num_tarjeta' , placeholder='Escribe el nombre del profesor')
+    br
+    button#send.btn.btn-primary(name='send') Enviar
+    a#enlace.btn.btn-primary(href='/config/configPersonas') Volver
   script
     include ../public/js/agregarProfesor.js

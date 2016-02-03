@@ -238,9 +238,9 @@ router.post('/borrarAlumno', function(req,res,next){
     alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
         if (error) {
             throw error;
-
+            res.send('error conectando con la base de datos');
         }else{
-            res.send("borrado del alumno OK");
+            res.send('Alumno borrado correctamente');
         }//else
     })//alumno.borrarAlumno
 });//router.post('/borrarAlumno
@@ -278,27 +278,5 @@ router.post('/buscarAlumnoPorId', function(req,res,next) {
 
 
 /****************************************************************************************************************************/
-
-
-/*
-******************************MOSTAR********************************
-
-
-router.get('/mostrar/buscarTodoslosAlumnos', function(req, res, next) {
-	alumno.buscarTodoslosAlumnos(function (error,data) {
-		if (error) {
-			res.send("ko");
-			console.log("Fallo update presencia alumno");
-			throw error;
-		}else{
-			//emitir al cliente para cambiar color presencia alumno
-			res.json(data);
-		}//else error
-	});//modificarPresenciaDelAlumno
-});//
-
-
-******************************AGREGAR********************************
-*/
 
 module.exports = router;

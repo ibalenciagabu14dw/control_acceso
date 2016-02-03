@@ -2,6 +2,7 @@
     font-family: tituloIndex;
     src: url('../fonts/Sketch_Block.ttf');
 }
+
 body {
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -63,4 +64,12 @@ label {
 
 #foto {
     width: 200px !important ;
+}
+
+#selectTipo {
+    width: 290px !important ;
+}
+
+.radio{
+	 width: 100px !important ;
 }

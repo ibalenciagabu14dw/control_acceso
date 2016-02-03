@@ -21,7 +21,7 @@ block content
     br
     .form-inline
       .input-group
-        label.input-group-addon(for='obligatoria') OBLIGATORIA
+        label#labelObligatoria.input-group-addon(for='obligatoria') OBLIGATORIA
         br
         input(type='radio', name='obligatoria', value='1')
         |  SI
@@ -32,10 +32,10 @@ block content
     br
     .form-inline
       .input-group
-        label.input-group-addon(for='tipo') TIPO
+        label#labelTipo.input-group-addon(for='tipo') TIPO
         select.form-control(name='tipo')
           option(value='default') Elige el tipo
-          option(value='Bachiller') Bachiller
+          option(value='Bachiller') BACHILLER
           option(value='FP') FP
     br
     br

@@ -181,6 +181,24 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 }//profesor.buscarProfesorPorId
 
 /*
+* BUSCAR profesor por id_profesor sin devolver la foto
+*/
+profesor.buscarProfesorPorIdSinFoto = function(id_profesor,callback){
+	if(connection){
+		var sql = 'SELECT id_profesor,dni,nombre,apellidos,correo,password,num_tarjeta,tarjeta_activada,admin FROM profesores WHERE id_profesor ='+connection.escape(id_profesor);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarProfesorPorIdSinFoto OK');
+			}//else
+		});//connection.query
+	}//if
+}//profesor.buscarProfesorPorId
+
+/*
 * BUSCAR profesor por dni
 */
 profesor.buscarProfesorPorDni = function(dni,callback) {
@@ -233,6 +251,8 @@ profesor.buscarProfesorPorCorreo = function(correo,callback) {
 		});//connection.query
 	};//if
 }//profesor.buscarProfesorPorCorreo
+
+
 
 /*
 * BUSCAR profesor por num_tarjeta

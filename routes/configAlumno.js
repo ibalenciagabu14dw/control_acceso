@@ -4,6 +4,7 @@ var alumno = require('../models/alumno');
 var multer = require('multer');
 var convalidadas = require('../models/convalidadas');
 var alumno_grupos = require('../models/alumno_grupos');
+var profesor = require('../models/profesor');
 
 /***********************************************************INSERT*********************************************************/
 
@@ -58,9 +59,9 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
                     });//alumno.buscarAlumnoPorCorreo
                 }//else
             }//else
-        });//.alumno.buscarAlumnoPorDni
+        });//alumno.buscarAlumnoPorDni
     } else {
-         //agregarAlumnoConFoto
+        //agregarAlumnoConFoto
         alumno.buscarAlumnoPorDni(dni, function (error,row) {
             if (error) {
                 res.send({err:'bd'});
@@ -120,7 +121,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
             throw error;
         }else{
             res.send(row);
-        }
+        }//else
     })//alumno_grupos.borrarAlumnoGrupos
   
     var data= req.body.grupo;
@@ -157,67 +158,96 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
         }//for
     }//else
 
-    var id_alumno = req.body.id_alumno;
-    var dni = req.body.dni;
-    var nombre = req.body.nombre;
-    var apellidos = req.body.apellidos;
-    var correo = req.body.correo;
-    var tarjeta_activada = req.body.tarjeta_activada;
-    var num_tarjeta = req.body.num_tarjeta;
     var foto = req.file.buffer;
-        alumno.buscarAlumnoPorIdDniCorreoNum_tarj(id_alumno,dni,correo,num_tarjeta, function(error,row) {
-            if (error) {
-                throw error;
-            }else{
-                if(row.length>0){
-                    alumno.modificarAlumno(id_alumno,dni,nombre,apellidos,correo,foto,num_tarjeta,tarjeta_activada, function(error,row) {
-                        if (error) {
-                            throw error;          
+
+    var dni_antiguo;
+    var correo_antiguo;
+    var num_tarjeta_antiguo;
+
+    alumno.buscarAlumnoPorIdSinFoto(req.body.id_alumno, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            dni_antiguo = row[0].dni;
+            correo_antiguo = row[0].correo;
+            num_tarjeta_antiguo = row[0].num_tarjeta;
+        }
+    })//alumno.buscarAlumnoPorIdSinFoto
+
+    alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                res.send({err:'ese DNI lo tiene un alumno'});
+            }else {
+                alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
+                    if (error) {
+                        res.send('error conectando con la base de datos');
+                        throw error;
+                    }else {
+                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                            res.send({err:'ese correo lo tiene un alumno'});
                         }else {
-                            res.send(row);    
-                        }        
-                    })//.alumno.modificarAlumno
-                } else {
-                    alumno.buscarAlumnoPorDni(dni, function(error,row) {
-                        if (error) {
-                            throw error;
-                        } else {
-                            if(row.length>0){
-                                res.send({err:'existeDNI'});
-                            } else {
-                                alumno.buscarAlumnoPorCorreo(correo, function(error,row){
-                                    if (error) {
-                                        throw error;
-                                    } else {
-                                        if(row.length>0){
-                                            res.send({err:'existeCorreo'});
-                                        } else {
-                                            alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
-                                                if (error) {
-                                                   throw error; 
-                                               } else {
-                                                if(row.length>0){
-                                                    res.send({err:'existeTarjeta'});
-                                                } else {
-                                                    alumno.modificarAlumno(id_alumno,dni,nombre,apellidos,correo,foto,num_tarjeta,tarjeta_activada, function(error,row){
+                            alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                if (error) {
+                                    res.send('error conectando con la base de datos');
+                                    throw error; 
+                                }else {
+                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                        res.send({err:'ese numero de tarjeta lo tiene un alumno'});
+                                    }else {
+                                        profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
+                                            if (error) {
+                                                res.send('error conectando con la base de datos');
+                                                throw error;
+                                            }else{
+                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                    res.send({err:'ese DNI lo tiene un profesor'});
+                                                }else {
+                                                    profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
                                                         if (error) {
+                                                            res.send('error conectando con la base de datos');
                                                             throw error;
-                                                        } else {
-                                                            res.send(row); 
-                                                        }//.else if (error) 
-                                                    })//.alumno.modificarAlumno
-                                                }//else if(row.length>0){
-                                               }//.else if (error)
-                                            })//.alumno.buscarAlumnoPorTarjeta
-                                        }//.else if(row.length>0)
-                                    }//.else if (error)
-                                })//.alumno.buscarAlumnoPorCorreo       
-                            }//.else if(row.length>0)
-                        }//.else if (error)
-                    })//.alumno.buscarAlumnoPorDni
-                }//.else if(row.length<0)
-            }//.else if (error)
-        })//.alumno.buscarAlumnoPorIdDniCorreoNum_tarj
+                                                        }else {
+                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                                res.send({err:'ese correo lo tiene un profesor'});
+                                                            }else {
+                                                                profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                                                    if (error) {
+                                                                        res.send('error conectando con la base de datos');
+                                                                        throw error; 
+                                                                    }else {
+                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                            res.send({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                        }else {
+                                                                            alumno.modificarAlumno(req.body.id_alumno,req.body.dni,req.body.nombre,req.body.apellidos,req.body.correo,foto,req.body.num_tarjeta,req.body.tarjeta_activada, function(error,row){
+                                                                                if (error) {
+                                                                                    throw error;
+                                                                                }else {
+                                                                                    res.send(row);
+                                                                                }//else
+                                                                            })//alumno.modificarAlumno
+                                                                        }//else
+                                                                    }//else
+                                                                })//profesor.buscarProfesorPorTarjeta
+                                                            }//else
+                                                        }//else
+                                                    })//profesor.buscarProfesorPorCorreo
+                                                }//else
+                                            }//else
+                                        })//profesor.buscarProfesorPorIdSinFoto
+                                    }//else
+                                }//else
+                            })//alumno.buscarAlumnoPorTarjeta
+                        }//else
+                    }//else
+                })//alumno.buscarAlumnoPorCorreo
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorDni
 });//router.post('/modificarAlumno
 
 router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,res,next){
@@ -263,66 +293,95 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
         }//for
     }//else
 
-    var id_alumno = req.body.id_alumno;
-    var dni = req.body.dni;
-    var nombre = req.body.nombre;
-    var apellidos = req.body.apellidos;
-    var correo = req.body.correo;
-    var tarjeta_activada = req.body.tarjeta_activada;
-    var num_tarjeta = req.body.num_tarjeta;
-    alumno.buscarAlumnoPorIdDniCorreoNum_tarj(id_alumno,dni,correo,num_tarjeta, function(error,row) {
+    var dni_antiguo;
+    var correo_antiguo;
+    var num_tarjeta_antiguo;
+
+    alumno.buscarAlumnoPorIdSinFoto(req.body.id_alumno, function(error,row) {
         if (error) {
+            res.send('error conectando con la base de datos');
             throw error;
-        }else {
-            if(row.length>0){
-                alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
-                    if (error) {
-                        throw error;          
-                    }else {
-                        res.send(row);    
-                    }        
-                })//alumno.modificarAlumnoSinFoto
+        }else{
+            dni_antiguo = row[0].dni;
+            correo_antiguo = row[0].correo;
+            num_tarjeta_antiguo = row[0].num_tarjeta;
+        }
+    })//alumno.buscarAlumnoPorIdSinFoto
+
+    alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                console.log({err:'ese DNI lo tiene un alumno'});
             }else {
-                alumno.buscarAlumnoPorDni(dni, function(error,row) {
+                alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
                     if (error) {
+                        console.log('error conectando con la base de datos');
                         throw error;
                     }else {
-                        if(row.length>0){
-                            res.send({err:'existeDNI'});
+                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                            console.log({err:'ese correo lo tiene un alumno'});
+
                         }else {
-                            alumno.buscarAlumnoPorCorreo(correo, function(error,row){
+                            alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
                                 if (error) {
-                                    throw error;
+                                    console.log('error conectando con la base de datos');
+                                    throw error; 
                                 }else {
-                                    if(row.length>0){
-                                        res.send({err:'existeCorreo'});
+                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                        console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                     }else {
-                                        alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
+                                        profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
                                             if (error) {
-                                                throw error; 
-                                            }else {
-                                                if(row.length>0){
-                                                    res.send({err:'existeTarjeta'});
+                                                console.log('error conectando con la base de datos');
+                                                throw error;
+                                            }else{
+                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                    console.log({err:'ese DNI lo tiene un profesor'});
                                                 }else {
-                                                    alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row){
+                                                    profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
                                                         if (error) {
+                                                            console.log('error conectando con la base de datos');
                                                             throw error;
                                                         }else {
-                                                            res.send(row); 
+                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                                console.log({err:'ese correo lo tiene un profesor'});
+                                                            }else {
+                                                                profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                                                    if (error) {
+                                                                        console.log('error conectando con la base de datos');
+                                                                        throw error; 
+                                                                    }else {
+                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                            console.log({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                        }else {
+                                                                            alumno.modificarAlumnoSinFoto(req.body.id_alumno,req.body.dni,req.body.nombre,req.body.apellidos,req.body.correo,req.body.num_tarjeta,req.body.tarjeta_activada, function(error,row){
+                                                                                if (error) {
+                                                                                    throw error;
+                                                                                }else {
+                                                                                    console.log('modificado OKK!!!');
+                                                                                }//else
+                                                                            })//alumno.modificarAlumno
+                                                                        }//else
+                                                                    }//else
+                                                                })//profesor.buscarProfesorPorTarjeta
+                                                            }//else
                                                         }//else
-                                                    })//alumno.modificarAlumnoSinFoto
+                                                    })//profesor.buscarProfesorPorCorreo
                                                 }//else
                                             }//else
-                                        })//alumno.buscarAlumnoPorTarjeta
+                                        })//profesor.buscarProfesorPorIdSinFoto
                                     }//else
                                 }//else
-                            })//alumno.buscarAlumnoPorCorreo
+                            })//alumno.buscarAlumnoPorTarjeta
                         }//else
                     }//else
-                })//alumno.buscarAlumnoPorDni
-            }//.else if(row.length<0)
+                })//alumno.buscarAlumnoPorCorreo
+            }//else
         }//else
-    })//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
+    })//alumno.buscarAlumnoPorDni
 });//router.post('/modificarAlumnoSinFoto
 
 /****************************************************************************************************************************/

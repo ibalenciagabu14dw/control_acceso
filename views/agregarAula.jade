@@ -1,20 +1,28 @@
 extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregarAlumno.css')
 
 block content
-  h1#titulo= title
+  h1 Agregar Aula
   form#agregarAulaForm.form-group()
-    label(for='numero') numero
-    input#numero.form-control(type='number', name='numero')
+    .form-inline
+      .input-group
+        label.input-group-addon(for='numero') NUMERO
+        input#numero.form-control(type='number', name='numero', placeholder='Escribe el numero')
     br
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
       strong Comprueba!
       span  Numero ya existente
-    label(for='piso') piso
-    input#piso.form-control(type='number', name='piso')
+    .form-inline
+      .input-group
+        label.input-group-addon(for='piso') PISO
+        input#piso.form-control(type='number', name='piso', placeholder='Escribe el piso')
     br
-    label(for='capacidad') capacidad
-    input#capacidad.form-control(type='number', name='capacidad')
+    .form-inline
+      .input-group
+        label.input-group-addon(for='capacidad') CAPACIDAD
+        input#capacidad.form-control(type='number', name='capacidad', placeholder='Escribe la capacidad')
     br
     button#send.btn.btn-primary(name='send') Enviar
     a#enlace.btn.btn-primary(href='/config/configGlobal/configAulas') Volver

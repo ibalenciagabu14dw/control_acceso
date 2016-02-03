@@ -1,45 +1,58 @@
 extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content
-  h1#titulo= title
+  h1 Agregar Horario Grupo
   form#agregarHorarioGrupoForm.form-group()
-    label(for='dia') Dia
-    select(name='dia')
-      option(value='default') Elige el dia
-      option(value='Lunes') Lunes
-      option(value='Martes') Martes
-      option(value='Miercoles') Miercoles
-      option(value='Jueves') Jueves
-      option(value='Viernes') Viernes
-    br
+    .form-inline
+      .input-group
+        label#labelDiaHorarioGrupo.input-group-addon(for='dia') DIA
+        select#selectDiaHorarioGrupo.form-control(name='dia')
+          option(value='default') Elige el dia
+          option(value='Lunes') Lunes
+          option(value='Martes') Martes
+          option(value='Miercoles') Miercoles
+          option(value='Jueves') Jueves
+          option(value='Viernes') Viernes
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
       strong Comprueba!
       span  Dia ya existente
     br
-    label(for='hora_inicio') hora_inicio
-    input#hora_inicio.form-control(type='time', name='hora_inicio')
+    .form-inline
+      .input-group
+        label#labelHoraInicio.input-group-addon(for='hora_inicio') HORA INICIO
+        input#hora_inicio.form-control(type='time', name='hora_inicio')
     br
-    label(for='hora_final') hora_final
-    input#hora_final.form-control(type='time', name='hora_final')  
+    .form-inline
+      .input-group
+        label#labelHoraFinal.input-group-addon(for='hora_final') HORA FINAL
+        input#hora_final.form-control(type='time', name='hora_final')  
     br
-    label(for='id_grupo') Grupo
-    select(name='id_grupo')
-      option(value='default') Elige el grupo
-      for gr in grupo
-        option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoGrupo.input-group-addon(for='id_grupo') GRUPO
+        select#selectHorarioGrupoGrupo.form-control(name='id_grupo')
+          option(value='default') Elige el grupo
+          for gr in grupo
+            option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
     br
-    label(for='id_asignatura') Asignatura
-    select(name='id_asignatura')
-      option(value='default') Elige la asignatura
-      for as in asignatura
-        option(value='#{as.id_asignatura}') #{as.nombre}
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoAsignatura.input-group-addon(for='id_asignatura') ASIGNATURA
+        select#selectHorarioGrupoAsignatura.form-control(name='id_asignatura')
+          option(value='default') Elige la asignatura
+          for as in asignatura
+            option(value='#{as.id_asignatura}') #{as.nombre}
     br
-    label(for='id_aula') Aula
-    select(name='id_aula')
-      option(value='default') Elige el aula
-      for au in aula
-        option(value='#{au.id_aula}') #{au.numero}
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoAula.input-group-addon(for='id_aula') AULA
+        select#selectHorarioGrupoAula.form-control(name='id_aula')
+          option(value='default') Elige el aula
+          for au in aula
+            option(value='#{au.id_aula}') #{au.numero}
     br
     button#send.btn.btn-primary(name='send') Enviar
     a#enlace.btn.btn-primary(href='/config/configGlobal/configHorario') Volver

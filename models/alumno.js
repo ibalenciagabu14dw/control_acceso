@@ -123,9 +123,9 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 /*
 * DELETE alumno por id_alumno
 */
-alumno.borrarAlumno = function (id,callback) {
+alumno.borrarAlumno = function (id_alumno,callback) {
 	if(connection){							
-		connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id+'"', function(error){
+		connection.query('DELETE FROM alumnos WHERE id_alumno= "'+id_alumno+'"', function(error){
 		  if (error) {
 				throw error;
 				console.log(error);

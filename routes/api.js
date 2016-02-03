@@ -15,34 +15,34 @@ var asignatura = require('../models/asignatura');
 router.post('/agregarAlumno', function(req, res, next) {
 	alumno.buscarAlumnoPorDni(req.query.dni, function (error,row) {
         if (error) {
-            res.send({err:'bd'});
+            res.send('error conectando con la base de datos');
             throw error;
         }else{
             if(row.length>0){
-                res.send({err:'existeDNI'});
+                res.send('ya existe ese DNI');
             }else{
                 alumno.buscarAlumnoPorCorreo(req.query.correo, function (error,row) {
                     if (error) {
-                        res.send({err:'bd'});
+                        res.send('error conectando con la base de datos');
                         throw error;
                     }else{
                         if(row.length>0){
-                            res.send({err:'existeCorreo'});
+                            res.send('ya existe ese correo');
                         }else{
                             alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function (error,row) {
                                 if (error) {
-                                    res.send({err:'bd'});
+                                    res.send('error conectando con la base de datos');
                                     throw error;
                                 }else{
                                     if(row.length>0){
-                                        res.send({err:'existeTarjeta'});
+                                        res.send('ya existe esa tarjeta');
                                     }else{
                                         alumno.agregarAlumnoSinFoto(req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta, function (error,row) {
                                             if (error) {
-                                                res.send({err:'bd'});
+                                                res.send('error conectando con la base de datos');
                                                 throw error;
                                             }else{
-                                                res.send(row);
+                                                res.send('alumno agregado correctamente');
                                             }//else
                                         });//alumno.agregarAlumnoSinFoto
                                     }//else
@@ -60,7 +60,7 @@ router.post('/agregarAlumno', function(req, res, next) {
 * INSERT asignatura ****NO FUNCIONA****
 */
 router.post('/agregarAsignatura', function(req,res,next){
-    asignatura.buscarAsignaturaPorClave(req.body.clave, function (error,row) {
+    asignatura.buscarAsignaturaPorClave(req.query.clave, function (error,row) {
         if (error) {
             res.send({err:'bd'});
             throw error;
@@ -68,7 +68,7 @@ router.post('/agregarAsignatura', function(req,res,next){
             if(row.length>0){
                 res.send({err:'existe'});
             }else{
-                asignatura.agregarAsignatura(req.body.nombre,req.body.clave,req.body.obligatoria,req.body.tipo, function (error,row) {
+                asignatura.agregarAsignatura(req.query.nombre,req.query.clave,req.query.obligatoria,req.query.tipo, function (error,row) {
                     if (error) {
                         res.send({err:'bd'});
                         throw error;
@@ -100,11 +100,11 @@ router.post('/modificarAlumno', function(req, res, next) {
 * DELETE alumno por id_alumno ****NO FUNCIONA****
 */
 router.post('/borrarAlumno', function(req,res,next){
-    alumno.borrarAlumno(req.body.id_alumno, function(error,row) {
+    alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
         if (error) {
             throw error;
         }else{
-            res.send(row);
+            res.send("borrado del alumno OK");
         }//else
     })//alumno.borrarAlumno
 });//router.post('/borrarAlumno
@@ -118,7 +118,7 @@ router.post('/borrarAlumno', function(req,res,next){
 * BUSCAR alumno por nombre ****NO FUNCIONA****ERROR DE FOTO
 */
 router.post('/buscarAlumnoPorNombre', function(req,res,next) {
-    alumno.buscarAlumnoPorNombre(req.body.nombre, function(error,row) {
+    alumno.buscarAlumnoPorNombre(req.query.nombre, function(error,row) {
         if (error) {
             throw error;
         }else{
@@ -131,7 +131,7 @@ router.post('/buscarAlumnoPorNombre', function(req,res,next) {
 * BUSCAR alumno por id_alumno ****NO FUNCIONA****ERROR DE FOTO
 */
 router.post('/buscarAlumnoPorId', function(req,res,next) {
-    alumno.buscarAlumnoPorId(req.body.id_alumno, function(error,row) {
+    alumno.buscarAlumnoPorId(req.query.id_alumno, function(error,row) {
         if (error) {
             throw error;
         }else{

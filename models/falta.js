@@ -44,6 +44,20 @@ falta.modificarFalta = function (id_falta,fecha,id_alumno,id_horario_grupo,obser
 	}//if
 }//falta.modificarFalta
 
+falta.updatePresencia0ATodos = function(callback){
+	if (connection) {
+		var sql = 'UPDATE alumnos, profesores SET alumnos.presencia = 0, profesores.presencia = 0';
+		connection.query(sql,function (error) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				console.log("Presencia a 0 a todos");
+			}//else
+		});//connection.query
+	};//if connection
+}//falta.updatePresencia0ATodos
+
 /****************************************************************************************************************************/
 
 /***********************************************************DELETE***********************************************************/

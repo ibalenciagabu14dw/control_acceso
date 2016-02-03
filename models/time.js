@@ -1,7 +1,7 @@
 var time = {};
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
 var horario_grupo = require('../models/horario_grupo');
-
+var falta = require('../models/falta');
 /*
 *	Later
 */
@@ -13,7 +13,7 @@ later2.date.UTC();
 var schedule = {
     schedules:
     [
-        {t:[43800]},//07:30 UTC()+1 23400
+        {t:[23400]},//07:30 UTC()+1 23400
         //{t:[29800]},
     ],
     exceptions:
@@ -69,7 +69,12 @@ function primeraHora() {
 
 function finDeClase () {
 	console.log("Funcion secundaria "+ new Date());
-
+	falta.updatePresencia0ATodos(function (error) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}
+	});//falta.updatePresencia
 }
 
 /*

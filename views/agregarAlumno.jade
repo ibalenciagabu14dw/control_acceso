@@ -3,35 +3,41 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/styleAgregarAlumno.css')
 
 block content
-  h1#titulo= title
+  h1 Agregar Alumno
   form#agregarAlumnoForm.form-group()
     .form-inline
-      label(for='dni') dni
-      input#dni.form-control(type='text', name='dni')
-      #mensaje.alert.alert-error.fade.in(style='display: none')
-        a.close(href='#', data-dismiss='alert') ×
-        strong Comprueba!
-        span  Dni ya existente
+      .input-group
+        label.input-group-addon(for='dni') DNI
+        input#dni.form-control(type='text', name='dni', placeholder='Escribe el dni')
+        #mensaje.alert.alert-error.fade.in(style='display: none')
+          a.close(href='#', data-dismiss='alert') ×
+          strong Comprueba!
+          span  Dni ya existente
     br
     .form-inline
-      label(for='nombre') nombre
-      input#nombre.form-control(type='text', name='nombre')
-    br
-    .form-inline  
-      label(for='apellidos') apellidos
-      input#apellidos.form-control(type='text', name='apellidos')
+      .input-group
+        label.input-group-addon(for='nombre') NOMBRE
+        input#nombre.form-control.input(type='text', name='nombre', placeholder='Escribe el nombre del alumno')
     br
     .form-inline
-      label(for='correo') correo
-      input#correo.form-control(type='text', name='correo')
+      .input-group
+        label.input-group-addon(for='apellidos') APELLIDOS
+        input#apellidos.form-control(type='text', name='apellidos', placeholder='Escribe los apellidos del alumno')
     br
     .form-inline
-      label(for='foto') foto
-      input#foto.form-control(type='file', name='foto', accept='image/*')
+      .input-group
+        label.input-group-addon(for='correo') CORREO
+        input#correo.form-control(type='text', name='correo', placeholder='Escribe el email del alumno')
     br
     .form-inline
-      label(for='num_tarjeta') num_tarjeta
-      input#num_tarjeta.form-control(type='text', name='num_tarjeta' )
+      .input-group
+        label#labelFoto.input-group-addon.foto(for='foto') FOTO
+        input#foto.form-control(type='file', name='foto', accept='image/*')
+    br
+    .form-inline
+      .input-group
+        label.input-group-addon(for='num_tarjeta') NUMERO TARJETA
+        input#num_tarjeta.form-control(type='text', name='num_tarjeta' , placeholder='Escribe el numero de la tarjeta')
     br
     button#send.btn.btn-primary(name='send') Enviar
     a#enlace.btn.btn-primary(href='/config/configPersonas') Volver

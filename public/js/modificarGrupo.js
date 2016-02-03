@@ -32,21 +32,41 @@ $(document).ready(function() {
 		buscarGrupoId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateGrupo' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_grupo: <input type='text' id='id_grupo' name='id_grupo' class='form-control' value='"+result[0].id_grupo+"'readonly>";
-    		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre_grupo+"'>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_grupo' class='input-group-addon'>ID GRUPO</label>";    		
+    		formulario += "<input type='text' id='id_grupo' name='id_grupo' class='form-control' value='"+result[0].id_grupo+"'readonly>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";  
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";   		
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre_grupo+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";     		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Nombre ya existente</span></div>";	
 				if(result[0].tipo == 'FP'){
-					formulario += "Tipo:<select name='tipo'>";
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'>Bachiller</option>";
 					formulario += "<option value='FP' selected>FP</option>";
 					formulario += "</select>";
+					formulario += "</div>";
+  					formulario += "</div>";   
 				} else {
-					formulario += "Tipo:<select name='tipo'>";
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'selected>Bachiller</option>";
 					formulario += "<option value='FP'>FP</option>";
-					formulario += "</select>";				
+					formulario += "</select>";
+			  		formulario += "</div>";
+  					formulario += "</div>";   				
 				}
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";

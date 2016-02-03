@@ -279,26 +279,4 @@ router.post('/buscarAlumnoPorId', function(req,res,next) {
 
 /****************************************************************************************************************************/
 
-
-/*
-******************************MOSTAR********************************
-
-
-router.get('/mostrar/buscarTodoslosAlumnos', function(req, res, next) {
-	alumno.buscarTodoslosAlumnos(function (error,data) {
-		if (error) {
-			res.send("ko");
-			console.log("Fallo update presencia alumno");
-			throw error;
-		}else{
-			//emitir al cliente para cambiar color presencia alumno
-			res.json(data);
-		}//else error
-	});//modificarPresenciaDelAlumno
-});//
-
-
-******************************AGREGAR********************************
-*/
-
 module.exports = router;

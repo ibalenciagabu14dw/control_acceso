@@ -13,7 +13,7 @@ later2.date.UTC();
 var schedule = {
     schedules:
     [
-        {t:[39000]},//07:30 UTC()+1 23400
+        {t:[43800]},//07:30 UTC()+1 23400
         //{t:[29800]},
     ],
     exceptions:

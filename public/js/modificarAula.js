@@ -53,7 +53,7 @@ $(document).ready(function() {
 			formulario += "<label for='capacidad' class='input-group-addon'>CAPACIDAD</label>";         		
        		formulario += "<input type='text' id='capacidad' name='capacidad' class='form-control' value='"+result[0].capacidad+"'>";
     		formulario += "</div>";
-  			formulario += "</div><br/>";			
+  			formulario += "</div>";			
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configAulas' class='btn btn-primary'>Volver</a>";

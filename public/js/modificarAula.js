@@ -29,11 +29,31 @@ $(document).ready(function() {
 		buscarAulaId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateAula' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_aula: <input type='text' id='id_aula' name='id_aula' class='form-control' value='"+result[0].id_aula+"'readonly>";
-    		formulario += "Numero: <input type='text' id='numero' name='numero' class='form-control' value='"+result[0].numero+"'>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_aula' class='input-group-addon'>ID AULA</label>";
+    		formulario += "<input type='text' id='id_aula' name='id_aula' class='form-control' value='"+result[0].id_aula+"'readonly>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+  			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='numero' class='input-group-addon'>NUMERO</label>";
+    		formulario += "<input type='text' id='numero' name='numero' class='form-control' value='"+result[0].numero+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";    		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Numero ya existente</span></div>";	
-    		formulario += "Piso: <input type='text' id='piso' name='piso' class='form-control' value='"+result[0].piso+"'>";
-       		formulario += "Capacidad: <input type='text' id='capacidad' name='capacidad' class='form-control' value='"+result[0].capacidad+"'>";
+  			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='piso' class='input-group-addon'>PISO</label>";    		
+    		formulario += "<input type='text' id='piso' name='piso' class='form-control' value='"+result[0].piso+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+  			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='capacidad' class='input-group-addon'>CAPACIDAD</label>";         		
+       		formulario += "<input type='text' id='capacidad' name='capacidad' class='form-control' value='"+result[0].capacidad+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";			
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<a id='enlace' href='/config/configGlobal/configAulas' class='btn btn-primary'>Volver</a>";

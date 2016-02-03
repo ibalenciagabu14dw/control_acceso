@@ -1,57 +1,82 @@
 var time = {};
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
-var cron = require('node-schedule');
-var cron2 = require('node-schedule');
 var horario_grupo = require('../models/horario_grupo');
-/*cron*/
-var rule = new cron.RecurrenceRule();
-var dates;
-var fecha;
 
-rule.dayOfWeek = new cron.Range(1,5);
-rule.hour = 9;
-rule.minute = 12;
-/*var date = new Date(2016, 0, 29, 8, 53, 0);
-var date2 = new Date(2016, 0, 29, 8, 54, 0);
-var date3 = new Date(2016, 0, 29, 8, 55, 0);*/
-cron.scheduleJob(rule, function(){
-	var dia;
-	time.diaDeLaSemana(function (error,data) {
+/*
+*	Later
+*/
+var later = require('later');
+var later2 = require('later');
+later.date.UTC();
+later2.date.UTC();
+// momento del dia desde las 00:00 en segundos menos 3600 (UTC())
+var schedule = {
+    schedules:
+    [
+        {t:[43800]},//07:30 UTC()+1 23400
+        //{t:[29800]},
+    ],
+    exceptions:
+    [
+    	//menos sábado y domingo
+        {dw:[0,6]},
+    ]
+};
+//Activar
+var timer = later.setInterval(primeraHora, schedule);
+var timer2;
+//var contador = 0;
+
+//Funcion principal
+function primeraHora() {
+   	console.log("Funcion principal "+ new Date());
+   	var schedule2 = {schedules:[],exceptions:[{dw:[0,6]}]};
+   	var dia;
+   	//sacar dia de la semana para llamar a la funcion
+   	time.diaDeLaSemana(function (error,data) {
 		if (error) {
-			throw error;
-		}else{
-			dia = data;
-		}
-	})
-    console.log(new Date());
-    horario_grupo.buscarHoraFinalPorDia(dia,function (error,data) {
-    	if (error) {
-    		throw error;
-    	}else{
-    		dates = [];
-    		time.diaCompleto(function (error,data) {
-    			fecha = data.split("-");
-    			console.log(fecha);
-    		})//diaCompleto
-    		for (var i = 0; i < data.length; i++) {
-    			var hora = data[i].hora_final.split(":");
-    			var date = new Date(fecha[0],fecha[1]-1,fecha[2],hora[0],hora[1],hora[2]);
-    			dates.push(date);
-    		};
-    		console.log(dates);
-    		
-    	}//elseError
-    })//buscarHoraFinalPorDia
+   			console.log(error);
+   			throw error;
+   		}else{
+   			dia = data;
+   		}
+   		//sacar las horas finales de cada clase
+   		horario_grupo.buscarHoraFinalPorDia(dia, function (error,data) {
+   			if (error) {
+   				console.log(error);
+   				throw error;
+   			}else{
+   				//configurar el segundo trigger con las horas finales de cada clase en segundos
+				for (var i = 0; i < data.length; i++) {
+					/*if (contador == 0) {
+						var sec = 29730 + (10*i);
+					}else{
+						var sec = 29830 + (10*i);
+					}*/
+					
+					var hora = data[i].hora_final.split(':');
+					var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
+					schedule2.schedules.push({t:[sec]});
+					console.log(sec);
+				};
+				//activar segundo trigger
+				timer2 = later2.setInterval(finDeClase,schedule2);
+				//contador++;
+   			}//else if error
+   		});//buscarHoraFinalPorDia
+	});//time.diaDeLaSemana
+};//funcion primeraHora
+
+function finDeClase () {
+	console.log("Funcion secundaria "+ new Date());
+
+}
+
+/*
+*	FIN Later
+*/
 
 
-
-    cron2.scheduleJob(dates,function() {
-    	console.log("son las 9:50 Ieeeeeeeepaaaaaaaa");
-    });
-});
-
-
-/*fin cron*/
 
 /*
 *	devuelve la hora del sistema hh:mm:ss

@@ -1,6 +1,5 @@
 var connection = require('../models/connection');
-var app = require('../app');
-
+//var app = require('../app');
 var falta = {};
 
 /***********************************************************INSERT*********************************************************/

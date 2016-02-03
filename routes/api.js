@@ -96,6 +96,7 @@ router.post('/modificarAlumno', function(req, res, next) {
         if (error) {
             res.send('error conectando con la base de datos');
             throw error;
+
         }else{
             res.send(row);
         }
@@ -105,8 +106,8 @@ router.post('/modificarAlumno', function(req, res, next) {
     for (var i = 0; i < data.length; i++) {
         alumno_grupos.agregarAlumnoGrupo(data[i],req.query.id_alumno, function(error,row) {
             if (error) {
-                res.send('error conectando con la base de datos');
                 throw error;
+                res.send('error conectando con la base de datos');
             }else{
                 res.send(row);
             }//else
@@ -118,8 +119,8 @@ router.post('/modificarAlumno', function(req, res, next) {
     }else {
         convalidadas.borrarAsignaturaConvalidada(req.query.id_alumno, function(error,row) {
             if (error) {
-                res.send('error conectando con la base de datos');
                 throw error;
+                res.send('error conectando con la base de datos');
             }else{
                 res.send(row);
             }//else
@@ -129,80 +130,70 @@ router.post('/modificarAlumno', function(req, res, next) {
         for (var i = 0; i < data2.length; i++) {
             convalidadas.agregarAsignaturaConvalidada(data2[i],req.query.id_alumno, function(error,row) {
                 if (error) {
-                    res.send('error conectando con la base de datos');
                     throw error;
+                    res.send('error conectando con la base de datos');
                 }else{
                     res.send(row);
                 }//else
             })//convalidadas.agregarAsignaturaConvalidada
         }//for
     }//else
+    var dni_antiguo;
+    var correo_antiguo;
+    var num_tarjeta_antiguo;
 
-    var id_alumno = req.query.id_alumno;
-    var dni = req.query.dni;
-    var nombre = req.query.nombre;
-    var apellidos = req.query.apellidos;
-    var correo = req.query.correo;
-    var tarjeta_activada = req.query.tarjeta_activada;
-    var num_tarjeta = req.query.num_tarjeta;
-    alumno.buscarAlumnoPorIdDniCorreoNum_tarj(id_alumno,dni,correo,num_tarjeta, function(error,row) {
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row) {
         if (error) {
+            res.send('error conectando con la base de datos');
             throw error;
-        }else {
-            if(row.length>0){
-                alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
-                    if (error) {
-                        res.send('error conectando con la base de datos');
-                        throw error;          
-                    }else {
-                        res.send(row);    
-                    }        
-                })//alumno.modificarAlumnoSinFoto
+        }else{
+            dni_antiguo = row[0].dni;
+            correo_antiguo = row[0].correo;
+            num_tarjeta_antiguo = row[0].num_tarjeta;
+        }
+    })//alumno.buscarAlumnoPorIdSinFoto
+
+    alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if((row.length>0)&&(req.query.dni!=dni_antiguo)){
+                res.send({err:'existeDNI'});
             }else {
-                alumno.buscarAlumnoPorDni(dni, function(error,row) {
+                alumno.buscarAlumnoPorCorreo(req.query.correo, function(error,row){
                     if (error) {
                         res.send('error conectando con la base de datos');
                         throw error;
                     }else {
-                        if(row.length>0){
-                            res.send({err:'existeDNI'});
+                        if((row.length>0)&&(req.query.correo!=correo_antiguo)){
+                            res.send({err:'existeCorreo'});
                         }else {
-                            alumno.buscarAlumnoPorCorreo(correo, function(error,row){
+                            alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row){
                                 if (error) {
                                     res.send('error conectando con la base de datos');
-                                    throw error;
+                                    throw error; 
                                 }else {
-                                    if(row.length>0){
-                                        res.send({err:'existeCorreo'});
+                                    if((row.length>0)&&(req.query.num_tarjeta!=num_tarjeta_antiguo)){
+                                        res.send({err:'existeTarjeta'});
                                     }else {
-                                        alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
+                                        alumno.modificarAlumnoSinFoto(req.query.id_alumno,req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta,req.query.tarjeta_activada, function(error,row){
                                             if (error) {
                                                 res.send('error conectando con la base de datos');
-                                                throw error; 
+                                                throw error;
                                             }else {
-                                                if(row.length>0){
-                                                    res.send({err:'existeTarjeta'});
-                                                }else {
-                                                    alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row){
-                                                        if (error) {
-                                                            res.send('error conectando con la base de datos');
-                                                            throw error;
-                                                        }else {
-                                                            res.send(row); 
-                                                        }//else
-                                                    })//alumno.modificarAlumnoSinFoto
-                                                }//else
+                                                res.send('alumno modificado correctamente!!'); 
                                             }//else
-                                        })//alumno.buscarAlumnoPorTarjeta
+                                        })//alumno.modificarAlumnoSinFoto
                                     }//else
                                 }//else
-                            })//alumno.buscarAlumnoPorCorreo
+                            })//alumno.buscarAlumnoPorTarjeta
                         }//else
                     }//else
-                })//alumno.buscarAlumnoPorDni
-            }//.else if(row.length<0)
+                })//alumno.buscarAlumnoPorCorreo
+            }//else
         }//else
-    })//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
+    })//alumno.buscarAlumnoPorDni
 });//router.post('/modificarAlumno
 
 /****************************************************************************************************************************/

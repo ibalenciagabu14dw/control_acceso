@@ -164,6 +164,23 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 }//alumno.buscarAlumnoPorId
 
 /*
+*	BUSCAR alumno por id_alumno sin devolver foto
+*/
+alumno.buscarAlumnoPorIdSinFoto = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada FROM alumnos WHERE id_alumno ='+connection.escape(id_alumno);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{				
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorIdSinFoto
+
+/*
 *	BUSCAR alumno por dni
 */
 alumno.buscarAlumnoPorDni = function(dni,callback) {

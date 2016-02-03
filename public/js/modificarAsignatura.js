@@ -40,31 +40,66 @@ $(document).ready(function() {
 		buscarAsignaturaId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/modificarAsignatura' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_asignatura: <input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'readonly>";
-    		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
-    		formulario += "Clave: <input type='text' id='clave' name='clave' class='form-control' value='"+result[0].clave+"'>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_asignatura' class='input-group-addon'>ID ASIGNATURA</label>";    		    		
+    		formulario += "<input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'readonly>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";    		
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='clave' class='input-group-addon'>CLAVE</label>";     		
+    		formulario += "<input type='text' id='clave' name='clave' class='form-control' value='"+result[0].clave+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";    		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Clave ya existente</span></div>";	
     			if(result[0].obligatoria == 1){
-					formulario += "Obligatoria<input type='radio' name='obligatoria' value='1' checked/>Si";
-					formulario += "<input type='radio' name='obligatoria' value='0'/>No";
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+    				formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label>";
+					formulario += "<input type='radio' name='obligatoria' class='radio'  value='1' checked/>Si";
+					formulario += "<input type='radio' name='obligatoria' class='radio'  value='0'/>No";
 					formulario += "</br>";
+					formulario += "</div>";
+  					formulario += "</div><br/>";
 				} else {
-					formulario += "Obligatoria<input type='radio' name='obligatoria' value='1'/>Si";
-					formulario += "<input type='radio' name='obligatoria' value='0'checked/>No";
-					formulario += "</br>";					
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+					formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label>";
+					formulario += "<input type='radio' name='obligatoria' class='radio' value='1'/>Si";
+					formulario += "<input type='radio' name='obligatoria' class='radio' value='0'checked/>No";
+					formulario += "</br>";
+					formulario += "</div>";
+  					formulario += "</div><br/>";					
 				}
 				if(result[0].tipo == 'FP'){
-					formulario += "Tipo:<select name='tipo'>";
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'>Bachiller</option>";
 					formulario += "<option value='FP' selected>FP</option>";
 					formulario += "</select>";
+					formulario += "</div>";
+  					formulario += "</div>";
 				} else {
-					formulario += "Tipo:<select name='tipo'>";
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'selected>Bachiller</option>";
 					formulario += "<option value='FP'>FP</option>";
-					formulario += "</select>";				
+					formulario += "</select>";
+					Formulario += "</div>";
+  					formulario += "</div>";				
 				}
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";

@@ -68,3 +68,12 @@ label {
 #labelTipoGrupo {
     width: 195px !important ;
 }
+
+#labelObligatoria {
+    width: 198px !important ;
+    height: 35px !important ;
+}
+
+.radio{
+     width: 50px !important ;
+}

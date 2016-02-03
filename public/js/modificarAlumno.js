@@ -1,17 +1,5 @@
 $(document).ready(function() {
 
-    jQuery.validator.addMethod("fileSize", function (val, element) {
-        var size = element.files[0].size;
-        console.log(size);
-           if (size > 102400)// checks the file more than 100 Kb
-           {
-                return false;
-           } else {
-               return true;
-           }
-
-      }, "File type error");
-
     jQuery.validator.addMethod("lettersonly", function(value, element) { 
     return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
 	},"Please enter only letters");
@@ -31,7 +19,6 @@ $(document).ready(function() {
         nombre:{required:true,lettersonly:true},
 		apellidos:{required:true,lettersonly:true},
 		correo:{required:true,correo:true},
-		foto:{fileSize:true},
         num_tarjeta:{required:true},
 	};
 	//mensajes
@@ -40,7 +27,6 @@ $(document).ready(function() {
         nombre:{required:" Requerido",lettersonly:"Solo letras"},
 		apellidos:{required:" Requerido",lettersonly:"Solo letras"},
 		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
-		foto:{fileSize:"maximo 100kb"},
         num_tarjeta:{required:" Requerido"},
 	};
 

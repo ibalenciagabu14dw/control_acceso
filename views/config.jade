@@ -5,10 +5,14 @@ block extraHeader
 block content
   include ./includes/menuConfig.jade
   h1#titulo= title
+  #mensaje.alert.alert-error.fade.in(style='display: none')
+   a.close(href='#', data-dismiss='alert') ×
+   strong Comprueba!
+   span  No hay clase a esta hora   
   table#tablaAulas
     for au in aula
       tr.filaAulas
-        div.divAula(id='#{au.id_aula}') #{au.numero}
+        div.divAula(id='#{au.id_aula}') #{au.numero} 
   script
    include ../public/js/config.js
 

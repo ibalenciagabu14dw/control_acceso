@@ -1,24 +1,30 @@
 extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content
-  h1#titulo= title
+  h1 Agregar Horario Profesor
   form#agregarHorarioProfesorForm.form-group()
     br
-    label(for='id_horario_grupo') Horario_Grupo
-    select(name='id_horario_grupo' id='id_horario_grupo')
-      option(value='default') Elige el horario_grupo
-      for gr in grupo
-        option(value='#{gr.id_horario_grupo}') #{gr.id_horario_grupo}
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoHorarioProfesor.input-group-addon(for='id_horario_grupo') Horario_Grupo
+        select.form-control(name='id_horario_grupo' id='id_horario_grupo')
+          option(value='default') Elige el horario_grupo
+          for gr in grupo
+            option(value='#{gr.id_horario_grupo}') #{gr.id_horario_grupo}
     br
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
       strong Comprueba!
       span  Dia ya existente
-    label(for='id_profesor') Profesor
-    select(name='id_profesor')
-      option(value='default') Elige el Profesor
-      for pr in profesor
-        option(value='#{pr.id_profesor}') #{pr.nombre} #{pr.apellidos}
+    .form-inline
+      .input-group
+        label#labelProfesorHorarioProfesor.input-group-addon(for='id_profesor') Profesor
+        select#selectProfesorHorarioProfesor.form-control(name='id_profesor')
+          option(value='default') Elige el Profesor
+          for pr in profesor
+            option(value='#{pr.id_profesor}') #{pr.nombre} #{pr.apellidos}
     br
     #horarioGrupoHorarioProfesor(name='horarioGrupoHorarioProfesor')
     button#send.btn.btn-primary(name='send') Enviar

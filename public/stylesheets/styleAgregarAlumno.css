@@ -52,6 +52,15 @@ label {
     width: 235px !important ;
 }
 
+
+#labelObligatoria {
+    width: 235px !important ;
+}
+
+#labelTipo {
+    width: 235px !important ;
+}
+
 #foto {
     width: 200px !important ;
 }

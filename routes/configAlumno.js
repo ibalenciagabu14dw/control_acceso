@@ -270,59 +270,59 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
     var correo = req.body.correo;
     var tarjeta_activada = req.body.tarjeta_activada;
     var num_tarjeta = req.body.num_tarjeta;
-        alumno.buscarAlumnoPorIdDniCorreoNum_tarj(id_alumno,dni,correo,num_tarjeta, function(error,row) {
-            if (error) {
-                throw error;
-            }else{
-                if(row.length>0){
-                    alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
-                        if (error) {
-                            throw error;          
+    alumno.buscarAlumnoPorIdDniCorreoNum_tarj(id_alumno,dni,correo,num_tarjeta, function(error,row) {
+        if (error) {
+            throw error;
+        }else {
+            if(row.length>0){
+                alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row) {
+                    if (error) {
+                        throw error;          
+                    }else {
+                        res.send(row);    
+                    }        
+                })//alumno.modificarAlumnoSinFoto
+            }else {
+                alumno.buscarAlumnoPorDni(dni, function(error,row) {
+                    if (error) {
+                        throw error;
+                    }else {
+                        if(row.length>0){
+                            res.send({err:'existeDNI'});
                         }else {
-                            res.send(row);    
-                        }        
-                    })//.alumno.modificarAlumnoSinFoto
-                } else {
-                    alumno.buscarAlumnoPorDni(dni, function(error,row) {
-                        if (error) {
-                            throw error;
-                        } else {
-                            if(row.length>0){
-                                res.send({err:'existeDNI'});
-                            } else {
-                                alumno.buscarAlumnoPorCorreo(correo, function(error,row){
-                                    if (error) {
-                                        throw error;
-                                    } else {
-                                        if(row.length>0){
-                                            res.send({err:'existeCorreo'});
-                                        } else {
-                                            alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
-                                                if (error) {
-                                                   throw error; 
-                                               } else {
+                            alumno.buscarAlumnoPorCorreo(correo, function(error,row){
+                                if (error) {
+                                    throw error;
+                                }else {
+                                    if(row.length>0){
+                                        res.send({err:'existeCorreo'});
+                                    }else {
+                                        alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
+                                            if (error) {
+                                                throw error; 
+                                            }else {
                                                 if(row.length>0){
                                                     res.send({err:'existeTarjeta'});
-                                                } else {
+                                                }else {
                                                     alumno.modificarAlumnoSinFoto(id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada, function(error,row){
                                                         if (error) {
                                                             throw error;
-                                                        } else {
+                                                        }else {
                                                             res.send(row); 
-                                                        }//.else if (error) 
-                                                    })//.alumno.modificarAlumnoSinFoto
-                                                }//else if(row.length>0){
-                                               }//.else if (error)
-                                            })//.alumno.buscarAlumnoPorTarjeta
-                                        }//.else if(row.length>0)
-                                    }//.else if (error)
-                                })//.alumno.buscarAlumnoPorCorreo       
-                            }//.else if(row.length>0)
-                        }//.else if (error)
-                    })//.alumno.buscarAlumnoPorDni
-                }//.else if(row.length<0)
-            }//.else if (error)
-        })//.alumno.buscarAlumnoPorIdDniCorreoNum_tarj
+                                                        }//else
+                                                    })//alumno.modificarAlumnoSinFoto
+                                                }//else
+                                            }//else
+                                        })//alumno.buscarAlumnoPorTarjeta
+                                    }//else
+                                }//else
+                            })//alumno.buscarAlumnoPorCorreo
+                        }//else
+                    }//else
+                })//alumno.buscarAlumnoPorDni
+            }//.else if(row.length<0)
+        }//else
+    })//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
 });//router.post('/modificarAlumnoSinFoto
 
 /****************************************************************************************************************************/

@@ -146,6 +146,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
 				                }else if (data.dato=="ok"){
 				                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
+				                window.location.replace('/config/configPersonas');
 				                }
 				                console.log("success");
 					            })

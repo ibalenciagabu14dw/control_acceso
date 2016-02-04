@@ -145,8 +145,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				                } else if (data.err=="existeTarjeta"){
 				                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
 				                }else if (data.dato=="ok"){
-				                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
-				                window.location.replace('/config/configPersonas');
+				                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente",'/config/configPersonas');
 				                }
 				                console.log("success");
 					            })
@@ -176,8 +175,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		                } else if (data.err=="existeTarjeta"){
 		                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
-		                window.location.replace('/config/configPersonas');
+		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente",'/config/configPersonas');
 		                }
 		                console.log("success");
 			            })
@@ -248,15 +246,13 @@ $('#resultado').on("click","#btnModificar",function () {
 				dataType: 'html',
 				data: {'id_alumno':$('#resultado #id_alumno').val()},
 				success:function(data){
-					if (data == "ok") {
-						alert("Alumno borrado correctamente");
-						buscarAlumnos();
-					}else{
-						alert("Algo no ha ido bien");
-					}//if else
 				}//success
 			})//ajax
-			.done(function() {
+			.done(function(data) {
+				console.log(data[9]);
+				if (data[9]=="o"){
+				showAlert($('#resultado #enlace'),"ok","Alumno borrado correctamente",'/config/configPersonas');
+				}
 				console.log("success borrar");
 			})//done
 			.fail(function() {
@@ -384,7 +380,7 @@ $('#resultado').on("click","#btnModificar",function () {
 
 });//ready
 
-function showAlert(lugar,tipo,texto) {
+function showAlert(lugar,tipo,texto,url) {
 
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
@@ -394,6 +390,8 @@ function showAlert(lugar,tipo,texto) {
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
     $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+      window.location.replace(url);
                 });
+
     }
 

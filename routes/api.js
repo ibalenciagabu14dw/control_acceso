@@ -18,47 +18,79 @@ http://localhost:3000/API/modificarAlumno?id_alumno=5&dni=74532989-R&nombre=prue
 * INSERTAR alumno sin foto OK
 */
 router.post('/agregarAlumno', function(req, res, next) {
-	alumno.buscarAlumnoPorDni(req.query.dni, function (error,row) {
+	alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');
             throw error;
         }else{
             if(row.length>0){
-                res.send('ya existe ese DNI');
-            }else{
-                alumno.buscarAlumnoPorCorreo(req.query.correo, function (error,row) {
+                console.log({err:'ese DNI lo tiene un alumno'});
+            }else {
+                alumno.buscarAlumnoPorCorreo(req.query.correo, function(error,row){
                     if (error) {
-                        res.send('error conectando con la base de datos');
+                        console.log('error conectando con la base de datos');
                         throw error;
-                    }else{
+                    }else {
                         if(row.length>0){
-                            res.send('ya existe ese correo');
-                        }else{
-                            alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function (error,row) {
+                            console.log({err:'ese correo lo tiene un alumno'});
+                        }else {
+                            alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row){
                                 if (error) {
-                                    res.send('error conectando con la base de datos');
-                                    throw error;
-                                }else{
+                                    console.log('error conectando con la base de datos');
+                                    throw error; 
+                                }else {
                                     if(row.length>0){
-                                        res.send('ya existe esa tarjeta');
-                                    }else{
-                                        alumno.agregarAlumnoSinFoto(req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta, function (error,row) {
+                                        console.log({err:'ese numero de tarjeta lo tiene un alumno'});
+                                    }else {
+                                        profesor.buscarProfesorPorDni(req.query.dni, function(error,row) {
                                             if (error) {
-                                                res.send('error conectando con la base de datos');
+                                                console.log('error conectando con la base de datos');
                                                 throw error;
                                             }else{
-                                                res.send('alumno agregado correctamente');
+                                                if(row.length>0){
+                                                    console.log({err:'ese DNI lo tiene un profesor'});
+                                                }else {
+                                                    profesor.buscarProfesorPorCorreo(req.query.correo, function(error,row){
+                                                        if (error) {
+                                                            console.log('error conectando con la base de datos');
+                                                            throw error;
+                                                        }else {
+                                                            if(row.length>0){
+                                                                console.log({err:'ese correo lo tiene un profesor'});
+                                                            }else {
+                                                                profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta, function(error,row){
+                                                                    if (error) {
+                                                                        console.log('error conectando con la base de datos');
+                                                                        throw error; 
+                                                                    }else {
+                                                                        if(row.length>0){
+                                                                            console.log({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                        }else {
+                                                                            alumno.agregarAlumnoSinFoto(req.query.id_alumno,req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta,req.query.tarjeta_activada, function(error,row){
+                                                                                if (error) {
+                                                                                    throw error;
+                                                                                }else {
+                                                                                    console.log('alumno agregado correctamente!');
+                                                                                }//else
+                                                                            })//alumno.agregarAlumnoSinFoto
+                                                                        }//else
+                                                                    }//else
+                                                                })//profesor.buscarProfesorPorTarjeta
+                                                            }//else
+                                                        }//else
+                                                    })//profesor.buscarProfesorPorCorreo
+                                                }//else
                                             }//else
-                                        });//alumno.agregarAlumnoSinFoto
+                                        })//profesor.buscarProfesorPorIdSinFoto
                                     }//else
                                 }//else
-                            });//alumno.buscarAlumnoPorTarjeta
+                            })//alumno.buscarAlumnoPorTarjeta
                         }//else
                     }//else
-                });//alumno.buscarAlumnoPorCorreo
+                })//alumno.buscarAlumnoPorCorreo
             }//else
         }//else
-    });//alumno.buscarAlumnoPorDni
+    })//alumno.buscarAlumnoPorDni
 });//router.post('/agregarAlumno
 
 /*
@@ -234,13 +266,15 @@ router.post('/modificarAlumno', function(req, res, next) {
 /*
 * DELETE alumno por id_alumno ****NO FUNCIONA****
 */
-router.post('/borrarAlumno', function(req,res,next){
+router.post('/borrarAlumno', function(req, res, next) {
     alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
         if (error) {
-            throw error;
             res.send('error conectando con la base de datos');
+            throw error;
+            console.log('ERROR');
         }else{
-            res.send('Alumno borrado correctamente');
+            res.send('error conectando con la base de datos');
+            console.log('Alumno borrado correctamente');
         }//else
     })//alumno.borrarAlumno
 });//router.post('/borrarAlumno

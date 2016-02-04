@@ -1,14 +1,16 @@
 extends layout
 block extraHeader
-    link(rel='stylesheet', href='/stylesheets/styleModificarAlumno.css')
+    link(rel='stylesheet', href='/stylesheets/styleModificar.css')
 
 block content
-  h1= title
-  h3 Modificar Alumno
-    .container
-      form#form.form-group
-        label(for='nombre') Nombre: 
-        input#nombre.form-control(type='text', name='nombre')
+  h1 Modificar alumno
+  .container
+    form#form.form-group
+      .form-inline
+        .input-group
+          label(for='nombre') Nombre: 
+          input#nombre.form-control(type='text', name='nombre', placeholder='Escribe el nombre del alumno')
+        br
         br
         input.btn.btn-primary(type='submit', value='Buscar')
         a#enlace.btn.btn-primary(href='/config') Volver

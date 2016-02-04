@@ -40,13 +40,23 @@ $(document).ready(function() {
 		buscarHorarioProfesorId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_horario_profesor: <input type='text' id='id_horario_profesor' name='id_horario_profesor' class='form-control' value='"+result[0].id_horario_profesor+"'readonly>";    		
-    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_horario_profesor' class='input-group-addon'>ID HORARIO PROFESOR</label>";      		
+    		formulario += "<input type='text' id='id_horario_profesor' name='id_horario_profesor' class='form-control' value='"+result[0].id_horario_profesor+"'readonly>";    		
+    		formulario += "</div>";
+  			formulario += "</div><br/>"; 
+   			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
+    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>"; 			
 			mostrarHorarioGrupo(result[0].id_horario_grupo);
 			formulario += "<div id='horarioGrupo'>";
     		formulario += "</div>";
 			mostrarTodosLosProfesoresIdNombreApellidos(result[0].id_profesor);
-			formulario += "Profesor: <div id='profesores'>";
+			formulario += "<div id='profesores'>";
     		formulario += "</div>";			
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
@@ -73,9 +83,24 @@ $(document).ready(function() {
 				for (var i = 0; i < data.length; i++) {
 					resp += "<tr>";
 					resp += "<td>";
-					resp += "Dia<input type='text' id='dia' name='dia' class='form-control' value='"+data[i].dia_semana+"'readonly></br>";
-					resp += "Hora Inicio<input type='time' id='hora_inicio' name='hora_inicio' class='form-control' value='"+data[i].hora_inicio+"'readonly></br>";
-					resp += "Hora Final<input type='time' id='hora_final' name='hora_final' class='form-control' value='"+data[i].hora_final+"'readonly></br>";					
+					resp += "<div class='form-inline'>";
+    				resp += "<div class='input-group'>";
+					resp += "<label id='labelDiaHorarioProfesor' for='dia' class='input-group-addon'>DIA</label>"; 
+					resp += "<input type='text' id='dia' name='dia' class='form-control' value='"+data[i].dia_semana+"'readonly></br>";
+					resp += "</div>";
+  					resp += "</div><br/>";
+  					resp += "<div class='form-inline'>";
+    				resp += "<div class='input-group'>";
+					resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
+					resp += "<input type='time' id='hora_inicio' name='hora_inicio' class='form-control' value='"+data[i].hora_inicio+"'readonly></br>";
+					resp += "</div>";
+  					resp += "</div><br/>";
+  					resp += "<div class='form-inline'>";
+    				resp += "<div class='input-group'>";
+					resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA INICIO</label>"; 					
+					resp += "<input type='time' id='hora_final' name='hora_final' class='form-control' value='"+data[i].hora_final+"'readonly></br>";					
+					resp += "</div>";
+  					resp += "</div><br/>";	
 					resp += "</td>";
 					resp += "</tr>"
 					};
@@ -100,7 +125,10 @@ $(document).ready(function() {
 			dataType: 'json',
 			success:function (data) {
 				var resp = "";
-				resp+= "<select name='profesor'>";
+				resp += "<div class='form-inline'>";
+                resp += "<div class='input-group'>";
+                resp += "<label id='labelProfesorHorarioProfesor' for='profesor' class='input-group-addon'>PROFESOR</label>";
+                resp += "<select id='selectProfesorHorarioProfesorM' name='profesor' class='form-control'>";
     			resp += "<option value='default'>Elige el profesor</option>";
 				for (var i = 0; i < data.length; i++) {
 					if (data[i].id_profesor == result){
@@ -110,6 +138,8 @@ $(document).ready(function() {
 					}
 				};
 				resp += "</select>";
+				resp += "</div>";
+                resp += "</div><br/>";
 				$('#profesores').html(resp);
 			}
 		})//ajax

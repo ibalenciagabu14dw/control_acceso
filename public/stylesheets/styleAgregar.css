@@ -161,3 +161,12 @@ label {
 #selectDiaHorarioProfesor{
     width: 270px !important ;
 }
+
+span{
+    position: relative;
+    left: 525px;
+}
+#sp{
+    position: relative;
+    left: 0px;
+}

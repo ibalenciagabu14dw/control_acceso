@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var aula = require('../models/aula');
+var horario_profesor = require('../models/horario_profesor');
+var horario_grupo = require('../models/horario_grupo');
+var profesor = require('../models/profesor');
+var asignatura = require('../models/asignatura');
+var grupo = require('../models/grupo');
 
 /* GET home page. */
 /*router.get('/', function(req, res, next) {
@@ -92,7 +97,34 @@ router.get('/configGlobal/configHorario', function(req, res, next) {
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
-  res.render('agregarHorarioGrupo', { title: 'agregarHorarioGrupo' });
+  aula.buscarTodosLosIdYNumero(function (error,aul) {
+    if (error) {
+      console.log("Fallo buscarTodosLosIdYNumero");
+      throw error;
+    }else{  
+    asignatura.buscarTodasLasAsignaturas(function (error,asign) {
+      if (error) {
+        console.log("Fallo buscarTodasLasAsignaturas");
+        throw error;
+      }else{
+        grupo.buscarTodosLosIdYNombreGrupo(function (error,gru){
+                    if (error) {
+                      console.log("Fallo");
+                      throw error;
+                    }else{
+                      //console.log(data);                
+                      //res.send(data);
+                      res.render('agregarHorarioGrupo',{ 
+                      grupo:gru,
+                      asignatura:asign,
+                      aula:aul,
+                      })//.res.render
+                    }//else error
+        });////. grupo.mostrarTodosLosIdNombreGrupo
+      }//.else
+    });//profesor.buscarProfesorPorId
+  }//.else
+  });//.buscarTodosLosIdYNumero
 });
 
 router.get('/configGlobal/configHorario/modificarHorarioGrupo', function(req, res, next) {
@@ -100,7 +132,26 @@ router.get('/configGlobal/configHorario/modificarHorarioGrupo', function(req, re
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
-  res.render('agregarHorarioProfesor', { title: 'agregarHorarioProfesor' });
+    horario_grupo.buscarTodosLosHorarioGrupo(function (error,gru) {
+    if (error) {
+      console.log("Fallo buscarTodosLosHorarioGrupo");
+      throw error;
+    }else{  
+        profesor.mostrarTodosLosIdNombreApellidosProfesor(function (error,pro){
+                    if (error) {
+                      console.log("Fallo");
+                      throw error;
+                    }else{
+                      //console.log(data);                
+                      //res.send(data);
+                      res.render('agregarHorarioProfesor',{ 
+                      grupo:gru,
+                      profesor:pro,
+                      })//.res.render
+                    }//else error
+        });////. grupo.mostrarTodosLosIdNombreApellidosProfesor
+  }//.else
+  });//.buscarTodosLosHorarioGrupo
 });
 
 router.get('/configGlobal/configHorario/modificarHorarioProfesor', function(req, res, next) {

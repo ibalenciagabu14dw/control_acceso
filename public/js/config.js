@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    $( ".divAula" ).click(function() {
-      //alert($(this).attr("id"));
+    $( ".filaAula" ).click(function() {
       event.preventDefault();
 			$.ajax({
 				url: '/configProfesor/buscarProfesorPorIdAulaEnUnaHora',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_aula':$(this).attr("id")},
+				data: {'id_aula':$(this).closest("tr").find("div").attr("id")},
 				success:function(data){
 				}//success
 			})//ajax

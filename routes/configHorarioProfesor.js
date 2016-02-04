@@ -5,29 +5,6 @@ var horario_grupo = require('../models/horario_grupo');
 var multer = require('multer');
 var profesor = require('../models/profesor');
 
-router.get('/config/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
-  horario_grupo.buscarTodosLosHorarioGrupo(function (error,gru) {
-    if (error) {
-      console.log("Fallo buscarTodosLosHorarioGrupo");
-      throw error;
-    }else{  
-        profesor.mostrarTodosLosIdNombreApellidosProfesor(function (error,pro){
-                    if (error) {
-                      console.log("Fallo");
-                      throw error;
-                    }else{
-                      //console.log(data);                
-                      //res.send(data);
-                      res.render('agregarHorarioProfesor',{ 
-                      grupo:gru,
-                      profesor:pro,
-                      })//.res.render
-                    }//else error
-        });////. grupo.mostrarTodosLosIdNombreApellidosProfesor
-  }//.else
-  });//.buscarTodosLosHorarioGrupo
-});//.router.get('/agregarHorarioGr', function(req, res, next) {
-
 router.post('/agregarHorarioProfesor', function(req,res,next){
   var dia_semana = req.body.dia;
   var hora_inicio = req.body.hora_inicio;

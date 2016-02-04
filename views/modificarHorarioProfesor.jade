@@ -1,13 +1,16 @@
 extends layout
 block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleModificar.css')
 
 block content
-  h1= title
-  h3 Modificar HorarioGrupo por el nombre del grupo
-    .container
-      form#form.form-group
-        label(for='nombre') Nombre: 
-        input#nombre.form-control(type='text', name='nombre')
+  h1 Modificar HorarioProfesor
+  .container
+    form#form.form-group
+      .form-inline
+        .input-group
+          label(for='nombre') Nombre: 
+          input#nombre.form-control(type='text', name='nombre')
+        br
         br
         input.btn.btn-primary(type='submit', value='Buscar')
         a#enlace.btn.btn-primary(href='/config/configGlobal/configHorario') Volver

@@ -40,8 +40,16 @@ $(document).ready(function() {
 		buscarHorarioGrupoId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "id_horario_grupo: <input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
-    		formulario += "Dia<select name='dia'>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
+    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label id='labelDiaHorarioGrupo' for='dia' class='input-group-addon'>DIA</label>";    		
+    		formulario += "<select id='selectDiaHorarioGrupo' name='dia' class='form-control'>";
     		formulario += "<option value='default'>Elige el dia</option>";
 				if (result[0].dia_semana == 'Lunes'){
                     formulario += "<option value='Lunes' selected>Lunes</option>";   
@@ -69,16 +77,28 @@ $(document).ready(function() {
                     formulario += "<option value='Viernes'>Viernes</option>";   
                 }
             formulario += "</select></br>";
-            formulario += "Hora Inicio<input id='hora_inicio' type='time' name='hora_inicio' value='"+result[0].hora_inicio+"'/></br>";
-            formulario += "Hora Final<input id='hora_final' type='time' name='hora_final' value='"+result[0].hora_final+"'/></br>";
+            formulario += "</div>";
+  			formulario += "</div><br/>";
+			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label id='labelHoraInicio' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
+            formulario += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control' value='"+result[0].hora_inicio+"'/></br>";
+            formulario += "</div>";
+  			formulario += "</div><br/>";            
+            formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label id='labelHoraFinal' for='hora_final' class='input-group-addon'>HORA FINAL</label>"; 
+            formulario += "<input id='hora_final' type='time' name='hora_final' class='form-control' value='"+result[0].hora_final+"'/></br>";
+            formulario += "</div>";
+  			formulario += "</div><br/>";			
 			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
-			formulario += "Grupos: <div id='grupos'>";
-    		formulario += "</div>";
+			formulario += "<div id='grupos'>";
+    		formulario += "</div></br>";
 			buscarTodasLasAsignaturas(result[0].id_asignatura);
-			formulario += "Asignatura: <div id='asignaturas'>";
-    		formulario += "</div>";            
+			formulario += "<div id='asignaturas'>";
+    		formulario += "</div></br>";            
 			mostrarTodasLasAulasIdNumero(result[0].id_aula);
-			formulario += "Aula: <div id='aulas'>";
+			formulario += "<div id='aulas'>";
     		formulario += "</div>"; 
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
@@ -100,7 +120,10 @@ $(document).ready(function() {
 			dataType: 'json',
 			success:function (data) {
 				var resp = "";
-				resp+= "<select name='aula'>";
+				resp += "<div class='form-inline'>";
+    			resp += "<div class='input-group'>";
+				resp += "<label id='labelHorarioGrupoAula' for='aula' class='input-group-addon'>AULA</label>";
+				resp += "<select id='selectHorarioGrupoAula' name='aula' class='form-control'>";
     			resp += "<option value='default'>Elige el aula</option>";
 				for (var i = 0; i < data.length; i++) {
 					if (data[i].id_aula == result){
@@ -110,6 +133,8 @@ $(document).ready(function() {
 					}
 				};
 				resp += "</select>";
+				resp += "</div>";
+  				resp += "</div>";
 				$('#aulas').html(resp);
 			}
 		})//ajax
@@ -129,7 +154,10 @@ $(document).ready(function() {
 			dataType: 'json',
 			success:function (data) {
 				var resp = "";
-				resp+= "<select name='asignatura'>";
+				resp += "<div class='form-inline'>";
+    			resp += "<div class='input-group'>";
+				resp += "<label id='labelHorarioGrupoAsignatura' for='asignatura' class='input-group-addon'>ASIGNATURA</label>";
+				resp += "<select id='selectHorarioGrupoAsignatura' name='asignatura' class='form-control'>";
     			resp += "<option value='default'>Elige la asignatura</option>";
 				for (var i = 0; i < data.length; i++) {
 					if (data[i].id_asignatura == result){
@@ -139,6 +167,8 @@ $(document).ready(function() {
 					}
 				};
 				resp += "</select>";
+				resp += "</div>";
+  				resp += "</div>";
 				$('#asignaturas').html(resp);
 			}
 		})//ajax
@@ -158,7 +188,10 @@ $(document).ready(function() {
 			dataType: 'json',
 			success:function (data) {
 				var resp = "";
-				resp+= "<select name='grupo'>";
+				resp += "<div class='form-inline'>";
+    			resp += "<div class='input-group'>";
+				resp += "<label id='labelHorarioGrupoGrupo' for='grupo' class='input-group-addon'>GRUPO</label>";
+				resp += "<select id='selectHorarioGrupoGrupo' name='grupo' class='form-control'>";
     			resp += "<option value='default'>Elige el grupo</option>";
 				for (var i = 0; i < data.length; i++) {
 					if (data[i].id_grupo == result){
@@ -168,6 +201,8 @@ $(document).ready(function() {
 					}
 				};
 				resp += "</select>";
+				resp += "</div>";
+  				resp += "</div>";
 				$('#grupos').html(resp);
 			}
 		})//ajax

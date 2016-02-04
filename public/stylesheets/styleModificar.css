@@ -77,3 +77,71 @@ label {
 .radio{
      width: 50px !important ;
 }
+
+#labelDiaHorarioGrupo{
+width: 192px !important ;
+}
+
+#selectDiaHorarioGrupo{
+    width: 280px !important ;
+}
+
+#labelHoraInicio{
+    width: 192px !important ;
+}
+
+#labelHoraFinal{
+    width: 192px !important ;
+}
+
+#hora_inicio{
+    width: 280px !important ;
+}
+
+#hora_final{
+    width: 280px !important ;
+}
+
+#labelHorarioGrupoGrupo{
+   width: 192px !important ; 
+}
+
+#selectHorarioGrupoGrupo{
+    width: 280px !important ;
+}
+
+#labelHorarioGrupoAsignatura{
+   width: 192px !important ; 
+}
+
+#selectHorarioGrupoAsignatura{
+    width: 280px !important ;
+}
+
+#labelHorarioGrupoAula{
+   width: 192px !important ; 
+}
+
+#selectHorarioGrupoAula{
+    width: 280px !important ;
+}
+
+#labelDiaHorarioProfesor{
+   width: 192px !important ; 
+}
+
+#labelHoraInicioHorarioProfesor{
+    width: 192px !important ;
+}
+
+#labelHoraFinalHorarioProfesor{
+    width: 192px !important ;
+}
+
+#labelProfesorHorarioProfesor{
+   width: 192px !important ; 
+}
+
+#selectProfesorHorarioProfesorM{
+ width: 280px !important ;  
+}

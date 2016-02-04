@@ -249,7 +249,6 @@ $('#resultado').on("click","#btnModificar",function () {
 				}//success
 			})//ajax
 			.done(function(data) {
-				console.log(data[9]);
 				if (data[9]=="o"){
 				showAlert($('#resultado #enlace'),"ok","Alumno borrado correctamente",'/config/configPersonas');
 				}

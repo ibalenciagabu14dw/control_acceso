@@ -9,10 +9,8 @@ block content
    a.close(href='#', data-dismiss='alert') ×
    strong Comprueba!
    span  No hay clase a esta hora   
-  table#tablaAulas
-    for au in aula
-      tr.filaAulas
-        div.divAula(id='#{au.id_aula}') #{au.numero} 
+  for au in aula
+    div.divAula(id='#{au.id_aula}') #{au.numero} 
   script
    include ../public/js/config.js
 

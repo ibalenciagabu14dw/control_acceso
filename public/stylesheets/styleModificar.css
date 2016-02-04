@@ -145,3 +145,40 @@ width: 192px !important ;
 #selectProfesorHorarioProfesorM{
  width: 280px !important ;  
 }
+
+#foto {
+    width: 235px !important ;
+}
+
+#fotoProfesor{
+    width:100px; 
+    height:100px;
+    margin-left: 250px;
+}
+
+#gruposdelAlumno tr{
+    width: 70px;
+    float:left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#gruposTodos tr{
+    width: 100px;
+    float:left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#asignaturas tr{
+    width: 100px;
+    float:left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

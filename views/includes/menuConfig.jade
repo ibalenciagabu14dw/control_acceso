@@ -8,7 +8,7 @@ nav.navbar.navbar-inverse(role='navigation')
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/')
-            img(alt='Home', src='images/sshot-1.png', style='width:40px;height:45px;border-radius:10px;')
+            img(alt='Home', src='../images/sshot-1.png', style='width:40px;height:45px;border-radius:10px;')
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav
@@ -36,13 +36,17 @@ nav.navbar.navbar-inverse(role='navigation')
                 | Personas 
                 b.caret
               ul.dropdown-menu
+                li.disabled
+                  a(href='#') Alumnos
                 li
-                  a(href='#') Action
+                  a(href='configPersonas/agregarAlumno') Agregar
                 li
-                  a(href='#') Another action
-                li
-                  a(href='#') Something else here
+                  a(href='#') Modificar
                 li.divider
+                li.disabled
+                  a(href='#') Profesores
                 li
-                  a(href='#') Separated link
+                  a(href='#') Agregar
+                li
+                  a(href='#') Modificar
         // /.navbar-collapse

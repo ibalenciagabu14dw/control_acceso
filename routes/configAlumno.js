@@ -361,6 +361,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                                                                                 if (error) {
                                                                                     throw error;
                                                                                 }else {
+                                                                                    res.send(row);
                                                                                     console.log('modificado OKK!!!');
                                                                                 }//else
                                                                             })//alumno.modificarAlumno

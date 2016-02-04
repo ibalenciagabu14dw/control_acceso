@@ -47,16 +47,57 @@ $(document).ready(function() {
 		buscarAlumnoPorId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/modificarAlumno' id='formUpdate' name='formUpdate'>";
-    		formulario += "id_alumno: <input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'readonly>";
-    		formulario += "dni: <input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='id_alumno' class='input-group-addon'>ID ALUMNO</label>";     		
+    		formulario += "<input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'readonly>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+  			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='dni' class='input-group-addon'>DNI</label>"; 
+    		formulario += "<input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";    		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Dni ya existente</span></div>";	    		
-    		formulario += "Nombre: <input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
-    		formulario += "Apellidos: <input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
-    		formulario += "Correo: <input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
-    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"' width='100' height='100'/>";
-    		formulario += "Foto: <input type='file' id='foto' name='foto' class='form-control'>";
-    		formulario += "Tarj_act: <input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
-    		formulario += "Numero_Tarjeta: <input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>"
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>"; 
+  			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='apellidos' class='input-group-addon'>APELLIDOS</label>"
+    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+  			formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='correo' class='input-group-addon'>CORREO</label>" 
+    		formulario += "<input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"'/></br>";
+    		formulario += "<br/>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label id='labelfoto' for='foto' class='input-group-addon'>FOTO</label>";
+    		formulario += "<input type='file' id='foto' name='foto' class='form-control'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label>"
+    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
+    		formulario += "</div>";
+  			formulario += "</div><br/>";
+    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='input-group'>";
+			formulario += "<label for='num_tarjeta' class='input-group-addon'>NUMERO TARJETA</label>"
+    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
+			formulario += "</div>";
+  			formulario += "</div><br/>";
 			buscarGruposDelAlumno(result.id_alumno);
     		formulario += "Grupos: <div id='gruposdelAlumno'>";
     		formulario += "</div>";
@@ -135,6 +176,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
 		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente");
+		                window.location.replace('/config/configPersonas');
 		                }
 		                console.log("success");
 			            })

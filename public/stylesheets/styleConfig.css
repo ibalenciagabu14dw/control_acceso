@@ -1,3 +1,9 @@
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+}
 .divAula {
     border: 2px solid #000000;
     line-height:30px;
@@ -7,4 +13,38 @@
     float:left;
     margin-bottom:25px;
     margin-right: 25px;
+}
+#exit{
+	background-color: lightgrey;
+	float:right;
+	color:black;
+	width: 100px;
+	height: 35px;
+	
+}
+#exit:hover{
+	text-decoration: none;
+	background-color: grey;
+	font-weight: bold;
+}
+#footer p{
+	float: left;
+}
+#footer{
+    bottom: auto;
+  }
+@media only screen and (max-width: 800px) and (orientation:landscape){
+  html{
+    height: 100%;
+  }
+  #footer{
+    bottom: auto;
+  }
+
+}
+
+@media only screen and (max-height: 450px){
+  #footer{
+    bottom: 0px;
+  }
 }

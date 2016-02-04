@@ -108,6 +108,23 @@ falta.buscarTodosLosIdFalta = function (callback) {
 	}//if
 }//falta.buscarTodosLosIdFalta
 
+/*
+*	BUSCAR faltas de alumnos no convalidados
+*/
+falta.buscarFaltasDeAlumnosNoConvalidados = function (dia_semana,hora,callback) {
+	if (connection) {
+		var sql = 'SELECT a.id_alumno, h.id_horario_grupo FROM alumnos a LEFT JOIN alumno_grupos r ON (a.id_alumno = r.id_alumno) INNER JOIN horario_grupos h ON (r.id_grupo = h.id_grupo) WHERE presencia = 0 AND h.id_horario_grupo IN (SELECT id_horario_grupo FROM horario_grupos WHERE dia_semana = "'+dia_semana+'" and "'+hora+'" BETWEEN hora_inicio AND hora_final) AND a.id_alumno NOT IN (SELECT id_alumno FROM convalidadas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+dia_semana+'") and ("'+hora+'" between hora_inicio and hora_final)))';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}
+		});//connection.query
+	};//if connection
+}//falta.buscarFaltasDeAlumnosNoConvalidados
+
 /****************************************************************************************************************************/
 
 module.exports = falta;

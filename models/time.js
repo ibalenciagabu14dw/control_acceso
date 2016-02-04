@@ -13,13 +13,13 @@ later2.date.UTC();
 var schedule = {
     schedules:
     [
-        {t:[23400]},//07:30 UTC()+1 23400
+        {t:[28200]},//07:30 UTC()+1 23400
         //{t:[29800]},
     ],
     exceptions:
     [
     	//menos sábado y domingo
-        {dw:[0,6]},
+        {dw:[1,7]},
     ]
 };
 //Activar
@@ -30,7 +30,7 @@ var timer2;
 //Funcion principal
 function primeraHora() {
    	console.log("Funcion principal "+ new Date());
-   	var schedule2 = {schedules:[],exceptions:[{dw:[0,6]}]};
+   	var schedule2 = {schedules:[]};
    	var dia;
    	//sacar dia de la semana para llamar a la funcion
    	time.diaDeLaSemana(function (error,data) {

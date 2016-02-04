@@ -99,10 +99,10 @@ $(document).ready(function() {
 			formulario += "</div>";
   			formulario += "</div><br/>";
 			buscarGruposDelAlumno(result.id_alumno);
-    		formulario += "Grupos: <div id='gruposdelAlumno'>";
+    		formulario += "<div id='gruposdelAlumno'>";
     		formulario += "</div>";
     		buscarTodosLosGrupos(result.id_alumno);
-    		formulario += "Grupos: <div id='gruposTodos'>";
+    		formulario += "<div id='gruposTodos'>";
     		formulario += "</div>";
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
@@ -279,6 +279,11 @@ $('#resultado').on("click","#btnModificar",function () {
 					data:{ id_grupo: id},
 					success:function (data) {
 						var resp = "";
+						resp += "<div class='form-inline'>";
+    					resp += "<div class='input-group'>";
+						resp += "<label for='asignaturas' class='input-group-addon'>ASIGNATURAS</label>";
+						resp += "</div>";
+  						resp += "</div><br/>";
 						resp += "<table id='asignaturas'>";
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
@@ -316,6 +321,11 @@ $('#resultado').on("click","#btnModificar",function () {
 					data:{ id_alumno:id },
 					success:function (data) {
 						var resp = "";
+						resp += "<div class='form-inline'>";
+    					resp += "<div class='input-group'>";
+						resp += "<label for='gruposdelAlumno' class='input-group-addon'>GRUPOS DEL ALUMNO</label>";
+						resp += "</div>";
+  						resp += "</div><br/>";
 						resp += "<table id='gruposdelAlumno'>";
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
@@ -346,6 +356,11 @@ $('#resultado').on("click","#btnModificar",function () {
 					data:{ id_alumno:id },
 					success:function (data) {
 						var resp = "";
+						resp += "<div class='form-inline'>";
+    					resp += "<div class='input-group'>";
+						resp += "<label for='gruposTodos' class='input-group-addon'>GRUPOS RESTANTES</label>";
+						resp += "</div>";
+  						resp += "</div><br/>";
 						resp += "<table id='gruposTodos'>";
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";

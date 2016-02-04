@@ -12,12 +12,22 @@ $(document).ready(function() {
                 for (var i = 0; i < data.length; i++) {
                     resp += "<tr>";
                     resp += "<td>";
-                    resp += "<label for='hora_inicio'>hora_inicio</label>";
-                    resp += "<input id='hora_inicio' type='time' name='hora_inicio' value='"+data[i].hora_inicio+"'/>";
-                    resp += "</br><label for='hora_final'>hora_final</label>";
-                    resp += "<input id='hora_final' type='time' name='hora_final' value='"+data[i].hora_final+"'/>";
-                    resp += "</br><label for='dia'>Dia de la semana</label>";
-                    resp += "<select name='dia'>";
+                    resp += "<div class='form-inline'>";
+                    resp += "<div class='input-group'>";
+                    resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>";
+                    resp += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control' value='"+data[i].hora_inicio+"'/>";
+                    resp += "</div>";
+                    resp += "</div><br/>";
+                    resp += "<div class='form-inline'>";
+                    resp += "<div class='input-group'>";
+                    resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA FINAL</label>";
+                    resp += "<input id='hora_final' type='time' name='hora_final' class='form-control' value='"+data[i].hora_final+"'/>";
+                    resp += "</div>";
+                    resp += "</div><br/>";                    
+                    resp += "<div class='form-inline'>";
+                    resp += "<div class='input-group'>";
+                    resp += "<label id='labelDiaHorarioProfesor' for='dia' class='input-group-addon'>DIA</label>";
+                    resp += "<select id='selectDiaHorarioProfesor' name='dia' class='form-control'>";
                         resp += "<option value='default'>Elige el dia</option>";
                             if (data[i].dia_semana == 'Lunes'){
                               resp += "<option value='Lunes' selected>Lunes</option>";   
@@ -45,6 +55,8 @@ $(document).ready(function() {
                               resp += "<option value='Viernes'>Viernes</option>";   
                             }
                     resp += "</select>";
+                    resp += "</div>";
+                    resp += "</div>";
                     resp += "</td>";
                     resp += "</tr>"
                 };

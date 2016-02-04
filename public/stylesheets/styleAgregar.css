@@ -143,5 +143,21 @@ label {
 }
 
 #selectProfesorHorarioProfesor{
- width: 275px !important ;  
+ width: 270px !important ;  
+}
+
+#labelHoraInicioHorarioProfesor{
+    width: 240px !important ;
+}
+
+#labelHoraFinalHorarioProfesor{
+    width: 240px !important ;
+}
+
+#labelDiaHorarioProfesor{
+   width: 240px !important ; 
+}
+
+#selectDiaHorarioProfesor{
+    width: 270px !important ;
 }

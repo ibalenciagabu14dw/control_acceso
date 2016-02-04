@@ -130,7 +130,7 @@ alumno.borrarAlumno = function (id_alumno,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				callback(null,row);
+				callback(null,{dato:"ok"});
 				console.log('borrarAlumno OK');
 			}//else
 		});//connection.query

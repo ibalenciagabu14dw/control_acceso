@@ -142,6 +142,11 @@ $(document).ready(function() {
       $('#'+msg).addClass('presencia1');
     }
   });
+
+  socket.on('refresh',function(msg) {
+    window.location.reload();
+    console.log(msg);
+  });
   /*
   * Fin socket.io
   */

@@ -2,6 +2,8 @@ var time = {};
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
 var horario_grupo = require('../models/horario_grupo');
 var falta = require('../models/falta');
+var app = require('../app');
+var io = app.io;
 /*
 *	Later
 */
@@ -13,8 +15,7 @@ later2.date.UTC();
 var schedule = {
     schedules:
     [
-        {t:[28200]},//07:30 UTC()+1 23400
-        //{t:[29800]},
+        {t:[23400]},//07:30 UTC()+1 23400
     ],
     exceptions:
     [
@@ -25,7 +26,6 @@ var schedule = {
 //Activar
 var timer = later.setInterval(primeraHora, schedule);
 var timer2;
-//var contador = 0;
 
 //Funcion principal
 function primeraHora() {
@@ -48,12 +48,7 @@ function primeraHora() {
    			}else{
    				//configurar el segundo trigger con las horas finales de cada clase en segundos
 				for (var i = 0; i < data.length; i++) {
-					/*if (contador == 0) {
-						var sec = 29730 + (10*i);
-					}else{
-						var sec = 29830 + (10*i);
-					}*/
-					
+					//var sec = 32760 + (i*60);
 					var hora = data[i].hora_final.split(':');
 					var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 					schedule2.schedules.push({t:[sec]});
@@ -61,7 +56,6 @@ function primeraHora() {
 				};
 				//activar segundo trigger
 				timer2 = later2.setInterval(finDeClase,schedule2);
-				//contador++;
    			}//else if error
    		});//buscarHoraFinalPorDia
 	});//time.diaDeLaSemana
@@ -69,10 +63,54 @@ function primeraHora() {
 
 function finDeClase () {
 	console.log("Funcion secundaria "+ new Date());
+	var dia;
+	var hora;
+	var diaCompleto;
+	time.diaDeLaSemana(function (error,data) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			dia = data;
+			time.horaActual(function (error,data2) {
+				if (error) {
+					console.log(error);
+					throw error;
+				}else{
+					hora = data2;
+					time.diaCompleto(function (error,data3) {
+						if (error) {
+							console.log(error);
+							throw error;
+						}else{
+							diaCompleto = data3;
+							falta.buscarFaltasDeAlumnosNoConvalidados(dia, hora, function (error,data4) {
+								if (error) {
+									console.log(error);
+									throw error;
+								}else{
+									/*for (var i = 0; i < data4.length; i++) {
+										falta.agregarFalta(diaCompleto, data4[i].id_alumno, data4[i].id_horario_grupo, "Falta automatizada", function (error) {
+											if (error) {
+												console.log(error);
+												throw error;
+											};//if error
+										})//agregarFalta
+									};//for*/
+								}//else error buscarFaltasDeAlumnosNoConvalidados
+							})//buscarFaltasDeAlumnosNoConvalidados
+						}//else dia completo
+					})//dia completo
+				}//else error hora actual
+			})//hora actual
+		}//else error dia de la semana
+	})//dia de la semana
 	falta.updatePresencia0ATodos(function (error) {
 		if (error) {
 			console.log(error);
 			throw error;
+		}else{
+			io.emit('refresh','Presencia 0 a todos');
 		}
 	});//falta.updatePresencia
 }

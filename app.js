@@ -59,10 +59,6 @@ app.io = require('socket.io')();
 var alumno = require('./models/alumno');
 //configurar variable global io
 app.set('io',app.io);
-//escucha servidor io
-app.io.on('connection', function(socket){  
-  console.log('a user connected');
-});
 //escucha servidor io 2
 app.io.on('connection', function(socket){
   console.log("conectado");

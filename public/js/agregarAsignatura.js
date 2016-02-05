@@ -17,10 +17,10 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		nombre:{required:"requerido",lettersonly:"solo letras"},
-        clave:{required:"requerido"},
-		obligatoria:{required:"requerido"},
-		tipo:{required:"requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
+		nombre:{required:"",lettersonly:""},
+        clave:{required:""},
+		obligatoria:{required:""},
+		tipo:{required:"",valueNotEquals: "" }
 	};
 
 	//Validate
@@ -59,7 +59,8 @@ $(document).ready(function() {
             }         
         },
 		errorPlacement: function(error,element){
-			error.insertBefore($(element).closest('.form-inline'));
+			//error.insertBefore($(element).closest('.form-inline'));
+            showAlertValidate("#alertNombre","error","Solo Letras por favor");
 		},
         submitHandler: function (form) {
             event.preventDefault();
@@ -92,6 +93,15 @@ $(document).ready(function() {
         }//submitHandler
     });//Validate
 });//ready
+
+function showAlertValidate(lugar,tipo,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+                });
+    }
+
 
 function showAlert(lugar,tipo,texto) {
 

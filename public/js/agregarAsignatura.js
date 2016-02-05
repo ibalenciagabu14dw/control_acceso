@@ -17,10 +17,10 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		nombre:{required:" Requerido",lettersonly:"solo letras"},
-        clave:{required:" Requerido"},
-		obligatoria:{required:" Requerido"},
-		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
+		nombre:{required:"requerido",lettersonly:"solo letras"},
+        clave:{required:"requerido"},
+		obligatoria:{required:"requerido"},
+		tipo:{required:"requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
 	};
 
 	//Validate
@@ -28,7 +28,6 @@ $(document).ready(function() {
         rules:reglas,
 		messages:mensajes,
         highlight: function(element) {
-        console.log(element.type);
         if (element.type == "radio"){
             if ($("input[name=obligatoria]:checked").val() == 1){
                 $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
@@ -60,7 +59,7 @@ $(document).ready(function() {
             }         
         },
 		errorPlacement: function(error,element){
-			 
+			error.insertBefore($(element).closest('.form-inline'));
 		},
         submitHandler: function (form) {
             event.preventDefault();

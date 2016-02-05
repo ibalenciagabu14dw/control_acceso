@@ -25,18 +25,21 @@ block content
       .input-group
         label#labelObligatoria.input-group-addon(for='obligatoria') OBLIGATORIA
         br
-        input.radio(type='radio', name='obligatoria', value='1')
-        |  SI
-        input.radio(type='radio', name='obligatoria', value='0')
-        |  NO
+        label#labelradio1(for='radio1') SI
+        input#radio1.radio.form-control(type='radio', name='obligatoria', value='1')
+        br
+        label#labelradio(for='radio') NO  
+        input#radio.radio.form-control(type='radio', name='obligatoria', value='0')
+        span#radio11.glyphicon.form-control-feedback
     br
     .form-inline
       .input-group
         label#labelTipo.input-group-addon(for='tipo') TIPO
-        select#selectTipo.form-control(name='tipo')
+        select#selectTipo.form-control.has-feedback(name='tipo')
           option(value='default') Elige el tipo de asignatura
           option(value='Bachiller') BACHILLER
           option(value='FP') FP
+        span#selectTipo1.glyphicon.form-control-feedback
     br
     br
     button#send.btn.btn-primary(name='send') Enviar

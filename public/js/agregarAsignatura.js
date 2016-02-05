@@ -28,15 +28,36 @@ $(document).ready(function() {
         rules:reglas,
 		messages:mensajes,
         highlight: function(element) {
-            console.log(element);
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');         
+        console.log(element.type);
+        if (element.type == "radio"){
+            if ($("input[name=obligatoria]:checked").val() == 1){
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+            } else {
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+            }
+        } else {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+        }
+      
         },
         unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');         
+            if (element.type == "radio"){
+                if ($("input[name=obligatoria]:checked").val() == 1){
+                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+                } else {
+                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+                }
+            } else {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');  
+            }         
         },
 		errorPlacement: function(error,element){
 			 
@@ -59,7 +80,7 @@ $(document).ready(function() {
                 if (data.err=="existe"){
                 showAlert("#clave","error","Clave ya existente");
                 }else if (data.dato=="ok"){
-                showAlert("#enlace","ok","Asignatura añadida correctamente");
+                showAlert("#enlace","ok","Asignatura añadida correctamente",'/config');
                 }
                 console.log("success");
             })
@@ -73,8 +94,7 @@ $(document).ready(function() {
     });//Validate
 });//ready
 
-
-function showAlert(lugar,tipo,texto) {
+function showAlert(lugar,tipo,texto,url) {
 
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
@@ -84,5 +104,7 @@ function showAlert(lugar,tipo,texto) {
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
     $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+      window.location.replace(url);
                 });
+
     }

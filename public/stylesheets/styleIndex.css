@@ -111,7 +111,7 @@ body {
     padding-right: 20px;
   }
   #footer{
-    bottom: auto;
+    bottom: 0px;
   }
 
 }

@@ -60,7 +60,9 @@ $(document).ready(function() {
         },
 		errorPlacement: function(error,element){
 			//error.insertBefore($(element).closest('.form-inline'));
-            showAlertValidate("#alertNombre","error","Solo Letras por favor");
+            if (error.attr("id") == "nombre-error"){
+                showAlertValidate("#alertNombre"," Solo Letras por favor");
+            }
 		},
         submitHandler: function (form) {
             event.preventDefault();
@@ -78,9 +80,9 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#alertClave","error","Clave ya existente");
+                showAlert("#alertClave","error"," Clave ya existente");
                 }else if (data.dato=="ok"){
-                showAlertRedirect("#enlace","ok","Asignatura añadida correctamente",'/config');
+                showAlertRedirect("#enlace","ok"," Asignatura añadida correctamente",'/config');
                 }
                 console.log("success");
             })
@@ -94,11 +96,11 @@ $(document).ready(function() {
     });//Validate
 });//ready
 
-function showAlertValidate(lugar,tipo,texto) {
+function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
     }
 
@@ -112,7 +114,7 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
 
     }
@@ -126,7 +128,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
       window.location.replace(url);
                 });
 

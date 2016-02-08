@@ -208,7 +208,7 @@ $(document).ready(function() {
 		                } else if (data.err=="existeTarjeta"){
 		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace2'),"ok","Alumno modificada correctamente");
+		                showAlertRedirect($('#resultado #enlace2'),"ok","Profesor modificada correctamente",'/config');
 		                }
 		                console.log("success");
 			            })

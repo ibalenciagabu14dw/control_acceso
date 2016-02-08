@@ -11,8 +11,8 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		nombre:{required:" Requerido"},
-		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
+		nombre:{required:""},
+		tipo:{required:"",valueNotEquals: "" }
 	};
 
 	//Buscar alumnos al escribir
@@ -41,36 +41,37 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";   		
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre_grupo+"'>";
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre_grupo+"'>";
+    		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";     		
-    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Nombre ya existente</span></div>";	
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Nombre ya existente</span></div>";	
 				if(result[0].tipo == 'FP'){
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
 					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
-					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control has-feedback'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'>Bachiller</option>";
 					formulario += "<option value='FP' selected>FP</option>";
-					formulario += "</select>";
+					formulario += "</select><span id='selectTipoGrupo1' class='glyphicon form-control-feedback'></span>";
 					formulario += "</div>";
   					formulario += "</div>";   
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
 					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
-					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control has-feedback'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'selected>Bachiller</option>";
 					formulario += "<option value='FP'>FP</option>";
-					formulario += "</select>";
+					formulario += "</select><span id='selectTipoGrupo1' class='glyphicon form-control-feedback'></span>";
 			  		formulario += "</div>";
   					formulario += "</div>";   				
 				}
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<a id='enlace' href='/config' class='btn btn-primary'>Volver</a>";
+    		formulario += "&nbsp;<a id='enlace2' href='/config' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -83,8 +84,17 @@ $(document).ready(function() {
 		$("#formUpdate").validate({
 	        rules:reglas,
 			messages:mensajes,
+	        highlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	        },
+	        unhighlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');      
+	        },
 			errorPlacement: function(error,element){
-				element.before(error);
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
@@ -101,9 +111,9 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #nombre'),"error","Nombre ya existente");
+		                showAlert($('#resultado #alertNombre'),"error","Nombre ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace'),"ok","Grupo modificado correctamente");
+		                showAlertRedirect($('#resultado #enlace2'),"ok","Grupo modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -190,6 +200,14 @@ $(document).ready(function() {
 	
 });//ready
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
 
 function showAlert(lugar,tipo,texto) {
 
@@ -200,6 +218,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

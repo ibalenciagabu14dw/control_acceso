@@ -1,7 +1,11 @@
+/* letra para el titulo */
+
 @font-face {
     font-family: tituloIndex;
     src: url('../fonts/Sketch_Block.ttf');
 }
+
+/* body */
 
 body {
     background-repeat: no-repeat;
@@ -14,8 +18,9 @@ body {
 	background-color: #464646;
 
 }
+/* formulario de busqueda */
 form{
-	width: 50%;
+	width: 58%;
 	margin: auto;
 	background-color: lightgrey;
 	border-radius: 25px;
@@ -25,12 +30,29 @@ form{
 	margin-bottom: 50px;
 }
 
+/* formulario para modificar*/
+#formUpdate{
+    margin-left:210px !important;
+    width: 60%;
+    margin: auto;
+    background-color: lightgrey;
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* clase de los input de los formularios*/
 .form-control {
-	padding-left: 50px;
     min-width: 0;
     width: 120% !important;
-    color:black;
+    padding-left: 50px !important;
+    padding-right: 50px !important;
 }
+
+/* titulo de la pagina*/
 
 h1{
     text-align: center;
@@ -45,105 +67,105 @@ h1{
      -o-hyphens: auto;
      hyphens: auto;
 }
-
+/* label*/
 label {
     width: 45% !important ;
 }
 
-#formUpdate{
-    width: 55%;
-    margin: auto;
-    background-color: lightgrey;
-    border-radius: 25px;
-    padding: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-bottom: 50px;
-}
 
+/*Modificar Asignatura*/
+
+/*input select tipo de asignatura*/
 #selectTipoGrupo {
-    width: 290px !important ;
+    width: 327.94px !important ;
 }
-
+/*label asignatura tipo FP o Bachiller*/
 #labelTipoGrupo {
-    width: 195px !important ;
+    width: 223px !important ;
+}
+/*label asignatura obligatoria si o no*/
+#labelObligatoria {
+    width: 223px !important ;
+    height: 100px !important ;
+
 }
 
-#labelObligatoria {
-    width: 198px !important ;
-    height: 35px !important ;
+.input-group-addon{
+    max-height: 34px !important ;
 }
+
+
 
 .radio{
      width: 50px !important ;
 }
 
 #labelDiaHorarioGrupo{
-width: 192px !important ;
+width: 223px !important ;
 }
 
 #selectDiaHorarioGrupo{
-    width: 280px !important ;
+    width: 327.594px !important ;
 }
 
 #labelHoraInicio{
-    width: 192px !important ;
+    width: 223px !important ;
 }
 
 #labelHoraFinal{
-    width: 192px !important ;
+    width: 223px !important ;
 }
 
 #hora_inicio{
-    width: 280px !important ;
+    width: 327.594px !important ;
 }
 
 #hora_final{
-    width: 280px !important ;
+    width: 327.594px !important ;
 }
 
 #labelHorarioGrupoGrupo{
-   width: 192px !important ; 
+   width: 223px !important ; 
 }
 
 #selectHorarioGrupoGrupo{
-    width: 280px !important ;
+    width: 327.594px !important ;
 }
 
 #labelHorarioGrupoAsignatura{
-   width: 192px !important ; 
+   width: 223px !important ; 
 }
 
 #selectHorarioGrupoAsignatura{
-    width: 280px !important ;
+    width: 327.594px !important ;
 }
 
 #labelHorarioGrupoAula{
-   width: 192px !important ; 
+   width: 223px !important ; 
 }
 
 #selectHorarioGrupoAula{
-    width: 280px !important ;
+    width: 327.594px !important ;
 }
 
 #labelDiaHorarioProfesor{
-   width: 192px !important ; 
+   width: 223px !important ; 
 }
 
 #labelHoraInicioHorarioProfesor{
-    width: 192px !important ;
+    width: 223px !important ;
 }
 
 #labelHoraFinalHorarioProfesor{
-    width: 192px !important ;
+    width: 223px !important ;
 }
 
 #labelProfesorHorarioProfesor{
-   width: 192px !important ; 
+   width: 223px !important ; 
 }
 
 #selectProfesorHorarioProfesorM{
- width: 280px !important ;  
+ width: 327.594px !important ;  
 }
 
 #foto {
@@ -199,4 +221,45 @@ width: 192px !important ;
     margin-top: 5px;
     margin-bottom: 10px;
 }
+span{
+    position: relative;
+    left: 550px;
+}
+#sp{
+    position: relative;
+    left: 0px;
+}
+#mensaje{
+    width: 480px ;
+    margin-top:20px;
+}
+#labelradio {
+    position: relative;
+    left: 150px;
+    bottom: 30px;
+    padding-left: 5px;
+    margin-right: 15px;
+    font-size: 15px;
+}
 
+#labelradio1 {
+    position: relative;
+    left: 50px;
+    top: 30px;
+    padding-left: 5px;
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+#radio{
+    position: relative;
+    left: 100px;
+    bottom: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 10px;
+}
+
+#radio11{
+    top: 40px !important ;
+}

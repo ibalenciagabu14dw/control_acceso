@@ -39,6 +39,23 @@ form{
 	margin-bottom: 50px;
 }
 
+#agregarAsignaturasForm{
+    width: 35% !important;
+}
+
+#agregarGrupoForm{
+    width: 35% !important;
+}
+
+#agregarHorarioGrupoForm{
+    width: 35% !important;
+}
+
+#agregarHorarioProfesorForm{
+    width: 35% !important;
+}
+
+
 .form-control {
 	padding-left: 50px;
     min-width: 0;
@@ -69,7 +86,7 @@ label {
 }
 
 #selectTipo {
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 .radio{
@@ -77,93 +94,96 @@ label {
 }
 
 #selectTipoGrupo {
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelTipoGrupo {
-    width: 240px !important ;
+    width: 235px !important ;
 }
 
 #labelDiaHorarioGrupo{
-    width: 240px !important ;
+    width: 235px !important ;
 }
 
 #selectDiaHorarioGrupo{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelHoraInicio{
-    width: 240px !important ;
+    width: 235px !important ;
 }
 
 #labelHoraFinal{
-    width: 240px !important ;
+    width: 235px !important ;
 }
 
 #hora_inicio{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #hora_final{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelHorarioGrupoGrupo{
-   width: 240px !important ; 
+   width: 235px !important ; 
 }
 
 #selectHorarioGrupoGrupo{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelHorarioGrupoAsignatura{
-   width: 240px !important ; 
+   width: 235px !important ; 
 }
 
 #selectHorarioGrupoAsignatura{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelHorarioGrupoAula{
-   width: 240px !important ; 
+   width: 235px !important ; 
 }
 
 #selectHorarioGrupoAula{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelHorarioGrupoHorarioProfesor{
-   width: 240px !important ; 
+   width: 235px !important ; 
 }
 
 #selectHorarioGrupoHorarioProfesor{
-    width: 290px !important ;
+    width: 282px !important ;
 }
 
 #labelProfesorHorarioProfesor{
-   width: 240px !important ; 
+   width: 235px !important ; 
 }
 
 #selectProfesorHorarioProfesor{
- width: 270px !important ;  
+ width: 282px !important ;  
 }
 
 #labelHoraInicioHorarioProfesor{
-    width: 240px !important ;
+    width: 235px !important ;
 }
 
 #labelHoraFinalHorarioProfesor{
-    width: 240px !important ;
+    width: 235px !important ;
 }
 
 #labelDiaHorarioProfesor{
-   width: 240px !important ; 
+   width: 235px !important ; 
 }
 
 #selectDiaHorarioProfesor{
-    width: 270px !important ;
+    width: 282px !important ;
 }
 
+#id_horario_grupo{
+    width: 282px !important ;
+}
 span{
     position: relative;
     left: 525px;

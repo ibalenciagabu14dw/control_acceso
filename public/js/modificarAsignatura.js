@@ -17,10 +17,10 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		nombre:{required:" Requerido",lettersonly:"solo letras"},
-        clave:{required:" Requerido"},
-		obligatoria:{required:" Requerido"},
-		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
+		nombre:{required:"",lettersonly:""},
+        clave:{required:""},
+		obligatoria:{required:""},
+		tipo:{required:"",valueNotEquals: "" }
 	};
 
 	//Buscar alumnos al escribir
@@ -46,34 +46,40 @@ $(document).ready(function() {
     		formulario += "<input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'readonly>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline' id='alertNombre'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";    		
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control' value='"+result[0].nombre+"'>";
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
+    		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline' id='alertClave'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='clave' class='input-group-addon'>CLAVE</label>";     		
-    		formulario += "<input type='text' id='clave' name='clave' class='form-control' value='"+result[0].clave+"'>";
+    		formulario += "<input type='text' id='clave' name='clave' class='form-control has-feedback' value='"+result[0].clave+"'>";
+    		formulario += "<span id='clave1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
-    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Clave ya existente</span></div>";	
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Clave ya existente</span></div>";	
     			if(result[0].obligatoria == 1){
-					formulario += "<div class='form-inline'>";
+					formulario += "<div class='form-inline' id='obl'>";
     				formulario += "<div class='input-group'>";
-    				formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label>";
-					formulario += "<input type='radio' name='obligatoria' class='radio'  value='1' checked/>Si";
-					formulario += "<input type='radio' name='obligatoria' class='radio'  value='0'/>No";
+				    formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
+				    formulario += "<label id='labelradio1' for='radio1'>SI</label>";
+				    formulario += "<input id='radio1' type='radio' name='obligatoria' value='1' class='radio form-control' checked='checked'/><br/>";
+				    formulario += "<label id='labelradio' for='radio'>NO  </label>";
+				    formulario += "<input id='radio' type='radio' name='obligatoria' value='0' class='radio form-control'/><span id='radio11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-					formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label>";
-					formulario += "<input type='radio' name='obligatoria' class='radio' value='1'/>Si";
-					formulario += "<input type='radio' name='obligatoria' class='radio' value='0'checked/>No";
+				    formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
+				    formulario += "<label id='labelradio1' for='radio1'>SI</label>";
+				    formulario += "<input id='radio1' type='radio' name='obligatoria' value='1' class='radio form-control'/><br/>";
+				    formulario += "<label id='labelradio' for='radio'>NO  </label>";
+				    formulario += "<input id='radio' type='radio' name='obligatoria' value='0' class='radio form-control'checked='checked'/><span id='radio11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";					
@@ -82,28 +88,28 @@ $(document).ready(function() {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
 					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
-					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control has-feedback'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'>Bachiller</option>";
 					formulario += "<option value='FP' selected>FP</option>";
-					formulario += "</select>";
+					formulario += "</select><span id='selectTipoGrupo1' class='glyphicon form-control-feedback'></span>";
 					formulario += "</div>";
   					formulario += "</div>";
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
 					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
-					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control'>";
+					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control has-feedback'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'selected>Bachiller</option>";
 					formulario += "<option value='FP'>FP</option>";
-					formulario += "</select>";
-					Formulario += "</div>";
+					formulario += "</select><span id='selectTipoGrupo1' class='glyphicon form-control-feedback'></span>";
+					formulario += "</div>";
   					formulario += "</div>";				
 				}
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<a id='enlace' href='/config' class='btn btn-primary'>Volver</a>";
+    		formulario += "&nbsp;<a id='enlace2' href='/config' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -116,8 +122,42 @@ $(document).ready(function() {
 		$("#formUpdate").validate({
 	        rules:reglas,
 			messages:mensajes,
+	        highlight: function(element) {
+	        if (element.type == "radio"){
+	            if ($("input[name=obligatoria]:checked").val() == 1){
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	            } else {
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	            }
+	        } else {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	        }
+	      
+	        },
+	        unhighlight: function(element) {
+	            if (element.type == "radio"){
+	                if ($("input[name=obligatoria]:checked").val() == 1){
+	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                } else {
+	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                }
+	            } else {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');  
+	            }         
+	        },
 			errorPlacement: function(error,element){
-				element.before(error);
+				//error.insertBefore($(element).closest('.form-inline'));
+	            if (error.attr("id") == "nombre-error"){
+	                showAlertValidate("#alertNombre"," Solo Letras por favor");
+	            }
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
@@ -132,11 +172,11 @@ $(document).ready(function() {
 	                }
 	            })
 	            .done(function(data) {
-	                console.log(data)
+		                console.log(data);
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #clave'),"error","Clave ya existente");
+		                showAlert("#alertClave","error"," Clave ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace'),"ok","Asignatura modificada correctamente");
+		                showAlertRedirect("#enlace2","ok"," Asignatura añadida correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -224,6 +264,15 @@ $(document).ready(function() {
 });//ready
 
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
+
 function showAlert(lugar,tipo,texto) {
 
     if (tipo=="error"){
@@ -233,6 +282,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

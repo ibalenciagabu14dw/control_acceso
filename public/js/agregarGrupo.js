@@ -11,17 +11,26 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		nombre:{required:" Requerido"},
-		tipo:{required:" Requerido",valueNotEquals: "elige un tipo: FP O Bachiller" }
+		nombre:{required:""},
+		tipo:{required:"",valueNotEquals: "" }
 	};
 
 	//Validate
 	$("#agregarGrupoForm").validate({
         rules:reglas,
-		messages:mensajes,
-		errorPlacement: function(error,element){
-			element.before(error);
-		},
+        messages:mensajes,
+        highlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');    
+        },
+        unhighlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');         
+        },
+        errorPlacement: function(error,element){
+        },
         submitHandler: function (form) {
             event.preventDefault();
             var data = $("#agregarGrupoForm").serializeArray();
@@ -37,9 +46,9 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#nombre","error","Nombre ya existente");
+                showAlert("#alertNombre","error","Grupo ya existente");
                 }else if (data.dato=="ok"){
-                showAlert("#enlace","ok","Grupo añadida correctamente");
+                showAlertRedirect("#enlace","ok","Grupo añadido correctamente",'/config');
                 }
                 console.log("success");
             })
@@ -53,6 +62,14 @@ $(document).ready(function() {
     });//Validate
 });//ready
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
 
 function showAlert(lugar,tipo,texto) {
 
@@ -63,6 +80,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

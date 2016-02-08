@@ -12,22 +12,24 @@ $(document).ready(function() {
                 for (var i = 0; i < data.length; i++) {
                     resp += "<tr>";
                     resp += "<td>";
-                    resp += "<div class='form-inline'>";
+                    resp += "<div class='form-inline has-success'>";
                     resp += "<div class='input-group'>";
                     resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>";
-                    resp += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control' value='"+data[i].hora_inicio+"'/>";
+                    resp += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"' readonly/>";
+                    resp += "<span id='hora_inicio1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
                     resp += "</div>";
                     resp += "</div><br/>";
-                    resp += "<div class='form-inline'>";
+                    resp += "<div class='form-inline  has-success'>";
                     resp += "<div class='input-group'>";
                     resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA FINAL</label>";
-                    resp += "<input id='hora_final' type='time' name='hora_final' class='form-control' value='"+data[i].hora_final+"'/>";
+                    resp += "<input id='hora_final' type='time' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly/>";
+                    resp += "<span id='hora_final1' class='glyphicon form-control-feedback glyphicon-ok'></span>";                    
                     resp += "</div>";
                     resp += "</div><br/>";                    
-                    resp += "<div class='form-inline'>";
+                    resp += "<div class='form-inline  has-success'>";
                     resp += "<div class='input-group'>";
                     resp += "<label id='labelDiaHorarioProfesor' for='dia' class='input-group-addon'>DIA</label>";
-                    resp += "<select id='selectDiaHorarioProfesor' name='dia' class='form-control'>";
+                    resp += "<select id='selectDiaHorarioProfesor' name='dia' class='form-control has-feedback' disabled>";
                         resp += "<option value='default'>Elige el dia</option>";
                             if (data[i].dia_semana == 'Lunes'){
                               resp += "<option value='Lunes' selected>Lunes</option>";   
@@ -54,7 +56,7 @@ $(document).ready(function() {
                             } else {
                               resp += "<option value='Viernes'>Viernes</option>";   
                             }
-                    resp += "</select>";
+                    resp += "</select><span id='selectDiaHorarioProfesor1' class='glyphicon form-control-feedback glyphicon-ok''></span>";
                     resp += "</div>";
                     resp += "</div>";
                     resp += "</td>";
@@ -86,22 +88,32 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
     };
     //mensajes
     var mensajes = {
-        id_horario_grupo:{required:" Requerido",valueNotEquals: "elige el horario_grupo" },
-        id_profesor:{required:" Requerido",valueNotEquals: "elige el profesor"},
-        hora_inicio:{required:" Requerido"},
-        hora_final:{required:" Requerido" },
-        dia:{required:" Requerido",valueNotEquals: "elige el dia" },
+        id_horario_grupo:{required:"",valueNotEquals: "" },
+        id_profesor:{required:"",valueNotEquals: ""},
+        hora_inicio:{required:""},
+        hora_final:{required:"" },
+        dia:{required:"",valueNotEquals: "" },
     };
 
     //Validate
     $("#agregarHorarioProfesorForm").validate({
         rules:reglas,
         messages:mensajes,
+        highlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+        },
+        unhighlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');         
+        },
         errorPlacement: function(error,element){
-            element.before(error);
         },
         submitHandler: function (form) {
             event.preventDefault();
+            $('#selectDiaHorarioProfesor').prop("disabled",false);
             var data = $("#agregarHorarioProfesorForm").serializeArray();
             //console.log(data);
             $.ajax({
@@ -114,11 +126,12 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
                 }
             })
             .done(function(data) {
+                $('#selectDiaHorarioProfesor').prop("disabled",true);
                 console.log(data);
                 if (data.err=="existe"){
                 showAlert("#enlace","error","HorarioProfesor ya existente");
                 }else if (data.dato=="ok"){
-                showAlert("#enlace","ok","HorarioProfesor añadida correctamente");
+                showAlertRedirect("#enlace","ok","HorarioProfesor añadida correctamente",'/config');
                 }
                 console.log("success");
             })
@@ -132,6 +145,14 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
     });//Validate
 });//ready
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
 
 function showAlert(lugar,tipo,texto) {
 
@@ -142,6 +163,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

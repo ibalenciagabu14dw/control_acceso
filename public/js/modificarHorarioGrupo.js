@@ -15,12 +15,12 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		dia:{required:" Requerido",valueNotEquals: "elige el dia" },
-        hora_inicio:{required:" Requerido"},
-		hora_final:{required:" Requerido"},
-		grupo:{required:" Requerido",valueNotEquals: "elige el grupo" },
-        asignatura:{required:" Requerido",valueNotEquals: "elige la asignatura" },
-        aula:{required:" Requerido",valueNotEquals: "elige el aula" },
+		dia:{required:"",valueNotEquals: "" },
+        hora_inicio:{required:""},
+		hora_final:{required:""},
+		grupo:{required:"",valueNotEquals: "" },
+        asignatura:{required:"",valueNotEquals: "" },
+        aula:{required:"",valueNotEquals: "" },
 	};
 
 	//Buscar alumnos al escribir
@@ -76,19 +76,21 @@ $(document).ready(function() {
                 } else {
                     formulario += "<option value='Viernes'>Viernes</option>";   
                 }
-            formulario += "</select></br>";
+            formulario += "</select><span id='selectDiaHorarioGrupo1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";
 			formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label id='labelHoraInicio' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
-            formulario += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control' value='"+result[0].hora_inicio+"'/></br>";
+            formulario += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control has-feedback' value='"+result[0].hora_inicio+"'/></br>";
+       		formulario += "<span id='hora_inicio1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
             formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label id='labelHoraFinal' for='hora_final' class='input-group-addon'>HORA FINAL</label>"; 
-            formulario += "<input id='hora_final' type='time' name='hora_final' class='form-control' value='"+result[0].hora_final+"'/></br>";
+            formulario += "<input id='hora_final' type='time' name='hora_final' class='form-control has-feedback' value='"+result[0].hora_final+"'/></br>";
+    		formulario += "<span id='hora_final1' class='glyphicon form-control-feedback'></span>";            
             formulario += "</div>";
   			formulario += "</div><br/>";			
 			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
@@ -102,8 +104,8 @@ $(document).ready(function() {
     		formulario += "</div>"; 
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<a id='enlace' href='/config' class='btn btn-primary'>Volver</a>";
-    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Nombre ya existente</span></div>";	
+    		formulario += "&nbsp;<a id='enlace2' href='/config' class='btn btn-primary'>Volver</a>";
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Nombre ya existente</span></div>";	
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -132,7 +134,7 @@ $(document).ready(function() {
 						resp += "<option value="+data[i].id_aula+">"+data[i].numero+"</option>";
 					}
 				};
-				resp += "</select>";
+				resp += "</select><span id='selectHorarioGrupoAula1' class='glyphicon form-control-feedback'></span>";
 				resp += "</div>";
   				resp += "</div>";
 				$('#aulas').html(resp);
@@ -166,7 +168,7 @@ $(document).ready(function() {
 						resp += "<option value="+data[i].id_asignatura+">"+data[i].nombre+"</option>";
 					}
 				};
-				resp += "</select>";
+				resp += "</select><span id='selectHorarioGrupoAsignatura1' class='glyphicon form-control-feedback'></span>";
 				resp += "</div>";
   				resp += "</div>";
 				$('#asignaturas').html(resp);
@@ -200,7 +202,7 @@ $(document).ready(function() {
 						resp += "<option value="+data[i].id_grupo+">"+data[i].nombre_grupo+"</option>";
 					}
 				};
-				resp += "</select>";
+				resp += "</select><span id='selectHorarioGrupoGrupo1' class='glyphicon form-control-feedback'></span>";
 				resp += "</div>";
   				resp += "</div>";
 				$('#grupos').html(resp);
@@ -220,8 +222,17 @@ $(document).ready(function() {
 		$("#formUpdate").validate({
 	        rules:reglas,
 			messages:mensajes,
+	        highlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	        },
+	        unhighlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');      
+	        },
 			errorPlacement: function(error,element){
-				element.before(error);
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
@@ -238,9 +249,9 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #enlace'),"error","HorarioGrupo ya existente");
+		                showAlert($('#resultado #enlace2'),"error","HorarioGrupo ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace'),"ok","HorarioGrupo modificado correctamente");
+		                showAlertRedirect($('#resultado #enlace2'),"ok","HorarioGrupo modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -323,6 +334,14 @@ $(document).ready(function() {
 	
 });//ready
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
 
 function showAlert(lugar,tipo,texto) {
 
@@ -333,6 +352,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

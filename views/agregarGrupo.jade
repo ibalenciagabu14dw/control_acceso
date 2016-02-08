@@ -5,23 +5,24 @@ block extraHeader
 block content
   h1 Agregar Grupo
   form#agregarGrupoForm.form-group()
-    .form-inline
+    .form-inline#alertNombre
       .input-group
         label.input-group-addon(for='nombre') NOMBRE
-        input#nombre.form-control(type='nombre', name='nombre', placeholder='Escribe el nombre')
-    br
-    #mensaje.alert.alert-error.fade.in(style='display: none')
-      a.close(href='#', data-dismiss='alert') ×
-      strong Comprueba!
-      span  Grupo ya existente
+        input#nombre.form-control.has-feedback(type='text', name='nombre', placeholder='Escribe el nombre del grupo')
+        span#nombre1.glyphicon.form-control-feedback
+        #mensaje.alert.alert-error.fade.in(style='display: none')
+          a.close(href='#', data-dismiss='alert') ×
+          strong Comprueba!
+          span#sp  Grupo ya existente
     br
     .form-inline
       .input-group
         label#labelTipoGrupo.input-group-addon(for='tipo') TIPO
-        select#selectTipoGrupo.form-control(name='tipo')
+        select#selectTipoGrupo.form-control.has-feedback(name='tipo')
           option(value='default') Elige el tipo
           option(value='Bachiller') Bachiller
           option(value='FP') FP
+        span#selectTipoGrupo1.glyphicon.form-control-feedback
     br
     button#send.btn.btn-primary(name='send') Enviar
     a#enlace.btn.btn-primary(href='/config') Volver

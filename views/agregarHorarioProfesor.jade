@@ -9,22 +9,24 @@ block content
     .form-inline
       .input-group
         label#labelHorarioGrupoHorarioProfesor.input-group-addon(for='id_horario_grupo') Horario_Grupo
-        select.form-control(name='id_horario_grupo' id='id_horario_grupo')
+        select.form-control.has-feedback(name='id_horario_grupo' id='id_horario_grupo')
           option(value='default') Elige el horario_grupo
           for gr in grupo
             option(value='#{gr.id_horario_grupo}') #{gr.id_horario_grupo}
+        span#id_horario_grupo1.glyphicon.form-control-feedback
     br
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
       strong Comprueba!
-      span  Dia ya existente
+      span#sp  Dia ya existente
     .form-inline
       .input-group
         label#labelProfesorHorarioProfesor.input-group-addon(for='id_profesor') Profesor
-        select#selectProfesorHorarioProfesor.form-control(name='id_profesor')
+        select#selectProfesorHorarioProfesor.form-control.has-feedback(name='id_profesor')
           option(value='default') Elige el Profesor
           for pr in profesor
             option(value='#{pr.id_profesor}') #{pr.nombre} #{pr.apellidos}
+        span#selectProfesorHorarioProfesor1.glyphicon.form-control-feedback
     br
     #horarioGrupoHorarioProfesor(name='horarioGrupoHorarioProfesor')
     button#send.btn.btn-primary(name='send') Enviar

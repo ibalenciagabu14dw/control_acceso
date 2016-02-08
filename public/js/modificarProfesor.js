@@ -414,16 +414,13 @@ $(document).ready(function() {
 				dataType: 'html',
 				data: {'id_profesor':$('#resultado #id_profesor').val()},
 				success:function(data){
-					if (data == "ok") {
-						alert("Alumno borrado correctamente");
-						buscarProfesores();
-					}else{
-						alert("Algo no ha ido bien");
-					}//if else
 				}//success
 			})//ajax
-			.done(function() {
+			.done(function(data) {
 				console.log("success borrar");
+				if (data[9]=="o"){
+					showAlertRedirect("#enlace2","ok"," Profesor borrado correctamente",'/config');
+				}
 			})//done
 			.fail(function() {
 				console.log("error borrar");

@@ -60,6 +60,7 @@ asignatura.borrarAsigntura = function (id,callback) {
 				console.log(error);
 			}else{
 				console.log('borrarAsigntura OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

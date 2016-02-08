@@ -5,7 +5,9 @@ $(document).ready(function() {
 	},"Please enter only letters");
 	
     jQuery.validator.addMethod("dni", function(value, element) {
-        return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
+        if ($('#dni').val().length == 10){
+            return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
+        }
     });
 
     //regla correo
@@ -23,11 +25,11 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		dni:{required:" Requerido",dni:"introduce un DNI correcto"},
-        nombre:{required:" Requerido",lettersonly:"Solo letras"},
-		apellidos:{required:" Requerido",lettersonly:"Solo letras"},
-		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
-        num_tarjeta:{required:" Requerido"},
+		dni:{required:"",dni:""},
+        nombre:{required:"",lettersonly:""},
+		apellidos:{required:"",lettersonly:""},
+		correo:{required:"",correo:""},
+        num_tarjeta:{required:""},
 	};
 
 	
@@ -53,49 +55,56 @@ $(document).ready(function() {
     		formulario += "<input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result.id_alumno+"'readonly>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-  			formulario += "<div class='form-inline'>";
+  			formulario += "<div class='form-inline' id='alertDni'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='dni' class='input-group-addon'>DNI</label>"; 
-    		formulario += "<input type='text' id='dni' name='dni' class='form-control' value='"+result.dni+"'>";
+    		formulario += "<input type='text' id='dni' name='dni' class='form-control has-feedback' value='"+result.dni+"'>";
+    		formulario += "<span id='dni1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
-    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Dni ya existente</span></div>";	    		
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Dni ya existente</span></div>";	    		
+    		formulario += "<div class='form-inline'  id='alertNombre'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>"
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control' value='"+result.nombre+"'>";
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result.nombre+"'>";
+    		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>"; 
-  			formulario += "<div class='form-inline'>";
+  			formulario += "<div class='form-inline'  id='alertApellidos'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='apellidos' class='input-group-addon'>APELLIDOS</label>"
-    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control' value='"+result.apellidos+"'>";
+    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control has-feedback' value='"+result.apellidos+"'>";
+    		formulario += "<span id='apellidos1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-  			formulario += "<div class='form-inline'>";
+  			formulario += "<div class='form-inline'  id='alertCorreo'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='correo' class='input-group-addon'>CORREO</label>" 
-    		formulario += "<input type='text' id='correo' name='correo' class='form-control' value='"+result.correo+"'>";
+    		formulario += "<input type='text' id='correo' name='correo' class='form-control has-feedback' value='"+result.correo+"'>";
+    		formulario += "<span id='correo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"'/></br>";
     		formulario += "<br/>";
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline'  id='alertFoto'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label id='labelfoto' for='foto' class='input-group-addon'>FOTO</label>";
-    		formulario += "<input type='file' id='foto' name='foto' class='form-control'>";
+    		formulario += "<input type='file' id='foto' name='foto' class='form-control has-feedback'>";
+    		formulario += "<span id='foto1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label>"
-    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control' value='"+result.tarjeta_activada+"'>";
+    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control has-feedback' value='"+result.tarjeta_activada+"'>";
+    		formulario += "<span id='tarjeta_activada1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline'  id='alertNum_tarj'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='num_tarjeta' class='input-group-addon'>NUMERO TARJETA</label>"
-    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control' value='"+result.num_tarjeta+"'>";
+    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control has-feedback' value='"+result.num_tarjeta+"'>";
+			formulario += "<span id='num_tarjeta1' class='glyphicon form-control-feedback'></span>";
 			formulario += "</div>";
   			formulario += "</div><br/>";
 			buscarGruposDelAlumno(result.id_alumno);
@@ -108,7 +117,7 @@ $(document).ready(function() {
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<a id='enlace' href='/config' class='btn btn-primary'>Volver</a>";
+    		formulario += "&nbsp;<a id='enlace2' href='/config' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -120,10 +129,32 @@ $(document).ready(function() {
 $('#resultado').on("click","#btnModificar",function () {
 		$("#formUpdate").validate({
 	        rules:reglas,
-			messages:mensajes,
-			errorPlacement: function(error,element){
-				element.before(error);
-			},
+	        messages:mensajes,
+	        highlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	        },
+	        unhighlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');      
+	        },
+	        errorPlacement: function(error,element){
+	            console.log(error.attr("id"));
+	            if (error.attr("id") == "dni-error"){
+	                 showAlertValidate("#alertDni"," Introduce un dni correcto");
+	            } else if (error.attr("id") == "nombre-error"){
+	                showAlertValidate("#alertNombre"," Solo Letras por favor");
+	            }else if (error.attr("id") == "apellidos-error"){
+	                showAlertValidate("#alertApellidos"," Solo Letras por favor");
+	            } else if (error.attr("id") == "correo-error"){
+	                showAlertValidate("#alertCorreo","Introduce un correo correcto");
+	            } else if (error.attr("id") == "foto-error"){
+	                showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+	            }
+	            
+	        },
 	        submitHandler: function (form) {
 	        	if ($('#resultado #foto').val() == ''){
 	        		event.preventDefault();
@@ -139,13 +170,13 @@ $('#resultado').on("click","#btnModificar",function () {
 			            .done(function(data) {
 			                console.log(data)
 				                if (data.err=="existeDNI"){
-				                showAlert($('#resultado #dni'),"error","dni ya existente");
+				                showAlert($('#resultado #alertDni'),"error","dni ya existente");
 				                } else if (data.err=="existeCorreo"){
-				                showAlert($('#resultado #correo'),"error","Correo ya existente");
+				                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
 				                } else if (data.err=="existeTarjeta"){
-				                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
+				                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
 				                }else if (data.dato=="ok"){
-				                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente",'/config/configPersonas');
+				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
 				                }
 				                console.log("success");
 					            })
@@ -169,13 +200,13 @@ $('#resultado').on("click","#btnModificar",function () {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existeDNI"){
-		                showAlert($('#resultado #dni'),"error","dni ya existente");
+		                showAlert($('#resultado #alertDni'),"error","dni ya existente");
 		                } else if (data.err=="existeCorreo"){
-		                showAlert($('#resultado #correo'),"error","Correo ya existente");
+		                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
-		                showAlert($('#resultado #num_tarjeta'),"error","Tarjeta ya existente");
+		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace'),"ok","Alumno modificada correctamente",'/config/configPersonas');
+		                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -378,8 +409,16 @@ $('#resultado').on("click","#btnModificar",function () {
 	}//function buscarTodosLosGrupos
 
 });//ready
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
 
-function showAlert(lugar,tipo,texto,url) {
+
+function showAlert(lugar,tipo,texto) {
 
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
@@ -388,9 +427,22 @@ function showAlert(lugar,tipo,texto,url) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
-      window.location.replace(url);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
 
     }
 
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
+    }

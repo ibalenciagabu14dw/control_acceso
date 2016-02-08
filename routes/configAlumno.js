@@ -181,7 +181,8 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
             throw error;
         }else{
             if((row.length>0)&&(req.body.dni!=dni_antiguo)){
-                res.send({err:'ese DNI lo tiene un alumno'});
+                console.log({err:'ese DNI lo tiene un alumno'});
+                res.send({err:'existeDNI'});
             }else {
                 alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
                     if (error) {
@@ -189,7 +190,8 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                         throw error;
                     }else {
                         if((row.length>0)&&(req.body.correo!=correo_antiguo)){
-                            res.send({err:'ese correo lo tiene un alumno'});
+                            console.log({err:'ese correo lo tiene un alumno'});
+                            res.send({err:'existeCorreo'});
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
                                 if (error) {
@@ -197,7 +199,8 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                     throw error; 
                                 }else {
                                     if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
-                                        res.send({err:'ese numero de tarjeta lo tiene un alumno'});
+                                        console.log({err:'ese numero de tarjeta lo tiene un alumno'});
+                                        res.send({err:'existeTarjeta'});
                                     }else {
                                         profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
                                             if (error) {
@@ -205,7 +208,8 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                                 throw error;
                                             }else{
                                                 if((row.length>0)&&(req.body.dni!=dni_antiguo)){
-                                                    res.send({err:'ese DNI lo tiene un profesor'});
+                                                    console.log({err:'ese DNI lo tiene un profesor'});
+                                                    res.send({err:'existeDNI'});
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
                                                         if (error) {
@@ -213,7 +217,8 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                                             throw error;
                                                         }else {
                                                             if((row.length>0)&&(req.body.correo!=correo_antiguo)){
-                                                                res.send({err:'ese correo lo tiene un profesor'});
+                                                                console.log({err:'ese correo lo tiene un profesor'});
+                                                                res.send({err:'existeCorreo'});
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
                                                                     if (error) {
@@ -221,7 +226,8 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                                                         throw error; 
                                                                     }else {
                                                                         if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
-                                                                            res.send({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                            console.log({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                            res.send({err:'existeTarjeta'});
                                                                         }else {
                                                                             alumno.modificarAlumno(req.body.id_alumno,req.body.dni,req.body.nombre,req.body.apellidos,req.body.correo,foto,req.body.num_tarjeta,req.body.tarjeta_activada, function(error,row){
                                                                                 if (error) {
@@ -315,6 +321,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
         }else{
             if((row.length>0)&&(req.body.dni!=dni_antiguo)){
                 console.log({err:'ese DNI lo tiene un alumno'});
+                res.send({err:'existeDNI'});
             }else {
                 alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
                     if (error) {
@@ -323,6 +330,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                     }else {
                         if((row.length>0)&&(req.body.correo!=correo_antiguo)){
                             console.log({err:'ese correo lo tiene un alumno'});
+                            res.send({err:'existeCorreo'});
 
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
@@ -332,6 +340,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                                 }else {
                                     if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
                                         console.log({err:'ese numero de tarjeta lo tiene un alumno'});
+                                        res.send({err:'existeTarjeta'});
                                     }else {
                                         profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
                                             if (error) {
@@ -340,6 +349,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                                             }else{
                                                 if((row.length>0)&&(req.body.dni!=dni_antiguo)){
                                                     console.log({err:'ese DNI lo tiene un profesor'});
+                                                    res.send({err:'existeDNI'});
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
                                                         if (error) {
@@ -348,6 +358,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                                                         }else {
                                                             if((row.length>0)&&(req.body.correo!=correo_antiguo)){
                                                                 console.log({err:'ese correo lo tiene un profesor'});
+                                                                res.send({err:'existeCorreo'});
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
                                                                     if (error) {
@@ -356,6 +367,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                                                                     }else {
                                                                         if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
                                                                             console.log({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                            res.send({err:'existeTarjeta'});
                                                                         }else {
                                                                             alumno.modificarAlumnoSinFoto(req.body.id_alumno,req.body.dni,req.body.nombre,req.body.apellidos,req.body.correo,req.body.num_tarjeta,req.body.tarjeta_activada, function(error,row){
                                                                                 if (error) {

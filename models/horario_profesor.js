@@ -72,6 +72,7 @@ horario_profesor.borrarHorarioProfesor = function (id_horario_profesor,callback)
 				console.log(error);
 			}else{
 				console.log('borrarHorarioProfesor OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

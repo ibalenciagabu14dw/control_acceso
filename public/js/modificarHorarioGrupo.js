@@ -323,8 +323,11 @@ $(document).ready(function() {
 				success:function(data){
 				}//success
 			})//ajax
-			.done(function() {
+			.done(function(data) {
 				console.log("success borrar");
+				if (data[9]=="o"){
+					showAlertRedirect("#enlace2","ok"," Horario Grupo borrado correctamente",'/config');
+				}
 			})//done
 			.fail(function() {
 				console.log("error borrar");

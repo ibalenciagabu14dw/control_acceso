@@ -130,6 +130,7 @@ profesor.borrarProfesor = function (id,callback) {
 				console.log(error);
 			}else{
 				console.log('borrarProfesor OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

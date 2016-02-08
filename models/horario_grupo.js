@@ -65,6 +65,7 @@ horario_grupo.borrarHorarioGrupo = function (id_horario_grupo,callback) {
 				console.log(error);
 			}else{
 				console.log('borrarHorarioGrupo OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

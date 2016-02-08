@@ -281,7 +281,7 @@ $('#resultado').on("click","#btnModificar",function () {
 			})//ajax
 			.done(function(data) {
 				if (data[9]=="o"){
-				showAlert($('#resultado #enlace'),"ok","Alumno borrado correctamente",'/config/configPersonas');
+				showAlertRedirect("#enlace2","ok"," Alumno borrado correctamente",'/config');
 				}
 				console.log("success borrar");
 			})//done

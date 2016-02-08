@@ -62,6 +62,7 @@ aula.borrarAula = function (id,callback) {
 				console.log(error);
 			}else{
 				console.log('borrarAula OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

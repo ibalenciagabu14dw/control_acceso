@@ -62,6 +62,7 @@ grupo.borrarGrupo = function (id_grupo,callback) {
 				console.log(error);
 			}else{
 				console.log('borrarGrupo OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

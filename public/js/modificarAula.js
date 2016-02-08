@@ -7,9 +7,9 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		numero:{required:" Requerido",max:"numero maximo 250"},
-        piso:{required:" Requerido",max:"numero maximo 3"},
-		capacidad:{required:" Requerido",max:"numero maximo 30"},
+		numero:{required:"",max:""},
+        piso:{required:"",max:""},
+		capacidad:{required:"",max:""},
 	};
 
 	//Buscar alumnos al escribir
@@ -29,34 +29,37 @@ $(document).ready(function() {
 		buscarAulaId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateAula' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline' >";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_aula' class='input-group-addon'>ID AULA</label>";
     		formulario += "<input type='text' id='id_aula' name='id_aula' class='form-control' value='"+result[0].id_aula+"'readonly>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-  			formulario += "<div class='form-inline'>";
+  			formulario += "<div class='form-inline' id='alertNumero'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='numero' class='input-group-addon'>NUMERO</label>";
-    		formulario += "<input type='text' id='numero' name='numero' class='form-control' value='"+result[0].numero+"'>";
+    		formulario += "<input type='text' id='numero' name='numero' class='form-control has-feedback' value='"+result[0].numero+"'>";
+    		formulario += "<span id='numero1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
-    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span> Numero ya existente</span></div>";	
-  			formulario += "<div class='form-inline'>";
+    		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Numero ya existente</span></div>";	
+  			formulario += "<div class='form-inline' id='alertPiso'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='piso' class='input-group-addon'>PISO</label>";    		
-    		formulario += "<input type='text' id='piso' name='piso' class='form-control' value='"+result[0].piso+"'>";
+    		formulario += "<input type='text' id='piso' name='piso' class='form-control has-feedback' value='"+result[0].piso+"'>";
+    		formulario += "<span id='piso1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-  			formulario += "<div class='form-inline'>";
+  			formulario += "<div class='form-inline' id='alertCapacidad'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='capacidad' class='input-group-addon'>CAPACIDAD</label>";         		
-       		formulario += "<input type='text' id='capacidad' name='capacidad' class='form-control' value='"+result[0].capacidad+"'>";
+       		formulario += "<input type='text' id='capacidad' name='capacidad' class='form-control has-feedback' value='"+result[0].capacidad+"'>";
+    		formulario += "<span id='capacidad1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div>";			
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
-    		formulario += "&nbsp;<a id='enlace' href='/config' class='btn btn-primary'>Volver</a>";
+    		formulario += "&nbsp;<a id='enlace2' href='/config' class='btn btn-primary'>Volver</a>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -69,8 +72,25 @@ $(document).ready(function() {
 		$("#formUpdate").validate({
 	        rules:reglas,
 			messages:mensajes,
+	        highlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	        },
+	        unhighlight: function(element) {
+	                var id_attr = "#" + $( element ).attr("id") + "1";
+	                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
+	        },
 			errorPlacement: function(error,element){
-				element.before(error);
+				//error.insertBefore($(element).closest('.form-inline'));
+	            if (error.attr("id") == "numero-error"){
+	                showAlertValidate($('#resultado #alertNumero')," Numero maximo 250");
+	            } else if (error.attr("id") == "piso-error"){
+	                 showAlertValidate($('#resultado #alertPiso')," Piso maximo 3");
+	            } else if (error.attr("id") == "capacidad-error"){
+	                 showAlertValidate($('#resultado #alertCapacidad')," Capacidad maxima 30");
+	            }
 			},
 	        submitHandler: function (form) {
 	            event.preventDefault();
@@ -87,9 +107,9 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #numero'),"error","Numero ya existente");
+		                showAlert($('#resultado #alertNumero'),"error","Numero ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace'),"ok","Aula modificada correctamente");
+		                showAlertRedirect($('#resultado #enlace2'),"ok","Aula modificada correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -176,6 +196,15 @@ $(document).ready(function() {
 });//ready
 
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
+
 function showAlert(lugar,tipo,texto) {
 
     if (tipo=="error"){
@@ -185,6 +214,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

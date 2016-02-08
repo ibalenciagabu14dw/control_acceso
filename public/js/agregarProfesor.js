@@ -17,7 +17,9 @@ $(document).ready(function() {
     },"Please enter only letters");
 
     jQuery.validator.addMethod("dni", function(value, element) {
-        return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
+        if ($('#dni').val().length == 10){
+            return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
+        }
     });
 
     //regla correo
@@ -43,22 +45,44 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		dni:{required:" Requerido",dni:"introduce un DNI correcto"},
-        nombre:{required:" Requerido",lettersonly:"Please enter only letters"},
-		apellidos:{required:" Requerido",lettersonly:"Please enter only letters"},
-		correo:{required:" Requerido",correo:"introduce un Correo correcto"},
-        password:{required:"Requerido",convertHash:"Hash"},
-        foto:{required:" Requerido",fileSize:"maximo 100kb"},
-        num_tarjeta:{required:" Requerido"},
+		dni:{required:"",dni:""},
+        nombre:{required:"",lettersonly:""},
+		apellidos:{required:"",lettersonly:""},
+		correo:{required:"",correo:""},
+        password:{required:"",convertHash:""},
+        foto:{required:"",fileSize:""},
+        num_tarjeta:{required:""},
 	};
 
 	//Validate
 	$("#agregarProfesorForm").validate({
         rules:reglas,
-		messages:mensajes,
-		errorPlacement: function(error,element){
-			element.before(error);
-		},
+        messages:mensajes,
+        highlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+        },
+        unhighlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');      
+        },
+        errorPlacement: function(error,element){
+            console.log(error.attr("id"));
+            if (error.attr("id") == "dni-error"){
+                 showAlertValidate("#alertDni"," Introduce un dni correcto");
+            } else if (error.attr("id") == "nombre-error"){
+                showAlertValidate("#alertNombre"," Solo Letras por favor");
+            }else if (error.attr("id") == "apellidos-error"){
+                showAlertValidate("#alertApellidos"," Solo Letras por favor");
+            } else if (error.attr("id") == "correo-error"){
+                showAlertValidate("#alertCorreo","Introduce un correo correcto");
+            } else if (error.attr("id") == "foto-error"){
+                showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+            }
+            
+        },
         submitHandler: function (form) {
             event.preventDefault();
             console.log(password);
@@ -80,13 +104,13 @@ $(document).ready(function() {
                 console.log(data);
                 $('#password').attr('disabled',false);
                 if (data.err=="existeDNI"){
-                    showAlert("#dni","error","DNI ya existente");
+                    showAlert("#alertDni","error","DNI ya existente");
                 } else if (data.err=="existeCorreo"){
-                    showAlert("#correo","error","Correo ya existente");    
+                    showAlert("#alertCorreo","error","Correo ya existente");    
                 }else if(data.err=="existeTarjeta"){
-                    showAlert("#num_tarjeta","error","NumeroTarjeta ya existente");    
+                    showAlert("#alertNum_tarj","error","NumeroTarjeta ya existente");    
                 }else if (data.dato=="ok"){
-                    showAlert("#enlace","ok","Alumno añadida correctamente");
+                    showAlertRedirect("#enlace","ok","Alumno añadida correctamente",'/config');
                 }
                 console.log("successdata");
             })
@@ -102,6 +126,15 @@ $(document).ready(function() {
 });//ready
 
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
+
 function showAlert(lugar,tipo,texto) {
 
     if (tipo=="error"){
@@ -111,6 +144,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

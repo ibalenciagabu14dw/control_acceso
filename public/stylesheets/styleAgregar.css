@@ -59,6 +59,15 @@ form{
     width: 35% !important;
 }
 
+#agregarAlumnoForm{
+    width: 35% !important;
+}
+
+#agregarProfesorForm{
+    width: 35% !important;
+}
+
+
 
 .form-control {
 	padding-left: 50px;

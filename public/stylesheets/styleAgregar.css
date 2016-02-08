@@ -55,6 +55,10 @@ form{
     width: 35% !important;
 }
 
+#agregarAulaForm{
+    width: 35% !important;
+}
+
 
 .form-control {
 	padding-left: 50px;

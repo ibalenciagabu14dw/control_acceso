@@ -8,18 +8,35 @@ $(document).ready(function() {
 	};
 	//mensajes
 	var mensajes = {
-		numero:{required:" Requerido",max:"numero maximo 250"},
-        piso:{required:" Requerido",max:"numero maximo 3"},
-		capacidad:{required:" Requerido",max:"numero maximo 30"},
+		numero:{required:"",max:""},
+        piso:{required:"",max:""},
+		capacidad:{required:"",max:""},
 	};
 
 	//Validate
 	$("#agregarAulaForm").validate({
         rules:reglas,
-		messages:mensajes,
-		errorPlacement: function(error,element){
-			element.before(error);
-		},
+        messages:mensajes,
+        highlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+        },
+        unhighlight: function(element) {
+                var id_attr = "#" + $( element ).attr("id") + "1";
+                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');         
+        },
+        errorPlacement: function(error,element){
+            //error.insertBefore($(element).closest('.form-inline'));
+            if (error.attr("id") == "numero-error"){
+                showAlertValidate("#alertNumero"," Numero maximo 250");
+            } else if (error.attr("id") == "piso-error"){
+                 showAlertValidate("#alertPiso"," Piso maximo 3");
+            } else if (error.attr("id") == "capacidad-error"){
+                 showAlertValidate("#alertCapacidad"," Capacidad maxima 30");
+            }
+        },
         submitHandler: function (form) {
             event.preventDefault();
             var data = $("#agregarAulaForm").serializeArray();
@@ -35,9 +52,9 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#numero","error","Numero ya existente");
+                showAlert("#alertNumero","error","Numero ya existente");
                 }else if (data.dato=="ok"){
-                showAlert("#enlace","ok","Aula añadida correctamente");
+                showAlertRedirect("#enlace","ok","Aula añadida correctamente",'/config');
                 }
                 console.log("success");
             })
@@ -51,6 +68,14 @@ $(document).ready(function() {
     });//Validate
 });//ready
 
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+                });
+    }
+
 
 function showAlert(lugar,tipo,texto) {
 
@@ -61,6 +86,22 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
+
+    }
+
+function showAlertRedirect(lugar,tipo,texto,url) {
+
+    if (tipo=="error"){
+        $('#mensaje').attr('class','alert alert-danger fade in');
+    }else {
+        $('#mensaje').attr('class','alert alert-success fade in');
+    }
+    $('#mensaje span').html(texto);
+    $('#mensaje').insertAfter(lugar);
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+      window.location.replace(url);
+                });
+
     }

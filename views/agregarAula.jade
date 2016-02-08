@@ -5,24 +5,27 @@ block extraHeader
 block content
   h1 Agregar Aula
   form#agregarAulaForm.form-group()
-    .form-inline
+    .form-inline#alertNumero
       .input-group
         label.input-group-addon(for='numero') NUMERO
-        input#numero.form-control(type='number', name='numero', placeholder='Escribe el numero')
-    br
+        input#numero.form-control.has-feedback(type='number', name='numero', placeholder='Escribe el numero')
+        span#numero1.glyphicon.form-control-feedback
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
       strong Comprueba!
-      span  Numero ya existente
-    .form-inline
+      span#sp  Numero ya existente
+    br  
+    .form-inline#alertPiso
       .input-group
         label.input-group-addon(for='piso') PISO
-        input#piso.form-control(type='number', name='piso', placeholder='Escribe el piso')
+        input#piso.form-control.has-feedback(type='number', name='piso', placeholder='Escribe el piso')
+        span#piso1.glyphicon.form-control-feedback
     br
-    .form-inline
+    .form-inline#alertCapacidad
       .input-group
         label.input-group-addon(for='capacidad') CAPACIDAD
-        input#capacidad.form-control(type='number', name='capacidad', placeholder='Escribe la capacidad')
+        input#capacidad.form-control.has-feedback(type='number', name='capacidad', placeholder='Escribe la capacidad')
+        span#capacidad1.glyphicon.form-control-feedback
     br
     button#send.btn.btn-primary(name='send') Enviar
     a#enlace.btn.btn-primary(href='/config') Volver

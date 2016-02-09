@@ -125,6 +125,21 @@ falta.buscarFaltasDeAlumnosNoConvalidados = function (dia_semana,hora,callback) 
 	};//if connection
 }//falta.buscarFaltasDeAlumnosNoConvalidados
 
+/*
+*	Buscar datos necesarios para el envio de correo por falta de asistencia
+*/
+falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
+	var sql = 'SELECT a.nombre, a.correo, s.clave, l.numero, g.hora_inicio, g.hora_final FROM alumnos a LEFT JOIN alumno_grupos r ON (a.id_alumno = r.id_alumno) INNER JOIN horario_grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas l ON (l.id_aula = g.id_aula) INNER JOIN asignaturas s ON (s.id_asignatura = g.id_asignatura) WHERE a.id_alumno = '+id_alumno+' AND g.id_horario_grupo = '+id_horario_grupo;
+	connection.query(sql,function (error,row) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			callback(null,row);
+		}//else if connection
+	})//connection.query
+}//falta.buscarDatosFaltaAlumno 
+
 /****************************************************************************************************************************/
 
 module.exports = falta;

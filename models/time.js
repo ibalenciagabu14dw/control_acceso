@@ -2,6 +2,7 @@ var time = {};
 var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
 var horario_grupo = require('../models/horario_grupo');
 var falta = require('../models/falta');
+var mailgun = require('../models/mailgun');
 var app = require('../app');
 var io = app.io;
 /*
@@ -48,7 +49,7 @@ function primeraHora() {
    			}else{
    				//configurar el segundo trigger con las horas finales de cada clase en segundos
 				for (var i = 0; i < data.length; i++) {
-					//var sec = 32760 + (i*60);
+					//var sec = 41220 + (i*60);
 					var hora = data[i].hora_final.split(':');
 					var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 					schedule2.schedules.push({t:[sec]});
@@ -94,9 +95,15 @@ function finDeClase () {
 											if (error) {
 												console.log(error);
 												throw error;
-											};//if error
+											}
 										})//agregarFalta
-									};//for*/
+									};//for
+									mailgun.enviarCorreoAlumnosFalta(data4,dia,function (error) {
+										if (error) {
+											console.log(error);
+											throw error;
+										};
+									})//mailgun.enviarCorreoAlumnosFalta*/
 								}//else error buscarFaltasDeAlumnosNoConvalidados
 							})//buscarFaltasDeAlumnosNoConvalidados
 						}//else dia completo

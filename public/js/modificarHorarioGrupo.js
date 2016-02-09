@@ -79,7 +79,7 @@ $(document).ready(function() {
             formulario += "</select><span id='selectDiaHorarioGrupo1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";
-			formulario += "<div class='form-inline'>";
+			formulario += "<div class='form-inline' id='alertHoraInicio'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label id='labelHoraInicio' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
             formulario += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control has-feedback' value='"+result[0].hora_inicio+"'/></br>";
@@ -235,6 +235,9 @@ $(document).ready(function() {
 			errorPlacement: function(error,element){
 			},
 	        submitHandler: function (form) {
+	            if ($('#resultado #hora_inicio').val() >$('#resultado #hora_final').val()){
+                 showAlertValidate("#alertHoraInicio"," hora_inicio < hora_final ");
+            	} else {	
 	            event.preventDefault();
 	            var data = $("#formUpdate").serializeArray();
 	            console.log(data);
@@ -261,6 +264,7 @@ $(document).ready(function() {
 	            /*
 	            *   Form Submit Fin
 	            */
+	        }//.else
 	        }//submitHandler
 	    });//Validate
 	  //$( "#target" ).submit();

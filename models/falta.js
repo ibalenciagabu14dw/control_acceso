@@ -29,16 +29,17 @@ falta.agregarFalta = function (fecha,id_alumno,id_horario_grupo,observaciones,ca
 /*
 * UPDATE falta
 */
-falta.modificarFalta = function (id_falta,fecha,id_alumno,id_horario_grupo,observaciones,callback) {
+falta.modificarFalta = function (id_faltas,fecha,id_alumno,id_horario_grupo,observaciones,callback) {
 	if(connection){							
 		var falta = { fecha: fecha, id_alumno: id_alumno, id_horario_grupo: id_horario_grupo, observaciones: observaciones };
-		var sqlmodificarFalta = 'UPDATE faltas SET ? WHERE id_falta ="'+id_falta+'"';
-		connection.query(sqlmodificarAula,aula, function(error){
+		var sqlmodificarFalta = 'UPDATE faltas SET ? WHERE id_faltas ="'+id_faltas+'"';
+		connection.query(sqlmodificarFalta,falta, function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
 				console.log('modificarFalta OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -65,14 +66,15 @@ falta.updatePresencia0ATodos = function(callback){
 /*
 * DELETE falta por id_falta
 */
-falta.borrarFalta = function (id_falta,callback) {
+falta.borrarFalta = function (id_faltas,callback) {
 	if(connection){							
-		connection.query('DELETE FROM faltas WHERE id_falta= "'+id_falta+'"', function(error){
+		connection.query('DELETE FROM faltas WHERE id_faltas= "'+id_faltas+'"', function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
 			}else{
 				console.log('borrarFalta OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -140,7 +142,46 @@ falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
 	})//connection.query
 }//falta.buscarDatosFaltaAlumno 
 
+/*
+*	BUSCAR faltas por nombre del alumno
+*/
+falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo,observaciones FROM faltas WHERE id_alumno IN (SELECT id_alumno FROM alumnos WHERE nombre LIKE "'+nombre+'%'+'")';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarFaltaPorNombreAlumno OK');
+			}//else
+		});//connection.query
+	}//if
+}//falta.buscarFaltaPorNombreAlumno
+
+
+/*
+* BUSCAR falta por id_falta
+*/
+falta.buscarFaltaPorId = function (id_faltas,callback) {							
+	if(connection){	
+		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo,observaciones FROM faltas WHERE id_faltas = ' + connection.escape(id_faltas);
+		connection.query(sql, function (error, row){
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarFaltaPorId OK');
+			}//else
+		});//connection.query
+	}//if
+}//horario_grupo.buscarHorarioGrupoPorId
+
 /****************************************************************************************************************************/
+
+
 
 module.exports = falta;
 

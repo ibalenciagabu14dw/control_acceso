@@ -220,6 +220,12 @@ $(document).ready(function() {
 	            *   Form Submit Fin
 	            */
 	        } else {
+	        		 var attach_id = $('#resultado #foto').attr("id");
+					var size = $('#'+attach_id)[0].files[0].size;
+					   if (size > 102400)// checks the file more than 100 Kb
+			           {
+			               showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+			           } else {
 	            event.preventDefault();
 	            $('#password').attr('disabled',true);  
 	            var formData = new FormData($('#resultado #formUpdate')[0]);
@@ -244,7 +250,7 @@ $(document).ready(function() {
 		                } else if (data.err=="existeTarjeta"){
 		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlert($('#resultado #enlace2'),"ok","Alumno modificada correctamente");
+		                showAlertRedirect($('#resultado #enlace2'),"ok","Profesor modificada correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -255,6 +261,7 @@ $(document).ready(function() {
 	            /*
 	            *   Form Submit Fin
 	            */
+	        }//.else if (size > 102400)
 	        }//.else	
 	        }//submitHandler
 	    });//Validate

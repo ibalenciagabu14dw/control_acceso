@@ -179,6 +179,24 @@ falta.buscarFaltaPorId = function (id_faltas,callback) {
 	}//if
 }//horario_grupo.buscarHorarioGrupoPorId
 
+/*
+*	BUSCAR un horario_grupo que ya exista en la base de datos
+*/
+falta.buscarFaltaExistente = function(fecha,id_alumno,id_horario_grupo,callback){
+	if(connection){
+		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo FROM faltas WHERE fecha ="'+fecha+'" AND id_alumno ="'+id_alumno+'" AND id_horario_grupo ="'+id_horario_grupo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('buscarFaltaExistente OK');
+			}//else
+		});//connection.query
+	}//if
+}//falta.buscarFaltaExistente
+
 /****************************************************************************************************************************/
 
 

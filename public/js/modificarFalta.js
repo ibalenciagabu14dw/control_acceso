@@ -113,8 +113,8 @@ $('#resultado').on("click","#btnModificar",function () {
 			                }
 			            })
 			            .done(function(data) {
-			                console.log(data)
-				                if (data.err=="existeFalta"){
+			                console.log(data.err)
+				                if (data.err=="existe"){
 				                showAlert($('#resultado #enlace2'),"error","Falta ya existente");
 				                }else if (data.dato=="ok"){
 				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');

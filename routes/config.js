@@ -28,6 +28,10 @@ router.get('/', function(req, res, next) {
         });////. grupo.mostrarTodosLosIdNombreGrupo
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
+router.get('/configFaltas/modificarFalta', function(req, res, next) {
+  res.render('modificarFalta', { title: 'modificarFalta' });
+});
+
 router.get('/configPersonas', function(req, res, next) {
   res.render('configPersonas', { title: 'configPersonas' });
 });

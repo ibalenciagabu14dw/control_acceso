@@ -9,6 +9,7 @@ var session = require('express-session');
 var md5 = require('blueimp-md5');
 
 var routes = require('./routes/index');
+var configFalta = require('./routes/configFalta');
 var configAlumno = require('./routes/configAlumno');
 var configAsignatura = require('./routes/configAsignatura');
 var configAula = require('./routes/configAula');
@@ -45,6 +46,7 @@ app.use('/configGrupo', configGrupo);
 app.use('/configProfesor', configProfesor);
 app.use('/configHorarioGrupo', configHorarioGrupo);
 app.use('/configHorarioProfesor', configHorarioProfesor);
+app.use('/configFalta', configFalta);
 
 app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);

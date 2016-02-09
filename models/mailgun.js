@@ -9,14 +9,12 @@ var falta = require('../models/falta');
 */
 mailgun.enviarCorreoAlumnosFalta = function (alumnos,dia) {
 	for (var i = 0; i < alumnos.length; i++) {
-		console.log("correo a: "+alumnos[i].id_alumno);
 		falta.buscarDatosFaltaAlumno(alumnos[i].id_alumno,alumnos[i].id_horario_grupo,function (error,data) {
 			if (error) {
 				console.log(error);
 				throw error;
 			}else{
 				for (var i = 0; i < data.length; i++) {
-					console.log("correo numero "+i);
 					var data = {
 						from: 'admin@controlfid.zubirimanteoweb.com',
 						to: data[i].correo,
@@ -27,8 +25,6 @@ mailgun.enviarCorreoAlumnosFalta = function (alumnos,dia) {
 						if (error) {
 							console.log(error);
 							throw error;
-						}else{
-							console.log(body);
 						}
 					})//messages
 				};//for

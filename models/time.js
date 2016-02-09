@@ -90,7 +90,7 @@ function finDeClase () {
 									console.log(error);
 									throw error;
 								}else{
-									for (var i = 0; i < data4.length; i++) {
+									/*for (var i = 0; i < data4.length; i++) {
 										falta.agregarFalta(diaCompleto, data4[i].id_alumno, data4[i].id_horario_grupo, "Falta automatizada", function (error) {
 											if (error) {
 												console.log(error);
@@ -103,7 +103,7 @@ function finDeClase () {
 											console.log(error);
 											throw error;
 										};
-									})//mailgun.enviarCorreoAlumnosFalta
+									})//mailgun.enviarCorreoAlumnosFalta*/
 								}//else error buscarFaltasDeAlumnosNoConvalidados
 							})//buscarFaltasDeAlumnosNoConvalidados
 						}//else dia completo

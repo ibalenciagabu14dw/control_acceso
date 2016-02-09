@@ -13,7 +13,7 @@ $(document).ready(function() {
 				console.log(data);
 				if (data == "[]"){
 					console.log("error");
-					showAlert("#titulo","error","No hay clase a esta hora");
+					showAlertValidate("#titulo","No hay clase a esta hora");
 				} else {
 					var JSONObject = JSON.parse(data);
 					console.log("success");
@@ -49,13 +49,11 @@ $(document).ready(function() {
   	});
 });//ready
 
-
-function showAlert(lugar,tipo,texto) {
-	
-    $('#mensaje').attr('class','alert alert-danger fade in');
+function showAlertValidate(lugar,texto) {
+    $('#mensaje').attr('class','alert alert-warning fade in');
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(500, function(){
+    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
     }
 

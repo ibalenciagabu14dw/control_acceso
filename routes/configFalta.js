@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var falta = require('../models/falta');
+var alumno = require('../models/alumno');
+
 
 /****************************************************************************************************************************/
 
@@ -83,5 +85,6 @@ router.post('/buscarFaltaPorId', function(req,res,next) {
         }//else
     })//falta.buscarFaltaPorId
 });//router.post('/buscarAlumnoPorId
+
 
 module.exports = router;

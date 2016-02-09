@@ -46,19 +46,22 @@ $(document).ready(function() {
 			formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label id='labelFecha' for='fecha' class='input-group-addon'>FECHA</label>"; 
-			var prueba = result[0].fecha;
-			var prueba2 = prueba.split('T')[0];
-            formulario += "<input id='fecha' type='text' name='fecha' class='form-control has-feedback' value='"+prueba2+"'/></br>";
+			var fecha = result[0].fecha;
+			var fechaCortada = fecha.split('T')[0];
+            formulario += "<input id='fecha' type='text' name='fecha' class='form-control has-feedback' value='"+fechaCortada+"' readonly/></br>";
        		formulario += "<span id='fecha1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
-    		formulario += "<div class='form-inline'>";
+    		/*formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_alumno' class='input-group-addon'>ID ALUMNO</label>";   		
     		formulario += "<input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result[0].id_alumno+"'>";
     		formulario += "<span id='id_alumno1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
-  			formulario += "</div><br/>";
+  			formulario += "</div><br/>";*/
+  			mostrarTodosLosAlumnosIdNombreApellidos(result[0].id_alumno);
+			formulario += "<div id='alumnos'>";
+    		formulario += "</div>";	
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
@@ -66,6 +69,9 @@ $(document).ready(function() {
     		formulario += "<span id='id_horario_grupo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
+  			mostrarHorarioGrupo(result[0].id_horario_grupo);
+			formulario += "<div id='horarioGrupo'>";
+    		formulario += "</div>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='observaciones' class='input-group-addon'>OBSERVACIONES</label>";   		
@@ -104,6 +110,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	        submitHandler: function (form) {
 	        		event.preventDefault();
 	            	var data = $("#formUpdate").serializeArray();
+	            	console.log(data);
 			            $.ajax({
 			                url: '/configFalta/updateFalta',
 			                type: 'post',
@@ -113,7 +120,6 @@ $('#resultado').on("click","#btnModificar",function () {
 			                }
 			            })
 			            .done(function(data) {
-			                console.log(data.err)
 				                if (data.err=="existe"){
 				                showAlert($('#resultado #enlace2'),"error","Falta ya existente");
 				                }else if (data.dato=="ok"){
@@ -197,6 +203,93 @@ $('#resultado').on("click","#btnModificar",function () {
 			})//fail
 		}//if confirm
 	});//click borrar formulario alumno
+
+
+		function mostrarTodosLosAlumnosIdNombreApellidos (id_alumno) {
+			var result = id_alumno;
+		$.ajax({
+			url: '/configAlumno/mostrarTodosLosAlumnosIdNombreApellidos',
+			type: 'post',
+			dataType: 'json',
+			success:function (data) {
+				var resp = "";
+				resp += "<div class='form-inline'>";
+                resp += "<div class='input-group'>";
+                resp += "<label id='labelAlumnoFaltas' for='id_alumno' class='input-group-addon'>ALUMNO</label>";
+                resp += "<select id='selectAlumnoFaltasM' name='id_alumno' class='form-control has-feedback'>";
+    			resp += "<option value='default'>Elige el alumno</option>";
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].id_alumno == result){
+						resp += "<option value="+data[i].id_alumno+" selected>"+data[i].nombre+"</option>";
+					} else {
+						resp += "<option value="+data[i].id_alumno+">"+data[i].nombre+"</option>";
+					}
+				};
+				resp += "</select><span id='selectAlumnoFaltasM1' class='glyphicon form-control-feedback'></span>";
+				resp += "</div>";
+                resp += "</div><br/>";
+				$('#alumnos').html(resp);
+			}
+		})//ajax
+		.done(function() {
+			console.log("success");
+		})//done
+		.fail(function() {
+			console.log("error");
+		})//fail
+	}//function mostrarTodosLosAlumnosIdNombreApellidos
+
+
+			function mostrarHorarioGrupo (id_horario_grupo) {
+			var id = id_horario_grupo;
+		$.ajax({
+			url: '/configHorarioGrupo/buscarHorarioGrupoPorId',
+			type: 'post',
+			dataType: 'json',
+			data:{ id_horario_grupo:id },
+				success:function (data) {
+					var resp = "";
+					resp += "<table id='horario'>";
+				for (var i = 0; i < data.length; i++) {
+					resp += "<tr>";
+					resp += "<td>";
+					resp += "<div class='form-inline has-success'>";
+    				resp += "<div class='input-group'>";
+					resp += "<label id='labelDiaHorarioProfesor' for='dia' class='input-group-addon'>DIA</label>"; 
+					resp += "<input type='text' id='dia' name='dia' class='form-control has-feedback' value='"+data[i].dia_semana+"'readonly></br>";
+					resp += "<span id='dia1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "</div>";
+  					resp += "</div><br/>";
+  					resp += "<div class='form-inline has-success'>";
+    				resp += "<div class='input-group'>";
+					resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
+					resp += "<input type='time' id='hora_inicio' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"'readonly></br>";
+					resp += "<span id='hora_inicio1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "</div>";
+  					resp += "</div><br/>";
+  					resp += "<div class='form-inline has-success'>";
+    				resp += "<div class='input-group'>";
+					resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA INICIO</label>"; 					
+					resp += "<input type='time' id='hora_final' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly></br>";					
+					resp += "<span id='hora_final1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "</div>";
+  					resp += "</div><br/>";	
+					resp += "</td>";
+					resp += "</tr>"
+					};
+					resp += "</table>";
+					$('#horarioGrupo').html(resp);
+				}
+		})//ajax
+		.done(function() {
+		console.log("success");
+		})//done
+		.fail(function() {
+		console.log("error");
+		})//fail
+	}//function buscarTodosLosGrupos
+
+
 
 });//ready
 

@@ -447,6 +447,20 @@ router.post('/buscarAlumnoPorId', function(req,res,next) {
     })//alumno.buscarAlumnoPorId
 });//router.post('/buscarAlumnoPorId
 
+
+
+/*Mostrar todos los alumnos*/
+router.post('/mostrarTodosLosAlumnosIdNombreApellidos', function(req,res,next){
+  alumno.mostrarTodosLosIdNombreApellidosAlumno(function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//mostrarTodosLosIdNombreApellidosAlumno
+});//router.post('/mostrarTodosLosProfesoresIdNombreApellidos'
+
+
 /****************************************************************************************************************************/
 
 module.exports = router;

@@ -381,6 +381,26 @@ alumno.buscarAlumnoPorIdDniCorreoNum_tarj = function(id_alumno,dni,correo,num_ta
 	};//if
 }//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
 
+
+/*
+* BUSCAR todos los nombre y apellido de todos los alumnos
+*/
+alumno.mostrarTodosLosIdNombreApellidosAlumno = function (callback) {
+	if(connection){						
+		connection.query('SELECT id_alumno,nombre,apellidos FROM alumnos', function(error,row){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+				console.log('mostrarTodosLosIdNombreApellidosAlumno OK');
+			}//else
+		});//connection.query
+	}//if
+}//alumno.mostrarTodosLosIdNombreApellidosAlumno
+
+
+
 /****************************************************************************************************************************/
 
 module.exports = alumno;

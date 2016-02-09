@@ -184,6 +184,13 @@ $('#resultado').on("click","#btnModificar",function () {
 			                console.log("error");
 			            })
 	        	} else {
+	        		var attach_id = $('#resultado #foto').attr("id");
+					var size = $('#'+attach_id)[0].files[0].size;
+					   if (size > 102400)// checks the file more than 100 Kb
+			           {
+			               showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+			           } else {      
+			           
 	            	event.preventDefault();
 	            	var formData = new FormData($('#resultado #formUpdate')[0]);
 	            $.ajax({
@@ -216,6 +223,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	            /*
 	            *   Form Submit Fin
 	            */
+	            }//.else if (size > 102400)
 	        	}//.else	        
 	        }//submitHandler
 	    });//Validate

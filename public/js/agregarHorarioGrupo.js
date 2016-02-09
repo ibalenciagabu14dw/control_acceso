@@ -40,6 +40,9 @@ $(document).ready(function() {
         errorPlacement: function(error,element){
         },
         submitHandler: function (form) {
+            if ($('#hora_inicio').val() > $('#hora_final').val()){
+                 showAlertValidate("#alertHoraInicio"," hora_inicio < hora_final ");
+            } else {
             event.preventDefault();
             var data = $("#agregarHorarioGrupoForm").serializeArray();
             $.ajax({
@@ -66,6 +69,7 @@ $(document).ready(function() {
             /*
             *   Form Submit Fin
             */
+        }//.else
         }//submitHandler
     });//Validate
 });//ready

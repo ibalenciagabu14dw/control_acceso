@@ -168,6 +168,19 @@ width: 223px !important ;
  width: 327.594px !important ;  
 }
 
+#labelAlumnoFaltas{
+   width: 223px !important ; 
+}
+
+#selectAlumnoFaltasM{
+ width: 327.594px !important ;  
+}
+
+#observaciones{
+ width: 327.594px !important ;  
+}
+
+
 #foto {
     width: 235px !important ;
 }

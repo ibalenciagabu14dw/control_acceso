@@ -15,16 +15,27 @@ router.post('/updateFalta',  function(req,res,next){
     var fecha = req.body.fecha;
     var id_alumno = req.body.id_alumno;
     var id_horario_grupo = req.body.id_horario_grupo;
-    var observaciones = req.body.observaciones;
-                            falta.modificarFalta(id_faltas,fecha,id_alumno,id_horario_grupo,observaciones, function(error,row) {
-                                if (error) {
-                                    res.send({err:'bd'});
-                                    throw error;
-                                }else{ 
-                                    res.send(row);
-                                }//else
-                            });//falta.modificarFalta
-});//router.post('/updateFalta
+    var observaciones = req.body.observaciones;    
+    falta.buscarFaltaExistente(fecha,id_alumno,id_horario_grupo, function (error,row) {
+    if (error) {
+      res.send({err:'bd'});
+      throw error;
+    } else{
+        if (row.length>0){
+         res.send({err:'existe'});
+        } else {
+          falta.modificarFalta(id_faltas,fecha,id_alumno,id_horario_grupo,observaciones, function (error,row) {
+              if (error) {
+                res.send({err:'bd'});
+                throw error;
+              } else{ 
+                res.send(row);
+              }//.else
+          });//.falta.modificarFalta
+        }//. else if (row.length == 0)
+    }//.else
+  });//.falta.buscarFaltaExistente
+});//.router.post('/updateFalta',  function(req,res,next){
 
 /****************************************************************************************************************************/
 

@@ -90,31 +90,6 @@ router.post('/agregarAlumno', function(req, res, next) {
     })//alumno.buscarAlumnoPorDni
 });//router.post('/agregarAlumno
 
-/*
-* INSERT asignatura
-*/
-router.post('/agregarAsignatura', function(req,res,next){
-    asignatura.buscarAsignaturaPorClave(req.query.clave, function (error,row) {
-        if (error) {
-            res.send('error conectando con la base de datos');
-            throw error;
-        }else{
-            if(row.length>0){
-                res.send('ya existe esa clave de asignatura');
-            }else{
-                asignatura.agregarAsignatura(req.query.nombre,req.query.clave,req.query.obligatoria,req.query.tipo, function (error,row) {
-                    if (error) {
-                        res.send('error conectando con la base de datos');
-                        throw error;
-                    }else{
-                        res.send('asignatura agregada correctamente');
-                    }//else
-                });//asignatura.agregarAsignatura
-            }//else
-        }//else
-    });//asignatura.buscarAsignaturaPorClave
-});//router.post('/agregarAsignatura
-
 /****************************************************************************************************************************/
 
 /***********************************************************UPDATE***********************************************************/

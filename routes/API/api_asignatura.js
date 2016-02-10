@@ -44,5 +44,48 @@ router.post('/agregarAsignatura', function(req, res, next) {
 
 /***********************************************************UPDATE***********************************************************/
 
+/*
+* UPDATE alumno OK
+
+*/
+router.post('/modificarAsignatura', function(req, res, next) {
+    
+    var clave_antigua;
+
+    asignatura.buscarAsignaturaPorId(req.query.id_asignatura, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            clave_antigua = row[0].clave;
+            console.log(clave_antigua);
+        }//else
+    })//asignatura.buscarAsignaturaPorId
+
+    asignatura.buscarAsignaturaPorClave(req.query.clave, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if((row.length>0)&&(req.query.clave!=clave_antigua)){
+                res.send('esa clave ya existe');
+            }else {
+            	asignatura.modificarAsigntura(req.query.id_asignatura,req.query.nombre,req.query.clave,req.query.obligatoria,req.query.tipo, function(error,row){
+                	if (error) {
+                		res.send('error conectando con la base de datos');
+                		throw error;
+                	}else {
+                		res.send('asignatura modificada correctamente');
+                	}//else
+            	})//asignatura.modificarAsigntura
+        	}//else
+        }//else
+    })//asignatura.buscarAsignaturaPorClave                                                         
+});//router.post('/modificarAsignatura
+
+/****************************************************************************************************************************/
+
+/***********************************************************DELETE***********************************************************/
+
 
 module.exports = router;

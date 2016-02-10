@@ -52,13 +52,6 @@ $(document).ready(function() {
        		formulario += "<span id='fecha1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
-    		/*formulario += "<div class='form-inline'>";
-    		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_alumno' class='input-group-addon'>ID ALUMNO</label>";   		
-    		formulario += "<input type='text' id='id_alumno' name='id_alumno' class='form-control' value='"+result[0].id_alumno+"'>";
-    		formulario += "<span id='id_alumno1' class='glyphicon form-control-feedback'></span>";
-    		formulario += "</div>";
-  			formulario += "</div><br/>";*/
   			mostrarTodosLosAlumnosIdNombreApellidos(result[0].id_alumno);
 			formulario += "<div id='alumnos'>";
     		formulario += "</div>";	
@@ -145,10 +138,13 @@ $('#resultado').on("click","#btnModificar",function () {
 			dataType: 'json',
 			data: formData,
 			success:function (data) {
+				console.log(data);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr><td class='celda'>";
-					resp += "<h3 id='"+data[i].id_faltas+"'>"+data[i].id_alumno+""+data[i].fecha+"</h3>";
+					var fecha = data[i].fecha;
+					var fechaCortada = fecha.split('T')[0];
+					resp += "<h3 id='"+data[i].id_faltas+"'>"+data[i].nombre+""+' '+""+data[i].apellidos+""+' '+""+fechaCortada+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

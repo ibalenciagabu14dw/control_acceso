@@ -39,38 +39,14 @@ form{
 	margin-bottom: 50px;
 }
 
-#agregarAsignaturasForm{
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarHorarioGrupoForm,#agregarHorarioProfesorForm
+,#agregarAulaForm,#agregarAlumnoForm,#agregarProfesorForm{
     width: 35% !important;
 }
-
-#agregarGrupoForm{
-    width: 35% !important;
-}
-
-#agregarHorarioGrupoForm{
-    width: 35% !important;
-}
-
-#agregarHorarioProfesorForm{
-    width: 35% !important;
-}
-
-#agregarAulaForm{
-    width: 35% !important;
-}
-
-#agregarAlumnoForm{
-    width: 35% !important;
-}
-
-#agregarProfesorForm{
-    width: 35% !important;
-}
-
-
 
 .form-control {
-	padding-left: 50px;
+	padding-left: 50px !important;
+    padding-right: 50px !important;
     min-width: 0;
     width: 120% !important;
     color:black;
@@ -80,19 +56,10 @@ label {
     width: 50% !important ;
 }
 
-#labelFoto {
+#labelFoto,#labelObligatoria,#labelTipo,#labelTipoGrupo,#labelDiaHorarioGrupo {
     width: 235px !important ;
 }
 
-
-#labelObligatoria {
-    width: 235px !important ;
-
-}
-
-#labelTipo {
-    width: 235px !important ;
-}
 
 #foto {
     width: 200px !important ;
@@ -108,14 +75,6 @@ label {
 
 #selectTipoGrupo {
     width: 282px !important ;
-}
-
-#labelTipoGrupo {
-    width: 235px !important ;
-}
-
-#labelDiaHorarioGrupo{
-    width: 235px !important ;
 }
 
 #selectDiaHorarioGrupo{

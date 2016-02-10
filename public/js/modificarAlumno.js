@@ -160,6 +160,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	            
 	        },
 	        submitHandler: function (form) {
+	        	console.log($('#resultado #gruposdelAlumno :checkbox').length);
 	        	if ($('#resultado #foto').val() == ''){
 	        		event.preventDefault();
 	            	var data = $("#formUpdate").serializeArray();
@@ -179,6 +180,8 @@ $('#resultado').on("click","#btnModificar",function () {
 				                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
 				                } else if (data.err=="existeTarjeta"){
 				                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
+				                } else if (data.err=="nogrupo"){
+				                showAlertValidate("#enlace2","Selecciona un grupo para el alumno");	
 				                }else if (data.dato=="ok"){
 				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
 				                }
@@ -307,8 +310,6 @@ $('#resultado').on("click","#btnModificar",function () {
 	$('#resultado').on("change","#gruposdelAlumno" || "#gruposTodos",function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
-			console.log(id);
-			console.log($(this).prop("checked"));
 		if ($(this).prop("checked")) {
 					$.ajax({
 					url: '/configGrupo/buscarAsignaturasDelGrupo',

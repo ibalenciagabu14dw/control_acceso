@@ -275,9 +275,15 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
             }//else
         })//alumno_grupos.agregarAlumnoGrupo
     }//for
-
+    console.log(req.body.asignatura);
     if(req.body.asignatura == undefined){
-        //console.log("el alumno no tiene ninguna convalidada");
+        convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
+            if (error) {
+                throw error;
+            }else{
+                res.send(row);
+            }//else
+        })//convalidadas.borrarAsignaturaConvalidada
     }else {
         convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
             if (error) {

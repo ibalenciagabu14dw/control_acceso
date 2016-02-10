@@ -29,20 +29,29 @@ h1{
      hyphens: auto;
 }
 form{
-	width: 50%;
-	margin: auto;
-	background-color: lightgrey;
-	border-radius: 25px;
-	padding: 20px;
-	padding-left: 50px;
-	padding-right: 50px;
-	margin-bottom: 50px;
+    width: 58%;
+    margin: auto;
+    background-color: lightgrey;
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
 }
 
 #agregarAsignaturasForm,#agregarGrupoForm,#agregarHorarioGrupoForm,
 #agregarHorarioProfesorForm,#agregarAulaForm,#agregarAlumnoForm,
 #agregarProfesorForm{
-    width: 35% !important;
+    margin-left:210px !important;
+    width: 60%;
+    margin: auto;
+    background-color: lightgrey;
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .form-control {
@@ -63,7 +72,7 @@ label {
 #labelHorarioGrupoAula,#labelHorarioGrupoHorarioProfesor,
 #labelProfesorHorarioProfesor,#labelHoraInicioHorarioProfesor,
 #labelHoraFinalHorarioProfesor,#labelDiaHorarioProfesor{
-    width: 235px !important ;
+    width: 223px !important ;
 }
 
 #foto {
@@ -75,7 +84,7 @@ label {
 #selectHorarioGrupoAsignatura,#selectHorarioGrupoAula,
 #selectHorarioGrupoHorarioProfesor,#selectProfesorHorarioProfesor,
 #selectDiaHorarioProfesor,#id_horario_grupo {
-    width: 282px !important ;
+    width: 326px !important ;
 }
 
 .radio{
@@ -84,7 +93,7 @@ label {
 
 span{
     position: relative;
-    left: 525px;
+    left: 550px;
 }
 #sp{
     position: relative;
@@ -123,4 +132,8 @@ span{
 
 #radio11{
     top: 40px !important ;
+}
+
+.input-group-addon{
+    width: 223px !important ;
 }

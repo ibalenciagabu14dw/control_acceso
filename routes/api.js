@@ -4,19 +4,20 @@ var time = require('../models/time');
 var alumno = require('../models/alumno');
 var alumno_grupos = require('../models/alumno_grupos');
 var asignatura = require('../models/asignatura');
+var aula = require('../models/aula');
+var convalidadas = require('../models/convalidadas');
+var falta = require('../models/falta');
+var grupo = require('../models/grupo');
+var horario_grupo = require('../models/horario_grupo');
+var horario_profesor = require('../models/horario_profesor');
 var profesor = require('../models/profesor');
-
-
-/*
-http://localhost:3000/API/agregarAlumno?dni=69696969-Y&nombre=API&apellidos=API&correo=API@zubirimanteo.com&num_tarjeta=API1
-http://localhost:3000/API/modificarAlumno?id_alumno=5&dni=74532989-R&nombre=prueba&apellidos=prueba&correo=alumno5@zubirimanteo.com&num_tarjeta=A5&tarjeta_activada=1&grupo[]=14&grupo[]=15
-*/
-
+var profesores_asignaturas = require('../models/profesores_asignaturas');
 
 /***********************************************************INSERT*********************************************************/
 
 /*
 * INSERTAR alumno sin foto OK
+http://localhost:3000/API/agregarAlumno?dni=69696969-Y&nombre=API&apellidos=API&correo=API@zubirimanteo.com&num_tarjeta=API1
 */
 router.post('/agregarAlumno', function(req, res, next) {
 	alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
@@ -126,6 +127,7 @@ router.post('/agregarAsignatura', function(req,res,next){
 
 /*
 * UPDATE alumno OK
+http://localhost:3000/API/modificarAlumno?id_alumno=5&dni=74532989-R&nombre=prueba&apellidos=prueba&correo=alumno5@zubirimanteo.com&num_tarjeta=A5&tarjeta_activada=1&grupo[]=14&grupo[]=15
 */
 router.post('/modificarAlumno', function(req, res, next) {
     alumno_grupos.borrarAlumnoGrupos(req.query.id_alumno, function(error,row) {
@@ -191,7 +193,7 @@ router.post('/modificarAlumno', function(req, res, next) {
             throw error;
         }else{
             if((row.length>0)&&(req.query.dni!=dni_antiguo)){
-                res.send({err:'ese DNI lo tiene un alumno'});
+                res.send('ese DNI lo tiene un alumno');
             }else {
                 alumno.buscarAlumnoPorCorreo(req.query.correo, function(error,row){
                     if (error) {
@@ -199,7 +201,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                         throw error;
                     }else {
                         if((row.length>0)&&(req.query.correo!=correo_antiguo)){
-                            res.send({err:'ese correo lo tiene un alumno'});
+                            res.send('ese correo lo tiene un alumno');
 
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row){
@@ -208,7 +210,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                     throw error; 
                                 }else {
                                     if((row.length>0)&&(req.query.num_tarjeta!=num_tarjeta_antiguo)){
-                                        res.send({err:'ese numero de tarjeta lo tiene un alumno'});
+                                        res.send('ese numero de tarjeta lo tiene un alumno');
                                     }else {
                                         profesor.buscarProfesorPorDni(req.query.dni, function(error,row) {
                                             if (error) {
@@ -216,7 +218,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                 throw error;
                                             }else{
                                                 if((row.length>0)&&(req.query.dni!=dni_antiguo)){
-                                                    res.send({err:'ese DNI lo tiene un profesor'});
+                                                    res.send('ese DNI lo tiene un profesor');
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.query.correo, function(error,row){
                                                         if (error) {
@@ -224,7 +226,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                             throw error;
                                                         }else {
                                                             if((row.length>0)&&(req.query.correo!=correo_antiguo)){
-                                                                res.send({err:'ese correo lo tiene un profesor'});
+                                                                res.send('ese correo lo tiene un profesor');
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta, function(error,row){
                                                                     if (error) {
@@ -232,13 +234,13 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                                         throw error; 
                                                                     }else {
                                                                         if((row.length>0)&&(req.query.num_tarjeta!=num_tarjeta_antiguo)){
-                                                                            res.send({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                            res.send('ese numero de tarjeta lo tiene un profesor');
                                                                         }else {
                                                                             alumno.modificarAlumnoSinFoto(req.query.id_alumno,req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta,req.query.tarjeta_activada, function(error,row){
                                                                                 if (error) {
                                                                                     throw error;
                                                                                 }else {
-                                                                                    res.send('modificado OKK!!!');
+                                                                                    res.send('alumno modificado correctamente');
                                                                                 }//else
                                                                             })//alumno.modificarAlumno
                                                                         }//else

@@ -15,9 +15,7 @@ falta.agregarFalta = function (fecha,id_alumno,id_horario_grupo,observaciones,ca
 		  	if (error) {
 				throw error;
 				console.log(error);
-			}else{
-				console.log('agregarFalta OK');
-			}//else
+			}
 		});//connection.query
 	}//if
 }//falta.agregarFalta

@@ -117,7 +117,7 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 */
 router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
     if(req.body.grupo == undefined){
-        res.send({err:'existeDNI'});
+        res.send({err:'nogrupo'});
     }else {
     alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
         if (error) {
@@ -260,7 +260,6 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
 });//router.post('/modificarAlumno
 
 router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,res,next){
-    console.log(req.body.grupo);
     if (req.body.grupo == undefined){
                 res.send({err:'nogrupo'});
         } else {

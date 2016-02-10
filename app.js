@@ -22,8 +22,8 @@ var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
 
-var api_alumno = require('./routes/api_alumno');
-var api_asignatura = require('./routes/api_asignatura');
+var api_alumno = require('./routes/API/api_alumno');
+var api_asignatura = require('./routes/API/api_asignatura');
 
 var app = express();
 

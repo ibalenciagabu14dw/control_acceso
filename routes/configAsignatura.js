@@ -9,7 +9,6 @@ var profesor = require('../models/profesor');
 * INSERT asignatura
 */
 router.post('/agregarAsignatura', function(req,res,next){
-	console.log(req.body);
 	var nombre = req.body.nombre;
   	var clave = req.body.clave;
   	var tipo = req.body.tipo;

@@ -465,6 +465,65 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorId', function(req,res,next) {
     })//alumno.buscarAlumnoPorIdSinFoto
 });//router.post('/buscarAulaEnLaQueTieneQueEstarPorId
 
+/*
+* BUSCAR presencia del alumno por num_tarjeta OK
+*/
+router.post('/buscarPresenciaAlumno', function(req,res,next) {
+    alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese numero de tarjeta no existe');
+            }else{
+                alumno.buscarPresenciaAlumno(req.query.num_tarjeta, function(error,row) {
+                    if (error) {
+                        throw error;
+                        res.send('el alumno no tiene prensencia');
+                    }else{
+                        res.send(row);
+                    }//else
+                })//alumno.buscarPresenciaAlumno            
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorTarjeta
+});//router.post('/buscarPresenciaAlumno
+
+/*
+* BUSCAR todos los id_alumno OK
+*/
+router.post('/buscarTodosLosIdAlumno', function(req,res,next) {
+    alumno.buscarTodosLosIdAlumno(function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('no hay alumnos');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno.buscarTodosLosIdAlumno
+});//router.post('/buscarTodosLosIdAlumno
+
+/*
+* BUSCAR todos los id_alumno, nombre y apellidos de los alumnos OK
+*/
+router.post('/mostrarTodosLosIdNombreApellidosAlumno', function(req,res,next) {
+    alumno.mostrarTodosLosIdNombreApellidosAlumno(function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('no hay alumnos');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno.mostrarTodosLosIdNombreApellidosAlumno
+});//router.post('/mostrarTodosLosIdNombreApellidosAlumno
+
 /****************************************************************************************************************************/
 
 module.exports = router;

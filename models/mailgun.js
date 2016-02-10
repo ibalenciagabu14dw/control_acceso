@@ -1,5 +1,5 @@
 var mailgun = {};
-var api_key = process.env.MAILGUN_API_KEY;//'key-40057b34916672687f946ca5cc20548e'
+var api_key = process.env.MAILGUN_API_KEY;
 var domain = 'mail.controlfid.zubirimanteoweb.com';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var falta = require('../models/falta');

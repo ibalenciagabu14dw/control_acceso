@@ -59,7 +59,6 @@ asignatura.borrarAsigntura = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAsigntura OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -82,7 +81,6 @@ asignatura.buscarTodasLasAsignaturas = function (callback) {
 			}else{
 				console.log(row);
 			    callback(null,row);
-				console.log('buscarTodasLasAsignaturas OK');
 			}//else
 		});//connection.query
 	}//if
@@ -107,7 +105,6 @@ asignatura.buscarTodosLosIdAsignatura = function (callback) {
 				}//compareNumbers
 				id_AsignaturasArray.sort(compareNumbers);
 				callback(null,id_AsignaturasArray);
-				console.log('buscarTodosLosIdAsignatura OK');
 			}//else
 		});//connection.query
 	}//if
@@ -126,7 +123,6 @@ asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturaPorId OK');
 			}//else
 		});//connection.query
 	}//if
@@ -144,7 +140,6 @@ asignatura.buscarAsignaturaPorNombre = function(nombre,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturaPorNombre OK');
 			}//else
 		});//connection.query
 	}//if
@@ -162,7 +157,6 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturaPorClave OK');
 			}//else
 		});//connection.query
 	}//if
@@ -182,11 +176,41 @@ asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturaPorIdYClave OK');
 			}//else
 		});//connection.query
 	}//if
 }//asignatura.buscarAsignaturaPorIdYClave
+
+
+/*
+*	BUSCAR asignaturas que tiene el alumno para convalidar
+*/
+asignatura.buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura from convalidadas where id_alumno = 1) AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//grupo.buscarAsignaturasQuePerteneceUnAlumno
+
+asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno = function(id_alumno,callback){
+	if(connection){
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura in (SELECT id_asignatura from convalidadas where id_alumno = 1) AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//grupo.buscarAsignaturasQuePerteneceUnAlumno
+
 
 /****************************************************************************************************************************/
 

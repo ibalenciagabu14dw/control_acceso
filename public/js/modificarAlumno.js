@@ -113,7 +113,11 @@ $(document).ready(function() {
     		buscarTodosLosGrupos(result.id_alumno);
     		formulario += "<div id='gruposTodos'>";
     		formulario += "</div>";
+    		buscarAsignaturasConvalidadaQuePerteneceUnAlumno(result.id_alumno);
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
+    		formulario += "</div>";
+			buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada(result.id_alumno);
+			formulario += "<div id='AsignaturaGrupoRestante'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
@@ -415,6 +419,84 @@ $('#resultado').on("click","#btnModificar",function () {
 					console.log("error");
 				})//fail
 	}//function buscarTodosLosGrupos
+
+			//funcion para buscar las asignaturas de un grupo
+	function buscarAsignaturasConvalidadaQuePerteneceUnAlumno (id) {
+		return	$.ajax({
+					url: '/configAsignatura/buscarAsignaturasConvalidadaQuePerteneceUnAlumno',
+					type: 'post',
+					dataType: 'json',
+					data:{ id_alumno:id },
+					success:function (data) {
+						var resp = "";
+						resp += "<div class='form-inline'>";
+    					resp += "<div class='input-group'>";
+						resp += "<label for='asignaturas' class='input-group-addon'>ASIGNATURAS</label>";
+						resp += "</div>";
+  						resp += "</div><br/>";
+						resp += "<table id='asignaturas'>";
+						for (var i = 0; i < data.length; i++) {
+							resp += "<tr>";
+							resp += "<td>";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='true' >";
+							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
+							resp += "</td>";
+							resp += "</tr>"
+						};
+						resp += "</table>";
+						$('#AsignaturaGrupo').html(resp);
+					}
+				})//ajax
+				.done(function() {
+					console.log("success");
+				})//done
+				.fail(function() {
+					console.log("error");
+				})//fail
+	}//function buscarTodosLosGrupos
+
+		function buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada (id) {
+		return	$.ajax({
+					url: '/configAsignatura/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada',
+					type: 'post',
+					dataType: 'json',
+					data:{ id_alumno:id },
+					success:function (data) {
+						var resp = "";
+						resp += "<table id='asignaturas'>";
+						for (var i = 0; i < data.length; i++) {
+							resp += "<tr>";
+							resp += "<td>";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'>";
+							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
+							resp += "</td>";
+							resp += "</tr>"
+						};
+						resp += "</table>";
+						$('#AsignaturaGrupoRestante').html(resp);
+					}
+				})//ajax
+				.done(function() {
+					console.log("success");
+				})//done
+				.fail(function() {
+					console.log("error");
+				})//fail
+	}//function buscarTodosLosGrupos
+
+		$('#resultado').on("change","#AsignaturaGrupo",function () {
+		$(":checkbox").click(function(){
+	        var id = $(this).attr('id'); 
+		if ($(this).attr("checked",true)) {
+			$(this).attr("checked",false);
+		} else {
+			$(this).attr("checked",true);
+			console.log("no estaba checked");	
+		}
+		});//$(":checkbox").click(function()
+	});
+
+
 
 });//ready
 function showAlertValidate(lugar,texto) {

@@ -275,7 +275,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
             }//else
         })//alumno_grupos.agregarAlumnoGrupo
     }//for
-
+    console.log(req.body.asignatura);
     if(req.body.asignatura == undefined){
         //console.log("el alumno no tiene ninguna convalidada");
     }else {

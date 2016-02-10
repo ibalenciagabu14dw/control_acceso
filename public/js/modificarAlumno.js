@@ -369,7 +369,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='true'>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"

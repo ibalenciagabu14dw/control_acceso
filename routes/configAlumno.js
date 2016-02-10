@@ -116,6 +116,9 @@ router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){
 * UPDATE alumno
 */
 router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next){
+    if(req.body.grupo == undefined){
+        res.send({err:'nogrupo'});
+    }else {
     alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
         if (error) {
             throw error;
@@ -134,7 +137,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
             }//else
         })//alumno_grupos.agregarAlumnoGrupo
     }//for
-
+    }
     if(req.body.asignatura == undefined){
         //console.log("el alumno no tiene ninguna convalidada");
     }else {
@@ -257,25 +260,27 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
 });//router.post('/modificarAlumno
 
 router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,res,next){
-    alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
-        if (error) {
-            throw error;
-        }else{
-            res.send(row);
-        }
-    })//alumno_grupos.borrarAlumnoGrupos
-  
-    var data= req.body.grupo;
-    for (var i = 0; i < data.length; i++) {
-        alumno_grupos.agregarAlumnoGrupo(data[i],req.body.id_alumno, function(error,row) {
+    if (req.body.grupo == undefined){
+                res.send({err:'nogrupo'});
+        } else {
+            alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
             if (error) {
                 throw error;
             }else{
                 res.send(row);
-            }//else
-        })//alumno_grupos.agregarAlumnoGrupo
-    }//for
-    console.log(req.body.asignatura);
+            }
+            })//alumno_grupos.borrarAlumnoGrupos
+                var data= req.body.grupo;
+                    for (var i = 0; i < data.length; i++) {
+                        alumno_grupos.agregarAlumnoGrupo(data[i],req.body.id_alumno, function(error,row) {
+                            if (error) {
+                                throw error;
+                            }else{
+                                res.send(row);
+                            }//else
+                        })//alumno_grupos.agregarAlumnoGrupo
+                    }//for
+       
     if(req.body.asignatura == undefined){
         convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
             if (error) {
@@ -401,6 +406,7 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
             }//else
         }//else
     })//alumno.buscarAlumnoPorDni
+ }//else
 });//router.post('/modificarAlumnoSinFoto
 
 /****************************************************************************************************************************/

@@ -3,10 +3,11 @@ var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sab
 var horario_grupo = require('../models/horario_grupo');
 var falta = require('../models/falta');
 var mailgun = require('../models/mailgun');
+var mongo = require('../models/mongo');
 var app = require('../app');
 var io = app.io;
 /*
-*	Later
+*	Later diario
 */
 var later = require('later');
 var later2 = require('later');
@@ -118,15 +119,63 @@ function finDeClase () {
 			throw error;
 		}else{
 			io.emit('refresh','Presencia 0 a todos');
+			console.log("io.emit realizado");
 		}
 	});//falta.updatePresencia
 }
 
 /*
-*	FIN Later
+*	FIN Later diario
 */
 
+/*
+*	Later Historico
+*/
+var later3 = require('later');
+later3.date.UTC();
 
+var schedule3 = {
+    schedules:
+    [
+        {t:[37980]},//23:59 UTC()+1 82740
+    ],
+    exceptions:
+    [
+    	//menos sábado y domingo
+        {dw:[1,7]},
+    ]
+};
+
+//Activar
+var timer3 = later.setInterval(ultimaHora, schedule3);
+
+function ultimaHora () {
+	falta.buscarDatosDeLasFaltasDelDia(function (error,data) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			for (var i = 0; i < data.length; i++) {
+				mongo.agregarFaltaHistorico(data[i],function (error) {
+					if (error) {
+						console.log(error);
+						throw error;
+					}
+				})//agregarFaltaHistorico
+			};//for
+			/*mongo.agregarFaltasHistorico(data, function (error) {
+				if (error) {
+					console.log(error);
+					throw error;
+				};//if error
+			})//agregarFaltasHistorico*/
+		}//else if error
+	})//mongo.buscarDatosDeLasFaltasDelDia
+}//ultimaHora
+
+/*
+*	FIN Later Historico
+*/
 
 /*
 *	devuelve la hora del sistema hh:mm:ss

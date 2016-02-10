@@ -56,7 +56,6 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarAlumno');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -75,8 +74,7 @@ alumno.modificarAlumnoSinFoto = function (id_alumno,dni,nombre,apellidos,correo,
 				throw error;
 				console.log(error);
 				callback(null,{dato:"ko"});
-			}else{
-				console.log('modificarAlumnoSinFoto');				
+			}else{				
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -131,7 +129,6 @@ alumno.borrarAlumno = function (id_alumno,callback) {
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('borrarAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -165,7 +162,7 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 }//alumno.buscarAlumnoPorId
 
 /*
-*	BUSCAR alumno por id_alumno sin devolver foto
+*	BUSCAR alumno por id_alumno sin foto
 */
 alumno.buscarAlumnoPorIdSinFoto = function(id_alumno,callback){
 	if(connection){
@@ -174,7 +171,7 @@ alumno.buscarAlumnoPorIdSinFoto = function(id_alumno,callback){
 			if (error) {
 				throw error;
 				console.log(error);
-			}else{				
+			}else{
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -186,7 +183,7 @@ alumno.buscarAlumnoPorIdSinFoto = function(id_alumno,callback){
 */
 alumno.buscarAlumnoPorDni = function(dni,callback) {
 	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE dni LIKE ' + connection.escape(dni+'%');
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,num_tarjeta,presencia FROM alumnos WHERE dni LIKE ' + connection.escape(dni+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -199,11 +196,28 @@ alumno.buscarAlumnoPorDni = function(dni,callback) {
 }//buscarAlumnoPorDni
 
 /*
+*	BUSCAR alumno por dni sin foto
+*/
+alumno.buscarAlumnoPorDniSinFoto = function(dni,callback) {
+	if (connection) {
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,presencia FROM alumnos WHERE dni LIKE ' + connection.escape(dni+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//buscarAlumnoPorDniSinFoto
+
+/*
 * BUSCAR alumno por num_tarjeta
 */
 alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 	if (connection){
-		var sql = 'SELECT id_alumno,tarjeta_activada,presencia FROM alumnos WHERE num_tarjeta = ' + connection.escape(num_tarjeta);
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,presencia FROM alumnos WHERE num_tarjeta = ' + connection.escape(num_tarjeta);
 		connection.query(sql, function (error, row){
 			if(error){
 				throw error;
@@ -220,7 +234,7 @@ alumno.buscarAlumnoPorTarjeta = function(num_tarjeta,callback){
 */
 alumno.buscarAlumnoPorNombre = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%');
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,num_tarjeta,presencia FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -233,17 +247,33 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 }//alumno.buscarAlumnoPorNombre
 
 /*
-*	BUSCA alumnos por nombre y apellidos
+*	BUSCAR alumno por nombre sin foto
 */
-alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
-	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE nombre = ' + connection.escape(nombre)+' and apellidos LIKE '+ connection.escape(apellidos+'%');
+alumno.buscarAlumnoPorNombreSinFoto = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,presencia FROM alumnos WHERE nombre LIKE ' + connection.escape('%'+nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorNombreYApellido OK');
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorNombreSinFoto
+
+/*
+*	BUSCA alumnos por nombre y apellidos
+*/
+alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
+	if (connection) {
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,num_tarjeta,presencia FROM alumnos WHERE nombre LIKE ' + connection.escape(nombre+'%')+' and apellidos LIKE '+ connection.escape(apellidos+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
 				callback(null,row);
 			}//else
 		})//connection.query
@@ -251,17 +281,33 @@ alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
 }//alumno.buscarAlumnoPorNombreYApellido
 
 /*
-*	BUSCAR alumno por correo
+*	BUSCA alumnos por nombre y apellidos sin foto
 */
-alumno.buscarAlumnoPorCorreo = function(correo,callback) {
+alumno.buscarAlumnoPorNombreYApellidoSinFoto = function(nombre,apellidos,callback) {
 	if (connection) {
-		var sql = 'SELECT num_tarjeta,id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE correo LIKE ' + connection.escape(correo+'%');
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,presencia FROM alumnos WHERE nombre LIKE ' + connection.escape('%'+nombre+'%')+' and apellidos LIKE '+ connection.escape('%'+apellidos+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorCorreo OK');
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//alumno.buscarAlumnoPorNombreYApellidoSinFoto
+
+/*
+*	BUSCAR alumno por correo
+*/
+alumno.buscarAlumnoPorCorreo = function(correo,callback) {
+	if (connection) {
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,num_tarjeta,presencia FROM alumnos WHERE correo LIKE ' + connection.escape(correo+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -269,10 +315,28 @@ alumno.buscarAlumnoPorCorreo = function(correo,callback) {
 }//alumno.buscarAlumnoPorCorreo
 
 /*
+*	BUSCAR alumno por correo sin foto
+*/
+alumno.buscarAlumnoPorCorreoSinFoto = function(correo,callback) {
+	if (connection) {
+		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,num_tarjeta,presencia FROM alumnos WHERE correo LIKE ' + connection.escape('%'+correo+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;				
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno.buscarAlumnoPorCorreoSinFoto
+
+/*
 *	BUSCAR el aula en la que tiene que estar por num_tarjeta
 */
 alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_time,callback) {
 	var day;
+	
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
 			throw error;
@@ -288,7 +352,6 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_tim
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAulaEnLaQueTieneQueEstarPorTarjeta OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -315,7 +378,6 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callb
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAulaEnLaQueTieneQueEstarPorId OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -333,7 +395,6 @@ alumno.buscarPresenciaAlumno = function (num_tarjeta,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarPresenciaAlumno OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -359,7 +420,6 @@ alumno.buscarTodosLosIdAlumno = function (callback) {
 				  	return a - b;
 				}//compareNumbers
 				id_alumnoArray.sort(compareNumbers);
-				console.log('buscarTodosLosIdAlumno OK');
 				callback(null,id_alumnoArray);
 			}//else
 		});//connection.query

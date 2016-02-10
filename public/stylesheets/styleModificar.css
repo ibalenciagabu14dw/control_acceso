@@ -76,13 +76,20 @@ label {
 /*Modificar Asignatura*/
 
 /*input select tipo de asignatura*/
-#selectTipoGrupo {
+#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_inicio,
+#hora_final,#selectHorarioGrupoGrupo,#selectHorarioGrupoAsignatura,
+#selectHorarioGrupoAula,#selectProfesorHorarioProfesorM,
+#selectAlumnoFaltasM,#observaciones, {
     width: 327.94px !important ;
 }
 /*label asignatura tipo FP o Bachiller*/
-#labelTipoGrupo {
+#labelTipoGrupo,#labelDiaHorarioGrupo,#labelHoraInicio,
+#labelHoraFinal,#labelHorarioGrupoGrupo,#labelHorarioGrupoAsignatura,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelHoraInicioHorarioProfesor,
+#labelHoraFinalHorarioProfesor,#labelProfesorHorarioProfesor,#labelAlumnoFaltas{
     width: 223px !important ;
 }
+
 /*label asignatura obligatoria si o no*/
 #labelObligatoria {
     width: 223px !important ;
@@ -94,92 +101,9 @@ label {
     max-height: 34px !important ;
 }
 
-
-
 .radio{
      width: 50px !important ;
 }
-
-#labelDiaHorarioGrupo{
-width: 223px !important ;
-}
-
-#selectDiaHorarioGrupo{
-    width: 327.594px !important ;
-}
-
-#labelHoraInicio{
-    width: 223px !important ;
-}
-
-#labelHoraFinal{
-    width: 223px !important ;
-}
-
-#hora_inicio{
-    width: 327.594px !important ;
-}
-
-#hora_final{
-    width: 327.594px !important ;
-}
-
-#labelHorarioGrupoGrupo{
-   width: 223px !important ; 
-}
-
-#selectHorarioGrupoGrupo{
-    width: 327.594px !important ;
-}
-
-#labelHorarioGrupoAsignatura{
-   width: 223px !important ; 
-}
-
-#selectHorarioGrupoAsignatura{
-    width: 327.594px !important ;
-}
-
-#labelHorarioGrupoAula{
-   width: 223px !important ; 
-}
-
-#selectHorarioGrupoAula{
-    width: 327.594px !important ;
-}
-
-#labelDiaHorarioProfesor{
-   width: 223px !important ; 
-}
-
-#labelHoraInicioHorarioProfesor{
-    width: 223px !important ;
-}
-
-#labelHoraFinalHorarioProfesor{
-    width: 223px !important ;
-}
-
-#labelProfesorHorarioProfesor{
-   width: 223px !important ; 
-}
-
-#selectProfesorHorarioProfesorM{
- width: 327.594px !important ;  
-}
-
-#labelAlumnoFaltas{
-   width: 223px !important ; 
-}
-
-#selectAlumnoFaltasM{
- width: 327.594px !important ;  
-}
-
-#observaciones{
- width: 327.594px !important ;  
-}
-
 
 #foto {
     width: 235px !important ;
@@ -191,41 +115,7 @@ width: 223px !important ;
     margin-left: 250px;
 }
 
-#gruposdelAlumno tr{
-    width: 100px;
-    float:left;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-#gruposTodos tr{
-    width: 100px;
-    float:left;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-#asignaturas tr{
-    width: 100px;
-    float:left;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-#asignaturasTable tr{
-    width: 100px;
-    float:left;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
+#gruposdelAlumno tr,#gruposTodos tr,#asignaturas tr,#asignaturasTable tr,
 #asignaturasTodas tr{
     width: 100px;
     float:left;
@@ -234,6 +124,7 @@ width: 223px !important ;
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
 span{
     position: relative;
     left: 550px;

@@ -160,12 +160,13 @@ falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
 */
 falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo,observaciones FROM faltas WHERE id_alumno IN (SELECT id_alumno FROM alumnos WHERE nombre LIKE "'+nombre+'%'+'")';
+		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log(row);
 				callback(null,row);
 				console.log('buscarFaltaPorNombreAlumno OK');
 			}//else

@@ -29,48 +29,37 @@ h1{
      hyphens: auto;
 }
 form{
-	width: 50%;
-	margin: auto;
-	background-color: lightgrey;
-	border-radius: 25px;
-	padding: 20px;
-	padding-left: 50px;
-	padding-right: 50px;
-	margin-bottom: 50px;
+    width: 58%;
+    margin: auto;
+    background-color: lightgrey;
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
+}
+.form-inline{
+    margin-left:30px !important;
 }
 
-#agregarAsignaturasForm{
-    width: 35% !important;
-}
-
-#agregarGrupoForm{
-    width: 35% !important;
-}
-
-#agregarHorarioGrupoForm{
-    width: 35% !important;
-}
-
-#agregarHorarioProfesorForm{
-    width: 35% !important;
-}
-
-#agregarAulaForm{
-    width: 35% !important;
-}
-
-#agregarAlumnoForm{
-    width: 35% !important;
-}
-
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAulaForm,#agregarAlumnoForm,
 #agregarProfesorForm{
-    width: 35% !important;
+    margin-left:230px !important;
+    width: 60%;
+    margin: auto;
+    background-color: lightgrey;
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
-
-
 
 .form-control {
-	padding-left: 50px;
+	padding-left: 50px !important;
+    padding-right: 50px !important;
     min-width: 0;
     width: 120% !important;
     color:black;
@@ -80,134 +69,43 @@ label {
     width: 50% !important ;
 }
 
-#labelFoto {
-    width: 235px !important ;
-}
-
-
-#labelObligatoria {
-    width: 235px !important ;
-
-}
-
-#labelTipo {
-    width: 235px !important ;
+#labelFoto,#labelObligatoria,#labelTipo,#labelTipoGrupo,
+#labelDiaHorarioGrupo,#labelHoraInicio,#labelHoraFinal,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoAsignatura,
+#labelHorarioGrupoAula,#labelHorarioGrupoHorarioProfesor,
+#labelProfesorHorarioProfesor,#labelHoraInicioHorarioProfesor,
+#labelHoraFinalHorarioProfesor,#labelDiaHorarioProfesor{
+    width: 223px !important ;
 }
 
 #foto {
     width: 200px !important ;
 }
 
-#selectTipo {
-    width: 282px !important ;
+#selectTipo,#selectTipoGrupo,#selectDiaHorarioGrupo,
+#hora_inicio,#hora_final,#selectHorarioGrupoGrupo,
+#selectHorarioGrupoAsignatura,#selectHorarioGrupoAula,
+#selectHorarioGrupoHorarioProfesor,#selectProfesorHorarioProfesor,
+#selectDiaHorarioProfesor,#id_horario_grupo {
+    width: 326px !important ;
 }
 
 .radio{
 	 width: 100px !important ;
 }
 
-#selectTipoGrupo {
-    width: 282px !important ;
-}
-
-#labelTipoGrupo {
-    width: 235px !important ;
-}
-
-#labelDiaHorarioGrupo{
-    width: 235px !important ;
-}
-
-#selectDiaHorarioGrupo{
-    width: 282px !important ;
-}
-
-#labelHoraInicio{
-    width: 235px !important ;
-}
-
-#labelHoraFinal{
-    width: 235px !important ;
-}
-
-#hora_inicio{
-    width: 282px !important ;
-}
-
-#hora_final{
-    width: 282px !important ;
-}
-
-#labelHorarioGrupoGrupo{
-   width: 235px !important ; 
-}
-
-#selectHorarioGrupoGrupo{
-    width: 282px !important ;
-}
-
-#labelHorarioGrupoAsignatura{
-   width: 235px !important ; 
-}
-
-#selectHorarioGrupoAsignatura{
-    width: 282px !important ;
-}
-
-#labelHorarioGrupoAula{
-   width: 235px !important ; 
-}
-
-#selectHorarioGrupoAula{
-    width: 282px !important ;
-}
-
-#labelHorarioGrupoHorarioProfesor{
-   width: 235px !important ; 
-}
-
-#selectHorarioGrupoHorarioProfesor{
-    width: 282px !important ;
-}
-
-#labelProfesorHorarioProfesor{
-   width: 235px !important ; 
-}
-
-#selectProfesorHorarioProfesor{
- width: 282px !important ;  
-}
-
-#labelHoraInicioHorarioProfesor{
-    width: 235px !important ;
-}
-
-#labelHoraFinalHorarioProfesor{
-    width: 235px !important ;
-}
-
-#labelDiaHorarioProfesor{
-   width: 235px !important ; 
-}
-
-#selectDiaHorarioProfesor{
-    width: 282px !important ;
-}
-
-#id_horario_grupo{
-    width: 282px !important ;
-}
 span{
     position: relative;
-    left: 525px;
+    left: 550px;
 }
 #sp{
     position: relative;
     left: 0px;
 }
 #mensaje{
-    width: 516px ;
+    width: 550px ;
     margin-top:20px;
+    margin-left:30px !important;
 }
 #labelradio {
     position: relative;
@@ -238,4 +136,16 @@ span{
 
 #radio11{
     top: 40px !important ;
+}
+
+.input-group-addon{
+    width: 223px !important ;
+}
+
+#send{
+     margin-left:30px !important;
+}
+
+#enlace{
+     margin-left:10px !important;
 }

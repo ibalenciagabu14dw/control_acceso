@@ -16,7 +16,7 @@ later2.date.UTC();
 var schedule = {
     schedules:
     [
-        {t:[23400]},//07:30 UTC()+1 23400
+        {t:[27900]},//07:30 UTC()+1 23400
     ],
     exceptions:
     [
@@ -49,9 +49,9 @@ function primeraHora() {
    			}else{
    				//configurar el segundo trigger con las horas finales de cada clase en segundos
 				for (var i = 0; i < data.length; i++) {
-					//var sec = 41220 + (i*60);
-					var hora = data[i].hora_final.split(':');
-					var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
+					var sec = 27960 + (i*60);
+					//var hora = data[i].hora_final.split(':');
+					//var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 					schedule2.schedules.push({t:[sec]});
 					console.log(sec);
 				};
@@ -90,7 +90,7 @@ function finDeClase () {
 									console.log(error);
 									throw error;
 								}else{
-									/*for (var i = 0; i < data4.length; i++) {
+									for (var i = 0; i < data4.length; i++) {
 										falta.agregarFalta(diaCompleto, data4[i].id_alumno, data4[i].id_horario_grupo, "Falta automatizada", function (error) {
 											if (error) {
 												console.log(error);
@@ -98,12 +98,12 @@ function finDeClase () {
 											}
 										})//agregarFalta
 									};//for
-									mailgun.enviarCorreoAlumnosFalta(data4,dia,function (error) {
+									mailgun.enviarCorreoAlumnosFalta(data4,diaCompleto,function (error) {
 										if (error) {
 											console.log(error);
 											throw error;
 										};
-									})//mailgun.enviarCorreoAlumnosFalta*/
+									})//mailgun.enviarCorreoAlumnosFalta
 								}//else error buscarFaltasDeAlumnosNoConvalidados
 							})//buscarFaltasDeAlumnosNoConvalidados
 						}//else dia completo

@@ -31,7 +31,6 @@ var timer2;
 
 //Funcion principal
 function primeraHora() {
-   	console.log("Funcion principal "+ new Date());
    	var schedule2 = {schedules:[]};
    	var dia;
    	//sacar dia de la semana para llamar a la funcion
@@ -54,7 +53,6 @@ function primeraHora() {
 					var hora = data[i].hora_final.split(':');
 					var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 					schedule2.schedules.push({t:[sec]});
-					console.log(sec);
 				};
 				//activar segundo trigger
 				timer2 = later2.setInterval(finDeClase,schedule2);
@@ -64,34 +62,38 @@ function primeraHora() {
 };//funcion primeraHora
 
 function finDeClase () {
-	console.log("Funcion secundaria "+ new Date());
 	var dia;
 	var hora;
 	var diaCompleto;
+	//sacar el dia de la semana
 	time.diaDeLaSemana(function (error,data) {
 		if (error) {
 			console.log(error);
 			throw error;
 		}else{
 			dia = data;
+			//sacar la hora actual
 			time.horaActual(function (error,data2) {
 				if (error) {
 					console.log(error);
 					throw error;
 				}else{
 					hora = data2;
+					//sacar el dia completo xxxx-xx-xx
 					time.diaCompleto(function (error,data3) {
 						if (error) {
 							console.log(error);
 							throw error;
 						}else{
 							diaCompleto = data3;
+							//buscar las faltas de los alumnos que no tengan convalidacion
 							falta.buscarFaltasDeAlumnosNoConvalidados(dia, hora, function (error,data4) {
 								if (error) {
 									console.log(error);
 									throw error;
 								}else{
-									/*for (var i = 0; i < data4.length; i++) {
+									for (var i = 0; i < data4.length; i++) {
+										//por cada falta agregar falta en la tabla local (sql)
 										falta.agregarFalta(diaCompleto, data4[i].id_alumno, data4[i].id_horario_grupo, "Falta automatizada", function (error) {
 											if (error) {
 												console.log(error);
@@ -99,12 +101,13 @@ function finDeClase () {
 											}
 										})//agregarFalta
 									};//for
+									//enviar correo con datos de la falta a cada alumno
 									mailgun.enviarCorreoAlumnosFalta(data4,diaCompleto,function (error) {
 										if (error) {
 											console.log(error);
 											throw error;
 										};
-									})//mailgun.enviarCorreoAlumnosFalta*/
+									})//mailgun.enviarCorreoAlumnosFalta
 								}//else error buscarFaltasDeAlumnosNoConvalidados
 							})//buscarFaltasDeAlumnosNoConvalidados
 						}//else dia completo
@@ -113,6 +116,7 @@ function finDeClase () {
 			})//hora actual
 		}//else error dia de la semana
 	})//dia de la semana
+	//poner la presencia a 0 a todos
 	falta.updatePresencia0ATodos(function (error) {
 		if (error) {
 			console.log(error);
@@ -122,7 +126,7 @@ function finDeClase () {
 			console.log("io.emit realizado");
 		}
 	});//falta.updatePresencia
-}
+}//finClase
 
 /*
 *	FIN Later diario
@@ -137,7 +141,7 @@ later3.date.UTC();
 var schedule3 = {
     schedules:
     [
-        {t:[37980]},//23:59 UTC()+1 82740
+        {t:[82740]},//23:59 UTC()+1 82740
     ],
     exceptions:
     [
@@ -150,12 +154,14 @@ var schedule3 = {
 var timer3 = later.setInterval(ultimaHora, schedule3);
 
 function ultimaHora () {
+	//buscar los datos de las faltas para insertarlas en sql
 	falta.buscarDatosDeLasFaltasDelDia(function (error,data) {
 		if (error) {
 			console.log(error);
 			throw error;
 		}else{
 			for (var i = 0; i < data.length; i++) {
+				//por cada falta insertar en mongolabs un registro
 				mongo.agregarFaltaHistorico(data[i],function (error) {
 					if (error) {
 						console.log(error);
@@ -163,12 +169,13 @@ function ultimaHora () {
 					}
 				})//agregarFaltaHistorico
 			};//for
-			/*mongo.agregarFaltasHistorico(data, function (error) {
+			//borrar la tabla faltas local (sql)
+			falta.borrarTablaFaltas(function (error) {
 				if (error) {
 					console.log(error);
 					throw error;
-				};//if error
-			})//agregarFaltasHistorico*/
+				};
+			})//borrarTablaFaltas
 		}//else if error
 	})//mongo.buscarDatosDeLasFaltasDelDia
 }//ultimaHora

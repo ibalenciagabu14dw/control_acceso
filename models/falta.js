@@ -78,6 +78,21 @@ falta.borrarFalta = function (id_faltas,callback) {
 	}//if
 }//falta.borrarFalta
 
+/*
+*	DELETE tabla faltas
+*/
+falta.borrarTablaFaltas = function (callback) {
+	if (connection) {
+		var sql = 'DELETE FROM faltas';
+		connection.query(sql,function (error) {
+			if (error) {
+				console.log(error);
+				throw error;
+			};//if error
+		})//connection.query
+	};
+}//borrarTablaFaltas
+
 /****************************************************************************************************************************/
 
 /***********************************************************SELECT***********************************************************/

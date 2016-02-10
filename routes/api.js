@@ -97,7 +97,7 @@ router.post('/agregarAlumno', function(req, res, next) {
 });//router.post('/agregarAlumno
 
 /*
-* INSERT asignatura OK
+* INSERT asignatura
 */
 router.post('/agregarAsignatura', function(req,res,next){
     asignatura.buscarAsignaturaPorClave(req.query.clave, function (error,row) {
@@ -127,15 +127,13 @@ router.post('/agregarAsignatura', function(req,res,next){
 
 /*
 * UPDATE alumno OK
-http://localhost:3000/API/modificarAlumno?id_alumno=5&dni=74532989-R&nombre=prueba&apellidos=prueba&correo=alumno5@zubirimanteo.com&num_tarjeta=A5&tarjeta_activada=1&grupo[]=14&grupo[]=15
+http://localhost:3000/API/modificarAlumno?id_alumno=51&dni=76490150-F&nombre=prueba2&apellidos=prueba2&correo=profesor7@zubirimanteo.es&num_tarjeta=P711&tarjeta_activada=1&grupo[]=7&grupo[]=8&grupo[]=9
 */
 router.post('/modificarAlumno', function(req, res, next) {
     alumno_grupos.borrarAlumnoGrupos(req.query.id_alumno, function(error,row) {
         if (error) {
             throw error;
-        }else{
-            res.send(row);
-        }
+        }//if
     })//alumno_grupos.borrarAlumnoGrupos
   
     var data= req.query.grupo;
@@ -143,9 +141,7 @@ router.post('/modificarAlumno', function(req, res, next) {
         alumno_grupos.agregarAlumnoGrupo(data[i],req.query.id_alumno, function(error,row) {
             if (error) {
                 throw error;
-            }else{
-                res.send(row);
-            }//else
+            }//if
         })//alumno_grupos.agregarAlumnoGrupo
     }//for
 
@@ -155,9 +151,7 @@ router.post('/modificarAlumno', function(req, res, next) {
         convalidadas.borrarAsignaturaConvalidada(req.query.id_alumno, function(error,row) {
             if (error) {
                 throw error;
-            }else{
-                res.send(row);
-            }//else
+            }//if
         })//convalidadas.borrarAsignaturaConvalidada
         
         var data2= req.query.asignatura;
@@ -165,9 +159,7 @@ router.post('/modificarAlumno', function(req, res, next) {
             convalidadas.agregarAsignaturaConvalidada(data2[i],req.query.id_alumno, function(error,row) {
                 if (error) {
                     throw error;
-                }else{
-                    res.send(row);
-                }//else
+                }//if
             })//convalidadas.agregarAsignaturaConvalidada
         }//for
     }//else
@@ -242,7 +234,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                                                 }else {
                                                                                     res.send('alumno modificado correctamente');
                                                                                 }//else
-                                                                            })//alumno.modificarAlumno
+                                                                            })//alumno.modificarAlumnoSinFoto
                                                                         }//else
                                                                     }//else
                                                                 })//profesor.buscarProfesorPorTarjeta
@@ -251,7 +243,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                     })//profesor.buscarProfesorPorCorreo
                                                 }//else
                                             }//else
-                                        })//profesor.buscarProfesorPorIdSinFoto
+                                        })//profesor.buscarProfesorPorDni
                                     }//else
                                 }//else
                             })//alumno.buscarAlumnoPorTarjeta
@@ -268,19 +260,28 @@ router.post('/modificarAlumno', function(req, res, next) {
 /***********************************************************DELETE***********************************************************/
 
 /*
-* DELETE alumno por id_alumno ****NO FUNCIONA****
+* DELETE alumno por id_alumno OK
 */
 router.post('/borrarAlumno', function(req, res, next) {
-    alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');
             throw error;
-            console.log('ERROR');
         }else{
-            res.send('error conectando con la base de datos');
-            console.log('Alumno borrado correctamente');
+            if(row.length==0){
+                res.send('Ese id no existe');
+            }else{
+                alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
+                    if (error) {
+                        throw error;
+                        res.send('error borrando alumno');
+                    }else{
+                        res.send('alumno borrado correctamente');
+                    }//else
+                })//alumno.borrarAlumno            
+            }//else
         }//else
-    })//alumno.borrarAlumno
+    })//alumno.buscarAlumnoPorId
 });//router.post('/borrarAlumno
 
 
@@ -289,31 +290,180 @@ router.post('/borrarAlumno', function(req, res, next) {
 /***********************************************************SELECT***********************************************************/
 
 /*
-* BUSCAR alumno por nombre ****NO FUNCIONA****ERROR DE FOTO
+* BUSCAR alumno por id_alumno OK
 */
-router.post('/buscarAlumnoPorNombre', function(req,res,next) {
-    alumno.buscarAlumnoPorNombre(req.query.nombre, function(error,row) {
+router.post('/buscarAlumnoPorId', function(req,res,next) {
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row) {
         if (error) {
             throw error;
         }else{
-            res.send(row);
+            if(row.length==0){
+                res.send('Ese id no existe');
+            }else{
+                res.send(row);
+            }//else
         }//else
-    })//alumno.buscarAlumnoPorNombre
+    })//alumno.buscarAlumnoPorIdSinFoto
+});//router.post('/buscarAlumnoPorIdSinFoto
+
+/*
+* BUSCAR alumno por dni OK
+*/
+router.post('/buscarAlumnoPorDni', function(req,res,next) {
+    alumno.buscarAlumnoPorDniSinFoto(req.query.dni, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese dni no existe');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorDniSinFoto
+});//router.post('/buscarAlumnoPorDniSinFoto
+
+/*
+* BUSCAR alumno por num_tarjeta OK
+*/
+router.post('/buscarAlumnoPorTarjeta', function(req,res,next) {
+    alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese numero de tarjeta no existe');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorTarjeta
+});//router.post('/buscarAlumnoPorTarjeta
+
+/*
+* BUSCAR alumno por nombre OK
+*/
+router.post('/buscarAlumnoPorNombre', function(req,res,next) {
+    alumno.buscarAlumnoPorNombreSinFoto(req.query.nombre, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese nombre no existe');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorNombreSinFoto
 });//router.post('/buscarAlumnoPorNombre
 
 /*
-* BUSCAR alumno por id_alumno ****NO FUNCIONA****ERROR DE FOTO
+* BUSCAR alumno por nombre y apellidos OK
 */
-router.post('/buscarAlumnoPorId', function(req,res,next) {
-    alumno.buscarAlumnoPorId(req.query.id_alumno, function(error,row) {
+router.post('/buscarAlumnoPorNombreYApellidos', function(req,res,next) {
+    alumno.buscarAlumnoPorNombreYApellidoSinFoto(req.query.nombre,req.query.apellidos, function(error,row) {
         if (error) {
             throw error;
         }else{
-            res.json(row);
+            if(row.length==0){
+                res.send('Ese nombre y apellidos no existen');
+            }else{
+                res.send(row);
+            }//else
         }//else
-    })//alumno.buscarAlumnoPorId
-});//router.post('/buscarAlumnoPorId
+    })//alumno.buscarAlumnoPorNombreYApellidoSinFoto
+});//router.post('/buscarAlumnoPorNombreYApellidos
 
+/*
+* BUSCAR alumno por correo OK
+*/
+router.post('/buscarAlumnoPorCorreo', function(req,res,next) {
+    alumno.buscarAlumnoPorCorreoSinFoto(req.query.correo, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese correo no existe');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorCorreoSinFoto
+});//router.post('/buscarAlumnoPorNombreYApellidos
+
+/*
+* BUSCAR el aula en la que tiene que estar un alumno por num_tarjeta OK
+*/
+router.post('/buscarAulaEnLaQueTieneQueEstarPorTarjeta', function(req,res,next) {
+    var curr_time;
+    time.horaActual(function(error,data){
+        if (error){
+            console.log(error);
+            throw error;
+        }else{
+            curr_time=data;         
+        }//else
+    });//time.horaActual
+    
+    alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese numero de tarjeta no existe');
+            }else{
+                alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta(req.query.num_tarjeta,curr_time,function(error,row) {
+                    if (error) {
+                        throw error;
+                    }else{
+                        if(row.length==0){
+                            res.send('el alumno no tiene que estar en ninguna aula');
+                        }else{
+                            res.send(row);
+                        }//else
+                    }//else
+                })//alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorTarjeta
+});//router.post('/buscarAulaEnLaQueTieneQueEstarPorTarjeta
+
+/*
+* BUSCAR el aula en la que tiene que estar un alumno por id_alumno OK
+*/
+router.post('/buscarAulaEnLaQueTieneQueEstarPorId', function(req,res,next) {
+    var curr_time;
+    time.horaActual(function(error,data){
+        if (error){
+            console.log(error);
+            throw error;
+        }else{
+            curr_time=data;         
+        }//else
+    });//time.horaActual
+    
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese id_alumno no existe');
+            }else{
+                alumno.buscarAulaEnLaQueTieneQueEstarPorId(req.query.id_alumno,curr_time,function(error,row) {
+                    if (error) {
+                        throw error;
+                    }else{
+                        if(row.length==0){
+                            res.send('el alumno no tiene que estar en ninguna aula');
+                        }else{
+                            res.send(row);
+                        }//else
+                    }//else
+                })//alumno.buscarAulaEnLaQueTieneQueEstarPorId
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorIdSinFoto
+});//router.post('/buscarAulaEnLaQueTieneQueEstarPorId
 
 /****************************************************************************************************************************/
 

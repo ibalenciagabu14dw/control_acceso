@@ -74,7 +74,7 @@ asignatura.borrarAsignatura = function (id_asignatura,callback) {
 */
 asignatura.buscarTodasLasAsignaturas = function (callback) {
 	if(connection){							
-		connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
+		connection.query('SELECT id_asignatura,nombre, clave, obligatoria, tipo FROM asignaturas', function(error,row){
 		  	if (error) {
 				throw error;
 				console.log(error);

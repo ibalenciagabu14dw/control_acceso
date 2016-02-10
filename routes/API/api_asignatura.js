@@ -117,5 +117,17 @@ router.post('/borrarAsignatura', function(req, res, next) {
 
 /***********************************************************SELECT***********************************************************/
 
+/*
+* BUSCAR todas las asignaturas OK
+*/
+router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
+    asignatura.buscarTodasLasAsignaturas(function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//asignatura.buscarTodasLasAsignaturas
+});//router.post('/buscarTodasLasAsignaturas
 
 module.exports = router;

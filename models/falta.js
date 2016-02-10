@@ -78,6 +78,21 @@ falta.borrarFalta = function (id_faltas,callback) {
 	}//if
 }//falta.borrarFalta
 
+/*
+*	DELETE tabla faltas
+*/
+falta.borrarTablaFaltas = function (callback) {
+	if (connection) {
+		var sql = 'DELETE FROM faltas';
+		connection.query(sql,function (error) {
+			if (error) {
+				console.log(error);
+				throw error;
+			};//if error
+		})//connection.query
+	};
+}//borrarTablaFaltas
+
 /****************************************************************************************************************************/
 
 /***********************************************************SELECT***********************************************************/
@@ -129,7 +144,7 @@ falta.buscarFaltasDeAlumnosNoConvalidados = function (dia_semana,hora,callback) 
 *	Buscar datos necesarios para el envio de correo por falta de asistencia
 */
 falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
-	var sql = 'SELECT a.nombre, a.correo, s.clave, l.numero, g.hora_inicio, g.hora_final FROM alumnos a LEFT JOIN alumno_grupos r ON (a.id_alumno = r.id_alumno) INNER JOIN horario_grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas l ON (l.id_aula = g.id_aula) INNER JOIN asignaturas s ON (s.id_asignatura = g.id_asignatura) WHERE a.id_alumno = '+id_alumno+' AND g.id_horario_grupo = '+id_horario_grupo;
+	var sql = 'SELECT a.nombre,a.apellidos, a.correo, s.clave, l.numero, g.hora_inicio, g.hora_final FROM alumnos a LEFT JOIN alumno_grupos r ON (a.id_alumno = r.id_alumno) INNER JOIN horario_grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas l ON (l.id_aula = g.id_aula) INNER JOIN asignaturas s ON (s.id_asignatura = g.id_asignatura) WHERE a.id_alumno = '+id_alumno+' AND g.id_horario_grupo = '+id_horario_grupo;
 	connection.query(sql,function (error,row) {
 		if (error) {
 			console.log(error);
@@ -145,12 +160,13 @@ falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
 */
 falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo,observaciones FROM faltas WHERE id_alumno IN (SELECT id_alumno FROM alumnos WHERE nombre LIKE "'+nombre+'%'+'")';
+		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log(row);
 				callback(null,row);
 				console.log('buscarFaltaPorNombreAlumno OK');
 			}//else
@@ -194,6 +210,23 @@ falta.buscarFaltaExistente = function(fecha,id_alumno,id_horario_grupo,callback)
 		});//connection.query
 	}//if
 }//falta.buscarFaltaExistente
+
+/*
+*	BUSCAR datos de las faltas del dia
+*/
+falta.buscarDatosDeLasFaltasDelDia = function (callback) {
+	if (connection) {
+		var sql = 'SELECT DISTINCT(f.id_faltas),f.fecha,a.nombre,a.apellidos,l.numero,g.hora_inicio,g.hora_final,s.clave FROM faltas f INNER JOIN alumnos a ON (a.id_alumno = f.id_alumno) INNER JOIN alumno_grupos r ON (a.id_alumno = r.id_alumno) INNER JOIN horario_grupos g ON (r.id_grupo = g.id_grupo) INNER JOIN aulas l ON (g.id_aula = l.id_aula) INNER JOIN asignaturas s ON (s.id_asignatura = g.id_asignatura) GROUP BY f.id_faltas';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}//else if error
+		})//connection.query
+	};//if connection
+}//buscarDatosDeLasFaltasDelDia
 
 /****************************************************************************************************************************/
 

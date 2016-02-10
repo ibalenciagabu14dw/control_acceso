@@ -105,6 +105,7 @@ span{
 #mensaje{
     width: 550px ;
     margin-top:20px;
+    margin-left:30px !important;
 }
 #labelradio {
     position: relative;

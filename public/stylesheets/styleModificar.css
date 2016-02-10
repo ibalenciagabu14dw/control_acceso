@@ -79,9 +79,10 @@ label {
 #selectTipoGrupo,#selectDiaHorarioGrupo,#hora_inicio,
 #hora_final,#selectHorarioGrupoGrupo,#selectHorarioGrupoAsignatura,
 #selectHorarioGrupoAula,#selectProfesorHorarioProfesorM,
-#selectAlumnoFaltasM,#observaciones, {
+#selectAlumnoFaltasM,#observaciones{
     width: 327.94px !important ;
 }
+
 /*label asignatura tipo FP o Bachiller*/
 #labelTipoGrupo,#labelDiaHorarioGrupo,#labelHoraInicio,
 #labelHoraFinal,#labelHorarioGrupoGrupo,#labelHorarioGrupoAsignatura,
@@ -170,4 +171,8 @@ span{
 
 .input-group-addon{
     width: 223px !important ;
+}
+
+#enlace{
+     margin-left:10px !important;
 }

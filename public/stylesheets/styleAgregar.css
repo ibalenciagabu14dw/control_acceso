@@ -38,11 +38,14 @@ form{
     padding-right: 50px;
     margin-bottom: 50px;
 }
+.form-inline{
+    margin-left:30px !important;
+}
 
 #agregarAsignaturasForm,#agregarGrupoForm,#agregarHorarioGrupoForm,
 #agregarHorarioProfesorForm,#agregarAulaForm,#agregarAlumnoForm,
 #agregarProfesorForm{
-    margin-left:210px !important;
+    margin-left:230px !important;
     width: 60%;
     margin: auto;
     background-color: lightgrey;
@@ -100,7 +103,7 @@ span{
     left: 0px;
 }
 #mensaje{
-    width: 516px ;
+    width: 550px ;
     margin-top:20px;
 }
 #labelradio {
@@ -136,4 +139,12 @@ span{
 
 .input-group-addon{
     width: 223px !important ;
+}
+
+#send{
+     margin-left:30px !important;
+}
+
+#enlace{
+     margin-left:10px !important;
 }

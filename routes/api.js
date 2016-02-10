@@ -8,6 +8,7 @@ var profesor = require('../models/profesor');
 
 
 /*
+http://localhost:3000/API/agregarAlumno?dni=69696969-Y&nombre=API&apellidos=API&correo=API@zubirimanteo.com&num_tarjeta=API1
 http://localhost:3000/API/modificarAlumno?id_alumno=5&dni=74532989-R&nombre=prueba&apellidos=prueba&correo=alumno5@zubirimanteo.com&num_tarjeta=A5&tarjeta_activada=1&grupo[]=14&grupo[]=15
 */
 
@@ -24,53 +25,54 @@ router.post('/agregarAlumno', function(req, res, next) {
             throw error;
         }else{
             if(row.length>0){
-                console.log({err:'ese DNI lo tiene un alumno'});
+                res.send('ese DNI lo tiene un alumno');
             }else {
                 alumno.buscarAlumnoPorCorreo(req.query.correo, function(error,row){
                     if (error) {
-                        console.log('error conectando con la base de datos');
+                        res.send('error conectando con la base de datos');
                         throw error;
                     }else {
                         if(row.length>0){
-                            console.log({err:'ese correo lo tiene un alumno'});
+                            res.send('ese correo lo tiene un alumno');
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row){
                                 if (error) {
-                                    console.log('error conectando con la base de datos');
+                                    res.send('error conectando con la base de datos');
                                     throw error; 
                                 }else {
                                     if(row.length>0){
-                                        console.log({err:'ese numero de tarjeta lo tiene un alumno'});
+                                        res.send('ese numero de tarjeta lo tiene un alumno');
                                     }else {
                                         profesor.buscarProfesorPorDni(req.query.dni, function(error,row) {
                                             if (error) {
-                                                console.log('error conectando con la base de datos');
+                                                res.send('error conectando con la base de datos');
                                                 throw error;
                                             }else{
                                                 if(row.length>0){
-                                                    console.log({err:'ese DNI lo tiene un profesor'});
+                                                    res.send('ese DNI lo tiene un profesor');
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.query.correo, function(error,row){
                                                         if (error) {
-                                                            console.log('error conectando con la base de datos');
+                                                            res.send('error conectando con la base de datos');
                                                             throw error;
                                                         }else {
                                                             if(row.length>0){
-                                                                console.log({err:'ese correo lo tiene un profesor'});
+                                                                res.send('ese correo lo tiene un profesor');
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta, function(error,row){
                                                                     if (error) {
-                                                                        console.log('error conectando con la base de datos');
+                                                                        res.send('error conectando con la base de datos');
                                                                         throw error; 
                                                                     }else {
                                                                         if(row.length>0){
-                                                                            console.log({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                            res.send('ese numero de tarjeta lo tiene un profesor');
                                                                         }else {
-                                                                            alumno.agregarAlumnoSinFoto(req.query.id_alumno,req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta,req.query.tarjeta_activada, function(error,row){
+                                                                            alumno.agregarAlumnoSinFoto(req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta, function(error,row){
                                                                                 if (error) {
                                                                                     throw error;
+                                                                                    res.send('Error al agregar alumno');
                                                                                 }else {
-                                                                                    console.log('alumno agregado correctamente!');
+                                                                                    res.send('Alumno agregado correctamente');
                                                                                 }//else
                                                                             })//alumno.agregarAlumnoSinFoto
                                                                         }//else
@@ -81,7 +83,7 @@ router.post('/agregarAlumno', function(req, res, next) {
                                                     })//profesor.buscarProfesorPorCorreo
                                                 }//else
                                             }//else
-                                        })//profesor.buscarProfesorPorIdSinFoto
+                                        })//profesor.buscarProfesorPorDni
                                     }//else
                                 }//else
                             })//alumno.buscarAlumnoPorTarjeta

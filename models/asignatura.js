@@ -52,7 +52,7 @@ asignatura.modificarAsigntura = function (id_asignatura,nombre,clave,obligatoria
 /*
 * DELETE asignatura
 */
-asignatura.borrarAsigntura = function (id_asignatura,callback) {
+asignatura.borrarAsignatura = function (id_asignatura,callback) {
 	if(connection){							
 		connection.query('DELETE FROM asignaturas WHERE id_asignatura= "'+id_asignatura+'"', function(error){
 		  	if (error) {
@@ -63,7 +63,7 @@ asignatura.borrarAsigntura = function (id_asignatura,callback) {
 			}//else
 		});//connection.query
 	}//if
-}//asignatura.borrarAsigntura
+}//asignatura.borrarAsignatura
 
 /****************************************************************************************************************************/
 

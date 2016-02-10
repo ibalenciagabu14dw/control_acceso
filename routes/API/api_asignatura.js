@@ -45,7 +45,7 @@ router.post('/agregarAsignatura', function(req, res, next) {
 /***********************************************************UPDATE***********************************************************/
 
 /*
-* UPDATE alumno OK
+* UPDATE asignatura OK
 
 */
 router.post('/modificarAsignatura', function(req, res, next) {
@@ -86,6 +86,36 @@ router.post('/modificarAsignatura', function(req, res, next) {
 /****************************************************************************************************************************/
 
 /***********************************************************DELETE***********************************************************/
+
+/*
+* DELETE asignatura por id_asignatura OK
+*/
+router.post('/borrarAsignatura', function(req, res, next) {
+    asignatura.buscarAsignaturaPorId(req.query.id_asignatura, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese id no existe');
+            }else{
+                asignatura.borrarAsignatura(req.query.id_asignatura, function(error,row) {
+                    if (error) {
+                        throw error;
+                        res.send('error borrando asignatura');
+                    }else{
+                        res.send('asignatura borrada correctamente');
+                    }//else
+                })//asignatura.borrarAsignatura
+            }//else
+        }//else
+    })//asignatura.buscarAsignaturaPorId
+});//router.post('/borrarAsignatura
+
+
+/****************************************************************************************************************************/
+
+/***********************************************************SELECT***********************************************************/
 
 
 module.exports = router;

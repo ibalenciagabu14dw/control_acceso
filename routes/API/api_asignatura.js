@@ -130,4 +130,18 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
     })//asignatura.buscarTodasLasAsignaturas
 });//router.post('/buscarTodasLasAsignaturas
 
+/*
+* BUSCAR todas las asignaturas OK
+*/
+router.post('/buscarTodosLosIdAsignatura', function(req,res,next) {
+    asignatura.buscarTodosLosIdAsignatura(function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//asignatura.buscarTodosLosIdAsignatura
+});//router.post('/buscarTodosLosIdAsignatura
+
+/****************************************************************************************************************************/
 module.exports = router;

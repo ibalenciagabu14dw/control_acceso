@@ -56,6 +56,7 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 				throw error;
 				console.log(error);
 			}else{
+				console.log('modificarAlumno');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -75,6 +76,7 @@ alumno.modificarAlumnoSinFoto = function (id_alumno,dni,nombre,apellidos,correo,
 				console.log(error);
 				callback(null,{dato:"ko"});
 			}else{
+				console.log('modificarAlumnoSinFoto');				
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -94,6 +96,7 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 						throw error;
 						console.log(error);
 					}else{
+						console.log('modificarPresenciaDelAlumno a 1 OK');
 						callback(null);
 					}//else
 				});//connection.query
@@ -104,6 +107,7 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 						throw error;
 						console.log(error);
 					}else{
+						console.log('modificarPresenciaDelAlumno a 0 OK');
 						callback(null);
 					}//else
 				});//connection.query
@@ -127,6 +131,7 @@ alumno.borrarAlumno = function (id_alumno,callback) {
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
+				console.log('borrarAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -238,6 +243,7 @@ alumno.buscarAlumnoPorNombreYApellido = function(nombre,apellidos,callback) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('buscarAlumnoPorNombreYApellido OK');
 				callback(null,row);
 			}//else
 		})//connection.query
@@ -255,6 +261,7 @@ alumno.buscarAlumnoPorCorreo = function(correo,callback) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('buscarAlumnoPorCorreo OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -281,6 +288,7 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_tim
 				throw error;
 				console.log(error);
 			}else{
+				console.log('buscarAulaEnLaQueTieneQueEstarPorTarjeta OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -307,6 +315,7 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorId = function (id_alumno,curr_time,callb
 				throw error;
 				console.log(error);
 			}else{
+				console.log('buscarAulaEnLaQueTieneQueEstarPorId OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -324,6 +333,7 @@ alumno.buscarPresenciaAlumno = function (num_tarjeta,callback) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('buscarPresenciaAlumno OK');
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -349,6 +359,7 @@ alumno.buscarTodosLosIdAlumno = function (callback) {
 				  	return a - b;
 				}//compareNumbers
 				id_alumnoArray.sort(compareNumbers);
+				console.log('buscarTodosLosIdAlumno OK');
 				callback(null,id_alumnoArray);
 			}//else
 		});//connection.query
@@ -363,6 +374,7 @@ alumno.buscarAlumnoPorIdDniCorreoNum_tarj = function(id_alumno,dni,correo,num_ta
 				throw error;
 				console.log(error);
 			}else{
+				console.log('buscarAlumnoPorIdDniCorreoNum_tarj OK');
 				callback(null,row);
 			}//else
 		})//connection.query
@@ -381,6 +393,7 @@ alumno.mostrarTodosLosIdNombreApellidosAlumno = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
+				console.log('mostrarTodosLosIdNombreApellidosAlumno OK');
 			}//else
 		});//connection.query
 	}//if

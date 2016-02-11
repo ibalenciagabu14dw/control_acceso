@@ -21,6 +21,7 @@ horario_grupo.agregarHorarioGrupo = function (dia_semana,hora_inicio,hora_final,
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
+				console.log('agregarHorarioGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -43,6 +44,7 @@ horario_grupo.modificarHorarioGrupo = function (id_horario_grupo,dia_semana,hora
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
+				console.log('modificarHorarioGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -62,6 +64,7 @@ horario_grupo.borrarHorarioGrupo = function (id_horario_grupo,callback) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('borrarHorarioGrupo OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -84,6 +87,7 @@ horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
+				console.log('buscarHorarioGrupoExistente OK');
 			}//else
 		});//connection.query
 	}//if
@@ -102,6 +106,7 @@ horario_grupo.buscarHorarioGrupoPorNombre = function(nombre,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
+				console.log('buscarHorarioGrupoPorNombre OK');
 			}//.else
 		});//.connection.query
 	}//.if(connection)
@@ -118,6 +123,7 @@ horario_grupo.buscarTodosLosHorarioGrupo = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
+				console.log('buscarTodosLosHorarioGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -142,6 +148,7 @@ horario_grupo.buscarTodosLosIdHorarioGrupo = function (callback) {
 				}//compareNumbers
 				id_horarioGrupoArray.sort(compareNumbers);
 				callback(null,id_horarioGrupoArray);
+				console.log('buscarTodosLosIdHorarioGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -159,6 +166,7 @@ horario_grupo.buscarHorarioGrupoExistente = function(dia_semana,hora_inicio,hora
 				console.log(error);
 			}else{
 				callback(null,row);
+				console.log('buscarHorarioGrupoExistente OK');
 			}//else
 		});//connection.query
 	}//if

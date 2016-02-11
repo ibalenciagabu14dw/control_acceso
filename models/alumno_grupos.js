@@ -17,6 +17,7 @@ alumno_grupos.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
 				throw error;
 				console.log(error);
 			}else{
+				console.log('agregarAlumnoGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -36,6 +37,7 @@ alumno_grupos.borrarAlumnoGrupos =  function(id_alumno,callback) {
 		  if (error) {
 				throw error;
 			}else{
+				console.log('borrarAlumnoGrupos OK');
 			}//else
 		});//connection.query
 	}//if

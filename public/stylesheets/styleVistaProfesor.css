@@ -55,7 +55,11 @@ td{
 #tablaHorario tr{
 	margin: 0px;
 }
-
+.ui-dialog .ui-dialog-titlebar {
+   background-image: url('../images/gradient10.jpg');
+   border: 1px solid black;
+   color:black;
+}
 .presencia0{
 	background-color: rgba(255, 0, 0, 0.6);
 }
@@ -97,4 +101,12 @@ td:hover{
 	float: left;
 }
 
-
+@media only screen and (max-width: 450px) and (orientation:portrait){
+	.presencia1, .presencia0{
+			width: 300px;
+	}
+}
+.ui-dialog {
+	position:fixed;
+	left: auto;
+}

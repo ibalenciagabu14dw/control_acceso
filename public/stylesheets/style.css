@@ -89,11 +89,6 @@ padding-bottom: 0;
   background-color: black;
   color:white;
 }
-.ui-dialog .ui-dialog-titlebar {
-   background-image: url('../images/gradient10.jpg');
-   border: 1px solid black;
-   color:black;
-}
 .ui-state-default .ui-icon {
     background-image: url("images/ui-icons_222222_256x240.png");
 }
@@ -124,14 +119,4 @@ padding-bottom: 0;
 }
 #volverABuscar{
   width: 100%;
-}
-
-@media only screen and (max-width: 450px) and (orientation:portrait){
-  .presencia1, .presencia0{
-      width: 300px;
-  }
-}
-.ui-dialog {
-  position:fixed;
-  left: auto;
 }

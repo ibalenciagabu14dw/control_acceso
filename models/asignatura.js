@@ -30,10 +30,10 @@ asignatura.agregarAsignatura = function (nombre,clave,obligatoria,tipo,callback)
 /*
 * UPDATE asignatura
 */
-asignatura.modificarAsigntura = function (id_asignatura,nombre,clave,obligatoria,tipo,callback) {
+asignatura.modificarAsigntura = function (id,nombre,clave,obligatoria,tipo,callback) {
 	if(connection){							
 		var asignatura = { nombre: nombre, clave: clave ,obligatoria: obligatoria, tipo:tipo };
-		var sqlmodificarAsigntura = 'UPDATE asignaturas SET ? WHERE id_asignatura ="'+id_asignatura+'"';
+		var sqlmodificarAsigntura = 'UPDATE asignaturas SET ? WHERE id_asignatura ="'+id+'"';
 		connection.query(sqlmodificarAsigntura,asignatura, function(error){
 		  	if (error) {
 				throw error;
@@ -52,9 +52,9 @@ asignatura.modificarAsigntura = function (id_asignatura,nombre,clave,obligatoria
 /*
 * DELETE asignatura
 */
-asignatura.borrarAsignatura = function (id_asignatura,callback) {
+asignatura.borrarAsigntura = function (id,callback) {
 	if(connection){							
-		connection.query('DELETE FROM asignaturas WHERE id_asignatura= "'+id_asignatura+'"', function(error){
+		connection.query('DELETE FROM asignaturas WHERE id_asignatura= "'+id+'"', function(error){
 		  	if (error) {
 				throw error;
 				console.log(error);
@@ -63,7 +63,7 @@ asignatura.borrarAsignatura = function (id_asignatura,callback) {
 			}//else
 		});//connection.query
 	}//if
-}//asignatura.borrarAsignatura
+}//asignatura.borrarAsigntura
 
 /****************************************************************************************************************************/
 
@@ -74,7 +74,7 @@ asignatura.borrarAsignatura = function (id_asignatura,callback) {
 */
 asignatura.buscarTodasLasAsignaturas = function (callback) {
 	if(connection){							
-		connection.query('SELECT id_asignatura,nombre, clave, obligatoria, tipo FROM asignaturas', function(error,row){
+		connection.query('SELECT id_asignatura,nombre FROM asignaturas', function(error,row){
 		  	if (error) {
 				throw error;
 				console.log(error);

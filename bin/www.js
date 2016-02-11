@@ -26,15 +26,7 @@ var server = http.createServer(app);
 /**
  * Attach socket.io
  */
-app.io.attach(server);
-//require time para pasar io como variable
-var time = require('../models/time');
-//llamar a función de automatización pasando como parámetro app.io con server attached
-time.activarAutomatizacion(app.io, function (error) {
-  if (error) {
-    throw error;
-  };
-})//activarAutomatizacion
+app.io.attach(server); 
 //**********************************************************
 
 /**

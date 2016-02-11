@@ -13,8 +13,8 @@ alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,ca
 		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
 		connection.query(sqlagregarAlumno,alumno, function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -31,8 +31,8 @@ alumno.agregarAlumnoSinFoto = function (dni,nombre,apellidos,correo,num_tarjeta,
 		var sqlagregarAlumno = 'INSERT INTO alumnos SET ?';
 		connection.query(sqlagregarAlumno,alumno, function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -53,8 +53,8 @@ alumno.modificarAlumno = function (id,dni,nombre,apellidos,correo,foto,num_tarje
 		var sqlmodificarAlumno = 'UPDATE alumnos SET ? WHERE id_alumno ="'+id+'"';
 		connection.query(sqlmodificarAlumno,campos, function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -94,7 +94,6 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 						throw error;
 						console.log(error);
 					}else{
-						console.log('modificarPresenciaDelAlumno a 1 OK');
 						callback(null);
 					}//else
 				});//connection.query
@@ -105,7 +104,6 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 						throw error;
 						console.log(error);
 					}else{
-						console.log('modificarPresenciaDelAlumno a 0 OK');
 						callback(null);
 					}//else
 				});//connection.query

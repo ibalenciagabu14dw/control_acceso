@@ -151,7 +151,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
 
     alumno.buscarAlumnoPorIdSinFoto(req.body.id_alumno, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             dni_antiguo = row[0].dni;
@@ -162,7 +162,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
 
     alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if((row.length>0)&&(req.body.dni!=dni_antiguo)){
@@ -171,7 +171,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
             }else {
                 alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
                     if (error) {
-                        res.send('error conectando con la base de datos');
+                        res.send(error);
                         throw error;
                     }else {
                         if((row.length>0)&&(req.body.correo!=correo_antiguo)){
@@ -180,7 +180,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
                                 if (error) {
-                                    res.send('error conectando con la base de datos');
+                                    res.send(error);
                                     throw error; 
                                 }else {
                                     if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
@@ -189,7 +189,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                     }else {
                                         profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
                                             if (error) {
-                                                res.send('error conectando con la base de datos');
+                                                res.send(error);
                                                 throw error;
                                             }else{
                                                 if((row.length>0)&&(req.body.dni!=dni_antiguo)){
@@ -198,7 +198,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
                                                         if (error) {
-                                                            res.send('error conectando con la base de datos');
+                                                            res.send(error);
                                                             throw error;
                                                         }else {
                                                             if((row.length>0)&&(req.body.correo!=correo_antiguo)){
@@ -207,7 +207,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
                                                                     if (error) {
-                                                                        res.send('error conectando con la base de datos');
+                                                                        res.send(error);
                                                                         throw error; 
                                                                     }else {
                                                                         if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){

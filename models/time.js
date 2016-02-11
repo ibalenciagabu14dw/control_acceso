@@ -4,8 +4,6 @@ var horario_grupo = require('../models/horario_grupo');
 var falta = require('../models/falta');
 var mailgun = require('../models/mailgun');
 var mongo = require('../models/mongo');
-var app = require('../app');
-var io = app.io;
 /*
 *	Later diario
 */
@@ -122,7 +120,7 @@ function finDeClase () {
 			console.log(error);
 			throw error;
 		}else{
-			io.emit('refresh','Presencia 0 a todos');
+			//io.emit('refresh','Presencia 0 a todos');
 			console.log("io.emit realizado");
 		}
 	});//falta.updatePresencia

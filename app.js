@@ -57,8 +57,11 @@ app.use('/API', api_alumno);
 app.use('/API', api_asignatura);
 
 //*******************socket.io***********************************
+
+
 //require (attach server on www.js)
 app.io = require('socket.io')();
+
 //importar alumno
 var alumno = require('./models/alumno');
 //configurar variable global io
@@ -82,7 +85,6 @@ app.io.on('connection', function(socket){
   });
 });
 //*******************socket.io*fin*******************************
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

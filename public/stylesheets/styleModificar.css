@@ -1,0 +1,178 @@
+/* letra para el titulo */
+
+@font-face {
+    font-family: tituloIndex;
+    src: url('../fonts/justice.ttf');
+}
+
+/* body */
+
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-position: center center;
+	background-color: #464646;
+
+}
+/* formulario de busqueda */
+form{
+	width: 58%;
+	margin: auto;
+	background-color: lightgrey;
+	border-radius: 25px;
+	padding: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-bottom: 50px;
+}
+
+/* formulario para modificar*/
+#formUpdate{
+    margin-left:210px !important;
+    width: 60%;
+    margin: auto;
+    background-color: lightgrey;
+    border-radius: 25px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* clase de los input de los formularios*/
+.form-control {
+    min-width: 0;
+    width: 120% !important;
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+
+/* titulo de la pagina*/
+
+h1{
+    text-align: center;
+    font-family: tituloIndex;
+    font-size: 52pt;
+    margin-top: 5%;
+    color:white;
+    word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+/* label*/
+label {
+    width: 45% !important ;
+}
+
+
+/*Modificar Asignatura*/
+
+/*input select tipo de asignatura*/
+#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_inicio,
+#hora_final,#selectHorarioGrupoGrupo,#selectHorarioGrupoAsignatura,
+#selectHorarioGrupoAula,#selectProfesorHorarioProfesorM,
+#selectAlumnoFaltasM,#observaciones{
+    width: 327.94px !important ;
+}
+
+/*label asignatura tipo FP o Bachiller*/
+#labelTipoGrupo,#labelDiaHorarioGrupo,#labelHoraInicio,
+#labelHoraFinal,#labelHorarioGrupoGrupo,#labelHorarioGrupoAsignatura,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelHoraInicioHorarioProfesor,
+#labelHoraFinalHorarioProfesor,#labelProfesorHorarioProfesor,#labelAlumnoFaltas{
+    width: 223px !important ;
+}
+
+/*label asignatura obligatoria si o no*/
+#labelObligatoria {
+    width: 223px !important ;
+    height: 100px !important ;
+
+}
+
+.input-group-addon{
+    max-height: 34px !important ;
+}
+
+.radio{
+     width: 50px !important ;
+}
+
+#foto {
+    width: 235px !important ;
+}
+
+#fotoProfesor{
+    width:100px; 
+    height:100px;
+    margin-left: 250px;
+}
+
+#gruposdelAlumno tr,#gruposTodos tr,#asignaturas tr,#asignaturasTable tr,
+#asignaturasTodas tr{
+    width: 100px;
+    float:left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+span{
+    position: relative;
+    left: 550px;
+}
+#sp{
+    position: relative;
+    left: 0px;
+}
+#mensaje{
+    width: 550px ;
+    margin-top:20px;
+}
+#labelradio {
+    position: relative;
+    left: 150px;
+    bottom: 30px;
+    padding-left: 5px;
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+#labelradio1 {
+    position: relative;
+    left: 50px;
+    top: 30px;
+    padding-left: 5px;
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+#radio{
+    position: relative;
+    left: 100px;
+    bottom: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 10px;
+}
+
+#radio11{
+    top: 40px !important ;
+}
+
+.input-group-addon{
+    width: 223px !important ;
+}
+
+#enlace{
+     margin-left:10px !important;
+}

@@ -1,0 +1,47 @@
+body{
+	padding: 0px;
+}
+table{
+	margin-left: 20px;
+}
+.filaAula {
+    border: 2px solid #000000;
+    line-height:30px;
+    background-color:#eeeeee;
+    height:100px;
+    width:100px;
+    float:left;
+    margin-bottom:25px;
+    margin-right: 25px;
+}
+#exit{
+	background-color: lightgrey;
+	color:black;
+	width: 100px;
+	height: 35px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+#exit:hover{
+	text-decoration: none;
+	background-color: grey;
+	font-weight: bold;
+}
+#footer p{
+	float: left;
+}
+
+@media only screen and (max-width: 1200px) and (orientation:landscape){
+  html{
+    height: 100%;
+  }
+  #footer{
+    bottom: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) and (orientation:portrait){
+  #footer{
+    bottom: auto;
+  }
+}

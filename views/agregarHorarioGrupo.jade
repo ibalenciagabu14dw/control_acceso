@@ -1,0 +1,66 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
+
+block content
+  h1 Agregar Horario Grupo
+  form#agregarHorarioGrupoForm.form-group()
+    .form-inline
+      .input-group
+        label#labelDiaHorarioGrupo.input-group-addon(for='dia') DIA
+        select#selectDiaHorarioGrupo.form-control.has-feedback(name='dia')
+          option(value='default') Elige el dia
+          option(value='Lunes') Lunes
+          option(value='Martes') Martes
+          option(value='Miercoles') Miercoles
+          option(value='Jueves') Jueves
+          option(value='Viernes') Viernes
+        span#selectDiaHorarioGrupo1.glyphicon.form-control-feedback
+        #mensaje.alert.alert-error.fade.in(style='display: none')
+          a.close(href='#', data-dismiss='alert') ×
+          strong Comprueba!
+          span#sp  Dia ya existente
+    br
+    .form-inline#alertHoraInicio
+      .input-group
+        label#labelHoraInicio.input-group-addon(for='hora_inicio') HORA INICIO
+        input#hora_inicio.form-control.has-feedback(type='time', name='hora_inicio')
+        span#hora_inicio1.glyphicon.form-control-feedback
+    br
+    .form-inline
+      .input-group
+        label#labelHoraFinal.input-group-addon(for='hora_final') HORA FINAL
+        input#hora_final.form-control.has-feedback(type='time', name='hora_final')
+        span#hora_final1.glyphicon.form-control-feedback
+    br
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoGrupo.input-group-addon(for='id_grupo') GRUPO
+        select#selectHorarioGrupoGrupo.form-control.has-feedback(name='id_grupo')
+          option(value='default') Elige el grupo
+          for gr in grupo
+            option(value='#{gr.id_grupo}') #{gr.nombre_grupo}
+        span#selectHorarioGrupoGrupo1.glyphicon.form-control-feedback
+    br
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoAsignatura.input-group-addon(for='id_asignatura') ASIGNATURA
+        select#selectHorarioGrupoAsignatura.form-control.has-feedback(name='id_asignatura')
+          option(value='default') Elige la asignatura
+          for as in asignatura
+            option(value='#{as.id_asignatura}') #{as.nombre}
+        span#selectHorarioGrupoAsignatura1.glyphicon.form-control-feedback
+    br
+    .form-inline
+      .input-group
+        label#labelHorarioGrupoAula.input-group-addon(for='id_aula') AULA
+        select#selectHorarioGrupoAula.form-control.has-feedback(name='id_aula')
+          option(value='default') Elige el aula
+          for au in aula
+            option(value='#{au.id_aula}') #{au.numero}
+        span#selectHorarioGrupoAula1.glyphicon.form-control-feedback
+    br
+    button#send.btn.btn-success(name='send') Agregar
+    a#enlace.btn.btn-primary(href='/config') Volver
+  script
+    include ../public/js/agregarHorarioGrupo.js

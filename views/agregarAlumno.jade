@@ -1,0 +1,52 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
+
+block content
+  h1 Agregar Alumno
+  form#agregarAlumnoForm.form-group()
+    .form-inline#alertDni
+      .input-group
+        label.input-group-addon(for='dni') DNI
+        input#dni.form-control.has-feedback(type='text', name='dni', placeholder='Escribe el dni')
+        span#dni1.glyphicon.form-control-feedback
+        #mensaje.alert.alert-error.fade.in(style='display: none')
+          a.close(href='#', data-dismiss='alert') ×
+          strong Comprueba!
+          span#sp  Dni ya existente
+    br
+    .form-inline#alertNombre
+      .input-group
+        label.input-group-addon(for='nombre') NOMBRE
+        input#nombre.form-control.input.has-feedback(type='text', name='nombre', placeholder='Escribe el nombre del alumno')
+        span#nombre1.glyphicon.form-control-feedback
+    br
+    .form-inline#alertApellidos
+      .input-group
+        label.input-group-addon(for='apellidos') APELLIDOS
+        input#apellidos.form-control.has-feedback(type='text', name='apellidos', placeholder='Escribe los apellidos del alumno')
+        span#apellidos1.glyphicon.form-control-feedback
+    br
+    .form-inline#alertCorreo
+      .input-group
+        label.input-group-addon(for='correo') CORREO
+        input#correo.form-control.has-feedback(type='text', name='correo', placeholder='Escribe el email del alumno')
+        span#correo1.glyphicon.form-control-feedback
+    br
+    .form-inline#alertFoto
+      .input-group
+        label#labelFoto.input-group-addon.foto(for='foto') FOTO
+        input#foto.form-control.has-feedback(type='file', name='foto', accept='image/*')
+        span#foto1.glyphicon.form-control-feedback
+    br
+    .form-inline#alertNum_tarj
+      .input-group
+        label.input-group-addon(for='num_tarjeta') NUMERO TARJETA
+        input#num_tarjeta.form-control.has-feedback(type='text', name='num_tarjeta' , placeholder='Escribe el numero de la tarjeta')
+        span#num_tarjeta1.glyphicon.form-control-feedback
+    br
+    button#send.btn.btn-success(name='send') Agregar
+    a#enlace.btn.btn-primary(href='/config') Volver
+  script
+    include ../public/js/agregarAlumno.js
+    

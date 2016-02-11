@@ -11,15 +11,13 @@ time.activarAutomatizacion = function (io,callback) {
 	/*
 	*	Later diario
 	*/
-	//var later = require('later');
-	//var later2 = require('later');
 	later.date.UTC();
 	later2.date.UTC();
 	// momento del dia desde las 00:00 en segundos menos 3600 (UTC())
 	var schedule = {
 	    schedules:
 	    [
-	        {t:[29160]},//07:30 UTC()+1 23400
+	        {t:[23400]},//07:30 UTC()+1 23400
 	    ],
 	    exceptions:
 	    [
@@ -51,9 +49,9 @@ time.activarAutomatizacion = function (io,callback) {
 	   			}else{
 	   				//configurar el segundo trigger con las horas finales de cada clase en segundos
 					for (var i = 0; i < data.length; i++) {
-						var sec = 29220 + (i*60);
-						//var hora = data[i].hora_final.split(':');
-						//var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
+						//var sec = 29220 + (i*60);
+						var hora = data[i].hora_final.split(':');
+						var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 						schedule2.schedules.push({t:[sec]});
 					};
 					//activar segundo trigger

@@ -17,7 +17,6 @@ convalidadas.agregarAsignaturaConvalidada =  function(id_asignatura,id_alumno,ca
 				throw error;
 				console.log(error);
 			}else{
-				console.log('agregarAsignaturaConvalidada OK');
 			}//else
 		});//connection.query
 	}//if
@@ -38,7 +37,6 @@ convalidadas.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAsignaturaConvalidada OK');
 			}//else
 		});//connection.query
 	}//if (connection)

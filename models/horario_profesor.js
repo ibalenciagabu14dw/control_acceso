@@ -28,7 +28,6 @@ horario_profesor.agregarHorarioProfesor = function (dia_semana, hora_inicio, hor
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('agregarHorarioProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -51,7 +50,6 @@ horario_profesor.modificarHorarioProfesor = function (id_horario_profesor,dia_se
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('modificarHorarioProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -71,7 +69,6 @@ horario_profesor.borrarHorarioProfesor = function (id_horario_profesor,callback)
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarHorarioProfesor OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -94,7 +91,6 @@ horario_profesor.buscarHorarioProfesorPorId = function (id_horario_profesor,call
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarHorarioProfesorPorId OK');
 			}//else
 		});//connection.query
 	}//if
@@ -112,7 +108,6 @@ horario_profesor.buscarHorarioProfesorPorNombre = function(nombre,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarHorarioProfesorPorNombre OK');
 			}//else
 		});//connection.query
 	}//if
@@ -137,7 +132,6 @@ horario_profesor.buscarTodosLosIdHorarioProfesor = function (callback) {
 				}//compareNumbers
 				id_HorarioProfesorArray.sort(compareNumbers);
 				callback(null,id_HorarioProfesorArray);
-				console.log('buscarTodosLosIdHorarioProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -155,7 +149,6 @@ horario_profesor.buscarHorarioProfesorExistente = function(dia_semana,hora_inici
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarHorarioProfesorExistente OK');
 			}//else
 		});//connection.query
 	}//if

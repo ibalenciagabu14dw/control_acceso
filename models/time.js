@@ -53,7 +53,6 @@ function primeraHora() {
 					var hora = data[i].hora_final.split(':');
 					var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 					schedule2.schedules.push({t:[sec]});
-					console.log(sec);
 				};
 				//activar segundo trigger
 				timer2 = later2.setInterval(finDeClase,schedule2);

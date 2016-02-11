@@ -17,7 +17,6 @@ profesor.agregarProfesor = function (dni,nombre,apellidos,correo,password,fotobl
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('agregarProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -36,7 +35,6 @@ profesor.agregarProfesorSinFoto = function (dni,nombre,apellidos,correo,password
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('agregarProfesorSinFoto OK');
 			}//else
 		});//connection.query
 	}//if
@@ -96,7 +94,6 @@ profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
 						console.log(error);
 					}else{
 						callback(null);
-						console.log('modificarPresenciaProfesor OK');
 					}//else
 				});//connection.query
 			}else{
@@ -107,7 +104,6 @@ profesor.modificarPresenciaProfesor = function (num_tarjeta,callback) {
 						console.log(error);
 					}else{
 						callback(null);
-						console.log('modificarPresenciaProfesor OK');
 					}//else
 				});//connection.query
 			}//else
@@ -129,7 +125,6 @@ profesor.borrarProfesor = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarProfesor OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -151,7 +146,6 @@ profesor.mostrarTodosLosIdNombreApellidosProfesor = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('mostrarTodosLosIdNombreApellidosProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -175,7 +169,6 @@ profesor.buscarProfesorPorId = function(id_profesor,callback){
 				}
 				var row2 = {id_profesor : row[0].id_profesor,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,password : row[0].password,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada,admin : row[0].admin};
 				callback(null,row2);
-				console.log('buscarProfesorPorId OK');
 			}//else
 		});//connection.query
 	}//if
@@ -193,7 +186,6 @@ profesor.buscarProfesorPorIdSinFoto = function(id_profesor,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarProfesorPorIdSinFoto OK');
 			}//else
 		});//connection.query
 	}//if
@@ -211,7 +203,6 @@ profesor.buscarProfesorPorDni = function(dni,callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarProfesorPorDni OK');
 			}
 		})//connection.query
 	}//if connection
@@ -229,7 +220,6 @@ profesor.buscarProfesorPorNombreYApellido = function(nombre,apellidos,callback) 
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarProfesorPorNombreYApellido OK');
 			}
 		})//connection.query
 	}//if connection
@@ -247,7 +237,6 @@ profesor.buscarProfesorPorCorreo = function(correo,callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarProfesorPorCorreo OK');
 			}//else
 		});//connection.query
 	};//if
@@ -268,7 +257,6 @@ profesor.buscarProfesorPorTarjeta = function(num_tarjeta,callback){
 			}
 			else{
 				callback(null,row);
-				console.log('buscarProfesorPorTarjeta OK');
 			}//else
 		});//connection.query
 	}//if
@@ -286,7 +274,6 @@ profesor.buscarProfesorPorNombre = function(nombre,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarProfesorPorNombre OK');
 			}//else
 		});//connection.query
 	}//if
@@ -312,7 +299,6 @@ profesor.buscarTodosLosIdProfesor = function (callback) {
 				} 
 				id_profesorArray.sort(compareNumbers);
 				callback(null,id_profesorArray);
-				console.log('buscarTodosLosIdProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -330,7 +316,6 @@ profesor.buscarPresenciaProfesor = function (num_tarjeta,callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarPresenciaProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -357,7 +342,6 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_t
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAulaEnLaQueTieneQueEstarPorTarjeta OK');
 			}//else
 		});//connection.query
 	}//if
@@ -384,7 +368,6 @@ profesor.buscarAulaEnLaQueTieneQueEstarPorId = function (id_profesor,curr_time,c
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAulaEnLaQueTieneQueEstarPorId OK');
 			}
 		});
 	}//.if (connection)
@@ -434,7 +417,6 @@ profesor.buscarLosAlumnosDeSuClaseActual = function (idProfesor,curr_time,callba
 					fotoArray.push(fotofinal);
 				}//for
 				callback(null,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray);
-				console.log('buscarLosAlumnosDeSuClaseActual OK');
 			}//else
 		});//connection.query
 	}//if
@@ -451,7 +433,6 @@ profesor.buscarProfesorPorIdDniCorreoNum_tarj = function(id_profesor,dni,correo,
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarProfesorPorIdDniCorreoNum_tarj OK');
 				callback(null,row);
 			}//else
 		})//connection.query
@@ -470,7 +451,6 @@ profesor.buscarHorarioProfesorPorCorreo = function(correo,callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarHorarioProfesorPorCorreo OK');
 			}//else
 		})//connection.query
 	}//if
@@ -517,7 +497,6 @@ profesor.buscarAsignaturasQueImparte = function(id_profesor,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturasQueImparte OK');
 			}//else
 		});//connection.query
 	}//if
@@ -536,7 +515,6 @@ profesor.buscarAsignaturasQueNoImpartePorId = function (id_profesor,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturasQueNoImpartePorId correctamente');
 			}//else
 		});//connection.query
 	}//if
@@ -554,7 +532,6 @@ profesor.buscarAsignaturasQueNoImpartePorTipo = function (id_profesor,tipo,callb
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAsignaturasQueNoImpartePorTipo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -577,7 +554,6 @@ profesor.insertarAsignaturasProfesor =  function(id_asignatura,id_profesor,callb
 				throw error;
 				console.log(error);
 			}else{
-				console.log('insertarAsignaturasProfesor OK');
 			}//else
 		});//connection.query
 	}//if
@@ -594,7 +570,6 @@ profesor.borrarAsignaturasProfesor =  function(id_profesor,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAsignaturasProfesor OK');
 			}//else
 		});//connection.query
 	}//if

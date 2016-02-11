@@ -131,17 +131,38 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
 });//router.post('/buscarTodasLasAsignaturas
 
 /*
-* BUSCAR todas las asignaturas OK
+* BUSCAR todos los id_asignatura
 */
 router.post('/buscarTodosLosIdAsignatura', function(req,res,next) {
     asignatura.buscarTodosLosIdAsignatura(function(error,row) {
         if (error) {
             throw error;
         }else{
-            res.send(row);
+            if(row.length==0){
+                res.send('No hay ninguna asignatura')
+            }else{
+                res.send(row);    
+            }//else
         }//else
     })//asignatura.buscarTodosLosIdAsignatura
 });//router.post('/buscarTodosLosIdAsignatura
+
+/*
+* BUSCAR asignaturas por id_asignatura
+*/
+router.post('/buscarAsignaturaPorId', function(req,res,next) {
+    asignatura.buscarAsignaturaPorId(req.query.id_asignatura, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese id_asignatura no existe');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//asignatura.buscarAsignaturaPorId
+});//router.post('/buscarAsignaturaPorId
 
 /****************************************************************************************************************************/
 module.exports = router;

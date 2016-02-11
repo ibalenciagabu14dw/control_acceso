@@ -9,7 +9,6 @@ var profesor = require('../models/profesor');
 * INSERT asignatura
 */
 router.post('/agregarAsignatura', function(req,res,next){
-	console.log(req.body);
 	var nombre = req.body.nombre;
   	var clave = req.body.clave;
   	var tipo = req.body.tipo;
@@ -98,13 +97,13 @@ router.post('/modificarAsignatura',  function(req,res,next){
 */
 router.post('/borrarAsignatura', function(req,res,next){
     var id_asignatura = req.body.id_asignatura;
-    asignatura.borrarAsigntura(id_asignatura, function(error,row) {
+    asignatura.borrarAsignatura(id_asignatura, function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//asignatura.borrarAsigntura
+    })//asignatura.borrarAsignatura
 });//router.post('/borrarAsignatura
 
 /****************************************************************************************************************************/

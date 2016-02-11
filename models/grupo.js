@@ -18,7 +18,6 @@ grupo.agregarGrupo = function (nombre_grupo,tipo,callback) {
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('agregarGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -41,7 +40,6 @@ grupo.modificarGrupo = function (id_grupo,nombre_grupo,tipo,callback) {
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('modificarGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -61,7 +59,6 @@ grupo.borrarGrupo = function (id_grupo,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarGrupo OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -83,7 +80,6 @@ grupo.buscarGrupoPorId = function(id_grupo,callback){
 				throw error;
 			}else{
 				callback(null,row);
-				console.log('buscarGrupoPorId OK');
 			}//else
 		});//connection.query
 	}//if
@@ -100,7 +96,6 @@ grupo.buscarGrupoPorNombre = function(nombre_grupo,callback){
 				throw error;
 			}else{
 				callback(null,row);
-				console.log('buscarGrupoPorNombre OK');
 			}//else
 		});//connection.query
 	}//if
@@ -117,7 +112,6 @@ grupo.buscarGrupoPorIdYNombre = function(id_grupo,nombre_grupo,callback){
 				throw error;
 			}else{
 				callback(null,row);
-				console.log('buscarGrupoPorIdYNombre OK');
 			}//else
 		});//connection.query
 	}//if
@@ -142,7 +136,6 @@ grupo.buscarTodosLosIdGrupo = function (callback) {
 				}//compareNumbers
 				id_GrupoArray.sort(compareNumbers);
 				callback(null,id_GrupoArray);
-				console.log('buscarTodosLosIdGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -158,9 +151,7 @@ grupo.buscarTodosLosIdYNombreGrupo = function (callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
 			    callback(null,row);
-				console.log('buscarTodosLosIdYNombreGrupo OK');
 			}//else
 		});//connection.query
 	}//if
@@ -177,7 +168,6 @@ grupo.buscarGruposQueNoPerteneceUnAlumno = function (id_alumno,callback){
 				throw error;
 			}else{
 				callback(null,row);
-				console.log('buscarGruposQueNoPerteneceUnAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -194,7 +184,6 @@ grupo.buscarGruposQuePerteneceUnAlumno = function(id_alumno,callback){
 				throw error;
 			}else{
 				callback(null,row);
-				console.log('buscarGruposQuePerteneceUnAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -212,7 +201,6 @@ grupo.buscarAsignaturasDeUnGrupo = function (id_grupo,callback) {
 					console.log(error);
 				}else{
 					callback(null,row);
-					console.log('buscarAsignaturasDeUnGrupo OK');
 				}//else
 			});//connection.query
 		}//if

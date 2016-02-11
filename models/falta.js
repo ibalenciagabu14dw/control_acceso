@@ -1,5 +1,4 @@
 var connection = require('../models/connection');
-//var app = require('../app');
 var falta = {};
 
 /***********************************************************INSERT*********************************************************/
@@ -51,7 +50,7 @@ falta.updatePresencia0ATodos = function(callback){
 				console.log(error);
 				throw error;
 			}else{
-				console.log("Presencia a 0 a todos");
+				callback(null);
 			}//else
 		});//connection.query
 	};//if connection
@@ -71,7 +70,6 @@ falta.borrarFalta = function (id_faltas,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarFalta OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -117,7 +115,6 @@ falta.buscarTodosLosIdFalta = function (callback) {
 				}//compareNumbers
 				id_FaltaArray.sort(compareNumbers);
 				callback(null,id_FaltaArray);
-				console.log('buscarTodosLosIdFalta OK');
 			}//else
 		});//connection.query
 	}//if
@@ -168,7 +165,6 @@ falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 			}else{
 				console.log(row);
 				callback(null,row);
-				console.log('buscarFaltaPorNombreAlumno OK');
 			}//else
 		});//connection.query
 	}//if
@@ -187,7 +183,6 @@ falta.buscarFaltaPorId = function (id_faltas,callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarFaltaPorId OK');
 			}//else
 		});//connection.query
 	}//if
@@ -205,7 +200,6 @@ falta.buscarFaltaExistente = function(fecha,id_alumno,id_horario_grupo,callback)
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarFaltaExistente OK');
 			}//else
 		});//connection.query
 	}//if

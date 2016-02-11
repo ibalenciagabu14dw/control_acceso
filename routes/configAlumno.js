@@ -19,10 +19,6 @@ var apellidos = req.body.apellidos;
 var correo = req.body.correo;
 var num_tarjeta = req.body.num_tarjeta;
 var foto = req.file.buffer;
-var dni_antiguo;
-var correo_antiguo;
-var num_tarjeta_antiguo;
-
     alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');

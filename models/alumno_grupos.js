@@ -30,7 +30,7 @@ alumno_grupos.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
 /*
 * UPDATE alumno_grupo
 */
-falta.modificarAlumnoGrupo = function (id_alumno_grupos,id_alumno,id_grupo,callback) {
+alumno_grupos.modificarAlumnoGrupo = function (id_alumno_grupos,id_alumno,id_grupo,callback) {
 	if(connection){							
 		var campos = { fecha: fecha, id_alumno: id_alumno, id_horario_grupo: id_horario_grupo, observaciones: observaciones };
 		var sql = 'UPDATE alumno_grupos SET ? WHERE id_alumno_grupos ="'+id_alumno_grupos+'"';
@@ -43,7 +43,7 @@ falta.modificarAlumnoGrupo = function (id_alumno_grupos,id_alumno,id_grupo,callb
 			}//else
 		});//connection.query
 	}//if
-}//falta.modificarAlumnoGrupo
+}//alumno_grupos.modificarAlumnoGrupo
 
 /****************************************************************************************************************************/
 

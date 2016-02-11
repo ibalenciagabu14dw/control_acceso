@@ -454,6 +454,35 @@ router.post('/buscarTodosLosIdNombreApellidosAlumno', function(req,res,next){
   })//buscarTodosLosIdNombreApellidosAlumno
 });//router.post('/mostrarTodosLosProfesoresIdNombreApellidos'
 
+/*
+* BUSCAR asignaturas que tiene convalidadas el alumno
+*/
+router.post('/buscarAsignaturasConvalidadasDelAlumno', function(req,res,next) {
+    var id_alumno = req.body.id_alumno;
+    alumno.buscarAsignaturasConvalidadasDelAlumno(id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            console.log(row);
+            res.send(row);
+        }//else
+    })//alumno.buscarAsignaturasConvalidadasDelAlumno
+});//router.post('/buscarAsignaturasConvalidadasDelAlumno
+
+/*
+* BUSCAR asignaturas que no tiene convalidadas el alumno
+*/
+router.post('/buscarAsignaturasNoConvalidadasDelAlumno', function(req,res,next) {
+    var id_alumno = req.body.id_alumno;
+    alumno.buscarAsignaturasNoConvalidadasDelAlumno(id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            console.log(row);
+            res.send(row);
+        }//else
+    })//alumno.buscarAsignaturasNoConvalidadasDelAlumno
+});//router.post('/buscarAsignaturasNoConvalidadasDelAlumno
 
 /****************************************************************************************************************************/
 

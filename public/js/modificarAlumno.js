@@ -424,7 +424,7 @@ $('#resultado').on("click","#btnModificar",function () {
 			//funcion para buscar las asignaturas de un grupo
 	function buscarAsignaturasConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasConvalidadasDelAlumno',
+					url: '/configAlumno/buscarAsignaturasConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -458,7 +458,7 @@ $('#resultado').on("click","#btnModificar",function () {
 
 		function buscarAsignaturasNoConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasNoConvalidadasDelAlumno',
+					url: '/configAlumno/buscarAsignaturasNoConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },

@@ -17,11 +17,33 @@ alumno_grupos.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('agregarAlumnoGrupo OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
 }//alumno_grupos.agregarAlumnoGrupo
+
+/****************************************************************************************************************************/
+
+/***********************************************************UPDATE***********************************************************/
+
+/*
+* UPDATE alumno_grupo
+*/
+falta.modificarAlumnoGrupo = function (id_alumno_grupos,id_alumno,id_grupo,callback) {
+	if(connection){							
+		var campos = { fecha: fecha, id_alumno: id_alumno, id_horario_grupo: id_horario_grupo, observaciones: observaciones };
+		var sql = 'UPDATE alumno_grupos SET ? WHERE id_alumno_grupos ="'+id_alumno_grupos+'"';
+		connection.query(sql,campos, function(error){
+		  	if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//falta.modificarAlumnoGrupo
 
 /****************************************************************************************************************************/
 
@@ -37,7 +59,7 @@ alumno_grupos.borrarAlumnoGrupos =  function(id_alumno,callback) {
 		  if (error) {
 				throw error;
 			}else{
-				console.log('borrarAlumnoGrupos OK');
+				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

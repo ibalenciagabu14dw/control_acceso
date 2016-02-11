@@ -479,8 +479,8 @@ router.post('/buscarTodosLosIdAlumno', function(req,res,next) {
 /*
 * BUSCAR todos los id_alumno, nombre y apellidos de los alumnos OK
 */
-router.post('/mostrarTodosLosIdNombreApellidosAlumno', function(req,res,next) {
-    alumno.mostrarTodosLosIdNombreApellidosAlumno(function(error,row) {
+router.post('/buscarTodosLosIdNombreApellidosAlumno', function(req,res,next) {
+    alumno.buscarTodosLosIdNombreApellidosAlumno(function(error,row) {
         if (error) {
             throw error;
         }else{
@@ -490,8 +490,8 @@ router.post('/mostrarTodosLosIdNombreApellidosAlumno', function(req,res,next) {
                 res.send(row);
             }//else
         }//else
-    })//alumno.mostrarTodosLosIdNombreApellidosAlumno
-});//router.post('/mostrarTodosLosIdNombreApellidosAlumno
+    })//alumno.buscarTodosLosIdNombreApellidosAlumno
+});//router.post('/buscarTodosLosIdNombreApellidosAlumno
 
 /****************************************************************************************************************************/
 

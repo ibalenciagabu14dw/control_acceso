@@ -426,26 +426,10 @@ alumno.buscarTodosLosIdAlumno = function (callback) {
 	}//if
 }//alumno.buscarTodosLosIdAlumno
 
-alumno.buscarAlumnoPorIdDniCorreoNum_tarj = function(id_alumno,dni,correo,num_tarjeta,callback) {
-	if (connection) {
-		var sql = 'SELECT id_alumno,dni,nombre,apellidos,correo,foto,presencia FROM alumnos WHERE id_alumno = ' + connection.escape(id_alumno)+' and dni = '+ connection.escape(dni)+' and correo = '+ connection.escape(correo)+' and num_tarjeta = '+ connection.escape(num_tarjeta);
-		connection.query(sql,function (error,row) {
-			if (error) {
-				throw error;
-				console.log(error);
-			}else{
-				console.log('buscarAlumnoPorIdDniCorreoNum_tarj OK');
-				callback(null,row);
-			}//else
-		})//connection.query
-	};//if
-}//alumno.buscarAlumnoPorIdDniCorreoNum_tarj
-
-
 /*
 * BUSCAR todos los nombre y apellido de todos los alumnos
 */
-alumno.mostrarTodosLosIdNombreApellidosAlumno = function (callback) {
+alumno.buscarTodosLosIdNombreApellidosAlumno = function (callback) {
 	if(connection){						
 		connection.query('SELECT id_alumno,nombre,apellidos FROM alumnos', function(error,row){
 		  	if (error) {
@@ -453,11 +437,11 @@ alumno.mostrarTodosLosIdNombreApellidosAlumno = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('mostrarTodosLosIdNombreApellidosAlumno OK');
+				console.log('buscarTodosLosIdNombreApellidosAlumno OK');
 			}//else
 		});//connection.query
 	}//if
-}//alumno.mostrarTodosLosIdNombreApellidosAlumno
+}//alumno.buscarTodosLosIdNombreApellidosAlumno
 
 
 

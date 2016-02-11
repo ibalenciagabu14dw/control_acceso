@@ -9,7 +9,6 @@ var profesor = require('../models/profesor');
 * INSERT asignatura
 */
 router.post('/agregarAsignatura', function(req,res,next){
-	console.log(req.body);
 	var nombre = req.body.nombre;
   	var clave = req.body.clave;
   	var tipo = req.body.tipo;
@@ -98,13 +97,13 @@ router.post('/modificarAsignatura',  function(req,res,next){
 */
 router.post('/borrarAsignatura', function(req,res,next){
     var id_asignatura = req.body.id_asignatura;
-    asignatura.borrarAsigntura(id_asignatura, function(error,row) {
+    asignatura.borrarAsignatura(id_asignatura, function(error,row) {
         if (error) {
             throw error;
         }else{
             res.send(row);
         }//else
-    })//asignatura.borrarAsigntura
+    })//asignatura.borrarAsignatura
 });//router.post('/borrarAsignatura
 
 /****************************************************************************************************************************/
@@ -124,6 +123,38 @@ router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
         }//else
     })//profesor.buscarAsignaturasQueImparte
 });//router.post('/buscarAsignaturasQueImparte
+
+/*
+* BUSCAR asignaturas tiene el alumno para convalidar
+*/
+router.post('/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada', function(req,res,next) {
+    var id_alumno = req.body.id_alumno;
+    console.log(id_alumno);
+    asignatura.buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada(id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            console.log(row);
+            res.send(row);
+        }//else
+    })//profesor.buscarAsignaturasQuePerteneceUnAlumno
+});//router.post('/buscarAsignaturasQuePerteneceUnAlumno
+
+/*
+* BUSCAR asignaturas tiene el alumno convalidadas
+*/
+router.post('/buscarAsignaturasConvalidadaQuePerteneceUnAlumno', function(req,res,next) {
+    var id_alumno = req.body.id_alumno;
+    console.log(id_alumno);
+    asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno(id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            console.log(row);
+            res.send(row);
+        }//else
+    })//profesor.buscarAsignaturasConvalidadaQuePerteneceUnAlumno
+});//router.post('/buscarAsignaturasConvalidadaQuePerteneceUnAlumno
 
 /*
 * BUSCAR asignaturas que NO imparte un profesor por id_profesor

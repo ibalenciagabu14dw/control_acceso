@@ -125,13 +125,16 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
         if (error) {
             throw error;
         }else{
+            if(row.length==0){
+                res.send('no hay asignaturas')
+            }
             res.send(row);
         }//else
     })//asignatura.buscarTodasLasAsignaturas
 });//router.post('/buscarTodasLasAsignaturas
 
 /*
-* BUSCAR todos los id_asignatura
+* BUSCAR todos los id_asignatura OK
 */
 router.post('/buscarTodosLosIdAsignatura', function(req,res,next) {
     asignatura.buscarTodosLosIdAsignatura(function(error,row) {
@@ -139,7 +142,7 @@ router.post('/buscarTodosLosIdAsignatura', function(req,res,next) {
             throw error;
         }else{
             if(row.length==0){
-                res.send('No hay ninguna asignatura')
+                res.send('No hay asignaturas')
             }else{
                 res.send(row);    
             }//else
@@ -156,13 +159,64 @@ router.post('/buscarAsignaturaPorId', function(req,res,next) {
             throw error;
         }else{
             if(row.length==0){
-                res.send('Ese id_asignatura no existe');
+                res.send('No hay asignatura con ese id');
             }else{
                 res.send(row);
             }//else
         }//else
     })//asignatura.buscarAsignaturaPorId
 });//router.post('/buscarAsignaturaPorId
+
+/*
+* BUSCAR asignaturas por nombre OK
+*/
+router.post('/buscarAsignaturaPorNombre', function(req,res,next) {
+    asignatura.buscarAsignaturaPorNombre(req.query.nombre, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay asignatura con ese nombre');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//asignatura.buscarAsignaturaPorNombre
+});//router.post('/buscarAsignaturaPorNombre
+
+/*
+* BUSCAR asignaturas por clave OK
+*/
+router.post('/buscarAsignaturaPorClave', function(req,res,next) {
+    asignatura.buscarAsignaturaPorClave(req.query.clave, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay asignatura con esa clave');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//asignatura.buscarAsignaturaPorClave
+});//router.post('/buscarAsignaturaPorClave
+
+/*
+* BUSCAR asignaturas por id_asignatura y clave NO FUNCIONA BIEN Y NO SE UTLIZA, BORRAR!!!!!!
+*/
+router.post('/buscarAsignaturaPorIdYClave', function(req,res,next) {
+    asignatura.buscarAsignaturaPorIdYClave(req.query.id_asignatura,req.query.clave, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay asignatura con ese id y clave');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//asignatura.buscarAsignaturaPorIdYClave
+});//router.post('/buscarAsignaturaPorIdYClave
 
 /****************************************************************************************************************************/
 module.exports = router;

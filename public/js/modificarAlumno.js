@@ -113,10 +113,10 @@ $(document).ready(function() {
     		buscarTodosLosGrupos(result.id_alumno);
     		formulario += "<div id='gruposTodos'>";
     		formulario += "</div>";
-    		buscarAsignaturasConvalidadaQuePerteneceUnAlumno(result.id_alumno);
+    		buscarAsignaturasConvalidadasDelAlumno(result.id_alumno);
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
-			buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada(result.id_alumno);
+			buscarAsignaturasNoConvalidadasDelAlumno(result.id_alumno);
 			formulario += "<div id='AsignaturaGrupoRestante'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -422,9 +422,9 @@ $('#resultado').on("click","#btnModificar",function () {
 	}//function buscarTodosLosGrupos
 
 			//funcion para buscar las asignaturas de un grupo
-	function buscarAsignaturasConvalidadaQuePerteneceUnAlumno (id) {
+	function buscarAsignaturasConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasConvalidadaQuePerteneceUnAlumno',
+					url: '/configAsignatura/buscarAsignaturasConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -456,9 +456,9 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		function buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada (id) {
+		function buscarAsignaturasNoConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada',
+					url: '/configAsignatura/buscarAsignaturasNoConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },

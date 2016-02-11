@@ -25,7 +25,7 @@ var num_tarjeta_antiguo;
 
     alumno.buscarAlumnoPorIdSinFoto(req.body.id_alumno, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send('error conectando con la BD');
             throw error;
         } else {
             dni_antiguo = row[0].dni;

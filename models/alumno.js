@@ -16,6 +16,7 @@ alumno.agregarAlumno = function (dni,nombre,apellidos,correo,foto,num_tarjeta,ca
 				throw error;
 				console.log(error);
 			}else{
+				console.log("");
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query

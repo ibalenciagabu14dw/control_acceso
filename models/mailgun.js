@@ -1,5 +1,5 @@
 var mailgun = {};
-var api_key = process.env.MAILGUN_API_KEY;
+var api_key = 'key-40057b34916672687f946ca5cc20548e'//process.env.MAILGUN_API_KEY;
 var domain = 'mail.controlfid.zubirimanteoweb.com';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var falta = require('../models/falta');
@@ -16,7 +16,7 @@ mailgun.enviarCorreoAlumnosFalta = function (alumnos,dia) {
 			}else{
 				for (var i = 0; i < data.length; i++) {
 					var data = {
-						from: 'admin@mail.controlfid.zubirimanteoweb.com',
+						from: 'admin@controlfid.zubirimanteoweb.com',
 						to: data[i].correo,
 						subject: 'Falta el dia: '+dia,
 						html: 'Estimado alumno '+data[i].nombre+ '.<br/>Tiene usted una falta en la asignatura <b>'+data[i].clave+'</b> en el aula '+data[i].numero+' el día <b>'+dia+'</b>, de las <b>'+data[i].hora_inicio+'</b> a las <b>'+data[i].hora_final+'</b><br/>Si tiene alguna duda dirijase a su profesor/tutor correspondiente.<br/><br/>Saludos', 

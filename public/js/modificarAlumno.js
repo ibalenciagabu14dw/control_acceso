@@ -310,7 +310,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	$('#resultado').on("change","#gruposdelAlumno" || "#gruposTodos",function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
-		if ($(this).prop("checked") == true) {
+		if ($(this).prop("checked")) {
 					$.ajax({
 					url: '/configGrupo/buscarAsignaturasDelGrupo',
 					type: 'post',
@@ -342,11 +342,9 @@ $('#resultado').on("click","#btnModificar",function () {
 				.fail(function() {
 					console.log("error");
 				})//fail
-		} else if ($(this).prop("checked") == false) {
+		} else {
+			console.log("no estaba checked");
 			$('#AsignaturaGrupo').html("");
-			$('#AsignaturaGrupoRestante').html("");
-			
-
 		}
 				/**/
 
@@ -371,7 +369,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='checked'>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='true'>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -441,7 +439,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"' checked='checked'>";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='true' >";
 							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -487,13 +485,14 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		$('#resultado').on("change","#AsignaturaGrupo"|| "#AsignaturaGrupoRestante" || "#gruposTodos" || "#gruposdelAlumno" ,function () {
+		$('#resultado').on("change","#AsignaturaGrupo",function () {
 		$(":checkbox").click(function(){
-	        var id = $(this).attr('id');
-		if ($(this).attr("checked","checked")) {
-			$(this).attr("checked","");
+	        var id = $(this).attr('id'); 
+		if ($(this).attr("checked",true)) {
+			$(this).attr("checked",false);
 		} else {
-			$(this).attr("checked","checked");
+			$(this).attr("checked",true);
+			console.log("no estaba checked");	
 		}
 		});//$(":checkbox").click(function()
 	});

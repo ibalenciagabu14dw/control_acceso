@@ -22,8 +22,7 @@ var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
 
-var api_alumno = require('./routes/API/api_alumno');
-var api_asignatura = require('./routes/API/api_asignatura');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -53,15 +52,11 @@ app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
 app.use('/presencia', presencia);
 
-app.use('/API', api_alumno);
-app.use('/API', api_asignatura);
+app.use('/API', api);
 
 //*******************socket.io***********************************
-
-
 //require (attach server on www.js)
 app.io = require('socket.io')();
-
 //importar alumno
 var alumno = require('./models/alumno');
 //configurar variable global io
@@ -85,6 +80,7 @@ app.io.on('connection', function(socket){
   });
 });
 //*******************socket.io*fin*******************************
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -19,99 +19,85 @@ var apellidos = req.body.apellidos;
 var correo = req.body.correo;
 var num_tarjeta = req.body.num_tarjeta;
 var foto = req.file.buffer;
-var dni_antiguo;
-var correo_antiguo;
-var num_tarjeta_antiguo;
-
-    alumno.buscarAlumnoPorIdSinFoto(req.body.id_alumno, function(error,row) {
+    alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');
             throw error;
         } else {
-            dni_antiguo = row[0].dni;
-            correo_antiguo = row[0].correo;
-            num_tarjeta_antiguo = row[0].num_tarjeta;
-            alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
-                if (error) {
-                    res.send('error conectando con la base de datos');
-                    throw error;
-                } else {
-                    if((row.length>0)&&(req.body.dni!=dni_antiguo)){
-                        console.log({err:'ese DNI lo tiene un alumno'});
-                        res.send({err:'existeDNI'});
+            if ((row.length>0)&&(req.body.dni!=dni_antiguo)) {
+                console.log({err:'ese DNI lo tiene un alumno'});
+                res.send({err:'existeDNI'});
+            } else {
+                alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
+                    if (error) {
+                        res.send('error conectando con la base de datos');
+                        throw error;
                     } else {
-                        alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
-                            if (error) {
-                               res.send('error conectando con la base de datos');
-                               throw error;
-                            } else {
-                                if((row.length>0)&&(req.body.correo!=correo_antiguo)){
-                                    console.log({err:'ese correo lo tiene un alumno'});
-                                    res.send({err:'existeCorreo'});
+                        if ((row.length>0)&&(req.body.correo!=correo_antiguo)) {
+                           console.log({err:'ese correo lo tiene un alumno'});
+                           res.send({err:'existeCorreo'});
+                        } else {
+                            alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                if (error) {
+                                    res.send('error conectando con la base de datos');
+                                    throw error;
                                 } else {
-                                    alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
-                                        if (error) {
-                                            res.send('error conectando con la base de datos');
-                                            throw error; 
-                                        } else {
-                                            if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
-                                                console.log({err:'ese numero de tarjeta lo tiene un alumno'});
-                                                res.send({err:'existeTarjeta'});
+                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                        console.log({err:'ese numero de tarjeta lo tiene un alumno'});
+                                        res.send({err:'existeTarjeta'});
+                                    } else {
+                                        profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
+                                            if (error) {
+                                                res.send('error conectando con la base de datos');
+                                                throw error;
                                             } else {
-                                                profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
-                                                    if (error) {
-                                                        res.send('error conectando con la base de datos');
-                                                        throw error;
-                                                    } else {
-                                                        if((row.length>0)&&(req.body.dni!=dni_antiguo)){
-                                                            console.log({err:'ese DNI lo tiene un profesor'});
-                                                            res.send({err:'existeDNI'});
+                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                   console.log({err:'ese DNI lo tiene un profesor'});
+                                                   res.send({err:'existeDNI'});
+                                                } else {
+                                                    profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
+                                                        if (error) {
+                                                            res.send('error conectando con la base de datos');
+                                                            throw error;
                                                         } else {
-                                                            profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
-                                                                if (error) {
-                                                                   res.send('error conectando con la base de datos');
-                                                                   throw error; 
-                                                                } else {
-                                                                    if((row.length>0)&&(req.body.correo!=correo_antiguo)){
-                                                                        console.log({err:'ese correo lo tiene un profesor'});
-                                                                        res.send({err:'existeCorreo'});
+                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                                console.log({err:'ese correo lo tiene un profesor'});
+                                                                res.send({err:'existeCorreo'});
+                                                            } else {
+                                                                profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                                                    if (error) {
+                                                                        res.send('error conectando con la base de datos');
+                                                                        throw error;
                                                                     } else {
-                                                                        profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
-                                                                            if (error) {
-                                                                                res.send('error conectando con la base de datos');
-                                                                                throw error;
-                                                                            } else {
-                                                                                if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
-                                                                                    console.log({err:'ese numero de tarjeta lo tiene un profesor'});
-                                                                                    res.send({err:'existeTarjeta'});
+                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                            console.log({err:'ese numero de tarjeta lo tiene un profesor'});
+                                                                            res.send({err:'existeTarjeta'});
+                                                                        } else {
+                                                                            alumno.agregarAlumno(dni,nombre,apellidos,correo,foto,num_tarjeta, function (error,row) {
+                                                                                if (error) {
+                                                                                    throw error;
                                                                                 } else {
-                                                                                    alumno.agregarAlumno(dni,nombre,apellidos,correo,foto,num_tarjeta, function (error,row) {
-                                                                                        if (error) {
-                                                                                         throw error;
-                                                                                        } else {
-                                                                                        res.send(row);
-                                                                                        }//.else
-                                                                                    })//alumno.agregarAlumno
+                                                                                    res.send(row);
                                                                                 }//.else
-                                                                            }//.else
-                                                                        })//profesor.buscarProfesorPorTarjeta
+                                                                            })//alumno.agregarAlumno
+                                                                        }//.else
                                                                     }//.else
-                                                                }//.else
-                                                            })//profesor.buscarProfesorPorCorreo
+                                                                })//profesor.buscarProfesorPorTarjeta
+                                                            }//.else
                                                         }//.else
-                                                    }//.else
-                                                })//.alumno.buscarProfesorPorDni
+                                                    })//profesor.buscarProfesorPorCorreo
+                                                }//.else
                                             }//.else
-                                        }//.else
-                                    })//alumno.buscarAlumnoPorTarjeta
+                                        })//profesor.buscarProfesorPorDni
+                                    }//.else
                                 }//.else
-                            }//.else
-                        })//alumno.buscarAlumnoPorCorreo
+                            })//alumno.buscarAlumnoPorTarjeta
+                        }//.else
                     }//.else
-                }//.else
-            })//alumno.buscarAlumnoPorDni
+                })//alumno.buscarAlumnoPorCorreo
+            }//.else
         }//.else
-    })//.alumno.buscarAlumnoPorIdSinFoto
+    })//alumno.buscarAlumnoPorDni
 });//router.post('/agregarAlumno
 
 /****************************************************************************************************************************/

@@ -23,18 +23,6 @@ var dni_antiguo;
 var correo_antiguo;
 var num_tarjeta_antiguo;
 
-    alumno.buscarAlumnoPorIdSinFoto(req.body.id_alumno, function(error,row) {
-        if (error) {
-            res.send('error conectando con la base de datos');
-            throw error;
-        } else {
-            console.log(row);
-            dni_antiguo = row.dni;
-            correo_antiguo = row.correo;
-            num_tarjeta_antiguo = row.num_tarjeta;
-        }//.else
-    })//.alumno.buscarAlumnoPorIdSinFoto
-
     alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');

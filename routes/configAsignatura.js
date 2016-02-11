@@ -111,49 +111,6 @@ router.post('/borrarAsignatura', function(req,res,next){
 /***********************************************************SELECT***********************************************************/
 
 /*
-* BUSCAR asignaturas que imparte un profesor por id_profesor
-*/
-router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
-    var id_profesor = req.body.id_profesor;
-    profesor.buscarAsignaturasQueImparte(id_profesor,function(error,row) {
-        if (error) {
-            throw error;
-        }else{
-            res.send(row);
-        }//else
-    })//profesor.buscarAsignaturasQueImparte
-});//router.post('/buscarAsignaturasQueImparte
-
-/*
-* BUSCAR asignaturas que NO imparte un profesor por id_profesor
-*/
-router.post('/buscarAsignaturasQueNoImpartePorId', function(req,res,next) {
-    var id_profesor = req.body.id_profesor;
-    profesor.buscarAsignaturasQueNoImpartePorId(id_profesor,function(error,row) {
-        if (error) {
-            throw error;
-        }else{
-            res.send(row);
-        }//else
-    })//profesor.buscarAsignaturasQueNoImpartePorId
-});//router.post('/buscarTodasLasAsignaturas
-
-/*
-* BUSCAR asignaturas que NO imparte un profesor por tipo
-*/
-router.post('/buscarTodasLasAsignaturasDelTipo', function(req,res,next) {
-    var id_profesor = req.body.id_profesor;
-    var tipo = req.body.tipo;
-    profesor.buscarAsignaturasQueNoImpartePorTipo(id_profesor,tipo,function(error,row) {
-        if (error) {
-            throw error;
-        }else{
-            res.send(row);
-        }//else
-    })//profesor.buscarAsignaturasQueNoImpartePorTipo
-});//router.post('/buscarTodasLasAsignaturasDelTipo
-
-/*
 * BUSCAR asignaturas por nombre
 */
 router.post('/buscarAsignaturaNombre', function(req,res,next) {
@@ -194,19 +151,6 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next){
         }//else
     })//asignatura.buscarTodasLasAsignaturas
 });//router.post('/buscarTodasLasAsignaturas
-
-router.post('/buscarAsignaturasQueNoImpartePorId', function(req,res,next) {
-    var id_profesor = req.body.id_profesor;
-    profesor.buscarAsignaturasQueNoImpartePorId(id_profesor,function(error,row) {
-        if (error) {
-            throw error;
-        }else{
-            res.send(row);
-        }//else
-    })//profesor.buscarAsignaturasQueNoImpartePorId
-});//router.post('/buscarTodasLasAsignaturasDelTipo
-
-
 
 /****************************************************************************************************************************/
 

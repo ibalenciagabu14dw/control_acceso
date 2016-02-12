@@ -1,0 +1,129 @@
+body{
+	padding: 20px;
+  padding-top: 0px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-image: url('../images/gradient10.jpg');
+	background-position: center center;
+	background-color: #464646;
+}
+
+#enlace {
+  color: white;
+  text-decoration: none;
+}
+#enlace:hover{
+	text-decoration: none;
+	font-weight: bold;
+}
+#titulo{
+	color:white;
+	font-weight: bold;
+}
+#footer{
+  width: 100%;
+  height: 80px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #2E2E2E;
+  color:white;
+  position: absolute;
+  display: block;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+}
+#footer p{
+  margin-left: 10%;
+  margin-top: 2%;
+}
+#tituloLogin{
+  text-align: center;
+  font-weight: bold;
+}
+
+/*****Menu*****/
+.navbar .brand {
+max-height: 50px;
+overflow: visible;
+padding-top: 0;
+padding-bottom: 0;
+}
+.navbar a.navbar-brand {padding: 0px 15px 0px;}
+.navbar{
+  height: 80px;
+}
+.container{
+  margin-top: 15px;
+}
+#linkConfig{
+  font-size: 18pt;
+}
+#bs-example-navbar-collapse-1{
+  background-color: #333;
+  border-radius: 10px;
+}
+#botonBuscador{
+  float:right;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+#accordion div{
+  height: 150px;
+}
+#buscadorSubmit{
+  margin-top: 10px;
+  width: 100%;
+}
+.error{
+  color: red;
+}
+#buscador td, #buscador th{
+  width: 30%;
+  text-align: center;
+}
+#buscador th{
+  background-color: black;
+  color:white;
+}
+.ui-dialog .ui-dialog-titlebar {
+   background-image: url('../images/gradient10.jpg');
+   border: 1px solid black;
+   color:black;
+}
+.ui-state-default .ui-icon {
+    background-image: url("images/ui-icons_222222_256x240.png");
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #ccc;
+    background: #565665;
+    font-weight: bold;
+    color: #eb8f00;
+}
+.ui-state-active, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
+    border: 1px solid #ccc;
+    background: #565665;
+    font-weight: bold;
+    color: white;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: black;
+    text-decoration: none;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
+  color:white;
+}
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited, .ui-state-focus a, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited{
+  color:white;
+}
+#tablaPersona{
+  margin-bottom: 20px;
+}
+#volverABuscar{
+  width: 100%;
+}
+
+

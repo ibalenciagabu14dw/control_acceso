@@ -79,7 +79,6 @@ asignatura.buscarTodasLasAsignaturas = function (callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
 			    callback(null,row);
 			}//else
 		});//connection.query
@@ -166,8 +165,6 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 *	BUSCAR asignaturas por id_asignatura y clave
 */
 asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
-	console.log(connection.escape(id_asignatura));
-	console.log(connection.escape(clave));
 	if(connection){
 		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE id_asignatura ="'+id_asignatura+'" AND clave ="'+clave+'"';
 		connection.query(sql,function (error,row) {

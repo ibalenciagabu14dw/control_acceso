@@ -345,6 +345,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		} else {
 			console.log("no estaba checked");
 			$('#AsignaturaGrupo').html("");
+			$('#AsignaturaGrupoRestante').html("");
 		}
 				/**/
 
@@ -369,7 +370,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='true'>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='checked'>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -439,7 +440,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='true' >";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='checked' >";
 							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -485,17 +486,17 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		$('#resultado').on("change","#AsignaturaGrupo",function () {
+		$('#resultado').on("change","#AsignaturaGrupo" || "#AsignaturaGrupoRestante" || "#gruposdelAlumno"  || "#gruposTodos" ,function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
-		if ($(this).attr("checked",true)) {
-			$(this).attr("checked",false);
+		if ($(this).attr("checked","checked")) {
+			$(this).attr("checked","");
 		} else {
-			$(this).attr("checked",true);
-			console.log("no estaba checked");	
+			$(this).attr("checked","checked");
 		}
 		});//$(":checkbox").click(function()
 	});
+
 
 
 

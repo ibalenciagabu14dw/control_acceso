@@ -186,7 +186,13 @@ $(document).ready(function() {
 	            
 	        },
 	        submitHandler: function (form) {
+	        if($('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== false){
+	        		showAlertValidate("#enlace2","El profesor tiene que tener un asignatura");
+	        } else {			
+	        	
 	        if ($('#resultado #foto').val() == ''){
+
+	        	
 	        	event.preventDefault();
 	            $('#password').attr('disabled',true);  
 	            var data = $("#formUpdate").serializeArray();
@@ -262,7 +268,8 @@ $(document).ready(function() {
 	            *   Form Submit Fin
 	            */
 	        }//.else if (size > 102400)
-	        }//.else	
+	        }//.else
+	        }//.else
 	        }//submitHandler
 	    });//Validate
 	  //$( "#target" ).submit();

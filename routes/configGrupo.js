@@ -42,6 +42,17 @@ router.post('/buscarAsignaturasDelGrupo', function(req,res,next) {
   })//buscarProfesorPorNombre
 });//get /configPersonas/modificarProfesor/buscarProfesorNombre
 
+router.post('/buscarAsignaturasDelosGrupos', function(req,res,next) {
+  var array = req.body;
+  grupo.buscarAsignaturasDeLosGrupos(array, function(error,row) {
+    if (error) {
+      throw error;
+    }else{
+      res.send(row);
+    }
+  })//buscarProfesorPorNombre
+});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+
 /* POST agregar grupo page. */
 router.post('/agregarGrupo', function(req,res,next){
   var nombre = req.body.nombre;

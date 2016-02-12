@@ -271,7 +271,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarAsignaturasQueImparte (id) {
 		$.ajax({
-			url: '/configAsignatura/buscarAsignaturasQueImparte',
+			url: '/configProfesor/buscarAsignaturasQueImparte',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -307,7 +307,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarTodasLasAsignaturas (id) {
 		$.ajax({
-			url: '/configAsignatura/buscarAsignaturasQueNoImpartePorId',
+			url: '/configProfesor/buscarAsignaturasQueNoImpartePorId',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -336,9 +336,9 @@ $(document).ready(function() {
 	}//function buscarAsignaturas
 	
 			//Funcion con buscar asignaturas
-	function buscarTodasLasAsignaturasDelTipo (id,tipo) {
+	function buscarAsignaturasQueNoImpartePorTipo (id,tipo) {
 		$.ajax({
-			url: '/configAsignatura/buscarTodasLasAsignaturasDelTipo',
+			url: '/configProfesor/buscarAsignaturasQueNoImpartePorTipo',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id , tipo:tipo},
@@ -440,10 +440,10 @@ $(document).ready(function() {
 		 //alert( this.value );
 		 if(this.value == "FP"){
 		 	//alert("has elegido asignaturas FP");
-		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
+		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #id_profesor').val(),this.value);
 		 } else if(this.value == "Bachiller"){
 		 	//alert("has elegido asignaturas Bachiller");
-		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
+		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #id_profesor').val(),this.value);
 		 } else {
 		 	//alert("has elegido todas");
 		 	buscarTodasLasAsignaturas($('#resultado #id_profesor').val());

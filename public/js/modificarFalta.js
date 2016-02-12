@@ -52,7 +52,7 @@ $(document).ready(function() {
        		formulario += "<span id='fecha1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
-  			mostrarTodosLosAlumnosIdNombreApellidos(result[0].id_alumno);
+  			buscarTodosLosIdNombreApellidosAlumno(result[0].id_alumno);
 			formulario += "<div id='alumnos'>";
     		formulario += "</div>";	
     		formulario += "<div class='form-inline'>";
@@ -201,10 +201,10 @@ $('#resultado').on("click","#btnModificar",function () {
 	});//click borrar formulario alumno
 
 
-		function mostrarTodosLosAlumnosIdNombreApellidos (id_alumno) {
+		function buscarTodosLosIdNombreApellidosAlumno (id_alumno) {
 			var result = id_alumno;
 		$.ajax({
-			url: '/configAlumno/mostrarTodosLosAlumnosIdNombreApellidos',
+			url: '/configAlumno/buscarTodosLosIdNombreApellidosAlumno',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
@@ -233,7 +233,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		.fail(function() {
 			console.log("error");
 		})//fail
-	}//function mostrarTodosLosAlumnosIdNombreApellidos
+	}//function buscarTodosLosIdNombreApellidosAlumno
 
 
 			function mostrarHorarioGrupo (id_horario_grupo) {

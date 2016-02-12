@@ -113,10 +113,10 @@ $(document).ready(function() {
     		buscarTodosLosGrupos(result.id_alumno);
     		formulario += "<div id='gruposTodos'>";
     		formulario += "</div>";
-    		buscarAsignaturasConvalidadaQuePerteneceUnAlumno(result.id_alumno);
+    		buscarAsignaturasConvalidadasDelAlumno(result.id_alumno);
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
-			buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada(result.id_alumno);
+			buscarAsignaturasNoConvalidadasDelAlumno(result.id_alumno);
 			formulario += "<div id='AsignaturaGrupoRestante'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -345,7 +345,6 @@ $('#resultado').on("click","#btnModificar",function () {
 		} else {
 			console.log("no estaba checked");
 			$('#AsignaturaGrupo').html("");
-			$('#AsignaturaGrupoRestante').html("");
 		}
 				/**/
 
@@ -370,7 +369,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='checked'>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='true'>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -423,9 +422,9 @@ $('#resultado').on("click","#btnModificar",function () {
 	}//function buscarTodosLosGrupos
 
 			//funcion para buscar las asignaturas de un grupo
-	function buscarAsignaturasConvalidadaQuePerteneceUnAlumno (id) {
+	function buscarAsignaturasConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasConvalidadaQuePerteneceUnAlumno',
+					url: '/configAlumno/buscarAsignaturasConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -440,7 +439,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='checked' >";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='true' >";
 							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -457,9 +456,9 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		function buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada (id) {
+		function buscarAsignaturasNoConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada',
+					url: '/configAlumno/buscarAsignaturasNoConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -486,13 +485,14 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		$('#resultado').on("change","#AsignaturaGrupo" || "#AsignaturaGrupoRestante" || "#gruposdelAlumno"  || "#gruposTodos" ,function () {
+		$('#resultado').on("change","#AsignaturaGrupo",function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
-		if ($(this).attr("checked","checked")) {
-			$(this).attr("checked","");
+		if ($(this).attr("checked",true)) {
+			$(this).attr("checked",false);
 		} else {
-			$(this).attr("checked","checked");
+			$(this).attr("checked",true);
+			console.log("no estaba checked");	
 		}
 		});//$(":checkbox").click(function()
 	});

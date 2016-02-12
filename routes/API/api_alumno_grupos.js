@@ -60,6 +60,9 @@ router.post('/agregarAlumnoGrupo', function(req, res, next) {
 
 /***********************************************************UPDATE***********************************************************/
 
+/*
+* UPDATE alumno_grupo OK
+*/
 router.post('/modificarAlumnoGrupo', function(req, res, next) {
     var id_alumno_antiguo;
     var id_grupo_antiguo;
@@ -117,7 +120,7 @@ router.post('/modificarAlumnoGrupo', function(req, res, next) {
                 })//grupo.buscarGrupoPorId
             }//else
         }//else
-    })//alumno.buscarAlumnoPorId
+    })//alumno.buscarAlumnoPorIdSinFoto
 });//router.post('/modificarAlumnoGrupo
 
 /****************************************************************************************************************************/
@@ -127,8 +130,8 @@ router.post('/modificarAlumnoGrupo', function(req, res, next) {
 /*
 * DELETE aula por id_aula OK
 */
-router.post('/borrarAsignaturaConvalidada', function(req, res, next) {
-    aula.buscarAulaPorId(req.query.id_aula, function(error,row) {
+router.post('/borrarAlumnoGrupos', function(req, res, next) {
+    alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupos, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');
             throw error;
@@ -136,18 +139,18 @@ router.post('/borrarAsignaturaConvalidada', function(req, res, next) {
             if(row.length==0){
                 res.send('Ese id no existe');
             }else{
-                aula.borrarAula(req.query.id_aula, function(error,row) {
+                alumno_grupos.borrarAlumnoGrupos(req.query.id_alumno_grupos, function(error,row) {
                     if (error) {
                         throw error;
-                        res.send('error borrando aula');
+                        res.send('error borrando alumno_grupos');
                     }else{
-                        res.send('aula borrada correctamente');
+                        res.send('alumno_grupos borrado correctamente');
                     }//else
-                })//aula.borrarAula
+                })//alumno_grupos.borrarAlumnoGrupos
             }//else
         }//else
-    })//aula.buscarAulaPorId
-});//router.post('/borrarAula
+    })//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo
+});//router.post('/borrarAlumnoGrupos
 
 
 /****************************************************************************************************************************/
@@ -155,7 +158,7 @@ router.post('/borrarAsignaturaConvalidada', function(req, res, next) {
 /***********************************************************SELECT***********************************************************/
 
 /*
-*   BUSCAR un alumno en un grupo por id_alumno e id_grupo OK
+*   BUSCAR un id_alumno_grupos por id_alumno_grupo OK
 */
 router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo', function(req,res,next) {
     alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupos, function(error,row) {
@@ -172,7 +175,41 @@ router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo', function(req,res,next) {
 });//router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo
 
 /*
-*   BUSCAR un alumno en un grupo por id_alumno e id_grupo
+*   BUSCAR un id_alumno_grupos por id_alumno OK
+*/
+router.post('/buscarAlumnoGrupoPorIdAlumno', function(req,res,next) {
+    alumno_grupos.buscarAlumnoGrupoPorIdAlumno(req.query.id_alumno, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay ningun alumno_grupo con en ese id_alumno');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno_grupos.buscarAlumnoGrupoPorIdAlumno
+});//router.post('/buscarAlumnoGrupoPorIdAlumno
+
+/*
+*   BUSCAR un id_alumno_grupos por id_grupo OK
+*/
+router.post('/buscarAlumnoGrupoPorIdGrupo', function(req,res,next) {
+    alumno_grupos.buscarAlumnoGrupoPorIdGrupo(req.query.id_grupo, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay ningun alumno_grupo con en ese id_grupo');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno_grupos.buscarAlumnoGrupoPorIdGrupo
+});//router.post('/buscarAlumnoGrupoPorIdGrupo
+
+/*
+*   BUSCAR un alumno en un grupo por id_alumno e id_grupo OK
 */
 router.post('/buscarAlumnoGrupoPorIdAlumnoYIdGrupo', function(req,res,next) {
     alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function(error,row) {

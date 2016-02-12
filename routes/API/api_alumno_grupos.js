@@ -158,6 +158,22 @@ router.post('/borrarAlumnoGrupos', function(req, res, next) {
 /***********************************************************SELECT***********************************************************/
 
 /*
+* BUSCAR todoss los alumno_grupos OK
+*/
+router.post('/buscarTodosLosAlumnoGrupos', function(req,res,next) {
+    alumno_grupos.buscarTodosLosAlumnoGrupos(function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('no hay alumno_grupos')
+            }
+            res.send(row);
+        }//else
+    })//alumno_grupos.buscarTodosLosAlumnoGrupos
+});//router.post('/buscarTodosLosAlumnoGrupos
+
+/*
 *   BUSCAR un id_alumno_grupos por id_alumno_grupo OK
 */
 router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo', function(req,res,next) {

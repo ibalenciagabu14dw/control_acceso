@@ -71,11 +71,11 @@ alumno_grupos.borrarAlumnoGrupos =  function(id_alumno,callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
-*	BUSCAR un alumno_grupo por id_alumno_grupo
+*	BUSCAR un id_alumno_grupos por id_alumno_grupo
 */
 alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo = function(id_alumno_grupos,callback){
 	if(connection){
-		var sql = 'SELECT id_alumno_grupos, id_alumno,id_grupo FROM alumno_grupos WHERE id_alumno_grupos ="'+id_alumno_grupo+'"';
+		var sql = 'SELECT id_alumno_grupos, id_alumno,id_grupo FROM alumno_grupos WHERE id_alumno_grupos ="'+id_alumno_grupos+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				console.log(error);

@@ -63,7 +63,7 @@ router.post('/agregarAlumnoGrupo', function(req, res, next) {
 router.post('/modificarAlumnoGrupo', function(req, res, next) {
     var id_alumno_antiguo;
     var id_grupo_antiguo;
-    alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupo,function(error,row){
+    alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupos,function(error,row){
         if(error){
             res.send(error);
             throw error;
@@ -106,7 +106,7 @@ router.post('/modificarAlumnoGrupo', function(req, res, next) {
                                                 res.send('error agregando el alumno_grupos');
                                                 throw error;
                                             }else{
-                                                res.send('alumno agregado al grupo correctamente');
+                                                res.send('alumno_grupo modificado correctamente');
                                             }//else
                                         });//alumno_grupos.modificarAlumnoGrupo
                                     }//else
@@ -153,6 +153,23 @@ router.post('/borrarAsignaturaConvalidada', function(req, res, next) {
 /****************************************************************************************************************************/
 
 /***********************************************************SELECT***********************************************************/
+
+/*
+*   BUSCAR un alumno en un grupo por id_alumno e id_grupo OK
+*/
+router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo', function(req,res,next) {
+    alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupos, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay ningun alumno_grupo con en ese id_alumno_grupos');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo
+});//router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo
 
 /*
 *   BUSCAR un alumno en un grupo por id_alumno e id_grupo

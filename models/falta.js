@@ -35,7 +35,6 @@ falta.modificarFalta = function (id_faltas,fecha,id_alumno,id_horario_grupo,obse
 				throw error;
 				console.log(error);
 			}else{
-				console.log('modificarFalta OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -163,7 +162,6 @@ falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
 				callback(null,row);
 			}//else
 		});//connection.query

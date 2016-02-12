@@ -18,7 +18,6 @@ aula.agregarAula = function (numero,piso,capacidad,callback) {
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('agregarAula OK');
 			}//else
 		});//connection.query
 	}//if
@@ -41,7 +40,6 @@ aula.modificarAula = function (id,numero,piso,capacidad,callback) {
 				console.log(error);
 			}else{
 				callback(null,{dato:"ok"});
-				console.log('modificarAula OK');
 			}//else
 		});//connection.query
 	}//if
@@ -61,7 +59,6 @@ aula.borrarAula = function (id,callback) {
 				throw error;
 				console.log(error);
 			}else{
-				console.log('borrarAula OK');
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
@@ -91,7 +88,6 @@ aula.buscarTodosLosIdAula = function (callback) {
 				}//compareNumbers
 				id_AulaArray.sort(compareNumbers);
 				callback(null,id_AulaArray);
-				console.log('buscarTodosLosIdAula OK');
 			}//else
 		});//connection.query
 	}//if
@@ -108,7 +104,6 @@ aula.buscarTodosLosIdYNumero = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarTodosLosIdYNumero OK');
 			}//else
 		});//connection.query
 	}//if
@@ -126,7 +121,6 @@ aula.buscarAulaPorId = function(id_aula,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAulaPorId OK');
 			}//else
 		});//connection.query
 	}//if
@@ -144,7 +138,6 @@ aula.buscarAulaPorNumero = function(numero,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAulaPorNumero OK');
 			}//else
 		});//connection.query
 	}//if
@@ -162,7 +155,6 @@ aula.buscarAulaPorIdYNumero = function(id_aula,numero,callback){
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('buscarAulaPorIdYNumero OK');
 			}//else
 		});//connection.query
 	}//if

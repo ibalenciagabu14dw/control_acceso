@@ -151,7 +151,7 @@ var schedule3 = {
 };
 
 //Activar
-var timer3 = later.setInterval(ultimaHora, schedule3);
+var timer3 = later3.setInterval(ultimaHora, schedule3);
 
 function ultimaHora () {
 	//buscar los datos de las faltas para insertarlas en sql

@@ -161,23 +161,6 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 	}//if
 }//asignatura.buscarAsignaturaPorClave
 
-/*
-*	BUSCAR asignaturas por id_asignatura y clave
-*/
-asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
-	if(connection){
-		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE id_asignatura ="'+id_asignatura+'" AND clave ="'+clave+'"';
-		connection.query(sql,function (error,row) {
-			if (error) {
-				console.log(error);
-				throw error;
-			}else{
-				callback(null,row);
-			}//else
-		});//connection.query
-	}//if
-}//asignatura.buscarAsignaturaPorIdYClave
-
 /****************************************************************************************************************************/
 
 module.exports = asignatura;

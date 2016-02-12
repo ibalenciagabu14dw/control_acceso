@@ -17,7 +17,10 @@ alumno_grupos.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
 				console.log(error);
 				throw error;
 			}else{
+<<<<<<< HEAD
 				callback(null,{dato:"ok"});
+=======
+>>>>>>> 73a92a807082f4cf036e6a93a09f0d3de85a8840
 			}//else
 		});//connection.query
 	}//if
@@ -60,7 +63,10 @@ alumno_grupos.borrarAlumnoGrupos =  function(id_alumno,callback) {
 				console.log(error);
 				throw error;
 			}else{
+<<<<<<< HEAD
 				callback(null,{dato:"ok"});
+=======
+>>>>>>> 73a92a807082f4cf036e6a93a09f0d3de85a8840
 			}//else
 		});//connection.query
 	}//if

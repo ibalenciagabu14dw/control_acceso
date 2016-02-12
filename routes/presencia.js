@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 						if (error) {
 							throw error;
 						}else{
-							if (req.query.room == data[0].id_aula) {
+							if (req.query.room == data[0].numero_dispositivo) {
 								alumno.modificarPresenciaDelAlumno(req.query.num_tarjeta,function (error) {
 									if (error) {
 										res.send("ko");
@@ -67,7 +67,7 @@ router.get('/', function(req, res, next) {
 								if (error) {
 									throw error;
 								}else{
-									if (req.query.room == data[0].id_aula) {
+									if (req.query.room == data[0].numero_dispositivo) {
 										profesor.modificarPresenciaProfesor(req.query.num_tarjeta,function (error) {
 											if (error) {
 												res.send("ko");

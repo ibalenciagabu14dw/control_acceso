@@ -14,7 +14,7 @@ var profesor = require('../../models/profesor');
 http://localhost:3000/API/agregarAlumno?dni=69696969-Y&nombre=API&apellidos=API&correo=API@zubirimanteo.com&num_tarjeta=API1
 */
 router.post('/agregarAlumno', function(req, res, next) {
-	alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
+    alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
         if (error) {
             res.send('error conectando con la base de datos');
             throw error;

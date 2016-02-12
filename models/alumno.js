@@ -73,7 +73,6 @@ alumno.modificarAlumnoSinFoto = function (id_alumno,dni,nombre,apellidos,correo,
 		  	if (error) {
 				throw error;
 				console.log(error);
-				callback(null,{dato:"ko"});
 			}else{				
 				callback(null,{dato:"ok"});
 			}//else
@@ -344,7 +343,7 @@ alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta = function (num_tarjeta,curr_tim
 		}
 	});
 	if (connection) {
-		var sqlAula = 'SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+num_tarjeta+'") and id_alumno NOT IN (SELECT id_alumno FROM convalidadas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final))))';
+		var sqlAula = 'SELECT numero_dispositivo FROM dispositivos WHERE id_aula = (SELECT id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM alumno_grupos WHERE dia_semana = "'+day+'" and ("'+curr_time+'" BETWEEN hora_inicio and hora_final) and id_alumno IN (SELECT id_alumno FROM alumnos WHERE num_tarjeta ="'+num_tarjeta+'") and id_alumno NOT IN (SELECT id_alumno FROM convalidadas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_horario_grupo and (dia_semana="'+day+'") and ("'+curr_time+'" between hora_inicio and hora_final)))))';
 		connection.query(sqlAula, function (error,row) {
 			if (error) {
 				console.log(error);

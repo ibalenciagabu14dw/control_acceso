@@ -499,6 +499,7 @@ $('#resultado').on("click","#btnModificar",function () {
 
 
 
+
 });//ready
 function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');

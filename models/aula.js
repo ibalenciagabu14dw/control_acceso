@@ -1,6 +1,5 @@
 var connection = require('../models/connection');
 var app = require('../app');
-
 var aula = {};
 
 /***********************************************************INSERT*********************************************************/
@@ -14,8 +13,8 @@ aula.agregarAula = function (numero,piso,capacidad,callback) {
 		var sqlagregarAula = 'INSERT INTO aulas SET ?';
 		connection.query(sqlagregarAula,aula, function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -36,8 +35,8 @@ aula.modificarAula = function (id,numero,piso,capacidad,callback) {
 		var sqlmodificarAula = 'UPDATE aulas SET ? WHERE id_aula ="'+id+'"';
 		connection.query(sqlmodificarAula,aula, function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -56,8 +55,8 @@ aula.borrarAula = function (id,callback) {
 	if(connection){							
 		connection.query('DELETE FROM aulas WHERE id_aula= "'+id+'"', function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -76,8 +75,8 @@ aula.buscarTodosLosIdAula = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_aula FROM aulas', function(error,row){
 			if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				var id_AulaArray = [];
 				for (var i= 0;i<row.length;i++){
@@ -100,8 +99,8 @@ aula.buscarTodosLosIdYNumero = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_aula,numero FROM aulas', function(error,row){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else
@@ -117,8 +116,8 @@ aula.buscarAulaPorId = function(id_aula,callback){
 		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE id_aula ="'+id_aula+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else
@@ -134,8 +133,8 @@ aula.buscarAulaPorNumero = function(numero,callback){
 		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE numero LIKE ' + connection.escape(numero+'%');
 		connection.query(sql, function (error, row){
 			if(error){
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else
@@ -151,8 +150,8 @@ aula.buscarAulaPorIdYNumero = function(id_aula,numero,callback){
 		var sql = 'SELECT id_aula,numero,piso,capacidad FROM aulas WHERE id_aula ="'+id_aula+'" AND numero ="'+numero+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else

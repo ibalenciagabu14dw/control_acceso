@@ -73,7 +73,6 @@ alumno.modificarAlumnoSinFoto = function (id_alumno,dni,nombre,apellidos,correo,
 		  	if (error) {
 				throw error;
 				console.log(error);
-				callback(null,{dato:"ko"});
 			}else{				
 				callback(null,{dato:"ok"});
 			}//else
@@ -94,7 +93,6 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 						throw error;
 						console.log(error);
 					}else{
-						console.log('modificarPresenciaDelAlumno a 1 OK');
 						callback(null);
 					}//else
 				});//connection.query
@@ -105,7 +103,6 @@ alumno.modificarPresenciaDelAlumno = function (num_tarjeta,callback) {
 						throw error;
 						console.log(error);
 					}else{
-						console.log('modificarPresenciaDelAlumno a 0 OK');
 						callback(null);
 					}//else
 				});//connection.query
@@ -434,7 +431,6 @@ alumno.buscarAlumnoPorIdDniCorreoNum_tarj = function(id_alumno,dni,correo,num_ta
 				throw error;
 				console.log(error);
 			}else{
-				console.log('buscarAlumnoPorIdDniCorreoNum_tarj OK');
 				callback(null,row);
 			}//else
 		})//connection.query
@@ -453,7 +449,6 @@ alumno.mostrarTodosLosIdNombreApellidosAlumno = function (callback) {
 				console.log(error);
 			}else{
 				callback(null,row);
-				console.log('mostrarTodosLosIdNombreApellidosAlumno OK');
 			}//else
 		});//connection.query
 	}//if

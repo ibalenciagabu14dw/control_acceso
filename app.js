@@ -25,6 +25,7 @@ var presencia = require('./routes/presencia');
 var api_alumno = require('./routes/API/api_alumno');
 var api_asignatura = require('./routes/API/api_asignatura');
 var api_aula = require('./routes/API/api_aula');
+var api_convalidadas = require('./routes/API/api_convalidadas');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/presencia', presencia);
 app.use('/API', api_alumno);
 app.use('/API', api_asignatura);
 app.use('/API', api_aula);
+app.use('/API', api_convalidadas);
 
 //*******************socket.io***********************************
 

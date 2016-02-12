@@ -1,0 +1,176 @@
+var express = require('express');
+var router = express.Router();
+var alumno = require('../../models/alumno');
+var grupo =require('../../models/grupo');
+var alumno_grupos = require('../../models/alumno_grupos');
+
+/***********************************************************INSERT*********************************************************/
+
+/*
+* INSERTAR alumno en un nuevo grupo OK
+*/
+router.post('/agregarAlumnoGrupo', function(req, res, next) {
+    //comprobar que el alumno introducido existe
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row){
+        if(error){
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('ese alumno no existe');
+            }else{
+                //comprobar que el grupo introducido existe
+                grupo.buscarGrupoPorId(req.query.id_grupo,function(error,row){
+                    if(error){
+                        res.send(error);
+                        throw error;
+                    }else{
+                        if(row.length==0){
+                            res.send('ese grupo no existe');
+                        }else{
+                            //comprobamos que ese alumno no este ya en ese grupo
+                            alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function (error,row) {
+                                if (error) {
+                                    res.send('error conectando con la base de datos');
+                                    throw error;
+                                }else{
+                                    if(row.length>0){
+                                        res.send('ese alumno ya esta asignado a ese grupo');
+                                    }else{
+                                        alumno_grupos.agregarAlumnoGrupo(req.query.id_grupo,req.query.id_alumno, function (error,row) {
+                                            if (error) {
+                                                res.send('error agregando el alumno_grupos');
+                                                throw error;
+                                            }else{
+                                                res.send('alumno agregado al grupo correctamente');
+                                            }//else
+                                        });//alumno_grupos.agregarAlumnoGrupo
+                                    }//else
+                                }//else
+                            });//alumno_grupos.buscarAulaPorNumero
+                        }//else
+                    }//else
+                })//grupo.buscarGrupoPorId
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorId
+});//router.post('/agregarAlumnoGrupo
+
+/****************************************************************************************************************************/
+
+/***********************************************************UPDATE***********************************************************/
+
+router.post('/modificarAlumnoGrupo', function(req, res, next) {
+    var id_alumno_antiguo;
+    var id_grupo_antiguo;
+    alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupo,function(error,row){
+        if(error){
+            res.send(error);
+            throw error;
+        }else{
+            id_alumno_antiguo = row[0].id_alumno;
+            id_grupo_antiguo = row[0].id_grupo;
+        }//else
+    })//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo
+
+
+    //comprobar que el alumno introducido existe
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row){
+        if(error){
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('ese alumno no existe');
+            }else{
+                //comprobar que el grupo introducido existe
+                grupo.buscarGrupoPorId(req.query.id_grupo,function(error,row){
+                    if(error){
+                        res.send(error);
+                        throw error;
+                    }else{
+                        if(row.length==0){
+                            res.send('ese grupo no existe');
+                        }else{
+                            //comprobamos que ese alumno no este ya en ese grupo
+                            alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function (error,row) {
+                                if (error) {
+                                    res.send('error conectando con la base de datos');
+                                    throw error;
+                                }else{
+                                    if((row.length>0)&&(req.query.id_alumno!=id_alumno_antiguo)&&(req.query.id_grupo!=id_grupo_antiguo)){
+                                        res.send('ese alumno ya esta asignado a ese grupo');
+                                    }else{
+                                        alumno_grupos.modificarAlumnoGrupo(req.query.id_alumno_grupos,req.query.id_alumno,req.query.id_grupo, function (error,row) {
+                                            if (error) {
+                                                res.send('error agregando el alumno_grupos');
+                                                throw error;
+                                            }else{
+                                                res.send('alumno agregado al grupo correctamente');
+                                            }//else
+                                        });//alumno_grupos.modificarAlumnoGrupo
+                                    }//else
+                                }//else
+                            });//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo
+                        }//else
+                    }//else
+                })//grupo.buscarGrupoPorId
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorId
+});//router.post('/modificarAlumnoGrupo
+
+/****************************************************************************************************************************/
+
+/***********************************************************DELETE***********************************************************/
+
+/*
+* DELETE aula por id_aula OK
+*/
+router.post('/borrarAsignaturaConvalidada', function(req, res, next) {
+    aula.buscarAulaPorId(req.query.id_aula, function(error,row) {
+        if (error) {
+            res.send('error conectando con la base de datos');
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Ese id no existe');
+            }else{
+                aula.borrarAula(req.query.id_aula, function(error,row) {
+                    if (error) {
+                        throw error;
+                        res.send('error borrando aula');
+                    }else{
+                        res.send('aula borrada correctamente');
+                    }//else
+                })//aula.borrarAula
+            }//else
+        }//else
+    })//aula.buscarAulaPorId
+});//router.post('/borrarAula
+
+
+/****************************************************************************************************************************/
+
+/***********************************************************SELECT***********************************************************/
+
+/*
+*   BUSCAR un alumno en un grupo por id_alumno e id_grupo
+*/
+router.post('/buscarAlumnoGrupoPorIdAlumnoYIdGrupo', function(req,res,next) {
+    alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay ningun alumno en ese grupo');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo
+});//router.post('/buscarAlumnoGrupoPorIdAlumnoYIdGrupo
+
+/****************************************************************************************************************************/
+
+module.exports = router;

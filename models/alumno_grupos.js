@@ -32,7 +32,7 @@ alumno_grupos.agregarAlumnoGrupo =  function(id_grupo,id_alumno,callback) {
 */
 alumno_grupos.modificarAlumnoGrupo = function (id_alumno_grupos,id_alumno,id_grupo,callback) {
 	if(connection){							
-		var campos = { fecha: fecha, id_alumno: id_alumno, id_horario_grupo: id_horario_grupo, observaciones: observaciones };
+		var campos = { id_alumno_grupos: id_alumno_grupos, id_alumno: id_alumno, id_grupo:id_grupo };
 		var sql = 'UPDATE alumno_grupos SET ? WHERE id_alumno_grupos ="'+id_alumno_grupos+'"';
 		connection.query(sql,campos, function(error){
 		  	if (error) {
@@ -67,4 +67,43 @@ alumno_grupos.borrarAlumnoGrupos =  function(id_alumno,callback) {
 }//alumno_grupos.borrarAlumnoGrupos
 
 /****************************************************************************************************************************/
+
+/***********************************************************SELECT***********************************************************/
+
+/*
+*	BUSCAR un alumno_grupo por id_alumno_grupo
+*/
+alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo = function(id_alumno_grupos,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno_grupos, id_alumno,id_grupo FROM alumno_grupos WHERE id_alumno_grupos ="'+id_alumno_grupo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo
+
+/*
+*	BUSCAR un id_grupo por id_alumno e id_grupo
+*/
+alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo = function(id_alumno,id_grupo,callback){
+	if(connection){
+		var sql = 'SELECT id_alumno_grupos FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'" AND id_grupo ="'+id_grupo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo
+
+/****************************************************************************************************************************/
+
 module.exports = alumno_grupos;

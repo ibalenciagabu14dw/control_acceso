@@ -16,7 +16,7 @@ http://localhost:3000/API/agregarAlumno?dni=69696969-Y&nombre=API&apellidos=API&
 router.post('/agregarAlumno', function(req, res, next) {
     alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length>0){
@@ -24,7 +24,7 @@ router.post('/agregarAlumno', function(req, res, next) {
             }else {
                 alumno.buscarAlumnoPorCorreo(req.query.correo, function(error,row){
                     if (error) {
-                        res.send('error conectando con la base de datos');
+                        res.send(error);
                         throw error;
                     }else {
                         if(row.length>0){
@@ -32,7 +32,7 @@ router.post('/agregarAlumno', function(req, res, next) {
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row){
                                 if (error) {
-                                    res.send('error conectando con la base de datos');
+                                    res.send(error);
                                     throw error; 
                                 }else {
                                     if(row.length>0){
@@ -40,7 +40,7 @@ router.post('/agregarAlumno', function(req, res, next) {
                                     }else {
                                         profesor.buscarProfesorPorDni(req.query.dni, function(error,row) {
                                             if (error) {
-                                                res.send('error conectando con la base de datos');
+                                                res.send(error);
                                                 throw error;
                                             }else{
                                                 if(row.length>0){
@@ -48,7 +48,7 @@ router.post('/agregarAlumno', function(req, res, next) {
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.query.correo, function(error,row){
                                                         if (error) {
-                                                            res.send('error conectando con la base de datos');
+                                                            res.send(error);
                                                             throw error;
                                                         }else {
                                                             if(row.length>0){
@@ -56,7 +56,7 @@ router.post('/agregarAlumno', function(req, res, next) {
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta, function(error,row){
                                                                     if (error) {
-                                                                        res.send('error conectando con la base de datos');
+                                                                        res.send(error);
                                                                         throw error; 
                                                                     }else {
                                                                         if(row.length>0){
@@ -64,8 +64,8 @@ router.post('/agregarAlumno', function(req, res, next) {
                                                                         }else {
                                                                             alumno.agregarAlumnoSinFoto(req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta, function(error,row){
                                                                                 if (error) {
+                                                                                    res.send('Error ala gregar el alumno')
                                                                                     throw error;
-                                                                                    res.send('Error al agregar alumno');
                                                                                 }else {
                                                                                     res.send('Alumno agregado correctamente');
                                                                                 }//else
@@ -101,6 +101,7 @@ http://localhost:3000/API/modificarAlumno?id_alumno=51&dni=76490150-F&nombre=pru
 router.post('/modificarAlumno', function(req, res, next) {
     alumno_grupos.borrarAlumnoGrupos(req.query.id_alumno, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }//if
     })//alumno_grupos.borrarAlumnoGrupos
@@ -109,6 +110,7 @@ router.post('/modificarAlumno', function(req, res, next) {
     for (var i = 0; i < data.length; i++) {
         alumno_grupos.agregarAlumnoGrupo(data[i],req.query.id_alumno, function(error,row) {
             if (error) {
+                res.send(error);
                 throw error;
             }//if
         })//alumno_grupos.agregarAlumnoGrupo
@@ -119,6 +121,7 @@ router.post('/modificarAlumno', function(req, res, next) {
     }else {
         convalidadas.borrarAsignaturaConvalidada(req.query.id_alumno, function(error,row) {
             if (error) {
+                res.send(error);
                 throw error;
             }//if
         })//convalidadas.borrarAsignaturaConvalidada
@@ -127,6 +130,7 @@ router.post('/modificarAlumno', function(req, res, next) {
         for (var i = 0; i < data2.length; i++) {
             convalidadas.agregarAsignaturaConvalidada(data2[i],req.query.id_alumno, function(error,row) {
                 if (error) {
+                    res.send(error);
                     throw error;
                 }//if
             })//convalidadas.agregarAsignaturaConvalidada
@@ -139,7 +143,7 @@ router.post('/modificarAlumno', function(req, res, next) {
 
     alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             dni_antiguo = row[0].dni;
@@ -150,7 +154,7 @@ router.post('/modificarAlumno', function(req, res, next) {
 
     alumno.buscarAlumnoPorDni(req.query.dni, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if((row.length>0)&&(req.query.dni!=dni_antiguo)){
@@ -158,7 +162,7 @@ router.post('/modificarAlumno', function(req, res, next) {
             }else {
                 alumno.buscarAlumnoPorCorreo(req.query.correo, function(error,row){
                     if (error) {
-                        res.send('error conectando con la base de datos');
+                        res.send(error);
                         throw error;
                     }else {
                         if((row.length>0)&&(req.query.correo!=correo_antiguo)){
@@ -167,7 +171,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                         }else {
                             alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row){
                                 if (error) {
-                                    res.send('error conectando con la base de datos');
+                                    res.send(error);
                                     throw error; 
                                 }else {
                                     if((row.length>0)&&(req.query.num_tarjeta!=num_tarjeta_antiguo)){
@@ -175,7 +179,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                     }else {
                                         profesor.buscarProfesorPorDni(req.query.dni, function(error,row) {
                                             if (error) {
-                                                res.send('error conectando con la base de datos');
+                                                res.send(error);
                                                 throw error;
                                             }else{
                                                 if((row.length>0)&&(req.query.dni!=dni_antiguo)){
@@ -183,7 +187,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                 }else {
                                                     profesor.buscarProfesorPorCorreo(req.query.correo, function(error,row){
                                                         if (error) {
-                                                            res.send('error conectando con la base de datos');
+                                                            res.send(error);
                                                             throw error;
                                                         }else {
                                                             if((row.length>0)&&(req.query.correo!=correo_antiguo)){
@@ -191,7 +195,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                             }else {
                                                                 profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta, function(error,row){
                                                                     if (error) {
-                                                                        res.send('error conectando con la base de datos');
+                                                                        res.send(error);
                                                                         throw error; 
                                                                     }else {
                                                                         if((row.length>0)&&(req.query.num_tarjeta!=num_tarjeta_antiguo)){
@@ -200,6 +204,7 @@ router.post('/modificarAlumno', function(req, res, next) {
                                                                             alumno.modificarAlumnoSinFoto(req.query.id_alumno,req.query.dni,req.query.nombre,req.query.apellidos,req.query.correo,req.query.num_tarjeta,req.query.tarjeta_activada, function(error,row){
                                                                                 if (error) {
                                                                                     throw error;
+                                                                                    res.send(error);
                                                                                 }else {
                                                                                     res.send('alumno modificado correctamente');
                                                                                 }//else
@@ -234,7 +239,7 @@ router.post('/modificarAlumno', function(req, res, next) {
 router.post('/borrarAlumno', function(req, res, next) {
     alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -242,8 +247,8 @@ router.post('/borrarAlumno', function(req, res, next) {
             }else{
                 alumno.borrarAlumno(req.query.id_alumno, function(error,row) {
                     if (error) {
-                        throw error;
                         res.send('error borrando alumno');
+                        throw error;
                     }else{
                         res.send('alumno borrado correctamente');
                     }//else
@@ -264,6 +269,7 @@ router.post('/borrarAlumno', function(req, res, next) {
 router.post('/buscarAlumnoPorId', function(req,res,next) {
     alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -281,6 +287,7 @@ router.post('/buscarAlumnoPorId', function(req,res,next) {
 router.post('/buscarAlumnoPorDni', function(req,res,next) {
     alumno.buscarAlumnoPorDniSinFoto(req.query.dni, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -298,6 +305,7 @@ router.post('/buscarAlumnoPorDni', function(req,res,next) {
 router.post('/buscarAlumnoPorTarjeta', function(req,res,next) {
     alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -315,6 +323,7 @@ router.post('/buscarAlumnoPorTarjeta', function(req,res,next) {
 router.post('/buscarAlumnoPorNombre', function(req,res,next) {
     alumno.buscarAlumnoPorNombreSinFoto(req.query.nombre, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -332,6 +341,7 @@ router.post('/buscarAlumnoPorNombre', function(req,res,next) {
 router.post('/buscarAlumnoPorNombreYApellidos', function(req,res,next) {
     alumno.buscarAlumnoPorNombreYApellidoSinFoto(req.query.nombre,req.query.apellidos, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -349,6 +359,7 @@ router.post('/buscarAlumnoPorNombreYApellidos', function(req,res,next) {
 router.post('/buscarAlumnoPorCorreo', function(req,res,next) {
     alumno.buscarAlumnoPorCorreoSinFoto(req.query.correo, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -367,7 +378,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorTarjeta', function(req,res,next) 
     var curr_time;
     time.horaActual(function(error,data){
         if (error){
-            console.log(error);
+            res.send(error);
             throw error;
         }else{
             curr_time=data;         
@@ -376,6 +387,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorTarjeta', function(req,res,next) 
     
     alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta,function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -383,6 +395,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorTarjeta', function(req,res,next) 
             }else{
                 alumno.buscarAulaEnLaQueTieneQueEstarPorTarjeta(req.query.num_tarjeta,curr_time,function(error,row) {
                     if (error) {
+                        res.send(error);
                         throw error;
                     }else{
                         if(row.length==0){
@@ -404,7 +417,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorId', function(req,res,next) {
     var curr_time;
     time.horaActual(function(error,data){
         if (error){
-            console.log(error);
+            res.send(error);
             throw error;
         }else{
             curr_time=data;         
@@ -413,6 +426,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorId', function(req,res,next) {
     
     alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno,function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -420,6 +434,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorId', function(req,res,next) {
             }else{
                 alumno.buscarAulaEnLaQueTieneQueEstarPorId(req.query.id_alumno,curr_time,function(error,row) {
                     if (error) {
+                        res.send(error);
                         throw error;
                     }else{
                         if(row.length==0){
@@ -440,7 +455,7 @@ router.post('/buscarAulaEnLaQueTieneQueEstarPorId', function(req,res,next) {
 router.post('/buscarPresenciaAlumno', function(req,res,next) {
     alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -448,8 +463,8 @@ router.post('/buscarPresenciaAlumno', function(req,res,next) {
             }else{
                 alumno.buscarPresenciaAlumno(req.query.num_tarjeta, function(error,row) {
                     if (error) {
-                        throw error;
                         res.send('el alumno no tiene prensencia');
+                        throw error;
                     }else{
                         res.send(row);
                     }//else
@@ -465,6 +480,7 @@ router.post('/buscarPresenciaAlumno', function(req,res,next) {
 router.post('/buscarTodosLosIdAlumno', function(req,res,next) {
     alumno.buscarTodosLosIdAlumno(function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -482,6 +498,7 @@ router.post('/buscarTodosLosIdAlumno', function(req,res,next) {
 router.post('/buscarTodosLosIdNombreApellidosAlumno', function(req,res,next) {
     alumno.buscarTodosLosIdNombreApellidosAlumno(function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){

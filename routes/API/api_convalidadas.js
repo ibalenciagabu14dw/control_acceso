@@ -41,6 +41,7 @@ router.post('/agregarConvalidada', function(req, res, next) {
                                     if(row.length>0){
                                         res.send('ese alumno ya tiene convalidada esa asignatura');
                                     }else{
+                                        console.log("feo");
                                         convalidadas.agregarAsignaturaConvalidada(req.query.id_asignatura,req.query.id_alumno, function (error,row) {
                                             if (error) {
                                                 res.send('error agregando convalidada');
@@ -104,6 +105,10 @@ router.post('/modificarConvalidadas', function(req, res, next) {
                                     res.send('error conectando con la base de datos');
                                     throw error;
                                 }else{
+                                    console.log("req.query.id_alumno:"+req.query.id_alumno);
+                                    console.log("id_alumno_antiguo:"+id_alumno_antiguo);
+                                    console.log("req.query.id_asignatura:"+req.query.id_asignatura);
+                                    console.log("id_asignatura_antiguo:"+id_asignatura_antiguo);
                                     if((row.length>0)&&(req.query.id_alumno!=id_alumno_antiguo)&&(req.query.id_asignatura!=id_asignatura_antiguo)){
                                         res.send('ese alumno ya tiene convalidada esa asignatura');
                                     }else{

@@ -44,7 +44,7 @@ $(document).ready(function() {
     		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre_grupo+"'>";
     		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
-  			formulario += "</div><br/>";     		
+  			formulario += "</div><br/>";   			     		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Nombre ya existente</span></div>";	
 				if(result[0].tipo == 'FP'){
 					formulario += "<div class='form-inline'>";
@@ -111,9 +111,9 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #alertNombre'),"error","Nombre ya existente");
+		                showAlert($('#resultado #alertNombre'),"error"," Grupo ya existente ");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Grupo modificado correctamente",'/config');
+		                showAlertRedirect($('#resultado #enlace2'),"ok"," Grupo modificado correctamente ",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -192,7 +192,7 @@ $(document).ready(function() {
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
-					showAlertRedirect("#enlace2","ok"," Grupo borrada correctamente",'/config');
+					showAlertRedirect("#enlace2","ok"," Grupo borrado correctamente",'/config');
 				}
 			})//done
 			.fail(function() {
@@ -231,6 +231,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

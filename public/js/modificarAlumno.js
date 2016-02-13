@@ -309,14 +309,28 @@ $('#resultado').on("click","#btnModificar",function () {
 	//funcion para buscar las asignaturas de un grupo
 	$('#resultado').on("change","#gruposdelAlumno" || "#gruposTodos",function () {
 		$(":checkbox").click(function(){
-	        var id = $(this).attr('id'); 
-		if ($(this).prop("checked")) {
+	    	var arrayId_grupo=[];
+	    $('#gruposdelAlumno  :checkbox').each(function(){
+	    	if($(this).prop('checked')){
+	    		arrayId_grupo.push($(this).attr('value'));
+	    	} })
+	   	$('#gruposTodos  :checkbox').each(function(){
+	    	if($(this).prop('checked')){
+	    		arrayId_grupo.push($(this).attr('value'));
+	    	} })
+	   	console.log(arrayId_grupo.length);
+	   	if (arrayId_grupo.length == 0){
+	   		$('#AsignaturaGrupoRestante').html('');
+			$('#AsignaturaGrupo').html('');
+	   	} else {
 					$.ajax({
-					url: '/configGrupo/buscarAsignaturasDelGrupo',
+					url: '/configGrupo/buscarAsignaturasDelosGrupos',
 					type: 'post',
 					dataType: 'json',
-					data:{ id_grupo: id},
+					data: {id_grupo:arrayId_grupo},
 					success:function (data) {
+						$('#AsignaturaGrupoRestante').html('');
+						$('#AsignaturaGrupo').html('');
 						var resp = "";
 						resp += "<div class='form-inline'>";
     					resp += "<div class='input-group'>";
@@ -342,12 +356,8 @@ $('#resultado').on("click","#btnModificar",function () {
 				.fail(function() {
 					console.log("error");
 				})//fail
-		} else {
-			console.log("no estaba checked");
-			$('#AsignaturaGrupo').html("");
-		}
 				/**/
-
+			}//.else
 			});//$(":checkbox").click(function()
 	});
 
@@ -485,14 +495,13 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		$('#resultado').on("change","#AsignaturaGrupo",function () {
+		$('#resultado').on("change","#AsignaturaGrupo" || "#AsignaturaGrupoRestante" || "#gruposdelAlumno"  || "#gruposTodos" ,function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
 		if ($(this).attr("checked",true)) {
 			$(this).attr("checked",false);
 		} else {
-			$(this).attr("checked",true);
-			console.log("no estaba checked");	
+			$(this).attr("checked",true)
 		}
 		});//$(":checkbox").click(function()
 	});
@@ -529,6 +538,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

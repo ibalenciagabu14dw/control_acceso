@@ -176,7 +176,7 @@ $(document).ready(function() {
 		                if (data.err=="existe"){
 		                showAlert("#alertClave","error"," Clave ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect("#enlace2","ok"," Asignatura añadida correctamente",'/config');
+		                showAlertRedirect("#enlace2","ok"," Asignatura modificada correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -296,6 +296,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

@@ -18,7 +18,7 @@ router.post('/updateFalta',  function(req,res,next){
     var id_alumno = req.body.id_alumno;
     var id_horario_grupo = req.body.id_horario_grupo;
     var observaciones = req.body.observaciones;    
-    falta.buscarFaltaExistente(fecha,id_alumno,id_horario_grupo, function (error,row) {
+    falta.buscarFaltaExistente(id_alumno,id_horario_grupo,observaciones, function (error,row) {
     if (error) {
       res.send({err:'bd'});
       throw error;

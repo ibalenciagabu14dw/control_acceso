@@ -68,22 +68,6 @@ alumno_grupos.borrarAlumnoGrupos =  function(id_alumno,callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
-*	BUSCAR todas los alumno_grupos
-*/
-alumno_grupos.buscarTodosLosAlumnoGrupos = function (callback) {
-	if(connection){							
-		connection.query('SELECT id_alumno_grupos, id_alumno,id_grupo FROM alumno_grupos', function(error,row){
-		  	if (error) {
-				console.log(error);
-				throw error;
-			}else{
-			    callback(null,row);
-			}//else
-		});//connection.query
-	}//if
-}//alumno_grupos.buscarTodosLosAlumnoGrupos
-
-/*
 *	BUSCAR un id_alumno_grupos por id_alumno_grupos
 */
 alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo = function(id_alumno_grupos,callback){

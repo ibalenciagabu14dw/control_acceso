@@ -11,7 +11,7 @@ var profesor = require('../models/profesor');
 /*
 * INSERTAR alumno
 */
-router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){   
+router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){ 
 var dni = req.body.dni;
 var nombre = req.body.nombre;
 var apellidos = req.body.apellidos;
@@ -23,7 +23,7 @@ var foto = req.file.buffer;
             res.send('error conectando con la base de datos');
             throw error;
         } else {
-            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+            if(row.length>0){
                 console.log({err:'ese DNI lo tiene un alumno'});
                 res.send({err:'existeDNI'});
             } else {
@@ -32,7 +32,7 @@ var foto = req.file.buffer;
                        res.send('error conectando con la base de datos');
                        throw error;
                     } else {
-                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                        if(row.length>0){
                             console.log({err:'ese correo lo tiene un alumno'});
                             res.send({err:'existeCorreo'});
                         } else {
@@ -41,7 +41,7 @@ var foto = req.file.buffer;
                                     res.send('error conectando con la base de datos');
                                     throw error; 
                                 } else {
-                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                    if(row.length>0){
                                         console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                         res.send({err:'existeTarjeta'});
                                     } else {
@@ -50,7 +50,7 @@ var foto = req.file.buffer;
                                                 res.send('error conectando con la base de datos');
                                                 throw error;
                                             } else {
-                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                if(row.length>0){
                                                     console.log({err:'ese DNI lo tiene un profesor'});
                                                     res.send({err:'existeDNI'});
                                                 } else {
@@ -59,7 +59,7 @@ var foto = req.file.buffer;
                                                            res.send('error conectando con la base de datos');
                                                            throw error; 
                                                         } else {
-                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                            if(row.length>0){
                                                                 console.log({err:'ese correo lo tiene un profesor'});
                                                                 res.send({err:'existeCorreo'});
                                                             } else {
@@ -68,7 +68,7 @@ var foto = req.file.buffer;
                                                                         res.send('error conectando con la base de datos');
                                                                         throw error;
                                                                     } else {
-                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                        if(row.length>0){
                                                                             console.log({err:'ese numero de tarjeta lo tiene un profesor'});
                                                                             res.send({err:'existeTarjeta'});
                                                                         } else {

@@ -111,7 +111,7 @@ $(document).ready(function() {
     		formulario += "<div id='gruposdelAlumno'>";
     		formulario += "</div>";
     		buscarTodosLosGrupos(result.id_alumno);
-    		formulario += "<div id='gruposTodos'>";
+    		formulario += "<div id='gruposTodos' hidden>";
     		formulario += "</div>";
     		buscarAsignaturasConvalidadasDelAlumno(result.id_alumno);
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
@@ -385,6 +385,8 @@ $('#resultado').on("click","#btnModificar",function () {
 							resp += "</tr>"
 						};
 						resp += "</table>";
+						resp += "<a id='btnMostrarGrupos' class='btn btn-info'>Mostrar Los Grupos</a>";
+						resp += "</br>";
 						$('#gruposdelAlumno').html(resp);
 					}
 				})//ajax
@@ -505,6 +507,18 @@ $('#resultado').on("click","#btnModificar",function () {
 		}
 		});//$(":checkbox").click(function()
 	});
+
+		$('#resultado').on("click","#btnMostrarGrupos",function(event) {
+			if ($('#resultado #btnMostrarGrupos').html() == "Mostrar Los Grupos"){
+				$('#resultado #gruposTodos ').show();
+		 		$('#resultado #btnMostrarGrupos').html("Ocultar los Grupos");
+			} else if ($('#resultado #btnMostrarGrupos').html() == "Ocultar los Grupos"){
+				$('#resultado #gruposTodos').hide();
+		 		$('#resultado #btnMostrarGrupos').html("Mostrar Los Grupos");				
+			}
+		 
+
+		});//click borrar formulario alumno
 
 
 

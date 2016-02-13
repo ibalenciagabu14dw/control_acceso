@@ -8,7 +8,7 @@ block content
     .form-inline#alertNumero
       .input-group
         label.input-group-addon(for='numero') NUMERO
-        input#numero.form-control.has-feedback(type='number', name='numero', placeholder='Escribe el numero')
+        input#numero.form-control.has-feedback(type='number', name='numero', min='1',placeholder='Escribe el numero')
         span#numero1.glyphicon.form-control-feedback
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
@@ -18,13 +18,13 @@ block content
     .form-inline#alertPiso
       .input-group
         label.input-group-addon(for='piso') PISO
-        input#piso.form-control.has-feedback(type='number', name='piso', placeholder='Escribe el piso')
+        input#piso.form-control.has-feedback(type='number', name='piso', min='0', placeholder='Escribe el piso')
         span#piso1.glyphicon.form-control-feedback
     br
     .form-inline#alertCapacidad
       .input-group
         label.input-group-addon(for='capacidad') CAPACIDAD
-        input#capacidad.form-control.has-feedback(type='number', name='capacidad', placeholder='Escribe la capacidad')
+        input#capacidad.form-control.has-feedback(type='number', name='capacidad', min='1', placeholder='Escribe la capacidad')
         span#capacidad1.glyphicon.form-control-feedback
     br
     button#send.btn.btn-success(name='send') Agregar

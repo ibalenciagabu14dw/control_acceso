@@ -153,9 +153,9 @@ $('#resultado').on("click","#btnModificar",function () {
 	            }else if (error.attr("id") == "apellidos-error"){
 	                showAlertValidate("#alertApellidos"," Solo Letras por favor");
 	            } else if (error.attr("id") == "correo-error"){
-	                showAlertValidate("#alertCorreo","Introduce un correo correcto");
+	                showAlertValidate("#alertCorreo"," Introduce un correo correcto");
 	            } else if (error.attr("id") == "foto-error"){
-	                showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+	                showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 	            }
 	            
 	        },
@@ -175,15 +175,15 @@ $('#resultado').on("click","#btnModificar",function () {
 			            .done(function(data) {
 			                console.log(data)
 				                if (data.err=="existeDNI"){
-				                showAlert($('#resultado #alertDni'),"error","dni ya existente");
+				                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 				                } else if (data.err=="existeCorreo"){
-				                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
+				                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 				                } else if (data.err=="existeTarjeta"){
-				                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
+				                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 				                } else if (data.err=="nogrupo"){
-				                showAlertValidate("#enlace2","Selecciona un grupo para el alumno");	
+				                showAlertValidate("#enlace2"," Selecciona un grupo para el alumno");	
 				                }else if (data.dato=="ok"){
-				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
+				                showAlertRedirect($('#resultado #enlace2'),"ok"," Alumno modificado correctamente",'/config');
 				                }
 				                console.log("success");
 					            })
@@ -195,7 +195,7 @@ $('#resultado').on("click","#btnModificar",function () {
 					var size = $('#'+attach_id)[0].files[0].size;
 					   if (size > 102400)// checks the file more than 100 Kb
 			           {
-			               showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+			               showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 			           } else {      
 			           
 	            	event.preventDefault();

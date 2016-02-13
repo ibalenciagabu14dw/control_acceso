@@ -19,7 +19,7 @@ var num_tarjeta = req.body.num_tarjeta;
             res.send('error conectando con la base de datos');
             throw error;
         } else {
-            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+            if(row.length>0){
                 console.log({err:'ese DNI lo tiene un alumno'});
                 res.send({err:'existeDNI'});
             } else {
@@ -28,7 +28,7 @@ var num_tarjeta = req.body.num_tarjeta;
                        res.send('error conectando con la base de datos');
                        throw error;
                     } else {
-                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                        if(row.length>0){
                             console.log({err:'ese correo lo tiene un alumno'});
                             res.send({err:'existeCorreo'});
                         } else {
@@ -37,7 +37,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                     res.send('error conectando con la base de datos');
                                     throw error; 
                                 } else {
-                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                    if(row.length>0){
                                         console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                         res.send({err:'existeTarjeta'});
                                     } else {
@@ -46,7 +46,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                                 res.send('error conectando con la base de datos');
                                                 throw error;
                                             } else {
-                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                if(row.length>0){
                                                     console.log({err:'ese DNI lo tiene un profesor'});
                                                     res.send({err:'existeDNI'});
                                                 } else {
@@ -55,7 +55,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                                            res.send('error conectando con la base de datos');
                                                            throw error; 
                                                         } else {
-                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                            if(row.length>0){
                                                                 console.log({err:'ese correo lo tiene un profesor'});
                                                                 res.send({err:'existeCorreo'});
                                                             } else {
@@ -64,7 +64,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                                                         res.send('error conectando con la base de datos');
                                                                         throw error;
                                                                     } else {
-                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                        if(row.length>0){
                                                                             console.log({err:'ese numero de tarjeta lo tiene un profesor'});
                                                                             res.send({err:'existeTarjeta'});
                                                                         } else {

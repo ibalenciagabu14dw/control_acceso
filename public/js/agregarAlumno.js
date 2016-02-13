@@ -71,9 +71,9 @@ $(document).ready(function() {
             }else if (error.attr("id") == "apellidos-error"){
                 showAlertValidate("#alertApellidos"," Solo Letras por favor");
             } else if (error.attr("id") == "correo-error"){
-                showAlertValidate("#alertCorreo","Introduce un correo correcto");
+                showAlertValidate("#alertCorreo"," Introduce un correo correcto");
             } else if (error.attr("id") == "foto-error"){
-                showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+                showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
             }
             
         },
@@ -95,13 +95,13 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existeDNI"){
-                    showAlert("#alertDni","error","DNI ya existente");
+                    showAlert("#alertDni","error"," DNI ya existente ");
                 } else if (data.err=="existeCorreo"){
-                    showAlert("#alertCorreo","error","Correo ya existente");    
+                    showAlert("#alertCorreo","error"," Correo ya existente ");    
                 }else if(data.err=="existeTarjeta"){
-                    showAlert("#alertNum_tarj","error","NumeroTarjeta ya existente");    
+                    showAlert("#alertNum_tarj","error"," Numero Tarjeta ya existente ");    
                 }else if (data.dato=="ok"){
-                    showAlertRedirect("#enlace","ok","Alumno añadida correctamente",'/config');
+                    showAlertRedirect("#enlace","ok"," Alumno añadido correctamente ",'/config');
                 }
                 console.log("successdata");
             })

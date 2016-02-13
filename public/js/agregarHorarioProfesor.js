@@ -129,9 +129,9 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
                 $('#selectDiaHorarioProfesor').prop("disabled",true);
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#enlace","error","HorarioProfesor ya existente");
+                showAlert("#enlace","error"," Horario Profesor ya existente ");
                 }else if (data.dato=="ok"){
-                showAlertRedirect("#enlace","ok","HorarioProfesor añadida correctamente",'/config');
+                showAlertRedirect("#enlace","ok"," Horario Profesor añadido correctamente",'/config');
                 }
                 console.log("success");
             })
@@ -173,6 +173,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

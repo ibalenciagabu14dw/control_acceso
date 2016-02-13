@@ -10,10 +10,9 @@ $(document).ready(function() {
 				}//success
 			})//ajax
 			.done(function(data) {
-				console.log(data);
 				if (data == "[]"){
 					console.log("error");
-					showAlertValidate("#titulo","No hay clase a esta hora");
+					showAlertValidate("#titulo"," No hay clase a esta hora ");
 				} else {
 					var JSONObject = JSON.parse(data);
 					console.log("success");

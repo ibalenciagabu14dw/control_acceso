@@ -488,6 +488,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);
@@ -497,6 +498,4 @@ function showAlertRedirect(lugar,tipo,texto,url) {
                 });
 
     }
-
-
 

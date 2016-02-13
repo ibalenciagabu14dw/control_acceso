@@ -114,9 +114,9 @@ $('#resultado').on("click","#btnModificar",function () {
 			            })
 			            .done(function(data) {
 				                if (data.err=="existe"){
-				                showAlert($('#resultado #enlace2'),"error","Falta ya existente");
+				                showAlert($('#resultado #enlace2'),"error"," Falta ya existente ");
 				                }else if (data.dato=="ok"){
-				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
+				                showAlertRedirect($('#resultado #enlace2'),"ok"," Falta modificada correctamente",'/config');
 				                }
 				                console.log("success");
 					            })
@@ -304,6 +304,7 @@ function showAlert(lugar,tipo,texto) {
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
         $('#mensaje').attr('class','alert alert-success fade in');
+
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
@@ -317,6 +318,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

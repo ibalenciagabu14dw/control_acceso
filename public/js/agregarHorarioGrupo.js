@@ -41,7 +41,7 @@ $(document).ready(function() {
         },
         submitHandler: function (form) {
             if ($('#hora_inicio').val() > $('#hora_final').val()){
-                 showAlertValidate("#alertHoraInicio"," hora_inicio < hora_final ");
+                 showAlertValidate("#alertHoraInicio"," Hora Inicio no puede ser mayor a la Hora Final ");
             } else {
             event.preventDefault();
             var data = $("#agregarHorarioGrupoForm").serializeArray();
@@ -57,9 +57,9 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#enlace","error","HorarioGrupo ya existente");
+                showAlert("#enlace","error"," Horario Grupo ya existente ");
                 }else if (data.dato=="ok"){
-                showAlertRedirect("#enlace","ok","HorarioGrupo añadida correctamente",'/config');
+                showAlertRedirect("#enlace","ok"," Horario Grupo añadido correctamente ",'/config');
                 }
                 console.log("success");
             })
@@ -103,6 +103,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

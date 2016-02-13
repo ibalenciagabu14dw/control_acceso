@@ -187,7 +187,7 @@ $(document).ready(function() {
 	        },
 	        submitHandler: function (form) {
 	        if($('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== false){
-	        		showAlertValidate("#enlace2","El profesor tiene que tener un asignatura");
+	        		showAlertValidate("#enlace2"," El profesor tiene que tener una asignatura");
 	        } else {			
 	        	
 	        if ($('#resultado #foto').val() == ''){
@@ -230,7 +230,7 @@ $(document).ready(function() {
 					var size = $('#'+attach_id)[0].files[0].size;
 					   if (size > 102400)// checks the file more than 100 Kb
 			           {
-			               showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+			               showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 			           } else {
 	            event.preventDefault();
 	            $('#password').attr('disabled',true);  
@@ -250,13 +250,13 @@ $(document).ready(function() {
 	                console.log(data)
 	                $('#password').attr('disabled',false);
 		                if (data.err=="existeDNI"){
-		                showAlert($('#resultado #alertDni'),"error","dni ya existente");
+		                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 		                } else if (data.err=="existeCorreo"){
-		                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
+		                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
-		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
+		                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Profesor modificada correctamente",'/config');
+		                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })

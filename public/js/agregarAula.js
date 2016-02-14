@@ -53,6 +53,8 @@ $(document).ready(function() {
                 console.log(data);
                 if (data.err=="existe"){
                 showAlert("#alertNumero","error"," Aula ya existente ");
+                $('#numero').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#numero1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok","Aula añadida correctamente",'/config');
                 }

@@ -47,6 +47,8 @@ $(document).ready(function() {
                 console.log(data);
                 if (data.err=="existe"){
                 showAlert("#alertNombre","error"," Grupo ya existente ");
+                $('#nombre').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#nombre1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok"," Grupo añadido correctamente ",'/config');
                 }

@@ -93,7 +93,6 @@ horario_grupo.buscarHorarioGrupoPorId = function (id_horario_grupo,callback) {
 *	BUSCAR horario_grupo por nombre
 */
 horario_grupo.buscarHorarioGrupoPorNombre = function(nombre,callback){
-	console.log(nombre);
 	if(connection){
 		var sql = 'SELECT id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE nombre_grupo LIKE "'+nombre+'%'+'")';
 		connection.query(sql,function (error,row) {

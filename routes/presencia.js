@@ -8,7 +8,7 @@ var dispositivo = require('../models/dispositivo');
 /* GET presencia page. */
 router.get('/', function(req, res, next) {
 	//actualizar ultima conexion del dispositivo
-	dispositivo.updateUltimaConexion(req.query.room, function (error) {
+	dispositivo.modificarUltimaConexion(req.query.room, function (error) {
 		if (error) {
 			console.log(error);
 			throw error;

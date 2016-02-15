@@ -7,7 +7,6 @@ var asignatura = require('../models/asignatura');
 var grupo = require('../models/grupo');
 
 router.post('/agregarHorarioGrupo', function(req,res,next){
-  console.log(req.body);
   var dia_semana = req.body.dia;
   var hora_inicio = req.body.hora_inicio;
   var hora_final = req.body.hora_final;
@@ -77,7 +76,6 @@ router.post('/updateHorarioGrupo',  function(req,res,next){
 
 router.post('/buscarHorarioGrupoNombre', function(req,res,next) {
   var nombre = req.body.nombre;
-  console.log(req.body);
   horario_grupo.buscarHorarioGrupoPorNombre(nombre, function(error,row) {
     if (error) {
       throw error;

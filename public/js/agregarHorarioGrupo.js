@@ -42,6 +42,10 @@ $(document).ready(function() {
         submitHandler: function (form) {
             if ($('#hora_inicio').val() > $('#hora_final').val()){
                  showAlertValidate("#alertHoraInicio"," Hora Inicio no puede ser mayor a la Hora Final ");
+                $('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                
             } else {
             event.preventDefault();
             var data = $("#agregarHorarioGrupoForm").serializeArray();
@@ -55,9 +59,20 @@ $(document).ready(function() {
                 }
             })
             .done(function(data) {
-                console.log(data);
                 if (data.err=="existe"){
                 showAlert("#enlace","error"," Horario Grupo ya existente ");
+                $('#selectDiaHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#selectDiaHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#selectHorarioGrupoGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#selectHorarioGrupoGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#selectHorarioGrupoAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#selectHorarioGrupoAsignatura1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#selectHorarioGrupoAula').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#selectHorarioGrupoAula1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                                                
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok"," Horario Grupo añadido correctamente ",'/config');
                 }

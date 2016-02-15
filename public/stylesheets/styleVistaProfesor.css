@@ -1,8 +1,10 @@
 h1{
 	float:left;
+	height: 100%;
 }
 body{
 	padding-top: 0px;
+	height: 100%;
 }
 .filaAlumnos{
 	float:left;

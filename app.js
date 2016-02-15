@@ -77,7 +77,6 @@ app.io.on('connection', function(socket){
   console.log("conectado");
   //al escuchar cambiaCliente desde el cliente
   socket.on('cambiaCliente', function(msg){
-    console.log(msg);
     //update presencia alumno
     alumno.modificarPresenciaDelAlumno(msg, function (error) {
       if (error) {
@@ -85,7 +84,6 @@ app.io.on('connection', function(socket){
       }else{
         //emitir cambiaServidor al cliente para cambiar color presencia alumno
         app.io.emit('cambiaServidor',msg);
-        console.log("ok update presencia alumno por io");
       }
     })
   });

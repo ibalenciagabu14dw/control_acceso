@@ -3,9 +3,17 @@ var router = express.Router();
 var alumno = require('../models/alumno');
 var profesor = require('../models/profesor');
 var time = require('../models/time');
+var dispositivo = require('../models/dispositivo');
 
 /* GET presencia page. */
 router.get('/', function(req, res, next) {
+	//actualizar ultima conexion del dispositivo
+	dispositivo.updateUltimaConexion(req.query.room, function (error) {
+		if (error) {
+			console.log(error);
+			throw error;
+		};
+	})//updateUltimaConexion
 	//socket.io variable global
 	var io = req.app.io;
 	var curr_time;
@@ -15,7 +23,6 @@ router.get('/', function(req, res, next) {
 				throw error;
 			}else{
 				curr_time = data;
-				console.log(curr_time);
 			}//.else
 		});//.time.horaActual
 	}else{
@@ -33,10 +40,11 @@ router.get('/', function(req, res, next) {
 							throw error;
 						}else{
 							if (req.query.room == data[0].numero_dispositivo) {
+								console.log(data[0].numero_dispositivo);
 								alumno.modificarPresenciaDelAlumno(req.query.num_tarjeta,function (error) {
 									if (error) {
-										res.send("ko");
 										console.log("Fallo update presencia alumno");
+										res.send("ko");
 										throw error;
 									}else{
 										//emitir al cliente para cambiar color presencia alumno
@@ -60,6 +68,7 @@ router.get('/', function(req, res, next) {
 			profesor.buscarProfesorPorTarjeta(req.query.num_tarjeta,function (error,data) {
 				if (data.length != 0) {
 					if (data[0].tarjeta_activada == 0) {
+						console.log("Tarjeta no activada");
 						res.send("ko");
 					}else{
 						profesor.buscarAulaEnLaQueTieneQueEstarPorTarjeta(req.query.num_tarjeta,curr_time,function (error,data) {
@@ -97,5 +106,9 @@ router.get('/', function(req, res, next) {
 		}//else if data.length 0 alumno	
 	});//.alumno.buscarAlumnoPorTarjeta
 });//.router.get('/', function(req, res, next)
+
+router.get('/dispositivos',function(req,res,next) {
+	res.send("ok");
+})//presencia dispositivos
 
 module.exports = router;

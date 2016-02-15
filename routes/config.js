@@ -52,7 +52,20 @@ router.get('/configPersonas/modificarProfesor', function(req, res, next) {
   res.render('modificarProfesor', { title: 'modificarProfesor' });
 });
 
+var mqtt = require('mqtt');
+var client  = mqtt.connect('mqtt://test.mosquitto.org');
+client.on('connect', function () {
+  client.subscribe('dispositivosArduino');
+  client.publish('dispositivosArduino', 'status');
+});
 router.get('/configDispositivos', function(req, res, next) {
+  var io = req.app.io;
+  io.on('connection',function (socket) {
+    socket.on('dispositivos', function(msg){
+      console.log(msg);
+    });
+  })//io
+
   res.render('configDispositivos', { title: 'configDispositivos' });
 });
 

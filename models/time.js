@@ -17,7 +17,7 @@ time.activarAutomatizacion = function (io,callback) {
 	var schedule = {
 	    schedules:
 	    [
-	        {t:[23400]},//07:30 UTC()+1 23400
+	        {t:[26880]},//07:30 UTC()+1 23400
 	    ],
 	    exceptions:
 	    [
@@ -49,9 +49,9 @@ time.activarAutomatizacion = function (io,callback) {
 	   			}else{
 	   				//configurar el segundo trigger con las horas finales de cada clase en segundos
 					for (var i = 0; i < data.length; i++) {
-						//var sec = 29220 + (i*60);
-						var hora = data[i].hora_final.split(':');
-						var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
+						var sec = 26940 + (i*60);
+						//var hora = data[i].hora_final.split(':');
+						//var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 						schedule2.schedules.push({t:[sec]});
 					};
 					//activar segundo trigger

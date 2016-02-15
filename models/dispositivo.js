@@ -2,7 +2,7 @@ var dispositivo = {};
 var connection = require('../models/connection');
 var time = require('../models/time');
 
-dispositivo.updateUltimaConexion = function (id,callback) {
+dispositivo.modificarUltimaConexion = function (id,callback) {
 	var diaCompleto;
 	var hora;
 	time.diaCompleto(function (error,data) {
@@ -32,6 +32,26 @@ dispositivo.updateUltimaConexion = function (id,callback) {
 			})//horaActual
 		}//else error
 	})//diaCompleto
-}//updateUltimaConexion
+}//modificarUltimaConexion
+
+dispositivo.buscarTodosLosDispositivos = function (callback) {
+	if (connection) {
+		var sql = 'SELECT numero_dispositivo,ultima_conexion FROM dispositivos';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				var dispositivosArray = [];
+				var ultimaConexionArray =[];
+				for (var i = 0; i < row.length; i++) {
+					dispositivosArray.push(row[i].numero_dispositivo);
+					ultimaConexionArray.push(row[i].ultima_conexion);
+				};
+				callback(null,dispositivosArray,ultimaConexionArray);
+			}
+		})//connection.query
+	};
+}//buscarTodosLosDispositivos
 
 module.exports = dispositivo;

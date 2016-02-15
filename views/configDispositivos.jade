@@ -1,15 +1,18 @@
 extends layout
+block extraHeader
+  link(rel='stylesheet', href='/stylesheets/styleConfig.css')
+  link(rel='stylesheet', href='/stylesheets/styleDispositivos.css')
 
 block content
-  h1#titulo= title
-  p Welcome to #{title}
-  a#enlace(href='#') AgregarDispositivo
-  br
-  a#enlace(href='#') ModificarDispositivo
-  br
-  a#enlace(href='#') BorrarDispositivo
-  br
-  a#enlace(href='/config') Volver
+  include ./includes/menuConfig.jade
+  table#tablaDispositivos
+    - for (var i = 0; i < dispositivos.length; ++i) {
+        tr.filaDispositivos
+          td(id=dispositivos[i],class='celdaDispositivo')
+           img(src='../images/rfid.jpg',id='imagenDispositivo')
+           p= dispositivos[i]
+           p= conexiones[i]
+    - }
   script
     include ../public/publicJs/socket.io.js
     include ../public/js/configDispositivos.js

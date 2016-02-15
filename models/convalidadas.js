@@ -49,7 +49,7 @@ convalidadas.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
 /*
 *	BUSCAR asignaturas que tiene el alumno para convalidar
 */
-asignatura.buscarNoConvalidadasPorIdAlumno = function(id_alumno,callback){
+convalidadas.buscarNoConvalidadasPorIdAlumno = function(id_alumno,callback){
 	if(connection){
 		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura from convalidadas where id_alumno = ' + connection.escape(id_alumno)+') AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
 		connection.query(sql,function (error,row) {
@@ -60,12 +60,12 @@ asignatura.buscarNoConvalidadasPorIdAlumno = function(id_alumno,callback){
 			}//else
 		});//connection.query
 	}//if
-}//asignatura.buscarNoConvalidadasPorIdAlumno
+}//convalidadas.buscarNoConvalidadasPorIdAlumno
 
 /*
-*	BUSCAR asignaturas convalidadas por id_alumno
+*	BUSCAR convalidadass convalidadas por id_alumno
 */
-asignatura.buscarConvalidadasPorIdAlumno = function(id_alumno,callback){
+convalidadas.buscarConvalidadasPorIdAlumno = function(id_alumno,callback){
 	if(connection){
 		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura in (SELECT id_asignatura from convalidadas where id_alumno = ' + connection.escape(id_alumno)+') AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
 		connection.query(sql,function (error,row) {
@@ -76,7 +76,7 @@ asignatura.buscarConvalidadasPorIdAlumno = function(id_alumno,callback){
 			}//else
 		});//connection.query
 	}//if
-}//asignatura.buscarConvalidadasPorIdAlumno
+}//convalidadas.buscarConvalidadasPorIdAlumno
 
 /***********************************************************************************************/
 

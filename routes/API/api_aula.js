@@ -180,23 +180,6 @@ router.post('/buscarAulaPorNumero', function(req,res,next) {
     })//aula.buscarAulaPorNumero
 });//router.post('/buscarAulaPorNumero
 
-/*
-* BUSCAR aula por numero OK
-*/
-router.post('/buscarAulaPorIdYNumero', function(req,res,next) {
-    aula.buscarAulaPorIdYNumero(req.query.id_aula,req.query.numero, function(error,row) {
-        if (error) {
-            throw error;
-        }else{
-            if(row.length==0){
-                res.send('No hay aula con ese id_aula y numero');
-            }else{
-                res.send(row);
-            }//else
-        }//else
-    })//aula.buscarAulaPorIdYNumero
-});//router.post('/buscarAulaPorIdYNumero
-
 /****************************************************************************************************************************/
 
 module.exports = router;

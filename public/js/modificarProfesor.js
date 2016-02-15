@@ -179,14 +179,20 @@ $(document).ready(function() {
 	            }else if (error.attr("id") == "apellidos-error"){
 	                showAlertValidate("#alertApellidos"," Solo Letras por favor");
 	            } else if (error.attr("id") == "correo-error"){
-	                showAlertValidate("#alertCorreo","Introduce un correo correcto");
+	                showAlertValidate("#alertCorreo"," Introduce un correo correcto");
 	            } else if (error.attr("id") == "foto-error"){
-	                showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+	                showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 	            }
 	            
 	        },
 	        submitHandler: function (form) {
+	        if($('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== false){
+	        		showAlertValidate("#enlace2"," El profesor tiene que tener una asignatura");
+	        } else {			
+	        	
 	        if ($('#resultado #foto').val() == ''){
+
+	        	
 	        	event.preventDefault();
 	            $('#password').attr('disabled',true);  
 	            var data = $("#formUpdate").serializeArray();
@@ -202,13 +208,13 @@ $(document).ready(function() {
 	                console.log(data)
 	                $('#password').attr('disabled',false);
 		                if (data.err=="existeDNI"){
-		                showAlert($('#resultado #alertDni'),"error","dni ya existente");
+		                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 		                } else if (data.err=="existeCorreo"){
-		                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
+		                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
-		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
+		                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Profesor modificada correctamente",'/config');
+		                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -224,7 +230,7 @@ $(document).ready(function() {
 					var size = $('#'+attach_id)[0].files[0].size;
 					   if (size > 102400)// checks the file more than 100 Kb
 			           {
-			               showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+			               showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 			           } else {
 	            event.preventDefault();
 	            $('#password').attr('disabled',true);  
@@ -244,13 +250,13 @@ $(document).ready(function() {
 	                console.log(data)
 	                $('#password').attr('disabled',false);
 		                if (data.err=="existeDNI"){
-		                showAlert($('#resultado #alertDni'),"error","dni ya existente");
+		                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 		                } else if (data.err=="existeCorreo"){
-		                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
+		                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
-		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
+		                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Profesor modificada correctamente",'/config');
+		                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -262,7 +268,8 @@ $(document).ready(function() {
 	            *   Form Submit Fin
 	            */
 	        }//.else if (size > 102400)
-	        }//.else	
+	        }//.else
+	        }//.else
 	        }//submitHandler
 	    });//Validate
 	  //$( "#target" ).submit();
@@ -271,7 +278,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarAsignaturasQueImparte (id) {
 		$.ajax({
-			url: '/configAsignatura/buscarAsignaturasQueImparte',
+			url: '/configProfesor/buscarAsignaturasQueImparte',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -307,7 +314,7 @@ $(document).ready(function() {
 		//Funcion con buscar asignaturas
 	function buscarTodasLasAsignaturas (id) {
 		$.ajax({
-			url: '/configAsignatura/buscarAsignaturasQueNoImpartePorId',
+			url: '/configProfesor/buscarAsignaturasQueNoImpartePorId',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id },
@@ -336,9 +343,9 @@ $(document).ready(function() {
 	}//function buscarAsignaturas
 	
 			//Funcion con buscar asignaturas
-	function buscarTodasLasAsignaturasDelTipo (id,tipo) {
+	function buscarAsignaturasQueNoImpartePorTipo (id,tipo) {
 		$.ajax({
-			url: '/configAsignatura/buscarTodasLasAsignaturasDelTipo',
+			url: '/configProfesor/buscarAsignaturasQueNoImpartePorTipo',
 			type: 'post',
 			dataType: 'json',
 			data:{ id_profesor:id , tipo:tipo},
@@ -440,10 +447,10 @@ $(document).ready(function() {
 		 //alert( this.value );
 		 if(this.value == "FP"){
 		 	//alert("has elegido asignaturas FP");
-		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
+		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #id_profesor').val(),this.value);
 		 } else if(this.value == "Bachiller"){
 		 	//alert("has elegido asignaturas Bachiller");
-		 	buscarTodasLasAsignaturasDelTipo($('#resultado #id_profesor').val(),this.value);
+		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #id_profesor').val(),this.value);
 		 } else {
 		 	//alert("has elegido todas");
 		 	buscarTodasLasAsignaturas($('#resultado #id_profesor').val());
@@ -481,6 +488,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);
@@ -490,6 +498,4 @@ function showAlertRedirect(lugar,tipo,texto,url) {
                 });
 
     }
-
-
 

@@ -186,9 +186,9 @@ $(document).ready(function() {
 	            })
 	            .done(function(data) {
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #enlace2'),"error","Horario Profesor ya existente");
+		                showAlert($('#resultado #enlace2'),"error"," Horario Profesor ya existente ");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Horario Profesor modificado correctamente",'/config');
+		                showAlertRedirect($('#resultado #enlace2'),"ok"," Horario Profesor modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -250,7 +250,7 @@ $(document).ready(function() {
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();
-		if(confirm("Estas seguro de borrar el horario del grupo?")) {
+		if(confirm("Estas seguro de borrar el horario del profesor?")) {
 			$.ajax({
 				url: '/configHorarioProfesor/borrarHorarioProfesor',
 				type: 'post',
@@ -303,6 +303,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

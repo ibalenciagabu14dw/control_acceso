@@ -81,6 +81,8 @@ $(document).ready(function() {
                 console.log(data);
                 if (data.err=="existe"){
                 showAlert("#alertClave","error"," Clave ya existente");
+                $('#clave').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#clave1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok"," Asignatura añadida correctamente",'/config');
                 }
@@ -124,6 +126,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

@@ -206,6 +206,48 @@ grupo.buscarAsignaturasDeUnGrupo = function (id_grupo,callback) {
 		}//if
 	}//grupo.buscarAsignaturasDeUnGrupo
 
+/*
+*	BUSCAR asignaturas de un grupo
+*/
+grupo.buscarAsignaturasDeLosGrupos = function (id_GrupoArray,callback) {
+	var array = id_GrupoArray;
+	var string = JSON.stringify(array);
+	var string2 = string.slice(14);
+	string2 = string2.replace('}','');
+	string2 = string2.replace('[','(');
+	string2 = string2.replace(']',')');
+	var i=0;
+	do {
+	   i += 1;
+	   string2 = string2.replace('"','');
+	} while (i < string2.length);
+	if (string2.length == 1){
+		if(connection){
+			var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo ="'+string2+'"))';
+			connection.query(sql,function (error,row) {
+				if (error) {
+					throw error;
+					console.log(error);
+				}else{
+					callback(null,row);
+				}//else
+			});//connection.query
+		}//if
+	} else if ((string2.length > 1)) {
+		if(connection){
+				var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo IN '+string2+'))';
+				connection.query(sql,function (error,row) {
+					if (error) {
+						throw error;
+						console.log(error);
+					}else{
+						callback(null,row);
+					}//else
+				});//connection.query
+		}//if
+	}//.else	
+	}//grupo.buscarAsignaturasDeUnGrupo
+
 /****************************************************************************************************************************/
 
 module.exports = grupo;

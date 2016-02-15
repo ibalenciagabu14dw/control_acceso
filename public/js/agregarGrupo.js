@@ -46,9 +46,11 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#alertNombre","error","Grupo ya existente");
+                showAlert("#alertNombre","error"," Grupo ya existente ");
+                $('#nombre').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#nombre1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
                 }else if (data.dato=="ok"){
-                showAlertRedirect("#enlace","ok","Grupo añadido correctamente",'/config');
+                showAlertRedirect("#enlace","ok"," Grupo añadido correctamente ",'/config');
                 }
                 console.log("success");
             })
@@ -90,6 +92,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

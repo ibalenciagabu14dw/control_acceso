@@ -38,7 +38,7 @@ $(document).ready(function() {
   			formulario += "<div class='form-inline' id='alertNumero'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='numero' class='input-group-addon'>NUMERO</label>";
-    		formulario += "<input type='text' id='numero' name='numero' class='form-control has-feedback' value='"+result[0].numero+"'>";
+    		formulario += "<input type='number' id='numero' name='numero' min='1' class='form-control has-feedback' value='"+result[0].numero+"'>";
     		formulario += "<span id='numero1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
@@ -46,14 +46,14 @@ $(document).ready(function() {
   			formulario += "<div class='form-inline' id='alertPiso'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='piso' class='input-group-addon'>PISO</label>";    		
-    		formulario += "<input type='text' id='piso' name='piso' class='form-control has-feedback' value='"+result[0].piso+"'>";
+    		formulario += "<input type='number' id='piso' name='piso' min='0' class='form-control has-feedback' value='"+result[0].piso+"'>";
     		formulario += "<span id='piso1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline' id='alertCapacidad'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='capacidad' class='input-group-addon'>CAPACIDAD</label>";         		
-       		formulario += "<input type='text' id='capacidad' name='capacidad' class='form-control has-feedback' value='"+result[0].capacidad+"'>";
+       		formulario += "<input type='number' id='capacidad' name='capacidad' min='1' class='form-control has-feedback' value='"+result[0].capacidad+"'>";
     		formulario += "<span id='capacidad1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div>";			
@@ -107,7 +107,7 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #alertNumero'),"error","Numero ya existente");
+		                showAlert($('#resultado #alertNumero'),"error"," Aula ya existente ");
 		                }else if (data.dato=="ok"){
 		                showAlertRedirect($('#resultado #enlace2'),"ok","Aula modificada correctamente",'/config');
 		                }
@@ -227,6 +227,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

@@ -14,8 +14,8 @@ asignatura.agregarAsignatura = function (nombre,clave,obligatoria,tipo,callback)
 		var sqlagregarAsignatura = 'INSERT INTO asignaturas SET ?';
 		connection.query(sqlagregarAsignatura,asignatura, function(error,row){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -36,8 +36,8 @@ asignatura.modificarAsigntura = function (id_asignatura,nombre,clave,obligatoria
 		var sqlmodificarAsigntura = 'UPDATE asignaturas SET ? WHERE id_asignatura ="'+id_asignatura+'"';
 		connection.query(sqlmodificarAsigntura,asignatura, function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -56,8 +56,8 @@ asignatura.borrarAsignatura = function (id_asignatura,callback) {
 	if(connection){							
 		connection.query('DELETE FROM asignaturas WHERE id_asignatura= "'+id_asignatura+'"', function(error){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,{dato:"ok"});
 			}//else
@@ -76,8 +76,8 @@ asignatura.buscarTodasLasAsignaturas = function (callback) {
 	if(connection){							
 		connection.query('SELECT id_asignatura,nombre, clave, obligatoria, tipo FROM asignaturas', function(error,row){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 			    callback(null,row);
 			}//else
@@ -118,8 +118,8 @@ asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
 		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE id_asignatura ='+connection.escape(id_asignatura);
 		connection.query(sql,function (error,row) {
 			if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else
@@ -135,8 +135,8 @@ asignatura.buscarAsignaturaPorNombre = function(nombre,callback){
 		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql, function (error, row){
 			if(error){
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else
@@ -152,8 +152,8 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE clave = ' + connection.escape(clave);
 		connection.query(sql, function (error, row){
 			if(error){
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else
@@ -162,7 +162,7 @@ asignatura.buscarAsignaturaPorClave = function(clave,callback){
 }//asignatura.buscarAsignaturaPorClave
 
 /*
-*	BUSCAR asignaturas por id_asignatura y clave
+*	BUSCAR asignatura por id_asignatura y clave
 */
 asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 	if(connection){
@@ -177,7 +177,6 @@ asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 		});//connection.query
 	}//if
 }//asignatura.buscarAsignaturaPorIdYClave
-
 
 /*
 *	BUSCAR asignaturas que tiene el alumno para convalidar
@@ -207,7 +206,6 @@ asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno = function(id_alumno
 		});//connection.query
 	}//if
 }//grupo.buscarAsignaturasQuePerteneceUnAlumno
-
 
 /****************************************************************************************************************************/
 

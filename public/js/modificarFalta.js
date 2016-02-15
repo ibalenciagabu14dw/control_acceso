@@ -37,10 +37,11 @@ $(document).ready(function() {
 		buscarFaltaId(datos[0].id)
 		.done(function(result) {
     		var formulario = "<form class='form-group' action='/updateFalta' id='formUpdate' name='formUpdate' method='post'>";
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_faltas' class='input-group-addon'>ID FALTA</label>";   		
-    		formulario += "<input type='text' id='id_faltas' name='id_faltas' class='form-control' value='"+result[0].id_faltas+"'readonly>";
+    		formulario += "<input type='text' id='id_faltas' name='id_faltas' class='form-control has-feedback' value='"+result[0].id_faltas+"'readonly>";
+    		formulario += "<span id='id_faltas1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
 			formulario += "<div class='form-inline'>";
@@ -52,13 +53,13 @@ $(document).ready(function() {
        		formulario += "<span id='fecha1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
-  			mostrarTodosLosAlumnosIdNombreApellidos(result[0].id_alumno);
+  			buscarTodosLosIdNombreApellidosAlumno(result[0].id_alumno);
 			formulario += "<div id='alumnos'>";
     		formulario += "</div>";	
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
-    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'>";
+    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"' readonly>";
     		formulario += "<span id='id_horario_grupo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
@@ -114,9 +115,9 @@ $('#resultado').on("click","#btnModificar",function () {
 			            })
 			            .done(function(data) {
 				                if (data.err=="existe"){
-				                showAlert($('#resultado #enlace2'),"error","Falta ya existente");
+				                showAlert($('#resultado #enlace2'),"error"," Falta ya existente ");
 				                }else if (data.dato=="ok"){
-				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
+				                showAlertRedirect($('#resultado #enlace2'),"ok"," Falta modificada correctamente",'/config');
 				                }
 				                console.log("success");
 					            })
@@ -201,10 +202,10 @@ $('#resultado').on("click","#btnModificar",function () {
 	});//click borrar formulario alumno
 
 
-		function mostrarTodosLosAlumnosIdNombreApellidos (id_alumno) {
+		function buscarTodosLosIdNombreApellidosAlumno (id_alumno) {
 			var result = id_alumno;
 		$.ajax({
-			url: '/configAlumno/mostrarTodosLosAlumnosIdNombreApellidos',
+			url: '/configAlumno/buscarTodosLosIdNombreApellidosAlumno',
 			type: 'post',
 			dataType: 'json',
 			success:function (data) {
@@ -233,7 +234,7 @@ $('#resultado').on("click","#btnModificar",function () {
 		.fail(function() {
 			console.log("error");
 		})//fail
-	}//function mostrarTodosLosAlumnosIdNombreApellidos
+	}//function buscarTodosLosIdNombreApellidosAlumno
 
 
 			function mostrarHorarioGrupo (id_horario_grupo) {
@@ -304,6 +305,7 @@ function showAlert(lugar,tipo,texto) {
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
         $('#mensaje').attr('class','alert alert-success fade in');
+
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
@@ -317,6 +319,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

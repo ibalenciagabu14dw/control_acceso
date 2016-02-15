@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var profesor = require('../models/profesor');
+var alumno = require('../models/alumno');
 var multer = require('multer');
 var time = require("../models/time");
 
@@ -18,7 +19,7 @@ var num_tarjeta = req.body.num_tarjeta;
             res.send('error conectando con la base de datos');
             throw error;
         } else {
-            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+            if(row.length>0){
                 console.log({err:'ese DNI lo tiene un alumno'});
                 res.send({err:'existeDNI'});
             } else {
@@ -27,7 +28,7 @@ var num_tarjeta = req.body.num_tarjeta;
                        res.send('error conectando con la base de datos');
                        throw error;
                     } else {
-                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                        if(row.length>0){
                             console.log({err:'ese correo lo tiene un alumno'});
                             res.send({err:'existeCorreo'});
                         } else {
@@ -36,7 +37,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                     res.send('error conectando con la base de datos');
                                     throw error; 
                                 } else {
-                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                    if(row.length>0){
                                         console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                         res.send({err:'existeTarjeta'});
                                     } else {
@@ -45,7 +46,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                                 res.send('error conectando con la base de datos');
                                                 throw error;
                                             } else {
-                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                if(row.length>0){
                                                     console.log({err:'ese DNI lo tiene un profesor'});
                                                     res.send({err:'existeDNI'});
                                                 } else {
@@ -54,7 +55,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                                            res.send('error conectando con la base de datos');
                                                            throw error; 
                                                         } else {
-                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                            if(row.length>0){
                                                                 console.log({err:'ese correo lo tiene un profesor'});
                                                                 res.send({err:'existeCorreo'});
                                                             } else {
@@ -63,7 +64,7 @@ var num_tarjeta = req.body.num_tarjeta;
                                                                         res.send('error conectando con la base de datos');
                                                                         throw error;
                                                                     } else {
-                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                        if(row.length>0){
                                                                             console.log({err:'ese numero de tarjeta lo tiene un profesor'});
                                                                             res.send({err:'existeTarjeta'});
                                                                         } else {
@@ -411,13 +412,56 @@ router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
 });//router.post('/buscarProfesorPorIdAulaEnUnaHora', function(req,res,next){
 
 router.post('/mostrarTodosLosProfesoresIdNombreApellidos', function(req,res,next){
-  profesor.mostrarTodosLosIdNombreApellidosProfesor(function(error,row) {
-    if (error) {
-      throw error;
-    }else{
-      res.send(row);
-    }
-  })//buscarProfesorPorNombre
-});//get /configPersonas/modificarProfesor/buscarProfesorNombre
+    profesor.mostrarTodosLosIdNombreApellidosProfesor(function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//profesor.mostrarTodosLosIdNombreApellidosProfesor
+});//router.post('/mostrarTodosLosProfesoresIdNombreApellidos
+
+/*
+* BUSCAR asignaturas que imparte un profesor por id_profesor
+*/
+router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
+    var id_profesor = req.body.id_profesor;
+    profesor.buscarAsignaturasQueImparte(id_profesor,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//profesor.buscarAsignaturasQueImparte
+});//router.post('/buscarAsignaturasQueImparte
+
+/*
+* BUSCAR asignaturas que NO imparte un profesor por id_profesor
+*/
+router.post('/buscarAsignaturasQueNoImpartePorId', function(req,res,next) {
+    var id_profesor = req.body.id_profesor;
+    profesor.buscarAsignaturasQueNoImpartePorId(id_profesor,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//profesor.buscarAsignaturasQueNoImpartePorId
+});//router.post('/buscarAsignaturasQueNoImpartePorId
+
+/*
+* BUSCAR asignaturas que NO imparte un profesor por tipo
+*/
+router.post('/buscarAsignaturasQueNoImpartePorTipo', function(req,res,next) {
+    var id_profesor = req.body.id_profesor;
+    var tipo = req.body.tipo;
+    profesor.buscarAsignaturasQueNoImpartePorTipo(id_profesor,tipo,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            res.send(row);
+        }//else
+    })//profesor.buscarAsignaturasQueNoImpartePorTipo
+});//router.post('/buscarAsignaturasQueNoImpartePorTipo
 
 module.exports = router;

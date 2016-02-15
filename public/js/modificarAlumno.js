@@ -111,12 +111,12 @@ $(document).ready(function() {
     		formulario += "<div id='gruposdelAlumno'>";
     		formulario += "</div>";
     		buscarTodosLosGrupos(result.id_alumno);
-    		formulario += "<div id='gruposTodos'>";
+    		formulario += "<div id='gruposTodos' hidden>";
     		formulario += "</div>";
-    		buscarAsignaturasConvalidadaQuePerteneceUnAlumno(result.id_alumno);
+    		buscarAsignaturasConvalidadasDelAlumno(result.id_alumno);
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
-			buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada(result.id_alumno);
+			buscarAsignaturasNoConvalidadasDelAlumno(result.id_alumno);
 			formulario += "<div id='AsignaturaGrupoRestante'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -153,9 +153,9 @@ $('#resultado').on("click","#btnModificar",function () {
 	            }else if (error.attr("id") == "apellidos-error"){
 	                showAlertValidate("#alertApellidos"," Solo Letras por favor");
 	            } else if (error.attr("id") == "correo-error"){
-	                showAlertValidate("#alertCorreo","Introduce un correo correcto");
+	                showAlertValidate("#alertCorreo"," Introduce un correo correcto");
 	            } else if (error.attr("id") == "foto-error"){
-	                showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+	                showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 	            }
 	            
 	        },
@@ -175,15 +175,15 @@ $('#resultado').on("click","#btnModificar",function () {
 			            .done(function(data) {
 			                console.log(data)
 				                if (data.err=="existeDNI"){
-				                showAlert($('#resultado #alertDni'),"error","dni ya existente");
+				                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 				                } else if (data.err=="existeCorreo"){
-				                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
+				                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 				                } else if (data.err=="existeTarjeta"){
-				                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
+				                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 				                } else if (data.err=="nogrupo"){
-				                showAlertValidate("#enlace2","Selecciona un grupo para el alumno");	
+				                showAlertValidate("#enlace2"," Selecciona un grupo para el alumno");	
 				                }else if (data.dato=="ok"){
-				                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
+				                showAlertRedirect($('#resultado #enlace2'),"ok"," Alumno modificado correctamente",'/config');
 				                }
 				                console.log("success");
 					            })
@@ -195,7 +195,7 @@ $('#resultado').on("click","#btnModificar",function () {
 					var size = $('#'+attach_id)[0].files[0].size;
 					   if (size > 102400)// checks the file more than 100 Kb
 			           {
-			               showAlertValidate("#alertFoto","Tamaño de la foto maximo 100Kb");
+			               showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 			           } else {      
 			           
 	            	event.preventDefault();
@@ -309,14 +309,28 @@ $('#resultado').on("click","#btnModificar",function () {
 	//funcion para buscar las asignaturas de un grupo
 	$('#resultado').on("change","#gruposdelAlumno" || "#gruposTodos",function () {
 		$(":checkbox").click(function(){
-	        var id = $(this).attr('id'); 
-		if ($(this).prop("checked")) {
+	    	var arrayId_grupo=[];
+	    $('#gruposdelAlumno  :checkbox').each(function(){
+	    	if($(this).prop('checked')){
+	    		arrayId_grupo.push($(this).attr('value'));
+	    	} })
+	   	$('#gruposTodos  :checkbox').each(function(){
+	    	if($(this).prop('checked')){
+	    		arrayId_grupo.push($(this).attr('value'));
+	    	} })
+	   	console.log(arrayId_grupo.length);
+	   	if (arrayId_grupo.length == 0){
+	   		$('#AsignaturaGrupoRestante').html('');
+			$('#AsignaturaGrupo').html('');
+	   	} else {
 					$.ajax({
-					url: '/configGrupo/buscarAsignaturasDelGrupo',
+					url: '/configGrupo/buscarAsignaturasDelosGrupos',
 					type: 'post',
 					dataType: 'json',
-					data:{ id_grupo: id},
+					data: {id_grupo:arrayId_grupo},
 					success:function (data) {
+						$('#AsignaturaGrupoRestante').html('');
+						$('#AsignaturaGrupo').html('');
 						var resp = "";
 						resp += "<div class='form-inline'>";
     					resp += "<div class='input-group'>";
@@ -342,13 +356,8 @@ $('#resultado').on("click","#btnModificar",function () {
 				.fail(function() {
 					console.log("error");
 				})//fail
-		} else {
-			console.log("no estaba checked");
-			$('#AsignaturaGrupo').html("");
-			$('#AsignaturaGrupoRestante').html("");
-		}
 				/**/
-
+			}//.else
 			});//$(":checkbox").click(function()
 	});
 
@@ -370,12 +379,14 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='checked'>";
+							resp += "<input type='checkbox' id='"+data[i].id_grupo+"' name='grupo' value='"+data[i].id_grupo+"' checked='true'>";
 							resp += "<label for='"+data[i].id_grupo+"'>"+data[i].nombre_grupo+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
 						};
 						resp += "</table>";
+						resp += "<a id='btnMostrarGrupos' class='btn btn-info'>Mostrar Los Grupos</a>";
+						resp += "</br>";
 						$('#gruposdelAlumno').html(resp);
 					}
 				})//ajax
@@ -423,9 +434,9 @@ $('#resultado').on("click","#btnModificar",function () {
 	}//function buscarTodosLosGrupos
 
 			//funcion para buscar las asignaturas de un grupo
-	function buscarAsignaturasConvalidadaQuePerteneceUnAlumno (id) {
+	function buscarAsignaturasConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasConvalidadaQuePerteneceUnAlumno',
+					url: '/configAlumno/buscarAsignaturasConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -440,7 +451,7 @@ $('#resultado').on("click","#btnModificar",function () {
 						for (var i = 0; i < data.length; i++) {
 							resp += "<tr>";
 							resp += "<td>";
-							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='checked' >";
+							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'checked='true' >";
 							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
 							resp += "</td>";
 							resp += "</tr>"
@@ -457,9 +468,9 @@ $('#resultado').on("click","#btnModificar",function () {
 				})//fail
 	}//function buscarTodosLosGrupos
 
-		function buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada (id) {
+		function buscarAsignaturasNoConvalidadasDelAlumno (id) {
 		return	$.ajax({
-					url: '/configAsignatura/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada',
+					url: '/configAlumno/buscarAsignaturasNoConvalidadasDelAlumno',
 					type: 'post',
 					dataType: 'json',
 					data:{ id_alumno:id },
@@ -489,13 +500,25 @@ $('#resultado').on("click","#btnModificar",function () {
 		$('#resultado').on("change","#AsignaturaGrupo" || "#AsignaturaGrupoRestante" || "#gruposdelAlumno"  || "#gruposTodos" ,function () {
 		$(":checkbox").click(function(){
 	        var id = $(this).attr('id'); 
-		if ($(this).attr("checked","checked")) {
-			$(this).attr("checked","");
+		if ($(this).attr("checked",true)) {
+			$(this).attr("checked",false);
 		} else {
-			$(this).attr("checked","checked");
+			$(this).attr("checked",true)
 		}
 		});//$(":checkbox").click(function()
 	});
+
+		$('#resultado').on("click","#btnMostrarGrupos",function(event) {
+			if ($('#resultado #btnMostrarGrupos').html() == "Mostrar Los Grupos"){
+				$('#resultado #gruposTodos ').show();
+		 		$('#resultado #btnMostrarGrupos').html("Ocultar los Grupos");
+			} else if ($('#resultado #btnMostrarGrupos').html() == "Ocultar los Grupos"){
+				$('#resultado #gruposTodos').hide();
+		 		$('#resultado #btnMostrarGrupos').html("Mostrar Los Grupos");				
+			}
+		 
+
+		});//click borrar formulario alumno
 
 
 
@@ -529,6 +552,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

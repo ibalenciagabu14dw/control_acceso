@@ -11,8 +11,7 @@ var profesor = require('../models/profesor');
 /*
 * INSERTAR alumno
 */
-
-router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){   
+router.post('/agregarAlumno', multer({}).single('foto'), function(req,res){ 
 var dni = req.body.dni;
 var nombre = req.body.nombre;
 var apellidos = req.body.apellidos;
@@ -24,7 +23,7 @@ var foto = req.file.buffer;
             res.send('error conectando con la base de datos');
             throw error;
         } else {
-            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+            if(row.length>0){
                 console.log({err:'ese DNI lo tiene un alumno'});
                 res.send({err:'existeDNI'});
             } else {
@@ -33,7 +32,7 @@ var foto = req.file.buffer;
                        res.send('error conectando con la base de datos');
                        throw error;
                     } else {
-                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                        if(row.length>0){
                             console.log({err:'ese correo lo tiene un alumno'});
                             res.send({err:'existeCorreo'});
                         } else {
@@ -42,7 +41,7 @@ var foto = req.file.buffer;
                                     res.send('error conectando con la base de datos');
                                     throw error; 
                                 } else {
-                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                    if(row.length>0){
                                         console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                         res.send({err:'existeTarjeta'});
                                     } else {
@@ -51,7 +50,7 @@ var foto = req.file.buffer;
                                                 res.send('error conectando con la base de datos');
                                                 throw error;
                                             } else {
-                                                if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                if(row.length>0){
                                                     console.log({err:'ese DNI lo tiene un profesor'});
                                                     res.send({err:'existeDNI'});
                                                 } else {
@@ -60,7 +59,7 @@ var foto = req.file.buffer;
                                                            res.send('error conectando con la base de datos');
                                                            throw error; 
                                                         } else {
-                                                            if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                            if(row.length>0){
                                                                 console.log({err:'ese correo lo tiene un profesor'});
                                                                 res.send({err:'existeCorreo'});
                                                             } else {
@@ -69,7 +68,7 @@ var foto = req.file.buffer;
                                                                         res.send('error conectando con la base de datos');
                                                                         throw error;
                                                                     } else {
-                                                                        if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                        if(row.length>0){
                                                                             console.log({err:'ese numero de tarjeta lo tiene un profesor'});
                                                                             res.send({err:'existeTarjeta'});
                                                                         } else {
@@ -99,6 +98,7 @@ var foto = req.file.buffer;
         }//.else
     })//alumno.buscarAlumnoPorDni
 });//router.post('/agregarAlumno
+
 
 /****************************************************************************************************************************/
 
@@ -130,7 +130,13 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
         }//.for
 
         if(req.body.asignatura == undefined){
-            //console.log("el alumno no tiene ninguna convalidada");
+            convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
+                if (error) {
+                    throw error;
+                } else {
+                    res.send(row);
+                }//.else
+            })//convalidadas.borrarAsignaturaConvalidada
         } else {
             convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
                 if (error) {
@@ -269,7 +275,13 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
         }//.for
 
         if(req.body.asignatura == undefined){
-            //console.log("el alumno no tiene ninguna convalidada");
+            convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
+                if (error) {
+                    throw error;
+                } else {
+                    res.send(row);
+                }//.else
+            })//convalidadas.borrarAsignaturaConvalidada
         } else {
             convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
                 if (error) {
@@ -437,16 +449,45 @@ router.post('/buscarAlumnoPorId', function(req,res,next) {
 
 
 /*Mostrar todos los alumnos*/
-router.post('/mostrarTodosLosAlumnosIdNombreApellidos', function(req,res,next){
-  alumno.mostrarTodosLosIdNombreApellidosAlumno(function(error,row) {
+router.post('/buscarTodosLosIdNombreApellidosAlumno', function(req,res,next){
+  alumno.buscarTodosLosIdNombreApellidosAlumno(function(error,row) {
     if (error) {
       throw error;
     }else{
       res.send(row);
     }
-  })//mostrarTodosLosIdNombreApellidosAlumno
+  })//buscarTodosLosIdNombreApellidosAlumno
 });//router.post('/mostrarTodosLosProfesoresIdNombreApellidos'
 
+/*
+* BUSCAR asignaturas que tiene convalidadas el alumno
+*/
+router.post('/buscarAsignaturasConvalidadasDelAlumno', function(req,res,next) {
+    var id_alumno = req.body.id_alumno;
+    alumno.buscarAsignaturasConvalidadasDelAlumno(id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            console.log(row);
+            res.send(row);
+        }//else
+    })//alumno.buscarAsignaturasConvalidadasDelAlumno
+});//router.post('/buscarAsignaturasConvalidadasDelAlumno
+
+/*
+* BUSCAR asignaturas que no tiene convalidadas el alumno
+*/
+router.post('/buscarAsignaturasNoConvalidadasDelAlumno', function(req,res,next) {
+    var id_alumno = req.body.id_alumno;
+    alumno.buscarAsignaturasNoConvalidadasDelAlumno(id_alumno,function(error,row) {
+        if (error) {
+            throw error;
+        }else{
+            console.log(row);
+            res.send(row);
+        }//else
+    })//alumno.buscarAsignaturasNoConvalidadasDelAlumno
+});//router.post('/buscarAsignaturasNoConvalidadasDelAlumno
 
 /****************************************************************************************************************************/
 

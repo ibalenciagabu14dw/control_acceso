@@ -52,7 +52,9 @@ $(document).ready(function() {
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#alertNumero","error","Numero ya existente");
+                showAlert("#alertNumero","error"," Aula ya existente ");
+                $('#numero').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#numero1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok","Aula añadida correctamente",'/config');
                 }
@@ -96,6 +98,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     if (tipo=="error"){
         $('#mensaje').attr('class','alert alert-danger fade in');
     }else {
+        $('#mensaje strong').html(' ');
         $('#mensaje').attr('class','alert alert-success fade in');
     }
     $('#mensaje span').html(texto);

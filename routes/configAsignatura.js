@@ -130,7 +130,6 @@ router.post('/buscarAsignaturasQueImparte', function(req,res,next) {
 */
 router.post('/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada', function(req,res,next) {
     var id_alumno = req.body.id_alumno;
-    console.log(id_alumno);
     asignatura.buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada(id_alumno,function(error,row) {
         if (error) {
             throw error;
@@ -146,7 +145,6 @@ router.post('/buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada', function(req,
 */
 router.post('/buscarAsignaturasConvalidadaQuePerteneceUnAlumno', function(req,res,next) {
     var id_alumno = req.body.id_alumno;
-    console.log(id_alumno);
     asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno(id_alumno,function(error,row) {
         if (error) {
             throw error;
@@ -225,7 +223,6 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next){
         if (error) {
             throw error;
         }else{
-            console.log(row);
             res.send(row);
         }//else
     })//asignatura.buscarTodasLasAsignaturas

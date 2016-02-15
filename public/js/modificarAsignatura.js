@@ -43,7 +43,8 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_asignatura' class='input-group-addon'>ID ASIGNATURA</label>";    		    		
-    		formulario += "<input type='text' id='id_asignatura' name='id_asignatura' class='form-control' value='"+result[0].id_asignatura+"'readonly>";
+    		formulario += "<input type='text' id='id_asignatura' name='id_asignatura' class='form-control has-feedback' value='"+result[0].id_asignatura+"'readonly>";
+    		formulario += "<span id='id_asignatura1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertNombre'>";
@@ -174,9 +175,13 @@ $(document).ready(function() {
 	            .done(function(data) {
 		                console.log(data);
 		                if (data.err=="existe"){
-		                showAlert("#alertClave","error"," Clave ya existente");
+		                	showAlert("#alertClave","error"," Clave ya existente");
+			                $('#clave').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                $('#clave1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 		                
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect("#enlace2","ok"," Asignatura modificada correctamente",'/config');
+			                $('#id_asignatura').closest('.form-inline').removeClass('has-error').addClass('has-success');
+			                $('#id_asignatura1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
+		                	showAlertRedirect("#enlace2","ok"," Asignatura modificada correctamente",'/config'); 			                	
 		                }
 		                console.log("success");
 			            })

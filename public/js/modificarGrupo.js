@@ -35,7 +35,8 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_grupo' class='input-group-addon'>ID GRUPO</label>";    		
-    		formulario += "<input type='text' id='id_grupo' name='id_grupo' class='form-control' value='"+result[0].id_grupo+"'readonly>";
+    		formulario += "<input type='text' id='id_grupo' name='id_grupo' class='form-control has-feedback' value='"+result[0].id_grupo+"'readonly>";
+    		formulario += "<span id='id_grupo1' class='glyphicon form-control-feedback'></span>";    		
     		formulario += "</div>";
   			formulario += "</div><br/>";  
     		formulario += "<div class='form-inline'>";
@@ -111,9 +112,13 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #alertNombre'),"error"," Grupo ya existente ");
+		                	showAlert($('#resultado #alertNombre'),"error"," Grupo ya existente ");
+			                $('#resultado #nombre').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                $('#resultado #nombre1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  		                
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok"," Grupo modificado correctamente ",'/config');
+			                $('#id_grupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
+			                $('#id_grupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
+		                	showAlertRedirect($('#resultado #enlace2'),"ok"," Grupo modificado correctamente ",'/config');
 		                }
 		                console.log("success");
 			            })

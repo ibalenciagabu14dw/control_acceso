@@ -151,7 +151,6 @@ router.post('/borrarGrupo', function(req,res,next){
     if (error) {
       throw error;
     }else{
-      //console.log(row);
       res.send(row);
     }
   })//borrarGrupo

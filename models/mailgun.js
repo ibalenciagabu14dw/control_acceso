@@ -19,7 +19,7 @@ mailgun.enviarCorreoAlumnosFalta = function (alumnos,dia) {
 						from: 'admin@mail.controlfid.zubirimanteoweb.com',
 						to: data[i].correo,
 						subject: 'Falta el dia: '+dia,
-						html: 'Estimado alumno '+data[i].nombre+ '.<br/>Tiene usted una falta en la asignatura <b>'+data[i].clave+'</b> en el aula '+data[i].numero+' el día <b>'+dia+'</b>, de las <b>'+data[i].hora_inicio+'</b> a las <b>'+data[i].hora_final+'</b><br/>Si tiene alguna duda dirijase a su profesor/tutor correspondiente.<br/><br/>Saludos', 
+						html: 'Estimado alumno '+data[i].nombre+ '.<br/>Tiene usted una falta en la asignatura <b>'+data[i].clave+'</b> en el aula <b>'+data[i].numero+'</b> el día <b>'+dia+'</b>, de las <b>'+data[i].hora_inicio+'</b> a las <b>'+data[i].hora_final+'</b><br/>Si tiene alguna duda dirijase a su profesor/tutor correspondiente.<br/><br/>Saludos', 
 					};
 					mailgun.messages().send(data,function (error,body) {
 						if (error) {

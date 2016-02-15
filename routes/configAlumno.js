@@ -468,7 +468,6 @@ router.post('/buscarAsignaturasConvalidadasDelAlumno', function(req,res,next) {
         if (error) {
             throw error;
         }else{
-            console.log(row);
             res.send(row);
         }//else
     })//alumno.buscarAsignaturasConvalidadasDelAlumno
@@ -483,7 +482,6 @@ router.post('/buscarAsignaturasNoConvalidadasDelAlumno', function(req,res,next) 
         if (error) {
             throw error;
         }else{
-            console.log(row);
             res.send(row);
         }//else
     })//alumno.buscarAsignaturasNoConvalidadasDelAlumno

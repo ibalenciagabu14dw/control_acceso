@@ -185,11 +185,23 @@ $(document).ready(function() {
 	                }
 	            })
 	            .done(function(data) {
-		                if (data.err=="existe"){
+		            if (data.err=="existe"){
+                		$('#id_horario_profesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#id_horario_profesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#id_horario_grupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#id_horario_grupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#dia').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#dia1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+                		$('#selectProfesorHorarioProfesorM').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#selectProfesorHorarioProfesorM1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			                
 		                showAlert($('#resultado #enlace2'),"error"," Horario Profesor ya existente ");
-		                }else if (data.dato=="ok"){
+		            }else if (data.dato=="ok"){
 		                showAlertRedirect($('#resultado #enlace2'),"ok"," Horario Profesor modificado correctamente",'/config');
-		                }
+		            }
 		                console.log("success");
 			            })
 			            .fail(function() {
@@ -262,7 +274,7 @@ $(document).ready(function() {
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
-					showAlertRedirect("#enlace2","ok"," Horario Profesor borrada correctamente",'/config');
+					showAlertRedirect("#enlace2","ok"," Horario Profesor borrado correctamente",'/config');
 				}
 			})//done
 			.fail(function() {

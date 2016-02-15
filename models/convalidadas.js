@@ -24,14 +24,36 @@ convalidadas.agregarAsignaturaConvalidada =  function(id_asignatura,id_alumno,ca
 
 /****************************************************************************************************************************/
 
+/***********************************************************UPDATE***********************************************************/
+
+/*
+* UPDATE convalidadas
+*/
+convalidadas.modificarConvalidadas = function (id_convalidada,id_alumno,id_asignatura,callback) {
+	if(connection){
+		var campos = { id_convalidada: id_convalidada, id_alumno: id_alumno, id_asignatura: id_asignatura };
+		var sql = 'UPDATE convalidadas SET ? WHERE id_convalidada ="'+id_convalidada+'"';
+		connection.query(sql,campos, function(error){
+		  	if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//convalidadas.modificarConvalidadas
+
+/****************************************************************************************************************************/
+
 /***********************************************************DELETE***********************************************************/
 
 /*
 * DELETE asignatura convalidada
 */
-convalidadas.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
+convalidadas.borrarAsignaturaConvalidada =  function(id_convalidada,callback) {
 	if(connection){					
-		var sqlborrarAsignaturaConvalidada = 'DELETE FROM convalidadas WHERE id_alumno= "'+id_alumno+'"';
+		var sqlborrarAsignaturaConvalidada = 'DELETE FROM convalidadas WHERE id_convalidada= "'+id_convalidada+'"';
 		connection.query(sqlborrarAsignaturaConvalidada, function(error){
 		  if (error) {
 				throw error;
@@ -77,6 +99,57 @@ convalidadas.buscarConvalidadasPorIdAlumno = function(id_alumno,callback){
 		});//connection.query
 	}//if
 }//convalidadas.buscarConvalidadasPorIdAlumno
+
+/*
+*	BUSCAR convalidadass convalidadas por id_convalidadas
+*/
+convalidadas.buscarConvalidadasPorIdConvalidada = function(id_convalidada,callback){
+	if(connection){
+		var sql = 'SELECT id_convalidada,id_alumno,id_asignatura FROM convalidadas WHERE id_convalidada = ' + connection.escape(id_convalidada);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//convalidadas.buscarConvalidadasPorIdConvalidada
+
+/*
+*	BUSCAR convalidadass convalidadas por id_asignatura
+*/
+convalidadas.buscarConvalidadasPorIdAsignatura = function(id_asignatura,callback){
+	if(connection){
+		var sql = 'SELECT id_convalidada,id_alumno,id_asignatura FROM convalidadas WHERE id_asignatura = ' + connection.escape(id_asignatura);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//convalidadas.buscarConvalidadasPorIdAsignatura
+
+
+
+/*
+*	BUSCAR asignaturas por id_alumno y id_asignatura
+*/
+convalidadas.buscarConvalidadaPorIdAlumnoYIdAsignatura = function(id_alumno,id_asignatura,callback){
+	if (connection) {
+		var sql = 'SELECT id_convalidada,id_alumno,id_asignatura FROM convalidadas WHERE id_alumno = ' + connection.escape(id_alumno)+' and id_asignatura ='+ connection.escape(id_asignatura);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		})//connection.query
+	};//if
+}//convalidadas.buscarConvalidadaPorIdAlumnoYIdAsignatura
 
 /***********************************************************************************************/
 

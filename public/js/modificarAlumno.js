@@ -192,6 +192,10 @@ $('#resultado').on("click","#btnModificar",function () {
 				                }else if (data.dato=="ok"){
 				                $('#id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				                $('#id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+				        		$('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        		$('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+				                $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				                $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                
 				                showAlertRedirect($('#resultado #enlace2'),"ok"," Alumno modificado correctamente",'/config');
 				                }
 				                console.log("success");
@@ -225,12 +229,24 @@ $('#resultado').on("click","#btnModificar",function () {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existeDNI"){
+			            $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 		                
 		                showAlert($('#resultado #alertDni'),"error","dni ya existente");
 		                } else if (data.err=="existeCorreo"){
+			            $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			                
 		                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
+			            $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
+				        $('#id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+				        $('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+				        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 		                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
 		                }
 		                console.log("success");

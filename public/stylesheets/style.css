@@ -66,6 +66,10 @@ padding-bottom: 0;
   background-color: #333;
   border-radius: 10px;
 }
+.dropdown-menu>.disabled>a, .dropdown-menu>.disabled>a:focus, .dropdown-menu>.disabled>a:hover{
+  color:#2f2f2f;
+  font-weight: bold;
+}
 #botonBuscador{
   float:right;
   margin-right: 5%;
@@ -124,4 +128,10 @@ padding-bottom: 0;
 }
 #volverABuscar{
   width: 100%;
+}
+@media only screen and (max-width: 767px){
+  .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a, .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:focus, .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:hover{
+    color:white;
+    font-weight: bold;
+  }
 }

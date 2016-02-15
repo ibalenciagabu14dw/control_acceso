@@ -99,4 +99,8 @@ router.get('/', function(req, res, next) {
 	});//.alumno.buscarAlumnoPorTarjeta
 });//.router.get('/', function(req, res, next)
 
+router.get('/dispositivos',function(req,res,next) {
+	res.send("ok");
+})//presencia dispositivos
+
 module.exports = router;

@@ -77,7 +77,6 @@ app.io.on('connection', function(socket){
   console.log("conectado");
   //al escuchar cambiaCliente desde el cliente
   socket.on('cambiaCliente', function(msg){
-    console.log(msg);
     //update presencia alumno
     alumno.modificarPresenciaDelAlumno(msg, function (error) {
       if (error) {

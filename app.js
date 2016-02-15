@@ -79,7 +79,6 @@ app.io.on('connection', function(socket){
       }else{
         //emitir cambiaServidor al cliente para cambiar color presencia alumno
         app.io.emit('cambiaServidor',msg);
-        console.log("ok update presencia alumno por io");
       }
     })
   });

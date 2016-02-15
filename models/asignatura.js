@@ -113,7 +113,6 @@ asignatura.buscarTodosLosIdAsignatura = function (callback) {
 *	BUSCAR asignaturas por id_asignatura
 */
 asignatura.buscarAsignaturaPorId = function(id_asignatura,callback){
-	//console.log(connection.escape(id_asignatura));
 	if(connection){
 		var sql = 'SELECT id_asignatura,nombre,clave,obligatoria,tipo FROM asignaturas WHERE id_asignatura ='+connection.escape(id_asignatura);
 		connection.query(sql,function (error,row) {

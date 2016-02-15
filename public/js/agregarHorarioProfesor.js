@@ -129,7 +129,18 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
                 $('#selectDiaHorarioProfesor').prop("disabled",true);
                 console.log(data);
                 if (data.err=="existe"){
-                showAlert("#enlace","error"," Horario Profesor ya existente ");
+                $('#id_horario_grupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#id_horario_grupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#selectProfesorHorarioProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#selectProfesorHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#selectDiaHorarioProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#selectDiaHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#selectDiaHorarioProfesor').prop("disabled",false);
+                showAlert("#enlace","error"," Horario Profesor ya existente ");                
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok"," Horario Profesor añadido correctamente",'/config');
                 }

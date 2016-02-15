@@ -105,10 +105,16 @@ $(document).ready(function() {
                 $('#password').attr('disabled',false);
                 if (data.err=="existeDNI"){
                     showAlert("#alertDni","error"," DNI ya existente");
+                    $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                    
                 } else if (data.err=="existeCorreo"){
-                    showAlert("#alertCorreo","error"," Correo ya existente");    
+                    showAlert("#alertCorreo","error"," Correo ya existente");
+                    $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                 }else if(data.err=="existeTarjeta"){
-                    showAlert("#alertNum_tarj","error"," Numero Tarjeta ya existente");    
+                    showAlert("#alertNum_tarj","error"," Numero Tarjeta ya existente");
+                    $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                 }else if (data.dato=="ok"){
                     showAlertRedirect("#enlace","ok"," Profesor añadido correctamente",'/config');
                 }

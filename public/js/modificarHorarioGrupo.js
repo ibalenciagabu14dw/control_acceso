@@ -43,7 +43,8 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
-    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"'readonly>";
+    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control has-feedback' value='"+result[0].id_horario_grupo+"'readonly>";
+    		formulario += "<span id='id_horario_grupo1' class='glyphicon form-control-feedback'></span>";    		
     		formulario += "</div>";
   			formulario += "</div><br/>";
 			formulario += "<div class='form-inline'>";
@@ -236,7 +237,11 @@ $(document).ready(function() {
 			},
 	        submitHandler: function (form) {
 	            if ($('#resultado #hora_inicio').val() >$('#resultado #hora_final').val()){
-                 showAlertValidate("#alertHoraInicio"," Hora Inicio no puede ser mayor a la Hora Final ");
+                	$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                	$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                	$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                	$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  	            	
+                	showAlertValidate("#alertHoraInicio"," Hora Inicio no puede ser mayor a la Hora Final ");          	
             	} else {	
 	            event.preventDefault();
 	            var data = $("#formUpdate").serializeArray();
@@ -252,9 +257,23 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                showAlert($('#resultado #enlace2'),"error"," Horario Grupo ya existente ");
+		                	$('#selectDiaHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#selectDiaHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#selectHorarioGrupoGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#selectHorarioGrupoGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#selectHorarioGrupoAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#selectHorarioGrupoAsignatura1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#selectHorarioGrupoAula').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#selectHorarioGrupoAula1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+		                	showAlert($('#resultado #enlace2'),"error"," Horario Grupo ya existente ");
 		                }else if (data.dato=="ok"){
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Horario Grupo modificado correctamente",'/config');
+				            $('#id_horario_grupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				            $('#id_horario_grupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                	
+		                	showAlertRedirect($('#resultado #enlace2'),"ok","Horario Grupo modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })

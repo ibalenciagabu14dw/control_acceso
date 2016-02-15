@@ -1,0 +1,16 @@
+#imagenDispositivo{
+	width: 100px;
+}
+.celdaDispositivo{
+	border-radius: 5px;
+	background-color:white;
+	padding: 10px;
+	text-align: center;
+}
+.filaDispositivos{
+	margin: 20px;
+	float: left;
+}
+.celdaDispositivo p{
+	background-color: white;
+}

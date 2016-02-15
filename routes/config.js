@@ -6,6 +6,7 @@ var horario_grupo = require('../models/horario_grupo');
 var profesor = require('../models/profesor');
 var asignatura = require('../models/asignatura');
 var grupo = require('../models/grupo');
+var dispositivo = require('../models/dispositivo');
 
 /* GET home page. */
 /*router.get('/', function(req, res, next) {
@@ -32,10 +33,6 @@ router.get('/configFaltas/modificarFalta', function(req, res, next) {
   res.render('modificarFalta', { title: 'modificarFalta' });
 });
 
-router.get('/configPersonas', function(req, res, next) {
-  res.render('configPersonas', { title: 'configPersonas' });
-});
-
 router.get('/configPersonas/agregarAlumno', function(req, res, next) {
   res.render('agregarAlumno', { title: 'agregarAlumno' });
 });
@@ -52,25 +49,24 @@ router.get('/configPersonas/modificarProfesor', function(req, res, next) {
   res.render('modificarProfesor', { title: 'modificarProfesor' });
 });
 
-var mqtt = require('mqtt');
-var client  = mqtt.connect('mqtt://test.mosquitto.org');
-client.on('connect', function () {
-  client.subscribe('dispositivosArduino');
-  client.publish('dispositivosArduino', 'status');
-});
 router.get('/configDispositivos', function(req, res, next) {
-  var io = req.app.io;
+  dispositivo.buscarTodosLosDispositivos(function (error,dispositivosArray,ultima_conexionArray) {
+    if (error) {
+      console.log(error);
+      throw error;
+    }else{
+      res.render('configDispositivos', {
+        dispositivos:dispositivosArray,
+        conexiones:ultima_conexionArray,
+        });
+    }
+  })//buscarTodosLosDispositivos
+  /*var io = req.app.io;
   io.on('connection',function (socket) {
     socket.on('dispositivos', function(msg){
       console.log(msg);
     });
-  })//io
-
-  res.render('configDispositivos', { title: 'configDispositivos' });
-});
-
-router.get('/configGlobal', function(req, res, next) {
-  res.render('configGlobal', { title: 'configGlobal' });
+  })//io*/
 });
 
 router.get('/configGlobal/configAulas', function(req, res, next) {
@@ -85,10 +81,6 @@ router.get('/configGlobal/configAulas/modificarAula', function(req, res, next) {
   res.render('modificarAula', { title: 'modificarAula' });
 });
 
-router.get('/configGlobal/configGrupos', function(req, res, next) {
-  res.render('configGrupos', { title: 'configGrupos' });
-});
-
 router.get('/configGlobal/configGrupos/agregarGrupo', function(req, res, next) {
   res.render('agregarGrupo', { title: 'agregarGrupo' });
 });
@@ -97,20 +89,12 @@ router.get('/configGlobal/configGrupos/modificarGrupo', function(req, res, next)
   res.render('modificarGrupo', { title: 'modificarGrupo' });
 });
 
-router.get('/configGlobal/configAsignaturas', function(req, res, next) {
-  res.render('configAsignaturas', { title: 'configAsignaturas' });
-});
-
 router.get('/configGlobal/configAsignaturas/agregarAsignatura', function(req, res, next) {
   res.render('agregarAsignatura', { title: 'agregarAsignatura' });
 });
 
 router.get('/configGlobal/configAsignaturas/modificarAsignatura', function(req, res, next) {
   res.render('modificarAsignatura', { title: 'modificarAsignatura' });
-});
-
-router.get('/configGlobal/configHorario', function(req, res, next) {
-  res.render('configHorario', { title: 'configHorario' });
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
@@ -173,14 +157,6 @@ router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, r
 
 router.get('/configGlobal/configHorario/modificarHorarioProfesor', function(req, res, next) {
   res.render('modificarHorarioProfesor', { title: 'modificarHorarioProfesor' });
-});
-
-router.get('/configGlobal/configApariencia', function(req, res, next) {
-  res.render('configApariencia', { title: 'configApariencia' });
-});
-
-router.get('/configGlobal/configBasedeDatos', function(req, res, next) {
-  res.render('configBasedeDatos', { title: 'configBasedeDatos' });
 });
 
 module.exports = router;

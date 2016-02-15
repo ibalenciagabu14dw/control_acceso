@@ -61,6 +61,7 @@ $(document).ready(function() {
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_profesor' class='input-group-addon'>ID PROFESOR</label>";
     		formulario += "<input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result.id_profesor+"'readonly>";
+    		formulario += "<span id='id_profesor1' class='glyphicon form-control-feedback'></span>";    		    		    		
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertDni'>";
@@ -191,8 +192,6 @@ $(document).ready(function() {
 	        } else {			
 	        	
 	        if ($('#resultado #foto').val() == ''){
-
-	        	
 	        	event.preventDefault();
 	            $('#password').attr('disabled',true);  
 	            var data = $("#formUpdate").serializeArray();
@@ -208,12 +207,26 @@ $(document).ready(function() {
 	                console.log(data)
 	                $('#password').attr('disabled',false);
 		                if (data.err=="existeDNI"){
+			            $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 		                } else if (data.err=="existeCorreo"){
+			            $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
+			            $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
+				        $('#id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+				        $('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+				        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+				        $('#admin').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#admin1').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
 		                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 		                }
 		                console.log("success");
@@ -230,6 +243,8 @@ $(document).ready(function() {
 					var size = $('#'+attach_id)[0].files[0].size;
 					   if (size > 102400)// checks the file more than 100 Kb
 			           {
+				           $('#foto').closest('.form-inline').removeClass('has-success').addClass('has-error');
+				           $('#foto1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			               
 			               showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 			           } else {
 	            event.preventDefault();
@@ -250,12 +265,26 @@ $(document).ready(function() {
 	                console.log(data)
 	                $('#password').attr('disabled',false);
 		                if (data.err=="existeDNI"){
+			            $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 		                } else if (data.err=="existeCorreo"){
+			            $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
+			            $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
+				        $('#id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+				        $('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+				        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+				        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');
 		                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 		                }
 		                console.log("success");

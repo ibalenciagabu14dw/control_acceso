@@ -197,7 +197,6 @@ falta.buscarFaltaExistente = function(id_alumno,id_horario_grupo,observaciones,c
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
 				callback(null,row);
 			}//else
 		});//connection.query

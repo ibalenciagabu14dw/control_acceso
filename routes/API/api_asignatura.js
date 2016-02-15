@@ -148,7 +148,7 @@ router.post('/buscarAsignaturaPorId', function(req,res,next) {
             if(row.length==0){
                 res.send('No hay asignatura con ese id');
             }else{
-                sres.send(row);
+                res.send(row);
             }//else
         }//else
     })//asignatura.buscarAsignaturaPorId

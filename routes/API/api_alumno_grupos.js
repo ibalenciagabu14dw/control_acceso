@@ -31,7 +31,7 @@ router.post('/agregarAlumnoGrupo', function(req, res, next) {
                             //comprobamos que ese alumno no este ya en ese grupo
                             alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function (error,row) {
                                 if (error) {
-                                    res.send('error conectando con la base de datos');
+                                    res.send(error);
                                     throw error;
                                 }else{
                                     if(row.length>0){
@@ -98,7 +98,7 @@ router.post('/modificarAlumnoGrupo', function(req, res, next) {
                             //comprobamos que ese alumno no este ya en ese grupo
                             alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function (error,row) {
                                 if (error) {
-                                    res.send('error conectando con la base de datos');
+                                    res.send(error);
                                     throw error;
                                 }else{
                                     if((row.length>0)&&(req.query.id_alumno!=id_alumno_antiguo)&&(req.query.id_grupo!=id_grupo_antiguo)){
@@ -128,12 +128,12 @@ router.post('/modificarAlumnoGrupo', function(req, res, next) {
 /***********************************************************DELETE***********************************************************/
 
 /*
-* DELETE aula por id_aula OK
+* DELETE alumno de un grupo por id_alumno_grupos OK
 */
 router.post('/borrarAlumnoGrupos', function(req, res, next) {
     alumno_grupos.buscarAlumnoGrupoPorIdAlumnoGrupo(req.query.id_alumno_grupos, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -180,6 +180,7 @@ router.post('/buscarAlumnoGrupoPorIdAlumnoGrupo', function(req,res,next) {
 router.post('/buscarAlumnoGrupoPorIdAlumno', function(req,res,next) {
     alumno_grupos.buscarAlumnoGrupoPorIdAlumno(req.query.id_alumno, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -197,6 +198,7 @@ router.post('/buscarAlumnoGrupoPorIdAlumno', function(req,res,next) {
 router.post('/buscarAlumnoGrupoPorIdGrupo', function(req,res,next) {
     alumno_grupos.buscarAlumnoGrupoPorIdGrupo(req.query.id_grupo, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -214,6 +216,7 @@ router.post('/buscarAlumnoGrupoPorIdGrupo', function(req,res,next) {
 router.post('/buscarAlumnoGrupoPorIdAlumnoYIdGrupo', function(req,res,next) {
     alumno_grupos.buscarAlumnoGrupoPorIdAlumnoYIdGrupo(req.query.id_alumno,req.query.id_grupo, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){

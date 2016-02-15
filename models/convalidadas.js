@@ -70,6 +70,22 @@ convalidadas.borrarAsignaturaConvalidada =  function(id_convalidada,callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
+*	BUSCAR todos los id_aula y numero
+*/
+convalidadas.buscarTodasLasConvalidadas = function (callback) {
+	if(connection){							
+		connection.query('SELECT id_convalidada,id_alumno,id_asignatura FROM convalidadas', function(error,row){
+		  	if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//convalidadas.buscarTodasLasConvalidadas
+
+/*
 *	BUSCAR asignaturas que tiene el alumno para convalidar
 */
 convalidadas.buscarNoConvalidadasPorIdAlumno = function(id_alumno,callback){
@@ -136,8 +152,6 @@ convalidadas.buscarConvalidadasPorIdAsignatura = function(id_asignatura,callback
 		});//connection.query
 	}//if
 }//convalidadas.buscarConvalidadasPorIdAsignatura
-
-
 
 /*
 *	BUSCAR asignaturas por id_alumno y id_asignatura

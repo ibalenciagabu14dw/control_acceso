@@ -3,9 +3,17 @@ var router = express.Router();
 var alumno = require('../models/alumno');
 var profesor = require('../models/profesor');
 var time = require('../models/time');
+var dispositivo = require('../models/dispositivo');
 
 /* GET presencia page. */
 router.get('/', function(req, res, next) {
+	//actualizar ultima conexion del dispositivo
+	dispositivo.updateUltimaConexion(req.query.room, function (error) {
+		if (error) {
+			console.log(error);
+			throw error;
+		};
+	})//updateUltimaConexion
 	//socket.io variable global
 	var io = req.app.io;
 	var curr_time;

@@ -16,7 +16,7 @@ var profesor = require('../../models/profesor');
 router.post('/agregarAula', function(req, res, next) {
     aula.buscarAulaPorNumero(req.query.numero, function (error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length>0){
@@ -44,28 +44,28 @@ router.post('/agregarAula', function(req, res, next) {
 */
 router.post('/modificarAula', function(req, res, next) {
     
-    var id_aula_antiguo;
+    var numero_antiguo;
 
     aula.buscarAulaPorId(req.query.id_aula, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
-            id_aula_antiguo = row[0].clave;
+            numero_antiguo = row[0].numero;
         }//else
     })//aula.buscarAulaPorId
 
     aula.buscarAulaPorNumero(req.query.numero, function (error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
-            if((row.length>0)&&(req.query.numero!=id_aula_antiguo)){
+            if((row.length>0)&&(req.query.numero!=numero_antiguo)){
                 res.send('ese numero de aula ya existe');
             }else {
                 aula.modificarAula(req.query.id_aula,req.query.numero,req.query.piso,req.query.capacidad, function(error,row){
                     if (error) {
-                        res.send('error conectando con la base de datos');
+                        res.send(error);
                         throw error;
                     }else {
                         res.send('aula modificada correctamente');
@@ -86,7 +86,7 @@ router.post('/modificarAula', function(req, res, next) {
 router.post('/borrarAula', function(req, res, next) {
     aula.buscarAulaPorId(req.query.id_aula, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -116,6 +116,7 @@ router.post('/borrarAula', function(req, res, next) {
 router.post('/buscarTodosLosIdAula', function(req,res,next) {
     aula.buscarTodosLosIdAula(function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -132,6 +133,7 @@ router.post('/buscarTodosLosIdAula', function(req,res,next) {
 router.post('/buscarTodosLosIdYNumero', function(req,res,next) {
     aula.buscarTodosLosIdYNumero(function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -148,6 +150,7 @@ router.post('/buscarTodosLosIdYNumero', function(req,res,next) {
 router.post('/buscarAulaPorId', function(req,res,next) {
     aula.buscarAulaPorId(req.query.id_aula, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -165,6 +168,7 @@ router.post('/buscarAulaPorId', function(req,res,next) {
 router.post('/buscarAulaPorNumero', function(req,res,next) {
     aula.buscarAulaPorNumero(req.query.numero, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){

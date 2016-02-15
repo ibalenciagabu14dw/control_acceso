@@ -99,40 +99,6 @@ router.post('/agregarAlumno', function(req, res, next) {
 http://localhost:3000/API/modificarAlumno?id_alumno=51&dni=76490150-F&nombre=prueba2&apellidos=prueba2&correo=profesor7@zubirimanteo.es&num_tarjeta=P711&tarjeta_activada=1&grupo[]=7&grupo[]=8&grupo[]=9
 */
 router.post('/modificarAlumno', function(req, res, next) {
-    alumno_grupos.borrarAlumnoGrupos(req.query.id_alumno, function(error,row) {
-        if (error) {
-            throw error;
-        }//if
-    })//alumno_grupos.borrarAlumnoGrupos
-  
-    var data= req.query.grupo;
-    for (var i = 0; i < data.length; i++) {
-        alumno_grupos.agregarAlumnoGrupo(data[i],req.query.id_alumno, function(error,row) {
-            if (error) {
-                throw error;
-            }//if
-        })//alumno_grupos.agregarAlumnoGrupo
-    }//for
-
-    if(req.query.asignatura == undefined){
-        //console.log("el alumno no tiene ninguna convalidada");
-    }else {
-        convalidadas.borrarAsignaturaConvalidada(req.query.id_alumno, function(error,row) {
-            if (error) {
-                throw error;
-            }//if
-        })//convalidadas.borrarAsignaturaConvalidada
-        
-        var data2= req.query.asignatura;
-        for (var i = 0; i < data2.length; i++) {
-            convalidadas.agregarAsignaturaConvalidada(data2[i],req.query.id_alumno, function(error,row) {
-                if (error) {
-                    throw error;
-                }//if
-            })//convalidadas.agregarAsignaturaConvalidada
-        }//for
-    }//else
-
     var dni_antiguo;
     var correo_antiguo;
     var num_tarjeta_antiguo;
@@ -492,6 +458,54 @@ router.post('/buscarTodosLosIdNombreApellidosAlumno', function(req,res,next) {
         }//else
     })//alumno.buscarTodosLosIdNombreApellidosAlumno
 });//router.post('/buscarTodosLosIdNombreApellidosAlumno
+
+/*
+* BUSCAR asignaturas convalidadas del alumno por id_alumno OK
+*/
+router.post('/buscarAsignaturasConvalidadasDelAlumno', function(req,res,next) {
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno,function(error,row){
+        if(row.length==0){
+            res.send('No hay alumno con ese id_alumno');
+        }else{
+            alumno.buscarAsignaturasConvalidadasDelAlumno(req.query.id_alumno,function(error,row) {
+                if (error) {
+                    res.send(error);
+                    throw error;
+                }else{
+                    if(row.length==0){
+                        res.send('no hay asignaturas convalidadas');
+                    }else{
+                        res.send(row);
+                    }//else
+                }//else
+            })//alumno.buscarAsignaturasConvalidadasDelAlumno
+        }//else        
+    })//alumno.buscarAlumnoPorIdSinFoto
+});//router.post('/buscarAsignaturasConvalidadasDelAlumno
+
+/*
+* BUSCAR asignaturas no convalidadas del alumno por id_alumno OK
+*/
+router.post('/buscarAsignaturasNoConvalidadasDelAlumno', function(req,res,next) {
+    alumno.buscarAlumnoPorIdSinFoto(req.query.id_alumno,function(error,row){
+        if(row.length==0){
+            res.send('No hay alumno con ese id_alumno');
+        }else{
+            alumno.buscarAsignaturasNoConvalidadasDelAlumno(req.query.id_alumno,function(error,row) {
+                if (error) {
+                    res.send(error);
+                    throw error;
+                }else{
+                    if(row.length==0){
+                        res.send('no hay asignaturas no convalidadas');
+                    }else{
+                        res.send(row);
+                    }//else
+                }//else
+            })//alumno.buscarAsignaturasNoConvalidadasDelAlumno
+        }//else        
+    })//alumno.buscarAlumnoPorIdSinFoto
+});//router.post('/buscarAsignaturasNoConvalidadasDelAlumno
 
 /****************************************************************************************************************************/
 

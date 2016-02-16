@@ -277,6 +277,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
+					resp += "<img id='fotoBusquedaAlumno' alt='fotoBusquedaAlumno' src='data:img/png;base64,"+data[i].foto+"'/>";
 					resp += "<h3 id='"+data[i].id_alumno+"'>"+data[i].id_alumno+" "+data[i].nombre+"</h3>";
 					resp += "</td></tr></table>";
 				};

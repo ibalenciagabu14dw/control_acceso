@@ -170,7 +170,7 @@ $('#resultado').on("click","#btnModificar",function () {
 					console.log(data);
 					var fecha = data[i].fecha;
 					var fechaCortada = fecha.split('T')[0];
-					resp += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";
+					resp += "<img id='fotoAlumno' alt='fotoAlumno' src='data:img/png;base64,"+data[i].foto+"'/>";
 					resp += "<h3 id='"+data[i].id_faltas+"'>"+data[i].nombre+""+' '+""+data[i].apellidos+""+' '+""+fechaCortada+"</h3>";
 					resp += "</td></tr></table>";
 				};

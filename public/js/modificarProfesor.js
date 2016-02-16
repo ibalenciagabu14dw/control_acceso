@@ -60,14 +60,14 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_profesor' class='input-group-addon'>ID PROFESOR</label>";
-    		formulario += "<input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result.id_profesor+"'readonly>";
+    		formulario += "<input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"'readonly>";
     		formulario += "<span id='id_profesor1' class='glyphicon form-control-feedback'></span>";    		    		    		
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertDni'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='dni' class='input-group-addon'>DNI</label>";
-    		formulario += "<input type='text' id='dni' name='dni' class='form-control has-feedback' value='"+result.dni+"'>";
+    		formulario += "<input type='text' id='dni' name='dni' class='form-control has-feedback' value='"+result[0].dni+"'>";
     		formulario += "<span id='dni1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
@@ -75,33 +75,33 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline' id='alertNombre'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result.nombre+"'>";
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
     		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertApellidos'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='apellidos' class='input-group-addon'>APELLIDOS</label>";
-    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control has-feedback' value='"+result.apellidos+"'>";
+    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control has-feedback' value='"+result[0].apellidos+"'>";
     		formulario += "<span id='apellidos1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertCorreo'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='correo' class='input-group-addon'>CORREO</label>";
-    		formulario += "<input type='text' id='correo' name='correo' class='form-control has-feedback' value='"+result.correo+"'>";
+    		formulario += "<input type='text' id='correo' name='correo' class='form-control has-feedback' value='"+result[0].correo+"'>";
     		formulario += "<span id='correo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='password' class='input-group-addon'>PASSWORD</label>";
-    		formulario += "<input type='text' id='password' name='password' class='form-control has-feedback' value='"+result.password+"'>";
+    		formulario += "<input type='text' id='password' name='password' class='form-control has-feedback' value='"+result[0].password+"'>";
     		formulario += "<span id='password1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<input type='hidden' id='pass' name='pass' class='form-control'>";
-    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"' width='100' height='100'/>";
+    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result[0].foto+"' width='100' height='100'/>";
     		formulario += "<div class='form-inline' id='alertFoto'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='foto' class='input-group-addon'>FOTO</label>";
@@ -112,25 +112,25 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label>";
-    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control  has-feedback' value='"+result.tarjeta_activada+"'>";
+    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control  has-feedback' value='"+result[0].tarjeta_activada+"'>";
     		formulario += "<span id='tarjeta_activada1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertNum_tarj'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='num_tarjeta' class='input-group-addon'>NUMERO TARJETA</label>";
-    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control  has-feedback' value='"+result.num_tarjeta+"'>";
+    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control  has-feedback' value='"+result[0].num_tarjeta+"'>";
     		formulario += "<span id='num_tarjeta1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='admin' class='input-group-addon'>ADMINISTRADOR</label>";
-    		formulario += "<input type='text' id='admin' name='admin' class='form-control  has-feedback' value='"+result.admin+"'>";
+    		formulario += "<input type='text' id='admin' name='admin' class='form-control  has-feedback' value='"+result[0].admin+"'>";
     		formulario += "<span id='admin1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		buscarAsignaturasQueImparte(result.id_profesor);
+    		buscarAsignaturasQueImparte(result[0].id_profesor);
     		formulario += "<div id='asignaturasdelProfesor'>";
     		formulario += "</div>";
 			formulario += "<div class='form-inline'>";
@@ -143,7 +143,7 @@ $(document).ready(function() {
      		formulario += "</select>";
      		formulario += "</div>";
   			formulario += "</div><br/>";	
-    		buscarTodasLasAsignaturas(result.id_profesor);
+    		buscarTodasLasAsignaturas(result[0].id_profesor);
     		formulario += "<div id='asignaturasTodas'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -187,7 +187,7 @@ $(document).ready(function() {
 	            
 	        },
 	        submitHandler: function (form) {
-	        if($('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== false){
+	        if($('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== false || $('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== undefined ){
 	        		showAlertValidate("#enlace2"," El profesor tiene que tener una asignatura");
 	        } else {			
 	        	
@@ -413,8 +413,9 @@ $(document).ready(function() {
 			success:function (data) {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
 					resp += "<h3 id='"+data[i].id_profesor+"'>"+data[i].id_profesor+" "+data[i].nombre+"</h3>";
+					resp += "<img id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

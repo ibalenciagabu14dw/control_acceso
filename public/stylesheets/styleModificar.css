@@ -67,6 +67,10 @@ h1{
      -o-hyphens: auto;
      hyphens: auto;
 }
+h3{
+   text-align: center;
+}
+
 /* label*/
 label {
     width: 45% !important ;

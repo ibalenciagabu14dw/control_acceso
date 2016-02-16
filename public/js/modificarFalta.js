@@ -166,10 +166,12 @@ $('#resultado').on("click","#btnModificar",function () {
 				console.log(data);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
+					console.log(data);
 					var fecha = data[i].fecha;
 					var fechaCortada = fecha.split('T')[0];
 					resp += "<h3 id='"+data[i].id_faltas+"'>"+data[i].nombre+""+' '+""+data[i].apellidos+""+' '+""+fechaCortada+"</h3>";
+					resp += "<img id='fotoAlumno' alt='fotoAlumno' src='data:img/png;base64,"+data[i].foto+"'/>";					
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

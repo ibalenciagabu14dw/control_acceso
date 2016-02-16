@@ -52,14 +52,14 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_alumno' class='input-group-addon'>ID ALUMNO</label>";     		
-    		formulario += "<input type='text' id='id_alumno' name='id_alumno' class='form-control has-feedback' value='"+result.id_alumno+"'readonly>";
+    		formulario += "<input type='text' id='id_alumno' name='id_alumno' class='form-control has-feedback' value='"+result[0].id_alumno+"'readonly>";
     		formulario += "<span id='id_alumno1' class='glyphicon form-control-feedback'></span>";    		    		
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline' id='alertDni'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='dni' class='input-group-addon'>DNI</label>"; 
-    		formulario += "<input type='text' id='dni' name='dni' class='form-control has-feedback' value='"+result.dni+"'>";
+    		formulario += "<input type='text' id='dni' name='dni' class='form-control has-feedback' value='"+result[0].dni+"'>";
     		formulario += "<span id='dni1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
@@ -67,25 +67,25 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'  id='alertNombre'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>"
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result.nombre+"'>";
+    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
     		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>"; 
   			formulario += "<div class='form-inline'  id='alertApellidos'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='apellidos' class='input-group-addon'>APELLIDOS</label>"
-    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control has-feedback' value='"+result.apellidos+"'>";
+    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control has-feedback' value='"+result[0].apellidos+"'>";
     		formulario += "<span id='apellidos1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline'  id='alertCorreo'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='correo' class='input-group-addon'>CORREO</label>" 
-    		formulario += "<input type='text' id='correo' name='correo' class='form-control has-feedback' value='"+result.correo+"'>";
+    		formulario += "<input type='text' id='correo' name='correo' class='form-control has-feedback' value='"+result[0].correo+"'>";
     		formulario += "<span id='correo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result.foto+"'/></br>";
+    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result[0].foto+"'/></br>";
     		formulario += "<br/>";
     		formulario += "<div class='form-inline'  id='alertFoto'>";
     		formulario += "<div class='input-group'>";
@@ -97,27 +97,27 @@ $(document).ready(function() {
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label>"
-    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control has-feedback' value='"+result.tarjeta_activada+"'>";
+    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control has-feedback' value='"+result[0].tarjeta_activada+"'>";
     		formulario += "<span id='tarjeta_activada1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline'  id='alertNum_tarj'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='num_tarjeta' class='input-group-addon'>NUMERO TARJETA</label>"
-    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control has-feedback' value='"+result.num_tarjeta+"'>";
+    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control has-feedback' value='"+result[0].num_tarjeta+"'>";
 			formulario += "<span id='num_tarjeta1' class='glyphicon form-control-feedback'></span>";
 			formulario += "</div>";
   			formulario += "</div><br/>";
-			buscarGruposDelAlumno(result.id_alumno);
+			buscarGruposDelAlumno(result[0].id_alumno);
     		formulario += "<div id='gruposdelAlumno'>";
     		formulario += "</div>";
-    		buscarTodosLosGrupos(result.id_alumno);
+    		buscarTodosLosGrupos(result[0].id_alumno);
     		formulario += "<div id='gruposTodos' hidden>";
     		formulario += "</div>";
-    		buscarAsignaturasConvalidadasDelAlumno(result.id_alumno);
+    		buscarAsignaturasConvalidadasDelAlumno(result[0].id_alumno);
     		formulario += "Asignaturas,selecciona la que quieres convalidar: <div id='AsignaturaGrupo'>";
     		formulario += "</div>";
-			buscarAsignaturasNoConvalidadasDelAlumno(result.id_alumno);
+			buscarAsignaturasNoConvalidadasDelAlumno(result[0].id_alumno);
 			formulario += "<div id='AsignaturaGrupoRestante'>";
     		formulario += "</div>";
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -276,8 +276,9 @@ $('#resultado').on("click","#btnModificar",function () {
 			success:function (data) {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
 					resp += "<h3 id='"+data[i].id_alumno+"'>"+data[i].id_alumno+" "+data[i].nombre+"</h3>";
+					resp += "<img id='fotoBusquedaAlumno' alt='fotoBusquedaAlumno' src='data:img/png;base64,"+data[i].foto+"'/>";					
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

@@ -12,7 +12,6 @@ var alumno = require('../models/alumno');
 * UPDATE AULA
 */
 router.post('/updateFalta',  function(req,res,next){
-    console.log(req.body);
     var id_faltas = req.body.id_faltas;
     var fecha = req.body.fecha;
     var id_alumno = req.body.id_alumno;

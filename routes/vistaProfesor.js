@@ -32,6 +32,7 @@ router.get('/', function(req, res, next) {
 										throw error;
 									}else{
 										res.render("vistaProfesor",{ 
+										title:'Vista Profesor',
 										name : row.nombre, 
 										image: row.foto,
 										correo: row.correo,

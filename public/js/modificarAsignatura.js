@@ -211,7 +211,7 @@ $(document).ready(function() {
 			success:function (data) {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
 					resp += "<h3 id='"+data[i].id_asignatura+"'>"+data[i].nombre+" "+data[i].tipo+"</h3>";
 					resp += "</td></tr></table>";
 				};

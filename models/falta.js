@@ -158,12 +158,15 @@ falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
 */
 falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
+		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos,alumnos.foto FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
+				for (i=0;i<row.length;i++){
+					row[i].foto = row[i].foto.toString('base64');
+				}
 				callback(null,row);
 			}//else
 		});//connection.query
@@ -199,7 +202,6 @@ falta.buscarFaltaExistente = function(id_alumno,id_horario_grupo,observaciones,c
 				throw error;
 				console.log(error);
 			}else{
-				console.log(row);
 				callback(null,row);
 			}//else
 		});//connection.query

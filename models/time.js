@@ -51,7 +51,7 @@ time.activarAutomatizacion = function (io,callback) {
 					for (var i = 0; i < data.length; i++) {
 						//var sec = 26940 + (i*60);
 						var hora = data[i].hora_final.split(':');
-						var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
+						var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3630);
 						schedule2.schedules.push({t:[sec]});
 					};
 					//activar segundo trigger

@@ -14,7 +14,7 @@ table{
     margin-bottom:25px;
     margin-right: 25px;
 }
-#exit{
+#exit,#anadirDispositivo{
 	background-color: lightgrey;
 	color:black;
 	width: 100px;
@@ -22,10 +22,14 @@ table{
 	margin-bottom: 20px;
 	margin-left: 20px;
 }
-#exit:hover{
+#exit:hover,#anadirDispositivo:hover{
 	text-decoration: none;
 	background-color: grey;
 	font-weight: bold;
+}
+#anadirDispositivo{
+  float: right;
+  margin-right: 20px;
 }
 #footer p{
 	float: left;

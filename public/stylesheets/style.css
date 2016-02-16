@@ -135,3 +135,14 @@ padding-bottom: 0;
     font-weight: bold;
   }
 }
+.presencia0{
+  background-color: rgba(255, 0, 0, 0.6);
+}
+.presencia1{
+  background-color: rgba(0, 255, 100, 0.6);
+}
+.presencia1, .presencia0{
+  padding: 10px;
+  text-align: center;
+  box-shadow: 5px 5px 10px black;
+}

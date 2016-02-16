@@ -14,7 +14,9 @@ falta.agregarFalta = function (fecha,id_alumno,id_horario_grupo,observaciones,ca
 		  	if (error) {
 				throw error;
 				console.log(error);
-			}
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
 		});//connection.query
 	}//if
 }//falta.agregarFalta
@@ -187,7 +189,7 @@ falta.buscarFaltaPorId = function (id_faltas,callback) {
 }//horario_grupo.buscarHorarioGrupoPorId
 
 /*
-*	BUSCAR un horario_grupo que ya exista en la base de datos
+*	BUSCAR una falta por id_alumno, id_horario_grupo y observaciones
 */
 falta.buscarFaltaExistente = function(id_alumno,id_horario_grupo,observaciones,callback){
 	if(connection){
@@ -198,6 +200,23 @@ falta.buscarFaltaExistente = function(id_alumno,id_horario_grupo,observaciones,c
 				console.log(error);
 			}else{
 				console.log(row);
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//falta.buscarFaltaExistente
+
+/*
+*	BUSCAR una falta por id_alumno e id_horario_grupo
+*/
+falta.buscarFaltaPorFechaYIdAlumnoYIdHorarioGrupo = function(fecha,id_alumno,id_horario_grupo,callback){
+	if(connection){
+		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo FROM faltas WHERE fecha ="'+fecha+'" AND id_alumno ="'+id_alumno+'" AND id_horario_grupo ="'+id_horario_grupo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
 				callback(null,row);
 			}//else
 		});//connection.query

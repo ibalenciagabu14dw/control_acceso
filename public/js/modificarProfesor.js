@@ -54,11 +54,8 @@ $(document).ready(function() {
 	//Crear formulario para modificar o borrar alumno al clicar en la celda
 	$('#resultado').on("click",".celda",function () {
 		var datos = $(this).contents();
-		console.log(datos);
-		console.log(datos[0].id);
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-			console.log(result[0].nombre);
     		var formulario = "<form class='form-group' action='/modificarProfesor' id='formUpdate' name='formUpdate'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";

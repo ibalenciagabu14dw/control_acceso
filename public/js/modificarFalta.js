@@ -166,7 +166,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				console.log(data);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
 					var fecha = data[i].fecha;
 					var fechaCortada = fecha.split('T')[0];
 					resp += "<h3 id='"+data[i].id_faltas+"'>"+data[i].nombre+""+' '+""+data[i].apellidos+""+' '+""+fechaCortada+"</h3>";

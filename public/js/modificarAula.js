@@ -139,7 +139,7 @@ $(document).ready(function() {
 			success:function (data) {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
 					resp += "<h3 id='"+data[i].id_aula+"'>"+data[i].id_aula+" "+data[i].numero+"</h3>";
 					resp += "</td></tr></table>";
 				};

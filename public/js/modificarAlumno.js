@@ -276,7 +276,7 @@ $('#resultado').on("click","#btnModificar",function () {
 			success:function (data) {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<table class='table'><tr><td class='celda'>";
+					resp += "<table class='table'><tr class='active'><td class='celda'>";
 					resp += "<h3 id='"+data[i].id_alumno+"'>"+data[i].id_alumno+" "+data[i].nombre+"</h3>";
 					resp += "</td></tr></table>";
 				};

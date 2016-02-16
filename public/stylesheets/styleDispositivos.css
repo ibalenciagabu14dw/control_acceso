@@ -22,3 +22,11 @@
 	height: 30px;
 	padding: 2px;
 }
+.bg-danger{
+	padding: 20px;
+	width: 100%;
+}
+#submitDispositivo, #cancelarDispositivo {
+	width: 45%;
+	margin: 5px;
+}

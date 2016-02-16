@@ -68,7 +68,7 @@ router.get('/configDispositivos', function(req, res, next) {
   })//buscarTodosLosDispositivos
 });//router.get('/configDispositivos'
 
-router.get('/configDispositivos/dispositivosSinConfigurar',function(req,res,next) {
+router.post('/configDispositivos/dispositivosSinConfigurar',function(req,res,next) {
   dispositivo.buscarDispositivosSinConfigurar(function (error,data) {
     if (error) {
       console.log(error);
@@ -78,6 +78,17 @@ router.get('/configDispositivos/dispositivosSinConfigurar',function(req,res,next
     }//else error
   })//buscarDispositivosSinConfigurar
 });//
+
+router.post('/configDispositivos/agregarDispositivo',function(req,res,next) {
+  dispositivo.agregarDispositivo(req.body.aula, req.body.numeroDispositivo, function (error,data) {
+    if (error) {
+      console.log(error);
+      throw error;
+    }else{
+      res.send({resp:'ok'});
+    }
+  })//agregarDispositivo
+})//post('/configDispositivos/agregarDispositivos'
 /*
 * FIN configuración dispositivos
 */

@@ -2,6 +2,38 @@ var dispositivo = {};
 var connection = require('../models/connection');
 var time = require('../models/time');
 
+/************************ Agregar *******************************/
+dispositivo.agregarDispositivo = function (id_aula,numero_dispositivo,callback) {
+	var diaCompleto;
+	var hora;
+	time.diaCompleto(function (error,data) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			diaCompleto = data;
+			time.horaActual(function (error,data2) {
+				if (error) {
+					console.log(error);
+					throw error;
+				}else{
+					hora = data2;
+					if (connection) {
+						var sql = 'INSERT INTO dispositivos(id_aula,numero_dispositivo,ultima_conexion) VALUES('+id_aula+','+numero_dispositivo+',"'+diaCompleto+'T'+hora+'")';
+						connection.query(sql,function (error) {
+							if (error) {
+								console.log(error);
+								throw error;
+							};
+						})//connection.query
+					};//if connection
+				}//else idf error 2
+			})//horaActual
+		}//else if error
+	})//diaCompleto	
+}//agregarDispositivo
+/****************************************************************/
+
 /************************ Modificar *****************************/
 dispositivo.modificarUltimaConexion = function (id,callback) {
 	var diaCompleto;
@@ -64,7 +96,7 @@ dispositivo.buscarTodosLosDispositivos = function (callback) {
 
 dispositivo.buscarDispositivosSinConfigurar = function (callback) {
 	if (connection) {
-		var sql = 'SELECT id_aula,numero FROM aulas WHERE id_aula NOT IN(SELECT id_aula FROM dispositivos);';
+		var sql = 'SELECT id_aula,numero,piso FROM aulas WHERE id_aula NOT IN(SELECT id_aula FROM dispositivos);';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				console.log(error);

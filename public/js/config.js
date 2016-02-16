@@ -35,7 +35,7 @@ $(document).ready(function() {
       		dataType: 'json',
       		success:function (data) {
         		if (data.result == 'ok') {
-          			window.location.href("/");
+          			window.location.replace('/');
         		};
       		}
     	})
@@ -48,6 +48,7 @@ $(document).ready(function() {
   	});
 });//ready
 
+
 function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');
     $('#mensaje span').html(texto);
@@ -55,5 +56,4 @@ function showAlertValidate(lugar,texto) {
     $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
     }
-
 

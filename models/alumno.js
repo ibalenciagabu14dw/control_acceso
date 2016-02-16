@@ -146,13 +146,10 @@ alumno.buscarAlumnoPorId = function(id_alumno,callback){
 				console.log(error);
 				throw error;
 			}else{
-				if(row[0].foto == null){
-					var foto = row[0].foto;
-				} else {
-					var foto = row[0].foto.toString('base64');//foto del alumno	
+				for (i=0;i<row.length;i++){
+					row[i].foto = row[i].foto.toString('base64');
 				}
-				var row2 = {id_alumno : row[0].id_alumno,dni : row[0].dni,nombre : row[0].nombre,apellidos : row[0].apellidos,correo : row[0].correo,num_tarjeta : row[0].num_tarjeta,foto : foto,tarjeta_activada : row[0].tarjeta_activada};
-				callback(null,row2);
+				callback(null,row);
 			}//else
 		});//connection.query
 	}//if

@@ -237,6 +237,9 @@ alumno.buscarAlumnoPorNombre = function(nombre,callback){
 				console.log(error);
 				throw error;
 			}else{
+				for (i=0;i<row.length;i++){
+					row[i].foto = row[i].foto.toString('base64');
+				}
 				callback(null,row);
 			}//else
 		});//connection.query

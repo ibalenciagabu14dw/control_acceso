@@ -13,4 +13,12 @@
 }
 .celdaDispositivo p{
 	background-color: white;
+	margin-bottom: 3px;
+}
+#footer{
+	bottom: auto;
+}
+#borrarDispositivo{
+	height: 30px;
+	padding: 2px;
 }

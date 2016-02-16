@@ -1,19 +1,26 @@
 $(document).ready(function() {
-	/*
-  * Socket.io
-  */
-  var socket;
-  var serverName = window.location.hostname;
-  if ((serverName == "localhost") || (serverName == "127.0.0.1")) {
-    socket = io();
-  } else {
-    socket = io('http://controlfid.zubirimanteoweb.com:8000');
-  }
-  socket = io.connect();
-
-  socket.emit('dispositivos','mensaje dispositivos');
 
   /*
-  * Fin socket.io
+  * Modal con formulario para añadir dispositivo
   */
+  //recuperar datos aulas sin configurar dispositivo
+  $.ajax({
+    url: '/config/configDispositivos/dispositivosSinConfigurar',
+    type: 'default GET (Other values: POST)',
+    dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+    data: {param1: 'value1'},
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  
+  //Formulario
+  var formulario = "<form id='formAnadirDispositivo' class='form-group'>";
+  formulario += 
 });//ready

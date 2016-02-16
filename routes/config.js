@@ -23,6 +23,7 @@ router.get('/', function(req, res, next) {
                       //console.log(data.length);                
                       //res.send(data);
                       res.render('config',{ 
+                      title: 'Configuración ',
                       aula:data,
                       })//.res.render
                     }//else error
@@ -48,26 +49,38 @@ router.get('/configPersonas/modificarAlumno', function(req, res, next) {
 router.get('/configPersonas/modificarProfesor', function(req, res, next) {
   res.render('modificarProfesor', { title: 'modificarProfesor' });
 });
-
+/*
+* Configuración dispositivos
+*/
 router.get('/configDispositivos', function(req, res, next) {
-  dispositivo.buscarTodosLosDispositivos(function (error,dispositivosArray,ultima_conexionArray) {
+  dispositivo.buscarTodosLosDispositivos(function (error,dispositivosArray,ultima_conexionArray,aulasArray) {
     if (error) {
       console.log(error);
       throw error;
     }else{
       res.render('configDispositivos', {
+        title:'Dispositivos',
         dispositivos:dispositivosArray,
         conexiones:ultima_conexionArray,
-        });
-    }
+        aulas:aulasArray,
+      });//render
+    }//else error
   })//buscarTodosLosDispositivos
-  /*var io = req.app.io;
-  io.on('connection',function (socket) {
-    socket.on('dispositivos', function(msg){
-      console.log(msg);
-    });
-  })//io*/
-});
+});//router.get('/configDispositivos'
+
+router.get('/configDispositivos/dispositivosSinConfigurar',function(req,res,next) {
+  dispositivo.buscarDispositivosSinConfigurar(function (error,data) {
+    if (error) {
+      console.log(error);
+      throw error;
+    }else{
+      res.send(data);
+    }//else error
+  })//buscarDispositivosSinConfigurar
+});//
+/*
+* FIN configuración dispositivos
+*/
 
 router.get('/configGlobal/configAulas', function(req, res, next) {
   res.render('configAulas', { title: 'configAulas' });

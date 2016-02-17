@@ -43,7 +43,10 @@ falta.modificarFalta = function (id_faltas,fecha,id_alumno,id_horario_grupo,obse
 	}//if
 }//falta.modificarFalta
 
-falta.updatePresencia0ATodos = function(callback){
+/*
+* UPDATE presencia a 0 a todos los alumnos y profesores
+*/
+falta.modificarPresencia0ATodos = function(callback){
 	if (connection) {
 		var sql = 'UPDATE alumnos, profesores SET alumnos.presencia = 0, profesores.presencia = 0';
 		connection.query(sql,function (error) {
@@ -55,7 +58,7 @@ falta.updatePresencia0ATodos = function(callback){
 			}//else
 		});//connection.query
 	};//if connection
-}//falta.updatePresencia0ATodos
+}//falta.modificarPresencia0ATodos
 
 /****************************************************************************************************************************/
 
@@ -89,7 +92,7 @@ falta.borrarTablaFaltas = function (callback) {
 				throw error;
 			};//if error
 		})//connection.query
-	};
+	};//if connection
 }//borrarTablaFaltas
 
 /****************************************************************************************************************************/
@@ -97,18 +100,18 @@ falta.borrarTablaFaltas = function (callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
-*	BUSCAR alumno por id_alumno
+*	BUSCAR todas las faltas
 */
 falta.buscarTodosLosIdFalta = function (callback) {
 	if(connection){							
-		connection.query('SELECT id_falta FROM faltas', function(error,row){
+		connection.query('SELECT id_faltas FROM faltas', function(error,row){
 		  	if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				var id_FaltaArray = [];
 				for (var i= 0;i<row.length;i++){
-					var id = row[i].id_falta;
+					var id = row[i].id_faltas;
 					id_FaltaArray.push(id);
 				}//for
 				function compareNumbers(a, b) {
@@ -173,6 +176,22 @@ falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 	}//if
 }//falta.buscarFaltaPorNombreAlumno
 
+/*
+*	BUSCAR faltas por nombre del alumno sin foto
+*/
+falta.buscarFaltaPorNombreAlumnoSinFoto = function(nombre,callback){
+	if(connection){
+		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//falta.buscarFaltaPorNombreAlumno
 
 /*
 * BUSCAR falta por id_falta
@@ -199,8 +218,8 @@ falta.buscarFaltaExistente = function(id_alumno,id_horario_grupo,observaciones,c
 		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo FROM faltas WHERE id_alumno ="'+id_alumno+'" AND id_horario_grupo ="'+id_horario_grupo+'" AND observaciones ="'+observaciones+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
-				throw error;
 				console.log(error);
+				throw error;
 			}else{
 				callback(null,row);
 			}//else

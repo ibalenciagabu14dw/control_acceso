@@ -22,6 +22,7 @@ var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
 
+var api = require('./routes/API/api');
 var api_alumno = require('./routes/API/api_alumno');
 var api_alumno_grupos = require('./routes/API/api_alumno_grupos');
 var api_asignatura = require('./routes/API/api_asignatura');
@@ -57,6 +58,7 @@ app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
 app.use('/presencia', presencia);
 
+app.use('/API', api);
 app.use('/API', api_alumno);
 app.use('/API', api_alumno_grupos);
 app.use('/API', api_asignatura);

@@ -120,7 +120,7 @@ router.post('/buscarTodosLosIdAula', function(req,res,next) {
             throw error;
         }else{
             if(row.length==0){
-                res.send('no hay aulas')
+                res.send('no hay aulas');
             }
             res.send(row);
         }//else

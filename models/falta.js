@@ -211,9 +211,9 @@ falta.buscarFaltaExistente = function(id_alumno,id_horario_grupo,observaciones,c
 /*
 *	BUSCAR una falta por id_alumno e id_horario_grupo
 */
-falta.buscarFaltaPorFechaYIdAlumnoYIdHorarioGrupo = function(fecha,id_alumno,id_horario_grupo,callback){
+falta.buscarFaltaPorIdAlumnoYIdHorarioGrupo = function(id_alumno,id_horario_grupo,callback){
 	if(connection){
-		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo FROM faltas WHERE fecha ="'+fecha+'" AND id_alumno ="'+id_alumno+'" AND id_horario_grupo ="'+id_horario_grupo+'"';
+		var sql = 'SELECT id_faltas,fecha,id_alumno,id_horario_grupo FROM faltas WHERE id_alumno ="'+id_alumno+'" AND id_horario_grupo ="'+id_horario_grupo+'"';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

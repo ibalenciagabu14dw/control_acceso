@@ -92,12 +92,12 @@ router.post('/modificarFalta', function(req, res, next) {
     								if(row.length==0){
     									res.send('ese horario grupo no existe');
     								}else{
-    									falta.buscarFaltaPorFechaYIdAlumnoYIdHorarioGrupo(req.query.fecha,req.query.id_alumno,req.query.id_horario_grupo,function(error,row){
+    									falta.buscarFaltaPorIdAlumnoYIdHorarioGrupo(req.query.id_alumno,req.query.id_horario_grupo,function(error,row){
     										if(error){
     											res.send(error);
     										}else{
-    											if((row.length>0)&&(id_alumno_antiguo!=req.query.id_alumno)&&(id_horario_grupo_antiguo!=req.query.id_horario_grupo)){
-    												res.send('ese alumno ya tiene esa falta puesta en esa fecha');
+                                                if((row.length>0)&&(id_alumno_antiguo==row[0].id_alumno)&&(id_horario_grupo_antiguo!=row[0].id_horario_grupo)){
+                                                    res.send('ese alumno ya tiene una falta a esa hora');
     											}else{
     												falta.modificarFalta(req.query.id_falta,req.query.fecha,req.query.id_alumno,req.query.id_horario_grupo,req.query.observaciones,function(error,row){
     													if(error){

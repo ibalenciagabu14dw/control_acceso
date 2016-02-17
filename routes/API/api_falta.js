@@ -183,6 +183,23 @@ router.post('/borrarTablaFaltas', function(req, res, next) {
 /*
 * BUSCAR todas las faltas
 */
+router.post('/buscarDatosDeLasFaltasDelDia', function(req,res,next) {
+    falta.buscarDatosDeLasFaltasDelDia(function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('Lista de faltas vacia');
+            }
+            res.send(row);
+        }//else
+    })//falta.buscarDatosDeLasFaltasDelDia
+});//router.post('/buscarDatosDeLasFaltasDelDia
+
+/*
+* BUSCAR todas los id_faltas
+*/
 router.post('/buscarTodosLosIdFalta', function(req,res,next) {
     falta.buscarTodosLosIdFalta(function(error,row) {
         if (error) {

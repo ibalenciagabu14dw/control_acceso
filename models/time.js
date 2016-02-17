@@ -6,13 +6,18 @@ var mailgun = require('../models/mailgun');
 var mongo = require('../models/mongo');
 var later = require('later');
 var later2 = require('later');
+var later3 = require('later');
 
 time.activarAutomatizacion = function (io,callback) {
 	/*
 	*	Later diario
 	*/
+	//later general se dispara 1 vez al dia
 	later.date.UTC();
+	//later para faltas se dispara 30 segundos antes de finalizar la clase
 	later2.date.UTC();
+	//later para refrescar la página del profesor, se dispara justo cuando acaba la clase
+	later3.date.UTC();
 	// momento del dia desde las 00:00 en segundos menos 3600 (UTC())
 	var schedule = {
 	    schedules:
@@ -28,10 +33,12 @@ time.activarAutomatizacion = function (io,callback) {
 	//Activar
 	var timer = later.setInterval(primeraHora, schedule);
 	var timer2;
+	var timer3;
 
 	//Funcion principal
 	function primeraHora() {
 	   	var schedule2 = {schedules:[]};
+	   	var schedule3 = {schedules:[]};
 	   	var dia;
 	   	//sacar dia de la semana para llamar a la funcion
 	   	time.diaDeLaSemana(function (error,data) {
@@ -51,15 +58,25 @@ time.activarAutomatizacion = function (io,callback) {
 					for (var i = 0; i < data.length; i++) {
 						//var sec = 26940 + (i*60);
 						var hora = data[i].hora_final.split(':');
+						//horas finales de clase menos 30 segundos
 						var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3630);
+						//horas finales de clase
+						var sec2 = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
 						schedule2.schedules.push({t:[sec]});
+						schedule3.schedules.push({t:[sec2]});
 					};
 					//activar segundo trigger
 					timer2 = later2.setInterval(finDeClase,schedule2);
+					//activar tercer trigger
+					timer3 = later3.setInterval(refrescar,schedule3);
 	   			}//else if error
 	   		});//buscarHoraFinalPorDia
 		});//time.diaDeLaSemana
 	};//funcion primeraHora
+
+	function refrescar () {
+		io.emit('refresh','Presencia 0 a todos');
+	}//refrescar
 
 	function finDeClase () {
 		var dia;
@@ -117,14 +134,14 @@ time.activarAutomatizacion = function (io,callback) {
 			}//else error dia de la semana
 		})//dia de la semana
 		//poner la presencia a 0 a todos
-		falta.updatePresencia0ATodos(function (error) {
+		falta.modificarPresencia0ATodos(function (error) {
 			if (error) {
 				console.log(error);
 				throw error;
 			}else{
 				io.emit('refresh','Presencia 0 a todos');
 			}
-		});//falta.updatePresencia
+		});//falta.modificarPresencia
 	}//finClase
 
 	/*
@@ -135,10 +152,10 @@ time.activarAutomatizacion = function (io,callback) {
 /*
 *	Later Historico
 */
-var later3 = require('later');
-later3.date.UTC();
+var later4 = require('later');
+later4.date.UTC();
 
-var schedule3 = {
+var schedule4 = {
     schedules:
     [
         {t:[82740]},//23:59 UTC()+1 82740
@@ -151,7 +168,7 @@ var schedule3 = {
 };
 
 //Activar
-var timer3 = later3.setInterval(ultimaHora, schedule3);
+var timer3 = later4.setInterval(ultimaHora, schedule4);
 
 function ultimaHora () {
 	//buscar los datos de las faltas para insertarlas en sql

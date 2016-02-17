@@ -97,6 +97,7 @@ $(document).ready(function() {
           formularioDispositivos += "<label for='numeroDispositivo'>Número de dispositivo: </label>";
           formularioDispositivos += "<input type='number' id='numeroDispositivo' name='numeroDispositivo' class='form-control'/>";
           formularioDispositivos += "<br/><input type='submit' id='submitDispositivo' class='btn btn-primary' value='Añadir'>";
+          formularioDispositivos += "</form>";
         }else{
           var formularioDispositivos = "<p class='bg-danger'>No hay aulas sin configurar</p>";
         }

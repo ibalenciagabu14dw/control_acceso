@@ -89,9 +89,7 @@ td:hover{
 #footer{
 	bottom: auto;
 }
-#footer p{
-	float: left;
-}
+
 
 @media only screen and (max-width: 450px) and (orientation:portrait){
   .presencia1, .presencia0{

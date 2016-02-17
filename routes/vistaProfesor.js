@@ -33,9 +33,9 @@ router.get('/', function(req, res, next) {
 									}else{
 										res.render("vistaProfesor",{ 
 										title:'Vista Profesor',
-										name : row.nombre, 
-										image: row.foto,
-										correo: row.correo,
+										name : row[0].nombre, 
+										image: row[0].foto,
+										correo: row[0].correo,
 										num_tarjeta:num_tarjetaArray,
 										presencia:presenciaArray,
 										nombre: nombreArray,

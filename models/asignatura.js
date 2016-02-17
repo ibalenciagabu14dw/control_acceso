@@ -182,7 +182,7 @@ asignatura.buscarAsignaturaPorIdYClave = function(id_asignatura,clave,callback){
 */
 asignatura.buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada = function(id_alumno,callback){
 	if(connection){
-		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura from convalidadas where id_alumno = 1) AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura NOT IN (SELECT id_asignatura from convalidadas where id_alumno = ' + connection.escape(id_alumno)+') AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -191,11 +191,11 @@ asignatura.buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada = function(id_alum
 			}//else
 		});//connection.query
 	}//if
-}//grupo.buscarAsignaturasQuePerteneceUnAlumno
+}//asignatura.buscarAsignaturasQuePerteneceUnAlumnoNoConvalidada
 
 asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno = function(id_alumno,callback){
 	if(connection){
-		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura in (SELECT id_asignatura from convalidadas where id_alumno = 1) AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
+		var sql = 'SELECT id_asignatura,nombre FROM asignaturas WHERE id_asignatura in (SELECT id_asignatura from convalidadas where id_alumno = ' + connection.escape(id_alumno)+') AND id_asignatura IN (SELECT id_asignatura FROM horario_grupos WHERE id_grupo IN (SELECT id_grupo FROM grupos WHERE id_grupo  IN (SELECT id_grupo FROM alumno_grupos WHERE id_alumno ="'+id_alumno+'")))';
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -204,7 +204,7 @@ asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno = function(id_alumno
 			}//else
 		});//connection.query
 	}//if
-}//grupo.buscarAsignaturasQuePerteneceUnAlumno
+}//asignatura.buscarAsignaturasConvalidadaQuePerteneceUnAlumno
 
 /****************************************************************************************************************************/
 

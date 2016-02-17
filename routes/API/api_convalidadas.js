@@ -39,37 +39,165 @@ router.post('/agregarAsignaturaConvalidada', function(req, res, next) {
 
 /***********************************************************UPDATE***********************************************************/
 
+/*
+* UPDATE convalidadas OK
+*/
+router.post('/modificarConvalidadas', function(req, res, next) {
+    
+    var id_alumno_antiguo;
+    var id_asignatura_antiguo;
 
+    convalidadas.buscarConvalidadasPorIdConvalidada(req.query.id_convalidada, function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay ninguna convalidada con ese id');
+            }else{
+                id_alumno_antiguo = row[0].id_alumno;
+                id_asignatura_antiguo = row[0].id_asignatura;
+
+                convalidadas.buscarConvalidadaPorIdAlumnoYIdAsignatura(req.query.id_alumno,req.query.id_asignatura, function(error,row){
+                    if((row.length>0)&&((id_alumno_antiguo!=req.query.id_alumno)&&(id_asignatura_antiguo!=req.query.id_asignatura))){
+                        res.send('ese alumno ya tiene convalidada esa asignatura');
+                    }
+                    else{
+                        convalidadas.modificarConvalidadas(req.query.id_convalidada,req.query.id_alumno,req.query.id_asignatura,function(error,row){
+                            if (error) {
+                                res.send(error);
+                                throw error;
+                            }else {
+                                res.send('convalidada modificada correctamente');
+                            }//else
+                        });//convaliadas.modificarConvalidadas
+                    }//else
+                })//convalidadas.buscarConvalidadaPorIdAlumnoYIdAsignatura
+            }//else
+        }//else
+    })//convalidadas.buscarConvalidadasPorIdConvalidada
+});//router.post('/modificarConvalidadas
 
 /****************************************************************************************************************************/
 
 /***********************************************************DELETE***********************************************************/
 
 /*
-* DELETE aula por id_aula OK
+* DELETE convalidada por id_convalidadas OK
 */
 router.post('/borrarAsignaturaConvalidada', function(req, res, next) {
-    aula.buscarAulaPorId(req.query.id_aula, function(error,row) {
+    convalidadas.buscarConvalidadasPorIdConvalidada(req.query.id_convalidada, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
-                res.send('Ese id no existe');
+                res.send('Ese id_convalidada no existe');
             }else{
-                aula.borrarAula(req.query.id_aula, function(error,row) {
+                convalidadas.borrarAsignaturaConvalidada(req.query.id_convalidada, function(error,row) {
                     if (error) {
+                        res.send('error borrando asignatura convalidada');
                         throw error;
-                        res.send('error borrando aula');
                     }else{
-                        res.send('aula borrada correctamente');
+                        res.send('convalidada borrada correctamente');
                     }//else
-                })//aula.borrarAula
+                })//convalidadas.borrarAsignaturaConvalidada
             }//else
         }//else
-    })//aula.buscarAulaPorId
-});//router.post('/borrarAula
+    })//convalidadas.buscarConvalidadasPorIdConvalidada
+});//router.post('/borrarAsignaturaConvalidada
 
+/****************************************************************************************************************************/
+
+/***********************************************************SELECT***********************************************************/
+
+/*
+* BUSCAR todas las convalidadas OK
+*/
+router.post('/buscarTodasLasConvalidadas', function(req,res,next) {
+    convalidadas.buscarTodasLasConvalidadas(function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('no hay convalidadas')
+            }
+            res.send(row);
+        }//else
+    })//convalidadas.buscarTodasLasConvalidadas
+});//router.post('/buscarTodasLasConvalidadas
+
+/*
+*   BUSCAR convalidada por id_convalidadas OK
+*/
+router.post('/buscarConvalidadasPorIdConvalidada', function(req,res,next) {
+    convalidadas.buscarConvalidadasPorIdConvalidada(req.query.id_convalidada, function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay convalidadas con ese id');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//convalidadas.buscarConvalidadasPorIdConvalidada
+});//router.post('/buscarConvalidadasPorIdConvalidada
+
+/*
+*   BUSCAR asignaturas que tiene el alumno para convalidar  por id_alumno OK
+*/
+router.post('/buscarNoConvalidadasPorIdAlumno', function(req,res,next) {
+    convalidadas.buscarNoConvalidadasPorIdAlumno(req.query.id_alumno, function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay convalidadas con ese id_alumno');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//convalidadas.buscarNoConvalidadasPorIdAlumno
+});//router.post('/buscarNoConvalidadasPorIdAlumno
+/*
+*   BUSCAR convalidadass convalidadas por id_alumno OK
+*/
+router.post('/buscarConvalidadasPorIdAlumno', function(req,res,next) {
+    convalidadas.buscarConvalidadasPorIdAlumno(req.query.id_alumno, function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay convalidadas con ese id_alumno');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//convalidadas.buscarConvalidadasPorIdAlumno
+});//router.post('/buscarConvalidadasPorIdAlumno
+
+/*
+*   BUSCAR convalidadass convalidadas por id_asignatura OK
+*/
+router.post('/buscarConvalidadasPorIdAsignatura', function(req,res,next) {
+    convalidadas.buscarConvalidadasPorIdAsignatura(req.query.id_asignatura, function(error,row) {
+        if (error) {
+            res.send(error);
+            throw error;
+        }else{
+            if(row.length==0){
+                res.send('No hay convalidadas con ese id_asignatura');
+            }else{
+                res.send(row);
+            }//else
+        }//else
+    })//convalidadas.buscarConvalidadasPorIdAsignatura
+});//router.post('/buscarConvalidadasPorIdAsignatura
 
 /****************************************************************************************************************************/
 

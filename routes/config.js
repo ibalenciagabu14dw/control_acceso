@@ -89,6 +89,32 @@ router.post('/configDispositivos/agregarDispositivo',function(req,res,next) {
     }
   })//agregarDispositivo
 })//post('/configDispositivos/agregarDispositivos'
+
+router.post('/configDispositivos/comprobarIdDispositivo', function(req,res,next) {
+  dispositivo.buscarIdsDispositivos(req.body.id, function (error,data) {
+    if (error) {
+      console.log(error);
+      throw error;
+    }else{
+      if (data.resultado == 'ok') {
+        res.send({result:'ok'});
+      }else{
+        res.send({result:'noOk'});
+      }//else if data == ok
+    }//else if connection
+  })//buscarIdsDispositivos
+})//post('/configDispositivos/comprobarIdDispositivo'
+
+router.post('/configDispositivos/borrarDispositivo', function(req,res,next) {
+  dispositivo.borrarDispositivo(req.body.id,function (error) {
+    if (error) {
+      console.log(error);
+      throw error;
+    }else{
+      res.send({result:'ok'});
+    }
+  })//borrarDispositivo
+})//post('/configDispositivos/borrarDispositivo'
 /*
 * FIN configuración dispositivos
 */

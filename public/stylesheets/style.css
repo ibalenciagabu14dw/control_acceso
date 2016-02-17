@@ -11,7 +11,12 @@ body{
 	background-position: center center;
 	background-color: #464646;
 }
-
+#enviarCorreo{
+  font-weight: bold;
+}
+#enviarCorreo:hover{
+  cursor: pointer;
+}
 #enlace {
   color: white;
   text-decoration: none;
@@ -19,6 +24,9 @@ body{
 #enlace:hover{
 	text-decoration: none;
 	font-weight: bold;
+}
+#send{
+  width: 100%;
 }
 #titulo{
 	color:white;
@@ -37,12 +45,16 @@ body{
   border-top-right-radius:5px;
 }
 #footer p{
-  margin-left: 10%;
+  margin-left: 5%;
   margin-top: 2%;
+  float: left;
 }
 #tituloLogin{
   text-align: center;
   font-weight: bold;
+}
+#submitCorreo{
+  width: 100%;
 }
 
 /*****Menu*****/
@@ -129,12 +141,6 @@ padding-bottom: 0;
 #volverABuscar{
   width: 100%;
 }
-@media only screen and (max-width: 767px){
-  .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a, .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:focus, .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:hover{
-    color:white;
-    font-weight: bold;
-  }
-}
 .presencia0{
   background-color: rgba(255, 0, 0, 0.6);
 }
@@ -145,4 +151,19 @@ padding-bottom: 0;
   padding: 10px;
   text-align: center;
   box-shadow: 5px 5px 10px black;
+}
+@media only screen and (max-width: 767px){
+  .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a, .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:focus, .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:hover{
+    color:white;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 450px) and (orientation:portrait) {
+  #botonBuscador{
+    margin-right: 30%;
+    margin-top: 0.1%;
+  }
+  #footer p{
+    margin-left: 15%;
+  }
 }

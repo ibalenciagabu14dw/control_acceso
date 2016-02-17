@@ -5,7 +5,7 @@ var time = require("../models/time");
 
 /* GET vista del profesor page. */
 router.get('/', function(req, res, next) {
-	/*if (req.query.idProfesor != req.session.id_profesor) {
+	/*if (!req.session.name) {
 		res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
 	};*/
 	var curr_time;

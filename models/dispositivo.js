@@ -108,5 +108,44 @@ dispositivo.buscarDispositivosSinConfigurar = function (callback) {
 	};
 }//buscarDispositivosSinConfigurar
 
+dispositivo.buscarIdsDispositivos = function (id_dispositivo,callback) {
+	if (connection) {
+		var sql = 'SELECT numero_dispositivo FROM dispositivos';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				var encontrado = 0;
+				for (var i = 0; i < row.length; i++) {
+					if (row[i].numero_dispositivo == id_dispositivo) {
+						encontrado = 1;
+					};
+				};//for
+				if (encontrado == 1) {
+					callback(null,{resultado:'noOk'});
+				}else{
+					callback(null,{resultado:'ok'});
+				}//if encontrado
+			}//else if error
+		})//connection.query
+	};//if connection
+}//buscarIdsDispositivos
+
+/*****************************************************************************/
+/********************************** Borrar ***********************************/
+dispositivo.borrarDispositivo = function (id_dispositivo,callback) {
+	if (connection) {
+		var sql = 'DELETE FROM dispositivos WHERE numero_dispositivo = '+id_dispositivo;
+		connection.query(sql,function (error) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null);
+			}
+		})//connection.query
+	};//if connection
+}//borrarDispositivo
 /*****************************************************************************/
 module.exports = dispositivo;

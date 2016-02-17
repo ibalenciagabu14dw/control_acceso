@@ -33,4 +33,21 @@ mailgun.enviarCorreoAlumnosFalta = function (alumnos,dia) {
 	};
 }//enviarCorreoAlumnosFalta
 
+mailgun.enviarCorreo = function (remitente,asunto,mensaje,callback) {
+	var data = {
+		from: remitente,
+		to: 'admin@mail.controlfid.zubirimanteoweb.com',
+		subject: asunto,
+		html: mensaje,
+	};
+	mailgun.messages().send(data,function (error,body) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			callback(null,{envio:'ok'});
+		}
+	})//messages
+}//enviarCorreo
+
 module.exports = mailgun;

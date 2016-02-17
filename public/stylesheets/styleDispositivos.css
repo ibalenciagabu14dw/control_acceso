@@ -26,7 +26,6 @@
 	padding: 20px;
 	width: 100%;
 }
-#submitDispositivo, #cancelarDispositivo {
-	width: 45%;
-	margin: 5px;
+#submitDispositivo {
+	width: 100%;
 }

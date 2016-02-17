@@ -14,7 +14,7 @@ block content
            p= 'Aula: '+aulas[i]
            p= 'Ultima conexión: '
            p= conexiones[i]
-           button#borrarDispositivo.btn.btn-danger Borrar
+           button#borrarDispositivo.btn.btn-danger(value=dispositivos[i]) Borrar
     - }
   a(href='/')
     button#exit.btn.btn-primary Exit

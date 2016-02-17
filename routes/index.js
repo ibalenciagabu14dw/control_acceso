@@ -4,6 +4,7 @@ var profesor = require('../models/profesor');
 var time = require('../models/time');
 var alumno = require('../models/alumno');
 var md5 = require('blueimp-md5');
+var mailgun = require('../models/mailgun');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -29,10 +30,9 @@ router.post('/login',function(req,res) {
 			if (hash != data[0].password) {
 				console.log("password incorrecto");
 				res.render('index', { title: 'ControlFid', info: 'Password incorrecto'});
-				//render index with layout password mal
 			}else{
-				//req.session.name = data[0].nombre;
-				//req.session.id_profesor = data[0].id_profesor;
+				req.session.name = data[0].nombre;
+				req.session.id_profesor = data[0].id_profesor;
 				if (admin == undefined) {
 					res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor);
 				}else if(admin == 1 && data[0].admin == 1){
@@ -44,6 +44,19 @@ router.post('/login',function(req,res) {
 		}//.else
 	});//.profesor.buscarProfesorPorCorreo
 });//.router.post('/login',function(req,res)
+
+/*logout*/
+router.post('/logout',function(req,res) {
+	if (req.session) {
+        req.session.destroy(function(err){
+        	if(err){
+            	console.log(err);
+        	}else{
+        		res.send({'result':'ok'});
+        	}
+		});
+	}
+});//Logout
 
 /* Buscar personas */
 router.get('/buscarPersona',function(req,res) {
@@ -151,17 +164,17 @@ router.get('/buscarAulaPersona',function(req,res) {
 	});//buscarAulaEnLaQueTieneQueEstarPorId
 });//buscarAulaPersona
 
-/*logout*/
-router.post('/logout',function(req,res) {
-	if (req.session) {
-        req.session.destroy(function(err){
-        	if(err){
-            	console.log(err);
-        	}else{
-        		res.send({'result':'ok'});
-        	}
-		});
-	}
-});//Logout
+//enviar correo
+router.post('/enviarCorreo',function(req,res,next) {
+	mailgun.enviarCorreo(req.body.remitente, req.body.asunto, req.body.mensaje, function (error,data) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			res.send(data);
+		}
+	})//enviarCorreo
+})//post('/enviarCorreo'
+
 
 module.exports = router;

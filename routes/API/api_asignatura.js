@@ -10,7 +10,7 @@ var asignatura = require('../../models/asignatura');
 router.post('/agregarAsignatura', function(req, res, next) {
     asignatura.buscarAsignaturaPorClave(req.query.clave, function (error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length>0){
@@ -37,22 +37,19 @@ router.post('/agregarAsignatura', function(req, res, next) {
 * UPDATE asignatura OK
 */
 router.post('/modificarAsignatura', function(req, res, next) {
-    
     var clave_antigua;
-
     asignatura.buscarAsignaturaPorId(req.query.id_asignatura, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             clave_antigua = row[0].clave;
-            console.log(clave_antigua);
         }//else
     })//asignatura.buscarAsignaturaPorId
 
     asignatura.buscarAsignaturaPorClave(req.query.clave, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if((row.length>0)&&(req.query.clave!=clave_antigua)){
@@ -81,7 +78,7 @@ router.post('/modificarAsignatura', function(req, res, next) {
 router.post('/borrarAsignatura', function(req, res, next) {
     asignatura.buscarAsignaturaPorId(req.query.id_asignatura, function(error,row) {
         if (error) {
-            res.send('error conectando con la base de datos');
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -110,6 +107,7 @@ router.post('/borrarAsignatura', function(req, res, next) {
 router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
     asignatura.buscarTodasLasAsignaturas(function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -126,6 +124,7 @@ router.post('/buscarTodasLasAsignaturas', function(req,res,next) {
 router.post('/buscarTodosLosIdAsignatura', function(req,res,next) {
     asignatura.buscarTodosLosIdAsignatura(function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -138,11 +137,12 @@ router.post('/buscarTodosLosIdAsignatura', function(req,res,next) {
 });//router.post('/buscarTodosLosIdAsignatura
 
 /*
-* BUSCAR asignaturas por id_asignatura
+* BUSCAR asignaturas por id_asignatura OK
 */
 router.post('/buscarAsignaturaPorId', function(req,res,next) {
     asignatura.buscarAsignaturaPorId(req.query.id_asignatura, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -160,6 +160,7 @@ router.post('/buscarAsignaturaPorId', function(req,res,next) {
 router.post('/buscarAsignaturaPorNombre', function(req,res,next) {
     asignatura.buscarAsignaturaPorNombre(req.query.nombre, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){
@@ -177,6 +178,7 @@ router.post('/buscarAsignaturaPorNombre', function(req,res,next) {
 router.post('/buscarAsignaturaPorClave', function(req,res,next) {
     asignatura.buscarAsignaturaPorClave(req.query.clave, function(error,row) {
         if (error) {
+            res.send(error);
             throw error;
         }else{
             if(row.length==0){

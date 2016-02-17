@@ -22,11 +22,13 @@ var config = require('./routes/config');
 var vistaProfesor = require('./routes/vistaProfesor');
 var presencia = require('./routes/presencia');
 
+var api = require('./routes/API/api');
 var api_alumno = require('./routes/API/api_alumno');
 var api_alumno_grupos = require('./routes/API/api_alumno_grupos');
 var api_asignatura = require('./routes/API/api_asignatura');
 var api_aula = require('./routes/API/api_aula');
 var api_convalidadas = require('./routes/API/api_convalidadas');
+var api_falta = require('./routes/API/api_falta');
 
 var app = express();
 
@@ -56,11 +58,13 @@ app.use('/config',config);
 app.use('/vistaProfesor',vistaProfesor);
 app.use('/presencia', presencia);
 
+app.use('/API', api);
 app.use('/API', api_alumno);
 app.use('/API', api_alumno_grupos);
 app.use('/API', api_asignatura);
 app.use('/API', api_aula);
 app.use('/API', api_convalidadas);
+app.use('/API', api_falta);
 
 //*******************socket.io***********************************
 

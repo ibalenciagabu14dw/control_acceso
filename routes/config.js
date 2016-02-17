@@ -13,7 +13,10 @@ var dispositivo = require('../models/dispositivo');
   res.render('config', { title: 'Configuracion' });
 });*/
 
-router.get('/', function(req, res, next) { 
+router.get('/', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
         aula.buscarTodosLosIdYNumero(function (error,data){
                     if (error) {
                       console.log("Fallo");
@@ -31,28 +34,46 @@ router.get('/', function(req, res, next) {
 });//.router.get('/agregarHorarioGr', function(req, res, next) {
 
 router.get('/configFaltas/modificarFalta', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarFalta', { title: 'modificarFalta' });
 });
 
 router.get('/configPersonas/agregarAlumno', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('agregarAlumno', { title: 'agregarAlumno' });
 });
 
 router.get('/configPersonas/agregarProfesor', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('agregarProfesor', { title: 'agregarProfesor' });
 });
 
 router.get('/configPersonas/modificarAlumno', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarAlumno', { title: 'modificarAlumno' });
 });
 
 router.get('/configPersonas/modificarProfesor', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarProfesor', { title: 'modificarProfesor' });
 });
 /*
 * Configuración dispositivos
 */
 router.get('/configDispositivos', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   dispositivo.buscarTodosLosDispositivos(function (error,dispositivosArray,ultima_conexionArray,aulasArray) {
     if (error) {
       console.log(error);
@@ -119,35 +140,52 @@ router.post('/configDispositivos/borrarDispositivo', function(req,res,next) {
 * FIN configuración dispositivos
 */
 
-router.get('/configGlobal/configAulas', function(req, res, next) {
-  res.render('configAulas', { title: 'configAulas' });
-});
-
 router.get('/configGlobal/configAulas/agregarAula', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('agregarAula', { title: 'agregarAula' });
 });
 
 router.get('/configGlobal/configAulas/modificarAula', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarAula', { title: 'modificarAula' });
 });
 
 router.get('/configGlobal/configGrupos/agregarGrupo', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('agregarGrupo', { title: 'agregarGrupo' });
 });
 
 router.get('/configGlobal/configGrupos/modificarGrupo', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarGrupo', { title: 'modificarGrupo' });
 });
 
 router.get('/configGlobal/configAsignaturas/agregarAsignatura', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('agregarAsignatura', { title: 'agregarAsignatura' });
 });
 
 router.get('/configGlobal/configAsignaturas/modificarAsignatura', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarAsignatura', { title: 'modificarAsignatura' });
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   aula.buscarTodosLosIdYNumero(function (error,aul) {
     if (error) {
       console.log("Fallo buscarTodosLosIdYNumero");
@@ -179,10 +217,16 @@ router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res,
 });
 
 router.get('/configGlobal/configHorario/modificarHorarioGrupo', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarHorarioGrupo', { title: 'modificarHorarioGrupo' });
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
     horario_grupo.buscarTodosLosHorarioGrupo(function (error,gru) {
     if (error) {
       console.log("Fallo buscarTodosLosHorarioGrupo");
@@ -206,6 +250,9 @@ router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, r
 });
 
 router.get('/configGlobal/configHorario/modificarHorarioProfesor', function(req, res, next) {
+  if (!req.session.name) {
+    res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
+  };
   res.render('modificarHorarioProfesor', { title: 'modificarHorarioProfesor' });
 });
 

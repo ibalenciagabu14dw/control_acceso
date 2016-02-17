@@ -67,7 +67,7 @@ $(document).ready(function() {
     				formulario += "<div class='input-group'>";
 				    formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
 				    formulario += "<label id='labelradio1' for='radio1'>SI</label>";
-				    formulario += "<input id='radio1' type='radio' name='obligatoria' value='1' class='radio form-control' checked='checked'/><br/>";
+				    formulario += "<input id='radio1' type='radio' name='obligatoria' value='1' class='radio form-control' checked='checked'/>";
 				    formulario += "<label id='labelradio' for='radio'>NO  </label>";
 				    formulario += "<input id='radio' type='radio' name='obligatoria' value='0' class='radio form-control'/><span id='radio11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";

@@ -17,6 +17,10 @@ body{
 #enviarCorreo:hover{
   cursor: pointer;
 }
+#linkEnviarCorreo{
+  text-decoration: none;
+  color:white;
+}
 #enlace {
   color: white;
   text-decoration: none;

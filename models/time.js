@@ -61,7 +61,7 @@ time.activarAutomatizacion = function (io,callback) {
 						//horas finales de clase menos 30 segundos
 						var sec = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3630);
 						//horas finales de clase
-						var sec2 = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3600);
+						var sec2 = parseInt((((parseInt(hora[0])*60)+parseInt(hora[1]))*60)-3595);
 						schedule2.schedules.push({t:[sec]});
 						schedule3.schedules.push({t:[sec2]});
 					};

@@ -139,7 +139,7 @@ time.activarAutomatizacion = function (io,callback) {
 				console.log(error);
 				throw error;
 			}else{
-				io.emit('refresh','Presencia 0 a todos');
+				//io.emit('refresh','Presencia 0 a todos');
 			}
 		});//falta.modificarPresencia
 	}//finClase

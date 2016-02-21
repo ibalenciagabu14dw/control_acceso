@@ -1,0 +1,183 @@
+html
+  head
+    title ControlFid
+    meta(charset='UTF-8')
+    meta(charset='UTF-8')
+    meta(name='description', content='Control de acceso y de asistencia para cualquier negocio o enplazamiento público')
+    meta(name='keywords', content='control,acceso,control acceso,asistencia,control asistencia,faltas,instituto')
+    meta(name='author', content='Zubiri DW32')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // favicon
+    link(rel='apple-touch-icon', sizes='57x57', href='/images/favicon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/images/favicon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/images/favicon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/images/favicon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/images/favicon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/images/favicon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/images/favicon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/images/favicon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/images/favicon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/images/favicon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/images/favicon/favicon.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='/images/favicon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/images/favicon/favicon-16x16.png')
+    link(rel='manifest', href='/images/favicon/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='/images/favicon/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+    // CSS
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.min.css.map')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap-theme.min.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap-theme.min.css.map')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap-social.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/webStyle.css')
+  body
+    section#home.seccionMenu
+      // *************Menu*****************
+      nav.navbar.navbar-inverse(role='navigation')
+        .container
+          // Brand and toggle get grouped for better mobile display
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/')
+              img(alt='Home', src='/images/sshot-1.png', style='width:40px;height:45px;border-radius:10px;')
+          // Collect the nav links, forms, and other content for toggling
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li
+                a#linkHome(href='#home') ControlFid
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#queEs') Qué es
+              li
+                a(href='#comoFunciona') Cómo funciona
+              li
+                a(href='#demo') Demo
+              li
+                a(href='#sobreNosotros') Sobre nosotros
+              li
+                a(href='#contacto') Contacto
+          // /.navbar-collapse
+      // *************FIN Menu*****************
+    // *************Carousel*****************
+    section#carousel
+      #carousel-example-generic.carousel.slide(data-ride='carousel')
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target='#carousel-example-generic', data-slide-to='0')
+          li(data-target='#carousel-example-generic', data-slide-to='1')
+          li(data-target='#carousel-example-generic', data-slide-to='2')
+        // Wrapper for slides
+        .carousel-inner(role='listbox')
+          .item.active
+            img.imagenSlider(src='/images/gradient4.jpg', alt='...')
+            .carousel-caption
+              a#btncomoFunciona.btn.btn-primary(href='#comoFunciona') Cómo funciona
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit tempus scelerisque. Suspendisse elementum lectus et dapibus ornare.
+          .item
+            img.imagenSlider(src='/images/gradient9.jpg', alt='...')
+            .carousel-caption
+              a#btndemo.btn.btn-primary(href='#demo') Probar demo
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit tempus scelerisque. Suspendisse elementum lectus et dapibus ornare.
+          .item
+            img.imagenSlider(src='/images/gradient10.jpg', alt='...')
+            .carousel-caption
+              a#btncontacto.btn.btn-primary(href='#contacto') Contacta con nosotros
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit tempus scelerisque. Suspendisse elementum lectus et dapibus ornare.
+        // Controls
+        a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+          span.sr-only Previous
+        a.right.carousel-control(href='#carousel-example-generic', role='button', data-slide='next')
+          span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+          span.sr-only Next
+    // *************FIN Carousel*************
+    section#espacio
+    // *************Seccion que es *************
+    section#queEs.seccionTexto
+      div
+        #headerQueEs.page-header
+          h1 Qué es
+    // *************FIN Seccion que es *************
+    section#espacio
+    // *************Seccion como funciona *************
+    section#comoFunciona.seccionTexto.pg-item
+      div
+        #headerComoFunciona.page-header
+          h1 Cómo funciona
+    // *************FIN Seccion como funciona *************
+    section#espacio
+    // *************DEMO*********************
+    section#demo.seccionTexto
+      div
+        #headerDemo.page-header
+          h1 Demo
+        button#irADemo.btn.btn-primary Demo
+    // *************FIN Seccion como funciona *************
+    section#espacio
+    // *************FIN demo*****************
+    section#espacio
+    // *************Sobre nosotros***********
+    section#sobreNosotros.seccionTexto
+      div
+        #headerSobreNosotros.page-header
+          h1 Sobre nosotros
+    // *************FIN sobre nosotros********
+    section#espacio
+    // *************Contacto*****************
+    section#contacto.seccionTexto
+      div
+        #headercontacto.page-header
+          h1 Contacto
+        form#formContact.form-group
+          label(for='correo') Correo electrónico: 
+          input#correo.form-control(type='email', name='correo')
+          label(for='asunto') Asunto: 
+          input#asunto.form-control(type='text', name='asunto')
+          label(for='mensaje') Mensaje: 
+          textarea#mensaje.form-control(name='mensaje', rows='5')
+          br
+          input#submitContact.btn.btn-primary(type='submit', value='Enviar')
+    // *************FIN contacto***************
+    section#espacio
+    // *************Footer*******************
+    #footer
+      #leftFooter
+        p#copy Copyright © ControlFid
+        nav.social-links
+          ul.animate
+            li
+              a.btn.btn-github(href='https://github.com/controlacceso', target='_blank')
+                i.fa.fa-github.fa-2x
+      #rigthFooter
+        ul#menuFooter
+          li.tituloFooter Menu
+          li
+            a(href='#home') Home
+          li
+            a(href='#queEs') Qué es
+          li
+            a(href='#comoFunciona') Cómo funciona
+          li
+            a(href='#demo') Demo
+          li
+            a(href='#sobreNosotros')
+              | Sobre nosotros
+              a
+          li
+            a(href='#contacto') Contacto
+    // *************FIN Footer*****************
+    // Scripts
+    script(type='text/javascript', src='/publicJs/jquery-1.11.3.min.js')
+    script(type='text/javascript', src='/publicJs/bootstrap.min.js')
+    script(type='text/javascript', src='/publicJs/jquery.easing.1.3.js')
+    script(type='text/javascript', src='/js/webFunctions.js')

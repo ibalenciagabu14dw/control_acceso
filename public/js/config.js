@@ -30,28 +30,28 @@ $('#footer').css('bottom', "auto");
       })//fail
   });//$( "div" ).click(function()
 
-  /*
-    * destruir sesion
-    */
-    $('#exit').click(function(event) {
-      $.ajax({
-          url: '/logout',
-          type: 'post',
-          dataType: 'json',
-          success:function (data) {
-            if (data.result == 'ok') {
-                window.location.replace('/');
-            };
-          }
-      })
-      .done(function() {
-          console.log("Session destroyed");
-      })
-      .fail(function() {
-          console.log("error");
-      })    
-    });
 
+	/*
+  * destruir sesion
+  */
+  $('#exit').click(function(event) {
+   	$.ajax({
+   		url: '/logout',
+   		type: 'post',
+   		dataType: 'json',
+   		success:function (data) {
+     		if (data.result == 'ok') {
+     			window.location.replace('/demo');
+     		};
+   		}
+   	})
+   	.done(function() {
+   		console.log("Session destroyed");
+   	})
+   	.fail(function() {
+   		console.log("error");
+   	})    
+  });
 });//ready
 
 

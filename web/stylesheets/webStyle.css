@@ -1,0 +1,208 @@
+/*****General***/
+#espacio{
+	height: 100px;
+}
+section{
+	height: 500px;
+}
+.seccionTexto{
+  padding: 30px;
+  padding-top: 10px;
+  text-align: center;
+}
+.seccionMenu{
+  height: 80px;
+}
+ul{
+  list-style-type: none;
+}
+/*****FIN General*****/
+
+/*****Menu*****/
+@font-face {
+    font-family: titulo;
+    src: url('../ownFonts/Sketch_Block.ttf');
+}
+.navbar .brand {
+max-height: 50px;
+overflow: visible;
+padding-top: 0;
+padding-bottom: 0;
+}
+.navbar a.navbar-brand {
+	padding: 0px 15px 0px;
+}
+.navbar{
+	height: 80px;
+	width: 100%;
+	border-radius: 0px;
+	z-index: 1;
+}
+.container{
+  margin-top: 15px;
+}
+#linkHome{
+  font-size: 34pt;
+  font-family: titulo;
+  color:white;
+}
+#bs-example-navbar-collapse-1{
+  background-color: #333;
+  border-radius: 10px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+.dropdown-submenu:hover > a:after {
+  border-left-color: #fff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+}
+/*****FIN Menu*****/
+
+/*****Background*****/
+body{
+	/*padding: 20px;*/
+  	padding-top: 0px;
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+  	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-image: url('../images/gradient9.jpg');
+	background-position: center center;
+	background-color: #464646;
+}
+/*****FIN Background*****/
+
+/*****Footer******/
+#enviarCorreo{
+  font-weight: bold;
+}
+#enviarCorreo:hover{
+  cursor: pointer;
+}
+#linkEnviarCorreo{
+  text-decoration: none;
+  color:white;
+}
+#footer{
+  width: 100%;
+  height: auto;
+  bottom: auto;
+  left: 0px;
+  background-color: #2E2E2E;
+  color:white;
+  position: absolute;
+  display: block;
+  border-radius: 0px;
+}
+#menuFooter a{
+  text-decoration: none;
+  color:#9d9d9d;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+}
+#menuFooter a:hover{
+  color:white;
+}
+#menuFooter{
+  text-align: center;
+  list-style-type: none;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+ul li{
+  margin-bottom: 10px;
+}
+ul{
+  padding: 0px;
+}
+.tituloFooter{
+  font-weight: bold;
+  text-decoration: underline;
+}
+#footer div{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+#leftFooter{
+  padding: 50px;
+}
+#copy{
+  margin-bottom: 10%;
+}
+/*****FIN Footer*****/
+/*****Carousel*******/
+.imagenSlider{
+	width: 100%;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+	height: 500px;
+}
+.carousel{
+	margin-top: -20px;
+	z-index: 0;
+}
+.btn-primary{
+  background: black;
+}
+/*****FIN Carousel****/
+/******Que es******/
+#queEs{
+	background-color: black;
+  color:white;
+}
+#headerQueEs{
+
+}
+/******FIN Que es*****/
+/******Como funciona******/
+#comoFunciona{
+  background-color: orange;
+  color:white;
+}
+/******FIN como funciona******/
+/******Demo*******/
+#demo{
+  background-color: pink;
+  color:white;
+}
+/******FIN demo****/
+/******Sobre nosotros****/
+#sobreNosotros{
+  background-color: purple;
+  color:white;
+}
+/******FIN sobre nosotros****/
+/******Contacto*******/
+#contacto{
+  background-color: green;
+  color:white;
+}
+#formContact{
+  width: 70%;
+  margin: auto;
+  text-align: left;
+}
+#submitContact{
+  width: 100%;
+  background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%); 
+}
+/******FIN contacto******/

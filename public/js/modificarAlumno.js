@@ -288,7 +288,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
 				        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
-		                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificada correctamente",'/config');
+		                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificado correctamente",'/config');
 		                }
 		                console.log("success");
 			            })
@@ -408,7 +408,7 @@ $('#resultado').on("click","#btnModificar",function () {
   						resp += "</div><br/>";
 						resp += "<table id='asignaturas'>";
 						for (var i = 0; i < data.length; i++) {
-							resp += "<tr>";
+							resp += "<tr class='asignaturas'>";
 							resp += "<td>";
 							resp += "<input type='checkbox' id='"+data[i].id_asignatura+"' name='asignatura' value='"+data[i].id_asignatura+"'>";
 							resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";

@@ -60,6 +60,7 @@ form{
 
 #mensaje,#mensaje2{
   height: 50px !important;
+  height: 50px !important;
 }
 
 @media only screen and (min-width: 319px) and (max-width: 321px) and (orientation:portrait) {
@@ -123,6 +124,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:178px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -417,6 +419,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:218px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -713,6 +716,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:218px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -1009,6 +1013,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:218px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -1305,6 +1310,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:290px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -1603,6 +1609,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:350px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -1902,6 +1909,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:450px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -2204,6 +2212,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:450px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -2808,6 +2817,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:290px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -3106,6 +3116,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:350px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -3405,6 +3416,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:450px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -3707,6 +3719,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:515px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 17px !important;
@@ -4011,6 +4024,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:515px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 17px !important;
@@ -4313,6 +4327,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:178px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -4607,6 +4622,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:218px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -4903,6 +4919,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:218px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -5199,6 +5216,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:218px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -5495,6 +5513,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:290px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -5793,6 +5812,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:350px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -6092,6 +6112,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:450px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -6394,6 +6415,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:450px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -6696,6 +6718,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:450px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 15px !important;
@@ -6997,6 +7020,7 @@ span{
 }
 #mensaje,#mensaje2{
   width:515px !important;
+  height: 50px !important;
 }
 .busquedaH3{
   font-size: 17px !important;

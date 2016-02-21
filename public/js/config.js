@@ -35,7 +35,7 @@ $(document).ready(function() {
       		dataType: 'json',
       		success:function (data) {
         		if (data.result == 'ok') {
-          			window.location.replace('/');
+          			window.location.replace('/demo');
         		};
       		}
     	})

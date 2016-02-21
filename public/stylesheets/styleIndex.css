@@ -29,6 +29,9 @@ body {
      -o-hyphens: auto;
      hyphens: auto;
 }
+#titulo:hover{
+  cursor: pointer;
+}
 #loginFormContainer{
 	width: 60%;
 	margin: auto;

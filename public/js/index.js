@@ -19,4 +19,9 @@ $(document).ready(function() {
 	if($('#info').html()!=undefined){
 		$('#footer').css('bottom', 'auto');
 	}
+
+	/***redirect a landing page***/
+	$('#titulo').click(function(event) {
+		window.location.replace("/");
+	});
 });//ready

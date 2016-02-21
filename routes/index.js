@@ -8,6 +8,11 @@ var mailgun = require('../models/mailgun');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('web');
+});//.router.get('/', function(req, res, next)
+
+/* GET home page. */
+router.get('/demo', function(req, res, next) {
   res.render('index', { title: 'ControlFid'});
 });//.router.get('/', function(req, res, next)
 

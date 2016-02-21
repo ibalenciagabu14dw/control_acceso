@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+ $('#footer').css('bottom', 0);   
     jQuery.validator.addMethod("lettersonly", function(value, element) { 
     return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
 	},"Please enter only letters");
@@ -41,13 +41,15 @@ $(document).ready(function() {
 	};
 
 	//Buscar alumnos al escribir
-	$('#nombre').keyup(function(event) {
+	$('#nombrebusqueda').keyup(function(event) {
+		$('#footer').css('bottom', "auto");
 		buscarProfesores();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
+		$('#footer').css('bottom', "auto");
 		buscarProfesores();
 	});
 
@@ -56,10 +58,11 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
+		$('#footer').css('bottom',"auto");		
     		var formulario = "<form class='form-group' action='/modificarProfesor' id='formUpdate' name='formUpdate'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_profesor' class='input-group-addon'>ID PROFESOR</label>";
+			formulario += "<label for='id_profesor' class='input-group-addon'>PROFESOR</label>";
     		formulario += "<input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"'readonly>";
     		formulario += "<span id='id_profesor1' class='glyphicon form-control-feedback'></span>";    		    		    		
     		formulario += "</div>";
@@ -96,23 +99,23 @@ $(document).ready(function() {
     		formulario += "<input type='hidden' id='passwordviejo' name='passwordviejo' class='form-control' value='"+result[0].password+"'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='password' class='input-group-addon'>PASSWORD VIEJO</label>";
-    		formulario += "<input type='text' id='password' name='password' class='form-control has-feedback' value=''>";
+			formulario += "<label for='password' id='labelPasswordViejo' class='input-group-addon'>PASSWORD VIEJO</label>";
+    		formulario += "<input type='password' id='password' name='password' class='form-control has-feedback' value=''>";
     		formulario += "<span id='password1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<input type='hidden' id='passwordhash' name='passwordhash' class='form-control'>";
     		formulario += "<div class='form-inline' id='divpasswordnuevo' hidden>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='passwordnuevo' class='input-group-addon'>PASSWORD NUEVO</label>";
-    		formulario += "<input type='text' id='passwordnuevo' name='passwordnuevo' class='form-control has-feedback' value=''>";
+			formulario += "<label for='passwordnuevo' id='labelPassword' class='input-group-addon'>PASSWORD NUEVO</label>";
+    		formulario += "<input type='password' id='passwordnuevo' name='passwordnuevo' class='form-control has-feedback' value=''>";
     		formulario += "<span id='passwordnuevo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline' id='divpasswordnuevorepetido' hidden>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='passwordnuevorepetido' class='input-group-addon'>REPETIR PASSWORD NUEVO</label>";
-    		formulario += "<input type='text' id='passwordnuevorepetido' name='passwordnuevorepetido' class='form-control has-feedback' value=''>";
+			formulario += "<label for='passwordnuevorepetido' id='labelPasswordR' class='input-group-addon'>REPETIR PASSWORD NUEVO</label>";
+    		formulario += "<input type='password' id='passwordnuevorepetido' name='passwordnuevorepetido' class='form-control has-feedback' value=''>";
     		formulario += "<span id='passwordnuevorepetido1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
@@ -125,13 +128,29 @@ $(document).ready(function() {
     		formulario += "<span id='foto1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		formulario += "<div class='form-inline'>";
-    		formulario += "<div class='input-group'>";
-			formulario += "<label for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label>";
-    		formulario += "<input type='text' id='tarjeta_activada' name='tarjeta_activada' class='form-control  has-feedback' value='"+result[0].tarjeta_activada+"'>";
-    		formulario += "<span id='tarjeta_activada1' class='glyphicon form-control-feedback'></span>";
-    		formulario += "</div>";
-  			formulario += "</div><br/>";
+  			   if(result[0].tarjeta_activada == 1){
+			formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+				    formulario += "<label id='labelTarjeta_activada' for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label><br/>";
+				    formulario += "<label id='labeltarjeta1Profesor' for='tarjeta1'>SI</label>";
+				    formulario += "<input id='tarjeta1' type='radio' name='tarjeta_activada' value='1' class='radio form-control' checked='checked'/>";
+				    formulario += "<label id='labeltarjetaProfesor' for='tarjeta'>NO  </label>";
+				    formulario += "<input id='tarjeta' type='radio' name='tarjeta_activada' value='0' class='radio form-control'/><span id='tarjeta11' class='glyphicon form-control-feedback'></span>";
+					formulario += "</br>";
+					formulario += "</div>";
+  					formulario += "</div><br/>";
+				} else {
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+				    formulario += "<label id='labelTarjeta_activada' for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label><br/>";
+				    formulario += "<label id='labeltarjeta1Profesor' for='tarjeta1'>SI</label>";
+				    formulario += "<input id='tarjeta1' type='radio' name='tarjeta_activada' value='1' class='radio form-control'/><br/>";
+				    formulario += "<label id='labeltarjetaProfesor' for='tarjeta'>NO  </label>";
+				    formulario += "<input id='tarjeta' type='radio' name='tarjeta_activada' value='0' class='radio form-control'checked='checked'/><span id='tarjeta11' class='glyphicon form-control-feedback'></span>";
+					formulario += "</br>";
+					formulario += "</div>";
+  					formulario += "</div><br/>";					
+				}
     		formulario += "<div class='form-inline' id='alertNum_tarj'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='num_tarjeta' class='input-group-addon'>NUMERO TARJETA</label>";
@@ -139,13 +158,29 @@ $(document).ready(function() {
     		formulario += "<span id='num_tarjeta1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
-    		formulario += "<div class='form-inline'>";
-    		formulario += "<div class='input-group'>";
-			formulario += "<label for='admin' class='input-group-addon'>ADMINISTRADOR</label>";
-    		formulario += "<input type='text' id='admin' name='admin' class='form-control  has-feedback' value='"+result[0].admin+"'>";
-    		formulario += "<span id='admin1' class='glyphicon form-control-feedback'></span>";
-    		formulario += "</div>";
-  			formulario += "</div><br/>";
+  			   if(result[0].admin == 1){
+			formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+				    formulario += "<label id='labelAdmin' for='admin' class='input-group-addon'>ADMINISTRADOR</label><br/>";
+				    formulario += "<label id='labeladmin1' for='admin1'>SI</label>";
+				    formulario += "<input id='admin1' type='radio' name='admin' value='1' class='radio form-control' checked='checked'/>";
+				    formulario += "<label id='labeladmin' for='admin'>NO  </label>";
+				    formulario += "<input id='admin' type='radio' name='admin' value='0' class='radio form-control'/><span id='admin11' class='glyphicon form-control-feedback'></span>";
+					formulario += "</br>";
+					formulario += "</div>";
+  					formulario += "</div><br/>";
+				} else {
+					formulario += "<div class='form-inline'>";
+    				formulario += "<div class='input-group'>";
+				    formulario += "<label id='labelAdmin' for='admin' class='input-group-addon'>ADMINISTRADOR</label><br/>";
+				    formulario += "<label id='labeladmin1' for='admin1'>SI</label>";
+				    formulario += "<input id='admin' type='radio' name='admin' value='1' class='radio form-control'/><br/>";
+				    formulario += "<label id='labeladmin' for='tarjeta'>NO  </label>";
+				    formulario += "<input id='admin' type='radio' name='admin' value='0' class='radio form-control'checked='checked'/><span id='admin11' class='glyphicon form-control-feedback'></span>";
+					formulario += "</br>";
+					formulario += "</div>";
+  					formulario += "</div><br/>";					
+				}  			
     		buscarAsignaturasQueImparte(result[0].id_profesor);
     		formulario += "<div id='asignaturasdelProfesor'>";
     		formulario += "</div>";
@@ -165,6 +200,7 @@ $(document).ready(function() {
 			formulario += "<input type='submit' id='btnModificar' class='btn btn-warning' value='Modificar'>";
     		formulario += "&nbsp;<button id='btnBorrar' class='btn btn-danger'>Borrar</button>";
     		formulario += "&nbsp;<a id='enlace2' href='/config' class='btn btn-primary'>Volver</a>";
+    		formulario += "<div id='mensaje2' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp2'> Clave ya existente</span></div>";
     		formulario += "</form>";
     		$('#resultado').html(formulario);
 		})
@@ -177,22 +213,40 @@ $(document).ready(function() {
 		$('#resultado #divpasswordnuevo').show();
 		$('#resultado #divpasswordnuevorepetido').show();
 	});
-
-
-
 	$('#resultado').on("click","#btnModificar",function () {
 		$("#formUpdate").validate({
 	        rules:reglas,
 	        messages:mensajes,
 	        highlight: function(element) {
+	        if (element.type == "radio"){
+	            if ($("input[name=obligatoria]:checked").val() == 1){
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	            } else {
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	            }
+	        } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
 	                $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	        }
+	      
 	        },
 	        unhighlight: function(element) {
+	            if (element.type == "radio"){
+	                if ($("input[name=obligatoria]:checked").val() == 1){
+	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                } else {
+	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                }
+	            } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
 	                $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');      
+	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');  
+	            }         
 	        },
 	        errorPlacement: function(error,element){
 	            console.log(error.attr("id"));
@@ -468,7 +522,7 @@ $(document).ready(function() {
   				resp += "</div><br/>";
 				resp += "<table id='asignaturasTable'>";
 				for (var i = 0; i < data.length; i++) {
-					resp += "<tr>";
+					resp += "<tr class='asignaturasProfesor'>";
 					resp += "<td>";
 					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"' checked>";
 					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
@@ -500,7 +554,7 @@ $(document).ready(function() {
 				var resp = "";
 				resp += "<table id='asignaturasTodas'>";			
 				for (var i = 0; i < data.length; i++) {
-					resp += "<tr>";
+					resp += "<tr class='asignaturas'>";
 					resp += "<td>";
 					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
 					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
@@ -531,7 +585,7 @@ $(document).ready(function() {
 				var resp = "";
 				resp += "<table id='asignaturasTodas'>";			
 				for (var i = 0; i < data.length; i++) {
-					resp += "<tr>";
+					resp += "<tr class='asignaturas'>";
 					resp += "<td>";
 					resp += "<input type='checkbox' id='checkbox' name='checkbox' value='"+data[i].id_asignatura+"'>";
 					resp += "<label for='"+data[i].id_asignatura+"'>"+data[i].nombre+"</label>";
@@ -562,8 +616,8 @@ $(document).ready(function() {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 id='"+data[i].id_profesor+"'>"+data[i].id_profesor+" "+data[i].nombre+"</h3>";
-					resp += "<img id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
+					resp += "<h3 class='busquedaH3' id='"+data[i].id_profesor+"'>"+data[i].nombre+" "+data[i].apellidos+" </h3>";
+					resp += "<img  class='busquedaFoto id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);
@@ -643,7 +697,7 @@ function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+    $('#mensaje').show(1000, function(){
                 });
     }
 
@@ -657,7 +711,7 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+    $('#mensaje').show(1000, function(){
                 });
 
     }
@@ -665,16 +719,17 @@ function showAlert(lugar,tipo,texto) {
 function showAlertRedirect(lugar,tipo,texto,url) {
 
     if (tipo=="error"){
-        $('#mensaje').attr('class','alert alert-danger fade in');
+        $('#mensaje2').attr('class','alert alert-danger fade in');
     }else {
-        $('#mensaje strong').html(' ');
-        $('#mensaje').attr('class','alert alert-success fade in');
+        $('#mensaje2 strong').html(' ');
+        $('#mensaje2').attr('class','alert alert-success fade in');
     }
-    $('#mensaje span').html(texto);
-    $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
-      window.location.replace(url);
-                });
-
-    }
+    $('#mensaje2 span').html(texto);
+    $('#mensaje2').insertAfter(lugar);
+    $('#mensaje2').slideToggle("slow", function(){
+      window.setTimeout(function() {
+	    window.location.replace(url);
+	}, 4000);
+    });
+ }
 

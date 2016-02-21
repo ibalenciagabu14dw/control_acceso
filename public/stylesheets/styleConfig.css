@@ -1,38 +1,80 @@
+@font-face {
+    font-family: tituloIndex;
+    src: url('../fonts/justice.ttf');
+}
+
+h1{
+    text-align: left;
+    font-family: tituloIndex;
+    font-size: 35pt;
+    margin-top: 1%;
+    color:white;
+    font-weight: normal;
+    word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+
 body{
-	padding: 0px;
+  padding: 0px;
+}
+h1{
+  color: white;
+  padding-left: 40px !important;
 }
 table{
-	margin-left: 20px;
+  margin-left: 20px;
 }
+
+.filaAula{
+  width:150px !important;
+  cursor: pointer;
+}
+
 .filaAula {
     border: 2px solid #000000;
     line-height:30px;
     background-color:#eeeeee;
-    height:100px;
-    width:100px;
+    height:200px;
+    width:150px;
     float:left;
     margin-bottom:25px;
     margin-right: 25px;
+    background-image: url("../images/tueren.svg");
+    background-position: center; 
+
 }
+
+.divAula{
+  padding-left: 50px !important;
+  padding-top: 20px !important;
+  font-size: 40px !important;
+  color: white  !important;
+  font-style: bold;
+}
+
 #exit,#anadirDispositivo{
-	background-color: lightgrey;
-	color:black;
-	width: 100px;
-	height: 35px;
-	margin-bottom: 20px;
-	margin-left: 20px;
+  background-color: lightgrey;
+  color:black;
+  width: 100px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 #exit:hover,#anadirDispositivo:hover{
-	text-decoration: none;
-	background-color: grey;
-	font-weight: bold;
+  text-decoration: none;
+  background-color: grey;
+  font-weight: bold;
 }
 #anadirDispositivo{
   float: right;
   margin-right: 20px;
 }
 #footer p{
-	float: left;
+  float: left;
 }
 
 @media only screen and (max-width: 1200px) and (orientation:landscape){

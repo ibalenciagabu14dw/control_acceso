@@ -254,7 +254,7 @@ router.post('/modificarAlumno',multer({}).single('foto'),  function(req,res,next
 
 router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,res,next){
     if(req.body.grupo == undefined){
-        res.send({err:'nogrupo'});
+        //res.send({err:'nogrupo'});
     } else {
         alumno_grupos.borrarAlumnoGrupos(req.body.id_alumno, function(error,row) {
             if (error) {
@@ -273,8 +273,8 @@ router.post('/modificarAlumnoSinFoto',multer({}).single('foto'),  function(req,r
                 }//.else
             })//alumno_grupos.agregarAlumnoGrupo
         }//.for
-
         if(req.body.asignatura == undefined){
+            //res.send({err:'nogrupo'});
             convalidadas.borrarAsignaturaConvalidada(req.body.id_alumno, function(error,row) {
                 if (error) {
                     throw error;

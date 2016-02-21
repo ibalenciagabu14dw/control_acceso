@@ -1,5 +1,6 @@
 extends layout
 block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleConfig.css')
     link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content 
@@ -7,7 +8,7 @@ block content
   form#agregarProfesorForm.form-group()
     .form-inline#alertDni
       .input-group
-        label.input-group-addon(for='dni') DNI
+        label#labelDni.input-group-addon(for='dni') DNI
         input#dni.form-control.has-feedback(type='text', name='dni', placeholder='Escribe el dni del profesor')
         span#dni1.glyphicon.form-control-feedback
         #mensaje.alert.alert-error.fade.in(style='display: none')
@@ -17,25 +18,25 @@ block content
     br
     .form-inline#alertNombre
       .input-group
-        label.input-group-addon(for='nombre') NOMBRE
+        label#labelNombre.input-group-addon(for='nombre') NOMBRE
         input#nombre.form-control.has-feedback(type='text', name='nombre', placeholder='Escribe el nombre del profesor')
         span#nombre1.glyphicon.form-control-feedback
     br
     .form-inline#alertApellidos
       .input-group
-        label.input-group-addon(for='apellidos') APELLIDOS
+        label#labelApellidos.input-group-addon(for='apellidos') APELLIDOS
         input#apellidos.form-control.has-feedback(type='text', name='apellidos', placeholder='Escribe los apellidos del profesor')
         span#apellidos1.glyphicon.form-control-feedback
     br
     .form-inline#alertCorreo
       .input-group
-        label.input-group-addon(for='correo') CORREO
+        label#labelCorreo.input-group-addon(for='correo') CORREO
         input#correo.form-control.has-feedback(type='text', name='correo', placeholder='Escribe el correo del profesor')
         span#correo1.glyphicon.form-control-feedback
     br
     .form-inline
       .input-group
-        label.input-group-addon(for='password') PASSWORD
+        label#labelPassword.input-group-addon(for='password') PASSWORD
         input#password.form-control.has-feedback(type='password', name='password', placeholder='Escribe el password del profesor')
         input#pass.form-control(type='hidden', name='pass')
         span#password1.glyphicon.form-control-feedback
@@ -48,11 +49,19 @@ block content
     br
     .form-inline#alertNum_tarj
       .input-group
-        label.input-group-addon(for='num_tarjeta') NUM_TARJETA
+        label#labelNum_tarj.input-group-addon(for='num_tarjeta') NUMERO TARJETA
         input#num_tarjeta.form-control.has-feedback(type='text', name='num_tarjeta' , placeholder='Escribe el nombre del profesor')
         span#num_tarjeta1.glyphicon.form-control-feedback
     br
     button#send.btn.btn-success(name='send') Agregar
     a#enlace.btn.btn-primary(href='/config') Volver
+    #mensaje2.alert.alert-error.fade.in(style='display: none')
+      a.close(href='#', data-dismiss='alert') ×
+      strong 
+      span#sp2
+  div#buscador(title='Buscador')
+  div#divCorreo(title='Formulario contacto')               
   script
+    include ../public/js/config.js  
     include ../public/js/agregarProfesor.js
+  include ./includes/footer.jade     

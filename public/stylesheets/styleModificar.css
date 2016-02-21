@@ -3585,7 +3585,7 @@ span{
   top: 60px !important;
   width:20px !important;
   padding-left: -10px !important;
-  margin-left: 50px;
+  margin-left: 30px !important;
   margin-right: 50px;
   font-size: 14px !important;
 }
@@ -3594,7 +3594,7 @@ span{
   left: 255px !important;
   top: 25px !important;
   width:20px !important;
-  margin-left: 65px;
+  margin-left: 35px !important;
   margin-right: 50px;
   font-size: 14px !important;
 }
@@ -4489,8 +4489,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 90px !important;
-  top: 70px !important;
+  left: 190px !important;
+  top: 30px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -4786,8 +4786,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 120px !important;
-  top: 70px !important;
+  left: 150px !important;
+  top: 30px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -4795,7 +4795,7 @@ span{
 }
 #labeltarjeta1Alumno{
   position: absolute;
-  left: 105px !important;
+  left: 95px !important;
   top: 30px !important;
   width:20px !important;
   margin-left: 65px;
@@ -5083,8 +5083,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 130px !important;
-  top: 70px !important;
+  left: 170px !important;
+  top: 30px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -5092,7 +5092,7 @@ span{
 }
 #labeltarjeta1Alumno{
   position: absolute;
-  left: 115px !important;
+  left: 105px !important;
   top: 30px !important;
   width:20px !important;
   margin-left: 65px;
@@ -5380,8 +5380,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 140px !important;
-  top: 70px !important;
+  left: 180px !important;
+  top: 30px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -5389,7 +5389,7 @@ span{
 }
 #labeltarjeta1Alumno{
   position: absolute;
-  left: 125px !important;
+  left: 115px !important;
   top: 30px !important;
   width:20px !important;
   margin-left: 65px;
@@ -5677,8 +5677,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 150px !important;
-  top: 70px !important;
+  left: 190px !important;
+  top: 30px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -5976,8 +5976,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 200px !important;
-  top: 70px !important;
+  left: 260px !important;
+  top: 30px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -6277,8 +6277,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 270px !important;
-  top: 60px !important;
+  left: 360px !important;
+  top: 25px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -6580,8 +6580,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 280px !important;
-  top: 60px !important;
+  left: 360px !important;
+  top: 25px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -6883,8 +6883,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 280px !important;
-  top: 60px !important;
+  left: 360px !important;
+  top: 25px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;
@@ -7187,8 +7187,8 @@ span{
 }
 #labeltarjetaAlumno{
   position: absolute;
-  left: 310px !important;
-  top: 60px !important;
+  left: 390px !important;
+  top: 22px !important;
   width:20px !important;
   padding-left: -10px !important;
   margin-left: 50px;

@@ -51,15 +51,14 @@ convalidadas.modificarConvalidadas = function (id_convalidada,id_alumno,id_asign
 /*
 * DELETE asignatura convalidada
 */
-convalidadas.borrarAsignaturaConvalidada =  function(id_convalidada,callback) {
+convalidadas.borrarAsignaturaConvalidada =  function(id_alumno,callback) {
 	if(connection){					
-		var sql = 'DELETE FROM convalidadas WHERE id_convalidada= "'+id_convalidada+'"';
+		var sql = 'DELETE FROM convalidadas WHERE id_alumno= "'+id_alumno+'"';
 		connection.query(sql, function(error){
 			if (error) {
 		  		console.log(error);
 				throw error;	
 			}else{
-				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if (connection)

@@ -97,7 +97,7 @@ aula.buscarTodosLosIdAula = function (callback) {
 */
 aula.buscarTodosLosIdYNumero = function (callback) {
 	if(connection){							
-		connection.query('SELECT id_aula,numero FROM aulas', function(error,row){
+		connection.query('SELECT id_aula,numero FROM aulas ORDER BY numero', function(error,row){
 		  	if (error) {
 				console.log(error);
 				throw error;

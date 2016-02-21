@@ -1,5 +1,6 @@
 extends layout
 block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleConfig.css')
     link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content
@@ -8,7 +9,7 @@ block content
     br
     .form-inline
       .input-group
-        label#labelHorarioGrupoHorarioProfesor.input-group-addon(for='id_horario_grupo') Horario_Grupo
+        label#labelHorarioGrupoHorarioProfesor.input-group-addon(for='id_horario_grupo') Horario Grupo
         select.form-control.has-feedback(name='id_horario_grupo' id='id_horario_grupo')
           option(value='default') Elige el horario_grupo
           for gr in grupo
@@ -32,5 +33,13 @@ block content
     br
     button#send.btn.btn-success(name='send') Agregar
     a#enlace.btn.btn-primary(href='/config') Volver
+    #mensaje2.alert.alert-error.fade.in(style='display: none')
+      a.close(href='#', data-dismiss='alert') ×
+      strong 
+      span#sp2
+  div#buscador(title='Buscador')
+  div#divCorreo(title='Formulario contacto')               
   script
+    include ../public/js/config.js  
     include ../public/js/agregarHorarioProfesor.js
+  include ./includes/footer.jade     

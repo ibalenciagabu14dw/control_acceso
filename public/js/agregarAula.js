@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+$('#footer').css('bottom', 0);
 	//reglas
 	var reglas = {
 		numero:{required:true,max: 250},
@@ -74,7 +74,7 @@ function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+    $('#mensaje').show(1000, function(){
                 });
     }
 
@@ -88,23 +88,24 @@ function showAlert(lugar,tipo,texto) {
     }
     $('#mensaje span').html(texto);
     $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
+    $('#mensaje').show(1000, function(){
                 });
 
     }
-
 function showAlertRedirect(lugar,tipo,texto,url) {
 
     if (tipo=="error"){
-        $('#mensaje').attr('class','alert alert-danger fade in');
+        $('#mensaje2').attr('class','alert alert-danger fade in');
     }else {
-        $('#mensaje strong').html(' ');
-        $('#mensaje').attr('class','alert alert-success fade in');
+        $('#mensaje2 strong').html(' ');
+        $('#mensaje2').attr('class','alert alert-success fade in');
     }
-    $('#mensaje span').html(texto);
-    $('#mensaje').insertAfter(lugar);
-    $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
-      window.location.replace(url);
-                });
+    $('#mensaje2 span').html(texto);
+    $('#mensaje2').insertAfter(lugar);
+    $('#mensaje2').slideToggle("slow", function(){
+      window.setTimeout(function() {
+        window.location.replace(url);
+    }, 4000);
+    });
 
-    }
+ }

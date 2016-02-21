@@ -1,5 +1,6 @@
 extends layout
 block extraHeader
+    link(rel='stylesheet', href='/stylesheets/styleConfig.css')
     link(rel='stylesheet', href='/stylesheets/styleModificar.css')
 
 block content
@@ -9,11 +10,15 @@ block content
       .form-inline
         .input-group
           label.input-group-addon(for='nombre') Nombre: 
-          input#nombre.form-control(type='text', name='nombre', placeholder='Escribe el nombre del grupo')
+          input#nombrebusqueda.form-control(type='text', name='nombre', placeholder='Escribe el nombre del grupo')
         br
         br
         input.btn.btn-primary(type='submit', value='Buscar')
         a#enlace.btn.btn-primary(href='/config') Volver
     #resultado.container
+  div#buscador(title='Buscador')
+  div#divCorreo(title='Formulario contacto')        
   script
+    include ../public/js/config.js  
     include ../public/js/modificarGrupo.js
+  include ./includes/footer.jade     

@@ -90,17 +90,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:110px !important;
-}
 #mensaje,#mensaje2{
   width:178px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:100px !important;
   padding-left: 0px !important;
@@ -131,18 +125,8 @@ span{
   width:20px !important;
   margin-left: 20px;
 }
-#labelIdAsignatura{
-  width:100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:100px !important;
   padding-left: 0px !important;
@@ -151,7 +135,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:100px !important;
   padding-left: 0px !important;
@@ -179,32 +163,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 78px !important;
-}
-#labelId_horario_grupo{
-  width: 100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 100px !important;
   padding-left: 4px !important;
@@ -219,97 +183,7 @@ span{
   width: 100px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 110px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 110px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 90px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 118px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 90px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 75px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 90px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 75px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:100px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 80px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -322,7 +196,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -383,17 +257,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:110px !important;
-}
 #mensaje,#mensaje2{
   width:218px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:120px !important;
   padding-left: 0px !important;
@@ -423,18 +291,8 @@ span{
   margin-left: 20px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:120px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:120px !important;
   padding-left: 0px !important;
@@ -443,7 +301,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:120px !important;
   padding-left: 0px !important;
@@ -471,32 +329,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 98px !important;
-}
-#labelId_horario_grupo{
-  width: 120px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 120px !important;
   padding-left: 4px !important;
@@ -511,98 +349,7 @@ span{
   width: 120px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 140px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 140px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:120px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 110px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 135px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 120px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 105px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 120px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 105px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:120px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 90px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -615,7 +362,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -676,17 +423,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:110px !important;
-}
 #mensaje,#mensaje2{
   width:218px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:130px !important;
   padding-left: 0px !important;
@@ -716,18 +457,8 @@ span{
   margin-left: 20px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:130px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:130px !important;
   padding-left: 0px !important;
@@ -736,7 +467,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:130px !important;
   padding-left: 0px !important;
@@ -764,32 +495,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 108px !important;
-}
-#labelId_horario_grupo{
-  width: 130px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 130px !important;
   padding-left: 4px !important;
@@ -804,98 +515,7 @@ span{
   width: 130px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 150px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 150px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:130px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 120px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 145px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 130px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 115px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 120px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 105px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 100px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -908,7 +528,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -969,17 +589,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:120px !important;
-}
 #mensaje,#mensaje2{
   width:218px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:140px !important;
   padding-left: 0px !important;
@@ -1009,18 +623,8 @@ span{
   margin-left: 20px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:140px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:140px !important;
   padding-left: 0px !important;
@@ -1029,7 +633,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:140px !important;
   padding-left: 0px !important;
@@ -1057,32 +661,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 120px !important;
-}
-#labelId_horario_grupo{
-  width: 140px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 140px !important;
   padding-left: 4px !important;
@@ -1097,98 +681,7 @@ span{
   width: 140px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 150px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 170px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:140px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 130px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 155px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 140px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 125px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 130px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 115px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 120px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -1201,7 +694,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -1262,17 +755,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:135px !important;
-}
 #mensaje,#mensaje2{
   width:290px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:155px !important;
   padding-left: 0px !important;
@@ -1302,18 +789,8 @@ span{
   margin-left: 20px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:155px !important;
   padding-left: 0px !important;
@@ -1322,7 +799,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:155px !important;
   padding-left: 0px !important;
@@ -1350,32 +827,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 135px !important;
-}
-#labelId_horario_grupo{
-  width: 155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 155px !important;
   padding-left: 4px !important;
@@ -1390,98 +847,7 @@ span{
   width: 155px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 190px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 170px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 145px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 170px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 150px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 135px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 150px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 135px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 140px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -1494,7 +860,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -1557,17 +923,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:165px !important;
-}
 #mensaje,#mensaje2{
   width:350px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:185px !important;
   padding-left: 0px !important;
@@ -1597,18 +957,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:185px !important;
   padding-left: 0px !important;
@@ -1617,7 +967,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:185px !important;
   padding-left: 0px !important;
@@ -1645,32 +995,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 165px !important;
-}
-#labelId_horario_grupo{
-  width: 185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 185px !important;
   padding-left: 4px !important;
@@ -1685,99 +1015,7 @@ span{
   width: 185px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 220px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 220px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 155px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 190px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 200px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 185px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 40px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 40px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 180px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 165px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:150px !important;
-  font-size: 12px !important;
-  padding-left: 2px !important;
-  margin-left: 190px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -1790,7 +1028,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -1853,17 +1091,11 @@ span{
   text-align:center;
   font-size: 13px !important;
 }
-#nombrebusqueda{
-  width:215px !important;
-}
 #mensaje,#mensaje2{
   width:450px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:235px !important;
   padding-left: 0px !important;
@@ -1893,18 +1125,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:235px !important;
   padding-left: 0px !important;
@@ -1913,7 +1135,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:235px !important;
   padding-left: 0px !important;
@@ -1941,32 +1163,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 215px !important;
-}
-#labelId_horario_grupo{
-  width: 235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 235px !important;
   padding-left: 4px !important;
@@ -1981,102 +1183,7 @@ span{
   width: 235px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 60px !important;
-}
-#fotoAlumno{
-  width: 60px !important;
-  height: 60px !important; 
-  margin-left: 290px !important;
-}
-#fotoProfesor{
-  width: 60px !important;
-  height: 60px !important; 
-  margin-left: 300px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 225px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 280px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 270px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 255px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 250px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 235px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 250px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -2089,7 +1196,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -2152,17 +1259,11 @@ span{
   text-align:center;
   font-size: 13px !important;
 }
-#nombrebusqueda{
-  width:215px !important;
-}
 #mensaje,#mensaje2{
   width:450px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:245px !important;
   padding-left: 0px !important;
@@ -2192,18 +1293,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:245px !important;
   padding-left: 0px !important;
@@ -2212,7 +1303,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:245px !important;
   padding-left: 0px !important;
@@ -2240,32 +1331,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 225px !important;
-}
-#labelId_horario_grupo{
-  width: 245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 245px !important;
   padding-left: 4px !important;
@@ -2280,102 +1351,7 @@ span{
   width: 245px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 70px !important;
-}
-#fotoAlumno{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 290px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 300px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 225px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 280px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 280px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 265px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 260px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 245px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 270px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -2388,7 +1364,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -2451,17 +1427,11 @@ span{
   text-align:center;
   font-size: 15px !important;
 }
-#nombrebusqueda{
-  width:250px !important;
-}
 #mensaje,#mensaje2{
   width:515px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 17px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:270px !important;
   padding-left: 0px !important;
@@ -2493,18 +1463,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 17px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:270px !important;
   padding-left: 0px !important;
@@ -2513,7 +1473,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:270px !important;
   padding-left: 0px !important;
@@ -2541,32 +1501,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 250px !important;
-}
-#labelId_horario_grupo{
-  width: 270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 270px !important;
   padding-left: 4px !important;
@@ -2581,102 +1521,7 @@ span{
   width: 270px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 80px !important;
-}
-#fotoAlumno{
-  width: 80px !important;
-  height: 80px !important; 
-  margin-left: 320px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 320px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 255px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 310px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 280px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 265px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 290px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 275px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 320px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -2689,7 +1534,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -2750,17 +1595,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:135px !important;
-}
 #mensaje,#mensaje2{
   width:290px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:155px !important;
   padding-left: 0px !important;
@@ -2790,18 +1629,8 @@ span{
   margin-left: 20px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:155px !important;
   padding-left: 0px !important;
@@ -2810,7 +1639,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:155px !important;
   padding-left: 0px !important;
@@ -2838,32 +1667,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 135px !important;
-}
-#labelId_horario_grupo{
-  width: 155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 155px !important;
   padding-left: 4px !important;
@@ -2878,98 +1687,7 @@ span{
   width: 155px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 190px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 170px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 145px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 170px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 150px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 135px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 150px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 135px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 140px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -2982,7 +1700,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -3045,17 +1763,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:165px !important;
-}
 #mensaje,#mensaje2{
   width:350px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:185px !important;
   padding-left: 0px !important;
@@ -3085,18 +1797,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:185px !important;
   padding-left: 0px !important;
@@ -3105,7 +1807,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:185px !important;
   padding-left: 0px !important;
@@ -3133,32 +1835,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 165px !important;
-}
-#labelId_horario_grupo{
-  width: 185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 185px !important;
   padding-left: 4px !important;
@@ -3173,99 +1855,7 @@ span{
   width: 185px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 220px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 220px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 155px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 190px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 200px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 185px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 40px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 40px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 180px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 165px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:150px !important;
-  font-size: 12px !important;
-  padding-left: 2px !important;
-  margin-left: 190px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -3278,7 +1868,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -3341,17 +1931,11 @@ span{
   text-align:center;
   font-size: 13px !important;
 }
-#nombrebusqueda{
-  width:215px !important;
-}
 #mensaje,#mensaje2{
   width:450px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:235px !important;
   padding-left: 0px !important;
@@ -3381,18 +1965,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:235px !important;
   padding-left: 0px !important;
@@ -3401,7 +1975,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:235px !important;
   padding-left: 0px !important;
@@ -3429,32 +2003,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 215px !important;
-}
-#labelId_horario_grupo{
-  width: 235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 235px !important;
   padding-left: 4px !important;
@@ -3469,102 +2023,7 @@ span{
   width: 235px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 60px !important;
-}
-#fotoAlumno{
-  width: 60px !important;
-  height: 60px !important; 
-  margin-left: 290px !important;
-}
-#fotoProfesor{
-  width: 60px !important;
-  height: 60px !important; 
-  margin-left: 300px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 225px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 280px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 270px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 255px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 250px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 235px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 250px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -3577,7 +2036,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -3640,17 +2099,11 @@ span{
   text-align:center;
   font-size: 15px !important;
 }
-#nombrebusqueda{
-  width:250px !important;
-}
 #mensaje,#mensaje2{
   width:515px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 17px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:270px !important;
   padding-left: 0px !important;
@@ -3682,18 +2135,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 17px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:270px !important;
   padding-left: 0px !important;
@@ -3702,7 +2145,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:270px !important;
   padding-left: 0px !important;
@@ -3730,32 +2173,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 250px !important;
-}
-#labelId_horario_grupo{
-  width: 270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 270px !important;
   padding-left: 4px !important;
@@ -3770,102 +2193,7 @@ span{
   width: 270px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 80px !important;
-}
-#fotoAlumno{
-  width: 80px !important;
-  height: 80px !important; 
-  margin-left: 320px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 320px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 255px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 310px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 310px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 295px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 290px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 275px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 320px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -3878,7 +2206,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -3941,17 +2269,11 @@ span{
   text-align:center;
   font-size: 15px !important;
 }
-#nombrebusqueda{
-  width:250px !important;
-}
 #mensaje,#mensaje2{
   width:515px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 17px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:270px !important;
   padding-left: 0px !important;
@@ -3983,18 +2305,8 @@ span{
   margin-left: 40px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 17px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:270px !important;
   padding-left: 0px !important;
@@ -4003,7 +2315,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:270px !important;
   padding-left: 0px !important;
@@ -4031,32 +2343,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 250px !important;
-}
-#labelId_horario_grupo{
-  width: 270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 270px !important;
   padding-left: 4px !important;
@@ -4071,102 +2363,7 @@ span{
   width: 270px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 80px !important;
-}
-#fotoAlumno{
-  width: 80px !important;
-  height: 80px !important; 
-  margin-left: 320px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 320px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 255px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 310px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 310px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 295px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 290px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 275px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 320px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -4179,7 +2376,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -4246,17 +2443,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:110px !important;
-}
 #mensaje,#mensaje2{
   width:178px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:100px !important;
   padding-left: 0px !important;
@@ -4286,18 +2477,8 @@ span{
   margin-left: 20px;
   margin-top: 21px;
 }
-#labelIdAsignatura{
-  width:100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:100px !important;
   padding-left: 0px !important;
@@ -4306,7 +2487,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:100px !important;
   padding-left: 0px !important;
@@ -4334,32 +2515,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 78px !important;
-}
-#labelId_horario_grupo{
-  width: 100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 100px !important;
   padding-left: 4px !important;
@@ -4374,97 +2535,7 @@ span{
   width: 100px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 110px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 110px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 90px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 118px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 90px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 75px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 90px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 75px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:100px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 80px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -4477,7 +2548,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -4544,17 +2615,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:110px !important;
-}
 #mensaje,#mensaje2{
   width:218px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:120px !important;
   padding-left: 0px !important;
@@ -4584,18 +2649,8 @@ span{
   margin-left: 20px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:120px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:120px !important;
   padding-left: 0px !important;
@@ -4604,7 +2659,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:120px !important;
   padding-left: 0px !important;
@@ -4632,32 +2687,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 98px !important;
-}
-#labelId_horario_grupo{
-  width: 120px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 120px !important;
   padding-left: 4px !important;
@@ -4672,98 +2707,7 @@ span{
   width: 120px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 140px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 140px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:120px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 110px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 135px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 120px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 105px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 120px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 105px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:120px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 90px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -4776,7 +2720,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -4843,17 +2787,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:110px !important;
-}
 #mensaje,#mensaje2{
   width:218px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:130px !important;
   padding-left: 0px !important;
@@ -4883,18 +2821,8 @@ span{
   margin-left: 20px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:130px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:130px !important;
   padding-left: 0px !important;
@@ -4903,7 +2831,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:130px !important;
   padding-left: 0px !important;
@@ -4931,32 +2859,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 108px !important;
-}
-#labelId_horario_grupo{
-  width: 130px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 130px !important;
   padding-left: 4px !important;
@@ -4971,98 +2879,7 @@ span{
   width: 130px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 150px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 150px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:130px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 120px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 145px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 130px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 115px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 120px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 105px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 100px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -5075,7 +2892,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -5142,17 +2959,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:120px !important;
-}
 #mensaje,#mensaje2{
   width:218px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:140px !important;
   padding-left: 0px !important;
@@ -5182,18 +2993,8 @@ span{
   margin-left: 20px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:140px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:140px !important;
   padding-left: 0px !important;
@@ -5202,7 +3003,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:140px !important;
   padding-left: 0px !important;
@@ -5230,32 +3031,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 120px !important;
-}
-#labelId_horario_grupo{
-  width: 140px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 140px !important;
   padding-left: 4px !important;
@@ -5270,98 +3051,7 @@ span{
   width: 140px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 150px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 170px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:140px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 130px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 155px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 140px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 125px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 130px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 115px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 120px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -5374,7 +3064,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -5441,17 +3131,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:135px !important;
-}
 #mensaje,#mensaje2{
   width:290px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:155px !important;
   padding-left: 0px !important;
@@ -5481,18 +3165,8 @@ span{
   margin-left: 20px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:155px !important;
   padding-left: 0px !important;
@@ -5501,7 +3175,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:155px !important;
   padding-left: 0px !important;
@@ -5529,32 +3203,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 135px !important;
-}
-#labelId_horario_grupo{
-  width: 155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 155px !important;
   padding-left: 4px !important;
@@ -5569,98 +3223,7 @@ span{
   width: 155px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 190px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 170px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:155px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 145px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 170px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 150px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 135px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 20px;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 20px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 150px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 135px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:130px !important;
-  font-size: 10px !important;
-  padding-left: 2px !important;
-  margin-left: 140px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -5673,7 +3236,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -5742,17 +3305,11 @@ span{
   text-align:center;
   font-size: 10px !important;
 }
-#nombrebusqueda{
-  width:165px !important;
-}
 #mensaje,#mensaje2{
   width:350px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:185px !important;
   padding-left: 0px !important;
@@ -5782,18 +3339,8 @@ span{
   margin-left: 40px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:185px !important;
   padding-left: 0px !important;
@@ -5802,7 +3349,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:185px !important;
   padding-left: 0px !important;
@@ -5830,32 +3377,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 165px !important;
-}
-#labelId_horario_grupo{
-  width: 185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 185px !important;
   padding-left: 4px !important;
@@ -5870,99 +3397,7 @@ span{
   width: 185px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 50px !important;
-}
-#fotoAlumno{
-  width: 50px !important;
-  margin-left: 220px !important;
-}
-#fotoProfesor{
-  width: 50px !important;
-  height: 50px !important; 
-  margin-left: 220px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:185px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 155px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 190px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 200px !important;
-  top: 70px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 185px !important;
-  top: 30px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 40px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:20px !important;
-  margin-left: 40px;
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 20px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 180px !important;
-  top: 30px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 165px !important;
-  top: 70px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:150px !important;
-  font-size: 12px !important;
-  padding-left: 2px !important;
-  margin-left: 190px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -5975,7 +3410,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -6044,17 +3479,11 @@ span{
   text-align:center;
   font-size: 13px !important;
 }
-#nombrebusqueda{
-  width:215px !important;
-}
 #mensaje,#mensaje2{
   width:450px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:235px !important;
   padding-left: 0px !important;
@@ -6084,18 +3513,8 @@ span{
   margin-left: 40px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:235px !important;
   padding-left: 0px !important;
@@ -6104,7 +3523,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:235px !important;
   padding-left: 0px !important;
@@ -6132,32 +3551,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 215px !important;
-}
-#labelId_horario_grupo{
-  width: 235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 235px !important;
   padding-left: 4px !important;
@@ -6172,102 +3571,7 @@ span{
   width: 235px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 60px !important;
-}
-#fotoAlumno{
-  width: 60px !important;
-  height: 60px !important; 
-  margin-left: 290px !important;
-}
-#fotoProfesor{
-  width: 60px !important;
-  height: 60px !important; 
-  margin-left: 300px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:235px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 225px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 280px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 270px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 255px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 250px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 235px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 250px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -6280,7 +3584,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -6349,17 +3653,11 @@ span{
   text-align:center;
   font-size: 13px !important;
 }
-#nombrebusqueda{
-  width:215px !important;
-}
 #mensaje,#mensaje2{
   width:450px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:245px !important;
   padding-left: 0px !important;
@@ -6389,18 +3687,8 @@ span{
   margin-left: 40px;
   margin-top: 18px;
 }
-#labelIdAsignatura{
-  width:245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:245px !important;
   padding-left: 0px !important;
@@ -6409,7 +3697,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:245px !important;
   padding-left: 0px !important;
@@ -6437,32 +3725,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 225px !important;
-}
-#labelId_horario_grupo{
-  width: 245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 245px !important;
   padding-left: 4px !important;
@@ -6477,102 +3745,7 @@ span{
   width: 245px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 70px !important;
-}
-#fotoAlumno{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 290px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 300px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 225px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 280px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 280px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 265px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 260px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 245px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 270px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -6585,7 +3758,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -6654,17 +3827,11 @@ span{
   text-align:center;
   font-size: 13px !important;
 }
-#nombrebusqueda{
-  width:215px !important;
-}
 #mensaje,#mensaje2{
   width:450px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 15px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:245px !important;
   padding-left: 0px !important;
@@ -6694,18 +3861,8 @@ span{
   margin-left: 40px;
   margin-top: 8px;
 }
-#labelIdAsignatura{
-  width:245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 15px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:245px !important;
   padding-left: 0px !important;
@@ -6714,7 +3871,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:245px !important;
   padding-left: 0px !important;
@@ -6742,32 +3899,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 225px !important;
-}
-#labelId_horario_grupo{
-  width: 245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 245px !important;
   padding-left: 4px !important;
@@ -6782,102 +3919,7 @@ span{
   width: 245px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 70px !important;
-}
-#fotoAlumno{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 290px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 300px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:245px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 225px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 280px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 280px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 265px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 260px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 245px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 270px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -6890,7 +3932,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;
@@ -6958,17 +4000,11 @@ span{
   text-align:center;
   font-size: 15px !important;
 }
-#nombrebusqueda{
-  width:250px !important;
-}
 #mensaje,#mensaje2{
   width:515px !important;
   height: 50px !important;
 }
-.busquedaH3{
-  font-size: 17px !important;
-}
-/*-------------------------Modificar Asignatura-----------------------------------------------*/
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
 #labelObligatoria{
   width:270px !important;
   padding-left: 0px !important;
@@ -7000,18 +4036,8 @@ span{
   margin-left: 40px;
   top: -12px !important;
 }
-#labelIdAsignatura{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Aula -------------------------------------------------------------------------*/
-.busquedaAulas{
-  font-size: 17px !important;
-}
+/*--- Agregar Aula -------------------------------------------------------------------------*/
 #labelCapacidad{
   width:270px !important;
   padding-left: 0px !important;
@@ -7020,7 +4046,7 @@ span{
   padding-bottom: 0px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*--- Modificar Horario Grupo-----------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
 #labelHorarioGrupoAsignatura{
   width:270px !important;
   padding-left: 0px !important;
@@ -7048,32 +4074,12 @@ span{
   float:left;
   text-align:center;
 }
-#id_horario_grupo{
-  width: 250px !important;
-}
-#labelId_horario_grupo{
-  width: 270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Grupo----------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
 
-/*-------------------------Modificar Horario Profesor-----------------------------------------*/
-#labelId_horario_profesor{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labelId_horario_grupo{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
 #labelHoraInicioHorarioProfesor{
   width: 270px !important;
   padding-left: 4px !important;
@@ -7088,102 +4094,7 @@ span{
   width: 270px !important;
 }
 /*------------------------------------------------------------------------------------------*/
-/*-------------------------Modificar Alumno/Profesor------------------------------------------*/
-
-.busquedaFoto{
-  width: 80px !important;
-}
-#fotoAlumno{
-  width: 80px !important;
-  height: 80px !important; 
-  margin-left: 320px !important;
-}
-#fotoProfesor{
-  width: 70px !important;
-  height: 70px !important; 
-  margin-left: 320px !important;
-  margin-bottom: 20px !important;
-}
-#labelTarjeta_activada,#labelAdmin{
-  width:270px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-#labeltarjeta1Profesor{
-  position: absolute;
-  left: 255px !important;
-  top: 17px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeltarjetaProfesor{
-  position: absolute;
-  left: 310px !important;
-  top: 17px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#labeltarjetaAlumno{
-  position: absolute;
-  left: 280px !important;
-  top: 60px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#labeltarjeta1Alumno{
-  position: absolute;
-  left: 265px !important;
-  top: 25px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-  font-size: 14px !important;
-}
-#tarjeta1,#tarjeta{
-  width:20px !important;
-  margin-left: 60px;
-  margin-top: -10px !important;
-}
-#tarjeta1Alumno,#tarjetaAlumno{
-  width:22px !important;
-  margin-left: 60px !important; 
-}
-#admin1,#admin{
-  width:20px !important;
-  margin-left: 40px;
-}
-#labeladmin1{
-  position: absolute;
-  left: 290px !important;
-  top: 28px !important;
-  width:20px !important;
-  padding-left: -10px !important;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#labeladmin{
-  position: absolute;
-  left: 275px !important;
-  top: 63px !important;
-  width:20px !important;
-  margin-left: 65px;
-  margin-right: 50px;
-}
-#btnMostrarGrupos{
-  width:180px !important;
-  font-size: 13px !important;
-  padding-left: 2px !important;
-  margin-left: 320px !important;
-  margin-bottom: 10px !important;
-}
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
 #labelApellidos{
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -7196,7 +4107,7 @@ span{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-#labelPasswordViejo,#labelPassword,#labelPasswordR{
+#labelPassword{
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-top: 0px !important;

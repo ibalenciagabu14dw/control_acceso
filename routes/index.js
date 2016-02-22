@@ -182,5 +182,17 @@ router.post('/enviarCorreo',function(req,res,next) {
 	})//enviarCorreo
 })//post('/enviarCorreo'
 
+//enviar correo demo
+router.post('/enviarCorreoDemo',function(req,res,next) {
+	mailgun.enviarCorreoDemo(req.body.remitenteDemo, function (error,data) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			res.send(data);
+		}
+	})//enviarCorreoDemo
+})//post('/enviarCorreoDemo'
+
 
 module.exports = router;

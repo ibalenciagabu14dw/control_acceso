@@ -50,4 +50,21 @@ mailgun.enviarCorreo = function (remitente,asunto,mensaje,callback) {
 	})//messages
 }//enviarCorreo
 
+mailgun.enviarCorreoDemo = function (remitenteDemo,callback) {
+	var data = {
+		from: 'admin@mail.controlfid.zubirimanteoweb.com',
+		to: remitenteDemo,
+		subject: 'Password Demo ControlFid',
+		html: '<h4>Gracias por utilizar nuestra demo</h4>Esperamos que sea de tu agrado<br/>El usuario para poder acceder a la demo es: <b>profesor2@zubirimanteo.com</b>. Y el password es: <b>profesor2</b>.<br/>Para entrar en la configuración de la demo, seleccionar "Entrar como administrador" en el login<br/><br/>El equipo de controlFid',
+	};
+	mailgun.messages().send(data,function (error,body) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}else{
+			callback(null,{envio:'ok'});
+		}
+	})//messages
+}//enviarCorreo
+
 module.exports = mailgun;

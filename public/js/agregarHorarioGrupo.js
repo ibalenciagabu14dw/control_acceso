@@ -1,4 +1,5 @@
 $(document).ready(function() {
+        controlFooter();
     $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
@@ -40,11 +41,11 @@ $(document).ready(function() {
         errorPlacement: function(error,element){
         },
         submitHandler: function (form) {
-            if ($('#hora_inicio').val() > $('#hora_final').val()){
-                $('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                $('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                
+            if ($('#hora_inicioHorarioGrupo').val() > $('#hora_finalHorarioGrupo').val()){
+                $('#hora_inicioHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_inicioHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_finalHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_finalHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                
                 showAlertValidate("#alertHoraInicio"," Hora Inicio no puede ser mayor a la Hora Final ");            
             } else {
             event.preventDefault();
@@ -62,10 +63,10 @@ $(document).ready(function() {
                 if (data.err=="existe"){
                 $('#selectDiaHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 $('#selectDiaHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                $('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                $('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_inicioHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_inicioHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $('#hora_finalHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#hora_finalHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 $('#selectHorarioGrupoGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 $('#selectHorarioGrupoGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 $('#selectHorarioGrupoAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
@@ -89,6 +90,20 @@ $(document).ready(function() {
     });//Validate
 });//ready
 
+  function controlFooter(){ 
+     /*el alto que tiene el navegador*/
+     $alto_navegador= $(window).height();
+     /*el alto que tiene el contenido de la pagina*/
+     $alto_documento= $(document).height(); 
+     /*  aqui condicionamos si el alto del contenido 
+      *  es mayor que
+      *  el alto del navegador*/
+     if ($alto_documento>$alto_navegador){
+         $("#footer").css({"bottom":"auto"})
+     }else if($alto_documento>=$alto_navegador){
+         $("#footer").css({"bottom":"0px"})
+     } 
+ }//controlFooter
 
 function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');

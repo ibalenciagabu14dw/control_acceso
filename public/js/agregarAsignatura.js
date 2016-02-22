@@ -1,4 +1,5 @@
 $(document).ready(function() {
+        controlFooter();
     $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
@@ -81,8 +82,8 @@ $(document).ready(function() {
                 console.log(data);
                 if (data.err=="existe"){
                 showAlert("#alertClave","error"," Clave ya existente");
-                $('#clave').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $('#clave1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
+                $('#claveAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                $('#claveAsignatura1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
                 }else if (data.dato=="ok"){
                 showAlertRedirect("#enlace","ok"," Asignatura añadida correctamente",'/config');
                 }
@@ -97,6 +98,21 @@ $(document).ready(function() {
         }//submitHandler
     });//Validate
 });//ready
+
+  function controlFooter(){ 
+     /*el alto que tiene el navegador*/
+     $alto_navegador= $(window).height();
+     /*el alto que tiene el contenido de la pagina*/
+     $alto_documento= $(document).height(); 
+     /*  aqui condicionamos si el alto del contenido 
+      *  es mayor que
+      *  el alto del navegador*/
+     if ($alto_documento>$alto_navegador){
+         $("#footer").css({"bottom":"auto"})
+     }else if($alto_documento>=$alto_navegador){
+         $("#footer").css({"bottom":"0px"})
+     } 
+ }//controlFooter
 
 function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');

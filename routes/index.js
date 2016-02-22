@@ -38,12 +38,13 @@ router.post('/login',function(req,res) {
 			}else{
 				req.session.name = data[0].nombre;
 				req.session.id_profesor = data[0].id_profesor;
+				req.session.admin = data[0].admin;
 				if (admin == undefined) {
 					res.redirect('/vistaProfesor?idProfesor='+data[0].id_profesor);
 				}else if(admin == 1 && data[0].admin == 1){
 					res.redirect('/config');
 				}else if(data[0].admin == 0 && admin == 1){
-					res.render('index', { title: 'ControlFid', info: 'No tienes permiso de administrador'});
+					res.render('index', { title: 'ControlFid', info: 'No tienes permisos de administrador'});
 				}			
 			}//.else
 		}//.else

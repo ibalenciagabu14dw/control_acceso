@@ -27,22 +27,37 @@ router.get('/', function(req, res, next) {
 			throw error;
 		}else{
 			profesor.buscarLosAlumnosDeSuClaseActual(req.query.idProfesor,curr_time,function (error,presenciaArray,num_tarjetaArray,nombreArray,apellidosArray,fotoArray){
-									if (error) {
-										console.log("Fallo");
-										throw error;
-									}else{
-										res.render("vistaProfesor",{ 
-										title:'Vista Profesor',
-										name : row[0].nombre, 
-										image: row[0].foto,
-										correo: row[0].correo,
-										num_tarjeta:num_tarjetaArray,
-										presencia:presenciaArray,
-										nombre: nombreArray,
-										apellidos: apellidosArray,
-										foto: fotoArray,
-										})//.res.render
-									}//else error
+				if (error) {
+					console.log("Fallo");
+					throw error;
+				}else{
+					if (req.session.admin == 1) {
+						res.render("vistaProfesor",{ 
+							title:'Vista Profesor',
+							name : row[0].nombre, 
+							image: row[0].foto,
+							correo: row[0].correo,
+							num_tarjeta:num_tarjetaArray,
+							presencia:presenciaArray,
+							nombre: nombreArray,
+							apellidos: apellidosArray,
+							foto: fotoArray,
+							admin:1,
+						})//.res.render
+					}else{
+						res.render("vistaProfesor",{ 
+							title:'Vista Profesor',
+							name : row[0].nombre, 
+							image: row[0].foto,
+							correo: row[0].correo,
+							num_tarjeta:num_tarjetaArray,
+							presencia:presenciaArray,
+							nombre: nombreArray,
+							apellidos: apellidosArray,
+							foto: fotoArray,
+						})//.res.render
+					}					
+				}//else error
 			});////.profesor.buscarLosAlumnosDeSuClaseActual
 		}//.else
 	});//profesor.buscarProfesorPorId

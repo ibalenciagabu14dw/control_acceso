@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$('#footer').css('bottom', 0);
+    $('img').attr("src",'/images/sshot-1.png');
     $('#id_horario_grupo').on("change",function(event) {
          $.ajax({
             url: '/configHorarioGrupo/buscarHorarioGrupoPorId',
@@ -16,15 +16,15 @@ $('#footer').css('bottom', 0);
                     resp += "<div class='form-inline has-success'>";
                     resp += "<div class='input-group'>";
                     resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>";
-                    resp += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"' readonly/>";
-                    resp += "<span id='hora_inicio1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+                    resp += "<input id='hora_inicioHorarioProfesor' type='time' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"' readonly/>";
+                    resp += "<span id='hora_inicioHorarioProfesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
                     resp += "</div>";
                     resp += "</div><br/>";
                     resp += "<div class='form-inline  has-success'>";
                     resp += "<div class='input-group'>";
                     resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA FINAL</label>";
-                    resp += "<input id='hora_final' type='time' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly/>";
-                    resp += "<span id='hora_final1' class='glyphicon form-control-feedback glyphicon-ok'></span>";                    
+                    resp += "<input id='hora_finalHorarioProfesor' type='time' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly/>";
+                    resp += "<span id='hora_finalHorarioProfesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";                    
                     resp += "</div>";
                     resp += "</div><br/>";                    
                     resp += "<div class='form-inline  has-success'>";

@@ -4,6 +4,7 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content
+  include ./includes/menuConfig.jade
   h1 Agregar Horario Grupo
   form#agregarHorarioGrupoForm.form-group()
     .form-inline
@@ -24,15 +25,15 @@ block content
     br
     .form-inline#alertHoraInicio
       .input-group
-        label#labelHoraInicio.input-group-addon(for='hora_inicio') HORA INICIO
-        input#hora_inicio.form-control.has-feedback(type='time', name='hora_inicio')
-        span#hora_inicio1.glyphicon.form-control-feedback
+        label#labelHoraInicioHorarioGrupo.input-group-addon(for='hora_inicio') HORA INICIO
+        input#hora_inicioHorarioGrupo.form-control.has-feedback(type='time', name='hora_inicio')
+        span#hora_inicioHorarioGrupo1.glyphicon.form-control-feedback
     br
     .form-inline
       .input-group
-        label#labelHoraFinal.input-group-addon(for='hora_final') HORA FINAL
-        input#hora_final.form-control.has-feedback(type='time', name='hora_final')
-        span#hora_final1.glyphicon.form-control-feedback
+        label#labelHoraFinalHorarioGrupo.input-group-addon(for='hora_final') HORA FINAL
+        input#hora_finalHorarioGrupo.form-control.has-feedback(type='time', name='hora_final')
+        span#hora_finalHorarioGrupo1.glyphicon.form-control-feedback
     br
     .form-inline
       .input-group

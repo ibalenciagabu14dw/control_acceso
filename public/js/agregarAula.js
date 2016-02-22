@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$('#footer').css('bottom', 0);
+    $('img').attr("src",'/images/sshot-1.png');
 	//reglas
 	var reglas = {
 		numero:{required:true,max: 250},

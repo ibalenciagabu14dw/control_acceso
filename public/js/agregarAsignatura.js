@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$('#footer').css('bottom', 0);
+    $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
      }, "Value must not equal arg.");
@@ -31,10 +31,10 @@ $('#footer').css('bottom', 0);
         if (element.type == "radio"){
             if ($("input[name=obligatoria]:checked").val() == 1){
                 $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                $("#radioAsignatura11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
             } else {
                 $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+                $("#radioAsignatura11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
             }
         } else {
                 var id_attr = "#" + $( element ).attr("id") + "1";
@@ -47,10 +47,10 @@ $('#footer').css('bottom', 0);
             if (element.type == "radio"){
                 if ($("input[name=obligatoria]:checked").val() == 1){
                     $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+                    $("#radioAsignatura11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
                 } else {
                     $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+                    $("#radioAsignatura11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
                 }
             } else {
                 var id_attr = "#" + $( element ).attr("id") + "1";

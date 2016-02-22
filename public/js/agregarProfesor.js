@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$('#footer').css('bottom', 0);
+    $('img').attr("src",'/images/sshot-1.png');
     jQuery.validator.addMethod("fileSize", function (val, element) {
         var size = element.files[0].size;
         console.log(size);
@@ -17,7 +17,7 @@ $('#footer').css('bottom', 0);
     },"Please enter only letters");
 
     jQuery.validator.addMethod("dni", function(value, element) {
-        if ($('#dni').val().length == 10){
+        if ($('#dniProfesor').val().length == 10){
             return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
         }
     });
@@ -85,8 +85,7 @@ $('#footer').css('bottom', 0);
         },
         submitHandler: function (form) {
             event.preventDefault();
-            console.log(password);
-            $('#password').attr('disabled',true);            
+            $('#passwordProfesor').attr('disabled',true);            
             var formData = new FormData($("#agregarProfesorForm")[0]);
             console.log(formData);
             $.ajax({
@@ -102,7 +101,7 @@ $('#footer').css('bottom', 0);
             })
             .done(function(data) {
                 console.log(data);
-                $('#password').attr('disabled',false);
+                $('#passwordProfesor').attr('disabled',false);
                 if (data.err=="existeDNI"){
                     showAlert("#alertDni","error"," DNI ya existente");
                     $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
@@ -122,7 +121,7 @@ $('#footer').css('bottom', 0);
             })
             .fail(function() {
                 console.log("error");
-                $('#password').attr("disabled",false);
+                $('#passwordProfesor').attr("disabled",false);
             })
             /*
             *   Form Submit Fin
@@ -169,3 +168,5 @@ function showAlertRedirect(lugar,tipo,texto,url) {
         window.location.replace(url);
     }, 4000);
     });
+
+}

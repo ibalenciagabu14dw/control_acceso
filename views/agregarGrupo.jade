@@ -4,13 +4,14 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content
+  include ./includes/menuConfig.jade
   h1 Agregar Grupo
   form#agregarGrupoForm.form-group()
     .form-inline#alertNombre
       .input-group
-        label#labelNombre.input-group-addon(for='nombre') NOMBRE
-        input#nombre.form-control.has-feedback(type='text', name='nombre', placeholder='Escribe el nombre del grupo')
-        span#nombre1.glyphicon.form-control-feedback
+        label#labelNombreGrupo.input-group-addon(for='nombre') NOMBRE
+        input#nombreGrupo.form-control.has-feedback(type='text', name='nombre', placeholder='Escribe el nombre del grupo')
+        span#nombreGrupo1.glyphicon.form-control-feedback
         #mensaje.alert.alert-error.fade.in(style='display: none')
           a.close(href='#', data-dismiss='alert') ×
           strong Comprueba!

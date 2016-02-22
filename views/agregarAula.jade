@@ -4,13 +4,14 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/styleAgregar.css')
 
 block content
+  include ./includes/menuConfig.jade
   h1 Agregar Aula
   form#agregarAulaForm.form-group()
     .form-inline#alertNumero
       .input-group
-        label#labelNumero.input-group-addon(for='numero') NUMERO
-        input#numero.form-control.has-feedback(type='number', name='numero', min='1',placeholder='Escribe el numero')
-        span#numero1.glyphicon.form-control-feedback
+        label#labelNumeroAula.input-group-addon(for='numero') NUMERO
+        input#numeroAula.form-control.has-feedback(type='number', name='numero', min='1',placeholder='Escribe el numero')
+        span#numeroAula1.glyphicon.form-control-feedback
     #mensaje.alert.alert-error.fade.in(style='display: none')
       a.close(href='#', data-dismiss='alert') ×
       strong Comprueba!
@@ -18,15 +19,15 @@ block content
     br  
     .form-inline#alertPiso
       .input-group
-        label#labelPiso.input-group-addon(for='piso') PISO
-        input#piso.form-control.has-feedback(type='number', name='piso', min='0', placeholder='Escribe el piso')
-        span#piso1.glyphicon.form-control-feedback
+        label#labelPisoAula.input-group-addon(for='piso') PISO
+        input#pisoAula.form-control.has-feedback(type='number', name='piso', min='0', placeholder='Escribe el piso')
+        span#pisoAula1.glyphicon.form-control-feedback
     br
     .form-inline#alertCapacidad
       .input-group
-        label#labelCapacidad.input-group-addon(for='capacidad') CAPACIDAD
-        input#capacidad.form-control.has-feedback(type='number', name='capacidad', min='1', placeholder='Escribe la capacidad')
-        span#capacidad1.glyphicon.form-control-feedback
+        label#labelCapacidadAula.input-group-addon(for='capacidad') CAPACIDAD
+        input#capacidadAula.form-control.has-feedback(type='number', name='capacidad', min='1', placeholder='Escribe la capacidad')
+        span#capacidadAula1.glyphicon.form-control-feedback
     br
     button#send.btn.btn-success(name='send') Agregar
     a#enlace.btn.btn-primary(href='/config') Volver

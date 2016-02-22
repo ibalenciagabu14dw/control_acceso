@@ -1,0 +1,3915 @@
+
+
+@media only screen and (min-width: 359px) and (max-width: 361px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 215px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 270px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:120px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 75px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 120px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 359px) and (max-width: 361px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 374px) and (max-width: 376px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 235px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 290px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:130px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 85px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 105px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 130px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 374px) and (max-width: 376px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 383px) and (max-width: 385px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 255px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 310px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:140px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 115px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 140px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 383px) and (max-width: 385px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 411px) and (max-width: 415px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 290px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 340px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 12px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:155px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:290px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 110px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 130px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 155px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 411px) and (max-width: 415px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 599px) and (max-width: 601px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 345px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 400px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 10px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 135px !important;
+  font-size: 12px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:185px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:350px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 160px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 185px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 599px) and (max-width: 601px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 767px) and (max-width: 769px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 445px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 500px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+.input-group-addon {
+  font-size: 13px !important;
+  width:235px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 235px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 767px) and (max-width: 769px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 799px) and (max-width: 801px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 470px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 520px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 12px;
+  left: 275px !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+.input-group-addon {
+  font-size: 13px !important;
+  width:245px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 220px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 300px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 245px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 799px) and (max-width: 801px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 1279px) and (orientation:portrait) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 550px !important;
+  font-size: 15px !important;
+}
+.input-group-addon {
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#labelradio{
+  position: absolute;
+  left: 330px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 1279px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 479px) and (max-width: 481px) and (orientation:landscape) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 290px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 340px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 12px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:155px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:290px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 110px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 130px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 155px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 479px) and (max-width: 481px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 532px) and (max-width: 599px) and (orientation:landscape){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 345px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 400px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 10px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 135px !important;
+  font-size: 12px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:185px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:350px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 160px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 185px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 532px) and (max-width: 599px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 639px) and (max-width: 737px) and (orientation:landscape){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 445px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 500px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+.input-group-addon {
+  font-size: 13px !important;
+  width:235px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 200px !important;
+  top: 18px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 240px !important;
+  top: 18px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 235px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 639px) and (max-width: 737px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 959px) and (max-width: 1025px) and (orientation:landscape) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 250px !important;
+  font-size: 15px !important;
+}
+.input-group-addon {
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#labelradio{
+  position: absolute;
+  left: 280px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 959px) and (max-width: 1025px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 1279px) and (orientation:landscape) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 40% !important;
+  font-size: 15px !important;
+}
+.input-group-addon {
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#labelradio{
+  position: absolute;
+  left: 280px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 1279px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 249px) and (max-width: 358px){
+
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 195px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 250px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#send{
+    width: 70px !important;
+}
+#enlace{
+    width: 70px !important;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:100px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 78px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:178px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:100px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 52px !important;
+  top: 30px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 75px !important;
+  top: 30px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:100px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:100px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 100px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 78px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 100px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 78px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 100px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 100px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 100px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 319px) and (max-width: 358px)*/
+
+@media only screen and (min-width: 359px) and (max-width: 373px){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 215px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 270px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#send{
+    width: 70px !important;
+}
+#enlace{
+    width: 70px !important;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:120px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 75px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 120px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 359px) and (max-width: 373px)*/
+
+@media only screen and (min-width: 374px) and (max-width: 382px){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 235px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 290px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#send{
+    width: 70px !important;
+}
+#enlace{
+    width: 70px !important;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:130px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 85px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 105px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 130px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 374px) and (max-width: 382px)*/
+
+@media only screen and (min-width: 383px) and (max-width: 410px) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 255px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 310px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#send{
+    width: 70px !important;
+}
+#enlace{
+    width: 70px !important;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:140px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 115px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 140px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 383px) and (max-width: 410px)*/
+
+@media only screen and (min-width: 411px) and (max-width: 598px){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 290px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 340px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#send{
+    width: 70px !important;
+}
+#enlace{
+    width: 70px !important;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 12px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:155px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:290px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 110px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 130px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 155px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 411px) and (max-width: 598px)*/
+
+@media only screen and (min-width: 599px) and (max-width: 766px) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 25pt;
+}
+span{
+  position: absolute;
+  left: 345px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 400px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#send{
+    width: 70px !important;
+}
+#enlace{
+    width: 70px !important;
+}
+#sp{
+  font-size: 10px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 135px !important;
+  font-size: 12px !important;
+}
+.input-group-addon {
+  font-size: 10px !important;
+  width:185px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#mensaje,#mensaje2{
+  width:350px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 160px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 185px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 599px) and (max-width: 766px)*/
+
+@media only screen and (min-width: 767px) and (max-width: 799px){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 445px !important;
+  font-size: 15px;
+}
+#send{
+    width: 80px !important;
+}
+#enlace{
+    width: 80px !important;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 500px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+.input-group-addon {
+  font-size: 13px !important;
+  width:235px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 235px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 767px) and (max-width: 799px)*/
+
+@media only screen and (width: 800px) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 470px !important;
+  font-size: 15px;
+}
+#send{
+    width: 100px !important;
+}
+#enlace{
+    width: 100px !important;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 520px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+.input-group-addon {
+  font-size: 13px !important;
+  width:245px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 220px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 30px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 18px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 245px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (width: 800px)*/
+
+@media only screen and (min-width: 800px) and (max-width: 1278px) {
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 470px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 520px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#send{
+    width: 100px !important;
+}
+#enlace{
+    width: 100px !important;
+}
+.input-group-addon {
+  font-size: 13px !important;
+  width:245px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 220px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#labelradio{
+  position: absolute;
+  left: 300px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 245px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 800px) and (max-width: 1278px)*/
+
+@media only screen and (min-width: 1279px){
+ 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  color: white !important;
+  font-size: 35pt;
+}
+span{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  font-size: 15px !important;
+}
+#send{
+    width: 120px !important;
+}
+#enlace{
+    width: 120px !important;
+}
+.input-group-addon {
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;    
+}
+.form-control{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+/*-------------------------Agregar Asignatura-----------------------------------------------*/
+#labelObligatoria{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#labelradio{
+  position: absolute;
+  left: 330px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radio1,#radio{
+  width:20px !important;
+  margin-left: 40px;
+  top: -12px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Aula -------------------------------------------------------------------------*/
+#labelCapacidad{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*--- Agregar Horario Grupo-----------------------------------------------------------------*/
+#labelHorarioGrupoAsignatura{
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelHoraInicio{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_inicio{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+#labelHoraFinal{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#hora_final{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Grupo----------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------Agregar Horario Profesor-----------------------------------------*/
+#labelHoraInicioHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelHoraFinalHorarioProfesor{
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+}
+/*------------------------------------------------------------------------------------------*/
+/*-------------------------Agregar Alumno/Profesor------------------------------------------*/
+#labelApellidos{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelNum_tarj{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelPassword{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+/*---------------------------------------------------------------------------------------------*/
+}/*.@media only screen and (min-width: 1279px)*/
+
+
+

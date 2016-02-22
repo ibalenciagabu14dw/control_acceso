@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$('#footer').css('bottom', 0);
+    $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
      }, "Value must not equal arg.");

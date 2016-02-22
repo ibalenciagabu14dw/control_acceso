@@ -1,7 +1,5 @@
 $(document).ready(function() {
-
-$('#footer').css('bottom', 0);
-
+$('img').attr("src",'/images/sshot-1.png');
     jQuery.validator.addMethod("fileSize", function (val, element) {
         var size = element.files[0].size;
         console.log(size);
@@ -19,7 +17,7 @@ $('#footer').css('bottom', 0);
     },"Please enter only letters");
 
     jQuery.validator.addMethod("dni", function(value, element) {
-        if ($('#dni').val().length == 10){
+        if ($('#dniAlumno').val().length == 10){
             return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
         }
         

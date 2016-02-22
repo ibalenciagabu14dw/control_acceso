@@ -204,5 +204,4 @@ $(document).ready(function() {
          $("#footer").css({"bottom":"0px"})
      } 
  }//controlFooter
-alert($(window).height()+"    "+$(document).height());
 });//ready

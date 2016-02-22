@@ -30,9 +30,6 @@ body {
 
 @media only screen and (min-width: 319px) and (max-width: 321px) and (orientation:portrait) {
 
-#footer{
-  bottom:auto;
-}
 .navbar{
   margin-top: -50px;
 }
@@ -70,7 +67,7 @@ h1{
   margin-bottom: 25px;
 }
 #send{
-  width: 65px;
+  width: 75px;
   height: 34px;
   margin-right: 5px;
   text-align: left;
@@ -175,15 +172,13 @@ h1{
 }
 #labelProfesorHorarioProfesor{
   width: 100px !important;  
+  font-size: 10px; 
 }
 /*---------------------------*/
 }/*.@media only screen and (min-width: 319px) and (max-width: 321px) and (orientation:portrait)*/
 
 @media only screen and (min-width: 359px) and (max-width: 361px) and (orientation:portrait) {
 
-#footer{
-  margin-bottom: 0%;
-}
 .navbar{
   margin-top:-50px;
 }
@@ -203,10 +198,10 @@ body {
   background-color: #464646;
 }
 h1{
-  text-align:
+  text-align: center;
   color: white !important;
-  font-size:25pt;
-  margin-right: 
+  font-size: 15pt;
+  margin-right: 25px; 
 }
 #agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
 #agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
@@ -221,7 +216,7 @@ h1{
   margin-bottom: 25px;
 }
 #send{
-  width: 65px;
+  width: 75px;
   height: 34px;
   margin-right: 5px;
   text-align: left; 
@@ -275,6 +270,7 @@ h1{
 #labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
 #labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
 #labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
   width:120px !important;
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -314,7 +310,7 @@ h1{
   padding-right: 4px !important; 
 }
 #horario_grupo{
-  margin-left: 
+  margin-left: -1px  !important; 
 }
 #labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
   width: 120px !important;
@@ -323,6 +319,3298 @@ h1{
 }
 #labelProfesorHorarioProfesor{
   width: 120px !important; 
+  font-size: 10px; 
 }
 /*---------------------------*/
 }/*.@media only screen and (min-width: 359px) and (max-width: 361px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 374px) and (max-width: 376px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 18pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 290px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important; 
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:130px !important;
+  text-align:center;
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 235px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  width:130px !important;
+  font-size: 10px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 85px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 105px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  font-size: 10px;
+}
+#labelProfesorHorarioProfesor{
+  width: 130px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 374px) and (max-width: 376px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 383px) and (max-width: 385px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 18pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 310px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important; 
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:140px !important;
+  text-align:center;
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 255px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px !important;  
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important; 
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 115px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px; 
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 140px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 383px) and (max-width: 385px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 411px) and (max-width: 415px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 340px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 12px !important;
+}
+#mensaje,#mensaje2{
+  width:290px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:155px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 290px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px;
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 110px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 130px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 155px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 411px) and (max-width: 415px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 599px) and (max-width: 601px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 20pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 400px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 10px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 135px !important;
+  font-size: 12px !important; 
+}
+#mensaje,#mensaje2{
+  width:350px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:185px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 345px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 160px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px; 
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 185px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 599px) and (max-width: 601px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 767px) and (max-width: 769px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 30pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 500px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 13px !important;
+  width:235px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 445px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 13px; 
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important; 
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 13px;
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 13px; 
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  font-size: 13px; 
+  width: 235px !important;
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 767px) and (max-width: 769px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 799px) and (max-width: 801px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 32pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 520px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 12px;
+  left: 275px !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 13px !important;
+  width:245px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 470px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 13px; 
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 220px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 255px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 13px;
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 13px; 
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 245px !important;
+  font-size: 13px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 799px) and (max-width: 801px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 1279px) and (orientation:portrait) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 35pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 550px !important;
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 15px; 
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 280px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 15px;
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 15px; 
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+  font-size: 15px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 1279px) and (orientation:portrait)*/
+
+@media only screen and (min-width: 479px) and (max-width: 481px) and (orientation:landscape) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 340px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 12px !important; 
+}
+#mensaje,#mensaje2{
+  width:290px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:155px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 290px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 110px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 130px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px; 
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 155px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 479px) and (max-width: 481px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 532px) and (max-width: 599px) and (orientation:landscape){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 18pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 400px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 10px;
+  left: 43% !important;
+  padding-top:  5px !important; 
+}
+#sp2{
+  left: 135px !important;
+  font-size: 12px !important;
+}
+#mensaje,#mensaje2{
+  width:350px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:185px !important;
+  text-align:center;
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 345px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 160px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px; 
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 185px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 532px) and (max-width: 599px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 639px) and (max-width: 737px) and (orientation:landscape){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 25pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 500px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 13px !important;
+  width:235px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 445px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 13px; 
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important; 
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 200px !important;
+  top: 18px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 36px;
+  margin-top: 10px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 18px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 36px;
+  margin-top: 10px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 13px;
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 13px; 
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 235px !important;
+  font-size: 13px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 639px) and (max-width: 737px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 959px) and (max-width: 1025px) and (orientation:landscape) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 30pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 250px !important;
+  font-size: 15px !important; 
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;    
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 15px; 
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 280px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 15px;
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 15px; 
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+  font-size: 15px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 959px) and (max-width: 1025px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 1279px) and (orientation:landscape) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 35pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 40% !important;
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 15px; 
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important; 
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important; 
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 280px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 15px;
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 15px; 
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+  font-size: 15px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 1279px) and (orientation:landscape)*/
+
+@media only screen and (min-width: 249px) and (max-width: 358px){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 250px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#enlace{
+  width: 75px;
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+#mensaje,#mensaje2{
+  width:178px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:112px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 78px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 195px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:112px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 52px !important;
+  top: 30px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px; 
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 75px !important;
+  top: 30px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 21px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 112px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 112px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 112px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 249px) and (max-width: 358px)*/
+
+@media only screen and (min-width: 359px) and (max-width: 373px){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 270px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:120px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 98px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 215px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:120px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 75px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 120px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 120px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 359px) and (max-width: 373px)*/
+
+@media only screen and (min-width: 374px) and (max-width: 382px){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 290px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important;
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:130px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 108px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 235px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:130px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 85px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 105px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 130px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 130px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 374px) and (max-width: 382px)*/
+
+@media only screen and (min-width: 383px) and (max-width: 410px) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 310px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px; 
+}
+#sp2{
+  left: 68px !important;
+  font-size: 8px !important; 
+}
+#mensaje,#mensaje2{
+  width:218px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:140px !important;
+  text-align:center; 
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 120px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 255px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:140px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 95px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px; 
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 115px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 140px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 140px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 383px) and (max-width: 410px)*/
+
+@media only screen and (min-width: 411px) and (max-width: 598px){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 340px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 0px;
+}
+#sp2{
+  left: 68px !important;
+  font-size: 12px !important; 
+}
+#mensaje,#mensaje2{
+  width:290px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:155px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 135px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 290px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:155px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 110px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 130px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 155px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 155px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 411px) and (max-width: 598px)*/
+
+@media only screen and (min-width: 599px) and (max-width: 766px) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 400px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 10px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 135px !important;
+  font-size: 12px !important;
+}
+#mensaje,#mensaje2{
+  width:350px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 10px !important;
+  width:185px !important;
+  text-align:center;   
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 165px !important;
+  float:left;
+  text-align:center;
+  font-size: 10px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 345px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 10px; 
+  width:185px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 160px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px; 
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 10px;
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 10px; 
+  width: 185px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 185px !important;
+  font-size: 10px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 599px) and (max-width: 766px)*/
+
+@media only screen and (min-width: 767px) and (max-width: 799px){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 500px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 13px !important;
+  width:235px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 215px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important;
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 445px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 13px; 
+  width:235px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 200px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 13px;
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 13px; 
+  width: 235px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 235px !important;
+  font-size: 13px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 767px) and (max-width: 799px)*/
+
+@media only screen and (width: 800px) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 520px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 13px !important;
+  width:245px !important;
+  text-align:center;  
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 470px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 13px; 
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 220px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px; 
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 250px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 13px;
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 13px; 
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 245px !important;
+  font-size: 13px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (width: 800px)*/
+
+@media only screen and (min-width: 800px) and (max-width: 1278px) {
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 15pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 520px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black;
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 12px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  left: 175px !important;
+  font-size: 13px !important;
+}
+#mensaje,#mensaje2{
+  width:450px !important;
+  height: 50px !important; 
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 13px !important;
+  width:245px !important;
+  text-align:center;   
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 225px !important;
+  float:left;
+  text-align:center;
+  font-size: 13px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 470px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 13px; 
+  width:245px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 215px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 255px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  margin-top: 8px;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 13px;
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;  
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 13px; 
+  width: 245px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#labelProfesorHorarioProfesor{
+  width: 245px !important;
+  font-size: 13px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 800px) and (max-width: 1278px)*/
+
+@media only screen and (min-width: 1279px){
+
+.navbar{
+  margin-top:-50px;
+}
+html{
+  height:100%;
+}
+body {
+  height: 100%;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+  background-color: #464646;
+}
+h1{
+  text-align: center;
+  color: white !important;
+  font-size: 35pt;
+  margin-right: 25px;
+}
+#agregarAsignaturasForm,#agregarGrupoForm,#agregarAulaForm,#agregarHorarioGrupoForm,
+#agregarHorarioProfesorForm,#agregarAlumnoForm,#agregarProfesorForm{
+  width: 600px !important;
+  padding: 10px;
+  padding-left: 20px !important; 
+  padding-right: 20px !important;
+  box-shadow: 5px 5px 15px black; 
+  margin: auto;
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+#send{
+  width: 75px;
+  height: 34px;
+  margin-right: 5px;
+  text-align: left; 
+}
+#sp{
+  font-size: 13px;
+  left: 43% !important;
+  padding-top:  5px !important;
+}
+#sp2{
+  font-size: 15px !important;
+}
+#mensaje,#mensaje2{
+  width:515px !important;
+  height: 50px !important;
+}
+#labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
+#labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
+#labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
+#labelHorarioGrupoGrupo,#labelHorarioGrupoHorarioProfesor,
+#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,
+#labelFotoProfesor,#labelDniProfesor{  
+  font-size: 15px !important;
+  width:270px !important;
+  text-align:center;   
+}
+#dniAlumno,#nombreAlumno,#apellidosAlumno,#correoAlumno,#fotoAlumno,#num_tarjetaAlumno,
+#nombreAsignatura,#claveAsignatura,#selectTipoAsignatura,#numeroAula,#pisoAula,
+#capacidadAula,#nombreGrupo,#selectTipoGrupo,#selectDiaHorarioGrupo,#hora_finalHorarioGrupo,
+#hora_inicioHorarioGrupo,#selectHorarioGrupoGrupo,#selectHorarioGrupoAula,#id_horario_grupo,#selectHorarioGrupoAsignatura,
+#selectProfesorHorarioProfesor,#hora_inicioHorarioProfesor,#hora_finalHorarioProfesor,
+#selectDiaHorarioProfesor,#dniProfesor,#nombreProfesor,#apellidosProfesor,#correoProfesor,
+#passwordProfesor,#num_tarjetaProfesor,#fotoProfesor{
+  width: 250px !important;
+  float:left;
+  text-align:center;
+  font-size: 15px !important; 
+}
+#dniAlumno1,#nombreAlumno1,#apellidosAlumno1,#correoAlumno1,#fotoAlumno1,
+#num_tarjetaAlumno1,#nombreAsignatura1,#claveAsignatura1,#selectTipoAsignatura1,
+#radioAsignatura11,#pisoAula1,#numeroAula1,#nombreGrupo1,#capacidadAula1,#labelDniProfesor1,
+#selectTipoGrupo1,#selectDiaHorarioGrupo1,#hora_inicioHorarioGrupo1,#hora_finalHorarioGrupo1,
+#selectHorarioGrupoGrupo1,#selectHorarioGrupoAsignatura1,#selectHorarioGrupoAula1,
+#id_horario_grupo1,#selectProfesorHorarioProfesor1,#hora_inicioHorarioProfesor1,
+#hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
+#apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1{
+  position: absolute;
+  left: 520px !important;
+  font-size: 15px;
+}
+#labelApellidosAlumno,#labelNum_tarjAlumno,#labelObligatoriaAsignatura,
+#labelCapacidadAula,#labelHorarioGrupoAsignatura,#labelApellidosProfesor,
+#labelPasswordProfesor,#labelNum_tarjProfesor{
+  font-size: 15px; 
+  width:270px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#labelradio1Asignatura{
+  position: absolute;
+  left: 240px !important;
+  top: 15px !important;
+  width:20px !important;
+  padding-left: -10px !important;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura1{
+  width:20px !important;
+  margin-left: 40px;
+  top: 0px !important;
+}
+#labelradioAsignatura{
+  position: absolute;
+  left: 280px !important;
+  top: 15px !important;
+  width:20px !important;
+  margin-left: 65px;
+  margin-right: 50px;
+  font-size: 15px !important;
+}
+#radioAsignatura{
+  width:20px !important;
+  margin-left: 40px;
+  top: 0px !important;
+}
+#labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo{
+  font-size: 15px;
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+#horario_grupo{
+  margin-left: -1px  !important; 
+}
+#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
+  font-size: 15px; 
+  width: 270px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important; 
+}
+#labelProfesorHorarioProfesor{
+  width: 270px !important;
+  font-size: 15px; 
+}
+/*---------------------------*/
+}/*.@media only screen and (min-width: 1279px)*/

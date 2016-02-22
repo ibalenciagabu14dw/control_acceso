@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    controlFooter();
 $('img').attr("src",'/images/sshot-1.png');
     jQuery.validator.addMethod("fileSize", function (val, element) {
         var size = element.files[0].size;
@@ -94,16 +95,16 @@ $('img').attr("src",'/images/sshot-1.png');
             .done(function(data) {
                 console.log(data);
                 if (data.err=="existeDNI"){
-                    $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                    $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                    
+                    $('#dniAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#dniAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                    
                     showAlert("#alertDni","error"," DNI ya existente ");                
                 } else if (data.err=="existeCorreo"){
-                    $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                    $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
+                    $('#correoAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#correoAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                     showAlert("#alertCorreo","error"," Correo ya existente ");
                 }else if(data.err=="existeTarjeta"){
-                    $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                    $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
+                    $('#num_tarjetaAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#num_tarjetaAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                     showAlert("#alertNum_tarj","error"," Numero Tarjeta ya existente ");
                 }else if (data.dato=="ok"){
                     showAlertRedirect("#enlace","ok"," Alumno añadido correctamente ",'/config');
@@ -119,6 +120,21 @@ $('img').attr("src",'/images/sshot-1.png');
         }//submitHandler
     });//Validate
 });//ready
+
+  function controlFooter(){ 
+     /*el alto que tiene el navegador*/
+     $alto_navegador= $(window).height();
+     /*el alto que tiene el contenido de la pagina*/
+     $alto_documento= $(document).height(); 
+     /*  aqui condicionamos si el alto del contenido 
+      *  es mayor que
+      *  el alto del navegador*/
+     if ($alto_documento>$alto_navegador){
+         $("#footer").css({"bottom":"auto"})
+     }else if($alto_documento>=$alto_navegador){
+         $("#footer").css({"bottom":"0px"})
+     } 
+ }//controlFooter
 
 function showAlertValidate(lugar,texto) {
     $('#mensaje').attr('class','alert alert-warning fade in');

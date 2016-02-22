@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-$('#footer').css('bottom', "auto");
+      controlFooter();
   
     $( ".filaAula" ).click(function() {
       var aula= $(this).closest("tr").find("div").attr("id");
@@ -62,4 +61,19 @@ function showAlertValidate(lugar,texto) {
     $('#mensaje').fadeTo(2000, 500).slideUp(1000, function(){
                 });
     }
+
+  function controlFooter(){ 
+     /*el alto que tiene el navegador*/
+     $alto_navegador= $(window).height();
+     /*el alto que tiene el contenido de la pagina*/
+     $alto_documento= $(document).height(); 
+     /*  aqui condicionamos si el alto del contenido 
+      *  es mayor que
+      *  el alto del navegador*/
+     if ($alto_documento>$alto_navegador){
+         $("#footer").css({"bottom":"auto"})
+     }else if($alto_documento>=$alto_navegador){
+         $("#footer").css({"bottom":"0px"})
+     } 
+ }//controlFooter
 

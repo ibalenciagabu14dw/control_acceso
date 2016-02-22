@@ -2,6 +2,8 @@ $(document).ready(function() {
 
   //creamos el formulario
   crearFormulario();
+  //controlFooter
+  controlFooter();
 
 
   //para abrir el dialog del formulario
@@ -20,14 +22,15 @@ $(document).ready(function() {
 
   //para borrar el dispositivo
   $('td button').click(function(event) {
-    borrarDispositivo($(this).val(),function (res) {
-      console.log(res);
-      if (res == 1) {
-        location.reload();
-      }else{
-        alert("error");
-      }
-    });//borrarDispositivo
+    if (confirm("Seguro que quieres borrar el dispositivo "+$(this).val())) {
+      borrarDispositivo($(this).val(),function (res) {
+        if (res == 1) {
+          location.reload();
+        }else{
+          alert("error");
+        }
+      });//borrarDispositivo
+    };
   });//$('td button').click
 
 
@@ -186,5 +189,20 @@ $(document).ready(function() {
     })
   }//comprobarIdDispositivo
 
-
+  //control footer
+  function controlFooter(){ 
+     /*el alto que tiene el navegador*/
+     $alto_navegador= $(window).height();
+     /*el alto que tiene el contenido de la pagina*/
+     $alto_documento= $(document).height(); 
+     /*  aqui condicionamos si el alto del contenido 
+      *  es mayor que
+      *  el alto del navegador*/
+     if ($alto_documento>$alto_navegador){
+         $("#footer").css({"bottom":"auto"})
+     }else if($alto_documento>=$alto_navegador){
+         $("#footer").css({"bottom":"0px"})
+     } 
+ }//controlFooter
+alert($(window).height()+"    "+$(document).height());
 });//ready

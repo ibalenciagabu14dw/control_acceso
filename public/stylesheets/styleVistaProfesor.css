@@ -71,14 +71,14 @@ td img{
 td:hover{
 	cursor:pointer;
 }
-#exit{
+#exit, #atras{
 	background-color: lightgrey;
 	float:right;
 	color:black;
 	width: 100px;
 	height: 35px;
 }
-#exit:hover{
+#exit:hover, #atras:hover{
 	text-decoration: none;
 	background-color: grey;
 	font-weight: bold;

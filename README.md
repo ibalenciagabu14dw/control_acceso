@@ -1,6 +1,8 @@
+<html>
+<head>
+</head>
 <link rel="stylesheet" type="text/css" href="public/stylesheets/readme.css">
-
-# Control Acceso
+<h1 id="titulo">Control Acceso</h1>
 
 ##Descripción
 Proyecto de fin de curso 2014-2016 del ciclo formativo de desarrollo de aplicaciones web
@@ -16,3 +18,5 @@ http://controlfid.zubirimanteoweb.com/
 ###Uso
 
 ###API
+</body>
+</html>

@@ -4,13 +4,14 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/styleModificar.css')
 
 block content
+  include ./includes/menuConfig.jade
   h1 Modificar Aula
   .container
     form#form.form-group
       .form-inline
         .input-group
-          label.input-group-addon(for='numero') Numero: 
-          input#numerobusqueda.form-control(type='text', name='numero', placeholder='Escribe el numero')
+          label#labelNumeroBusquedaAula.input-group-addon(for='numero') Numero: 
+          input#numerobusquedaAula.form-control(type='text', name='numero', placeholder='Escribe el numero')
         br
         br
         input.btn.btn-primary(type='submit', value='Buscar')

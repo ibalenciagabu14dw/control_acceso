@@ -1,12 +1,12 @@
 $(document).ready(function() {
 	    controlFooter();
- $('#footer').css('bottom', 0);   
+	    $('img').attr("src",'/images/sshot-1.png');
     jQuery.validator.addMethod("lettersonly", function(value, element) { 
     return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
 	},"Please enter only letters");
 
     jQuery.validator.addMethod("dni", function(value, element) {
-        if ($('#dni').val().length == 10){
+        if ($('#dniProfesor').val().length == 10){
             return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
         }
     });
@@ -43,14 +43,14 @@ $(document).ready(function() {
 
 	//Buscar alumnos al escribir
 	$('#nombrebusqueda').keyup(function(event) {
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarProfesores();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarProfesores();
 	});
 
@@ -59,125 +59,124 @@ $(document).ready(function() {
 		var datos = $(this).contents();
 		buscarProfesorPorId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom',"auto");		
     		var formulario = "<form class='form-group' action='/modificarProfesor' id='formUpdate' name='formUpdate'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_profesor' class='input-group-addon'>PROFESOR</label>";
-    		formulario += "<input type='text' id='id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"'readonly>";
-    		formulario += "<span id='id_profesor1' class='glyphicon form-control-feedback'></span>";    		    		    		
+			formulario += "<label for='id_profesor' id='labelIdProfesor' class='input-group-addon'>PROFESOR</label>";
+    		formulario += "<input type='text' id='Id_profesor' name='id_profesor' class='form-control' value='"+result[0].id_profesor+"'readonly>";
+    		formulario += "<span id='Id_profesor1' class='glyphicon form-control-feedback'></span>";    		    		    		
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertDni'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='dni' class='input-group-addon'>DNI</label>";
-    		formulario += "<input type='text' id='dni' name='dni' class='form-control has-feedback' value='"+result[0].dni+"'>";
-    		formulario += "<span id='dni1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='dni' id='labelDniProfesor' class='input-group-addon'>DNI</label>";
+    		formulario += "<input type='text' id='dniProfesor' name='dni' class='form-control has-feedback' value='"+result[0].dni+"'>";
+    		formulario += "<span id='dniProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Dni ya existente</span></div>";	    		    		
     		formulario += "<div class='form-inline' id='alertNombre'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
-    		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='nombre' id='labelNombreProfesor' class='input-group-addon'>NOMBRE</label>";
+    		formulario += "<input type='text' id='nombreProfesor' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
+    		formulario += "<span id='nombreProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertApellidos'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='apellidos' class='input-group-addon'>APELLIDOS</label>";
-    		formulario += "<input type='text' id='apellidos' name='apellidos' class='form-control has-feedback' value='"+result[0].apellidos+"'>";
-    		formulario += "<span id='apellidos1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='apellidos' id='labelApellidosProfesor' class='input-group-addon'>APELLIDOS</label>";
+    		formulario += "<input type='text' id='apellidosProfesor' name='apellidos' class='form-control has-feedback' value='"+result[0].apellidos+"'>";
+    		formulario += "<span id='apellidosProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertCorreo'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='correo' class='input-group-addon'>CORREO</label>";
-    		formulario += "<input type='text' id='correo' name='correo' class='form-control has-feedback' value='"+result[0].correo+"'>";
-    		formulario += "<span id='correo1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='correo' id='labelCorreoProfesor' class='input-group-addon'>CORREO</label>";
+    		formulario += "<input type='text' id='correoProfesor' name='correo' class='form-control has-feedback' value='"+result[0].correo+"'>";
+    		formulario += "<span id='correoProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
     		formulario += "<input type='hidden' id='passwordviejo' name='passwordviejo' class='form-control' value='"+result[0].password+"'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='password' id='labelPasswordViejo' class='input-group-addon'>PASSWORD VIEJO</label>";
-    		formulario += "<input type='password' id='password' name='password' class='form-control has-feedback' value=''>";
-    		formulario += "<span id='password1' class='glyphicon form-control-feedback'></span>";
+    		formulario += "<input type='password' id='passwordProfesor' name='password' class='form-control has-feedback' value=''>";
+    		formulario += "<span id='passwordProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<input type='hidden' id='passwordhash' name='passwordhash' class='form-control'>";
     		formulario += "<div class='form-inline' id='divpasswordnuevo' hidden>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='passwordnuevo' id='labelPassword' class='input-group-addon'>PASSWORD NUEVO</label>";
-    		formulario += "<input type='password' id='passwordnuevo' name='passwordnuevo' class='form-control has-feedback' value=''>";
-    		formulario += "<span id='passwordnuevo1' class='glyphicon form-control-feedback'></span>";
+    		formulario += "<input type='password' id='passwordNewProfesor' name='passwordnuevo' class='form-control has-feedback' value=''>";
+    		formulario += "<span id='passwordNewProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline' id='divpasswordnuevorepetido' hidden>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='passwordnuevorepetido' id='labelPasswordR' class='input-group-addon'>REPETIR PASSWORD NUEVO</label>";
-    		formulario += "<input type='password' id='passwordnuevorepetido' name='passwordnuevorepetido' class='form-control has-feedback' value=''>";
-    		formulario += "<span id='passwordnuevorepetido1' class='glyphicon form-control-feedback'></span>";
+    		formulario += "<input type='password' id='passwordNewRepProfesor' name='passwordnuevorepetido' class='form-control has-feedback' value=''>";
+    		formulario += "<span id='passwordNewRepProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<input type='hidden' id='pass' name='pass' class='form-control'>";
-    		formulario += "<img id='fotoProfesor' alt='fotoProfesor' src='data:img/png;base64,"+result[0].foto+"' width='100' height='100'/>";
+    		formulario += "<img id='fotoProfesorPre' alt='fotoProfesor' src='data:img/png;base64,"+result[0].foto+"' width='100' height='100'/>";
     		formulario += "<div class='form-inline' id='alertFoto'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='foto' class='input-group-addon'>FOTO</label>";
-    		formulario += "<input type='file' id='foto' name='foto' class='form-control  has-feedback'>";
-    		formulario += "<span id='foto1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='foto' id='labelFotoProfesor' class='input-group-addon'>FOTO</label>";
+    		formulario += "<input type='file' id='fotoProfesor' name='foto' class='form-control  has-feedback'>";
+    		formulario += "<span id='fotoProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			   if(result[0].tarjeta_activada == 1){
 			formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-				    formulario += "<label id='labelTarjeta_activada' for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label><br/>";
-				    formulario += "<label id='labeltarjeta1Profesor' for='tarjeta1'>SI</label>";
-				    formulario += "<input id='tarjeta1' type='radio' name='tarjeta_activada' value='1' class='radio form-control' checked='checked'/>";
-				    formulario += "<label id='labeltarjetaProfesor' for='tarjeta'>NO  </label>";
-				    formulario += "<input id='tarjeta' type='radio' name='tarjeta_activada' value='0' class='radio form-control'/><span id='tarjeta11' class='glyphicon form-control-feedback'></span>";
+				    formulario += "<label id='labelTarjeta_activadaProfesor' for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label><br/>";
+				    formulario += "<label id='labeltarjeta1Profesor' for='tarjetaProfesor1'>SI</label>";
+				    formulario += "<input id='tarjetaProfesor1' type='radio' name='tarjeta_activada' value='1' class='radio form-control' checked='checked'/>";
+				    formulario += "<label id='labeltarjetaProfesor' for='tarjetaProfesor'>NO  </label>";
+				    formulario += "<input id='tarjetaProfesor' type='radio' name='tarjeta_activada' value='0' class='radio form-control'/><span id='tarjetaProfesor11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-				    formulario += "<label id='labelTarjeta_activada' for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label><br/>";
-				    formulario += "<label id='labeltarjeta1Profesor' for='tarjeta1'>SI</label>";
-				    formulario += "<input id='tarjeta1' type='radio' name='tarjeta_activada' value='1' class='radio form-control'/><br/>";
-				    formulario += "<label id='labeltarjetaProfesor' for='tarjeta'>NO  </label>";
-				    formulario += "<input id='tarjeta' type='radio' name='tarjeta_activada' value='0' class='radio form-control'checked='checked'/><span id='tarjeta11' class='glyphicon form-control-feedback'></span>";
+				    formulario += "<label id='labelTarjeta_activadaProfesor' for='tarjeta_activada' class='input-group-addon'>TARJETA ACTIVADA</label><br/>";
+				    formulario += "<label id='labeltarjeta1Profesor' for='tarjetaProfesor1'>SI</label>";
+				    formulario += "<input id='tarjetaProfesor1' type='radio' name='tarjeta_activada' value='1' class='radio form-control'/><br/>";
+				    formulario += "<label id='labeltarjetaProfesor' for='tarjetaProfesor'>NO  </label>";
+				    formulario += "<input id='tarjetaProfesor' type='radio' name='tarjeta_activada' value='0' class='radio form-control'checked='checked'/><span id='tarjetaProfesor11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";					
 				}
     		formulario += "<div class='form-inline' id='alertNum_tarj'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='num_tarjeta' class='input-group-addon'>NUMERO TARJETA</label>";
-    		formulario += "<input type='text' id='num_tarjeta' name='num_tarjeta' class='form-control  has-feedback' value='"+result[0].num_tarjeta+"'>";
-    		formulario += "<span id='num_tarjeta1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='num_tarjeta' id='labelNum_tarjProfesor' class='input-group-addon'>NUMERO TARJETA</label>";
+    		formulario += "<input type='text' id='num_tarjetaProfesor' name='num_tarjeta' class='form-control  has-feedback' value='"+result[0].num_tarjeta+"'>";
+    		formulario += "<span id='num_tarjetaProfesor1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			   if(result[0].admin == 1){
 			formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-				    formulario += "<label id='labelAdmin' for='admin' class='input-group-addon'>ADMINISTRADOR</label><br/>";
-				    formulario += "<label id='labeladmin1' for='admin1'>SI</label>";
-				    formulario += "<input id='admin1' type='radio' name='admin' value='1' class='radio form-control' checked='checked'/>";
-				    formulario += "<label id='labeladmin' for='admin'>NO  </label>";
-				    formulario += "<input id='admin' type='radio' name='admin' value='0' class='radio form-control'/><span id='admin11' class='glyphicon form-control-feedback'></span>";
+				    formulario += "<label id='labelAdminProfesor' for='admin' class='input-group-addon'>ADMINISTRADOR</label><br/>";
+				    formulario += "<label id='labeladminProfesor1' for='adminProfesor1'>SI</label>";
+				    formulario += "<input id='adminProfesor1' type='radio' name='admin' value='1' class='radio form-control' checked='checked'/>";
+				    formulario += "<label id='labeladminProfesor' for='adminProfesor'>NO  </label>";
+				    formulario += "<input id='adminProfesor' type='radio' name='admin' value='0' class='radio form-control'/><span id='adminProfesor11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-				    formulario += "<label id='labelAdmin' for='admin' class='input-group-addon'>ADMINISTRADOR</label><br/>";
-				    formulario += "<label id='labeladmin1' for='admin1'>SI</label>";
-				    formulario += "<input id='admin' type='radio' name='admin' value='1' class='radio form-control'/><br/>";
-				    formulario += "<label id='labeladmin' for='tarjeta'>NO  </label>";
-				    formulario += "<input id='admin' type='radio' name='admin' value='0' class='radio form-control'checked='checked'/><span id='admin11' class='glyphicon form-control-feedback'></span>";
+				    formulario += "<label id='labelAdminProfesor' for='admin' class='input-group-addon'>ADMINISTRADOR</label><br/>";
+				    formulario += "<label id='labeladminProfesor1' for='adminProfesor1'>SI</label>";
+				    formulario += "<input id='adminProfesor1' type='radio' name='admin' value='1' class='radio form-control'/><br/>";
+				    formulario += "<label id='labeladminProfesor' for='adminProfesor'>NO  </label>";
+				    formulario += "<input id='adminProfesor' type='radio' name='admin' value='0' class='radio form-control'checked='checked'/><span id='adminProfesor11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";					
@@ -210,7 +209,7 @@ $(document).ready(function() {
 		});
 	});//Formulario modificar y borrar
 	
-	$('#resultado').on('keydown','#password', function(event) {
+	$('#resultado').on('keydown','#passwordProfesor', function(event) {
 		$('#resultado #divpasswordnuevo').show();
 		$('#resultado #divpasswordnuevorepetido').show();
 	});
@@ -268,11 +267,11 @@ $(document).ready(function() {
 	        if($('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== false || $('#resultado #asignaturasdelProfesor :checkbox').prop("checked")== undefined ){
 	        		showAlertValidate("#enlace2"," El profesor tiene que tener una asignatura");
 	        } else {
-	        	if($('#password').val().length == 0){
+	        	if($('#passwordProfesor').val().length == 0){
 	        		$('#pass').attr("value",$('#passwordviejo').val());
-	        		if ($('#resultado #foto').val() == ''){
+	        		if ($('#resultado #fotoProfesor').val() == ''){
 					   	event.preventDefault();
-					    $('#password').attr('disabled',true);  
+					    $('#passwordProfesor').attr('disabled',true);  
 					    var data = $("#formUpdate").serializeArray();
 					        $.ajax({
 					            url: '/configProfesor/modificarProfesorSinFoto',
@@ -284,26 +283,26 @@ $(document).ready(function() {
 						    })
 						    .done(function(data) {
 						        console.log(data)
-						        $('#password').attr('disabled',false);
+						        $('#passwordProfesor').attr('disabled',false);
 						        if (data.err=="existeDNI"){
-							        $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-							        $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+							        $('#dniProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+							        $('#dniProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								    showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 								} else if (data.err=="existeCorreo"){
-								    $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-								   	$('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+								    $('#correoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+								   	$('#correoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								  	showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 								} else if (data.err=="existeTarjeta"){
-								   	$('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-								   	$('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+								   	$('#num_tarjetaProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+								   	$('#num_tarjetaProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								   	showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 								}else if (data.dato=="ok"){
-								   	$('#id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-								   	$('#id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
-								   	$('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
-								   	$('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-								   	$('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-								   	$('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+								   	$('#Id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+								   	$('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+								   	$('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+								   	$('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+								   	$('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+								   	$('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
 								   	$('#admin').closest('.form-inline').removeClass('has-error').addClass('has-success');
 								   	$('#admin1').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
 								   	showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
@@ -312,18 +311,18 @@ $(document).ready(function() {
 								})
 								    .fail(function() {
 							       		console.log("error");
-							       		$('#password').attr('disabled',false);
+							       		$('#passwordProfesor').attr('disabled',false);
 							    	})
 				    } else {
-					   	var attach_id = $('#resultado #foto').attr("id");
+					   	var attach_id = $('#resultado #fotoProfesor').attr("id");
 						var size = $('#'+attach_id)[0].files[0].size;
 						if (size > 102400){
-							$('#foto').closest('.form-inline').removeClass('has-success').addClass('has-error');
-							$('#foto1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			               
+							$('#fotoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+							$('#fotoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			               
 						    showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 						} else {
 						    event.preventDefault();
-						    $('#password').attr('disabled',true);  
+						    $('#passwordProfesor').attr('disabled',true);  
 						    var formData = new FormData($('#resultado #formUpdate')[0]);
 						        $.ajax({
 						            url: '/configProfesor/modificarProfesor',
@@ -338,35 +337,33 @@ $(document).ready(function() {
 						        })
 						        .done(function(data) {
 						        console.log(data)
-						        $('#password').attr('disabled',false);
+						        $('#passwordProfesor').attr('disabled',false);
 						        if (data.err=="existeDNI"){
-							        $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-							        $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+							        $('#dniProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+							        $('#dniProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 							        showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 							    } else if (data.err=="existeCorreo"){
-							        $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-							        $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+							        $('#correoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+							        $('#correoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 							        showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 							    } else if (data.err=="existeTarjeta"){
-							        $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-							        $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+							        $('#num_tarjetaProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+							        $('#num_tarjetaProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 							        showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 							    }else if (data.dato=="ok"){
-							        $('#id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-							        $('#id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
-							        $('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
-							        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-							        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-							        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
-							        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-							        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');
+							        $('#Id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+							        $('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+							        $('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+							        $('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+							        $('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+							        $('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 					                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 				                }
 				                console.log("success");
 					            })
 					            .fail(function() {
 				                console.log("error");
-				                $('#password').attr('disabled',false);
+				                $('#passwordProfesor').attr('disabled',false);
 					            })
 							            /*
 							            *   Form Submit Fin
@@ -374,19 +371,19 @@ $(document).ready(function() {
 						}//.else if (size > 102400)
 					}//.else if ($('#resultado #foto').val() == ''){
 	        	} else {
-	        		if(($('#passwordnuevo').val().length == 0) || ($('#passwordnuevorepetido').val().length == 0)  ){
-	        		$('#passwordnuevo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-					$('#passwordnuevo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-	        		$('#passwordnuevorepetido').closest('.form-inline').removeClass('has-success').addClass('has-error');
-					$('#passwordnuevorepetido1').removeClass('glyphicon-ok').addClass('glyphicon-remove');						        	
+	        		if(($('#passwordNewProfesor').val().length == 0) || ($('#passwordNewRepProfesor').val().length == 0)  ){
+	        		$('#passwordNewProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+					$('#passwordNewProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	        		$('#passwordNewRepProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+					$('#passwordNewRepProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');						        	
 	        		} else {
-	        			var hash = md5($('#password').val(), '2063c1608d6e0baf80249c42e2be5804');
+	        			var hash = md5($('#passwordProfesor').val(), '2063c1608d6e0baf80249c42e2be5804');
         				$('#passwordhash').val(hash);
 	        			if ($('#passwordviejo').val() == $('#passwordhash').val()){
-	        				if ($('#passwordnuevo').val() == $('#passwordnuevorepetido').val()){
-	        				    if ($('#resultado #foto').val() == ''){
+	        				if ($('#passwordNewProfesor').val() == $('#passwordNewRepProfesor').val()){
+	        				    if ($('#resultado #fotoProfesor').val() == ''){
 							       	event.preventDefault();
-							        $('#password').attr('disabled',true);  
+							        $('#passwordProfesor').attr('disabled',true);  
 							        var data = $("#formUpdate").serializeArray();
 							            $.ajax({
 							                url: '/configProfesor/modificarProfesorSinFoto',
@@ -398,26 +395,26 @@ $(document).ready(function() {
 							            })
 							            .done(function(data) {
 							                console.log(data)
-							                $('#password').attr('disabled',false);
+							                $('#passwordProfesor').attr('disabled',false);
 								                if (data.err=="existeDNI"){
-										            $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-										            $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+										            $('#dniProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+										            $('#dniProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								        	        showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 								                } else if (data.err=="existeCorreo"){
-									        	    $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-									            	$('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+									        	    $('#correoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+									            	$('#correoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								                	showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 								                } else if (data.err=="existeTarjeta"){
-									            	$('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-									            	$('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+									            	$('#num_tarjetaProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+									            	$('#num_tarjetaProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								                	showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 								                }else if (data.dato=="ok"){
-										        	$('#id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        	$('#id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
-										        	$('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        	$('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-										        	$('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        	$('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+										        	$('#Id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        	$('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+										        	$('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        	$('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+										        	$('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        	$('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
 										        	$('#admin').closest('.form-inline').removeClass('has-error').addClass('has-success');
 										        	$('#admin1').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
 								                	showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
@@ -426,18 +423,18 @@ $(document).ready(function() {
 									            })
 									            .fail(function() {
 							                		console.log("error");
-							                		$('#password').attr('disabled',false);
+							                		$('#passwordProfesor').attr('disabled',false);
 							            		})
 							    } else {
-							    	var attach_id = $('#resultado #foto').attr("id");
+							    	var attach_id = $('#resultado #fotoProfesor').attr("id");
 									var size = $('#'+attach_id)[0].files[0].size;
 									if (size > 102400){
-										$('#foto').closest('.form-inline').removeClass('has-success').addClass('has-error');
-										$('#foto1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			               
+										$('#fotoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+										$('#fotoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			               
 									    showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 									} else {
 							            event.preventDefault();
-							            $('#password').attr('disabled',true);  
+							            $('#passwordProfesor').attr('disabled',true);  
 							            var formData = new FormData($('#resultado #formUpdate')[0]);
 							            $.ajax({
 							                url: '/configProfesor/modificarProfesor',
@@ -452,35 +449,33 @@ $(document).ready(function() {
 							            })
 							            .done(function(data) {
 							                console.log(data)
-							                $('#password').attr('disabled',false);
+							                $('#passwordProfesor').attr('disabled',false);
 								                if (data.err=="existeDNI"){
-									            $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-									            $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+									            $('#dniProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+									            $('#dniProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 								                } else if (data.err=="existeCorreo"){
-									            $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-									            $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+									            $('#correoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+									            $('#correoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 								                } else if (data.err=="existeTarjeta"){
-									            $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-									            $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+									            $('#num_tarjetaProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+									            $('#num_tarjetaProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 								                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 								                }else if (data.dato=="ok"){
-										        $('#id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        $('#id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
-										        $('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-										        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
-										        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');
+										        $('#Id_profesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        $('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+										        $('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        $('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+										        $('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        $('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 								                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 								                }
 								                console.log("success");
 									            })
 									            .fail(function() {
 							                console.log("error");
-							                $('#password').attr('disabled',false);
+							                $('#passwordProfesor').attr('disabled',false);
 							            })
 							            /*
 							            *   Form Submit Fin
@@ -488,15 +483,15 @@ $(document).ready(function() {
 							        }//.else if (size > 102400)
 							    }//.else if ($('#resultado #foto').val() == ''){
 	        				} else {
-	        					$('#passwordnuevo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-	        					$('#passwordnuevo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-	        					$('#passwordnuevorepetido').closest('.form-inline').removeClass('has-success').addClass('has-error');
-	        					$('#passwordnuevorepetido1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	        					$('#passwordNewProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+	        					$('#passwordNewProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	        					$('#passwordNewRepProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+	        					$('#passwordNewRepProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
 	        					showAlertValidate("#enlace2"," No son iguales el password nuevo repetir password nuevo");
 	        				}//.else if ($('#passwordnuevo').val() == $('#passwordnuevorepetido').val()){ 	
 	        			} else {
-	        				$('#password').closest('.form-inline').removeClass('has-success').addClass('has-error');
-	        				$('#password1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	        				$('#passwordProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+	        				$('#passwordProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
 	        				showAlertValidate("#enlace2"," No son iguales el password viejo y el password de la bd ");
 	        			}//.else if ($('#passwordviejo').val() == $('#passwordhash').val()){
 	        		}//.else if(($('#passwordnuevo').val().length == 0) || ($('#passwordnuevorepetido').val().length == 0)  ){
@@ -617,8 +612,8 @@ $(document).ready(function() {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_profesor+"'>"+data[i].nombre+" "+data[i].apellidos+" </h3>";
-					resp += "<img  class='busquedaFoto id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
+					resp += "<h3 class='busquedaH3Profesor' id='"+data[i].id_profesor+"'>"+data[i].nombre+" "+data[i].apellidos+" </h3>";
+					resp += "<img  class='busquedaFoto' id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);
@@ -681,13 +676,13 @@ $(document).ready(function() {
 		 //alert( this.value );
 		 if(this.value == "FP"){
 		 	//alert("has elegido asignaturas FP");
-		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #id_profesor').val(),this.value);
+		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #Id_profesor').val(),this.value);
 		 } else if(this.value == "Bachiller"){
 		 	//alert("has elegido asignaturas Bachiller");
-		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #id_profesor').val(),this.value);
+		 	buscarAsignaturasQueNoImpartePorTipo($('#resultado #Id_profesor').val(),this.value);
 		 } else {
 		 	//alert("has elegido todas");
-		 	buscarTodasLasAsignaturas($('#resultado #id_profesor').val());
+		 	buscarTodasLasAsignaturas($('#resultado #Id_profesor').val());
 		 }
 		});//click borrar formulario alumno
 

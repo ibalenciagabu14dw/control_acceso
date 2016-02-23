@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	    controlFooter();
-$('#footer').css('bottom', 0);	
+	    $('img').attr("src",'/images/sshot-1.png');
 	$.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
     }, "Value must not equal arg.");
@@ -25,16 +25,19 @@ $('#footer').css('bottom', 0);
 	};
 
 	//Buscar alumnos al escribir
-	$('#nombrebusqueda').keyup(function(event) {
-		$('#footer').css('bottom', "auto");
+	$('#nombrebusquedaAsignatura').keyup(function(event) {
+		$("#footer").css("bottom","auto");
 		buscarAsignaturas();
+
+
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarAsignaturas();
+
 	});
 
 	//Crear formulario para modificar o borrar alumno al clicar en la celda
@@ -42,49 +45,49 @@ $('#footer').css('bottom', 0);
 		var datos = $(this).contents();
 		buscarAsignaturaId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom', 0);	
+			$("#footer").css("bottom","auto");
     		var formulario = "<form class='form-group' action='/modificarAsignatura' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_asignatura' id='labelIdAsignatura' class='input-group-addon'>ASIGNATURA</label>";    		    		
-    		formulario += "<input type='text' id='id_asignatura' name='id_asignatura' class='form-control has-feedback' value='"+result[0].id_asignatura+"'readonly>";
-    		formulario += "<span id='id_asignatura1' class='glyphicon form-control-feedback'></span>";
+    		formulario += "<input type='text' id='Id_asignatura' name='id_asignatura' class='form-control has-feedback' value='"+result[0].id_asignatura+"'readonly>";
+    		formulario += "<span id='Id_asignatura1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertNombre'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='nombre' id='labelNombre' class='input-group-addon'>NOMBRE</label>";    		
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
-    		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='nombre' id='labelNombreAsignatura' class='input-group-addon'>NOMBRE</label>";    		
+    		formulario += "<input type='text' id='nombreAsignatura' name='nombre' class='form-control has-feedback' value='"+result[0].nombre+"'>";
+    		formulario += "<span id='nombreAsignatura1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
     		formulario += "<div class='form-inline' id='alertClave'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='clave' class='input-group-addon'>CLAVE</label>";     		
-    		formulario += "<input type='text' id='clave' name='clave' class='form-control has-feedback' value='"+result[0].clave+"'>";
-    		formulario += "<span id='clave1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='clave' id='labelClaveAsignatura' class='input-group-addon'>CLAVE</label>";     		
+    		formulario += "<input type='text' id='claveAsignatura' name='clave' class='form-control has-feedback' value='"+result[0].clave+"'>";
+    		formulario += "<span id='claveAsignatura1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Clave ya existente</span></div>";	
     			if(result[0].obligatoria == 1){
 					formulario += "<div class='form-inline' id='obl'>";
     				formulario += "<div class='input-group'>";
-				    formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
-				    formulario += "<label id='labelradio1' for='radio1'>SI</label>";
-				    formulario += "<input id='radio1' type='radio' name='obligatoria' value='1' class='radio form-control' checked='checked'/>";
-				    formulario += "<label id='labelradio' for='radio'>NO  </label>";
-				    formulario += "<input id='radio' type='radio' name='obligatoria' value='0' class='radio form-control'/><span id='radio11' class='glyphicon form-control-feedback'></span>";
+				    formulario += "<label id='labelObligatoriaAsignatura' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
+				    formulario += "<label id='labelradio1Asignatura' for='radioAsignatura1'>SI</label>";
+				    formulario += "<input id='radioAsignatura1' type='radio' name='obligatoria' value='1' class='radio form-control' checked='checked'/>";
+				    formulario += "<label id='labelradioAsignatura' for='radioAsignatura'>NO  </label>";
+				    formulario += "<input id='radioAsignatura' type='radio' name='obligatoria' value='0' class='radio form-control'/><span id='radioAsignatura11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-				    formulario += "<label id='labelObligatoria' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
-				    formulario += "<label id='labelradio1' for='radio1'>SI</label>";
-				    formulario += "<input id='radio1' type='radio' name='obligatoria' value='1' class='radio form-control'/><br/>";
-				    formulario += "<label id='labelradio' for='radio'>NO  </label>";
-				    formulario += "<input id='radio' type='radio' name='obligatoria' value='0' class='radio form-control'checked='checked'/><span id='radio11' class='glyphicon form-control-feedback'></span>";
+				    formulario += "<label id='labelObligatoriaAsignatura' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
+				    formulario += "<label id='labelradio1Asignatura' for='radioAsignatura1'>SI</label>";
+				    formulario += "<input id='radioAsignatura1' type='radio' name='obligatoria' value='1' class='radio form-control'/><br/>";
+				    formulario += "<label id='labelradioAsignatura' for='radioAsignatura'>NO  </label>";
+				    formulario += "<input id='radioAsignatura' type='radio' name='obligatoria' value='0' class='radio form-control'checked='checked'/><span id='radioAsignatura11' class='glyphicon form-control-feedback'></span>";
 					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";					
@@ -92,23 +95,23 @@ $('#footer').css('bottom', 0);
 				if(result[0].tipo == 'FP'){
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
-					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control has-feedback'>";
+					formulario += "<label id='labelTipoAsignatura' for='tipo' class='input-group-addon'>TIPO</label>";
+					formulario += "<select id='selectTipoAsignatura' name='tipo' class='form-control has-feedback'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'>Bachiller</option>";
 					formulario += "<option value='FP' selected>FP</option>";
-					formulario += "</select><span id='selectTipoGrupo1' class='glyphicon form-control-feedback'></span>";
+					formulario += "</select><span id='selectTipoAsignatura1' class='glyphicon form-control-feedback'></span>";
 					formulario += "</div>";
   					formulario += "</div>";
 				} else {
 					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
-					formulario += "<label id='labelTipoGrupo' for='tipo' class='input-group-addon'>TIPO</label>";
-					formulario += "<select id='selectTipoGrupo' name='tipo' class='form-control has-feedback'>";
+					formulario += "<label id='labelTipoAsignatura' for='tipo' class='input-group-addon'>TIPO</label>";
+					formulario += "<select id='selectTipoAsignatura' name='tipo' class='form-control has-feedback'>";
 					formulario += "<option value='default'>Elige el tipo</option>";
 					formulario += "<option value='Bachiller'selected>Bachiller</option>";
 					formulario += "<option value='FP'>FP</option>";
-					formulario += "</select><span id='selectTipoGrupo1' class='glyphicon form-control-feedback'></span>";
+					formulario += "</select><span id='selectTipoAsignatura1' class='glyphicon form-control-feedback'></span>";
 					formulario += "</div>";
   					formulario += "</div>";				
 				}
@@ -132,10 +135,10 @@ $('#footer').css('bottom', 0);
 	        if (element.type == "radio"){
 	            if ($("input[name=obligatoria]:checked").val() == 1){
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	                $("#radioAsignatura11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
 	            } else {
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	                $("#radioAsignatura11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
 	            }
 	        } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
@@ -148,10 +151,10 @@ $('#footer').css('bottom', 0);
 	            if (element.type == "radio"){
 	                if ($("input[name=obligatoria]:checked").val() == 1){
 	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                    $("#radioAsignatura11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
 	                } else {
 	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                    $("#radioAsignatura11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
 	                }
 	            } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
@@ -181,11 +184,11 @@ $('#footer').css('bottom', 0);
 		                console.log(data);
 		                if (data.err=="existe"){
 		                	showAlert("#alertClave","error"," Clave ya existente");
-			                $('#clave').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			                $('#clave1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 		                
+			                $('#claveAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                $('#claveAsignatura1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 		                
 		                }else if (data.dato=="ok"){
-			                $('#id_asignatura').closest('.form-inline').removeClass('has-error').addClass('has-success');
-			                $('#id_asignatura1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
+			                $('#Id_asignatura').closest('.form-inline').removeClass('has-error').addClass('has-success');
+			                $('#Id_asignatura1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
 		                	showAlertRedirect("#enlace2","ok"," Asignatura modificada correctamente",'/config'); 			                	
 		                }
 		                console.log("success");
@@ -217,7 +220,7 @@ $('#footer').css('bottom', 0);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_asignatura+"'>Nombre:"+data[i].nombre+" Tipo: "+data[i].tipo+"</h3>";
+					resp += "<h3 class='busquedaH3Asignatura' id='"+data[i].id_asignatura+"'>Nombre:"+data[i].nombre+" Tipo: "+data[i].tipo+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

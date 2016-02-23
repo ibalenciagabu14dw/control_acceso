@@ -1,6 +1,4 @@
-<style>
-h1 {color: red}
-</style>
+<link rel="stylesheet" type="text/css" href="public/stylesheets/readme.css">
 
 # Control Acceso
 

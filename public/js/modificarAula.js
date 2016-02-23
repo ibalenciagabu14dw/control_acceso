@@ -36,7 +36,7 @@ $(document).ready(function() {
     		var formulario = "<form class='form-group' action='/updateAula' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline' >";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_aula' id='labelIdAula' class='input-group-addon'>AULA</label>";
+			formulario += "<label for='id_aula' id='labelIdAula' class='input-group-addon'>ID AULA</label>";
     		formulario += "<input type='text' id='IdAula' name='id_aula' class='form-control' value='"+result[0].id_aula+"'readonly>";
     		formulario += "<span id='IdAula1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";

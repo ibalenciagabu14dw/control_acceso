@@ -45,7 +45,7 @@ $(document).ready(function() {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_horario_profesor' id='labelId_horario_profesor' class='input-group-addon'>HORARIO PROFESOR</label>";      		
+			formulario += "<label for='id_horario_profesor' id='labelId_horario_profesor' class='input-group-addon'>ID HORARIO PROFESOR</label>";      		
     		formulario += "<input type='text' id='Id_horario_profesor' name='id_horario_profesor' class='form-control has-feedback' value='"+result[0].id_horario_profesor+"'readonly>";    		
     		formulario += "<span id='Id_horario_profesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";

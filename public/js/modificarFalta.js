@@ -42,7 +42,7 @@ $('img').attr("src",'/images/sshot-1.png');
     		var formulario = "<form class='form-group' action='/updateFalta' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_faltas' id='labelIdFaltas' class='input-group-addon'>FALTA</label>";   		
+			formulario += "<label for='id_faltas' id='labelIdFaltas' class='input-group-addon'>ID FALTA</label>";   		
     		formulario += "<input type='text' id='id_faltasFalta' name='id_faltas' class='form-control has-feedback' value='"+result[0].id_faltas+"'readonly>";
     		formulario += "<span id='id_faltasFalta1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";
@@ -174,7 +174,7 @@ $('#resultado').on("click","#btnModificar",function () {
 					console.log(data);
 					var fecha = data[i].fecha;
 					var fechaCortada = fecha.split('T')[0];
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_faltas+"'>"+data[i].nombre+""+' '+""+data[i].apellidos+""+' '+""+fechaCortada+"</h3>";
+					resp += "<h3 class='busquedaH3Falta' id='"+data[i].id_faltas+"'>Aula: "+data[i].numero+" Grupo: "+data[i].nombre_grupo+" Asignatura: "+data[i].nombreAsignatura+" Hora: "+data[i].hora_inicio+"-"+data[i].hora_final+" Nombre: "+data[i].nombreAlumno+" Apellidos: "+data[i].apellidos+"</h3>";
 					resp += "<img class='busquedaFoto id='fotoAlumno' alt='fotoAlumno' src='data:img/png;base64,"+data[i].foto+"'/>";					
 					resp += "</td></tr></table>";
 				};

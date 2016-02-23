@@ -12,7 +12,9 @@ En el siguente apartado se detallan los pasos a seguir para la implementación d
 
 * * *
 
-[#### ControlFid](controlfid.zubirimanteoweb.com)  
+[Web ControlFid](controlfid.zubirimanteoweb.com)  
+
+* * *
 
 ## Documentación
 

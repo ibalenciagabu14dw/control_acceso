@@ -1,7 +1,12 @@
 <html>
 <head>
+	<style type="text/css">
+#titulo{
+	color: red;
+}
+</style>
 </head>
-<link rel="stylesheet" type="text/css" href="public/stylesheets/readme.css">
+
 <h1 id="titulo">Control Acceso</h1>
 
 ##Descripción

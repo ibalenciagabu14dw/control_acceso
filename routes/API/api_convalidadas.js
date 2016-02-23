@@ -14,25 +14,34 @@ var profesor = require('../../models/profesor');
 * INSERTAR convalidada OK
 */
 router.post('/agregarAsignaturaConvalidada', function(req, res, next) {
-    aula.buscarAulaPorNumero(req.query.numero, function (error,row) {
-        if (error) {
-            res.send('error conectando con la base de datos');
-            throw error;
+    alumno.buscarAlumnoPorId(req.query.id_alumno,function(error,row){
+        if(error){
+            res.send(error);
         }else{
-            if(row.length>0){
-                res.send('ese numero de aula ya existe');
+            if(row.length==0){
+                res.send('no hay alumnos con ese id');
             }else{
-                aula.agregarAula(req.query.numero,req.query.piso,req.query.capacidad, function (error,row) {
-                    if (error) {
-                        res.send('error agregando la aula');
-                        throw error;
+                asignatura.buscarAsignaturaPorId(req.query.id_asignatura,function(error,row){
+                    if(error){
+                        res.send(error);
                     }else{
-                        res.send('aula agregada correctamente');
+                        if(row.length==0){
+                            res.send('no hay asignaturas con ese id');
+                        }else{
+                            convalidadas.agregarAsignaturaConvalidada(req.query.id_asignatura,req.query.id_alumno,function(error,row){
+                                if(error){
+                                    res.send(error);
+                                    else{
+                                        res.send('asignatura convalidada correctamente');
+                                    }//else
+                                }//else
+                            })//convalidadas.agregarAsignaturaConvalidada
+                        }//else
                     }//else
-                });//aula.agregarAula
+                })//asignatura.buscarAsignaturaPorId
             }//else
         }//else
-    });//aula.buscarAulaPorNumero
+    })//alumno.buscarAlumnoPorId
 });//router.post('/agregarAsignaturaConvalidada
 
 /****************************************************************************************************************************/

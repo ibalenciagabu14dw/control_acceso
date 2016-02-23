@@ -114,6 +114,22 @@ horario_profesor.buscarHorarioProfesorPorNombre = function(nombre,callback){
 }//horario_profesor.buscarHorarioProfesorPorNombre
 
 /*
+* BUSCAR todos los horario_profesor
+*/
+horario_profesor.buscarTodosLosHorarioProfesor = function (callback) {							
+	if(connection){	
+		connection.query('SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores', function(error,row){
+		  if (error) {
+				throw error;
+				console.log(error);
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//horario_profesor.buscarTodosLosHorarioProfesor
+
+/*
 * BUSCAR todos los id_horario_profesor
 */
 horario_profesor.buscarTodosLosIdHorarioProfesor = function (callback) {							

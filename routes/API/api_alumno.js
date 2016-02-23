@@ -190,6 +190,29 @@ router.post('/modificarAlumno', function(req, res, next) {
     })//alumno.buscarAlumnoPorDni
 });//router.post('/modificarAlumno
 
+/*
+* UPDATE presencia del alumno por numero de tarjeta OK
+*/
+router.post('/modificarPresenciaDelAlumno', function(req, res, next) {
+    alumno.buscarAlumnoPorTarjeta(req.query.num_tarjeta,function(error,row){
+        if(error){
+            res.send(error);
+        }else{
+            if(row.length==0){
+                res.send('no hay alumno con ese numero de tarjeta');
+            }else{
+                alumno.modificarPresenciaDelAlumno(req.query.num_tarjeta,function(error,row){
+                    if(error){
+                        res.send(error);
+                    }else{
+                        res.send('presencia modificada correctamente');
+                    }//else
+                })//alumno.modificarPresenciaDelAlumno
+            }//else
+        }//else
+    })//alumno.buscarAlumnoPorTarjeta
+});//router.post('/modificarPresenciaDelAlumno
+
 /****************************************************************************************************************************/
 
 /***********************************************************DELETE***********************************************************/

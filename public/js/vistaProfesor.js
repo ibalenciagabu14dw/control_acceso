@@ -165,7 +165,16 @@ $(document).ready(function() {
       bottom: '100px',
       right: '20px'
     });
-  };
+    $('#atras').css({
+      position: 'absolute',
+      bottom: '120px',
+      right: '150px'
+    });
+  }else{
+    $('#atras').css({
+      marginLeft:'10px',
+    });
+  }
 
   /*
   * destruir sesion

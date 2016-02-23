@@ -36,9 +36,6 @@ Primeramente descargar el código desde éste repositorio, acceder a él desde l
 
 *   Maigun: Crear cuenta en Mailgun, guardar el dominio y la ApiKey como variables de entorno con los nombres MAILGUN_DOMAIN y MAILGUN_API_KEY. Para la configuración del correo con el dominio [acceder aquí](https://github.com/ionatibia/php/tree/master/tests/3-mailgun)
 
-##Documentación
-
-###Configuración
 
 ###Uso
 

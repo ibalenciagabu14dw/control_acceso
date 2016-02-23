@@ -167,8 +167,8 @@ h1{
 #labelPasswordR,#labelTarjeta_activadaProfesor,#labelAdminProfesor{
   font-size: 10px; 
   width:100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-left: -10px !important;
+  padding-right: -10px !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
@@ -5821,7 +5821,7 @@ body {
 h1{
   text-align: center;
   color: white !important;
-  font-size: 15pt;
+  font-size: 35pt;
   margin-right: 25px;
 }
 #formUpdate{
@@ -5834,7 +5834,7 @@ h1{
   background-color: lightgrey;
   border-radius: 25px;
   margin-bottom: 25px;
-  margin-left:11px !important;
+  margin-left:-10px !important;
 }
 #form{
   width: 600px !important;
@@ -5846,7 +5846,8 @@ h1{
   background-color: lightgrey;
   border-radius: 25px;
   margin-bottom: 25px;
-  margin-left:20px !important;
+  text-align:center;
+  margin-left: 25% !important; 
 }
 #send{
   width: 75px;
@@ -5863,8 +5864,10 @@ h1{
   font-size: 15px !important; 
 }
 #mensaje,#mensaje2{
+  margin-top: 20px;
   width:515px !important;
   height: 50px !important;
+  margin-left: 20px !important;
 }
 #labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
 #labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
@@ -5900,7 +5903,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1{
   position: absolute;
   left: 520px !important;
   font-size: 15px;
@@ -5976,7 +5979,7 @@ h1{
 }
 #labelradioAsignatura{
   position: absolute;
-  left: 330px !important;
+  left: 270px !important;
   top: 15px !important;
   width:20px !important;
   margin-left: 65px;
@@ -6004,7 +6007,7 @@ h1{
 #resultado{
   width: 400px !important;
   text-align: center;
-  margin-left: -5px;
+  margin-left: 25% !important; 
 }
 #fotoBusquedaAlumno,#fotoBusquedaProfesor{
   width: 80px !important;

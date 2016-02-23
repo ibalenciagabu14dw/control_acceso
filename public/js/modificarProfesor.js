@@ -42,7 +42,7 @@ $(document).ready(function() {
 	};
 
 	//Buscar alumnos al escribir
-	$('#nombrebusqueda').keyup(function(event) {
+	$('#nombrebusquedaProfesor').keyup(function(event) {
 		$("#footer").css("bottom","auto");
 		buscarProfesores();
 	});
@@ -221,10 +221,17 @@ $(document).ready(function() {
 	        if (element.type == "radio"){
 	            if ($("input[name=obligatoria]:checked").val() == 1){
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	                $("#adminProfesor11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
 	            } else {
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	                $("#adminProfesor11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	            }
+	           	if ($("input[name=tarjeta_activada]:checked").val() == 1){
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $("#tarjetaProfesor11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	            } else {
+	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
+	                $("#tarjetaProfesor11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
 	            }
 	        } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
@@ -237,10 +244,17 @@ $(document).ready(function() {
 	            if (element.type == "radio"){
 	                if ($("input[name=obligatoria]:checked").val() == 1){
 	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                    $("#adminProfesor11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
 	                } else {
 	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                    $("#adminProfesor11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                }
+	               	if ($("input[name=tarjeta_activada]:checked").val() == 1){
+	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                    $("#tarjetaProfesor11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                } else {
+	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
+	                    $("#tarjetaProfesor11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
 	                }
 	            } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
@@ -301,10 +315,10 @@ $(document).ready(function() {
 								   	$('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
 								   	$('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
 								   	$('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-								   	$('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-								   	$('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
-								   	$('#admin').closest('.form-inline').removeClass('has-error').addClass('has-success');
-								   	$('#admin1').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
+								   	$('#tarjetaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+								   	$('#tarjetaProfesor11').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+								   	$('#adminProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+								   	$('#adminProfesor11').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
 								   	showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 								}
 								    console.log("success");
@@ -355,8 +369,8 @@ $(document).ready(function() {
 							        $('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
 							        $('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
 							        $('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-							        $('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-							        $('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+							        $('#tarjetaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+							        $('#tarjetaProfesor11').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 					                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 				                }
 				                console.log("success");
@@ -413,10 +427,10 @@ $(document).ready(function() {
 										        	$('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
 										        	$('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
 										        	$('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-										        	$('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        	$('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
-										        	$('#admin').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        	$('#admin1').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
+										        	$('#tarjetaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        	$('#tarjetaProfesor11').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+										        	$('#adminProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        	$('#adminProfesor11').removeClass('glyphicon-remove').addClass('glyphicon-ok');			                
 								                	showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 								                }
 								                console.log("success");
@@ -467,8 +481,8 @@ $(document).ready(function() {
 										        $('#Id_profesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
 										        $('#fotoProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
 										        $('#fotoProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-										        $('#tarjeta_activadaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
-										        $('#tarjeta_activadaProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+										        $('#tarjetaProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+										        $('#tarjetaProfesor11').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 								                showAlertRedirect($('#resultado #enlace2'),"ok"," Profesor modificado correctamente",'/config');
 								                }
 								                console.log("success");
@@ -654,7 +668,7 @@ $(document).ready(function() {
 				url: '/configProfesor/borrarProfesor',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_profesor':$('#resultado #id_profesor').val()},
+				data: {'id_profesor':$('#resultado #Id_profesor').val()},
 				success:function(data){
 				}//success
 			})//ajax

@@ -155,7 +155,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 195px !important;
   font-size: 15px;
@@ -390,7 +390,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 215px !important;
   font-size: 15px;
@@ -623,7 +623,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 235px !important;
   font-size: 15px;
@@ -857,7 +857,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 255px !important;
   font-size: 15px;
@@ -1091,7 +1091,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 290px !important;
   font-size: 15px;
@@ -1328,7 +1328,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 345px !important;
   font-size: 15px; 
@@ -1566,7 +1566,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -1829,7 +1829,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 470px !important;
   font-size: 15px;
@@ -2079,7 +2079,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;
@@ -2349,7 +2349,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 290px !important;
   font-size: 15px;
@@ -2588,7 +2588,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 345px !important;
   font-size: 15px;
@@ -2828,7 +2828,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -3069,7 +3069,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;
@@ -3351,7 +3351,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;: 
@@ -3631,7 +3631,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 195px !important;
   font-size: 15px; 
@@ -3867,7 +3867,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 215px !important;
   font-size: 15px;
@@ -4105,7 +4105,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 235px !important;
   font-size: 15px;
@@ -4340,7 +4340,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 255px !important;
   font-size: 15px; 
@@ -4579,7 +4579,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 290px !important;
   font-size: 15px;
@@ -4817,7 +4817,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 345px !important;
   font-size: 15px;
@@ -5056,7 +5056,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -5337,7 +5337,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -5619,7 +5619,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 470px !important;
   font-size: 15px;
@@ -5903,7 +5903,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;

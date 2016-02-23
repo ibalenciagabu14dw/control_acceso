@@ -30,12 +30,12 @@ Es posible añadir '&time='00:00:00'' si no se añade, utilizará la hora del si
 *  Arduino
 
 	*	Materiales: 
-		1.	[Placa arduino UNO](https://www.google.es/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=arduino%20UNO&oq=arduino%20UNO&aqs=chrome..69i57j0l5.2722j0j7)
-		2.	[Ethernet shield](https://www.google.es/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=ethernet%20shield%20arduino&oq=ethernet%20shield%20&aqs=chrome.1.69i57j0l5.4435j0j9)
-		3.	[RFID rc522](https://www.google.es/search?espv=2&q=arduino+rfid+rc522&oq=arduino+rfi&gs_l=serp.1.1.0l10.26130.28270.0.30137.11.11.0.0.0.0.116.913.7j3.10.0....0...1c.1.64.serp..1.10.910.z9XDkjYuEvo)
+		*	[Placa arduino UNO](https://www.google.es/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=arduino%20UNO&oq=arduino%20UNO&aqs=chrome..69i57j0l5.2722j0j7)
+		*	[Ethernet shield](https://www.google.es/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=ethernet%20shield%20arduino&oq=ethernet%20shield%20&aqs=chrome.1.69i57j0l5.4435j0j9)
+		*	[RFID rc522](https://www.google.es/search?espv=2&q=arduino+rfid+rc522&oq=arduino+rfi&gs_l=serp.1.1.0l10.26130.28270.0.30137.11.11.0.0.0.0.116.913.7j3.10.0....0...1c.1.64.serp..1.10.910.z9XDkjYuEvo)
 
 	*	Conexiones:
-		1.	RFID:
+		*	RFID:
 			*	SDA -> pin7
 			*	SCK -> pin13
 			*	MOSI -> pin11
@@ -43,7 +43,7 @@ Es posible añadir '&time='00:00:00'' si no se añade, utilizará la hora del si
 			*	GND -> GND
 			*	RST -> pin9
 			*	3.3V -> 3.3V
-		2.	LEDs:
+		*	LEDs:
 			*	Verde -> pin2
 			*	Amarillo -> pin3
 			*	Rojo -> pin4

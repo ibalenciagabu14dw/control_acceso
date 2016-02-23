@@ -64,8 +64,8 @@ Es posible añadir '&time='00:00:00'' si no se añade, utilizará la hora del si
     2.  ControlfidVacio.sql: Contiene 1 único usuario con permisos de administrador para tener el esquema vacio e ir configurándolo a gusto del consumidor (seguir pasos del apartado Uso). Ususario: admin pasword: admin.
 
 *   **Conexión en local:** Modificar los parámetros que están entre comillas simples host,puerto,usuario,contraseña, el nombre de la base de datos no es necesario modificar.
-*   Openshift: No hay que modificar nada.
-*   Cloud 9: Comentar el código existente y descomentar el segundo código.
+*   **Openshift:** No hay que modificar nada.
+*   **Cloud 9:** Comentar el código existente y descomentar el segundo código.
 
 *   **Mongo:** Crear una cuenta en MongoLabs o utilizar servidor Mongo local. Crear una Collection llamada 'faltas' y modificar la dirección del servidor mongo (@ds059215.mongolab.com:59215/faltas) en el archivo 'models/mongo.js'. Para el usuario y la contraseña guardarlos en variables de entorno con los nombres, MONGO_USER y MONGO_PASSWORD. [Guía Openshift](https://developers.openshift.com/en/managing-environment-variables.html). En local utilizar en la llamada a la aplicación "MONGO_USER='el usuario' MONGO_PASSWORD='el password' node ./bin/www.js"
 

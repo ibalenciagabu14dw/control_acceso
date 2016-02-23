@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	    controlFooter();
-$('#footer').css('bottom', 0);	
+	    $('img').attr("src",'/images/sshot-1.png');
 	$.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
     }, "Value must not equal arg.");
@@ -17,15 +17,15 @@ $('#footer').css('bottom', 0);
 	};
 
 	//Buscar alumnos al escribir
-	$('#nombrebusqueda').keyup(function(event) {
-		$('#footer').css('bottom', "auto");
+	$('#nombrebusquedaGrupo').keyup(function(event) {
+		$("#footer").css("bottom","auto");
 		buscarGrupos();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarGrupos();
 	});
 
@@ -34,20 +34,19 @@ $('#footer').css('bottom', 0);
 		var datos = $(this).contents();
 		buscarGrupoId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom', 0);		
     		var formulario = "<form class='form-group' action='/updateGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_grupo' class='input-group-addon'>GRUPO</label>";    		
-    		formulario += "<input type='text' id='id_grupo' name='id_grupo' class='form-control has-feedback' value='"+result[0].id_grupo+"'readonly>";
-    		formulario += "<span id='id_grupo1' class='glyphicon form-control-feedback'></span>";    		
+			formulario += "<label for='id_grupo' id='labelIdGrupo' class='input-group-addon'>GRUPO</label>";    		
+    		formulario += "<input type='text' id='IdGrupo' name='id_grupo' class='form-control has-feedback' value='"+result[0].id_grupo+"'readonly>";
+    		formulario += "<span id='IdGrupo1' class='glyphicon form-control-feedback'></span>";    		
     		formulario += "</div>";
   			formulario += "</div><br/>";  
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='nombre' class='input-group-addon'>NOMBRE</label>";   		
-    		formulario += "<input type='text' id='nombre' name='nombre' class='form-control has-feedback' value='"+result[0].nombre_grupo+"'>";
-    		formulario += "<span id='nombre1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='nombre'  id='labelNombreGrupo' class='input-group-addon'>NOMBRE</label>";   		
+    		formulario += "<input type='text' id='nombreGrupo' name='nombre' class='form-control has-feedback' value='"+result[0].nombre_grupo+"'>";
+    		formulario += "<span id='nombreGrupo1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";   			     		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Nombre ya existente</span></div>";	
@@ -118,11 +117,11 @@ $('#footer').css('bottom', 0);
 	                console.log(data)
 		                if (data.err=="existe"){
 		                	showAlert($('#resultado #alertNombre'),"error"," Grupo ya existente ");
-			                $('#resultado #nombre').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			                $('#resultado #nombre1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  		                
+			                $('#resultado #nombreGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                $('#resultado #nombreGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  		                
 		                }else if (data.dato=="ok"){
-			                $('#id_grupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
-			                $('#id_grupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
+			                $('#IdGrupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
+			                $('#IdGrupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
 		                	showAlertRedirect($('#resultado #enlace2'),"ok"," Grupo modificado correctamente ",'/config');
 		                }
 		                console.log("success");
@@ -154,7 +153,7 @@ $('#footer').css('bottom', 0);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_grupo+"'>Nombre: "+data[i].nombre_grupo+" Tipo: "+data[i].tipo+"</h3>";
+					resp += "<h3 class='busquedaH3Grupo' id='"+data[i].id_grupo+"'>Nombre: "+data[i].nombre_grupo+" Tipo: "+data[i].tipo+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

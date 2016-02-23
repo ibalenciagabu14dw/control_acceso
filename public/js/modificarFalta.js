@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	    controlFooter();
-$('#footer').css('bottom', 0);
+$('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
      }, "Value must not equal arg.");
@@ -23,12 +23,14 @@ $('#footer').css('bottom', 0);
 	
 	//Buscar alumnos al escribir
 	$('#nombrebusqueda').keyup(function(event) {
+		$("#footer").css("bottom","auto");
 		buscarFaltas();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
+		$("#footer").css("bottom","auto");
 		buscarFaltas();
 	});
 	//Crear formulario para modificar o borrar alumno al clicar en la celda
@@ -37,22 +39,21 @@ $('#footer').css('bottom', 0);
 		console.log(datos);
 		buscarFaltaId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom', "auto");		
     		var formulario = "<form class='form-group' action='/updateFalta' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_faltas' class='input-group-addon'>FALTA</label>";   		
-    		formulario += "<input type='text' id='id_faltas' name='id_faltas' class='form-control has-feedback' value='"+result[0].id_faltas+"'readonly>";
-    		formulario += "<span id='id_faltas1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+			formulario += "<label for='id_faltas' id='labelIdFaltas' class='input-group-addon'>FALTA</label>";   		
+    		formulario += "<input type='text' id='id_faltasFalta' name='id_faltas' class='form-control has-feedback' value='"+result[0].id_faltas+"'readonly>";
+    		formulario += "<span id='id_faltasFalta1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
 			formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label id='labelFecha' for='fecha' class='input-group-addon'>FECHA</label>"; 
+			formulario += "<label id='labelFechaFalta' for='fecha' class='input-group-addon'>FECHA</label>"; 
 			var fecha = result[0].fecha;
 			var fechaCortada = fecha.split('T')[0];
-            formulario += "<input id='fecha' type='text' name='fecha' class='form-control has-feedback' value='"+fechaCortada+"' readonly/></br>";
-       		formulario += "<span id='fecha1' class='glyphicon form-control-feedback'></span>";
+            formulario += "<input id='fechaFalta' type='text' name='fecha' class='form-control has-feedback' value='"+fechaCortada+"' readonly/></br>";
+       		formulario += "<span id='fechaFalta1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
   			buscarTodosLosIdNombreApellidosAlumno(result[0].id_alumno);
@@ -60,9 +61,9 @@ $('#footer').css('bottom', 0);
     		formulario += "</div>";	
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
-    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"' readonly>";
-    		formulario += "<span id='id_horario_grupo1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='id_horario_grupo' id='labelId_horario_grupoFalta' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
+    		formulario += "<input type='text' id='id_horario_grupoFalta' name='id_horario_grupo' class='form-control' value='"+result[0].id_horario_grupo+"' readonly>";
+    		formulario += "<span id='id_horario_grupoFalta1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			mostrarHorarioGrupo(result[0].id_horario_grupo);
@@ -70,9 +71,9 @@ $('#footer').css('bottom', 0);
     		formulario += "</div>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='observaciones' class='input-group-addon'>OBSERVACIONES</label>";   		
-    		formulario += "<textarea id='observaciones' name='observaciones' class='form-control'>"+result[0].observaciones+"</textarea>";
-    		formulario += "<span id='observaciones1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='observaciones' id='labelObservacionesFalta' class='input-group-addon'>OBSERVACIONES</label>";   		
+    		formulario += "<textarea id='observacionesFalta' name='observaciones' class='form-control'>"+result[0].observaciones+"</textarea>";
+    		formulario += "<span id='observacionesFalta1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";			
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -118,32 +119,32 @@ $('#resultado').on("click","#btnModificar",function () {
 			            })
 			            .done(function(data) {
 				                if (data.err=="existe"){
-                				$('#id_faltas').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#id_faltas1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                				$('#fecha').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#fecha1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                				$('#id_faltasFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#id_faltasFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                				$('#fechaFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#fechaFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 				$('#selectAlumnoFaltasM').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 				$('#selectAlumnoFaltasM1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                				$('#id_horario_grupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#id_horario_grupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                				$('#dia').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#dia1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                				$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');				                
-                				$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');					                
-                				$('#observaciones').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                				$('#observaciones1').removeClass('glyphicon-ok').addClass('glyphicon-remove');	
+                				$('#id_horario_grupoFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#id_horario_grupoFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                				$('#diaFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#diaFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                				$('#hora_inicioFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#hora_inicioFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');				                
+                				$('#hora_finalFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#hora_finalFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');					                
+                				$('#observacionesFalta').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                				$('#observacionesFalta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');	
 				                showAlert($('#resultado #enlace2'),"error"," Falta ya existente ");
 				                }else if (data.dato=="ok"){
-                				$('#id_faltas').closest('.form-inline').removeClass('has-error').addClass('has-success');
-                				$('#id_faltas1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                
-                				$('#dia').closest('.form-inline').removeClass('has-error').addClass('has-success');
-                				$('#dia1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
-                				$('#hora_inicio').closest('.form-inline').removeClass('has-error').addClass('has-success');
-                				$('#hora_inicio1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
-                				$('#hora_final').closest('.form-inline').removeClass('has-error').addClass('has-success');
-                				$('#hora_final1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
+                				$('#id_faltasFalta').closest('.form-inline').removeClass('has-error').addClass('has-success');
+                				$('#id_faltasFalta1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                
+                				$('#diaFalta').closest('.form-inline').removeClass('has-error').addClass('has-success');
+                				$('#diaFalta1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
+                				$('#hora_inicioFalta').closest('.form-inline').removeClass('has-error').addClass('has-success');
+                				$('#hora_inicioFalta1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+                				$('#hora_finalFalta').closest('.form-inline').removeClass('has-error').addClass('has-success');
+                				$('#hora_finalFalta1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
 				                showAlertRedirect($('#resultado #enlace2'),"ok"," Falta modificada correctamente",'/config');
 				                }
 				                console.log("success");
@@ -281,23 +282,23 @@ $('#resultado').on("click","#btnModificar",function () {
 					resp += "<td>";
 					resp += "<div class='form-inline has-success'>";
     				resp += "<div class='input-group'>";
-					resp += "<label id='labelDiaHorarioProfesor' for='dia' class='input-group-addon'>DIA</label>"; 
-					resp += "<input type='text' id='dia' name='dia' class='form-control has-feedback' value='"+data[i].dia_semana+"'readonly></br>";
-					resp += "<span id='dia1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "<label id='labelDiaHorarioProfesorFalta' for='dia' class='input-group-addon'>DIA</label>"; 
+					resp += "<input type='text' id='diaFalta' name='dia' class='form-control has-feedback' value='"+data[i].dia_semana+"'readonly></br>";
+					resp += "<span id='diaFalta1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
 					resp += "</div>";
   					resp += "</div><br/>";
   					resp += "<div class='form-inline has-success'>";
     				resp += "<div class='input-group'>";
-					resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
-					resp += "<input type='time' id='hora_inicio' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"'readonly></br>";
-					resp += "<span id='hora_inicio1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "<label id='labelHoraInicioHorarioProfesorFalta' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
+					resp += "<input type='time' id='hora_inicioFalta' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"'readonly></br>";
+					resp += "<span id='hora_inicioFalta1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
 					resp += "</div>";
   					resp += "</div><br/>";
   					resp += "<div class='form-inline has-success'>";
     				resp += "<div class='input-group'>";
-					resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA INICIO</label>"; 					
-					resp += "<input type='time' id='hora_final' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly></br>";					
-					resp += "<span id='hora_final1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "<label id='labelHoraFinalHorarioProfesorFalta' for='hora_final' class='input-group-addon'>HORA INICIO</label>"; 					
+					resp += "<input type='time' id='hora_finalFalta' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly></br>";					
+					resp += "<span id='hora_finalFalta1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
 					resp += "</div>";
   					resp += "</div><br/>";	
 					resp += "</td>";

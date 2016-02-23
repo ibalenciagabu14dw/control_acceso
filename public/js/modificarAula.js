@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	    controlFooter();
-$('#footer').css('bottom', 0);
+	    $('img').attr("src",'/images/sshot-1.png');
 	//reglas
 	var reglas = {
 		numero:{required:true,max: 250},
@@ -15,15 +15,15 @@ $('#footer').css('bottom', 0);
 	};
 
 	//Buscar alumnos al escribir
-	$('#numerobusqueda').keyup(function(event) {
-		$('#footer').css('bottom', "auto");
+	$('#numerobusquedaAula').keyup(function(event) {
+		$("#footer").css("bottom","auto");
 		buscarAulas();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarAulas();
 	});
 
@@ -32,34 +32,35 @@ $('#footer').css('bottom', 0);
 		var datos = $(this).contents();
 		buscarAulaId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom', 0);		
+			$("#footer").css("bottom","auto");
     		var formulario = "<form class='form-group' action='/updateAula' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline' >";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_aula' id='labelIdAula' class='input-group-addon'>AULA</label>";
-    		formulario += "<input type='text' id='id_aula' name='id_aula' class='form-control' value='"+result[0].id_aula+"'readonly>";
+    		formulario += "<input type='text' id='IdAula' name='id_aula' class='form-control' value='"+result[0].id_aula+"'readonly>";
+    		formulario += "<span id='IdAula1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline' id='alertNumero'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='numero'  id='labelNumero' class='input-group-addon'>NUMERO</label>";
-    		formulario += "<input type='number' id='numero' name='numero' min='1' class='form-control has-feedback' value='"+result[0].numero+"'>";
-    		formulario += "<span id='numero1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='numero'  id='labelNumeroAula' class='input-group-addon'>NUMERO</label>";
+    		formulario += "<input type='number' id='numeroAula' name='numero' min='1' class='form-control has-feedback' value='"+result[0].numero+"'>";
+    		formulario += "<span id='numeroAula1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";    		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Numero ya existente</span></div>";	
   			formulario += "<div class='form-inline' id='alertPiso'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='piso' id='labelPiso' class='input-group-addon'>PISO</label>";    		
-    		formulario += "<input type='number' id='piso' name='piso' min='0' class='form-control has-feedback' value='"+result[0].piso+"'>";
-    		formulario += "<span id='piso1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='piso' id='labelPisoAula' class='input-group-addon'>PISO</label>";    		
+    		formulario += "<input type='number' id='pisoAula' name='piso' min='0' class='form-control has-feedback' value='"+result[0].piso+"'>";
+    		formulario += "<span id='pisoAula1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>";
   			formulario += "<div class='form-inline' id='alertCapacidad'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='capacidad' id='labelCapacidad' class='input-group-addon'>CAPACIDAD</label>";         		
-       		formulario += "<input type='number' id='capacidad' name='capacidad' min='1' class='form-control has-feedback' value='"+result[0].capacidad+"'>";
-    		formulario += "<span id='capacidad1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label for='capacidad' id='labelCapacidadAula' class='input-group-addon'>CAPACIDAD</label>";         		
+       		formulario += "<input type='number' id='capacidadAula' name='capacidad' min='1' class='form-control has-feedback' value='"+result[0].capacidad+"'>";
+    		formulario += "<span id='capacidadAula1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
   			formulario += "</div>";			
 			formulario += "</br><input type='submit' name='btnModificar' id='btnModificar' class='btn btn-warning' value='Modificar'>";
@@ -115,6 +116,8 @@ $('#footer').css('bottom', 0);
 		                if (data.err=="existe"){
 		                showAlert($('#resultado #alertNumero'),"error"," Aula ya existente ");
 		                }else if (data.dato=="ok"){
+		                $('#IdAula').closest('.form-inline').removeClass('has-error').addClass('has-success');
+			            $('#IdAula1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
 		                showAlertRedirect($('#resultado #enlace2'),"ok","Aula modificada correctamente",'/config');
 		                }
 		                console.log("success");
@@ -146,7 +149,7 @@ $('#footer').css('bottom', 0);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_aula+"'>Aula:"+data[i].numero+"</h3>";
+					resp += "<h3 class='busquedaH3Aula' id='"+data[i].id_aula+"'>Aula:"+data[i].numero+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

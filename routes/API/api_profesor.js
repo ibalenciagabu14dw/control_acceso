@@ -385,7 +385,6 @@ router.post('/buscarPresenciaProfesor',function(req,res,next){
 * BUSCAR el aula en la que tiene que estar un profesor por num_tarjeta OK
 */
 router.post('/buscarProfesorAulaEnLaQueTieneQueEstarPorTarjeta', function(req,res,next) {
-    console.log("num_tarjeta");
     var curr_time;
     time.horaActual(function(error,data){
         if (error){

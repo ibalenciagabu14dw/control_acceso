@@ -64,7 +64,57 @@ router.post('/agregarAsignaturasProfesor', function(req, res, next) {
 * UPDATE asignatura de un profesor OK
 */
 router.post('/modificarProfesoresAsignaturas', function(req, res, next) {
-    
+    var id_asignatura_antiguo;
+    var id_profesor_antiguo;
+    profesores_asignaturas.buscarAsignaturaPorIdProfesorAsignatura(req.query.id_profesor_asignatura,function(error,row){
+        if(error){
+            res.send(error);
+        }else{
+            if(row.length==0){
+                res.send('no hay ningun profesor asignatura con ese id');
+            }else{
+                id_asignatura_antiguo=row[0].id_asignatura;
+                id_profesor_antiguo=row[0].id_profesor;
+                profesor.buscarProfesorPorId(req.query.id_profesor,function(error,row){
+                    if(error){
+                        res.send('error');
+                    }else{
+                        if(row.length==0){
+                            res.send('no hay ningun profesor con ese id');
+                        }else{
+                            asignatura.buscarAsignaturaPorId(req.query.id_asignatura,function(error,row){
+                                if(error){
+                                    res.send(error);
+                                }else{
+                                    if(row.length==0){
+                                        res.send('no hay ninguna asignatura con ese id');
+                                    }else{
+                                        profesores_asignaturas.buscarAsignaturaPorIdAsignaturaYIdProfesor(req.query.id_asignatura,req.query.id_profesor,function(error,row){
+                                            if(error){
+                                                res.send(error);
+                                            }else{
+                                                if((row.length>0)&&(id_asignatura_antiguo==req.query.id_asignatura)&&(id_profesor_antiguo==req.query.id_profesor)){
+                                                    res.send('ese profesor ya imparte esa asignatura');
+                                                }else{
+                                                    profesores_asignaturas.modificarProfesoresAsignaturas(req.query.id_profesor_asignatura,req.query.id_asignatura,req.query.id_profesor,function(error,row){
+                                                        if(error){
+                                                            res.send(error);
+                                                        }else{
+                                                            res.send('profesor asignatura modificado correctamente');
+                                                        }//else
+                                                    })//profesores_asignaturas.modificarProfesoresAsignaturas
+                                                }//else
+                                            }//else
+                                        })//profesores_asignaturas.buscarAsignaturaPorIdAsignaturaYIdProfesor
+                                    }//else
+                                }//else
+                            })//asignatura.buscarAsignaturaPorId
+                        }//else
+                    }//else
+                })//profesor.buscarProfesorPorId
+            }//else
+        }//else
+    })//profesores_asignaturas.buscarAsignaturaPorIdProfesorAsignatura
 });//router.post('/modificarProfesoresAsignaturas
 
 /****************************************************************************************************************************/

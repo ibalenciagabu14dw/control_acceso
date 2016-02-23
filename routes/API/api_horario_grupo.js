@@ -1,15 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var time = require('../../models/time');
 var aula = require('../../models/aula')
 var alumno = require('../../models/alumno');
 var alumno_grupos = require('../../models/alumno_grupos');
 var asignatura = require('../../models/asignatura');
-var convalidadas = require('../../models/convalidadas');
 var horario_grupo = require('../../models/horario_grupo');
-var dispositivo = require('../../models/dispositivo');
 var grupo = require('../../models/grupo');
-var profesor = require('../../models/profesor');
 
 /***********************************************************INSERT*********************************************************/
 
@@ -61,10 +57,9 @@ router.post('/agregarHorarioGrupo', function(req, res, next) {
 /***********************************************************UPDATE***********************************************************/
 
 /*
-* UPDATE dispositivo OK
+* UPDATE horario_grupo OK
 */
 router.post('/modificarHorarioGrupo', function(req, res, next) {
-    console.log("1");
     var dia_semana_antiguo;
     var hora_inicio_antiguo;
     var hora_final_antiguo;
@@ -72,7 +67,6 @@ router.post('/modificarHorarioGrupo', function(req, res, next) {
     var id_asignatura_antiguo;
     var id_aula_antiguo
     horario_grupo.buscarHorarioGrupoPorId(req.query.id_horario_grupo,function(error,row){
-        console.log("1");
         if(error){
             res.send(error);
         }else{
@@ -142,7 +136,7 @@ router.post('/modificarHorarioGrupo', function(req, res, next) {
 /***********************************************************DELETE***********************************************************/
 
 /*
-* DELETE dispositivo por numero_dispositivo OK
+* DELETE horario_grupo por id_horario_grupo OK
 */
 router.post('/borrarHorarioGrupo', function(req, res, next) {
     horario_grupo.buscarHorarioGrupoPorId(req.query.id_horario_grupo, function(error,row) {
@@ -165,7 +159,6 @@ router.post('/borrarHorarioGrupo', function(req, res, next) {
         }//else
     })//grupo.buscarHorarioGrupoPorId
 });//router.post('/borrarHorarioGrupo
-
 
 /****************************************************************************************************************************/
 
@@ -218,7 +211,7 @@ router.post('/buscarHorarioGrupoPorNombreGrupo', function(req,res,next) {
 });//router.post('/buscarHorarioGrupoPorNombreGrupo
 
 /*
-* BUSCAR todos los id_aula OK
+* BUSCAR todos los horario grupo OK
 */
 router.post('/buscarTodosLosHorarioGrupo', function(req,res,next) {
     horario_grupo.buscarTodosLosHorarioGrupo(function(error,row) {
@@ -235,7 +228,7 @@ router.post('/buscarTodosLosHorarioGrupo', function(req,res,next) {
 });//router.post('/buscarTodosLosHorarioGrupo
 
 /*
-* BUSCAR todos los id_horariogrupo OK
+* BUSCAR todos los id_horario_grupo OK
 */
 router.post('/buscarTodosLosIdHorarioGrupo', function(req,res,next) {
     horario_grupo.buscarTodosLosIdHorarioGrupo(function(error,row) {
@@ -280,7 +273,7 @@ router.post('/buscarGruposQueNoPerteneceUnAlumno', function(req,res,next) {
 });//router.post('/buscarGruposQueNoPerteneceUnAlumno
 
 /*
-* BUSCAR grupos a los que no pertenece un alumno
+* BUSCAR grupos a los que pertenece un alumno
 */
 router.post('/buscarGruposQuePerteneceUnAlumno', function(req,res,next) {
     alumno.buscarAlumnoPorId(req.query.id_alumno,function(error,row){

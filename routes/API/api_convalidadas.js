@@ -31,9 +31,8 @@ router.post('/agregarAsignaturaConvalidada', function(req, res, next) {
                             convalidadas.agregarAsignaturaConvalidada(req.query.id_asignatura,req.query.id_alumno,function(error,row){
                                 if(error){
                                     res.send(error);
-                                    else{
-                                        res.send('asignatura convalidada correctamente');
-                                    }//else
+                                }else{
+                                    res.send('asignatura convalidada correctamente');
                                 }//else
                             })//convalidadas.agregarAsignaturaConvalidada
                         }//else

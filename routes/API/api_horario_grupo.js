@@ -63,9 +63,77 @@ router.post('/agregarHorarioGrupo', function(req, res, next) {
 /*
 * UPDATE dispositivo OK
 */
-router.post('/modificarGrupo', function(req, res, next) {
-    
-});//router.post('/modificarGrupo
+router.post('/modificarHorarioGrupo', function(req, res, next) {
+    var dia_semana_antiguo;
+    var hora_inicio_antiguo;
+    var hora_final_antiguo;
+    var id_grupo_antiguo;
+    var id_asignatura_antiguo;
+    var id_aula_antiguo
+    horario_grupo.buscarHorarioGrupoPorId(req.query.id_horario_grupo,function(error,row){
+        if(error){
+            res.send(error);
+        }else{
+            if(row.length==0){
+                res.send('no hay horario grupo con ese id');
+            }else{
+                dia_semana_antiguo=row[0].dia_semana;
+                hora_inicio_antiguo=row[0].hora_inicio;
+                hora_final_antiguo=row[0].hora_final;
+                id_grupo_antiguo=row[0].id_grupo;
+                id_asignatura_antiguo=row[0].id_asignatura;
+                id_aula_antiguo=row[0].id_aula;
+                grupo.buscarGrupoPorId(req.query.id_grupo,function(error,row){
+                    if(error){
+                        res.send(error);
+                    }else{
+                        if(row.length==0){
+                            res.send('no hay ningun grupo con ese id');
+                        }else{
+                            asignatura.buscarAsignaturaPorId(req.query.id_asignatura,function(error,row){
+                                if(error){
+                                    res.send(error);
+                                }else{
+                                    if(row.length==0){
+                                        res.send('no hay asignaturas con ese id');
+                                    }else{
+                                        aula.buscarAulaPorId(req.query.id_aula,function(error,row){
+                                            if(error){
+                                                res.send(error);
+                                            }else{
+                                                if(row.length==0){
+                                                    res.send('no hay aulas con ese id');
+                                                }else{
+                                                    horario_grupo.buscarHorarioGrupoExistente(req.query.dia_semana,req.query.hora_inicio,req.query.hora_final,req.query.id_grupo,req.query.id_asignatura,req.query.id_aula,function(error,row){
+                                                        if(error){
+                                                            res.send(error);
+                                                        }else{
+                                                            if((row.length>1)&&(req.query.id_horario_grupo!=row[0].id_horario_grupo)&&(dia_semana_antiguo==req.query.dia_semana)&&(hora_inicio_antiguo==req.query.hora_inicio)&&(hora_final_antiguo==req.query.hora_final)&&(id_grupo_antiguo==req.query.id_grupo)&&(id_asignatura_antiguo==req.query.id_asignatura)&&(id_aula_antiguo==req.query.id_aula)){
+                                                                res.send('ese horario grupo ya existe');
+                                                            }else{
+                                                                horario_grupo.modificarHorarioGrupo(req.query.id_horario_grupo,req.query.dia_semana,req.query.hora_inicio,req.query.hora_final,req.query.id_grupo,req.query.id_asignatura,req.query.id_aula,function(error,row){
+                                                                    if(error){
+                                                                        res.send(error);
+                                                                    }else{
+                                                                        res.send('horario grupo modificado correctamente');
+                                                                    }                                                 
+                                                                })//horario_grupo.modificarHorarioGrupo
+                                                            }//else
+                                                        }//else
+                                                    })//horario_grupo.buscarHorarioGrupoExistente
+                                                }//else
+                                            }//else
+                                        })//aula.buscarAulaPorId
+                                    }//else
+                                }//else
+                            })//asignatura.buscarAsignaturaPorId
+                        }//else
+                    }//else
+                })//grupo.buscarGrupoPorId
+            }//else
+        }//else
+    })//horario_grupo.buscarHorarioGrupoPorId
+});//router.post('/modificarHorarioGrupo
 
 /****************************************************************************************************************************/
 

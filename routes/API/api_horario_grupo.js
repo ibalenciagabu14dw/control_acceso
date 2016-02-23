@@ -64,6 +64,7 @@ router.post('/agregarHorarioGrupo', function(req, res, next) {
 * UPDATE dispositivo OK
 */
 router.post('/modificarHorarioGrupo', function(req, res, next) {
+    console.log("1");
     var dia_semana_antiguo;
     var hora_inicio_antiguo;
     var hora_final_antiguo;
@@ -71,6 +72,7 @@ router.post('/modificarHorarioGrupo', function(req, res, next) {
     var id_asignatura_antiguo;
     var id_aula_antiguo
     horario_grupo.buscarHorarioGrupoPorId(req.query.id_horario_grupo,function(error,row){
+        console.log("1");
         if(error){
             res.send(error);
         }else{

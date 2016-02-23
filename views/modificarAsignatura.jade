@@ -4,13 +4,14 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/styleModificar.css')
 
 block content
+  include ./includes/menuConfig.jade
   h1 Modificar Asignatura
   .container
     form#form.form-group
       .form-inline
         .input-group
-          label.input-group-addon(for='nombre') Nombre: 
-          input#nombrebusqueda.form-control(type='text', name='nombre', placeholder='Escribe el nombre de la asignatura')
+          label#labelNombreBusquedaAsignatura.input-group-addon(for='nombre') Nombre: 
+          input#nombrebusquedaAsignatura.form-control(type='text', name='nombre', placeholder='Escribe el nombre de la asignatura')
         br
         br
         input.btn.btn-primary(type='submit', value='Buscar')

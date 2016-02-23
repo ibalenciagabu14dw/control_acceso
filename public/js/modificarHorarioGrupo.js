@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	    controlFooter();
-$('#footer').css('bottom', 0);	
+	    $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
      }, "Value must not equal arg.");
@@ -26,14 +26,14 @@ $('#footer').css('bottom', 0);
 
 	//Buscar alumnos al escribir
 	$('#nombrebusqueda').keyup(function(event) {
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarHorarioGrupos();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarHorarioGrupos();
 	});
 
@@ -42,13 +42,12 @@ $('#footer').css('bottom', 0);
 		var datos = $(this).contents();
 		buscarHorarioGrupoId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom', 0);		
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_horario_grupo' id='labelId_horario_grupo' class='input-group-addon'>HORARIO GRUPO</label>";   		
-    		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control has-feedback' value='"+result[0].id_horario_grupo+"'readonly>";
-    		formulario += "<span id='id_horario_grupo1' class='glyphicon form-control-feedback'></span>";    		
+    		formulario += "<input type='text' id='Id_horario_grupo' name='id_horario_grupo' class='form-control has-feedback' value='"+result[0].id_horario_grupo+"'readonly>";
+    		formulario += "<span id='Id_horario_grupo1' class='glyphicon form-control-feedback'></span>";    		
     		formulario += "</div>";
   			formulario += "</div><br/>";
 			formulario += "<div class='form-inline'>";
@@ -86,16 +85,16 @@ $('#footer').css('bottom', 0);
   			formulario += "</div><br/>";
 			formulario += "<div class='form-inline' id='alertHoraInicio'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label id='labelHoraInicio' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
-            formulario += "<input id='hora_inicio' type='time' name='hora_inicio' class='form-control has-feedback' value='"+result[0].hora_inicio+"'/></br>";
-       		formulario += "<span id='hora_inicio1' class='glyphicon form-control-feedback'></span>";
+			formulario += "<label id='labelHoraInicioHorarioGrupo' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
+            formulario += "<input id='hora_inicioHorarioGrupo' type='time' name='hora_inicio' class='form-control has-feedback' value='"+result[0].hora_inicio+"'/></br>";
+       		formulario += "<span id='hora_inicioHorarioGrupo1' class='glyphicon form-control-feedback'></span>";
             formulario += "</div>";
   			formulario += "</div><br/>";            
             formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label id='labelHoraFinal' for='hora_final' class='input-group-addon'>HORA FINAL</label>"; 
-            formulario += "<input id='hora_final' type='time' name='hora_final' class='form-control has-feedback' value='"+result[0].hora_final+"'/></br>";
-    		formulario += "<span id='hora_final1' class='glyphicon form-control-feedback'></span>";            
+			formulario += "<label id='labelHoraFinalHorarioGrupo' for='hora_final' class='input-group-addon'>HORA FINAL</label>"; 
+            formulario += "<input id='hora_finalHorarioGrupo' type='time' name='hora_final' class='form-control has-feedback' value='"+result[0].hora_final+"'/></br>";
+    		formulario += "<span id='hora_finalHorarioGrupo1' class='glyphicon form-control-feedback'></span>";            
             formulario += "</div>";
   			formulario += "</div><br/>";			
 			mostrarTodosLosGruposIdNombre(result[0].id_grupo);
@@ -241,11 +240,11 @@ $('#footer').css('bottom', 0);
 			errorPlacement: function(error,element){
 			},
 	        submitHandler: function (form) {
-	            if ($('#resultado #hora_inicio').val() >$('#resultado #hora_final').val()){
-                	$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                	$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                	$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                	$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  	            	
+	            if ($('#resultado #hora_inicioHorarioGrupo').val() >$('#resultado #hora_finalHorarioGrupo').val()){
+                	$('#hora_inicioHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                	$('#hora_inicioHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                	$('#hora_finalHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                	$('#hora_finalHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  	            	
                 	showAlertValidate("#alertHoraInicio"," Hora Inicio no puede ser mayor a la Hora Final ");          	
             	} else {	
 	            event.preventDefault();
@@ -264,10 +263,10 @@ $('#footer').css('bottom', 0);
 		                if (data.err=="existe"){
 		                	$('#selectDiaHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
 		                	$('#selectDiaHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-		                	$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
-		                	$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-		                	$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
-		                	$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#hora_inicioHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#hora_inicioHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+		                	$('#hora_finalHorarioGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
+		                	$('#hora_finalHorarioGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
 		                	$('#selectHorarioGrupoGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
 		                	$('#selectHorarioGrupoGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
 		                	$('#selectHorarioGrupoAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
@@ -276,8 +275,9 @@ $('#footer').css('bottom', 0);
 		                	$('#selectHorarioGrupoAula1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                	showAlert($('#resultado #enlace2'),"error"," Horario Grupo ya existente ");
 		                }else if (data.dato=="ok"){
-				            $('#id_horario_grupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				            $('#id_horario_grupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                	
+		                	$('#mensaje').hide();
+				            $('#Id_horario_grupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				            $('#Id_horario_grupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                	
 		                	showAlertRedirect($('#resultado #enlace2'),"ok","Horario Grupo modificado correctamente",'/config');
 		                }
 		                console.log("success");
@@ -307,7 +307,7 @@ $('#footer').css('bottom', 0);
 				console.log(data);
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_horario_grupo+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
+					resp += "<h3 class='busquedaH3HorarioGrupo' id='"+data[i].id_horario_grupo+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

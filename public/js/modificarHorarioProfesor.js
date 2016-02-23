@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	    controlFooter();
-$('#footer').css('bottom', 0);	
+	    $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;
      }, "Value must not equal arg.");
@@ -26,14 +26,14 @@ $('#footer').css('bottom', 0);
 
 	//Buscar alumnos al escribir
 	$('#nombrebusqueda').keyup(function(event) {
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarHorarioProfesores();
 	});
 
 	//Buscar alumnos al clicar Buscar
 	$('#form').submit(function(event) {
 		event.preventDefault();
-		$('#footer').css('bottom', "auto");
+		$("#footer").css("bottom","auto");
 		buscarHorarioProfesores();
 	});
 
@@ -42,18 +42,17 @@ $('#footer').css('bottom', 0);
 		var datos = $(this).contents();
 		buscarHorarioProfesorId(datos[0].id)
 		.done(function(result) {
-		$('#footer').css('bottom', 0);		
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='id_horario_profesor' id='labelId_horario_profesor' class='input-group-addon'>HORARIO PROFESOR</label>";      		
-    		formulario += "<input type='text' id='id_horario_profesor' name='id_horario_profesor' class='form-control has-feedback' value='"+result[0].id_horario_profesor+"'readonly>";    		
-    		formulario += "<span id='id_horario_profesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+    		formulario += "<input type='text' id='Id_horario_profesor' name='id_horario_profesor' class='form-control has-feedback' value='"+result[0].id_horario_profesor+"'readonly>";    		
+    		formulario += "<span id='Id_horario_profesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";
   			formulario += "</div><br/>"; 
    			formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_horario_grupo'  id='labelId_horario_grupo' class='input-group-addon'>HORARIO GRUPO</label>";   		
+			formulario += "<label for='id_horario_grupo'  id='labelHorarioGrupoHorarioProfesor' class='input-group-addon'>HORARIO GRUPO</label>";   		
     		formulario += "<input type='text' id='id_horario_grupo' name='id_horario_grupo' class='form-control has-feedback' value='"+result[0].id_horario_grupo+"'readonly>";
     		formulario += "<span id='id_horario_grupo1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";
@@ -93,22 +92,22 @@ $('#footer').css('bottom', 0);
 					resp += "<div class='form-inline has-success'>";
     				resp += "<div class='input-group'>";
 					resp += "<label id='labelDiaHorarioProfesor' for='dia' class='input-group-addon'>DIA</label>"; 
-					resp += "<input type='text' id='dia' name='dia' class='form-control has-feedback' value='"+data[i].dia_semana+"'readonly></br>";
-					resp += "<span id='dia1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "<input type='text' id='diaHorarioProfesor' name='dia' class='form-control has-feedback' value='"+data[i].dia_semana+"'readonly></br>";
+					resp += "<span id='diaHorarioProfesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
 					resp += "</div>";
   					resp += "</div><br/>";
   					resp += "<div class='form-inline has-success'>";
     				resp += "<div class='input-group'>";
 					resp += "<label id='labelHoraInicioHorarioProfesor' for='hora_inicio' class='input-group-addon'>HORA INICIO</label>"; 
-					resp += "<input type='time' id='hora_inicio' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"'readonly></br>";
-					resp += "<span id='hora_inicio1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "<input type='time' id='hora_inicioHorarioProfesor' name='hora_inicio' class='form-control has-feedback' value='"+data[i].hora_inicio+"'readonly></br>";
+					resp += "<span id='hora_inicioHorarioProfesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
 					resp += "</div>";
   					resp += "</div><br/>";
   					resp += "<div class='form-inline has-success'>";
     				resp += "<div class='input-group'>";
 					resp += "<label id='labelHoraFinalHorarioProfesor' for='hora_final' class='input-group-addon'>HORA INICIO</label>"; 					
-					resp += "<input type='time' id='hora_final' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly></br>";					
-					resp += "<span id='hora_final1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
+					resp += "<input type='time' id='hora_finalHorarioProfesor' name='hora_final' class='form-control has-feedback' value='"+data[i].hora_final+"'readonly></br>";					
+					resp += "<span id='hora_finalHorarioProfesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
 					resp += "</div>";
   					resp += "</div><br/>";	
 					resp += "</td>";
@@ -232,7 +231,7 @@ $('#footer').css('bottom', 0);
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3' id='"+data[i].id_horario_profesor+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
+					resp += "<h3 class='busquedaH3HorarioProfesor' id='"+data[i].id_horario_profesor+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

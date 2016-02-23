@@ -20,6 +20,43 @@ En el siguente apartado se detallan los pasos a seguir para la implementación d
 
 Primeramente descargar el código desde éste repositorio, acceder a él desde la línea de comandos y ejecutar 'npm install' para instalar los módulos necésarios para el funcionamiento. [Guía de instalación de NodeJS y npm](https://github.com/ionatibia/nodejs)
 
+### Dispositivo
+
+El dispositivo utilizado en éste proyecto ha sido diseñado por alumnos de Don Bosco, pero en éste documento se detalla como hacerlo con un dispositivo Arduino o sin ningún dispositivo.
+
+*	Sin dispositivo: Podemos utilizar cualquier REST client como [PostMan para Chrome](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) o [REST Client para Android](https://play.google.com/store/apps/details?id=com.sourcestream.android.restclient&hl=es). La dirección GET en ambos casos, para el cambio de presencia es 'http://'donde este alojada la aplicación'/presencia?num_tarjeta='número de tarjeta'&room='numero dispositivo''.
+Es posible añadir '&time='00:00:00'' si no se añade, utilizará la hora del sistema.
+
+*  Arduino
+
+	*	Materiales: 
+		1.	[Placa arduino UNO](https://www.google.es/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=arduino%20UNO&oq=arduino%20UNO&aqs=chrome..69i57j0l5.2722j0j7)
+		2.	[Ethernet shield](https://www.google.es/search?sourceid=chrome-psyapi2&ion=1&espv=2&ie=UTF-8&q=ethernet%20shield%20arduino&oq=ethernet%20shield%20&aqs=chrome.1.69i57j0l5.4435j0j9)
+		3.	[RFID rc522](https://www.google.es/search?espv=2&q=arduino+rfid+rc522&oq=arduino+rfi&gs_l=serp.1.1.0l10.26130.28270.0.30137.11.11.0.0.0.0.116.913.7j3.10.0....0...1c.1.64.serp..1.10.910.z9XDkjYuEvo)
+
+	*	Conexiones:
+		1.	RFID:
+			*	SDA -> pin7
+			*	SCK -> pin13
+			*	MOSI -> pin11
+			*	MISO -> pin12
+			*	GND -> GND
+			*	RST -> pin9
+			*	3.3V -> 3.3V
+		2.	LEDs:
+			*	Verde -> pin2
+			*	Amarillo -> pin3
+			*	Rojo -> pin4
+			*	Resistencias de 220 Ohm
+
+	*	Código:
+		*	Descargar el código desde el [repositorio](https://github.com/ionatibia/Arduino_Proyects/tree/master/proyecto27_Controlfid_V1).
+		*	Sustituir el nombre del servidor de la línea 29 por el vuestro o la IP
+		*	Comprobar con el monitor serie de Arduino el número de las tarjetas y añadirlas a la base de datos de la aplicación
+
+	![Sin titulo](public/images/rfid.jpg)
+
+
 ### Base de datos
 
 *   MySQL: Importar base de datos mediante phpMyAdmin o línea de comandos a MySQL local o en la nube. Hay 2 opciones:

@@ -18,7 +18,8 @@ En el siguente apartado se detallan los pasos a seguir para la implementación d
 
 ## Documentación
 
-Primeramente descargar el código desde éste repositorio, acceder a él desde la línea de comandos y ejecutar 'npm install' para instalar los módulos necésarios para el funcionamiento. [Guía de instalación de NodeJS y npm](https://github.com/ionatibia/nodejs)
+Primeramente descargar el código desde éste repositorio, acceder a él desde la línea de comandos y ejecutar 'npm install' para instalar los módulos necésarios para el funcionamiento. [Guía de instalación de NodeJS y npm](https://github.com/ionatibia/nodejs)  
+Para poner en marcha la aplicación ejecutar "node ./bin/www.js".
 
 ### Dispositivo
 

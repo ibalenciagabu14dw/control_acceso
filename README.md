@@ -54,7 +54,7 @@ Es posible añadir '&time='00:00:00'' si no se añade, utilizará la hora del si
 		*	Sustituir el nombre del servidor de la línea 29 por el vuestro o la IP
 		*	Comprobar con el monitor serie de Arduino el número de las tarjetas y añadirlas a la base de datos de la aplicación
 
-	![Sin titulo](public/images/rfid.jpg)
+	![Sin titulo](public/images/arduino.jpg)
 
 
 ### Base de datos

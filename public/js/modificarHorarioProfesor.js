@@ -231,7 +231,8 @@ $(document).ready(function() {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3HorarioProfesor' id='"+data[i].id_horario_profesor+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
+					resp += "<h3 class='busquedaH3HorarioProfesor' id='"+data[i].id_horario_profesor+"'>Dia: "+data[i].dia_semana+" Hora: "+data[i].hora_inicio+"-"+data[i].hora_final+" Profesor: "+data[i].nombreProfesor+" "+data[i].apellidos+" Grupo: "+data[i].nombre_grupo+" Asignatura: "+data[i].nombreAsignatura+" Aula: "+data[i].numero+"</h3>";
+					resp += "<img  class='busquedaFoto' id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

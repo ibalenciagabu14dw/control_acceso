@@ -6,7 +6,7 @@ $(document).ready(function() {
 	},"Please enter only letters");
 	
     jQuery.validator.addMethod("dni", function(value, element) {
-        if ($('#dni').val().length == 10){
+        if ($('#dniAlumno').val().length == 10){
             return this.optional(element) || /(\d{8})([-]?)([A-Z]{1})/i.test(value);
         }
     });
@@ -157,12 +157,12 @@ $('#resultado').on("click","#btnModificar",function () {
 	        messages:mensajes,
 	        highlight: function(element) {
 	        if (element.type == "radio"){
-	            if ($("input[name=obligatoria]:checked").val() == 1){
+	            if ($("input[name=tarjeta_activada]:checked").val() == 1){
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
+	                $("#tarjetaAlumno11").removeClass('glyphicon-ok').addClass('glyphicon-remove');
 	            } else {
 	                $(element).closest('.form-inline').removeClass('has-success').addClass('has-error');
-	                $("#radio11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
+	                $("#tarjetaAlumno11").removeClass('glyphicon-ok').addClass('glyphicon-remove'); 
 	            }
 	        } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
@@ -173,12 +173,12 @@ $('#resultado').on("click","#btnModificar",function () {
 	        },
 	        unhighlight: function(element) {
 	            if (element.type == "radio"){
-	                if ($("input[name=obligatoria]:checked").val() == 1){
+	                if ($("input[name=tarjeta_activada]:checked").val() == 1){
 	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                    $("#tarjetaAlumno11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
 	                } else {
 	                    $(element).closest('.form-inline').removeClass('has-error').addClass('has-success');
-	                    $("#radio11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
+	                    $("#tarjetaAlumno11").removeClass('glyphicon-remove').addClass('glyphicon-ok'); 
 	                }
 	            } else {
 	                var id_attr = "#" + $( element ).attr("id") + "1";
@@ -203,7 +203,7 @@ $('#resultado').on("click","#btnModificar",function () {
 	        },
 	        submitHandler: function (form) {
 	        	console.log($('#resultado #gruposdelAlumno :checkbox').length);
-	        	if ($('#resultado #foto').val() == ''){
+	        	if ($('#resultado #fotoAlumno').val() == ''){
 	        		event.preventDefault();
 	            	var data = $("#formUpdate").serializeArray();
 			            $.ajax({
@@ -217,26 +217,26 @@ $('#resultado').on("click","#btnModificar",function () {
 			            .done(function(data) {
 			                console.log(data)
 				                if (data.err=="existeDNI"){
-			                    $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			                    $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 				                
+			                    $('#dniAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                    $('#dniAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 				                
 				                showAlert($('#resultado #alertDni'),"error"," DNI ya existente");
 				                } else if (data.err=="existeCorreo"){
-			                    $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			                    $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');				                
+			                    $('#correoAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                    $('#correoAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');				                
 				                showAlert($('#resultado #alertCorreo'),"error"," Correo ya existente");
 				                } else if (data.err=="existeTarjeta"){
-			                    $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			                    $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');				                
+			                    $('#num_tarjetaAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			                    $('#num_tarjetaAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');				                
 				                showAlert($('#resultado #alertNum_tarj'),"error"," Tarjeta ya existente");
 				                } else if (data.err=="nogrupo"){
 				                showAlertValidate("#enlace2"," Selecciona un grupo para el alumno");	
 				                }else if (data.dato=="ok"){
-				                $('#id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				                $('#id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
-				        		$('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				        		$('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
-				                $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				                $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                
+				                $('#Id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				                $('#Id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
+				        		$('#fotoAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        		$('#fotoAlumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
+				                $('#tarjetaAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				                $('#tarjetaAlumno11').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                
 				                showAlertRedirect($('#resultado #enlace2'),"ok"," Alumno modificado correctamente",'/config');
 				                }
 				                console.log("success");
@@ -245,12 +245,12 @@ $('#resultado').on("click","#btnModificar",function () {
 			                console.log("error");
 			            })
 	        	} else {
-	        		var attach_id = $('#resultado #foto').attr("id");
+	        		var attach_id = $('#resultado #fotoAlumno').attr("id");
 					var size = $('#'+attach_id)[0].files[0].size;
 					   if (size > 102400)// checks the file more than 100 Kb
 			           {
-				           $('#foto').closest('.form-inline').removeClass('has-success').addClass('has-error');
-				           $('#foto1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			           	
+				           $('#fotoAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+				           $('#fotoAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			           	
 			               showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 			           } else {      
 			           
@@ -270,24 +270,24 @@ $('#resultado').on("click","#btnModificar",function () {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existeDNI"){
-			            $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			            $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 		                
+			            $('#dniAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#dniAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove'); 		                
 		                showAlert($('#resultado #alertDni'),"error","dni ya existente");
 		                } else if (data.err=="existeCorreo"){
-			            $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			            $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			                
+			            $('#correoAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#correoAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			                
 		                showAlert($('#resultado #alertCorreo'),"error","Correo ya existente");
 		                } else if (data.err=="existeTarjeta"){
-			            $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-			            $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+			            $('#num_tarjetaAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
+			            $('#num_tarjetaAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
 		                }else if (data.dato=="ok"){
-				        $('#id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				        $('#id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
-				        $('#foto').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				        $('#foto1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
-				        $('#tarjeta_activada').closest('.form-inline').removeClass('has-error').addClass('has-success');
-				        $('#tarjeta_activada1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+				        $('#Id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#Id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+				        $('#fotoAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#fotoAlumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
+				        $('#tarjetaAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
+				        $('#tarjetaAlumno11').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 		                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificado correctamente",'/config');
 		                }
 		                console.log("success");
@@ -318,7 +318,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3Alumno' id='"+data[i].id_alumno+"'>"+data[i].nombre+" "+data[i].apellidos+"</h3>";
+					resp += "<h3 class='busquedaH3Alumno' id='"+data[i].id_alumno+"'> Dni: "+data[i].dni+" Nombre: "+data[i].nombre+" Apellidos:  "+data[i].apellidos+" Correo: "+data[i].correo+"</h3>";
 					resp += "<img class='busquedaFotoAlumno'id='fotoBusquedaAlumno' alt='fotoBusquedaAlumno' src='data:img/png;base64,"+data[i].foto+"'/>";					
 					resp += "</td></tr></table>";
 				};
@@ -359,7 +359,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				url: '/configAlumno/borrarAlumno',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_alumno':$('#resultado #id_alumno').val()},
+				data: {'id_alumno':$('#resultado #Id_alumno').val()},
 				success:function(data){
 				}//success
 			})//ajax

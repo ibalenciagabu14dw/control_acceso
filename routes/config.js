@@ -37,35 +37,35 @@ router.get('/configFaltas/modificarFalta', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarFalta', { title: 'modificarFalta' });
+  res.render('modificarFalta', { title: 'Modificar Falta' });
 });
 
 router.get('/configPersonas/agregarAlumno', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('agregarAlumno', { title: 'agregarAlumno' });
+  res.render('agregarAlumno', { title: 'Agregar Alumno' });
 });
 
 router.get('/configPersonas/agregarProfesor', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('agregarProfesor', { title: 'agregarProfesor' });
+  res.render('agregarProfesor', { title: 'Agregar Profesor' });
 });
 
 router.get('/configPersonas/modificarAlumno', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarAlumno', { title: 'modificarAlumno' });
+  res.render('modificarAlumno', { title: 'Modificar Alumno' });
 });
 
 router.get('/configPersonas/modificarProfesor', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarProfesor', { title: 'modificarProfesor' });
+  res.render('modificarProfesor', { title: 'Modificar Profesor' });
 });
 /*
 * Configuración dispositivos
@@ -144,42 +144,42 @@ router.get('/configGlobal/configAulas/agregarAula', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('agregarAula', { title: 'agregarAula' });
+  res.render('agregarAula', { title: 'Agregar Aula' });
 });
 
 router.get('/configGlobal/configAulas/modificarAula', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarAula', { title: 'modificarAula' });
+  res.render('modificarAula', { title: 'Modificar Aula' });
 });
 
 router.get('/configGlobal/configGrupos/agregarGrupo', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('agregarGrupo', { title: 'agregarGrupo' });
+  res.render('agregarGrupo', { title: 'Agregar Grupo' });
 });
 
 router.get('/configGlobal/configGrupos/modificarGrupo', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarGrupo', { title: 'modificarGrupo' });
+  res.render('modificarGrupo', { title: 'Modificar Grupo' });
 });
 
 router.get('/configGlobal/configAsignaturas/agregarAsignatura', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('agregarAsignatura', { title: 'agregarAsignatura' });
+  res.render('agregarAsignatura', { title: 'Agregar Asignatura' });
 });
 
 router.get('/configGlobal/configAsignaturas/modificarAsignatura', function(req, res, next) {
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarAsignatura', { title: 'modificarAsignatura' });
+  res.render('modificarAsignatura', { title: 'Modificar Asignatura' });
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res, next) {
@@ -204,6 +204,7 @@ router.get('/configGlobal/configHorario/agregarHorarioGrupo', function(req, res,
                       //console.log(data);                
                       //res.send(data);
                       res.render('agregarHorarioGrupo',{ 
+                      title:"Agregar Horario Grupo",
                       grupo:gru,
                       asignatura:asign,
                       aula:aul,
@@ -220,7 +221,7 @@ router.get('/configGlobal/configHorario/modificarHorarioGrupo', function(req, re
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarHorarioGrupo', { title: 'modificarHorarioGrupo' });
+  res.render('modificarHorarioGrupo', { title: 'Modificar Horario Grupo' });
 });
 
 router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, res, next) {
@@ -239,7 +240,8 @@ router.get('/configGlobal/configHorario/agregarHorarioProfesor', function(req, r
                     }else{
                       //console.log(data);                
                       //res.send(data);
-                      res.render('agregarHorarioProfesor',{ 
+                      res.render('agregarHorarioProfesor',{
+                      title: "Agregar Horario Profesor", 
                       grupo:gru,
                       profesor:pro,
                       })//.res.render
@@ -253,7 +255,7 @@ router.get('/configGlobal/configHorario/modificarHorarioProfesor', function(req,
   if (!req.session.name) {
     res.render('index', { title: 'ControlFid', info: 'Debe iniciar sesión'}); 
   };
-  res.render('modificarHorarioProfesor', { title: 'modificarHorarioProfesor' });
+  res.render('modificarHorarioProfesor', { title: 'Modificar Horario Profesor' });
 });
 
 module.exports = router;

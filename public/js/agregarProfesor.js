@@ -116,6 +116,7 @@ $(document).ready(function() {
                     $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
                     $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                 }else if (data.dato=="ok"){
+                $('#mensaje').hide();     
                     showAlertRedirect("#enlace","ok"," Profesor añadido correctamente",'/config');
                 }
                 console.log("successdata");

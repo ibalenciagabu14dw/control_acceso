@@ -75,6 +75,7 @@ $(document).ready(function() {
                 $('#selectHorarioGrupoAula1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                                                
                 showAlert("#enlace","error"," Horario Grupo ya existente ");                
                 }else if (data.dato=="ok"){
+                $('#mensaje').hide();     
                 showAlertRedirect("#enlace","ok"," Horario Grupo añadido correctamente ",'/config');
                 }
                 console.log("success");

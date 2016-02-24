@@ -51,6 +51,7 @@ $(document).ready(function() {
                 $('#nombreGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 $('#nombreGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
                 }else if (data.dato=="ok"){
+                $('#mensaje').hide();     
                 showAlertRedirect("#enlace","ok"," Grupo añadido correctamente ",'/config');
                 }
                 console.log("success");

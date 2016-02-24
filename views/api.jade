@@ -1,412 +1,416 @@
-extends layout
-block content
-    h3 ALUMNOS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarAlumno
-          td dni,nombre,apellidos,correo,num_tarjeta
-        tr
-          td /modificarAlumno
-          td id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada
-        tr
-          td /modificarPresenciaDelAlumno
-          td num_tarjeta
-        tr
-          td /borrarAlumno
-          td id_alumno
-        tr
-          td /buscarAlumnoPorId
-          td id_alumno
-        tr
-          td /buscarAlumnoPorDni
-          td dni
-        tr
-          td /buscarAlumnoPorTarjeta
-          td num_tarjeta
-        tr
-          td /buscarAlumnoPorNombre
-          td nombre
-        tr
-          td /buscarAlumnoPorNombreYApellidos
-          td nombre, apellidos
-        tr
-          td /buscarAlumnoPorCorreo
-          td correo
-        tr
-          td /buscarAlumnoPorCorreo
-          td correo
-        tr
-          td /buscarAulaEnLaQueTieneQueEstarPorTarjeta
-          td num_tarjeta
-        tr
-          td /buscarAulaEnLaQueTieneQueEstarPorId
-          td id_alumno
-        tr
-          td /buscarPresenciaAlumno
-          td num_tarjeta
-        tr
-          td /buscarTodosLosIdAlumno
-          td
-        tr
-          td /buscarTodosLosIdNombreApellidosAlumno
-          td
-        tr
-          td /buscarAsignaturasConvalidadasDelAlumno
-          td id_alumno
-        tr
-          td /buscarAsignaturasNoConvalidadasDelAlumno
-          td id_alumno
-    h3 ALUMNO GRUPOS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarAlumnoGrupo
-          td id_grupo,id_alumno
-        tr
-          td /modificarAlumnoGrupo
-          td id_alumno_grupos,id_alumno,id_grupo
-        tr
-          td /borrarAlumnoGrupos
-          td id_alumno_grupos
-        tr
-          td /buscarAlumnoGrupoPorIdAlumnoGrupo
-          td id_alumno_grupos
-        tr
-          td /buscarAlumnoGrupoPorIdAlumno
-          td id_alumno
-        tr
-          td /buscarAlumnoGrupoPorIdGrupo
-          td id_grupo
-        tr
-          td /buscarAlumnoGrupoPorIdAlumnoYIdGrupo
-          td id_alumno,id_grupo
-    h3 ASIGNATURA
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarAsignatura
-          td nombre,clave,obligatoria,tipo
-        tr
-          td /modificarAsignatura
-          td id_asignatura,nombre,clave,obligatoria,tipo
-        tr
-          td /borrarAsignatura
-          td id_asignatura
-        tr
-          td /buscarTodasLasAsignaturas
-          td
-        tr
-          td /buscarTodosLosIdAsignatura
-          td
-        tr
-          td /buscarAsignaturaPorId
-          td id_asignatura
-        tr
-          td /buscarAsignaturaPorNombre
-          td nombre
-        tr
-          td /buscarAsignaturaPorClave
-          td clave
-    h3 AULA
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarAula
-          td numero,piso,capacidad
-        tr
-          td /modificarAula
-          td id_aula,numero,piso,capacidad
-        tr
-          td /borrarAula
-          td id_aula
-        tr
-          td /buscarTodosLosIdAula
-          td
-        tr
-          td /buscarTodosLosIdYNumero
-          td
-        tr
-          td /buscarAulaPorId
-          td id_aula
-        tr
-          td /buscarAulaPorNumero
-          td numero
-    h3 CONVALIDADAS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarAsignaturaConvalidada
-          td id_asignatura,id_alumno
-        tr
-          td /modificarConvalidadas
-          td id_convalidada,id_alumno,id_asignatura
-        tr
-          td /borrarAsignaturaConvalidada
-          td id_convalidada
-        tr
-          td /buscarTodasLasConvalidadas
-          td
-        tr
-          td /buscarConvalidadasPorIdConvalidada
-          td id_convalidada
-        tr
-          td /buscarNoConvalidadasPorIdAlumno
-          td id_alumno
-        tr
-          td /buscarConvalidadasPorIdAlumno
-          td id_alumno
-        tr
-          td /buscarConvalidadasPorIdAsignatura
-          td id_asignatura
-    h3 DISPOSITIVOS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarDispositivo
-          td id_aula,numero_dispositivo
-        tr
-          td /modificarDispositivo
-          td id_aula,numero_dispositivo
-        tr
-          td /borrarDispositivo
-          td numero_dispositivo
-        tr
-          td /buscarTodosLosDispositivos
-          td
-        tr
-          td /buscarAulasSinDispositivos
-          td
-        tr
-          td /buscarDispositivoPorNumeroDispositivo
-          td numero_dispositivo
-        tr
-          td /buscarDispositivoPorIdAula
-          td id_aula
-    h3 FALTAS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarFalta
-          td fecha,id_alumno,id_horario_grupo,observaciones
-        tr
-          td /modificarFalta
-          td id_faltas,fecha,id_alumno,id_horario_grupo,observaciones
-        tr
-          td /modificarPresencia0ATodos
-          td
-        tr
-          td /borrarFalta
-          td id_faltas
-        tr
-          td /borrarTablaFaltas
-          td
-        tr
-          td /buscarDatosDeLasFaltasDelDia
-          td
-        tr
-          td /buscarTodosLosIdFalta
-          td
-        tr
-          td /buscarFaltasDeAlumnosNoConvalidados
-          td dia_semana,hora
-        tr
-          td /buscarDatosFaltaAlumno
-          td id_alumno,id_horario_grupo
-        tr
-          td /buscarFaltaPorNombreAlumno
-          td nombre
-        tr
-          td /buscarFaltaPorId
-          td id_faltas
-    h3 GRUPOS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarGrupo
-          td nombre_grupo, tipo
-        tr
-          td /modificarGrupo
-          td id_grupo,nombre_grupo,tipo
-        tr
-          td /borrarGrupo
-          td id_grupo
-        tr
-          td /buscarGrupoPorId
-          td id_grupo
-        tr
-          td /buscarGrupoPorNombre
-          td nombre_grupo
-        tr
-          td /buscarTodosLosIdGrupo
-          td
-        tr
-          td /buscarTodosLosGrupos
-          td
-        tr
-          td /buscarGruposQueNoPerteneceUnAlumno
-          td id_alumno
-        tr
-          td /buscarGruposQuePerteneceUnAlumno
-          td id_alumno
-        tr
-          td /buscarAsignaturasDeUnGrupo
-          td id_grupo
-    h3 HORARIO GRUPOS
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarHorarioGrupo
-          td dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula
-        tr
-          td /modificarGrupo
-          td
-            | id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula
-        tr
-          td /borrarHorarioGrupo
-          td id_horario_grupo
-        tr
-          td /buscarHorarioGrupoPorId
-          td id_horario_grupo
-        tr
-          td /buscarHorarioGrupoPorNombreGrupo
-          td nombre_grupo
-        tr
-          td /buscarTodosLosHorarioGrupo
-          td
-        tr
-          td /buscarTodosLosIdHorarioGrupo
-          td
-        tr
-          td /buscarGruposQueNoPerteneceUnAlumno
-          td id_alumno
-        tr
-          td /buscarGruposQuePerteneceUnAlumno
-          td id_alumno
-        tr
-          td /buscarAsignaturasDeUnGrupo
-          td id_grupo
-    h3 HORARIO PROFESOR
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarHorarioProfesor
-          td dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo
-        tr
-          td /modificarHorarioProfesor
-          td
-            | id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo
-        tr
-          td /borrarHorarioProfesor
-          td id_horario_profesor
-        tr
-          td /buscarHorarioProfesorPorId
-          td id_horario_profesor
-        tr
-          td /buscarHorarioProfesorPorNombre
-          td nombre
-        tr
-          td /buscarTodosLosHorarioProfesor
-          td
-        tr
-          td /buscarTodosLosIdHorarioProfesor
-          td
-    h3 PROFESOR
-    table#tablaApi.table
-      thead
-        tr
-          th RUTA
-          th PARAMETROS
-      tbody
-        tr
-          td /agregarProfesor
-          td dni,nombre,apellidos,correo,password,num_tarjeta
-        tr
-          td /modificarProfesor
-          td
-            | id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin
-        tr
-          td /modificarPresenciaProfesor
-          td num_tarjeta
-        tr
-          td /borrarProfesor
-          td id_profesor
-        tr
-          td /mostrarTodosLosIdNombreApellidosProfesor
-          td
-        tr
-          td /buscarTodosLosIdProfesor
-          td
-        tr
-          td /buscarProfesorPorId
-          td id_profesor
-        tr
-          td /buscarProfesorPorDni
-          td dni
-        tr
-          td /buscarProfesorPorNombreYApellido
-          td nombre,apellidos
-        tr
-          td /buscarProfesorPorCorreo
-          td correo
-        tr
-          td /buscarProfesorPorTarjeta
-          td num_tarjeta
-        tr
-          td /buscarPresenciaProfesor
-          td num_tarjeta
-        tr
-          td /buscarProfesorAulaEnLaQueTieneQueEstarPorTarjeta
-          td num_tarjeta
-        tr
-          td /buscarProfesorAulaEnLaQueTieneQueEstarPorId
-          td id_profesor
-        tr
-          td /buscarLosAlumnosDeSuClaseActual
-          td id_profesor
-        tr
-          td /buscarHorarioProfesorPorCorreo
-          td correo
-        tr
-          td /buscarProfesorPorIdAulaEnUnaHora
-          td id_aula
+head
+  title DOCUMENTACION API
+  link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='/stylesheets/styleapi.css')
+body
+  h1 DOCUMENTACION API
+  h3 ALUMNOS
+  table#tablaApi.table.table-hover
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarAlumno
+        td dni,nombre,apellidos,correo,num_tarjeta
+      tr
+        td /modificarAlumno
+        td id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada
+      tr
+        td /modificarPresenciaDelAlumno
+        td num_tarjeta
+      tr
+        td /borrarAlumno
+        td id_alumno
+      tr
+        td /buscarAlumnoPorId
+        td id_alumno
+      tr
+        td /buscarAlumnoPorDni
+        td dni
+      tr
+        td /buscarAlumnoPorTarjeta
+        td num_tarjeta
+      tr
+        td /buscarAlumnoPorNombre
+        td nombre
+      tr
+        td /buscarAlumnoPorNombreYApellidos
+        td nombre, apellidos
+      tr
+        td /buscarAlumnoPorCorreo
+        td correo
+      tr
+        td /buscarAlumnoPorCorreo
+        td correo
+      tr
+        td /buscarAulaEnLaQueTieneQueEstarPorTarjeta
+        td num_tarjeta
+      tr
+        td /buscarAulaEnLaQueTieneQueEstarPorId
+        td id_alumno
+      tr
+        td /buscarPresenciaAlumno
+        td num_tarjeta
+      tr
+        td /buscarTodosLosIdAlumno
+        td
+      tr
+        td /buscarTodosLosIdNombreApellidosAlumno
+        td
+      tr
+        td /buscarAsignaturasConvalidadasDelAlumno
+        td id_alumno
+      tr
+        td /buscarAsignaturasNoConvalidadasDelAlumno
+        td id_alumno
+  h3 ALUMNO GRUPOS
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarAlumnoGrupo
+        td id_grupo,id_alumno
+      tr
+        td /modificarAlumnoGrupo
+        td id_alumno_grupos,id_alumno,id_grupo
+      tr
+        td /borrarAlumnoGrupos
+        td id_alumno_grupos
+      tr
+        td /buscarAlumnoGrupoPorIdAlumnoGrupo
+        td id_alumno_grupos
+      tr
+        td /buscarAlumnoGrupoPorIdAlumno
+        td id_alumno
+      tr
+        td /buscarAlumnoGrupoPorIdGrupo
+        td id_grupo
+      tr
+        td /buscarAlumnoGrupoPorIdAlumnoYIdGrupo
+        td id_alumno,id_grupo
+  h3 ASIGNATURA
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarAsignatura
+        td nombre,clave,obligatoria,tipo
+      tr
+        td /modificarAsignatura
+        td id_asignatura,nombre,clave,obligatoria,tipo
+      tr
+        td /borrarAsignatura
+        td id_asignatura
+      tr
+        td /buscarTodasLasAsignaturas
+        td
+      tr
+        td /buscarTodosLosIdAsignatura
+        td
+      tr
+        td /buscarAsignaturaPorId
+        td id_asignatura
+      tr
+        td /buscarAsignaturaPorNombre
+        td nombre
+      tr
+        td /buscarAsignaturaPorClave
+        td clave
+  h3 AULA
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarAula
+        td numero,piso,capacidad
+      tr
+        td /modificarAula
+        td id_aula,numero,piso,capacidad
+      tr
+        td /borrarAula
+        td id_aula
+      tr
+        td /buscarTodosLosIdAula
+        td
+      tr
+        td /buscarTodosLosIdYNumero
+        td
+      tr
+        td /buscarAulaPorId
+        td id_aula
+      tr
+        td /buscarAulaPorNumero
+        td numero
+  h3 CONVALIDADAS
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarAsignaturaConvalidada
+        td id_asignatura,id_alumno
+      tr
+        td /modificarConvalidadas
+        td id_convalidada,id_alumno,id_asignatura
+      tr
+        td /borrarAsignaturaConvalidada
+        td id_convalidada
+      tr
+        td /buscarTodasLasConvalidadas
+        td
+      tr
+        td /buscarConvalidadasPorIdConvalidada
+        td id_convalidada
+      tr
+        td /buscarNoConvalidadasPorIdAlumno
+        td id_alumno
+      tr
+        td /buscarConvalidadasPorIdAlumno
+        td id_alumno
+      tr
+        td /buscarConvalidadasPorIdAsignatura
+        td id_asignatura
+  h3 DISPOSITIVOS
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarDispositivo
+        td id_aula,numero_dispositivo
+      tr
+        td /modificarDispositivo
+        td id_aula,numero_dispositivo
+      tr
+        td /borrarDispositivo
+        td numero_dispositivo
+      tr
+        td /buscarTodosLosDispositivos
+        td
+      tr
+        td /buscarAulasSinDispositivos
+        td
+      tr
+        td /buscarDispositivoPorNumeroDispositivo
+        td numero_dispositivo
+      tr
+        td /buscarDispositivoPorIdAula
+        td id_aula
+  h3 FALTAS
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarFalta
+        td fecha,id_alumno,id_horario_grupo,observaciones
+      tr
+        td /modificarFalta
+        td id_faltas,fecha,id_alumno,id_horario_grupo,observaciones
+      tr
+        td /modificarPresencia0ATodos
+        td
+      tr
+        td /borrarFalta
+        td id_faltas
+      tr
+        td /borrarTablaFaltas
+        td
+      tr
+        td /buscarDatosDeLasFaltasDelDia
+        td
+      tr
+        td /buscarTodosLosIdFalta
+        td
+      tr
+        td /buscarFaltasDeAlumnosNoConvalidados
+        td dia_semana,hora
+      tr
+        td /buscarDatosFaltaAlumno
+        td id_alumno,id_horario_grupo
+      tr
+        td /buscarFaltaPorNombreAlumno
+        td nombre
+      tr
+        td /buscarFaltaPorId
+        td id_faltas
+  h3 GRUPOS
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarGrupo
+        td nombre_grupo, tipo
+      tr
+        td /modificarGrupo
+        td id_grupo,nombre_grupo,tipo
+      tr
+        td /borrarGrupo
+        td id_grupo
+      tr
+        td /buscarGrupoPorId
+        td id_grupo
+      tr
+        td /buscarGrupoPorNombre
+        td nombre_grupo
+      tr
+        td /buscarTodosLosIdGrupo
+        td
+      tr
+        td /buscarTodosLosGrupos
+        td
+      tr
+        td /buscarGruposQueNoPerteneceUnAlumno
+        td id_alumno
+      tr
+        td /buscarGruposQuePerteneceUnAlumno
+        td id_alumno
+      tr
+        td /buscarAsignaturasDeUnGrupo
+        td id_grupo
+  h3 HORARIO GRUPOS
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarHorarioGrupo
+        td dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula
+      tr
+        td /modificarGrupo
+        td
+          | id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula
+      tr
+        td /borrarHorarioGrupo
+        td id_horario_grupo
+      tr
+        td /buscarHorarioGrupoPorId
+        td id_horario_grupo
+      tr
+        td /buscarHorarioGrupoPorNombreGrupo
+        td nombre_grupo
+      tr
+        td /buscarTodosLosHorarioGrupo
+        td
+      tr
+        td /buscarTodosLosIdHorarioGrupo
+        td
+      tr
+        td /buscarGruposQueNoPerteneceUnAlumno
+        td id_alumno
+      tr
+        td /buscarGruposQuePerteneceUnAlumno
+        td id_alumno
+      tr
+        td /buscarAsignaturasDeUnGrupo
+        td id_grupo
+  h3 HORARIO PROFESOR
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarHorarioProfesor
+        td dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo
+      tr
+        td /modificarHorarioProfesor
+        td
+          | id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo
+      tr
+        td /borrarHorarioProfesor
+        td id_horario_profesor
+      tr
+        td /buscarHorarioProfesorPorId
+        td id_horario_profesor
+      tr
+        td /buscarHorarioProfesorPorNombre
+        td nombre
+      tr
+        td /buscarTodosLosHorarioProfesor
+        td
+      tr
+        td /buscarTodosLosIdHorarioProfesor
+        td
+  h3 PROFESOR
+  table#tablaApi.table
+    thead
+      tr
+        th RUTA
+        th PARAMETROS
+    tbody
+      tr
+        td /agregarProfesor
+        td dni,nombre,apellidos,correo,password,num_tarjeta
+      tr
+        td /modificarProfesor
+        td
+          | id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin
+      tr
+        td /modificarPresenciaProfesor
+        td num_tarjeta
+      tr
+        td /borrarProfesor
+        td id_profesor
+      tr
+        td /mostrarTodosLosIdNombreApellidosProfesor
+        td
+      tr
+        td /buscarTodosLosIdProfesor
+        td
+      tr
+        td /buscarProfesorPorId
+        td id_profesor
+      tr
+        td /buscarProfesorPorDni
+        td dni
+      tr
+        td /buscarProfesorPorNombreYApellido
+        td nombre,apellidos
+      tr
+        td /buscarProfesorPorCorreo
+        td correo
+      tr
+        td /buscarProfesorPorTarjeta
+        td num_tarjeta
+      tr
+        td /buscarPresenciaProfesor
+        td num_tarjeta
+      tr
+        td /buscarProfesorAulaEnLaQueTieneQueEstarPorTarjeta
+        td num_tarjeta
+      tr
+        td /buscarProfesorAulaEnLaQueTieneQueEstarPorId
+        td id_profesor
+      tr
+        td /buscarLosAlumnosDeSuClaseActual
+        td id_profesor
+      tr
+        td /buscarHorarioProfesorPorCorreo
+        td correo
+      tr
+        td /buscarProfesorPorIdAulaEnUnaHora
+        td id_aula

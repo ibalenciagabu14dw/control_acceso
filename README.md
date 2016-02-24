@@ -217,7 +217,7 @@ Cuando abrimos la pagina aparece un buscador de profesores, escribimos el nombre
 
 ###API
 
-####PROFESOR
+####DOCUMENTACION
 
 <table>
 <colgroup>

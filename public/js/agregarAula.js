@@ -1,5 +1,5 @@
 $(document).ready(function() {
-        controlFooter();
+    controlFooter();
     $('img').attr("src",'/images/sshot-1.png');
 	//reglas
 	var reglas = {
@@ -29,12 +29,11 @@ $(document).ready(function() {
                 $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');         
         },
         errorPlacement: function(error,element){
-            //error.insertBefore($(element).closest('.form-inline'));
-            if (error.attr("id") == "numero-error"){
+            if (error.attr("id") == "numeroAula-error"){
                 showAlertValidate("#alertNumero"," Numero maximo 250");
-            } else if (error.attr("id") == "piso-error"){
+            } else if (error.attr("id") == "pisoAula-error"){
                  showAlertValidate("#alertPiso"," Piso maximo 3");
-            } else if (error.attr("id") == "capacidad-error"){
+            } else if (error.attr("id") == "capacidadAula-error"){
                  showAlertValidate("#alertCapacidad"," Capacidad maxima 30");
             }
         },

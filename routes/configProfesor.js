@@ -4,6 +4,8 @@ var profesor = require('../models/profesor');
 var alumno = require('../models/alumno');
 var multer = require('multer');
 var time = require("../models/time");
+var profesores_asignaturas = require('../models/profesores_asignaturas');
+
 
 /* POST agregar profesor page. */
 router.post('/agregarProfesor', multer({}).single('foto'), function(req,res){
@@ -127,24 +129,6 @@ router.post('/buscarProfesorId', function(req,res,next) {
 * UPDATE PROFESOR COMPROBAR
 */
 router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,next){
-  profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
-      if (error) {
-        throw error;
-      }else{
-         res.send(row);
-      }
-  })//buscarProfesorPorNombre
-  var data= req.body.checkbox;
-    for (var i = 0; i < data.length; i++) {
-      profesor.insertarAsignaturasProfesor(data[i],req.body.id_profesor, function(error,row) {
-          if (error) {
-          throw error;
-          }else{
-          //console.log(row);
-          res.send(row);
-          }
-      })//buscarProfesorPorNombre
-    }
     var id_profesor = req.body.id_profesor;
     var dni = req.body.dni;
     var nombre = req.body.nombre;
@@ -154,8 +138,29 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
     var tarjeta_activada = req.body.tarjeta_activada;
     var num_tarjeta = req.body.num_tarjeta;
     var admin = req.body.admin;
+    var asignaturas= req.body.checkbox;
     var foto = req.file.buffer;
-    profesor.buscarProfesorPorIdSinFoto(req.body.id_profesor, function(error,row) {
+  if (asignaturas == undefined){
+    res.send({err:'noasignatura'});
+  } else {
+      profesores_asignaturas.borrarProfesoresAsignaturas(id_profesor, function(error,row) {
+      if (error) {
+        throw error;
+      }else{
+         res.send(row);
+      }
+  })//buscarProfesorPorNombre
+        for (var i = 0; i < asignaturas.length; i++) {
+      profesores_asignaturas.agregarAsignaturasProfesor(asignaturas[i],id_profesor, function(error,row) {
+          if (error) {
+          throw error;
+          }else{
+          //console.log(row);
+          res.send(row);
+          }
+      })//buscarProfesorPorNombre
+    }
+    profesor.buscarProfesorPorIdSinFoto(id_profesor, function(error,row) {
             if (error) {
                 res.send('error conectando con la base de datos');
                 throw error;
@@ -163,57 +168,57 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
                 dni_antiguo = row[0].dni;
                 correo_antiguo = row[0].correo;
                 num_tarjeta_antiguo = row[0].num_tarjeta;
-                alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
+                alumno.buscarAlumnoPorDni(dni, function(error,row) {
                     if (error) {
                         res.send('error conectando con la base de datos');
                         throw error;
                     } else {
-                        if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                        if((row.length>0)&&(dni!=dni_antiguo)){
                             console.log({err:'ese DNI lo tiene un alumno'});
                             res.send({err:'existeDNI'});
                         } else {
-                            alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
+                            alumno.buscarAlumnoPorCorreo(correo, function(error,row){
                                 if (error) {
                                     res.send('error conectando con la base de datos');
                                     throw error;
                                 } else {
-                                   if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                   if((row.length>0)&&(correo!=correo_antiguo)){
                                        console.log({err:'ese correo lo tiene un alumno'});
                                        res.send({err:'existeCorreo'});
                                    } else {
-                                        alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                        alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
                                             if (error) {
                                                 res.send('error conectando con la base de datos');
                                                 throw error; 
                                             } else {
-                                                if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                if((row.length>0)&&(num_tarjeta!=num_tarjeta_antiguo)){
                                                     console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                                     res.send({err:'existeTarjeta'});
                                                 } else {
-                                                    profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
+                                                    profesor.buscarProfesorPorDni(dni, function(error,row) {
                                                         if (error) {
                                                             res.send('error conectando con la base de datos');
                                                             throw error;
                                                         } else {
-                                                            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                            if((row.length>0)&&(dni!=dni_antiguo)){
                                                                 console.log({err:'ese DNI lo tiene un profesor'});
                                                                 res.send({err:'existeDNI'});
                                                             } else {
-                                                                profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
+                                                                profesor.buscarProfesorPorCorreo(correo, function(error,row){
                                                                     if (error) {
                                                                         res.send('error conectando con la base de datos');
                                                                         throw error;
                                                                     } else {
-                                                                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                                        if((row.length>0)&&(correo!=correo_antiguo)){
                                                                             console.log({err:'ese correo lo tiene un profesor'});
                                                                             res.send({err:'existeCorreo'});
                                                                         } else {
-                                                                            profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                                                            profesor.buscarProfesorPorTarjeta(num_tarjeta, function(error,row){
                                                                                 if (error) {
                                                                                     res.send('error conectando con la base de datos');
                                                                                     throw error; 
                                                                                 } else {
-                                                                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                                    if((row.length>0)&&(num_tarjeta!=num_tarjeta_antiguo)){
                                                                                         console.log({err:'ese numero de tarjeta lo tiene un profesor'});
                                                                                         res.send({err:'existeTarjeta'});
                                                                                     } else {
@@ -244,27 +249,10 @@ router.post('/modificarProfesor',multer({}).single('foto'),  function(req,res,ne
                 })//alumno.buscarAlumnoPorDni
             }//.else
         })//profesor.buscarProfesorPorIdSinFoto
+}//.else
 });//router.post('/modificarProfesor
 
 router.post('/modificarProfesorSinFoto',multer({}).single('foto'),  function(req,res,next){
-  profesor.borrarAsignaturasProfesor(req.body.id_profesor, function(error,row) {
-      if (error) {
-        throw error;
-      }else{
-         res.send(row);
-      }
-  })//buscarProfesorPorNombre
-  var data= req.body.checkbox;
-    for (var i = 0; i < data.length; i++) {
-      profesor.insertarAsignaturasProfesor(data[i],req.body.id_profesor, function(error,row) {
-          if (error) {
-          throw error;
-          }else{
-          //console.log(row);
-          res.send(row);
-          }
-      })//buscarProfesorPorNombre
-    }
     var id_profesor = req.body.id_profesor;
     var dni = req.body.dni;
     var nombre = req.body.nombre;
@@ -274,65 +262,87 @@ router.post('/modificarProfesorSinFoto',multer({}).single('foto'),  function(req
     var tarjeta_activada = req.body.tarjeta_activada;
     var num_tarjeta = req.body.num_tarjeta;
     var admin = req.body.admin;
-    profesor.buscarProfesorPorIdSinFoto(req.body.id_profesor, function(error,row) {
+    var asignaturas= req.body.checkbox;
+  if (asignaturas == undefined){
+    res.send({err:'noasignatura'});
+  } else {
+      profesores_asignaturas.borrarProfesoresAsignaturas(id_profesor, function(error,row) {
+      if (error) {
+        throw error;
+      }else{
+         res.send(row);
+      }
+  })//buscarProfesorPorNombre
+        for (var i = 0; i < asignaturas.length; i++) {
+      profesores_asignaturas.agregarAsignaturasProfesor(asignaturas[i],id_profesor, function(error,row) {
+          if (error) {
+          throw error;
+          }else{
+          //console.log(row);
+          res.send(row);
+          }
+      })//buscarProfesorPorNombre
+    }
+    profesor.buscarProfesorPorIdSinFoto(id_profesor, function(error,row) {
             if (error) {
                 res.send('error conectando con la base de datos');
                 throw error;
             } else {
                 dni_antiguo = row[0].dni;
+                console.log(dni_antiguo);
                 correo_antiguo = row[0].correo;
                 num_tarjeta_antiguo = row[0].num_tarjeta;
-                alumno.buscarAlumnoPorDni(req.body.dni, function(error,row) {
+                alumno.buscarAlumnoPorDni(dni, function(error,row) {
                     if (error) {
                         res.send('error conectando con la base de datos');
                         throw error;
                     } else {
-                        if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                        if((row.length>0)&&(dni!=dni_antiguo)){
                             console.log({err:'ese DNI lo tiene un alumno'});
                             res.send({err:'existeDNI'});
                         } else {
-                            alumno.buscarAlumnoPorCorreo(req.body.correo, function(error,row){
+                            alumno.buscarAlumnoPorCorreo(correo, function(error,row){
                                 if (error) {
                                     res.send('error conectando con la base de datos');
                                     throw error;
                                 } else {
-                                   if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                   if((row.length>0)&&(correo!=correo_antiguo)){
                                        console.log({err:'ese correo lo tiene un alumno'});
                                        res.send({err:'existeCorreo'});
                                    } else {
-                                        alumno.buscarAlumnoPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                        alumno.buscarAlumnoPorTarjeta(num_tarjeta, function(error,row){
                                             if (error) {
                                                 res.send('error conectando con la base de datos');
                                                 throw error; 
                                             } else {
-                                                if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                if((row.length>0)&&(num_tarjeta!=num_tarjeta_antiguo)){
                                                     console.log({err:'ese numero de tarjeta lo tiene un alumno'});
                                                     res.send({err:'existeTarjeta'});
                                                 } else {
-                                                    profesor.buscarProfesorPorDni(req.body.dni, function(error,row) {
+                                                    profesor.buscarProfesorPorDni(dni, function(error,row) {
                                                         if (error) {
                                                             res.send('error conectando con la base de datos');
                                                             throw error;
                                                         } else {
-                                                            if((row.length>0)&&(req.body.dni!=dni_antiguo)){
+                                                            if((row.length>0)&&(dni!=dni_antiguo)){
                                                                 console.log({err:'ese DNI lo tiene un profesor'});
                                                                 res.send({err:'existeDNI'});
                                                             } else {
-                                                                profesor.buscarProfesorPorCorreo(req.body.correo, function(error,row){
+                                                                profesor.buscarProfesorPorCorreo(correo, function(error,row){
                                                                     if (error) {
                                                                         res.send('error conectando con la base de datos');
                                                                         throw error;
                                                                     } else {
-                                                                        if((row.length>0)&&(req.body.correo!=correo_antiguo)){
+                                                                        if((row.length>0)&&(correo!=correo_antiguo)){
                                                                             console.log({err:'ese correo lo tiene un profesor'});
                                                                             res.send({err:'existeCorreo'});
                                                                         } else {
-                                                                            profesor.buscarProfesorPorTarjeta(req.body.num_tarjeta, function(error,row){
+                                                                            profesor.buscarProfesorPorTarjeta(num_tarjeta, function(error,row){
                                                                                 if (error) {
                                                                                     res.send('error conectando con la base de datos');
                                                                                     throw error; 
                                                                                 } else {
-                                                                                    if((row.length>0)&&(req.body.num_tarjeta!=num_tarjeta_antiguo)){
+                                                                                    if((row.length>0)&&(num_tarjeta!=num_tarjeta_antiguo)){
                                                                                         console.log({err:'ese numero de tarjeta lo tiene un profesor'});
                                                                                         res.send({err:'existeTarjeta'});
                                                                                     } else {
@@ -363,6 +373,7 @@ router.post('/modificarProfesorSinFoto',multer({}).single('foto'),  function(req
                 })//alumno.buscarAlumnoPorDni
             }//.else
         })//profesor.buscarProfesorPorIdSinFoto
+}//.else
 });//router.post('/modificarProfesor
 
 router.post('/borrarProfesor', function(req,res,next){

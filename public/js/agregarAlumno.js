@@ -64,15 +64,15 @@ $('img').attr("src",'/images/sshot-1.png');
         },
         errorPlacement: function(error,element){
             console.log(error.attr("id"));
-            if (error.attr("id") == "dni-error"){
+            if (error.attr("id") == "dniAlumno-error"){
                  showAlertValidate("#alertDni"," Introduce un dni correcto");
-            } else if (error.attr("id") == "nombre-error"){
+            } else if (error.attr("id") == "nombreAlumno-error"){
                 showAlertValidate("#alertNombre"," Solo Letras por favor");
-            }else if (error.attr("id") == "apellidos-error"){
+            }else if (error.attr("id") == "apellidosAlumno-error"){
                 showAlertValidate("#alertApellidos"," Solo Letras por favor");
-            } else if (error.attr("id") == "correo-error"){
+            } else if (error.attr("id") == "correoAlumno-error"){
                 showAlertValidate("#alertCorreo"," Introduce un correo correcto");
-            } else if (error.attr("id") == "foto-error"){
+            } else if (error.attr("id") == "fotoAlumno-error"){
                 showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
             }
             
@@ -80,7 +80,6 @@ $('img').attr("src",'/images/sshot-1.png');
         submitHandler: function (form) {
             event.preventDefault();
             var formData = new FormData($("#agregarAlumnoForm")[0]);
-            console.log(formData);
             $.ajax({
                 url: '/configAlumno/agregarAlumno',
                 type: 'post',
@@ -107,6 +106,7 @@ $('img').attr("src",'/images/sshot-1.png');
                     $('#num_tarjetaAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                     showAlert("#alertNum_tarj","error"," Numero Tarjeta ya existente ");
                 }else if (data.dato=="ok"){
+                    $('#mensaje').hide();
                     showAlertRedirect("#enlace","ok"," Alumno añadido correctamente ",'/config');
                 }
                 console.log("successdata");

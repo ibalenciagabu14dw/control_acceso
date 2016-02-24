@@ -74,6 +74,7 @@ profesor.modificarProfesorSinFoto = function (id_profesor,dni,nombre,apellidos,c
 				throw error;
 				console.log(error);
 			}else{
+				console.log("ok");
 				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query

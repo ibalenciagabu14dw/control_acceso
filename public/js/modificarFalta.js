@@ -222,6 +222,7 @@ $('#resultado').on("click","#btnModificar",function () {
 			})//ajax
 			.done(function(data) {
 				if (data[9]=="o"){
+					$('#resultado #mensaje').hide();
 				showAlertRedirect("#enlace2","ok"," Falta borrada correctamente",'/config');
 				}
 				console.log("success borrar");

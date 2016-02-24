@@ -90,12 +90,12 @@ $(document).ready(function() {
 	                $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
 	        },
 			errorPlacement: function(error,element){
-				//error.insertBefore($(element).closest('.form-inline'));
-	            if (error.attr("id") == "numero-error"){
+				console.log(error.attr("id"));
+	            if (error.attr("id") == "numeroAula-error"){
 	                showAlertValidate($('#resultado #alertNumero')," Numero maximo 250");
-	            } else if (error.attr("id") == "piso-error"){
+	            } else if (error.attr("id") == "pisoAula-error"){
 	                 showAlertValidate($('#resultado #alertPiso')," Piso maximo 3");
-	            } else if (error.attr("id") == "capacidad-error"){
+	            } else if (error.attr("id") == "capacidadAula-error"){
 	                 showAlertValidate($('#resultado #alertCapacidad')," Capacidad maxima 30");
 	            }
 			},
@@ -118,6 +118,7 @@ $(document).ready(function() {
 		                }else if (data.dato=="ok"){
 		                $('#IdAula').closest('.form-inline').removeClass('has-error').addClass('has-success');
 			            $('#IdAula1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
+		                $('#resultado #mensaje').hide();
 		                showAlertRedirect($('#resultado #enlace2'),"ok","Aula modificada correctamente",'/config');
 		                }
 		                console.log("success");
@@ -189,13 +190,14 @@ $(document).ready(function() {
 				url: '/configAula/borrarAula',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_aula':$('#resultado #id_aula').val()},
+				data: {'id_aula':$('#resultado #IdAula').val()},
 				success:function(data){
 				}//success
 			})//ajax
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
+					$('#resultado #mensaje').hide();
 					showAlertRedirect("#enlace2","ok"," Aula borrada correctamente",'/config');
 				}
 			})//done

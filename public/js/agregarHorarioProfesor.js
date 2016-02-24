@@ -117,7 +117,6 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
             event.preventDefault();
             $('#selectDiaHorarioProfesor').prop("disabled",false);
             var data = $("#agregarHorarioProfesorForm").serializeArray();
-            //console.log(data);
             $.ajax({
                 url: '/configHorarioProfesor/agregarHorarioProfesor',
                 type: 'post',
@@ -141,9 +140,10 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
                 $('#hora_finalHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 $('#selectDiaHorarioProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 $('#selectDiaHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                $('#selectDiaHorarioProfesor').prop("disabled",false);
                 showAlert("#enlace","error"," Horario Profesor ya existente ");                
                 }else if (data.dato=="ok"){
+                $('#selectDiaHorarioProfesor').closest('.form-inline').removeClass('has-error').addClass('has-success');
+                $('#selectDiaHorarioProfesor1').removeClass('glyphicon-remove').addClass('glyphicon-ok');    
                 $('#mensaje').hide();     
                 showAlertRedirect("#enlace","ok"," Horario Profesor añadido correctamente",'/config');
                 }

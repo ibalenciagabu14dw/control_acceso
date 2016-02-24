@@ -162,7 +162,7 @@ $(document).ready(function() {
 	        },
 			errorPlacement: function(error,element){
 				//error.insertBefore($(element).closest('.form-inline'));
-	            if (error.attr("id") == "nombre-error"){
+	            if (error.attr("id") == "nombreAsignatura-error"){
 	                showAlertValidate("#alertNombre"," Solo Letras por favor");
 	            }
 			},
@@ -187,6 +187,7 @@ $(document).ready(function() {
 		                }else if (data.dato=="ok"){
 			                $('#Id_asignatura').closest('.form-inline').removeClass('has-error').addClass('has-success');
 			                $('#Id_asignatura1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
+		                	$('#resultado #mensaje').hide();
 		                	showAlertRedirect("#enlace2","ok"," Asignatura modificada correctamente",'/config'); 			                	
 		                }
 		                console.log("success");
@@ -253,19 +254,19 @@ $(document).ready(function() {
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();
-		console.log($('#resultado #id_asignatura').val());
 		if(confirm("Estas seguro de borrar la asignatura?")) {
 			$.ajax({
 				url: '/configAsignatura/borrarAsignatura',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_asignatura':$('#resultado #id_asignatura').val()},
+				data: {'id_asignatura':$('#resultado #Id_asignatura').val()},
 				success:function(data){
 				}//success
 			})//ajax
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
+					$('#resultado #mensaje').hide();
 					showAlertRedirect("#enlace2","ok"," Asignatura borrada correctamente",'/config');
 				}
 				

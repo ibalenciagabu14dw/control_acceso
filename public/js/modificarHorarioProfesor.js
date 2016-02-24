@@ -204,6 +204,7 @@ $(document).ready(function() {
                 		$('#selectProfesorHorarioProfesorM1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			                
 		                showAlert($('#resultado #enlace2'),"error"," Horario Profesor ya existente ");
 		            }else if (data.dato=="ok"){
+		            	$('#resultado #mensaje').hide();
 		                showAlertRedirect($('#resultado #enlace2'),"ok"," Horario Profesor modificado correctamente",'/config');
 		            }
 		                console.log("success");
@@ -279,6 +280,7 @@ $(document).ready(function() {
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
+					$('#resultado #mensaje').hide();
 					showAlertRedirect("#enlace2","ok"," Horario Profesor borrado correctamente",'/config');
 				}
 			})//done
@@ -322,7 +324,7 @@ function showAlertRedirect(lugar,tipo,texto,url) {
     }
     $('#mensaje2 span').html(texto);
     $('#mensaje2').insertAfter(lugar);
-    $('#mensaje2').slideToggle(3000, function(){
+    $('#mensaje2').slideToggle("slow", function(){
       window.setTimeout(function() {
 	    window.location.replace(url);
 	}, 4000);

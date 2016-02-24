@@ -57,7 +57,7 @@ router.post('/agregarFalta', function(req, res, next) {
     		}//else
     	}//else
     })//alumno.buscarAlumnoPorIdSinFoto
-});//router.post('/agregarAula
+});//router.post('/agregarFalta
 
 /****************************************************************************************************************************/
 
@@ -118,7 +118,7 @@ router.post('/modificarFalta', function(req, res, next) {
     		}//else
     	}//else
     })//falta.buscarFaltaPorId
-});//router.post('/agregarAula
+});//router.post('/modificarFalta
 
 /*
 * UPDATE presencia a 0 a todos los alumnos y profesores

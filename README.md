@@ -216,3 +216,626 @@ En esta página podemos modificar el Profesor.
 Cuando abrimos la pagina aparece un buscador de profesores, escribimos el nombre del Profesor y hacemos click en el Profesor que queremos modificar o borrar. Al hacer click se abre otro formulario con los datos del Profesor para modificar. En este formulario aparecen campos que no estaban al agregar el Profesor. Podemos modificar los campos que rellenamos al agregar el Profesor pero también podemos modificar si la tarjeta esta activada o no, si es administrador o no, podemos modificar el password introduciendo el password viejo y dos veces el passsword nuevo, las asignaturas que imparte el profesor aparecen seleccionadas. Esta comprobado que no se pueda modificar el id Profesor, que no se pueda tener DNI, correo, numero tarjeta ya existente, que la foto no puede ser mayor de 100kb, que el nombre y apellidos del Profesor no puedan ser números, que el DNI sea un DNI, que el correo sea un correo verdadero, que el password viejo sea el verdadero y que el profesor tiene que tener como mínimo una asignatura. Al finalizar la modificación hacemos click en modificar si queremos modificar el Profesor, si queremos borrar el Profesor hacemos click en el botón borrar. Al hacer click en modificar aparecerá una recuadro en verde con el texto "Profesor modificado correctamente" y si borramos el Profesor aparece el recuerdo con el texto "Profesor borrado correctamente" en los dos casos nos redirigirá a la página de configuración.
 
 ###API
+
+####ALUMNOS
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarAlumno</td>
+<td align="left">dni,nombre,apellidos,correo,num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarAlumno</td>
+<td align="left">id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada</td>
+</tr>
+<tr class="odd">
+<td align="left">/modificarPresenciaDelAlumno</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/borrarAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoPorId</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoPorDni</td>
+<td align="left">dni</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoPorNombre</td>
+<td align="left">nombre</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoPorNombreYApellidos</td>
+<td align="left">nombre, apellidos</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoPorCorreo</td>
+<td align="left">correo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoPorCorreo</td>
+<td align="left">correo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAulaEnLaQueTieneQueEstarPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAulaEnLaQueTieneQueEstarPorId</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarPresenciaAlumno</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdAlumno</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosIdNombreApellidosAlumno</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAsignaturasConvalidadasDelAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAsignaturasNoConvalidadasDelAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+</tbody>
+</table>
+
+####ALUMNO GRUPOS
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarAlumnoGrupo</td>
+<td align="left">id_grupo,id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarAlumnoGrupo</td>
+<td align="left">id_alumno_grupos,id_alumno,id_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarAlumnoGrupos</td>
+<td align="left">id_alumno_grupos</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoGrupoPorIdAlumnoGrupo</td>
+<td align="left">id_alumno_grupos</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoGrupoPorIdAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoGrupoPorIdGrupo</td>
+<td align="left">id_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoGrupoPorIdAlumnoYIdGrupo</td>
+<td align="left">id_alumno,id_grupo</td>
+</tr>
+</tbody>
+</table>
+
+####ASIGNATURA
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarAsignatura</td>
+<td align="left">nombre,clave,obligatoria,tipo</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarAsignatura</td>
+<td align="left">id_asignatura,nombre,clave,obligatoria,tipo</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarAsignatura</td>
+<td align="left">id_asignatura</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodasLasAsignaturas</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdAsignatura</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAsignaturaPorId</td>
+<td align="left">id_asignatura</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAsignaturaPorNombre</td>
+<td align="left">nombre</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAsignaturaPorClave</td>
+<td align="left">clave</td>
+</tr>
+</tbody>
+</table>
+
+####AULA
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarAula</td>
+<td align="left">numero,piso,capacidad</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarAula</td>
+<td align="left">id_aula,numero,piso,capacidad</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarAula</td>
+<td align="left">id_aula</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosIdAula</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdYNumero</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAulaPorId</td>
+<td align="left">id_aula</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAulaPorNumero</td>
+<td align="left">numero</td>
+</tr>
+</tbody>
+</table>
+
+####CONVALIDADAS
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarAsignaturaConvalidada</td>
+<td align="left">id_asignatura,id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarConvalidadas</td>
+<td align="left">id_convalidada,id_alumno,id_asignatura</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarAsignaturaConvalidada</td>
+<td align="left">id_convalidada</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodasLasConvalidadas</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarConvalidadasPorIdConvalidada</td>
+<td align="left">id_convalidada</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarNoConvalidadasPorIdAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarConvalidadasPorIdAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarConvalidadasPorIdAsignatura</td>
+<td align="left">id_asignatura</td>
+</tr>
+</tbody>
+</table>
+
+####DISPOSITIVOS
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarDispositivo</td>
+<td align="left">id_aula,numero_dispositivo</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarDispositivo</td>
+<td align="left">id_aula,numero_dispositivo</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarDispositivo</td>
+<td align="left">numero_dispositivo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosDispositivos</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAulasSinDispositivos</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarDispositivoPorNumeroDispositivo</td>
+<td align="left">numero_dispositivo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarDispositivoPorIdAula</td>
+<td align="left">id_aula</td>
+</tr>
+</tbody>
+</table>
+
+####FALTAS
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarFalta</td>
+<td align="left">fecha,id_alumno,id_horario_grupo,observaciones</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarFalta</td>
+<td align="left">id_faltas,fecha,id_alumno,id_horario_grupo,observaciones</td>
+</tr>
+<tr class="odd">
+<td align="left">/modificarPresencia0ATodos</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/borrarFalta</td>
+<td align="left">id_faltas</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarTablaFaltas</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarDatosDeLasFaltasDelDia</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdFalta</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarFaltasDeAlumnosNoConvalidados</td>
+<td align="left">dia_semana,hora</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarDatosFaltaAlumno</td>
+<td align="left">id_alumno,id_horario_grupo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarFaltaPorNombreAlumno</td>
+<td align="left">nombre</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarFaltaPorId</td>
+<td align="left">id_faltas</td>
+</tr>
+</tbody>
+</table>
+
+####GRUPOS
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarGrupo</td>
+<td align="left">nombre_grupo, tipo</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarGrupo</td>
+<td align="left">id_grupo,nombre_grupo,tipo</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarGrupo</td>
+<td align="left">id_grupo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarGrupoPorId</td>
+<td align="left">id_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarGrupoPorNombre</td>
+<td align="left">nombre_grupo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosIdGrupo</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosGrupos</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarGruposQueNoPerteneceUnAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarGruposQuePerteneceUnAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAsignaturasDeUnGrupo</td>
+<td align="left">id_grupo</td>
+</tr>
+</tbody>
+</table>
+
+####HORARIO GRUPOS
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarHorarioGrupo</td>
+<td align="left">dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarGrupo</td>
+<td align="left">id_horario_grupo,dia_semana,hora_inicio,hora_final,id_grupo,id_asignatura,id_aula</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarHorarioGrupo</td>
+<td align="left">id_horario_grupo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarHorarioGrupoPorId</td>
+<td align="left">id_horario_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarHorarioGrupoPorNombreGrupo</td>
+<td align="left">nombre_grupo</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosHorarioGrupo</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdHorarioGrupo</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarGruposQueNoPerteneceUnAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarGruposQuePerteneceUnAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAsignaturasDeUnGrupo</td>
+<td align="left">id_grupo</td>
+</tr>
+</tbody>
+</table>
+
+####HORARIO PROFESOR
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarHorarioProfesor</td>
+<td align="left">dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarHorarioProfesor</td>
+<td align="left">id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarHorarioProfesor</td>
+<td align="left">id_horario_profesor</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarHorarioProfesorPorId</td>
+<td align="left">id_horario_profesor</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarHorarioProfesorPorNombre</td>
+<td align="left">nombre</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosHorarioProfesor</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdHorarioProfesor</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+####PROFESOR
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarProfesor</td>
+<td align="left">dni,nombre,apellidos,correo,password,num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarProfesor</td>
+<td align="left">id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin</td>
+</tr>
+<tr class="odd">
+<td align="left">/modificarPresenciaProfesor</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/borrarProfesor</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="odd">
+<td align="left">/mostrarTodosLosIdNombreApellidosProfesor</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosIdProfesor</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorId</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarProfesorPorDni</td>
+<td align="left">dni</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorNombreYApellido</td>
+<td align="left">nombre,apellidos</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarProfesorPorCorreo</td>
+<td align="left">correo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarPresenciaProfesor</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorAulaEnLaQueTieneQueEstarPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarProfesorAulaEnLaQueTieneQueEstarPorId</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarLosAlumnosDeSuClaseActual</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarHorarioProfesorPorCorreo</td>
+<td align="left">correo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorIdAulaEnUnaHora</td>
+<td align="left">id_aula</td>
+</tr>
+</tbody>
+</table>

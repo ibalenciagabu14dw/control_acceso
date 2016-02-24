@@ -28,7 +28,13 @@ var api_alumno_grupos = require('./routes/API/api_alumno_grupos');
 var api_asignatura = require('./routes/API/api_asignatura');
 var api_aula = require('./routes/API/api_aula');
 var api_convalidadas = require('./routes/API/api_convalidadas');
+var api_dispositivo = require('./routes/API/api_dispositivo');
 var api_falta = require('./routes/API/api_falta');
+var api_grupo =require('./routes/API/api_grupo');
+var api_horario_grupo =require('./routes/API/api_horario_grupo');
+var api_horario_profesor =require('./routes/API/api_horario_profesor');
+var api_profesor =require('./routes/API/api_profesor');
+var api_profesores_asignaturas =require('./routes/API/api_profesores_asignaturas');
 
 var app = express();
 
@@ -64,7 +70,13 @@ app.use('/API', api_alumno_grupos);
 app.use('/API', api_asignatura);
 app.use('/API', api_aula);
 app.use('/API', api_convalidadas);
+app.use('/API', api_dispositivo);
 app.use('/API', api_falta);
+app.use('/API', api_grupo);
+app.use('/API', api_horario_grupo);
+app.use('/API', api_horario_profesor);
+app.use('/API', api_profesor);
+app.use('/API', api_profesores_asignaturas);
 
 //*******************socket.io***********************************
 

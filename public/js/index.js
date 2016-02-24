@@ -16,9 +16,24 @@ $(document).ready(function() {
 		rules:reglas,
 		messages:mensajes,
 	})
-	if($('#info').html()!=undefined){
+	/*if($('#info').html()!=undefined){
 		$('#footer').css('bottom', 'auto');
-	}
+	}*/
+	  //control footer
+  	function controlFooter(){ 
+	    /*el alto que tiene el navegador*/
+	    $alto_navegador= $(window).height();
+	    /*el alto que tiene el contenido de la pagina*/
+	    $alto_documento= $(document).height(); 
+	    /*  aqui condicionamos si el alto del contenido 
+	     *  es mayor que
+	     *  el alto del navegador*/
+	    if ($alto_documento>$alto_navegador){
+	        $("#footer").css({"bottom":"auto"})
+	    }else if($alto_documento>=$alto_navegador){
+	        $("#footer").css({"bottom":"0px"})
+	    } 
+ 	}//controlFooter
 
 	/***redirect a landing page***/
 	$('#titulo').click(function(event) {

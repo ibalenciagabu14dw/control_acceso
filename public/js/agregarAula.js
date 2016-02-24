@@ -57,6 +57,7 @@ $(document).ready(function() {
                 $('#numeroAula').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 $('#numeroAula1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 }else if (data.dato=="ok"){
+                $('#mensaje').hide(); 
                 showAlertRedirect("#enlace","ok","Aula añadida correctamente",'/config');
                 }
                 console.log("success");

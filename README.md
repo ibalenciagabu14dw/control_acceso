@@ -217,6 +217,27 @@ Cuando abrimos la pagina aparece un buscador de profesores, escribimos el nombre
 
 ###API
 
+####PROFESOR
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/API</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
 ####ALUMNOS
 
 <table>

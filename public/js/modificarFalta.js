@@ -145,6 +145,7 @@ $('#resultado').on("click","#btnModificar",function () {
                 				$('#hora_inicioFalta1').removeClass('glyphicon-remove').addClass('glyphicon-ok');					                
                 				$('#hora_finalFalta').closest('.form-inline').removeClass('has-error').addClass('has-success');
                 				$('#hora_finalFalta1').removeClass('glyphicon-remove').addClass('glyphicon-ok');	
+				                $('#resultado #mensaje').hide();
 				                showAlertRedirect($('#resultado #enlace2'),"ok"," Falta modificada correctamente",'/config');
 				                }
 				                console.log("success");

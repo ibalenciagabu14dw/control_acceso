@@ -261,6 +261,17 @@ ul{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#db36a4',GradientType=0 ); /* IE6-9 */
   color:white;
 }
+#pQuienes{
+  text-align: center;
+}
+
+#fotoQuienesSomos{
+  padding-top: 10%;
+  width: 30%;
+  height: 40%;
+  margin: auto;
+  border-radius: 40px;
+}
 /******FIN sobre nosotros****/
 /******Contacto*******/
 #contacto{

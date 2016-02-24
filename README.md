@@ -77,16 +77,16 @@ Es posible añadir '&time='00:00:00'' si no se añade, utilizará la hora del si
 
 ###Uso
 
-Login
+####Login
 
 Iniciamos la aplicacion y en el login insertamos el usuario y la contraseña.Si el usuario y la contraseña son correctos accederemos a la aplicacion. hay dos tipos de acceso: Profesor y administrador. Para acceder como profesor solamente tenemos que introducir el usuario y la contraseña del profesor. Para acceder como administrador en cambio tenemos que introducir un usuario que sea administrador y hacer click en el boton "Entrar como administrador". Depende del tipo de acceso que hagamos accederemos a diferente paginas. Si accedemos como profesor nos dirigiremos a la pagina vista profesor, en cambio si accedemos como administrador nos dirigiremos a la pagina de configuracion de la aplicación.
 
-Vista Profesor
+####Vista Profesor
 
 En esta pagina el profesor podra ver los alumnos que tiene en la clase actual con su foto y datos correspondientes. Los alumnos apareceran en colores diferentes dependiendo si estan en clase o no. Si estan en clase el alumno aparecera en verde, si no esta aparecera en rojo y al final de la clase ese alumno tendra una falta. en esta pagina el profesor tambien podra consultar su horario haciendo click en el boton Horario. Como en toda la aplicacion el profesor tiene un buscador de personas para saber donde se encuentra el alumno o profesor y en el mismo se puede buscar de diferente modos: DNI , nombre apellidos y correo electronico. si el profesor tiene alguna duda o necesita contactar con el administrador tiene un boton en la parte inferior de la pagina para mandar un mensaje.Tambien en la parte inferior derecha de la pagina tiene un boton para salir de la apliacion. si el profesor tiene permisos de administrador podra acceder desde vista profesor a la configuracion. 
 
 
-Configuracion
+####Configuracion
 
 En esta pagina el usuario podra administrar la aplicacion. cuando accedemos a la pagina vemos todas las aulas que hay en el colegio. al hacer click en una aula, si hay clase nos redirigira a la clase y veremos la vista del profesor. si no hay clase nos aparecera un mensaje advirtiendonos que en ese aula no hay ninguna clase.
 en la parte superior de la pagina veremos que hay un menu. desde ese menu podemos acceder a diferente paginas para administrar nuestra aplicacion. las paginas a las que podemos acceder son:
@@ -117,18 +117,18 @@ en la parte superior de la pagina veremos que hay un menu. desde ese menu podemo
 			-	Agregar Profesor
 			-   Modificar Profesor				
 
-Modificar Falta
+#####Modificar Falta
 
 En esta pagina podemos modificar la falta. 
 cuandro abrimos la pagina aparece un buscador de faltas, escribimos el nombre del alumno y hacemos click en la falta. al hacer click se abre otro formulario con los datos de la falta para modificar. los campos que se pueden modificar son el alumno y la observacion de la falta. esta comprobado que no se pueda modificar la falta igual que una ya existente. al finalizar la modificacion hacemos click en modificar si queremos modificar la falta si queremos borrar la falta hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "falta modificada correctamente" y si borramos la falta aparece el recuerdo con el texto "falta borrada correctamente" en los dos casos nos redirrigira a la pagina de configuracion.
 
-Dispositivos
+#####Dispositivos
 
 En esta pagina aparecen los dispositivos que tenemos. Se pueden añadir haciendo click en el boton añadir y seleccionando el aula donde esta el dispositivo y el numero que tiene el dispositivo. tambien podemos borrar el dispositivo haciendo click en el boton borrar que esta debajo del dispositivo.
 
-Global
+#####Global
 
-Asignaturas
+######Asignaturas
 
 Agregar Asignatura
 
@@ -139,7 +139,7 @@ Modificar Asignatura
 En esta pagina podemos modificar la asignatura. 
 cuando abrimos la pagina aparece un buscador de asignaturas, escribimos el nombre de la asignatura y hacemos click en la asignatura. al hacer click se abre otro formulario con los datos de la asignatura para modificar. se pueden modificar todos los campos excepto el campo id asignatura. esta comprobado que no se pueda modificar la clave de la asignatura con una ya existente. al finalizar la modificacion hacemos click en modificar si queremos modificar la asignatura ,si queremos borrar la falta hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "asignatura modificada correctamente" y si borramos la falta aparece el recuerdo con el texto "asignatura borrada correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
-Grupos
+######Grupos
 
 Agregar Grupo
 
@@ -150,7 +150,8 @@ Modificar Grupo
 En esta pagina podemos modificar la Grupo. 
 cuando abrimos la pagina aparece un buscador de grupos, escribimos el nombre del grupo y hacemos click en el grupo. al hacer click se abre otro formulario con los datos del Grupo para modificar. se pueden modificar todos los campos excepto el campo id Grupo. esta comprobado que no se pueda modificar el nombre del grupo con uno ya existente. al finalizar la modificacion hacemos click en modificar si queremos modificar el grupo ,si queremos borrar el grupo hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "Grupo modificado correctamente" y si borramos la falta aparece el recuerdo con el texto "Grupo borrado correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
-Aulas
+######Aulas
+
 Agregar Aula
 
 En esta pagina añadimos una aula a la base de datos.rellenamos los campos del formulario y hacemos click en añadir. en cuanto hagamos click aparecera un recuadro con el texto "aula añadida correctamente" y nos redirrigira a la pagina de configuracion. esta comprobado que no se pueda añadir un numero de aula ya existente , que el campo numero no puede ser mayor a 250, que el campo piso no puede ser mayor a 3 y que el campo capacidad no puede ser mayor a 30 .
@@ -160,7 +161,7 @@ Modificar Aula
 En esta pagina podemos modificar el aula. 
 cuando abrimos la pagina aparece un buscador de aula, escribimos el numero del aula y hacemos click en el aula. al hacer click se abre otro formulario con los datos del aula para modificar. se pueden modificar todos los campos excepto el campo id aula. esta comprobado que no se pueda modificar la clave de la aula con una ya existente , que el campo numero no puede ser mayor a 250, que el campo piso no puede ser mayor a 3 y que el campo capacidad no puede ser mayor a 30.al finalizar la modificacion hacemos click en modificar si queremos modificar el aula ,si queremos borrar la falta hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "aula modificada correctamente" y si borramos la falta aparece el recuerdo con el texto "aula borrada correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
-Horario Grupo
+######Horario Grupo
 
 Agregar Horario Grupo
 
@@ -171,7 +172,7 @@ Modificar Horario Grupo
 En esta pagina podemos modificar el horario de un grupo. 
 cuando abrimos la pagina aparece un buscador de horario grupos, escribimos el nombre del grupo y hacemos click en el horario_grupo. al hacer click se abre otro formulario con los datos del horario_grupo para modificar. se pueden modificar todos los campos excepto el campo id horario_grupo. esta comprobado que no se pueda modificar los campos como un horario grupo ya existente y que el campo hora inicio no puede ser mayor a el campo hora_final.al finalizar la modificacion hacemos click en modificar si queremos modificar el horario_grupo ,si queremos borrar el horario grupo hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "horario_grupo modificada correctamente" y si borramos el horario_grupo aparece el recuerdo con el texto "horario_grupo borrada correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
-Horario Profesor
+######Horario Profesor
 
 Agregar Horario Profesor
 
@@ -182,9 +183,9 @@ Modificar Horario Profesor
 En esta pagina podemos modificar el horario de un profesor. 
 cuando abrimos la pagina aparece un buscador de horario profesor, escribimos el nombre del profesor y hacemos click en el horario_profesor. al hacer click se abre otro formulario con los datos del horario_profesor para modificar. solo se puede modificar el campo del profesor. esta comprobado que no se pueda modificar los campos como un horario profesor ya existente. al finalizar la modificacion hacemos click en modificar si queremos modificar el horario_profesor ,si queremos borrar el horario profesor hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "horario_profesor modificada correctamente" y si borramos el horario_profesor aparece el recuerdo con el texto "horario_profesor borrada correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
-Personas
+#####Personas
 
-Alumno
+######Alumno
 
 Agregar Alumno
 
@@ -195,7 +196,7 @@ Modificar Alumno
 En esta pagina podemos modificar el alumno. 
 cuando abrimos la pagina aparece un buscador de alumnos, escribimos el nombre del alumno y hacemos click en el alumno que queremos modificar o borrar. al hacer click se abre otro formulario con los datos del alumno para modificar. en este formulario aparecen campos que no estaban al agregar el alumno.podemos modificar los campos que rrelenamos al agregar el alumno pero tambien podemos modificar si la tarjeta esta activada o no, el grupo o los grupos en los que esa el alumno y las asignaturas que tiene convalidadas el alumno, los grupos del alumno y las asignatura convalidadas aparecen seleccionadas. tambien tenemos un boton para mostrar todos los grupos que tenemos en la base de datos. esta comprobado que no se pueda modificar el id alumno, que no se pueda tener dni,correo,num_tarjeta ya existente, que la foto no puede ser mayor de 100kb,que el nombre y apellidos del alumno no puedan ser numeros , que el dni sea un dni, que el correo sea un correo verdadero. al finalizar la modificacion hacemos click en modificar si queremos modificar el alumno ,si queremos borrar el alumno hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "alumno modificada correctamente" y si borramos el alumno aparece el recuerdo con el texto "alumno borrada correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
-Profesor
+######Profesor
 
 Agregar Profesor
 

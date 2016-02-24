@@ -1,4 +1,12 @@
 $(document).ready(function() {
+
+  //control footer
+  controlFooter();
+  //control de datos para mensaje
+  var dato = $('.celdaAlumno').html();
+  if (dato == undefined) {
+    $('#noHayAlumnos').css('display', 'block');
+  }
   //recoger el correo del profesor en variable (desde html hidden)
   var correo = $('#correo').html();
 
@@ -153,7 +161,7 @@ $(document).ready(function() {
   /*
   * control footer
   */
-  var dato = $('.celdaAlumno').html();
+ /* var dato = $('.celdaAlumno').html();
   if (dato == undefined) {
     $('#footer').css('bottom', '0px');
     $('#botonHorarioProfesor').css({
@@ -174,7 +182,38 @@ $(document).ready(function() {
     $('#atras').css({
       marginLeft:'10px',
     });
-  }
+  }*/
+  //control footer
+  function controlFooter(){ 
+     /*el alto que tiene el navegador*/
+     $alto_navegador= $(window).height();
+     /*el alto que tiene el contenido de la pagina*/
+     $alto_documento= $(document).height(); 
+     /*  aqui condicionamos si el alto del contenido 
+      *  es mayor que
+      *  el alto del navegador*/
+     if ($alto_documento>$alto_navegador){
+         $("#footer").css({"bottom":"auto"});
+         $("#exit").css('marginRight', '20px');
+     }else if($alto_documento>=$alto_navegador){
+        $("#footer").css({"bottom":"0px"});
+        $("#exit").css('marginRight', '20px');
+        $('#exit').css({
+          position: 'absolute',
+          bottom: '80px',
+          right: '20px'
+        });
+        $('#atras').css({
+          position: 'absolute',
+          bottom: '100px',
+          right: '150px'
+        });
+        $('#botonHorarioProfesor').css({
+          position: 'absolute',
+          bottom: '80px'
+        });
+     } 
+  }//controlFooter
 
   /*
   * destruir sesion

@@ -70,6 +70,22 @@ grupo.borrarGrupo = function (id_grupo,callback) {
 /***********************************************************SELECT***********************************************************/
 
 /*
+*	BUSCAR todos los grupos
+*/
+grupo.buscarTodosLosGrupos = function(callback){
+	if(connection){
+		var sql = 'SELECT id_grupo,nombre_grupo,tipo FROM grupos';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//grupo.buscarTodosLosGrupos
+
+/*
 *	BUSCAR grupo por id_grupo
 */
 grupo.buscarGrupoPorId = function(id_grupo,callback){

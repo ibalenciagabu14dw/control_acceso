@@ -60,8 +60,8 @@ $(document).ready(function() {
             }         
         },
 		errorPlacement: function(error,element){
-			//error.insertBefore($(element).closest('.form-inline'));
-            if (error.attr("id") == "nombre-error"){
+			console.log(error.attr("id"));
+            if (error.attr("id") == "nombreAsignatura-error"){
                 showAlertValidate("#alertNombre"," Solo Letras por favor");
             }
 		},
@@ -85,6 +85,7 @@ $(document).ready(function() {
                 $('#claveAsignatura').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 $('#claveAsignatura1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  
                 }else if (data.dato=="ok"){
+                $('#mensaje').hide();  
                 showAlertRedirect("#enlace","ok"," Asignatura añadida correctamente",'/config');
                 }
                 console.log("success");

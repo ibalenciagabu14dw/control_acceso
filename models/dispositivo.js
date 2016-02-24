@@ -24,7 +24,9 @@ dispositivo.agregarDispositivo = function (id_aula,numero_dispositivo,callback) 
 							if (error) {
 								console.log(error);
 								throw error;
-							};
+							}else{
+								callback(null,{dato:"ok"});
+							}//else
 						})//connection.query
 					};//if connection
 				}//else idf error 2
@@ -35,6 +37,27 @@ dispositivo.agregarDispositivo = function (id_aula,numero_dispositivo,callback) 
 /****************************************************************/
 
 /************************ Modificar *****************************/
+/*
+* UPDATE dispositivo
+*/
+dispositivo.modificarDispositivo = function (id_aula,numero_dispositivo,callback) {
+	if(connection){
+		var dispositivo = { id_aula: id_aula, numero_dispositivo: numero_dispositivo };
+		var sql = 'UPDATE dispositivos SET ? WHERE numero_dispositivo ="'+numero_dispositivo+'"';
+		connection.query(sql,dispositivo, function(error){
+		  	if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,{dato:"ok"});
+			}//else
+		});//connection.query
+	}//if
+}//dispositivo.modificarDispositivo
+
+/*
+* UPDATE ultima conexion
+*/
 dispositivo.modificarUltimaConexion = function (id,callback) {
 	var diaCompleto;
 	var hora;
@@ -68,6 +91,22 @@ dispositivo.modificarUltimaConexion = function (id,callback) {
 }//modificarUltimaConexion
 
 /****************************************************************************/
+
+/********************************** Borrar ***********************************/
+dispositivo.borrarDispositivo = function (id_dispositivo,callback) {
+	if (connection) {
+		var sql = 'DELETE FROM dispositivos WHERE numero_dispositivo = '+id_dispositivo;
+		connection.query(sql,function (error) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null);
+			}
+		})//connection.query
+	};//if connection
+}//borrarDispositivo
+/*****************************************************************************/
 
 /***************************** Buscar ***************************************/
 dispositivo.buscarTodosLosDispositivos = function (callback) {
@@ -132,20 +171,59 @@ dispositivo.buscarIdsDispositivos = function (id_dispositivo,callback) {
 	};//if connection
 }//buscarIdsDispositivos
 
-/*****************************************************************************/
-/********************************** Borrar ***********************************/
-dispositivo.borrarDispositivo = function (id_dispositivo,callback) {
-	if (connection) {
-		var sql = 'DELETE FROM dispositivos WHERE numero_dispositivo = '+id_dispositivo;
-		connection.query(sql,function (error) {
+/*
+*	BUSCAR dispositivo por id_aula
+*/
+dispositivo.buscarDispositivoPorIdAula = function(id_aula,callback){
+	if(connection){
+		var sql = 'SELECT id_aula,numero_dispositivo FROM dispositivos WHERE id_aula ="'+id_aula+'"';
+		connection.query(sql,function (error,row) {
 			if (error) {
 				console.log(error);
 				throw error;
 			}else{
-				callback(null);
-			}
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//dispositivo.buscarDispositivoPorIdAula
+
+/*
+*	BUSCAR dispositivo por numero_dispositivo
+*/
+dispositivo.buscarDispositivoPorNumeroDispositivo = function(numero_dispositivo,callback){
+	if(connection){
+		var sql = 'SELECT id_aula,numero_dispositivo FROM dispositivos WHERE numero_dispositivo ="'+numero_dispositivo+'"';
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				console.log(row);
+				callback(null,row);
+			}//else
+		});//connection.query
+	}//if
+}//dispositivo.buscarDispositivoPorNumeroDispositivo
+
+/*
+*	BUSCAR asignaturas por id_alumno y id_asignatura
+*/
+dispositivo.buscarDispositivoPorIdAulaYNumeroDispositivo = function(id_aula,numero_dispositivo,callback){
+	if (connection) {
+		var sql = 'SELECT id_aula,numero_dispositivo FROM dispositivos WHERE id_aula = ' + connection.escape(id_aula)+' and numero_dispositivo ='+ connection.escape(numero_dispositivo);
+		connection.query(sql,function (error,row) {
+			if (error) {
+				console.log(error);
+				throw error;
+			}else{
+				callback(null,row);
+			}//else
 		})//connection.query
-	};//if connection
-}//borrarDispositivo
+	};//if
+}//dispositivo.buscarDispositivoPorIdAulaYNumeroDispositivo
+
+
 /*****************************************************************************/
+
 module.exports = dispositivo;

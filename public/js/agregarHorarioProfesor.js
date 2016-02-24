@@ -144,6 +144,7 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
                 $('#selectDiaHorarioProfesor').prop("disabled",false);
                 showAlert("#enlace","error"," Horario Profesor ya existente ");                
                 }else if (data.dato=="ok"){
+                $('#mensaje').hide();     
                 showAlertRedirect("#enlace","ok"," Horario Profesor añadido correctamente",'/config');
                 }
                 console.log("success");

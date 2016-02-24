@@ -19,6 +19,16 @@ ul{
 .page-header{
   margin-top: 10px;
 }
+
+p{
+  font-size: 30px;
+  text-align: left;
+}
+
+#fotoSeccion{
+  width: 70%;
+  height: 60%;
+}
 /*****FIN General*****/
 
 /*****Menu*****/
@@ -279,5 +289,11 @@ ul{
   color:black;
   font-weight: bold;
   margin-left: 5px;
+}
+
+#fotoInfo{
+  width: 40%;
+  height: 50%;
+  margin: auto;
 }
 /******FIN contacto******/

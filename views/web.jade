@@ -78,21 +78,23 @@ html
           .item.active
             img.imagenSlider(src='/images/gradient4.jpg', alt='...')
             .carousel-caption
-              a#btncomoFunciona.btn.btn-primary(href='#comoFunciona') Cómo funciona
               p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit tempus scelerisque. Suspendisse elementum lectus et dapibus ornare.
+                | Utiliza un dispositivo electronico que sirve para recoger la presencia de las personas para llevar un control automatico de las mismas. Mediante la aplicacion web podras manejar la informacion recibida
+              a#btncomoFunciona.btn.btn-primary(href='#comoFunciona') Cómo funciona
+              
           .item
-            img.imagenSlider(src='/images/gradient9.jpg', alt='...')
+            img.imagenSlider(src='/images/fondoVistaProfesor.png', alt='...')
             .carousel-caption
               a#btndemo.btn.btn-primary(href='#demo') Probar demo
               p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit tempus scelerisque. Suspendisse elementum lectus et dapibus ornare.
+                | Prueba la demo para ver lo que ofrece nuestra aplicacion!
           .item
             img.imagenSlider(src='/images/gradient10.jpg', alt='...')
             .carousel-caption
+              img#fotoInfo.img-responsive(src='/images/info.png')
               a#btncontacto.btn.btn-primary(href='#contacto') Contacta con nosotros
               p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis suscipit tempus scelerisque. Suspendisse elementum lectus et dapibus ornare.
+                | No dudes en contactar con nosotros para recibir informacion personalizada sobre el producto
         // Controls
         a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
           span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
@@ -107,6 +109,13 @@ html
       div
         #headerQueEs.page-header
           h1 Qué es
+        .row
+          .col-sm-4
+            img#fotoSeccion.img-responsive(src='/images/rfid.jpg')
+          .col-sm-8
+            div
+              p
+                | Es un producto para controlar el acceso-asistencia de los diferentes usuarios a unas instalaciones.
     // *************FIN Seccion que es *************
     section#espacio
     // *************Seccion como funciona *************
@@ -114,6 +123,15 @@ html
       div
         #headerComoFunciona.page-header
           h1 Cómo funciona
+        .row
+          .col-sm-4
+            img#fotoSeccion.img-responsive(src='/images/arduino.jpg')
+          .col-sm-8
+            div
+              p
+                | Consta de un dispositivo electronico que funciona en conjunto con una aplicacion web. Mediante el aparato electronico se recoge la presencia de la persona para despues utilizar dicha informacion en la aplicacion web.
+          a.btn.btn-github(href='https://github.com/controlacceso', target='_blank')
+            i.fa.fa-github.fa-2x
     // *************FIN Seccion como funciona *************
     section#espacio
     // *************DEMO*********************
@@ -132,7 +150,9 @@ html
           input#remitenteDemo.form-control(type='text', name='remitenteDemo')
           br
           input#submitContactDemo.btn.btn-primary(type='submit', value='Enviar')
-        button#irADemo.btn.btn-primary Demo
+        button#irADemo.btn.btn-primary Acceder a la demo
+        p
+          | Enviamos tu correo para que podamos facilitarte un usuario y contraseña para probar la demo
     section#espacio
     // *************FIN demo*****************
     section#espacio
@@ -141,6 +161,15 @@ html
       div
         #headerSobreNosotros.page-header
           h1 Sobre nosotros
+        p#pQuienes
+          | Somos tres desarrolladores web 
+        .row
+          .col-sm-4
+            img#fotoQuienesSomos.img-responsive(src='/images/dniInaki.jpg')
+          .col-sm-4
+            img#fotoQuienesSomos.img-responsive(src='/images/dniInaki.jpg')
+          .col-sm-4
+            img#fotoQuienesSomos.img-responsive(src='/images/dniInaki.jpg')
     // *************FIN sobre nosotros********
     section#espacio
     // *************Contacto*****************

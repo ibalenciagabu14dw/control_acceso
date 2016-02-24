@@ -25,7 +25,7 @@ $(document).ready(function() {
 	};
 
 	//Buscar alumnos al escribir
-	$('#nombrebusqueda').keyup(function(event) {
+	$('#nombrebusquedaHorarioProfesor').keyup(function(event) {
 		$("#footer").css("bottom","auto");
 		buscarHorarioProfesores();
 	});
@@ -45,7 +45,7 @@ $(document).ready(function() {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline has-success'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_horario_profesor' id='labelId_horario_profesor' class='input-group-addon'>HORARIO PROFESOR</label>";      		
+			formulario += "<label for='id_horario_profesor' id='labelId_horario_profesor' class='input-group-addon'>ID HORARIO PROFESOR</label>";      		
     		formulario += "<input type='text' id='Id_horario_profesor' name='id_horario_profesor' class='form-control has-feedback' value='"+result[0].id_horario_profesor+"'readonly>";    		
     		formulario += "<span id='Id_horario_profesor1' class='glyphicon form-control-feedback glyphicon-ok'></span>";
     		formulario += "</div>";
@@ -190,16 +190,16 @@ $(document).ready(function() {
 	            })
 	            .done(function(data) {
 		            if (data.err=="existe"){
-                		$('#id_horario_profesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                		$('#id_horario_profesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#Id_horario_profesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#Id_horario_profesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
                 		$('#id_horario_grupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 		$('#id_horario_grupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                		$('#dia').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                		$('#dia1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                		$('#hora_inicio').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                		$('#hora_inicio1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
-                		$('#hora_final').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                		$('#hora_final1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
+                		$('#diaHorarioProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#diaHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#hora_inicioHorarioProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#hora_inicioHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');
+                		$('#hora_finalHorarioProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                		$('#hora_finalHorarioProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
                 		$('#selectProfesorHorarioProfesorM').closest('.form-inline').removeClass('has-success').addClass('has-error');
                 		$('#selectProfesorHorarioProfesorM1').removeClass('glyphicon-ok').addClass('glyphicon-remove');			                
 		                showAlert($('#resultado #enlace2'),"error"," Horario Profesor ya existente ");
@@ -231,7 +231,8 @@ $(document).ready(function() {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3HorarioProfesor' id='"+data[i].id_horario_profesor+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
+					resp += "<h3 class='busquedaH3HorarioProfesor' id='"+data[i].id_horario_profesor+"'>Dia: "+data[i].dia_semana+" Hora: "+data[i].hora_inicio+"-"+data[i].hora_final+" Profesor: "+data[i].nombreProfesor+" "+data[i].apellidos+" Grupo: "+data[i].nombre_grupo+" Asignatura: "+data[i].nombreAsignatura+" Aula: "+data[i].numero+"</h3>";
+					resp += "<img  class='busquedaFoto' id='fotoBusquedaProfesor' alt='fotoBusquedaProfesor' src='data:img/png;base64,"+data[i].foto+"'/>";										
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);
@@ -271,7 +272,7 @@ $(document).ready(function() {
 				url: '/configHorarioProfesor/borrarHorarioProfesor',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_horario_profesor':$('#resultado #id_horario_profesor').val()},
+				data: {'id_horario_profesor':$('#resultado #Id_horario_profesor').val()},
 				success:function(data){
 				}//success
 			})//ajax

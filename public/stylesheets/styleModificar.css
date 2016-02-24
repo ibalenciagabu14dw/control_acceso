@@ -124,8 +124,8 @@ h1{
 #labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,
 #labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,#labelIdAlumno,
-#labelIdProfesor
-{  
+#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{  
   font-size: 10px !important;
   width:100px !important;
   text-align:center;  
@@ -140,7 +140,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 78px !important;
   float:left;
   text-align:center;
@@ -155,7 +155,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 195px !important;
   font-size: 15px;
@@ -167,8 +167,8 @@ h1{
 #labelPasswordR,#labelTarjeta_activadaProfesor,#labelAdminProfesor{
   font-size: 10px; 
   width:100px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-left: -10px !important;
+  padding-right: -10px !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
@@ -209,7 +209,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -361,8 +361,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:120px !important;
   text-align:center;   
@@ -375,7 +375,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 98px !important;
   float:left;
   text-align:center;
@@ -390,7 +390,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 215px !important;
   font-size: 15px;
@@ -444,7 +444,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -594,8 +594,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:130px !important;
   text-align:center;  
@@ -608,7 +608,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 108px !important;
   float:left;
   text-align:center;
@@ -623,7 +623,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 235px !important;
   font-size: 15px;
@@ -677,7 +677,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -828,8 +828,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:140px !important;
   text-align:center; 
@@ -842,7 +842,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 120px !important;
   float:left;
   text-align:center;
@@ -857,7 +857,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 255px !important;
   font-size: 15px;
@@ -911,7 +911,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -1062,8 +1062,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:155px !important;
   text-align:center;  
@@ -1076,7 +1076,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 135px !important;
   float:left;
   text-align:center;
@@ -1091,7 +1091,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 290px !important;
   font-size: 15px;
@@ -1145,7 +1145,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -1299,8 +1299,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:185px !important;
   text-align:center;  
@@ -1313,7 +1313,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 165px !important;
   float:left;
   text-align:center;
@@ -1328,7 +1328,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 345px !important;
   font-size: 15px; 
@@ -1382,7 +1382,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -1537,8 +1537,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 13px !important;
   width:235px !important;
   text-align:center; 
@@ -1551,7 +1551,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 215px !important;
   float:left;
   text-align:center;
@@ -1566,7 +1566,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -1643,7 +1643,7 @@ h1{
   font-size: 13px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -1800,8 +1800,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 13px !important;
   width:245px !important;
   text-align:center; 
@@ -1814,7 +1814,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 225px !important;
   float:left;
   text-align:center;
@@ -1829,7 +1829,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 470px !important;
   font-size: 15px;
@@ -1893,7 +1893,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -2050,8 +2050,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 15px !important;
   width:270px !important;
   text-align:center;  
@@ -2064,7 +2064,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 250px !important;
   float:left;
   text-align:center;
@@ -2079,7 +2079,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;
@@ -2165,7 +2165,7 @@ h1{
   font-size: 15px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 15px !important;
   width: 200px !important;
 }
@@ -2320,8 +2320,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:155px !important;
   text-align:center;    
@@ -2334,7 +2334,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 135px !important;
   float:left;
   text-align:center;
@@ -2349,7 +2349,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 290px !important;
   font-size: 15px;
@@ -2403,7 +2403,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -2559,8 +2559,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:185px !important;
   text-align:center;  
@@ -2573,7 +2573,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 165px !important;
   float:left;
   text-align:center;
@@ -2588,7 +2588,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 345px !important;
   font-size: 15px;
@@ -2643,7 +2643,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -2799,8 +2799,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 13px !important;
   width:235px !important;
   text-align:center; 
@@ -2813,7 +2813,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 215px !important;
   float:left;
   text-align:center;
@@ -2828,7 +2828,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -2883,7 +2883,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -3040,8 +3040,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 15px !important;
   width:270px !important;
   text-align:center; 
@@ -3054,7 +3054,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 250px !important;
   float:left;
   text-align:center;
@@ -3069,7 +3069,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;
@@ -3165,7 +3165,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -3322,8 +3322,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 15px !important;
   width:270px !important;
   text-align:center; 
@@ -3336,7 +3336,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 250px !important;
   float:left;
   text-align:center;
@@ -3351,7 +3351,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;: 
@@ -3447,7 +3447,7 @@ h1{
   font-size: 15px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 15px !important;
   width: 200px !important;
 }
@@ -3602,8 +3602,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:100px !important;
   text-align:center;    
@@ -3616,7 +3616,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 78px !important;
   float:left;
   text-align:center;
@@ -3631,7 +3631,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 195px !important;
   font-size: 15px; 
@@ -3685,7 +3685,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -3838,8 +3838,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:120px !important;
   text-align:center;   
@@ -3852,7 +3852,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 98px !important;
   float:left;
   text-align:center;
@@ -3867,7 +3867,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 215px !important;
   font-size: 15px;
@@ -3922,7 +3922,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -4076,8 +4076,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:130px !important;
   text-align:center; 
@@ -4090,7 +4090,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#fechaFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 108px !important;
   float:left;
   text-align:center;
@@ -4105,7 +4105,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#fechaFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 235px !important;
   font-size: 15px;
@@ -4159,7 +4159,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -4311,8 +4311,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:140px !important;
   text-align:center;  
@@ -4325,7 +4325,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 120px !important;
   float:left;
   text-align:center;
@@ -4340,7 +4340,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 255px !important;
   font-size: 15px; 
@@ -4396,7 +4396,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -4550,8 +4550,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:155px !important;
   text-align:center; 
@@ -4564,7 +4564,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 135px !important;
   float:left;
   text-align:center;
@@ -4579,7 +4579,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 290px !important;
   font-size: 15px;
@@ -4633,7 +4633,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -4788,8 +4788,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 10px !important;
   width:185px !important;
   text-align:center;
@@ -4802,7 +4802,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 165px !important;
   float:left;
   text-align:center;
@@ -4817,7 +4817,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 345px !important;
   font-size: 15px;
@@ -4871,7 +4871,7 @@ h1{
   font-size: 10px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 10px !important;
   width: 200px !important;
 }
@@ -5027,8 +5027,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 13px !important;
   width:235px !important;
   text-align:center; 
@@ -5041,7 +5041,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 215px !important;
   float:left;
   text-align:center;
@@ -5056,7 +5056,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -5151,7 +5151,7 @@ h1{
   font-size: 13px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 13px !important;
   width: 200px !important;
 }
@@ -5308,8 +5308,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 13px !important;
   width:235px !important;
   text-align:center; 
@@ -5322,7 +5322,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 215px !important;
   float:left;
   text-align:center;
@@ -5337,7 +5337,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 445px !important;
   font-size: 15px;
@@ -5432,7 +5432,7 @@ h1{
   font-size: 13px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 13px !important;
   width: 200px !important;
 }
@@ -5590,8 +5590,8 @@ h1{
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 13px !important;
   width:245px !important;
   text-align:center; 
@@ -5604,7 +5604,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 225px !important;
   float:left;
   text-align:center;
@@ -5619,7 +5619,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 470px !important;
   font-size: 15px;
@@ -5714,7 +5714,7 @@ h1{
   font-size: 15px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
   font-size: 15px !important;
   width: 200px !important;
 }
@@ -5821,7 +5821,7 @@ body {
 h1{
   text-align: center;
   color: white !important;
-  font-size: 15pt;
+  font-size: 35pt;
   margin-right: 25px;
 }
 #formUpdate{
@@ -5834,7 +5834,7 @@ h1{
   background-color: lightgrey;
   border-radius: 25px;
   margin-bottom: 25px;
-  margin-left:11px !important;
+  margin-left:-10px !important;
 }
 #form{
   width: 600px !important;
@@ -5846,7 +5846,8 @@ h1{
   background-color: lightgrey;
   border-radius: 25px;
   margin-bottom: 25px;
-  margin-left:20px !important;
+  text-align:center;
+  margin-left: 25% !important; 
 }
 #send{
   width: 75px;
@@ -5863,16 +5864,18 @@ h1{
   font-size: 15px !important; 
 }
 #mensaje,#mensaje2{
+  margin-top: 20px;
   width:515px !important;
   height: 50px !important;
+  margin-left: 20px !important;
 }
 #labelDniAlumno,#labelNombreAlumno,#labelCorreoAlumno,#labelFotoAlumno,
 #labelClaveAsignatura,#labelNombreAsignatura,#labelTipoAsignatura,#labelPisoAula,
 #labelNombreGrupo,#labelNumeroAula,#labelTipoGrupo,#labelDiaHorarioGrupo,
 #labelHorarioGrupoGrupo,#labelHorarioGrupoAula,#labelDiaHorarioProfesor,#labelNombreProfesor,#labelCorreoProfesor,#labelFotoProfesor,#labelDniProfesor,#labelNombreBusquedaAsignatura,#labelIdAsignatura,
 #labelNombreBusquedaGrupo,#labelIdGrupo,#labelNumeroBusquedaAula,#labelIdAula,#labelNombreBusquedaHorarioProfesor,#labelNombreBusquedaHorarioGrupo,#labelNombreBusquedaProfesor,#labelNombreBusquedaAlumno,
-#labelIdAlumno,#labelIdProfesor
-{   
+#labelIdAlumno,#labelIdProfesor,#labelIdFaltas,#labelFechaFalta,#labelId_horario_grupoFalta
+,#labelAlumnoFaltas,#labelDiaHorarioProfesorFalta,#labelHoraInicioHorarioProfesorFalta,#labelHoraFinalHorarioProfesorFalta{   
   font-size: 15px !important;
   width:270px !important;
   text-align:center;    
@@ -5885,7 +5888,7 @@ h1{
 #nombrebusquedaAsignatura,#Id_asignatura,#IdGrupo,#nombrebusquedaGrupo,#numerobusquedaAula,
 #IdAula,#nombrebusquedaHorarioProfesor,#nombrebusquedaHorarioGrupo,#nombrebusquedaProfesor,
 #Id_horario_grupo,#Id_horario_profesor,#diaHorarioProfesor,#selectProfesorHorarioProfesorM,#Id_alumno,
-#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor{
+#Id_profesor,#passwordNewProfesor,#passwordNewRepProfesor,#id_faltasFalta,#id_horario_grupoFalta,#selectAlumnoFaltasM,#diaFalta,#hora_inicioFalta,#hora_finalFalta{
   width: 250px !important;
   float:left;
   text-align:center;
@@ -5900,7 +5903,7 @@ h1{
 #hora_finalHorarioProfesor1,#selectDiaHorarioProfesor1,#dniProfesor1,#nombreProfesor1,
 #apellidosProfesor1,#correoProfesor1,#passwordProfesor1,#fotoProfesor1,#num_tarjetaProfesor1,
 #Id_asignatura1,#IdGrupo1,#IdAula1,#Id_horario_grupo1,#Id_horario_profesor1,#diaHorarioProfesor1,
-#selectProfesorHorarioProfesorM1{
+#selectProfesorHorarioProfesorM1,#id_faltasFalta1,#id_horario_grupoFalta1,#selectAlumnoFaltasM1,#diaFalta1,#hora_inicioFalta1,#hora_finalFalta1,#tarjetaAlumno11,#Id_alumno1,#tarjetaProfesor11,#Id_profesor1,#adminProfesor11{
   position: absolute;
   left: 520px !important;
   font-size: 15px;
@@ -5976,7 +5979,7 @@ h1{
 }
 #labelradioAsignatura{
   position: absolute;
-  left: 330px !important;
+  left: 270px !important;
   top: 15px !important;
   width:20px !important;
   margin-left: 65px;
@@ -5984,27 +5987,27 @@ h1{
   font-size: 15px !important;
 }
 #labelHoraInicioHorarioGrupo,#labelHoraFinalHorarioGrupo,#labelHoraInicioHorarioProfesor,#labelHoraFinalHorarioProfesor{
-  font-size: 10px;
+  font-size: 15px;
   width: 270px !important;
   padding-left: 4px !important;
   padding-right: 4px !important;  
 }
 #horarioGrupo{
-  margin-left: -18px  !important;
+  margin-left: -2px  !important;
 }
 #labelProfesorHorarioProfesor{
   width: 270px !important;
-  font-size: 10px; 
+  font-size: 15px; 
 }
 .busquedaH3Asignatura,.busquedaH3Grupo,.busquedaH3Alumno,.busquedaH3Aula,.busquedaH3HorarioGrupo
-,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Profesor{
-  font-size: 10px !important;
-  width: 200px !important;
+,.busquedaH3HorarioProfesor,.busquedaH3Profesor,.busquedaH3Falta{
+  font-size: 15px !important;
+  margin-left: 80px;
 }
 #resultado{
-  width: 200px !important;
+  width: 400px !important;
   text-align: center;
-  margin-left: -5px;
+  margin-left: 25% !important; 
 }
 #fotoBusquedaAlumno,#fotoBusquedaProfesor{
   width: 80px !important;

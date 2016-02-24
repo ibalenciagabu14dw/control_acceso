@@ -45,7 +45,7 @@ $(document).ready(function() {
     		var formulario = "<form class='form-group' action='/updateHorarioGrupo' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_horario_grupo' id='labelId_horario_grupo' class='input-group-addon'>HORARIO GRUPO</label>";   		
+			formulario += "<label for='id_horario_grupo' id='labelId_horario_grupo' class='input-group-addon'>ID HORARIO GRUPO</label>";   		
     		formulario += "<input type='text' id='Id_horario_grupo' name='id_horario_grupo' class='form-control has-feedback' value='"+result[0].id_horario_grupo+"'readonly>";
     		formulario += "<span id='Id_horario_grupo1' class='glyphicon form-control-feedback'></span>";    		
     		formulario += "</div>";
@@ -307,7 +307,7 @@ $(document).ready(function() {
 				console.log(data);
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3HorarioGrupo' id='"+data[i].id_horario_grupo+"'>"+data[i].dia_semana+" "+data[i].hora_inicio+" "+data[i].hora_final+"</h3>";
+					resp += "<h3 class='busquedaH3HorarioGrupo' id='"+data[i].id_horario_grupo+"'>Dia: "+data[i].dia_semana+" Hora: "+data[i].hora_inicio+"-"+data[i].hora_final+" Grupo:  "+data[i].nombre_grupo+" Asignatura: "+data[i].nombreAsignatura+" Aula: "+data[i].numero+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

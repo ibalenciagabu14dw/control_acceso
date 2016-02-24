@@ -101,12 +101,15 @@ horario_profesor.buscarHorarioProfesorPorId = function (id_horario_profesor,call
 */
 horario_profesor.buscarHorarioProfesorPorNombre = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT id_horario_profesor,dia_semana,hora_inicio,hora_final,id_profesor,id_horario_grupo FROM horario_profesores WHERE id_profesor IN (SELECT id_profesor FROM profesores WHERE nombre LIKE "'+nombre+'%'+'")';
+		var sql = 'SELECT horario_profesores.id_horario_profesor, horario_profesores.dia_semana, horario_profesores.hora_inicio, horario_profesores.hora_final, profesores.nombre AS nombreProfesor,profesores.apellidos,profesores.foto, aulas.numero, grupos.nombre_grupo, asignaturas.nombre AS nombreAsignatura FROM horario_profesores LEFT JOIN profesores ON horario_profesores.id_profesor = profesores.id_profesor LEFT JOIN horario_grupos ON horario_profesores.id_horario_grupo = horario_grupos.id_horario_grupo LEFT JOIN asignaturas ON horario_grupos.id_asignatura = asignaturas.id_asignatura LEFT JOIN aulas ON horario_grupos.id_aula = aulas.id_aula LEFT JOIN grupos ON horario_grupos.id_grupo = grupos.id_grupo WHERE profesores.nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
 				console.log(error);
 			}else{
+				for (i=0;i<row.length;i++){
+					row[i].foto = row[i].foto.toString('base64');
+				}
 				callback(null,row);
 			}//else
 		});//connection.query

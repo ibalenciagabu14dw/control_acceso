@@ -161,7 +161,7 @@ falta.buscarDatosFaltaAlumno = function (id_alumno,id_horario_grupo,callback) {
 */
 falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos,alumnos.foto FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
+		var sql ='SELECT faltas.id_faltas, faltas.fecha, alumnos.nombre AS nombreAlumno, alumnos.apellidos, alumnos.foto, asignaturas.nombre AS nombreAsignatura, aulas.numero, grupos.nombre_grupo, horario_grupos.hora_inicio, horario_grupos.hora_final FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno LEFT JOIN horario_grupos ON faltas.id_horario_grupo = horario_grupos.id_horario_grupo LEFT JOIN asignaturas ON horario_grupos.id_asignatura = asignaturas.id_asignatura LEFT JOIN aulas ON horario_grupos.id_aula = aulas.id_aula LEFT JOIN grupos ON horario_grupos.id_grupo = grupos.id_grupo WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;
@@ -181,7 +181,7 @@ falta.buscarFaltaPorNombreAlumno = function(nombre,callback){
 */
 falta.buscarFaltaPorNombreAlumnoSinFoto = function(nombre,callback){
 	if(connection){
-		var sql = 'SELECT faltas.id_faltas,faltas.fecha,alumnos.nombre,alumnos.apellidos FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
+		var sql ='SELECT faltas.id_faltas, faltas.fecha, alumnos.nombre AS nombreAlumno, alumnos.apellidos, asignaturas.nombre AS nombreAsignatura, aulas.numero, grupos.nombre_grupo, horario_grupos.hora_inicio, horario_grupos.hora_final FROM faltas LEFT JOIN alumnos ON faltas.id_alumno = alumnos.id_alumno LEFT JOIN horario_grupos ON faltas.id_horario_grupo = horario_grupos.id_horario_grupo LEFT JOIN asignaturas ON horario_grupos.id_asignatura = asignaturas.id_asignatura LEFT JOIN aulas ON horario_grupos.id_aula = aulas.id_aula LEFT JOIN grupos ON horario_grupos.id_grupo = grupos.id_grupo WHERE alumnos.nombre LIKE ' + connection.escape(nombre+'%');
 		connection.query(sql,function (error,row) {
 			if (error) {
 				throw error;

@@ -49,7 +49,7 @@ $(document).ready(function() {
     		var formulario = "<form class='form-group' action='/modificarAsignatura' id='formUpdate' name='formUpdate' method='post'>";
     		formulario += "<div class='form-inline'>";
     		formulario += "<div class='input-group'>";
-			formulario += "<label for='id_asignatura' id='labelIdAsignatura' class='input-group-addon'>ASIGNATURA</label>";    		    		
+			formulario += "<label for='id_asignatura' id='labelIdAsignatura' class='input-group-addon'>ID ASIGNATURA</label>";    		    		
     		formulario += "<input type='text' id='Id_asignatura' name='id_asignatura' class='form-control has-feedback' value='"+result[0].id_asignatura+"'readonly>";
     		formulario += "<span id='Id_asignatura1' class='glyphicon form-control-feedback'></span>";
     		formulario += "</div>";
@@ -70,14 +70,13 @@ $(document).ready(function() {
   			formulario += "</div><br/>";    		
     		formulario += "<div id='mensaje' style='display: none' class='alert alert-error fade in'><a href='#' data-dismiss='alert' class='close'>×</a><strong>Comprueba!</strong><span id='sp'> Clave ya existente</span></div>";	
     			if(result[0].obligatoria == 1){
-					formulario += "<div class='form-inline' id='obl'>";
+					formulario += "<div class='form-inline'>";
     				formulario += "<div class='input-group'>";
 				    formulario += "<label id='labelObligatoriaAsignatura' for='obligatoria' class='input-group-addon'>OBLIGATORIA</label><br/>";
 				    formulario += "<label id='labelradio1Asignatura' for='radioAsignatura1'>SI</label>";
 				    formulario += "<input id='radioAsignatura1' type='radio' name='obligatoria' value='1' class='radio form-control' checked='checked'/>";
 				    formulario += "<label id='labelradioAsignatura' for='radioAsignatura'>NO  </label>";
 				    formulario += "<input id='radioAsignatura' type='radio' name='obligatoria' value='0' class='radio form-control'/><span id='radioAsignatura11' class='glyphicon form-control-feedback'></span>";
-					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";
 				} else {
@@ -88,7 +87,6 @@ $(document).ready(function() {
 				    formulario += "<input id='radioAsignatura1' type='radio' name='obligatoria' value='1' class='radio form-control'/><br/>";
 				    formulario += "<label id='labelradioAsignatura' for='radioAsignatura'>NO  </label>";
 				    formulario += "<input id='radioAsignatura' type='radio' name='obligatoria' value='0' class='radio form-control'checked='checked'/><span id='radioAsignatura11' class='glyphicon form-control-feedback'></span>";
-					formulario += "</br>";
 					formulario += "</div>";
   					formulario += "</div><br/>";					
 				}
@@ -220,7 +218,7 @@ $(document).ready(function() {
 				var resp = "";
 				for (var i = 0; i < data.length; i++) {
 					resp += "<table class='table'><tr class='active'><td class='celda'>";
-					resp += "<h3 class='busquedaH3Asignatura' id='"+data[i].id_asignatura+"'>Nombre:"+data[i].nombre+" Tipo: "+data[i].tipo+"</h3>";
+					resp += "<h3 class='busquedaH3Asignatura' id='"+data[i].id_asignatura+"'>Nombre: "+data[i].nombre+" Tipo: "+data[i].tipo+"</h3>";
 					resp += "</td></tr></table>";
 				};
 				$('#resultado').html(resp);

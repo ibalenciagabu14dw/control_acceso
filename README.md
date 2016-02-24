@@ -208,6 +208,8 @@ cuando abrimos la pagina aparece un buscador de profesores, escribimos el nombre
 
 ###API
 
+### ALUMNOS
+
 <table>
 <colgroup>
 <col width="50%" />
@@ -221,73 +223,117 @@ cuando abrimos la pagina aparece un buscador de profesores, escribimos el nombre
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">/agregarProfesor</td>
-<td align="left">dni,nombre,apellidos,correo,password,num_tarjeta</td>
+<td align="left">/agregarAlumno</td>
+<td align="left">dni,nombre,apellidos,correo,num_tarjeta</td>
 </tr>
 <tr class="even">
-<td align="left">/modificarProfesor</td>
-<td align="left">id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin</td>
+<td align="left">/modificarAlumno</td>
+<td align="left">id_alumno,dni,nombre,apellidos,correo,num_tarjeta,tarjeta_activada</td>
 </tr>
 <tr class="odd">
-<td align="left">/modificarPresenciaProfesor</td>
+<td align="left">/modificarPresenciaDelAlumno</td>
 <td align="left">num_tarjeta</td>
 </tr>
 <tr class="even">
-<td align="left">/borrarProfesor</td>
-<td align="left">id_profesor</td>
+<td align="left">/borrarAlumno</td>
+<td align="left">id_alumno</td>
 </tr>
 <tr class="odd">
-<td align="left">/mostrarTodosLosIdNombreApellidosProfesor</td>
-<td align="left"></td>
+<td align="left">/buscarAlumnoPorId</td>
+<td align="left">id_alumno</td>
 </tr>
 <tr class="even">
-<td align="left">/buscarTodosLosIdProfesor</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">/buscarProfesorPorId</td>
-<td align="left">id_profesor</td>
-</tr>
-<tr class="even">
-<td align="left">/buscarProfesorPorDni</td>
+<td align="left">/buscarAlumnoPorDni</td>
 <td align="left">dni</td>
 </tr>
 <tr class="odd">
-<td align="left">/buscarProfesorPorNombreYApellido</td>
-<td align="left">nombre,apellidos</td>
+<td align="left">/buscarAlumnoPorTarjeta</td>
+<td align="left">num_tarjeta</td>
 </tr>
 <tr class="even">
-<td align="left">/buscarProfesorPorCorreo</td>
+<td align="left">/buscarAlumnoPorNombre</td>
+<td align="left">nombre</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoPorNombreYApellidos</td>
+<td align="left">nombre, apellidos</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoPorCorreo</td>
 <td align="left">correo</td>
 </tr>
 <tr class="odd">
-<td align="left">/buscarProfesorPorTarjeta</td>
-<td align="left">num_tarjeta</td>
-</tr>
-<tr class="even">
-<td align="left">/buscarPresenciaProfesor</td>
-<td align="left">num_tarjeta</td>
-</tr>
-<tr class="odd">
-<td align="left">/buscarProfesorAulaEnLaQueTieneQueEstarPorTarjeta</td>
-<td align="left">num_tarjeta</td>
-</tr>
-<tr class="even">
-<td align="left">/buscarProfesorAulaEnLaQueTieneQueEstarPorId</td>
-<td align="left">id_profesor</td>
-</tr>
-<tr class="odd">
-<td align="left">/buscarLosAlumnosDeSuClaseActual</td>
-<td align="left">id_profesor</td>
-</tr>
-<tr class="even">
-<td align="left">/buscarHorarioProfesorPorCorreo</td>
+<td align="left">/buscarAlumnoPorCorreo</td>
 <td align="left">correo</td>
 </tr>
+<tr class="even">
+<td align="left">/buscarAulaEnLaQueTieneQueEstarPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
 <tr class="odd">
-<td align="left">/buscarProfesorPorIdAulaEnUnaHora</td>
-<td align="left">id_aula</td>
+<td align="left">/buscarAulaEnLaQueTieneQueEstarPorId</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarPresenciaAlumno</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarTodosLosIdAlumno</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosIdNombreApellidosAlumno</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAsignaturasConvalidadasDelAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAsignaturasNoConvalidadasDelAlumno</td>
+<td align="left">id_alumno</td>
 </tr>
 </tbody>
 </table>
 
+### ALUMNO GRUPOS
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarAlumnoGrupo</td>
+<td align="left">id_grupo,id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarAlumnoGrupo</td>
+<td align="left">id_alumno_grupos,id_alumno,id_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/borrarAlumnoGrupos</td>
+<td align="left">id_alumno_grupos</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoGrupoPorIdAlumnoGrupo</td>
+<td align="left">id_alumno_grupos</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoGrupoPorIdAlumno</td>
+<td align="left">id_alumno</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarAlumnoGrupoPorIdGrupo</td>
+<td align="left">id_grupo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarAlumnoGrupoPorIdAlumnoYIdGrupo</td>
+<td align="left">id_alumno,id_grupo</td>
+</tr>
+</tbody>
+</table>

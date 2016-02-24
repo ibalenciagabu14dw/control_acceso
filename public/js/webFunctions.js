@@ -1,6 +1,5 @@
 $(document).ready(function() {
-	//validar formulario contacto
-	//validar();
+
 	/*
 	*	Animación de paginación
 	*/

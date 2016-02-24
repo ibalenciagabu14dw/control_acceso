@@ -207,3 +207,87 @@ En esta pagina podemos modificar el Profesor.
 cuando abrimos la pagina aparece un buscador de profesores, escribimos el nombre del Profesor y hacemos click en el Profesor que queremos modificar o borrar. al hacer click se abre otro formulario con los datos del Profesor para modificar. en este formulario aparecen campos que no estaban al agregar el Profesor.podemos modificar los campos que rrelenamos al agregar el Profesor pero tambien podemos modificar si la tarjeta esta activada o no, si es administrador o no,podemos modificar el password introduciendo el password viejo y dos veces el passsword nuevo , las asignaruras que imparte el profesor aparecen seleccionadas. esta comprobado que no se pueda modificar el id Profesor, que no se pueda tener dni,correo,num_tarjeta ya existente, que la foto no puede ser mayor de 100kb,que el nombre y apellidos del Profesor no puedan ser numeros , que el dni sea un dni, que el correo sea un correo verdadero, que el password viejo sea el verdadero y que el profesor tiene que tener como minimo una asignatura. al finalizar la modificacion hacemos click en modificar si queremos modificar el Profesor ,si queremos borrar el Profesor hacemos click en el boton borrar. al hacer click en modificar aparecera una recuadro en verde con el texto "Profesor modificada correctamente" y si borramos el Profesor aparece el recuerdo con el texto "Profesor borrada correctamente" en los dos casos nos redirigira a la pagina de configuracion.
 
 ###API
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">RUTA</th>
+<th align="left">PARAMETROS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/agregarProfesor</td>
+<td align="left">dni,nombre,apellidos,correo,password,num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/modificarProfesor</td>
+<td align="left">id_profesor,dni,nombre,apellidos,correo,password,tarjeta_activada,num_tarjeta,admin</td>
+</tr>
+<tr class="odd">
+<td align="left">/modificarPresenciaProfesor</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/borrarProfesor</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="odd">
+<td align="left">/mostrarTodosLosIdNombreApellidosProfesor</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">/buscarTodosLosIdProfesor</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorId</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarProfesorPorDni</td>
+<td align="left">dni</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorNombreYApellido</td>
+<td align="left">nombre,apellidos</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarProfesorPorCorreo</td>
+<td align="left">correo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarPresenciaProfesor</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorAulaEnLaQueTieneQueEstarPorTarjeta</td>
+<td align="left">num_tarjeta</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarProfesorAulaEnLaQueTieneQueEstarPorId</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarLosAlumnosDeSuClaseActual</td>
+<td align="left">id_profesor</td>
+</tr>
+<tr class="even">
+<td align="left">/buscarHorarioProfesorPorCorreo</td>
+<td align="left">correo</td>
+</tr>
+<tr class="odd">
+<td align="left">/buscarProfesorPorIdAulaEnUnaHora</td>
+<td align="left">id_aula</td>
+</tr>
+</tbody>
+</table>
+

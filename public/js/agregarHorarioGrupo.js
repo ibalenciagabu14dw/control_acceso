@@ -1,5 +1,5 @@
 $(document).ready(function() {
-        controlFooter();
+    controlFooter();
     $('img').attr("src",'/images/sshot-1.png');
      $.validator.addMethod("valueNotEquals", function(value, element, arg){
       return arg != value;

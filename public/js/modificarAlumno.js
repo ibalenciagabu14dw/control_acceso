@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	    controlFooter();
-	    $('img').attr("src",'/images/sshot-1.png');
+	controlFooter();
+	$('img').attr("src",'/images/sshot-1.png');
     jQuery.validator.addMethod("lettersonly", function(value, element) { 
     return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
 	},"Please enter only letters");
@@ -188,15 +188,15 @@ $('#resultado').on("click","#btnModificar",function () {
 	        },
 	        errorPlacement: function(error,element){
 	            console.log(error.attr("id"));
-	            if (error.attr("id") == "dni-error"){
+	            if (error.attr("id") == "dniAlumno-error"){
 	                 showAlertValidate("#alertDni"," Introduce un dni correcto");
-	            } else if (error.attr("id") == "nombre-error"){
+	            } else if (error.attr("id") == "nombreAlumno-error"){
 	                showAlertValidate("#alertNombre"," Solo Letras por favor");
-	            }else if (error.attr("id") == "apellidos-error"){
+	            }else if (error.attr("id") == "apellidosAlumno-error"){
 	                showAlertValidate("#alertApellidos"," Solo Letras por favor");
-	            } else if (error.attr("id") == "correo-error"){
+	            } else if (error.attr("id") == "correoAlumno-error"){
 	                showAlertValidate("#alertCorreo"," Introduce un correo correcto");
-	            } else if (error.attr("id") == "foto-error"){
+	            } else if (error.attr("id") == "fotoAlumno-error"){
 	                showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
 	            }
 	            
@@ -237,6 +237,7 @@ $('#resultado').on("click","#btnModificar",function () {
 				        		$('#fotoAlumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				               
 				                $('#tarjetaAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				                $('#tarjetaAlumno11').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                
+				                $('#resultado #mensaje').hide();
 				                showAlertRedirect($('#resultado #enlace2'),"ok"," Alumno modificado correctamente",'/config');
 				                }
 				                console.log("success");
@@ -281,13 +282,16 @@ $('#resultado').on("click","#btnModificar",function () {
 			            $('#num_tarjetaAlumno').closest('.form-inline').removeClass('has-success').addClass('has-error');
 			            $('#num_tarjetaAlumno1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                showAlert($('#resultado #alertNum_tarj'),"error","Tarjeta ya existente");
-		                }else if (data.dato=="ok"){
+				        } else if (data.err=="nogrupo"){
+				         showAlertValidate("#enlace2"," Selecciona un grupo para el alumno");	
+				        }else if (data.dato=="ok"){
 				        $('#Id_alumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				        $('#Id_alumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
 				        $('#fotoAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				        $('#fotoAlumno1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				        
 				        $('#tarjetaAlumno').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				        $('#tarjetaAlumno11').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                
+		                $('#resultado #mensaje').hide();
 		                showAlertRedirect($('#resultado #enlace2'),"ok","Alumno modificado correctamente",'/config');
 		                }
 		                console.log("success");
@@ -365,6 +369,7 @@ $('#resultado').on("click","#btnModificar",function () {
 			})//ajax
 			.done(function(data) {
 				if (data[9]=="o"){
+				$('#resultado #mensaje').hide();
 				showAlertRedirect("#enlace2","ok"," Alumno borrado correctamente",'/config');
 				}
 				console.log("success borrar");

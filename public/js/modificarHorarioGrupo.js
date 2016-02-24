@@ -25,7 +25,7 @@ $(document).ready(function() {
 	};
 
 	//Buscar alumnos al escribir
-	$('#nombrebusqueda').keyup(function(event) {
+	$('#nombrebusquedaHorarioGrupo').keyup(function(event) {
 		$("#footer").css("bottom","auto");
 		buscarHorarioGrupos();
 	});
@@ -275,7 +275,7 @@ $(document).ready(function() {
 		                	$('#selectHorarioGrupoAula1').removeClass('glyphicon-ok').addClass('glyphicon-remove');		                
 		                	showAlert($('#resultado #enlace2'),"error"," Horario Grupo ya existente ");
 		                }else if (data.dato=="ok"){
-		                	$('#mensaje').hide();
+		                	$('#resultado #mensaje').hide();
 				            $('#Id_horario_grupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
 				            $('#Id_horario_grupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');				                	
 		                	showAlertRedirect($('#resultado #enlace2'),"ok","Horario Grupo modificado correctamente",'/config');
@@ -355,6 +355,7 @@ $(document).ready(function() {
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
+					$('#resultado #mensaje').hide();
 					showAlertRedirect("#enlace2","ok"," Horario Grupo borrado correctamente",'/config');
 				}
 			})//done

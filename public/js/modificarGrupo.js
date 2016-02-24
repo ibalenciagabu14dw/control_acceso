@@ -42,7 +42,7 @@ $(document).ready(function() {
     		formulario += "<span id='IdGrupo1' class='glyphicon form-control-feedback'></span>";    		
     		formulario += "</div>";
   			formulario += "</div><br/>";  
-    		formulario += "<div class='form-inline'>";
+    		formulario += "<div class='form-inline' id='alertNombre'>";
     		formulario += "<div class='input-group'>";
 			formulario += "<label for='nombre'  id='labelNombreGrupo' class='input-group-addon'>NOMBRE</label>";   		
     		formulario += "<input type='text' id='nombreGrupo' name='nombre' class='form-control has-feedback' value='"+result[0].nombre_grupo+"'>";
@@ -116,12 +116,13 @@ $(document).ready(function() {
 	            .done(function(data) {
 	                console.log(data)
 		                if (data.err=="existe"){
-		                	showAlert($('#resultado #alertNombre'),"error"," Grupo ya existente ");
+		                	showAlert("#alertNombre","error"," Grupo ya existente ");
 			                $('#resultado #nombreGrupo').closest('.form-inline').removeClass('has-success').addClass('has-error');
 			                $('#resultado #nombreGrupo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');  		                
 		                }else if (data.dato=="ok"){
 			                $('#IdGrupo').closest('.form-inline').removeClass('has-error').addClass('has-success');
 			                $('#IdGrupo1').removeClass('glyphicon-remove').addClass('glyphicon-ok');		                	
+		                	$('#resultado #mensaje').hide();
 		                	showAlertRedirect($('#resultado #enlace2'),"ok"," Grupo modificado correctamente ",'/config');
 		                }
 		                console.log("success");
@@ -188,19 +189,19 @@ $(document).ready(function() {
 			//Al clicar en borrar el alumno
 	$('#resultado').on("click","#btnBorrar",function(event) {
 		event.preventDefault();
-		console.log($('#resultado #id_grupo').val());
 		if(confirm("Estas seguro de borrar el grupo?")) {
 			$.ajax({
 				url: '/configGrupo/borrarGrupo',
 				type: 'post',
 				dataType: 'html',
-				data: {'id_grupo':$('#resultado #id_grupo').val()},
+				data: {'id_grupo':$('#resultado #IdGrupo').val()},
 				success:function(data){
 				}//success
 			})//ajax
 			.done(function(data) {
 				console.log("success borrar");
 				if (data[9]=="o"){
+					$('#resultado #mensaje').hide();
 					showAlertRedirect("#enlace2","ok"," Grupo borrado correctamente",'/config');
 				}
 			})//done

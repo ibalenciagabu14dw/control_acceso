@@ -71,15 +71,15 @@ $(document).ready(function() {
         },
         errorPlacement: function(error,element){
             console.log(error.attr("id"));
-            if (error.attr("id") == "dni-error"){
+            if (error.attr("id") == "dniProfesor-error"){
                  showAlertValidate("#alertDni"," Introduce un dni correcto");
-            } else if (error.attr("id") == "nombre-error"){
+            } else if (error.attr("id") == "nombreProfesor-error"){
                 showAlertValidate("#alertNombre"," Solo Letras por favor");
-            }else if (error.attr("id") == "apellidos-error"){
+            }else if (error.attr("id") == "apellidosProfesor-error"){
                 showAlertValidate("#alertApellidos"," Solo Letras por favor");
-            } else if (error.attr("id") == "correo-error"){
+            } else if (error.attr("id") == "correoProfesor-error"){
                 showAlertValidate("#alertCorreo"," Introduce un correo correcto");
-            } else if (error.attr("id") == "foto-error"){
+            } else if (error.attr("id") == "fotoProfesor-error"){
                 showAlertValidate("#alertFoto"," Tamaño de la foto maximo 100Kb");
             }
             
@@ -105,16 +105,16 @@ $(document).ready(function() {
                 $('#passwordProfesor').attr('disabled',false);
                 if (data.err=="existeDNI"){
                     showAlert("#alertDni","error"," DNI ya existente");
-                    $('#dni').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                    $('#dni1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                    
+                    $('#dniProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#dniProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                    
                 } else if (data.err=="existeCorreo"){
                     showAlert("#alertCorreo","error"," Correo ya existente");
-                    $('#correo').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                    $('#correo1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
+                    $('#correoProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#correoProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                 }else if(data.err=="existeTarjeta"){
                     showAlert("#alertNum_tarj","error"," Numero Tarjeta ya existente");
-                    $('#num_tarjeta').closest('.form-inline').removeClass('has-success').addClass('has-error');
-                    $('#num_tarjeta1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
+                    $('#num_tarjetaProfesor').closest('.form-inline').removeClass('has-success').addClass('has-error');
+                    $('#num_tarjetaProfesor1').removeClass('glyphicon-ok').addClass('glyphicon-remove');                        
                 }else if (data.dato=="ok"){
                 $('#mensaje').hide();     
                     showAlertRedirect("#enlace","ok"," Profesor añadido correctamente",'/config');

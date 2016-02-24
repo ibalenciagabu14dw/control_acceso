@@ -16,7 +16,6 @@ profesores_asignaturas.agregarAsignaturasProfesor =  function(id_asignatura,id_p
 				console.log(error);
 				throw error;
 			}else{
-				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if
@@ -52,15 +51,14 @@ profesores_asignaturas.modificarProfesoresAsignaturas = function (id_profesor_as
 /*
 * DELETE profesor_asignatura
 */
-profesores_asignaturas.borrarProfesoresAsignaturas =  function(id_profesor_asignatura,callback) {
+profesores_asignaturas.borrarProfesoresAsignaturas =  function(id_profesor,callback) {
 	if(connection){					
-		var sql = 'DELETE FROM profesores_asignaturas WHERE id_profesor_asignatura= "'+id_profesor_asignatura+'"';
+		var sql = 'DELETE FROM profesores_asignaturas WHERE id_profesor= "'+id_profesor+'"';
 		connection.query(sql, function(error){
 		  if (error) {
 				throw error;
 				console.log(error);
 			}else{
-				callback(null,{dato:"ok"});
 			}//else
 		});//connection.query
 	}//if

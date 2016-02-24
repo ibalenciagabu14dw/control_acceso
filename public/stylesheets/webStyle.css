@@ -264,7 +264,9 @@ ul{
 #pQuienes{
   text-align: center;
 }
-
+#nombre{
+  text-align: center;
+}
 #fotoQuienesSomos{
   padding-top: 10%;
   width: 30%;
